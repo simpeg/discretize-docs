@@ -1,0 +1,495 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>discretize.mixins.vtkModule.InterfaceVTK &mdash; discretize 0.4.3 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="discretize.mixins.vtkModule.vtkXMLRectilinearGridReader" href="discretize.mixins.vtkModule.vtkXMLRectilinearGridReader.html" />
+    <link rel="prev" title="discretize.mixins.vtkModule.InterfaceTensorread_vtk" href="discretize.mixins.vtkModule.InterfaceTensorread_vtk.html" />
+ 
+
+<meta name="description" content="Simulation and Parameter Estimation in Geophysics">
+<meta name="author" content="SimPEG Developers">
+<meta name="keywords" content="python, geophysics, inversion, electromagnetics, magnetotellurics, magnetics, gravity, DC, flow inverse problems, open source, finite volume">
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45185336-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> discretize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/big_picture.html">Why discretize?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/additional_resources.html">Additional Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/mesh_overview.html">Overview of mesh types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/tensor_mesh.html">Tensor meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/cylindrical_mesh.html">Cylindrical meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#meshes">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.InnerProducts">Numerical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mesh-io">Mesh IO</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#visualization">Visualization</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="discretize.View.TensorView.html">discretize.View.TensorView</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.View.CylView.html">discretize.View.CylView</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.View.CurviView.html">discretize.View.CurviView</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.View.Slicer.html">discretize.View.Slicer</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="discretize.mixins.vtkModule.html"><code class="docutils literal notranslate"><span class="pre">discretize.mixins.vtkModule</span></code></a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="discretize.mixins.vtkModule.InterfaceTensorread_vtk.html">discretize.mixins.vtkModule.InterfaceTensorread_vtk</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">discretize.mixins.vtkModule.InterfaceVTK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.mixins.vtkModule.vtkXMLRectilinearGridReader.html">discretize.mixins.vtkModule.vtkXMLRectilinearGridReader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.mixins.vtkModule.vtkXMLRectilinearGridWriter.html">discretize.mixins.vtkModule.vtkXMLRectilinearGridWriter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.mixins.vtkModule.vtkXMLStructuredGridWriter.html">discretize.mixins.vtkModule.vtkXMLStructuredGridWriter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.mixins.vtkModule.vtkXMLUnstructuredGridWriter.html">discretize.mixins.vtkModule.vtkXMLUnstructuredGridWriter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.mixins.vtkModule.assign_cell_data.html">discretize.mixins.vtkModule.assign_cell_data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.utils">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.base">Base Mesh</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting connected
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://simpeg.xyz"><i class="fa fa-external-link-square fa-fw"></i> SimPEG</a></li>
+            
+                <li class="toctree-l1"><a href="http://slack.simpeg.xyz"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/simpeg/discretize"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">discretize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+        
+          <li><a href="discretize.mixins.vtkModule.html"><code class="docutils literal notranslate"><span class="pre">discretize.mixins.vtkModule</span></code></a> &raquo;</li>
+        
+      <li>discretize.mixins.vtkModule.InterfaceVTK</li>
+    
+    
+
+    <li class="wy-breadcrumbs-aside">
+        
+            
+                
+                
+                <a href="https://github.com/simpeg/discretize/issues/new?title=Suggested%20improvement%20for%20api/generated/discretize.mixins.vtkModule.InterfaceVTK&body=Please%20describe%20what%20could%20be%20improved%20about%20this%20page%20or%20the%20typo/mistake%20that%20you%20found%3A"
+                   class="fa fa-github"> Edit this page</a>
+            
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="discretize-mixins-vtkmodule-interfacevtk">
+<h1>discretize.mixins.vtkModule.InterfaceVTK<a class="headerlink" href="#discretize-mixins-vtkmodule-interfacevtk" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="discretize.mixins.vtkModule.InterfaceVTK">
+<em class="property">class </em><code class="descclassname">discretize.mixins.vtkModule.</code><code class="descname">InterfaceVTK</code><a class="reference internal" href="../../_modules/discretize/mixins/vtkModule.html#InterfaceVTK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtkModule.InterfaceVTK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>This class is full of methods that enable <code class="docutils literal notranslate"><span class="pre">discretize</span></code> meshes to
+be converted to VTK data objects (and back when possible). This is
+inherritted by the <code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.BaseMesh.BaseMesh</span></code> class so all these
+methods are available to any mesh object!</p>
+<p><code class="docutils literal notranslate"><span class="pre">CurvilinearMesh</span></code>, <code class="docutils literal notranslate"><span class="pre">TreeMesh</span></code>, and <code class="docutils literal notranslate"><span class="pre">TensorMesh</span></code> are all currently
+implemented. The <code class="docutils literal notranslate"><span class="pre">CylMesh</span></code> is not implemeted and will raise and excpetion.
+The following is an example of how to use the VTK interface to construct
+VTK data objects or write VTK files.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">h1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">h2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">h3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">,</span> <span class="n">h3</span><span class="p">])</span>
+
+<span class="hll"><span class="c1"># Get a VTK data object</span>
+</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">to_vtk</span><span class="p">()</span>
+
+<span class="hll"><span class="c1"># Save this mesh to a VTK file</span>
+</span><span class="n">mesh</span><span class="o">.</span><span class="n">writeVTK</span><span class="p">(</span><span class="s1">&#39;sample_mesh&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that if your mesh is defined on a reference frame that is not the
+traditional &lt;X,Y,Z&gt; system with vectors of <span class="math notranslate nohighlight">\((1,0,0)\)</span>, <span class="math notranslate nohighlight">\((0,1,0)\)</span>,
+and <span class="math notranslate nohighlight">\((0,0,1)\)</span>, then the mesh will be rotated to be on the traditional
+reference frame. The previous example snippet provides a
+<a class="reference external" href="https://docs.pyvista.org/types/grids.html#pyvista.RectilinearGrid" title="(in PyVista v0.20.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> object because that tensor mesh lies on the
+traditional reference frame. If we alter the reference frame, then we yield
+a <a class="reference external" href="https://docs.pyvista.org/types/point-grids.html#pyvista.StructuredGrid" title="(in PyVista v0.20.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> that is the same mesh rotated in space.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Defined a rotated reference frame</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">axis_u</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">axis_v</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">axis_w</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Check that the referenc fram is valid</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">_validate_orientation</span><span class="p">()</span>
+
+<span class="c1"># Yield the rotated vtkStructuredGrid</span>
+<span class="n">dataset_r</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">to_vtk</span><span class="p">()</span>
+
+<span class="c1"># or write it out to a VTK format</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">writeVTK</span><span class="p">(</span><span class="s1">&#39;sample_rotated&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The two above code snippets produce a <a class="reference external" href="https://docs.pyvista.org/types/grids.html#pyvista.RectilinearGrid" title="(in PyVista v0.20.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> and a
+<a class="reference external" href="https://docs.pyvista.org/types/point-grids.html#pyvista.StructuredGrid" title="(in PyVista v0.20.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> respecitvely. To demonstarte the difference, we
+have plotted the two datasets next to eachother where the first mesh is in
+green and its data axes are parrallel to the traditional cartesian reference
+frame. The second, rotated mesh is shown in red and its data axii are
+rotated from the traditional cartesian refence frame as specified by the
+<code class="docutils literal notranslate"><span class="pre">axis_u</span></code>, <code class="docutils literal notranslate"><span class="pre">axis_v</span></code>, and <code class="docutils literal notranslate"><span class="pre">axis_w</span></code> properties.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="n">pyvista</span><span class="o">.</span><span class="n">set_plot_theme</span><span class="p">(</span><span class="s1">&#39;document&#39;</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">BackgroundPlotter</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">dataset_r</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;maroon&#39;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">show_grid</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s1">&#39;vtk-rotated-example.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/vtk-rotated-example.png" src="../../_images/vtk-rotated-example.png" />
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.mixins.vtkModule.InterfaceVTK.toVTK" title="discretize.mixins.vtkModule.InterfaceVTK.toVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toVTK</span></code></a>(mesh[, models])</p></td>
+<td><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data object with the given model dictionary as the cell data of that dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.mixins.vtkModule.InterfaceVTK.to_vtk" title="discretize.mixins.vtkModule.InterfaceVTK.to_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vtk</span></code></a>(mesh[, models])</p></td>
+<td><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data object with the given model dictionary as the cell data of that dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.mixins.vtkModule.InterfaceVTK.writeVTK" title="discretize.mixins.vtkModule.InterfaceVTK.writeVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeVTK</span></code></a>(mesh, filename[, models, directory])</p></td>
+<td><p>Makes and saves a VTK object from this mesh and given models</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.mixins.vtkModule.InterfaceVTK.write_vtk" title="discretize.mixins.vtkModule.InterfaceVTK.write_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_vtk</span></code></a>(mesh, filename[, models, directory])</p></td>
+<td><p>Makes and saves a VTK object from this mesh and given models</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div style='clear:both'></div><div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="discretize.mixins.vtkModule.InterfaceVTK.toVTK">
+<code class="descclassname">InterfaceVTK.</code><code class="descname">toVTK</code><span class="sig-paren">(</span><em>mesh</em>, <em>models=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtkModule.html#InterfaceVTK.toVTK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtkModule.InterfaceVTK.toVTK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data
+object with the given model dictionary as the cell data of that dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a><em>(</em><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.mixins.vtkModule.InterfaceVTK.to_vtk">
+<code class="descclassname">InterfaceVTK.</code><code class="descname">to_vtk</code><span class="sig-paren">(</span><em>mesh</em>, <em>models=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtkModule.html#InterfaceVTK.to_vtk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtkModule.InterfaceVTK.to_vtk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data
+object with the given model dictionary as the cell data of that dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a><em>(</em><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.mixins.vtkModule.InterfaceVTK.writeVTK">
+<code class="descclassname">InterfaceVTK.</code><code class="descname">writeVTK</code><span class="sig-paren">(</span><em>mesh</em>, <em>filename</em>, <em>models=None</em>, <em>directory=''</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtkModule.html#InterfaceVTK.writeVTK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtkModule.InterfaceVTK.writeVTK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes and saves a VTK object from this mesh and given models</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – path to the output vtk file or just its name if directory is specified</p></li>
+<li><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</p></li>
+<li><p><strong>directory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – directory where the UBC GIF file lives</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.mixins.vtkModule.InterfaceVTK.write_vtk">
+<code class="descclassname">InterfaceVTK.</code><code class="descname">write_vtk</code><span class="sig-paren">(</span><em>mesh</em>, <em>filename</em>, <em>models=None</em>, <em>directory=''</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtkModule.html#InterfaceVTK.write_vtk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtkModule.InterfaceVTK.write_vtk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes and saves a VTK object from this mesh and given models</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – path to the output vtk file or just its name if directory is specified</p></li>
+<li><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</p></li>
+<li><p><strong>directory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – directory where the UBC GIF file lives</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div style='clear:both'></div></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="discretize.mixins.vtkModule.vtkXMLRectilinearGridReader.html" class="btn btn-neutral float-right" title="discretize.mixins.vtkModule.vtkXMLRectilinearGridReader" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="discretize.mixins.vtkModule.InterfaceTensorread_vtk.html" class="btn btn-neutral float-left" title="discretize.mixins.vtkModule.InterfaceTensorread_vtk" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<div role="contentinfo">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    2013-2019,
+    <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
+    Except where noted, this work is licensed under a <br />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons Attribution 4.0 International License
+    </a>
+</div>
+<br>
+<div>
+Built with
+    <a href="http://sphinx-doc.org/">Sphinx</a>
+    using a
+    <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+    provided by
+    <a href="https://readthedocs.org">Read the Docs</a>.
+ </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

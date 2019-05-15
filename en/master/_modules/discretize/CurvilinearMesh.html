@@ -1,0 +1,670 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>discretize.CurvilinearMesh &mdash; discretize 0.4.3 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+ 
+
+<meta name="description" content="Simulation and Parameter Estimation in Geophysics">
+<meta name="author" content="SimPEG Developers">
+<meta name="keywords" content="python, geophysics, inversion, electromagnetics, magnetotellurics, magnetics, gravity, DC, flow inverse problems, open source, finite volume">
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45185336-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> discretize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/big_picture.html">Why discretize?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/additional_resources.html">Additional Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/mesh_overview.html">Overview of mesh types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/tensor_mesh.html">Tensor meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/cylindrical_mesh.html">Cylindrical meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Reference</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting connected
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://simpeg.xyz"><i class="fa fa-external-link-square fa-fw"></i> SimPEG</a></li>
+            
+                <li class="toctree-l1"><a href="http://slack.simpeg.xyz"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/simpeg/discretize"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">discretize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>discretize.CurvilinearMesh</li>
+    
+    
+
+    <li class="wy-breadcrumbs-aside">
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for discretize.CurvilinearMesh</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">properties</span>
+<span class="kn">from</span> <span class="nn">properties.math</span> <span class="k">import</span> <span class="n">TYPE_MAPPINGS</span>
+
+<span class="kn">from</span> <span class="nn">discretize</span> <span class="k">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">.base</span> <span class="k">import</span> <span class="n">BaseRectangularMesh</span>
+<span class="kn">from</span> <span class="nn">discretize.DiffOperators</span> <span class="k">import</span> <span class="n">DiffOperators</span>
+<span class="kn">from</span> <span class="nn">discretize.InnerProducts</span> <span class="k">import</span> <span class="n">InnerProducts</span>
+<span class="kn">from</span> <span class="nn">discretize.View</span> <span class="k">import</span> <span class="n">CurviView</span>
+
+
+<span class="c1"># Some helper functions.</span>
+<span class="k">def</span> <span class="nf">length2D</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+
+
+<span class="k">def</span> <span class="nf">length3D</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+
+
+<span class="k">def</span> <span class="nf">normalize2D</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">length2D</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">normalize3D</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">length3D</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="CurvilinearMesh"><a class="viewcode-back" href="../../api/generated/discretize.CurvilinearMesh.html#discretize.CurvilinearMesh">[docs]</a><span class="k">class</span> <span class="nc">CurvilinearMesh</span><span class="p">(</span>
+    <span class="n">BaseRectangularMesh</span><span class="p">,</span> <span class="n">DiffOperators</span><span class="p">,</span> <span class="n">InnerProducts</span><span class="p">,</span> <span class="n">CurviView</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;CurvilinearMesh is a mesh class that deals with curvilinear meshes.</span>
+
+<span class="sd">    Example of a curvilinear mesh:</span>
+
+<span class="sd">    .. plot::</span>
+<span class="sd">        :include-source:</span>
+
+<span class="sd">        import discretize</span>
+<span class="sd">        X, Y = discretize.utils.exampleLrmGrid([3,3],&#39;rotate&#39;)</span>
+<span class="sd">        mesh = discretize.CurvilinearMesh([X, Y])</span>
+<span class="sd">        mesh.plotGrid(showIt=True)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_meshType</span> <span class="o">=</span> <span class="s1">&#39;Curv&#39;</span>
+
+    <span class="n">nodes</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">List</span><span class="p">(</span>
+        <span class="s2">&quot;List of arrays describing the node locations&quot;</span><span class="p">,</span>
+        <span class="n">prop</span><span class="o">=</span><span class="n">properties</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span>
+            <span class="s2">&quot;node locations in an n-dimensional array&quot;</span><span class="p">,</span>
+            <span class="n">shape</span><span class="o">=</span><span class="p">{(</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)}</span>
+        <span class="p">),</span>
+        <span class="n">min_length</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">max_length</span><span class="o">=</span><span class="mi">3</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="n">nodes</span>
+
+        <span class="k">if</span> <span class="s1">&#39;_n&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;_n&#39;</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="p">(</span>
+                <span class="s2">&quot;Unexpected n-values. </span><span class="si">{}</span><span class="s2"> was provided, </span><span class="si">{}</span><span class="s2"> was expected&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">n</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+
+        <span class="n">BaseRectangularMesh</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c1"># Save nodes to private variable _gridN as vectors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gridN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_gridN</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">node_i</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
+
+    <span class="nd">@properties</span><span class="o">.</span><span class="n">validator</span><span class="p">(</span><span class="s1">&#39;nodes&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_check_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">change</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;len(node) must be greater than 1&quot;</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">change</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]):</span>
+            <span class="k">assert</span> <span class="n">change</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">change</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="p">(</span>
+                <span class="s2">&quot;change[&#39;value&#39;][</span><span class="si">{0:d}</span><span class="s2">] is not the same shape as &quot;</span>
+                <span class="s2">&quot;change[&#39;value&#39;][0]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]),</span> <span class="p">(</span>
+            <span class="s2">&quot;Dimension mismatch&quot;</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridCC</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cell-centered grid</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_gridCC&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_gridCC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">aveN2CC</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)]</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gridCC</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridN</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Nodal grid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_gridN&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Someone deleted this. I blame you.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gridN</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridFx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Face staggered grid in the x direction.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_gridFx&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">N</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">XY</span> <span class="o">=</span> <span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">n</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gridFx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">XY</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">XY</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">XYZ</span> <span class="o">=</span> <span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">n</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span>
+                       <span class="n">n</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">n</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:]))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gridFx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">XYZ</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">XYZ</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">XYZ</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gridFx</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridFy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Face staggered grid in the y direction.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_gridFy&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">N</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">XY</span> <span class="o">=</span> <span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gridFy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">XY</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">XY</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">XYZ</span> <span class="o">=</span> <span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">n</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span>
+                       <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">:]))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gridFy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">XYZ</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">XYZ</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">XYZ</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gridFy</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridFz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Face staggered grid in the y direction.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_gridFz&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">N</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span>
+            <span class="n">XYZ</span> <span class="o">=</span> <span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">n</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">+</span>
+                   <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:]))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_gridFz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">XYZ</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">XYZ</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">XYZ</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gridFz</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridEx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Edge staggered grid in the x direction.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_gridEx&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">N</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">XY</span> <span class="o">=</span> <span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gridEx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">XY</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">XY</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">XYZ</span> <span class="o">=</span> <span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:,</span> <span class="p">:]))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gridEx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">XYZ</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">XYZ</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">XYZ</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gridEx</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridEy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Edge staggered grid in the y direction.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_gridEy&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">N</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">XY</span> <span class="o">=</span> <span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">n</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gridEy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">XY</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">XY</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">XYZ</span> <span class="o">=</span> <span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">n</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:]))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gridEy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">XYZ</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">XYZ</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">XYZ</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gridEy</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridEz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Edge staggered grid in the z direction.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_gridEz&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">N</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span>
+            <span class="n">XYZ</span> <span class="o">=</span> <span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">n</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">:]))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_gridEz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">XYZ</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">XYZ</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">XYZ</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gridEz</span>
+
+    <span class="c1"># --------------- Geometries ---------------------</span>
+    <span class="c1">#</span>
+    <span class="c1">#</span>
+    <span class="c1"># ------------------- 2D -------------------------</span>
+    <span class="c1">#</span>
+    <span class="c1">#         node(i,j)          node(i,j+1)</span>
+    <span class="c1">#              A -------------- B</span>
+    <span class="c1">#              |                |</span>
+    <span class="c1">#              |    cell(i,j)   |</span>
+    <span class="c1">#              |        I       |</span>
+    <span class="c1">#              |                |</span>
+    <span class="c1">#             D -------------- C</span>
+    <span class="c1">#         node(i+1,j)        node(i+1,j+1)</span>
+    <span class="c1">#</span>
+    <span class="c1"># ------------------- 3D -------------------------</span>
+    <span class="c1">#</span>
+    <span class="c1">#</span>
+    <span class="c1">#             node(i,j,k+1)       node(i,j+1,k+1)</span>
+    <span class="c1">#                 E --------------- F</span>
+    <span class="c1">#                /|               / |</span>
+    <span class="c1">#               / |              /  |</span>
+    <span class="c1">#              /  |             /   |</span>
+    <span class="c1">#       node(i,j,k)         node(i,j+1,k)</span>
+    <span class="c1">#            A -------------- B     |</span>
+    <span class="c1">#            |    H ----------|---- G</span>
+    <span class="c1">#            |   /cell(i,j)   |   /</span>
+    <span class="c1">#            |  /     I       |  /</span>
+    <span class="c1">#            | /              | /</span>
+    <span class="c1">#            D -------------- C</span>
+    <span class="c1">#       node(i+1,j,k)      node(i+1,j+1,k)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Construct cell volumes of the 3D model as 1d array</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_vol&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">indexCube</span><span class="p">(</span><span class="s1">&#39;ABCD&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">normal</span><span class="p">,</span> <span class="n">area</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">faceInfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+                                              <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nN</span><span class="p">,</span> <span class="mi">1</span><span class="p">))],</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_vol</span> <span class="o">=</span> <span class="n">area</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="c1"># Each polyhedron can be decomposed into 5 tetrahedrons</span>
+                <span class="c1"># However, this presents a choice so we may as well divide in</span>
+                <span class="c1"># two ways and average.</span>
+                <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">H</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">indexCube</span><span class="p">(</span><span class="s1">&#39;ABCDEFGH&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span> <span class="o">+</span>
+                                                         <span class="mi">1</span><span class="p">)</span>
+
+                <span class="n">vol1</span> <span class="o">=</span> <span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">volTetra</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span> <span class="o">+</span>  <span class="c1"># cutted edge top</span>
+                        <span class="n">utils</span><span class="o">.</span><span class="n">volTetra</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span> <span class="o">+</span>  <span class="c1"># cutted edge top</span>
+                        <span class="n">utils</span><span class="o">.</span><span class="n">volTetra</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span> <span class="o">+</span>  <span class="c1"># middle</span>
+                        <span class="n">utils</span><span class="o">.</span><span class="n">volTetra</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span> <span class="o">+</span>  <span class="c1"># cutted edge bottom</span>
+                        <span class="n">utils</span><span class="o">.</span><span class="n">volTetra</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">H</span><span class="p">))</span>   <span class="c1"># cutted edge bottom</span>
+
+                <span class="n">vol2</span> <span class="o">=</span> <span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">volTetra</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span> <span class="o">+</span>  <span class="c1"># cutted edge top</span>
+                        <span class="n">utils</span><span class="o">.</span><span class="n">volTetra</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span> <span class="o">+</span>  <span class="c1"># cutted edge top</span>
+                        <span class="n">utils</span><span class="o">.</span><span class="n">volTetra</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span> <span class="o">+</span>  <span class="c1"># middle</span>
+                        <span class="n">utils</span><span class="o">.</span><span class="n">volTetra</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span> <span class="o">+</span>  <span class="c1"># cutted edge bottom</span>
+                        <span class="n">utils</span><span class="o">.</span><span class="n">volTetra</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">F</span><span class="p">))</span>   <span class="c1"># cutted edge bottom</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">_vol</span> <span class="o">=</span> <span class="p">(</span><span class="n">vol1</span> <span class="o">+</span> <span class="n">vol2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vol</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Area of the faces</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_area&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span>
+            <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_normals&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="c1"># Compute areas of cell faces</span>
+            <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+                <span class="n">xy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gridN</span>
+                <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">indexCube</span><span class="p">(</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">nNx</span><span class="p">,</span>
+                                       <span class="bp">self</span><span class="o">.</span><span class="n">nCy</span><span class="p">]))</span>
+                <span class="n">edge1</span> <span class="o">=</span> <span class="n">xy</span><span class="p">[</span><span class="n">B</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">xy</span><span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="p">:]</span>
+                <span class="n">normal1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">edge1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="n">edge1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]]</span>
+                <span class="n">area1</span> <span class="o">=</span> <span class="n">length2D</span><span class="p">(</span><span class="n">edge1</span><span class="p">)</span>
+                <span class="n">A</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">indexCube</span><span class="p">(</span><span class="s1">&#39;AD&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">nCx</span><span class="p">,</span>
+                                       <span class="bp">self</span><span class="o">.</span><span class="n">nNy</span><span class="p">]))</span>
+                <span class="c1"># Note that we are doing A-D to make sure the normal points the</span>
+                <span class="c1"># right way.</span>
+                <span class="c1"># Think about it. Look at the picture. Normal points towards C</span>
+                <span class="c1"># iff you do this.</span>
+                <span class="n">edge2</span> <span class="o">=</span> <span class="n">xy</span><span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">xy</span><span class="p">[</span><span class="n">D</span><span class="p">,</span> <span class="p">:]</span>
+                <span class="n">normal2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">edge2</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="n">edge2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]]</span>
+                <span class="n">area2</span> <span class="o">=</span> <span class="n">length2D</span><span class="p">(</span><span class="n">edge2</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">area1</span><span class="p">),</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">area2</span><span class="p">)]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_normals</span> <span class="o">=</span> <span class="p">[</span><span class="n">normalize2D</span><span class="p">(</span><span class="n">normal1</span><span class="p">),</span> <span class="n">normalize2D</span><span class="p">(</span><span class="n">normal2</span><span class="p">)]</span>
+
+            <span class="k">elif</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
+
+                <span class="n">A</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">indexCube</span><span class="p">(</span><span class="s1">&#39;AEFB&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                                             <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">nNx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nCy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nCz</span><span class="p">]))</span>
+                <span class="n">normal1</span><span class="p">,</span> <span class="n">area1</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">faceInfo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span>
+                                                <span class="n">average</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                                <span class="n">normalizeNormals</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+                <span class="n">A</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">E</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">indexCube</span><span class="p">(</span><span class="s1">&#39;ADHE&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                                             <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">nCx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nNy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nCz</span><span class="p">]))</span>
+                <span class="n">normal2</span><span class="p">,</span> <span class="n">area2</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">faceInfo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span>
+                                                <span class="n">average</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                                <span class="n">normalizeNormals</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+                <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">indexCube</span><span class="p">(</span><span class="s1">&#39;ABCD&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                                             <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">nCx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nCy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nNz</span><span class="p">]))</span>
+                <span class="n">normal3</span><span class="p">,</span> <span class="n">area3</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">faceInfo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span>
+                                                <span class="n">average</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                                <span class="n">normalizeNormals</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">_area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">area1</span><span class="p">),</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">area2</span><span class="p">),</span>
+                                   <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">area3</span><span class="p">)]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_normals</span> <span class="o">=</span> <span class="p">[</span><span class="n">normal1</span><span class="p">,</span> <span class="n">normal2</span><span class="p">,</span> <span class="n">normal3</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_area</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">normals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Face normals: calling this will average</span>
+<span class="sd">        the computed normals so that there is one</span>
+<span class="sd">        per face. This is especially relevant in</span>
+<span class="sd">        3D, as there are up to 4 different normals</span>
+<span class="sd">        for each face that will be different.</span>
+
+<span class="sd">        To reshape the normals into a matrix and get the y component::</span>
+
+<span class="sd">            NyX, NyY, NyZ = M.r(M.normals, &#39;F&#39;, &#39;Fy&#39;, &#39;M&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_normals&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">area</span>  <span class="c1"># calling .area will create the face normals</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">normalize2D</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_normals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normals</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">normal1</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_normals</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normals</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_normals</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normals</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+            <span class="p">)</span><span class="o">/</span><span class="mi">4</span>
+            <span class="n">normal2</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_normals</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normals</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_normals</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normals</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+            <span class="p">)</span><span class="o">/</span><span class="mi">4</span>
+            <span class="n">normal3</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_normals</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normals</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_normals</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normals</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+            <span class="p">)</span><span class="o">/</span><span class="mi">4</span>
+            <span class="k">return</span> <span class="n">normalize3D</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">normal1</span><span class="p">,</span> <span class="n">normal2</span><span class="p">,</span> <span class="n">normal3</span><span class="p">])</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">edge</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Edge lengths&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_edge&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+                <span class="n">xy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gridN</span>
+                <span class="n">A</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">indexCube</span><span class="p">(</span><span class="s1">&#39;AD&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">nCx</span><span class="p">,</span>
+                                                                  <span class="bp">self</span><span class="o">.</span><span class="n">nNy</span><span class="p">]))</span>
+                <span class="n">edge1</span> <span class="o">=</span> <span class="n">xy</span><span class="p">[</span><span class="n">D</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">xy</span><span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="p">:]</span>
+                <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">indexCube</span><span class="p">(</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">nNx</span><span class="p">,</span>
+                                                                   <span class="bp">self</span><span class="o">.</span><span class="n">nCy</span><span class="p">]))</span>
+                <span class="n">edge2</span> <span class="o">=</span> <span class="n">xy</span><span class="p">[</span><span class="n">B</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">xy</span><span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="p">:]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_edge</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">length2D</span><span class="p">(</span><span class="n">edge1</span><span class="p">)),</span>
+                                   <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">length2D</span><span class="p">(</span><span class="n">edge2</span><span class="p">))]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_tangents</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">edge1</span><span class="p">,</span> <span class="n">edge2</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_edge</span><span class="p">,</span>
+                                                           <span class="bp">self</span><span class="o">.</span><span class="n">_edge</span><span class="p">]</span>
+            <span class="k">elif</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
+                <span class="n">xyz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gridN</span>
+                <span class="n">A</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">indexCube</span><span class="p">(</span><span class="s1">&#39;AD&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">nCx</span><span class="p">,</span>
+                                                                   <span class="bp">self</span><span class="o">.</span><span class="n">nNy</span><span class="p">,</span>
+                                                                   <span class="bp">self</span><span class="o">.</span><span class="n">nNz</span><span class="p">]))</span>
+                <span class="n">edge1</span> <span class="o">=</span> <span class="n">xyz</span><span class="p">[</span><span class="n">D</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">xyz</span><span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="p">:]</span>
+                <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">indexCube</span><span class="p">(</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">nNx</span><span class="p">,</span>
+                                                                   <span class="bp">self</span><span class="o">.</span><span class="n">nCy</span><span class="p">,</span>
+                                                                   <span class="bp">self</span><span class="o">.</span><span class="n">nNz</span><span class="p">]))</span>
+                <span class="n">edge2</span> <span class="o">=</span> <span class="n">xyz</span><span class="p">[</span><span class="n">B</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">xyz</span><span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="p">:]</span>
+                <span class="n">A</span><span class="p">,</span> <span class="n">E</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">indexCube</span><span class="p">(</span><span class="s1">&#39;AE&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">nNx</span><span class="p">,</span>
+                                                                   <span class="bp">self</span><span class="o">.</span><span class="n">nNy</span><span class="p">,</span>
+                                                                   <span class="bp">self</span><span class="o">.</span><span class="n">nCz</span><span class="p">]))</span>
+                <span class="n">edge3</span> <span class="o">=</span> <span class="n">xyz</span><span class="p">[</span><span class="n">E</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">xyz</span><span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="p">:]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_edge</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">length3D</span><span class="p">(</span><span class="n">edge1</span><span class="p">)),</span>
+                                   <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">length3D</span><span class="p">(</span><span class="n">edge2</span><span class="p">)),</span>
+                                   <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">length3D</span><span class="p">(</span><span class="n">edge3</span><span class="p">))]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_tangents</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">edge1</span><span class="p">,</span> <span class="n">edge2</span><span class="p">,</span> <span class="n">edge3</span><span class="p">]</span> <span class="o">/</span>
+                                  <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_edge</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge</span><span class="p">])</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tangents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Edge tangents&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_tangents&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">edge</span>  <span class="c1"># calling .edge will create the tangents</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tangents</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<div role="contentinfo">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    2013-2019,
+    <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
+    Except where noted, this work is licensed under a <br />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons Attribution 4.0 International License
+    </a>
+</div>
+<br>
+<div>
+Built with
+    <a href="http://sphinx-doc.org/">Sphinx</a>
+    using a
+    <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+    provided by
+    <a href="https://readthedocs.org">Read the Docs</a>.
+ </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

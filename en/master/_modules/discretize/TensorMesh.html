@@ -1,0 +1,658 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>discretize.TensorMesh &mdash; discretize 0.4.3 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+ 
+
+<meta name="description" content="Simulation and Parameter Estimation in Geophysics">
+<meta name="author" content="SimPEG Developers">
+<meta name="keywords" content="python, geophysics, inversion, electromagnetics, magnetotellurics, magnetics, gravity, DC, flow inverse problems, open source, finite volume">
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45185336-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> discretize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/big_picture.html">Why discretize?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/additional_resources.html">Additional Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/mesh_overview.html">Overview of mesh types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/tensor_mesh.html">Tensor meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/cylindrical_mesh.html">Cylindrical meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Reference</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting connected
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://simpeg.xyz"><i class="fa fa-external-link-square fa-fw"></i> SimPEG</a></li>
+            
+                <li class="toctree-l1"><a href="http://slack.simpeg.xyz"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/simpeg/discretize"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">discretize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>discretize.TensorMesh</li>
+    
+    
+
+    <li class="wy-breadcrumbs-aside">
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for discretize.TensorMesh</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">discretize</span> <span class="k">import</span> <span class="n">utils</span>
+
+<span class="kn">from</span> <span class="nn">.base</span> <span class="k">import</span> <span class="n">BaseRectangularMesh</span><span class="p">,</span> <span class="n">BaseTensorMesh</span>
+<span class="kn">from</span> <span class="nn">.View</span> <span class="k">import</span> <span class="n">TensorView</span>
+<span class="kn">from</span> <span class="nn">.DiffOperators</span> <span class="k">import</span> <span class="n">DiffOperators</span>
+<span class="kn">from</span> <span class="nn">.InnerProducts</span> <span class="k">import</span> <span class="n">InnerProducts</span>
+<span class="kn">from</span> <span class="nn">.MeshIO</span> <span class="k">import</span> <span class="n">TensorMeshIO</span>
+
+
+<div class="viewcode-block" id="TensorMesh"><a class="viewcode-back" href="../../api/generated/discretize.TensorMesh.html#discretize.TensorMesh">[docs]</a><span class="k">class</span> <span class="nc">TensorMesh</span><span class="p">(</span>
+    <span class="n">BaseTensorMesh</span><span class="p">,</span> <span class="n">BaseRectangularMesh</span><span class="p">,</span> <span class="n">TensorView</span><span class="p">,</span> <span class="n">DiffOperators</span><span class="p">,</span>
+    <span class="n">InnerProducts</span><span class="p">,</span> <span class="n">TensorMeshIO</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    TensorMesh is a mesh class that deals with tensor product meshes.</span>
+
+<span class="sd">    Any Mesh that has a constant width along the entire axis</span>
+<span class="sd">    such that it can defined by a single width vector, called &#39;h&#39;.</span>
+
+<span class="sd">    .. plot::</span>
+<span class="sd">        :include-source:</span>
+
+<span class="sd">        import discretize</span>
+
+<span class="sd">        hx = np.array([1, 1, 1])</span>
+<span class="sd">        hy = np.array([1, 2])</span>
+<span class="sd">        hz = np.array([1, 1, 1, 1])</span>
+
+<span class="sd">        mesh = discretize.TensorMesh([hx, hy, hz])</span>
+<span class="sd">        mesh.plotGrid()</span>
+
+
+<span class="sd">    Example of a padded tensor mesh using</span>
+<span class="sd">    :func:`discretize.utils.meshTensor`:</span>
+
+<span class="sd">    .. plot::</span>
+<span class="sd">        :include-source:</span>
+
+<span class="sd">        import discretize</span>
+<span class="sd">        mesh = discretize.TensorMesh([</span>
+<span class="sd">            [(10, 10, -1.3), (10, 40), (10, 10, 1.3)],</span>
+<span class="sd">            [(10, 10, -1.3), (10, 20)]</span>
+<span class="sd">        ])</span>
+<span class="sd">        mesh.plotGrid()</span>
+
+<span class="sd">    For a quick tensor mesh on a (10x12x15) unit cube</span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        import discretize</span>
+<span class="sd">        mesh = discretize.TensorMesh([10, 12, 15])</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_meshType</span> <span class="o">=</span> <span class="s1">&#39;TENSOR&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">BaseTensorMesh</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="n">x0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plain text representation.&quot;&quot;&quot;</span>
+        <span class="n">fmt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  </span><span class="si">{}</span><span class="s2">: </span><span class="si">{:,}</span><span class="s2"> cells</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="mi">22</span><span class="o">*</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="s2">&quot;MESH EXTENT&quot;</span><span class="o">+</span><span class="mi">13</span><span class="o">*</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="s2">&quot;CELL WIDTH      FACTOR</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;  dir    nC        min           max         min       max &quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;     max</span><span class="se">\n</span><span class="s2">  ---   ---  &quot;</span><span class="o">+</span><span class="mi">27</span><span class="o">*</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="s2">&quot;  &quot;</span><span class="o">+</span><span class="mi">18</span><span class="o">*</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="s2">&quot;  ------</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Get attributes and put into table.</span>
+        <span class="n">attrs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_repr_attributes</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;names&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">iattr</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;   </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot; </span><span class="si">{:6}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iattr</span><span class="p">[</span><span class="s1">&#39;nC&#39;</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">]:</span>
+                <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot; </span><span class="si">{:13,.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iattr</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;h_min&#39;</span><span class="p">,</span> <span class="s1">&#39;h_max&#39;</span><span class="p">]:</span>
+                <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot; </span><span class="si">{:9,.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iattr</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
+            <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="si">{:8,.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iattr</span><span class="p">[</span><span class="s1">&#39;max_fact&#39;</span><span class="p">])</span>
+            <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>  <span class="c1"># End row</span>
+
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">fmt</span>
+
+    <span class="k">def</span> <span class="nf">_repr_html_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;HTML representation.&quot;&quot;&quot;</span>
+        <span class="n">style</span> <span class="o">=</span> <span class="s2">&quot; style=&#39;padding: 5px 20px 5px 20px;&#39;&quot;</span>
+
+        <span class="n">fmt</span> <span class="o">=</span> <span class="s2">&quot;&lt;table&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;  &lt;tr&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;td style=&#39;font-weight: bold; font-size: 1.2em; text-align&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;: center;&#39; colspan=&#39;3&#39;&gt;</span><span class="si">{}</span><span class="s2">&lt;/td</span><span class="se">\n</span><span class="s2">&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;td style=&#39;font-size: 1.2em; text-align: center;&#39;&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;colspan=&#39;4&#39;&gt;</span><span class="si">{:,}</span><span class="s2"> cells&lt;/td&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;  &lt;/tr&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;  &lt;tr&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;th&gt;&lt;/th</span><span class="se">\n</span><span class="s2">&gt;&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;th&gt;&lt;/th</span><span class="se">\n</span><span class="s2">&gt;&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;th colspan=&#39;2&#39;&quot;</span><span class="o">+</span><span class="n">style</span><span class="o">+</span><span class="s2">&quot;&gt;MESH EXTENT&lt;/th</span><span class="se">\n</span><span class="s2">&gt;&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;th colspan=&#39;2&#39;&quot;</span><span class="o">+</span><span class="n">style</span><span class="o">+</span><span class="s2">&quot;&gt;CELL WIDTH&lt;/th</span><span class="se">\n</span><span class="s2">&gt;&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;th&quot;</span><span class="o">+</span><span class="n">style</span><span class="o">+</span><span class="s2">&quot;&gt;FACTOR&lt;/th</span><span class="se">\n</span><span class="s2">&gt;&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;  &lt;/tr</span><span class="se">\n</span><span class="s2">&gt;&quot;</span>
+
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;  &lt;tr&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;th&quot;</span><span class="o">+</span><span class="n">style</span><span class="o">+</span><span class="s2">&quot;&gt;dir&lt;/th&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;th&quot;</span><span class="o">+</span><span class="n">style</span><span class="o">+</span><span class="s2">&quot;&gt;nC&lt;/th&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;th&quot;</span><span class="o">+</span><span class="n">style</span><span class="o">+</span><span class="s2">&quot;&gt;min&lt;/th&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;th&quot;</span><span class="o">+</span><span class="n">style</span><span class="o">+</span><span class="s2">&quot;&gt;max&lt;/th&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;th&quot;</span><span class="o">+</span><span class="n">style</span><span class="o">+</span><span class="s2">&quot;&gt;min&lt;/th&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;th&quot;</span><span class="o">+</span><span class="n">style</span><span class="o">+</span><span class="s2">&quot;&gt;max&lt;/th&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;th&quot;</span><span class="o">+</span><span class="n">style</span><span class="o">+</span><span class="s2">&quot;&gt;max&lt;/th&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;  &lt;/tr&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Get attributes and put into table.</span>
+        <span class="n">attrs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_repr_attributes</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;names&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">iattr</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;  &lt;tr&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>  <span class="c1"># Start row</span>
+            <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;td&quot;</span><span class="o">+</span><span class="n">style</span><span class="o">+</span><span class="s2">&quot;&gt;</span><span class="si">{}</span><span class="s2">&lt;/td&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;td&quot;</span><span class="o">+</span><span class="n">style</span><span class="o">+</span><span class="s2">&quot;&gt;</span><span class="si">{}</span><span class="s2">&lt;/td&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iattr</span><span class="p">[</span><span class="s1">&#39;nC&#39;</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;h_min&#39;</span><span class="p">,</span> <span class="s1">&#39;h_max&#39;</span><span class="p">,</span> <span class="s1">&#39;max_fact&#39;</span><span class="p">]:</span>
+                <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;    &lt;td&quot;</span><span class="o">+</span><span class="n">style</span><span class="o">+</span><span class="s2">&quot;&gt;</span><span class="si">{:,.2f}</span><span class="s2">&lt;/td&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iattr</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
+            <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;  &lt;/tr&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>  <span class="c1"># End row</span>
+
+        <span class="n">fmt</span> <span class="o">+=</span> <span class="s2">&quot;&lt;/table&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">fmt</span>
+
+    <span class="c1"># --------------- Geometries ---------------------</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct cell volumes of the 3D model as 1d array.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_vol&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">vh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span>
+            <span class="c1"># Compute cell volumes</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_vol</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">vh</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="c1"># Cell sizes in each direction</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_vol</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">vh</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vh</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="c1"># Cell sizes in each direction</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_vol</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">vh</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vh</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span> <span class="n">vh</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vol</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">areaFx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Area of the x-faces</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_areaFx&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Ensure that we are working with column vectors</span>
+            <span class="n">vh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span>
+            <span class="c1"># The number of cell centers in each direction</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span>
+            <span class="c1"># Compute areas of cell faces</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">areaFx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">areaFx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">vh</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">areaFx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">vh</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">vh</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+                <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_areaFx</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">areaFx</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_areaFx</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">areaFy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Area of the y-faces</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_areaFy&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Ensure that we are working with column vectors</span>
+            <span class="n">vh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span>
+            <span class="c1"># The number of cell centers in each direction</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span>
+            <span class="c1"># Compute areas of cell faces</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;1D meshes do not have y-Faces&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">areaFy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">vh</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">areaFy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span>
+                    <span class="n">vh</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">vh</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+                <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_areaFy</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">areaFy</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_areaFy</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">areaFz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Area of the z-faces</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_areaFz&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Ensure that we are working with column vectors</span>
+            <span class="n">vh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span>
+            <span class="c1"># The number of cell centers in each direction</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span>
+            <span class="c1"># Compute areas of cell faces</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                    <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">D meshes do not have z-Faces&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">areaFz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span>
+                    <span class="n">vh</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">vh</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+                <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_areaFz</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">areaFz</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_areaFz</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct face areas of the 3D model as 1d array.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">areaFx</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">areaFx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">areaFy</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">areaFx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">areaFy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">areaFz</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">edgeEx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;x-edge lengths&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_edgeEx&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Ensure that we are working with column vectors</span>
+            <span class="n">vh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span>
+            <span class="c1"># The number of cell centers in each direction</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span>
+            <span class="c1"># Compute edge lengths</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">edgeEx</span> <span class="o">=</span> <span class="n">vh</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">edgeEx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">vh</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">edgeEx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span>
+                    <span class="n">vh</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                    <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+                <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_edgeEx</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">edgeEx</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edgeEx</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">edgeEy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;y-edge lengths&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_edgeEy&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Ensure that we are working with column vectors</span>
+            <span class="n">vh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span>
+            <span class="c1"># The number of cell centers in each direction</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span>
+            <span class="c1"># Compute edge lengths</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;1D meshes do not have y-edges&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">edgeEy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">vh</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">edgeEy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span>
+                    <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">vh</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+                <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_edgeEy</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">edgeEy</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edgeEy</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">edgeEz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;z-edge lengths&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_edgeEz&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Ensure that we are working with column vectors</span>
+            <span class="n">vh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span>
+            <span class="c1"># The number of cell centers in each direction</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span>
+            <span class="c1"># Compute edge lengths</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                    <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">D meshes do not have y-edges&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">edgeEz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span>
+                    <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">vh</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+                <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_edgeEz</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">edgeEz</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edgeEz</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">edge</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct edge legnths of the 3D model as 1d array.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">edgeEx</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">edgeEx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">edgeEy</span><span class="p">]</span>
+        <span class="k">elif</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">edgeEx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">edgeEy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">edgeEz</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">faceBoundaryInd</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find indices of boundary faces in each direction</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">indxd</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFx</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFx</span><span class="p">))</span>
+            <span class="n">indxu</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFx</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFx</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">indxd</span><span class="p">,</span> <span class="n">indxu</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">indxd</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFx</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFx</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
+            <span class="n">indxu</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFx</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFx</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
+            <span class="n">indyd</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]))</span>
+            <span class="n">indyu</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]))</span>
+            <span class="k">return</span> <span class="n">indxd</span><span class="p">,</span> <span class="n">indxu</span><span class="p">,</span> <span class="n">indyd</span><span class="p">,</span> <span class="n">indyu</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">indxd</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFx</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFx</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
+            <span class="n">indxu</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFx</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFx</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
+            <span class="n">indyd</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]))</span>
+            <span class="n">indyu</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]))</span>
+            <span class="n">indzd</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFz</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFz</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]))</span>
+            <span class="n">indzu</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFz</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFz</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]))</span>
+            <span class="k">return</span> <span class="n">indxd</span><span class="p">,</span> <span class="n">indxu</span><span class="p">,</span> <span class="n">indyd</span><span class="p">,</span> <span class="n">indyu</span><span class="p">,</span> <span class="n">indzd</span><span class="p">,</span> <span class="n">indzu</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cellBoundaryInd</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find indices of boundary faces in each direction</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">indxd</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">))</span>
+            <span class="n">indxu</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">indxd</span><span class="p">,</span> <span class="n">indxu</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">indxd</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
+            <span class="n">indxu</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
+            <span class="n">indyd</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]))</span>
+            <span class="n">indyu</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]))</span>
+            <span class="k">return</span> <span class="n">indxd</span><span class="p">,</span> <span class="n">indxu</span><span class="p">,</span> <span class="n">indyd</span><span class="p">,</span> <span class="n">indyu</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">indxd</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
+            <span class="n">indxu</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
+            <span class="n">indyd</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]))</span>
+            <span class="n">indyu</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]))</span>
+            <span class="n">indzd</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]))</span>
+            <span class="n">indzu</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]))</span>
+            <span class="k">return</span> <span class="n">indxd</span><span class="p">,</span> <span class="n">indxu</span><span class="p">,</span> <span class="n">indyd</span><span class="p">,</span> <span class="n">indyu</span><span class="p">,</span> <span class="n">indzd</span><span class="p">,</span> <span class="n">indzu</span>
+
+    <span class="k">def</span> <span class="nf">_repr_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Attributes for the representation of the mesh.&quot;&quot;&quot;</span>
+
+        <span class="n">attrs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;names&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">][:</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">]</span>
+
+        <span class="c1"># Loop over dimensions.</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;names&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>  <span class="c1"># Name of this dimension</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="c1"># Get min/max node.</span>
+            <span class="n">n_vector</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;vectorN&#39;</span><span class="o">+</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">n_vector</span><span class="p">)</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">n_vector</span><span class="p">)</span>
+
+            <span class="c1"># Get min/max cell width.</span>
+            <span class="n">h_vector</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="o">+</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;h_min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">h_vector</span><span class="p">)</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;h_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">h_vector</span><span class="p">)</span>
+
+            <span class="c1"># Get max stretching factor.</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">h_vector</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">attrs</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;max_fact&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">attrs</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;max_fact&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">h_vector</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">h_vector</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
+                          <span class="n">h_vector</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">/</span><span class="n">h_vector</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+                <span class="p">)</span>
+
+            <span class="c1"># Add number of cells.</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;nC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;nC&#39;</span><span class="o">+</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">attrs</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<div role="contentinfo">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    2013-2019,
+    <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
+    Except where noted, this work is licensed under a <br />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons Attribution 4.0 International License
+    </a>
+</div>
+<br>
+<div>
+Built with
+    <a href="http://sphinx-doc.org/">Sphinx</a>
+    using a
+    <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+    provided by
+    <a href="https://readthedocs.org">Read the Docs</a>.
+ </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1239 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>discretize.Tests.OrderTest &mdash; discretize 0.4.3 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="discretize.Tests.checkDerivative" href="discretize.Tests.checkDerivative.html" />
+    <link rel="prev" title="discretize.mixins.vtkModule.assign_cell_data" href="discretize.mixins.vtkModule.assign_cell_data.html" />
+ 
+
+<meta name="description" content="Simulation and Parameter Estimation in Geophysics">
+<meta name="author" content="SimPEG Developers">
+<meta name="keywords" content="python, geophysics, inversion, electromagnetics, magnetotellurics, magnetics, gravity, DC, flow inverse problems, open source, finite volume">
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45185336-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> discretize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/big_picture.html">Why discretize?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/additional_resources.html">Additional Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/mesh_overview.html">Overview of mesh types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/tensor_mesh.html">Tensor meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/cylindrical_mesh.html">Cylindrical meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#meshes">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.InnerProducts">Numerical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mesh-io">Mesh IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#visualization">Visualization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#testing">Testing</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">discretize.Tests.OrderTest</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.Tests.checkDerivative.html">discretize.Tests.checkDerivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.Tests.getQuadratic.html">discretize.Tests.getQuadratic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.Tests.Rosenbrock.html">discretize.Tests.Rosenbrock</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.utils">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.base">Base Mesh</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting connected
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://simpeg.xyz"><i class="fa fa-external-link-square fa-fw"></i> SimPEG</a></li>
+            
+                <li class="toctree-l1"><a href="http://slack.simpeg.xyz"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/simpeg/discretize"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">discretize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+        
+      <li>discretize.Tests.OrderTest</li>
+    
+    
+
+    <li class="wy-breadcrumbs-aside">
+        
+            
+                
+                
+                <a href="https://github.com/simpeg/discretize/issues/new?title=Suggested%20improvement%20for%20api/generated/discretize.Tests.OrderTest&body=Please%20describe%20what%20could%20be%20improved%20about%20this%20page%20or%20the%20typo/mistake%20that%20you%20found%3A"
+                   class="fa fa-github"> Edit this page</a>
+            
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="discretize-tests-ordertest">
+<h1>discretize.Tests.OrderTest<a class="headerlink" href="#discretize-tests-ordertest" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="discretize.Tests.OrderTest">
+<em class="property">class </em><code class="descclassname">discretize.Tests.</code><code class="descname">OrderTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/Tests.html#OrderTest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.Tests.OrderTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>OrderTest is a base class for testing convergence orders with respect to mesh
+sizes of integral/differential operators.</p>
+<p>Mathematical Problem:</p>
+<blockquote>
+<div><p>Given are an operator A and its discretization A[h]. For a given test function f
+and h –&gt; 0  we compare:</p>
+<div class="math notranslate nohighlight">
+\[error(h) = \| A[h](f) - A(f) \|_{\infty}\]</div>
+<p>Note that you can provide any norm.</p>
+<p>Test is passed when estimated rate order of convergence is  at least within the specified tolerance of the
+estimated rate supplied by the user.</p>
+</div></blockquote>
+<p>Minimal example for a curl operator:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TestCURL</span><span class="p">(</span><span class="n">OrderTest</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Curl&quot;</span>
+
+    <span class="k">def</span> <span class="nf">getError</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># For given Mesh, generate A[h], f and A(f) and return norm of error.</span>
+
+        <span class="n">fun</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># i (cos(y)) + j (cos(z)) + k (cos(x))</span>
+        <span class="n">sol</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># i (sin(z)) + j (sin(x)) + k (sin(y))</span>
+
+        <span class="n">Ex</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">gridEx</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">Ey</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">gridEy</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="n">Ez</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">gridEz</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">Ex</span><span class="p">,</span> <span class="n">Ey</span><span class="p">,</span> <span class="n">Ez</span><span class="p">))</span>
+
+        <span class="n">Fx</span> <span class="o">=</span> <span class="n">sol</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">gridFx</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="n">Fy</span> <span class="o">=</span> <span class="n">sol</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">gridFy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="n">Fz</span> <span class="o">=</span> <span class="n">sol</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">gridFz</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">Af</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">Fx</span><span class="p">,</span> <span class="n">Fy</span><span class="p">,</span> <span class="n">Fz</span><span class="p">))</span>
+
+        <span class="c1"># Generate DIV matrix</span>
+        <span class="n">Ah</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">edgeCurl</span>
+
+        <span class="n">curlE</span> <span class="o">=</span> <span class="n">Ah</span><span class="o">*</span><span class="n">E</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">((</span><span class="n">Ah</span><span class="o">*</span><span class="n">f</span> <span class="o">-</span><span class="n">Af</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">err</span>
+
+    <span class="k">def</span> <span class="nf">test_order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># runs the test</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orderTest</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>See also: test_operatorOrder.py</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__call__</span></code>(self, \*args, \*\*kwds)</p></td>
+<td><p>Call self as a function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.addCleanup" title="discretize.Tests.OrderTest.addCleanup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addCleanup</span></code></a>(self, function, \*args, \*\*kwargs)</p></td>
+<td><p>Add a function, with arguments, to be called when the test is completed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.addTypeEqualityFunc" title="discretize.Tests.OrderTest.addTypeEqualityFunc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addTypeEqualityFunc</span></code></a>(self, typeobj, function)</p></td>
+<td><p>Add a type specific assertEqual style function to compare a type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertAlmostEqual" title="discretize.Tests.OrderTest.assertAlmostEqual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertAlmostEqual</span></code></a>(self, first, second[, …])</p></td>
+<td><p>Fail if the two objects are unequal as determined by their difference rounded to the given number of decimal places (default 7) and comparing to zero, or by comparing that the difference between the two objects is more than the given delta.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertCountEqual" title="discretize.Tests.OrderTest.assertCountEqual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertCountEqual</span></code></a>(self, first, second[, msg])</p></td>
+<td><p>An unordered sequence comparison asserting that the same elements, regardless of order.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertDictContainsSubset" title="discretize.Tests.OrderTest.assertDictContainsSubset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertDictContainsSubset</span></code></a>(self, subset, …)</p></td>
+<td><p>Checks whether dictionary is a superset of subset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertEqual" title="discretize.Tests.OrderTest.assertEqual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertEqual</span></code></a>(self, first, second[, msg])</p></td>
+<td><p>Fail if the two objects are unequal as determined by the ‘==’ operator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertFalse" title="discretize.Tests.OrderTest.assertFalse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertFalse</span></code></a>(self, expr[, msg])</p></td>
+<td><p>Check that the expression is false.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertGreater" title="discretize.Tests.OrderTest.assertGreater"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertGreater</span></code></a>(self, a, b[, msg])</p></td>
+<td><p>Just like self.assertTrue(a &gt; b), but with a nicer default message.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertGreaterEqual" title="discretize.Tests.OrderTest.assertGreaterEqual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertGreaterEqual</span></code></a>(self, a, b[, msg])</p></td>
+<td><p>Just like self.assertTrue(a &gt;= b), but with a nicer default message.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertIn" title="discretize.Tests.OrderTest.assertIn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertIn</span></code></a>(self, member, container[, msg])</p></td>
+<td><p>Just like self.assertTrue(a in b), but with a nicer default message.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertIs" title="discretize.Tests.OrderTest.assertIs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertIs</span></code></a>(self, expr1, expr2[, msg])</p></td>
+<td><p>Just like self.assertTrue(a is b), but with a nicer default message.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertIsInstance" title="discretize.Tests.OrderTest.assertIsInstance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertIsInstance</span></code></a>(self, obj, cls[, msg])</p></td>
+<td><p>Same as self.assertTrue(isinstance(obj, cls)), with a nicer default message.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertIsNone" title="discretize.Tests.OrderTest.assertIsNone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertIsNone</span></code></a>(self, obj[, msg])</p></td>
+<td><p>Same as self.assertTrue(obj is None), with a nicer default message.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertIsNot" title="discretize.Tests.OrderTest.assertIsNot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertIsNot</span></code></a>(self, expr1, expr2[, msg])</p></td>
+<td><p>Just like self.assertTrue(a is not b), but with a nicer default message.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertIsNotNone" title="discretize.Tests.OrderTest.assertIsNotNone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertIsNotNone</span></code></a>(self, obj[, msg])</p></td>
+<td><p>Included for symmetry with assertIsNone.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertLess" title="discretize.Tests.OrderTest.assertLess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertLess</span></code></a>(self, a, b[, msg])</p></td>
+<td><p>Just like self.assertTrue(a &lt; b), but with a nicer default message.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertLessEqual" title="discretize.Tests.OrderTest.assertLessEqual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertLessEqual</span></code></a>(self, a, b[, msg])</p></td>
+<td><p>Just like self.assertTrue(a &lt;= b), but with a nicer default message.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertListEqual" title="discretize.Tests.OrderTest.assertListEqual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertListEqual</span></code></a>(self, list1, list2[, msg])</p></td>
+<td><p>A list-specific equality assertion.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertLogs" title="discretize.Tests.OrderTest.assertLogs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertLogs</span></code></a>(self[, logger, level])</p></td>
+<td><p>Fail unless a log message of level <em>level</em> or higher is emitted on <em>logger_name</em> or its children.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertMultiLineEqual" title="discretize.Tests.OrderTest.assertMultiLineEqual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertMultiLineEqual</span></code></a>(self, first, second[, msg])</p></td>
+<td><p>Assert that two multi-line strings are equal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertNotAlmostEqual" title="discretize.Tests.OrderTest.assertNotAlmostEqual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertNotAlmostEqual</span></code></a>(self, first, second[, …])</p></td>
+<td><p>Fail if the two objects are equal as determined by their difference rounded to the given number of decimal places (default 7) and comparing to zero, or by comparing that the difference between the two objects is less than the given delta.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertNotEqual" title="discretize.Tests.OrderTest.assertNotEqual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertNotEqual</span></code></a>(self, first, second[, msg])</p></td>
+<td><p>Fail if the two objects are equal as determined by the ‘!=’ operator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertNotIn" title="discretize.Tests.OrderTest.assertNotIn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertNotIn</span></code></a>(self, member, container[, msg])</p></td>
+<td><p>Just like self.assertTrue(a not in b), but with a nicer default message.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertNotIsInstance" title="discretize.Tests.OrderTest.assertNotIsInstance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertNotIsInstance</span></code></a>(self, obj, cls[, msg])</p></td>
+<td><p>Included for symmetry with assertIsInstance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertNotRegex" title="discretize.Tests.OrderTest.assertNotRegex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertNotRegex</span></code></a>(self, text, unexpected_regex)</p></td>
+<td><p>Fail the test if the text matches the regular expression.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertRaises" title="discretize.Tests.OrderTest.assertRaises"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertRaises</span></code></a>(self, expected_exception, …)</p></td>
+<td><p>Fail unless an exception of class expected_exception is raised by the callable when invoked with specified positional and keyword arguments.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertRaisesRegex" title="discretize.Tests.OrderTest.assertRaisesRegex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertRaisesRegex</span></code></a>(self, expected_exception, …)</p></td>
+<td><p>Asserts that the message in a raised exception matches a regex.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertRegex" title="discretize.Tests.OrderTest.assertRegex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertRegex</span></code></a>(self, text, expected_regex[, msg])</p></td>
+<td><p>Fail the test unless the text matches the regular expression.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertSequenceEqual" title="discretize.Tests.OrderTest.assertSequenceEqual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertSequenceEqual</span></code></a>(self, seq1, seq2[, msg, …])</p></td>
+<td><p>An equality assertion for ordered sequences (like lists and tuples).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertSetEqual" title="discretize.Tests.OrderTest.assertSetEqual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertSetEqual</span></code></a>(self, set1, set2[, msg])</p></td>
+<td><p>A set-specific equality assertion.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertTrue" title="discretize.Tests.OrderTest.assertTrue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertTrue</span></code></a>(self, expr[, msg])</p></td>
+<td><p>Check that the expression is true.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertTupleEqual" title="discretize.Tests.OrderTest.assertTupleEqual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertTupleEqual</span></code></a>(self, tuple1, tuple2[, msg])</p></td>
+<td><p>A tuple-specific equality assertion.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertWarns" title="discretize.Tests.OrderTest.assertWarns"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertWarns</span></code></a>(self, expected_warning, \*args, …)</p></td>
+<td><p>Fail unless a warning of class warnClass is triggered by the callable when invoked with specified positional and keyword arguments.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.assertWarnsRegex" title="discretize.Tests.OrderTest.assertWarnsRegex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assertWarnsRegex</span></code></a>(self, expected_warning, …)</p></td>
+<td><p>Asserts that the message in a triggered warning matches a regexp.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.debug" title="discretize.Tests.OrderTest.debug"><code class="xref py py-obj docutils literal notranslate"><span class="pre">debug</span></code></a>(self)</p></td>
+<td><p>Run the test without collecting errors in a TestResult</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.doCleanups" title="discretize.Tests.OrderTest.doCleanups"><code class="xref py py-obj docutils literal notranslate"><span class="pre">doCleanups</span></code></a>(self)</p></td>
+<td><p>Execute all cleanup functions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.fail" title="discretize.Tests.OrderTest.fail"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fail</span></code></a>(self[, msg])</p></td>
+<td><p>Fail immediately, with the given message.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">failureException</span></code></p></td>
+<td><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.AssertionError</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.getError" title="discretize.Tests.OrderTest.getError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getError</span></code></a>(self)</p></td>
+<td><p>For given h, generate A[h], f and A(f) and return norm of error.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.orderTest" title="discretize.Tests.OrderTest.orderTest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">orderTest</span></code></a>(self)</p></td>
+<td><p>For number of cells specified in meshSizes setup mesh, call getError and prints mesh size, error, ratio between current and previous error, and estimated order of convergence.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.setUp" title="discretize.Tests.OrderTest.setUp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setUp</span></code></a>(self)</p></td>
+<td><p>Hook method for setting up the test fixture before exercising it.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.setUpClass" title="discretize.Tests.OrderTest.setUpClass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setUpClass</span></code></a>()</p></td>
+<td><p>Hook method for setting up class fixture before running tests in the class.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.shortDescription" title="discretize.Tests.OrderTest.shortDescription"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shortDescription</span></code></a>(self)</p></td>
+<td><p>Returns a one-line description of the test, or None if no description has been provided.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.skipTest" title="discretize.Tests.OrderTest.skipTest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">skipTest</span></code></a>(self, reason)</p></td>
+<td><p>Skip this test.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.subTest" title="discretize.Tests.OrderTest.subTest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subTest</span></code></a>(self[, msg])</p></td>
+<td><p>Return a context manager that will return the enclosed block of code in a subtest identified by the optional message and keyword parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.tearDown" title="discretize.Tests.OrderTest.tearDown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tearDown</span></code></a>(self)</p></td>
+<td><p>Hook method for deconstructing the test fixture after testing it.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.Tests.OrderTest.tearDownClass" title="discretize.Tests.OrderTest.tearDownClass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tearDownClass</span></code></a>()</p></td>
+<td><p>Hook method for deconstructing the class fixture after running all tests in the class.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 72%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>assertAlmostEquals</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>assertDictEqual</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>assertEquals</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>assertNotAlmostEquals</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>assertNotEquals</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>assertNotRegexpMatches</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>assertRaisesRegexp</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>assertRegexpMatches</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>assert_</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>countTestCases</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>defaultTestResult</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>failIf</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>failIfAlmostEqual</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>failIfEqual</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>failUnless</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>failUnlessAlmostEqual</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>failUnlessEqual</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>failUnlessRaises</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>id</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>run</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>setupMesh</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div style='clear:both'></div><div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="attribute">
+<dt id="discretize.Tests.OrderTest.expectedOrders">
+<code class="descclassname">OrderTest.</code><code class="descname">expectedOrders</code><em class="property"> = 2.0</em><a class="headerlink" href="#discretize.Tests.OrderTest.expectedOrders" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.Tests.OrderTest.longMessage">
+<code class="descclassname">OrderTest.</code><code class="descname">longMessage</code><em class="property"> = True</em><a class="headerlink" href="#discretize.Tests.OrderTest.longMessage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.Tests.OrderTest.maxDiff">
+<code class="descclassname">OrderTest.</code><code class="descname">maxDiff</code><em class="property"> = 640</em><a class="headerlink" href="#discretize.Tests.OrderTest.maxDiff" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.Tests.OrderTest.meshDimension">
+<code class="descclassname">OrderTest.</code><code class="descname">meshDimension</code><em class="property"> = 3</em><a class="headerlink" href="#discretize.Tests.OrderTest.meshDimension" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.Tests.OrderTest.meshSizes">
+<code class="descclassname">OrderTest.</code><code class="descname">meshSizes</code><em class="property"> = [4, 8, 16, 32]</em><a class="headerlink" href="#discretize.Tests.OrderTest.meshSizes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.Tests.OrderTest.meshTypes">
+<code class="descclassname">OrderTest.</code><code class="descname">meshTypes</code><em class="property"> = ['uniformTensorMesh']</em><a class="headerlink" href="#discretize.Tests.OrderTest.meshTypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.Tests.OrderTest.name">
+<code class="descclassname">OrderTest.</code><code class="descname">name</code><em class="property"> = 'Order Test'</em><a class="headerlink" href="#discretize.Tests.OrderTest.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.Tests.OrderTest.tolerance">
+<code class="descclassname">OrderTest.</code><code class="descname">tolerance</code><em class="property"> = 0.85</em><a class="headerlink" href="#discretize.Tests.OrderTest.tolerance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.addCleanup">
+<code class="descclassname">OrderTest.</code><code class="descname">addCleanup</code><span class="sig-paren">(</span><em>self</em>, <em>function</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.addCleanup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a function, with arguments, to be called when the test is
+completed. Functions added are called on a LIFO basis and are
+called after tearDown on test failure or success.</p>
+<p>Cleanup items are called even if setUp fails (unlike tearDown).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.addTypeEqualityFunc">
+<code class="descclassname">OrderTest.</code><code class="descname">addTypeEqualityFunc</code><span class="sig-paren">(</span><em>self</em>, <em>typeobj</em>, <em>function</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.addTypeEqualityFunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a type specific assertEqual style function to compare a type.</p>
+<p>This method is for use by TestCase subclasses that need to register
+their own type equality functions to provide nicer error messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>typeobj</strong> – The data type to call this function on when both values
+are of the same type in assertEqual().</p></li>
+<li><p><strong>function</strong> – The callable taking two arguments and an optional
+msg= argument that raises self.failureException with a
+useful error message when the two arguments are not equal.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertAlmostEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">assertAlmostEqual</code><span class="sig-paren">(</span><em>self</em>, <em>first</em>, <em>second</em>, <em>places=None</em>, <em>msg=None</em>, <em>delta=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertAlmostEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fail if the two objects are unequal as determined by their
+difference rounded to the given number of decimal places
+(default 7) and comparing to zero, or by comparing that the
+difference between the two objects is more than the given
+delta.</p>
+<p>Note that decimal places (from zero) are usually not the same
+as significant digits (measured from the most significant digit).</p>
+<p>If the two objects compare equal then they will automatically
+compare almost equal.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertAlmostEquals">
+<code class="descclassname">OrderTest.</code><code class="descname">assertAlmostEquals</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertAlmostEquals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertCountEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">assertCountEqual</code><span class="sig-paren">(</span><em>self</em>, <em>first</em>, <em>second</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertCountEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>An unordered sequence comparison asserting that the same elements,
+regardless of order.  If the same element occurs more than once,
+it verifies that the elements occur the same number of times.</p>
+<blockquote>
+<div><blockquote>
+<div><dl class="simple">
+<dt>self.assertEqual(Counter(list(first)),</dt><dd><p>Counter(list(second)))</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>Example:</dt><dd><ul class="simple">
+<li><p>[0, 1, 1] and [1, 0, 1] compare equal.</p></li>
+<li><p>[0, 0, 1] and [0, 1] compare unequal.</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertDictContainsSubset">
+<code class="descclassname">OrderTest.</code><code class="descname">assertDictContainsSubset</code><span class="sig-paren">(</span><em>self</em>, <em>subset</em>, <em>dictionary</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertDictContainsSubset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether dictionary is a superset of subset.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertDictEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">assertDictEqual</code><span class="sig-paren">(</span><em>self</em>, <em>d1</em>, <em>d2</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertDictEqual" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">assertEqual</code><span class="sig-paren">(</span><em>self</em>, <em>first</em>, <em>second</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fail if the two objects are unequal as determined by the ‘==’
+operator.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertEquals">
+<code class="descclassname">OrderTest.</code><code class="descname">assertEquals</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertEquals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertFalse">
+<code class="descclassname">OrderTest.</code><code class="descname">assertFalse</code><span class="sig-paren">(</span><em>self</em>, <em>expr</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertFalse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that the expression is false.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertGreater">
+<code class="descclassname">OrderTest.</code><code class="descname">assertGreater</code><span class="sig-paren">(</span><em>self</em>, <em>a</em>, <em>b</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertGreater" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like self.assertTrue(a &gt; b), but with a nicer default message.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertGreaterEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">assertGreaterEqual</code><span class="sig-paren">(</span><em>self</em>, <em>a</em>, <em>b</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertGreaterEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like self.assertTrue(a &gt;= b), but with a nicer default message.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertIn">
+<code class="descclassname">OrderTest.</code><code class="descname">assertIn</code><span class="sig-paren">(</span><em>self</em>, <em>member</em>, <em>container</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like self.assertTrue(a in b), but with a nicer default message.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertIs">
+<code class="descclassname">OrderTest.</code><code class="descname">assertIs</code><span class="sig-paren">(</span><em>self</em>, <em>expr1</em>, <em>expr2</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertIs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like self.assertTrue(a is b), but with a nicer default message.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertIsInstance">
+<code class="descclassname">OrderTest.</code><code class="descname">assertIsInstance</code><span class="sig-paren">(</span><em>self</em>, <em>obj</em>, <em>cls</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertIsInstance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as self.assertTrue(isinstance(obj, cls)), with a nicer
+default message.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertIsNone">
+<code class="descclassname">OrderTest.</code><code class="descname">assertIsNone</code><span class="sig-paren">(</span><em>self</em>, <em>obj</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertIsNone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as self.assertTrue(obj is None), with a nicer default message.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertIsNot">
+<code class="descclassname">OrderTest.</code><code class="descname">assertIsNot</code><span class="sig-paren">(</span><em>self</em>, <em>expr1</em>, <em>expr2</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertIsNot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like self.assertTrue(a is not b), but with a nicer default message.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertIsNotNone">
+<code class="descclassname">OrderTest.</code><code class="descname">assertIsNotNone</code><span class="sig-paren">(</span><em>self</em>, <em>obj</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertIsNotNone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Included for symmetry with assertIsNone.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertLess">
+<code class="descclassname">OrderTest.</code><code class="descname">assertLess</code><span class="sig-paren">(</span><em>self</em>, <em>a</em>, <em>b</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertLess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like self.assertTrue(a &lt; b), but with a nicer default message.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertLessEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">assertLessEqual</code><span class="sig-paren">(</span><em>self</em>, <em>a</em>, <em>b</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertLessEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like self.assertTrue(a &lt;= b), but with a nicer default message.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertListEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">assertListEqual</code><span class="sig-paren">(</span><em>self</em>, <em>list1</em>, <em>list2</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertListEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list-specific equality assertion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>list1</strong> – The first list to compare.</p></li>
+<li><p><strong>list2</strong> – The second list to compare.</p></li>
+<li><p><strong>msg</strong> – Optional message to use on failure instead of a list of
+differences.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertLogs">
+<code class="descclassname">OrderTest.</code><code class="descname">assertLogs</code><span class="sig-paren">(</span><em>self</em>, <em>logger=None</em>, <em>level=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertLogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fail unless a log message of level <em>level</em> or higher is emitted
+on <em>logger_name</em> or its children.  If omitted, <em>level</em> defaults to
+INFO and <em>logger</em> defaults to the root logger.</p>
+<p>This method must be used as a context manager, and will yield
+a recording object with two attributes: <cite>output</cite> and <cite>records</cite>.
+At the end of the context manager, the <cite>output</cite> attribute will
+be a list of the matching formatted log messages and the
+<cite>records</cite> attribute will be a list of the corresponding LogRecord
+objects.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertLogs</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;INFO&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;first message&#39;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;foo.bar&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;second message&#39;</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;INFO:foo:first message&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;ERROR:foo.bar:second message&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertMultiLineEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">assertMultiLineEqual</code><span class="sig-paren">(</span><em>self</em>, <em>first</em>, <em>second</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertMultiLineEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assert that two multi-line strings are equal.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertNotAlmostEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">assertNotAlmostEqual</code><span class="sig-paren">(</span><em>self</em>, <em>first</em>, <em>second</em>, <em>places=None</em>, <em>msg=None</em>, <em>delta=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertNotAlmostEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fail if the two objects are equal as determined by their
+difference rounded to the given number of decimal places
+(default 7) and comparing to zero, or by comparing that the
+difference between the two objects is less than the given delta.</p>
+<p>Note that decimal places (from zero) are usually not the same
+as significant digits (measured from the most significant digit).</p>
+<p>Objects that are equal automatically fail.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertNotAlmostEquals">
+<code class="descclassname">OrderTest.</code><code class="descname">assertNotAlmostEquals</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertNotAlmostEquals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertNotEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">assertNotEqual</code><span class="sig-paren">(</span><em>self</em>, <em>first</em>, <em>second</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertNotEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fail if the two objects are equal as determined by the ‘!=’
+operator.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertNotEquals">
+<code class="descclassname">OrderTest.</code><code class="descname">assertNotEquals</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertNotEquals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertNotIn">
+<code class="descclassname">OrderTest.</code><code class="descname">assertNotIn</code><span class="sig-paren">(</span><em>self</em>, <em>member</em>, <em>container</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertNotIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like self.assertTrue(a not in b), but with a nicer default message.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertNotIsInstance">
+<code class="descclassname">OrderTest.</code><code class="descname">assertNotIsInstance</code><span class="sig-paren">(</span><em>self</em>, <em>obj</em>, <em>cls</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertNotIsInstance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Included for symmetry with assertIsInstance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertNotRegex">
+<code class="descclassname">OrderTest.</code><code class="descname">assertNotRegex</code><span class="sig-paren">(</span><em>self</em>, <em>text</em>, <em>unexpected_regex</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertNotRegex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fail the test if the text matches the regular expression.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertNotRegexpMatches">
+<code class="descclassname">OrderTest.</code><code class="descname">assertNotRegexpMatches</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertNotRegexpMatches" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertRaises">
+<code class="descclassname">OrderTest.</code><code class="descname">assertRaises</code><span class="sig-paren">(</span><em>self</em>, <em>expected_exception</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertRaises" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fail unless an exception of class expected_exception is raised
+by the callable when invoked with specified positional and
+keyword arguments. If a different type of exception is
+raised, it will not be caught, and the test case will be
+deemed to have suffered an error, exactly as for an
+unexpected exception.</p>
+<p>If called with the callable and arguments omitted, will return a
+context object used like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="n">SomeException</span><span class="p">):</span>
+    <span class="n">do_something</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>An optional keyword argument ‘msg’ can be provided when assertRaises
+is used as a context object.</p>
+<p>The context manager keeps a reference to the exception as
+the ‘exception’ attribute. This allows you to inspect the
+exception after the assertion:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="n">SomeException</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+    <span class="n">do_something</span><span class="p">()</span>
+<span class="n">the_exception</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">exception</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">the_exception</span><span class="o">.</span><span class="n">error_code</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertRaisesRegex">
+<code class="descclassname">OrderTest.</code><code class="descname">assertRaisesRegex</code><span class="sig-paren">(</span><em>self</em>, <em>expected_exception</em>, <em>expected_regex</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertRaisesRegex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asserts that the message in a raised exception matches a regex.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>expected_exception</strong> – Exception class expected to be raised.</p></li>
+<li><p><strong>expected_regex</strong> – Regex (re.Pattern object or string) expected
+to be found in error message.</p></li>
+<li><p><strong>args</strong> – Function to be called and extra positional args.</p></li>
+<li><p><strong>kwargs</strong> – Extra kwargs.</p></li>
+<li><p><strong>msg</strong> – Optional message used in case of failure. Can only be used
+when assertRaisesRegex is used as a context manager.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertRaisesRegexp">
+<code class="descclassname">OrderTest.</code><code class="descname">assertRaisesRegexp</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertRaisesRegexp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertRegex">
+<code class="descclassname">OrderTest.</code><code class="descname">assertRegex</code><span class="sig-paren">(</span><em>self</em>, <em>text</em>, <em>expected_regex</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertRegex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fail the test unless the text matches the regular expression.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertRegexpMatches">
+<code class="descclassname">OrderTest.</code><code class="descname">assertRegexpMatches</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertRegexpMatches" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertSequenceEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">assertSequenceEqual</code><span class="sig-paren">(</span><em>self</em>, <em>seq1</em>, <em>seq2</em>, <em>msg=None</em>, <em>seq_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertSequenceEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>An equality assertion for ordered sequences (like lists and tuples).</p>
+<p>For the purposes of this function, a valid ordered sequence type is one
+which can be indexed, has a length, and has an equality operator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq1</strong> – The first sequence to compare.</p></li>
+<li><p><strong>seq2</strong> – The second sequence to compare.</p></li>
+<li><p><strong>seq_type</strong> – The expected datatype of the sequences, or None if no
+datatype should be enforced.</p></li>
+<li><p><strong>msg</strong> – Optional message to use on failure instead of a list of
+differences.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertSetEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">assertSetEqual</code><span class="sig-paren">(</span><em>self</em>, <em>set1</em>, <em>set2</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertSetEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set-specific equality assertion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>set1</strong> – The first set to compare.</p></li>
+<li><p><strong>set2</strong> – The second set to compare.</p></li>
+<li><p><strong>msg</strong> – Optional message to use on failure instead of a list of
+differences.</p></li>
+</ul>
+</dd>
+</dl>
+<p>assertSetEqual uses ducktyping to support different types of sets, and
+is optimized for sets specifically (parameters must support a
+difference method).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertTrue">
+<code class="descclassname">OrderTest.</code><code class="descname">assertTrue</code><span class="sig-paren">(</span><em>self</em>, <em>expr</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertTrue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that the expression is true.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertTupleEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">assertTupleEqual</code><span class="sig-paren">(</span><em>self</em>, <em>tuple1</em>, <em>tuple2</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertTupleEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>A tuple-specific equality assertion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tuple1</strong> – The first tuple to compare.</p></li>
+<li><p><strong>tuple2</strong> – The second tuple to compare.</p></li>
+<li><p><strong>msg</strong> – Optional message to use on failure instead of a list of
+differences.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertWarns">
+<code class="descclassname">OrderTest.</code><code class="descname">assertWarns</code><span class="sig-paren">(</span><em>self</em>, <em>expected_warning</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertWarns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fail unless a warning of class warnClass is triggered
+by the callable when invoked with specified positional and
+keyword arguments.  If a different type of warning is
+triggered, it will not be handled: depending on the other
+warning filtering rules in effect, it might be silenced, printed
+out, or raised as an exception.</p>
+<p>If called with the callable and arguments omitted, will return a
+context object used like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertWarns</span><span class="p">(</span><span class="n">SomeWarning</span><span class="p">):</span>
+    <span class="n">do_something</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>An optional keyword argument ‘msg’ can be provided when assertWarns
+is used as a context object.</p>
+<p>The context manager keeps a reference to the first matching
+warning as the ‘warning’ attribute; similarly, the ‘filename’
+and ‘lineno’ attributes give you information about the line
+of Python code from which the warning was triggered.
+This allows you to inspect the warning after the assertion:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertWarns</span><span class="p">(</span><span class="n">SomeWarning</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+    <span class="n">do_something</span><span class="p">()</span>
+<span class="n">the_warning</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">warning</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">the_warning</span><span class="o">.</span><span class="n">some_attribute</span><span class="p">,</span> <span class="mi">147</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assertWarnsRegex">
+<code class="descclassname">OrderTest.</code><code class="descname">assertWarnsRegex</code><span class="sig-paren">(</span><em>self</em>, <em>expected_warning</em>, <em>expected_regex</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertWarnsRegex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asserts that the message in a triggered warning matches a regexp.
+Basic functioning is similar to assertWarns() with the addition
+that only warnings whose messages also match the regular expression
+are considered successful matches.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>expected_warning</strong> – Warning class expected to be triggered.</p></li>
+<li><p><strong>expected_regex</strong> – Regex (re.Pattern object or string) expected
+to be found in error message.</p></li>
+<li><p><strong>args</strong> – Function to be called and extra positional args.</p></li>
+<li><p><strong>kwargs</strong> – Extra kwargs.</p></li>
+<li><p><strong>msg</strong> – Optional message used in case of failure. Can only be used
+when assertWarnsRegex is used as a context manager.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.assert_">
+<code class="descclassname">OrderTest.</code><code class="descname">assert_</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assert_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.countTestCases">
+<code class="descclassname">OrderTest.</code><code class="descname">countTestCases</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.countTestCases" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.debug">
+<code class="descclassname">OrderTest.</code><code class="descname">debug</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the test without collecting errors in a TestResult</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.defaultTestResult">
+<code class="descclassname">OrderTest.</code><code class="descname">defaultTestResult</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.defaultTestResult" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.doCleanups">
+<code class="descclassname">OrderTest.</code><code class="descname">doCleanups</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.doCleanups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute all cleanup functions. Normally called for you after
+tearDown.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.fail">
+<code class="descclassname">OrderTest.</code><code class="descname">fail</code><span class="sig-paren">(</span><em>self</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.fail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fail immediately, with the given message.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.failIf">
+<code class="descclassname">OrderTest.</code><code class="descname">failIf</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.failIf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.failIfAlmostEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">failIfAlmostEqual</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.failIfAlmostEqual" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.failIfEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">failIfEqual</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.failIfEqual" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.failUnless">
+<code class="descclassname">OrderTest.</code><code class="descname">failUnless</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.failUnless" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.failUnlessAlmostEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">failUnlessAlmostEqual</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.failUnlessAlmostEqual" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.failUnlessEqual">
+<code class="descclassname">OrderTest.</code><code class="descname">failUnlessEqual</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.failUnlessEqual" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.failUnlessRaises">
+<code class="descclassname">OrderTest.</code><code class="descname">failUnlessRaises</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.failUnlessRaises" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.getError">
+<code class="descclassname">OrderTest.</code><code class="descname">getError</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/Tests.html#OrderTest.getError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.Tests.OrderTest.getError" title="Permalink to this definition">¶</a></dt>
+<dd><p>For given h, generate A[h], f and A(f) and return norm of error.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.id">
+<code class="descclassname">OrderTest.</code><code class="descname">id</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.orderTest">
+<code class="descclassname">OrderTest.</code><code class="descname">orderTest</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/Tests.html#OrderTest.orderTest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.Tests.OrderTest.orderTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>For number of cells specified in meshSizes setup mesh, call getError
+and prints mesh size, error, ratio between current and previous error,
+and estimated order of convergence.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.run">
+<code class="descclassname">OrderTest.</code><code class="descname">run</code><span class="sig-paren">(</span><em>self</em>, <em>result=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.setUp">
+<code class="descclassname">OrderTest.</code><code class="descname">setUp</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="discretize.Tests.OrderTest.setUpClass">
+<em class="property">classmethod </em><code class="descclassname">OrderTest.</code><code class="descname">setUpClass</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.setUpClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up class fixture before running tests in the class.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.setupMesh">
+<code class="descclassname">OrderTest.</code><code class="descname">setupMesh</code><span class="sig-paren">(</span><em>self</em>, <em>nC</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/Tests.html#OrderTest.setupMesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.Tests.OrderTest.setupMesh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.shortDescription">
+<code class="descclassname">OrderTest.</code><code class="descname">shortDescription</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.shortDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a one-line description of the test, or None if no
+description has been provided.</p>
+<p>The default implementation of this method returns the first line of
+the specified test method’s docstring.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.skipTest">
+<code class="descclassname">OrderTest.</code><code class="descname">skipTest</code><span class="sig-paren">(</span><em>self</em>, <em>reason</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.skipTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Skip this test.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.subTest">
+<code class="descclassname">OrderTest.</code><code class="descname">subTest</code><span class="sig-paren">(</span><em>self</em>, <em>msg=&lt;object object at 0x7fc6ad56ec10&gt;</em>, <em>**params</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.subTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a context manager that will return the enclosed block
+of code in a subtest identified by the optional message and
+keyword parameters.  A failure in the subtest marks the test
+case as failed but resumes execution at the end of the enclosed
+block, allowing further test code to be executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.Tests.OrderTest.tearDown">
+<code class="descclassname">OrderTest.</code><code class="descname">tearDown</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for deconstructing the test fixture after testing it.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="discretize.Tests.OrderTest.tearDownClass">
+<em class="property">classmethod </em><code class="descclassname">OrderTest.</code><code class="descname">tearDownClass</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.tearDownClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for deconstructing the class fixture after running all tests in the class.</p>
+</dd></dl>
+
+<div style='clear:both'></div></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="discretize.Tests.checkDerivative.html" class="btn btn-neutral float-right" title="discretize.Tests.checkDerivative" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="discretize.mixins.vtkModule.assign_cell_data.html" class="btn btn-neutral float-left" title="discretize.mixins.vtkModule.assign_cell_data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<div role="contentinfo">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    2013-2019,
+    <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
+    Except where noted, this work is licensed under a <br />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons Attribution 4.0 International License
+    </a>
+</div>
+<br>
+<div>
+Built with
+    <a href="http://sphinx-doc.org/">Sphinx</a>
+    using a
+    <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+    provided by
+    <a href="https://readthedocs.org">Read the Docs</a>.
+ </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

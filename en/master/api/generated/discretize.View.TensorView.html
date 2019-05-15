@@ -1,0 +1,508 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>discretize.View.TensorView &mdash; discretize 0.4.3 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="discretize.View.CylView" href="discretize.View.CylView.html" />
+    <link rel="prev" title="discretize.MeshIO.TreeMeshIO" href="discretize.MeshIO.TreeMeshIO.html" />
+ 
+
+<meta name="description" content="Simulation and Parameter Estimation in Geophysics">
+<meta name="author" content="SimPEG Developers">
+<meta name="keywords" content="python, geophysics, inversion, electromagnetics, magnetotellurics, magnetics, gravity, DC, flow inverse problems, open source, finite volume">
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45185336-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> discretize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/big_picture.html">Why discretize?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/additional_resources.html">Additional Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/mesh_overview.html">Overview of mesh types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/tensor_mesh.html">Tensor meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/cylindrical_mesh.html">Cylindrical meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#meshes">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.InnerProducts">Numerical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mesh-io">Mesh IO</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#visualization">Visualization</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">discretize.View.TensorView</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.View.CylView.html">discretize.View.CylView</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.View.CurviView.html">discretize.View.CurviView</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.View.Slicer.html">discretize.View.Slicer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.mixins.vtkModule.html"><code class="docutils literal notranslate"><span class="pre">discretize.mixins.vtkModule</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.utils">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.base">Base Mesh</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting connected
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://simpeg.xyz"><i class="fa fa-external-link-square fa-fw"></i> SimPEG</a></li>
+            
+                <li class="toctree-l1"><a href="http://slack.simpeg.xyz"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/simpeg/discretize"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">discretize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+        
+      <li>discretize.View.TensorView</li>
+    
+    
+
+    <li class="wy-breadcrumbs-aside">
+        
+            
+                
+                
+                <a href="https://github.com/simpeg/discretize/issues/new?title=Suggested%20improvement%20for%20api/generated/discretize.View.TensorView&body=Please%20describe%20what%20could%20be%20improved%20about%20this%20page%20or%20the%20typo/mistake%20that%20you%20found%3A"
+                   class="fa fa-github"> Edit this page</a>
+            
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="discretize-view-tensorview">
+<h1>discretize.View.TensorView<a class="headerlink" href="#discretize-view-tensorview" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="discretize.View.TensorView">
+<em class="property">class </em><code class="descclassname">discretize.View.</code><code class="descname">TensorView</code><a class="reference internal" href="../../_modules/discretize/View.html#TensorView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.TensorView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Provides viewing functions for TensorMesh</p>
+<p>This class is inherited by TensorMesh</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.View.TensorView.plotGrid" title="discretize.View.TensorView.plotGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotGrid</span></code></a>(self[, ax, nodes, faces, centers, …])</p></td>
+<td><p>Plot the nodal, cell-centered and staggered grids for 1,2 and 3 dimensions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.View.TensorView.plotImage" title="discretize.View.TensorView.plotImage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotImage</span></code></a>(v)</p></td>
+<td><p>Plots scalar fields on the given mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.View.TensorView.plotSlice" title="discretize.View.TensorView.plotSlice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotSlice</span></code></a>(self, v[, vType, normal, ind, …])</p></td>
+<td><p>Plots a slice of a 3D mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.View.TensorView.plot_3d_slicer" title="discretize.View.TensorView.plot_3d_slicer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_3d_slicer</span></code></a>(self, v[, xslice, yslice, …])</p></td>
+<td><p>Plot slices of a 3D volume, interactively (scroll wheel).</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div style='clear:both'></div><div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="discretize.View.TensorView.plotGrid">
+<code class="descclassname">TensorView.</code><code class="descname">plotGrid</code><span class="sig-paren">(</span><em>self</em>, <em>ax=None</em>, <em>nodes=False</em>, <em>faces=False</em>, <em>centers=False</em>, <em>edges=False</em>, <em>lines=True</em>, <em>showIt=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#TensorView.plotGrid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.TensorView.plotGrid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the nodal, cell-centered and staggered grids for 1,2 and 3 dimensions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – plot nodes</p></li>
+<li><p><strong>faces</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – plot faces</p></li>
+<li><p><strong>centers</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – plot centers</p></li>
+<li><p><strong>edges</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – plot edges</p></li>
+<li><p><strong>lines</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – plot lines connecting nodes</p></li>
+<li><p><strong>showIt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – call plt.show()</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">h1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">h2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">])</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">faces</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-View-TensorView-1.py">Source code</a>)</p>
+<div class="figure align-center">
+<img alt="../../_images/discretize-View-TensorView-1.png" src="../../_images/discretize-View-TensorView-1.png" />
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">h1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">h2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">h3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">,</span> <span class="n">h3</span><span class="p">])</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">faces</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-View-TensorView-2.py">Source code</a>)</p>
+<div class="figure align-center">
+<img alt="../../_images/discretize-View-TensorView-2.png" src="../../_images/discretize-View-TensorView-2.png" />
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.View.TensorView.plotImage">
+<code class="descclassname">TensorView.</code><code class="descname">plotImage</code><span class="sig-paren">(</span><em>v</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#TensorView.plotImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.TensorView.plotImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots scalar fields on the given mesh.</p>
+<p>Input:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>v</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – vector</p>
+</dd>
+</dl>
+<p>Optional Inputs:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vType</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – type of vector (‘CC’, ‘N’, ‘F’, ‘Fx’, ‘Fy’, ‘Fz’, ‘E’, ‘Ex’, ‘Ey’, ‘Ez’)</p></li>
+<li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.0.3)"><em>matplotlib.axes.Axes</em></a>) – axis to plot to</p></li>
+<li><p><strong>showIt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – call plt.show()</p></li>
+</ul>
+</dd>
+</dl>
+<p>3D Inputs:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>numbering</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – show numbering of slices, 3D only</p></li>
+<li><p><strong>annotationColor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – color of annotation, e.g. ‘w’, ‘k’, ‘b’</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">plotImage</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-View-TensorView-3.py">Source code</a>)</p>
+<div class="figure align-center">
+<img alt="../../_images/discretize-View-TensorView-3.png" src="../../_images/discretize-View-TensorView-3.png" />
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">plotImage</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">annotationColor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-View-TensorView-4.py">Source code</a>)</p>
+<div class="figure align-center">
+<img alt="../../_images/discretize-View-TensorView-4.png" src="../../_images/discretize-View-TensorView-4.png" />
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.View.TensorView.plotSlice">
+<code class="descclassname">TensorView.</code><code class="descname">plotSlice</code><span class="sig-paren">(</span><em>self</em>, <em>v</em>, <em>vType='CC'</em>, <em>normal='Z'</em>, <em>ind=None</em>, <em>grid=False</em>, <em>view='real'</em>, <em>ax=None</em>, <em>clim=None</em>, <em>showIt=False</em>, <em>pcolorOpts=None</em>, <em>streamOpts=None</em>, <em>gridOpts=None</em>, <em>range_x=None</em>, <em>range_y=None</em>, <em>sample_grid=None</em>, <em>stream_threshold=None</em>, <em>stream_thickness=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#TensorView.plotSlice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.TensorView.plotSlice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots a slice of a 3D mesh.</p>
+<p>(<a class="reference external" href="../../api/generated/discretize-View-TensorView-5.py">Source code</a>)</p>
+<div class="figure align-center">
+<img alt="../../_images/discretize-View-TensorView-5.png" src="../../_images/discretize-View-TensorView-5.png" />
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.View.TensorView.plot_3d_slicer">
+<code class="descclassname">TensorView.</code><code class="descname">plot_3d_slicer</code><span class="sig-paren">(</span><em>self, v, xslice=None, yslice=None, zslice=None, vType='CC', view='real', axis='xy', transparent=None, clim=None, aspect='auto', grid=[2, 2, 1], pcolorOpts=None, fig=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#TensorView.plot_3d_slicer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.TensorView.plot_3d_slicer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot slices of a 3D volume, interactively (scroll wheel).</p>
+<p>If called from a notebook, make sure to set</p>
+<blockquote>
+<div><p>%matplotlib notebook</p>
+</div></blockquote>
+<p>See the class <cite>discretize.View.Slicer</cite> for more information.</p>
+<p>It returns nothing. However, if you need the different figure handles
+you can get it via</p>
+<blockquote>
+<div><p><cite>fig = plt.gcf()</cite></p>
+</div></blockquote>
+<p>and subsequently its children via</p>
+<blockquote>
+<div><p><cite>fig.get_children()</cite></p>
+</div></blockquote>
+<p>and recursively deeper, e.g.,</p>
+<blockquote>
+<div><p><cite>fig.get_children()[0].get_children()</cite>.</p>
+</div></blockquote>
+<p>One can also provide an existing figure instance, which can be useful
+for interactive widgets in Notebooks. The provided figure is cleared
+first.</p>
+</dd></dl>
+
+<div style='clear:both'></div></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="discretize.View.CylView.html" class="btn btn-neutral float-right" title="discretize.View.CylView" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="discretize.MeshIO.TreeMeshIO.html" class="btn btn-neutral float-left" title="discretize.MeshIO.TreeMeshIO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<div role="contentinfo">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    2013-2019,
+    <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
+    Except where noted, this work is licensed under a <br />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons Attribution 4.0 International License
+    </a>
+</div>
+<br>
+<div>
+Built with
+    <a href="http://sphinx-doc.org/">Sphinx</a>
+    using a
+    <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+    provided by
+    <a href="https://readthedocs.org">Read the Docs</a>.
+ </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

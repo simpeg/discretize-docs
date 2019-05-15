@@ -1,0 +1,897 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>discretize.base.base_tensor_mesh &mdash; discretize 0.4.3 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/logo-block.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+ 
+
+<meta name="description" content="Simulation and Parameter Estimation in Geophysics">
+<meta name="author" content="SimPEG Developers">
+<meta name="keywords" content="python, geophysics, inversion, electromagnetics, magnetotellurics, magnetics, gravity, DC, flow inverse problems, open source, finite volume">
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45185336-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> discretize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../content/big_picture.html">Why discretize?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../content/installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../content/additional_resources.html">Additional Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/mesh_overview.html">Overview of mesh types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/tensor_mesh.html">Tensor meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/cylindrical_mesh.html">Cylindrical meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../content/finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../content/inner_products.html">Inner Products</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">API Reference</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting connected
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://simpeg.xyz"><i class="fa fa-external-link-square fa-fw"></i> SimPEG</a></li>
+            
+                <li class="toctree-l1"><a href="http://slack.simpeg.xyz"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/simpeg/discretize"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">discretize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>discretize.base.base_tensor_mesh</li>
+    
+    
+
+    <li class="wy-breadcrumbs-aside">
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for discretize.base.base_tensor_mesh</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Base class for tensor-product style meshes</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">properties</span>
+
+<span class="kn">from</span> <span class="nn">.base_mesh</span> <span class="k">import</span> <span class="n">BaseMesh</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">utils</span>
+
+<div class="viewcode-block" id="BaseTensorMesh"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseTensorMesh.html#discretize.BaseTensorMesh">[docs]</a><span class="k">class</span> <span class="nc">BaseTensorMesh</span><span class="p">(</span><span class="n">BaseMesh</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for tensor-product style meshes</span>
+
+<span class="sd">    This class contains properites and methods that are common to cartesian</span>
+<span class="sd">    and cylindrical meshes defined by tensor-produts of vectors describing</span>
+<span class="sd">    cell spacings.</span>
+
+<span class="sd">    Do not use this class directly, instead, inherit it if you plan to develop</span>
+<span class="sd">    a tensor-style mesh (e.g. a spherical mesh) or use the</span>
+<span class="sd">    :meth:`discretize.TensorMesh` class to create a cartesian tensor mesh.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_meshType</span> <span class="o">=</span> <span class="s1">&#39;BASETENSOR&#39;</span>
+
+    <span class="n">_unitDimensions</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># properties</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">List</span><span class="p">(</span>
+        <span class="s2">&quot;h is a list containing the cell widths of the tensor mesh in each &quot;</span>
+        <span class="s2">&quot;dimension.&quot;</span><span class="p">,</span>
+        <span class="n">properties</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span>
+            <span class="s2">&quot;widths of the tensor mesh in a single dimension&quot;</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+            <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,),</span>
+        <span class="p">),</span>
+        <span class="n">max_length</span><span class="o">=</span><span class="mi">3</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="n">h_in</span> <span class="o">=</span> <span class="n">h</span>
+        <span class="n">x0_in</span> <span class="o">=</span> <span class="n">x0</span>
+
+        <span class="c1"># Sanity Checks</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">h_in</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">],</span> <span class="s1">&#39;h_in must be a list, not </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">h_in</span><span class="p">))</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">h_in</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">(</span>
+            <span class="s1">&#39;h_in must be of dimension 1, 2, or 3 not </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">h_in</span><span class="p">))</span>
+        <span class="p">)</span>
+
+        <span class="c1"># build h</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">h_in</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">h_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">h_in</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">utils</span><span class="o">.</span><span class="n">isScalar</span><span class="p">(</span><span class="n">h_i</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">h_i</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+                <span class="c1"># This gives you something over the unit cube.</span>
+                <span class="n">h_i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unitDimensions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">h_i</span><span class="p">))</span><span class="o">/</span><span class="nb">int</span><span class="p">(</span><span class="n">h_i</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">h_i</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="n">h_i</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">meshTensor</span><span class="p">(</span><span class="n">h_i</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">h_i</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">),</span> <span class="p">(</span>
+                <span class="s2">&quot;h[</span><span class="si">{0:d}</span><span class="s2">] is not a numpy array.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">h_i</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span>
+                <span class="s2">&quot;h[</span><span class="si">{0:d}</span><span class="s2">] must be a 1D numpy array.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">h_i</span><span class="p">[:]</span>  <span class="c1"># make a copy.</span>
+
+        <span class="c1"># Origin of the mesh</span>
+        <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">x0_in</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">x0_in</span><span class="p">),</span> <span class="s2">&quot;Dimension mismatch. x0 != len(h)&quot;</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="p">)):</span>
+                <span class="n">x_i</span><span class="p">,</span> <span class="n">h_i</span> <span class="o">=</span> <span class="n">x0_in</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">utils</span><span class="o">.</span><span class="n">isScalar</span><span class="p">(</span><span class="n">x_i</span><span class="p">):</span>
+                    <span class="n">x0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_i</span>
+                <span class="k">elif</span> <span class="n">x_i</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">:</span>
+                    <span class="n">x0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+                <span class="k">elif</span> <span class="n">x_i</span> <span class="o">==</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span>
+                    <span class="n">x0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">h_i</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">*</span><span class="mf">0.5</span>
+                <span class="k">elif</span> <span class="n">x_i</span> <span class="o">==</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span>
+                    <span class="n">x0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">h_i</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                        <span class="s2">&quot;x0[</span><span class="si">{0:d}</span><span class="s2">] must be a scalar or &#39;0&#39; to be zero, &quot;</span>
+                        <span class="s2">&quot;&#39;C&#39; to center, or &#39;N&#39; to be negative.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                    <span class="p">)</span>
+
+        <span class="k">if</span> <span class="s1">&#39;n&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">size</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">h</span><span class="p">]))</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="p">(</span>
+                <span class="s2">&quot;Dimension mismatch. The provided n doesn&#39;t &quot;</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">size</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">h</span><span class="p">])</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">BaseTensorMesh</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">n</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="n">x0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Ensure h contains 1D vectors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">h</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">hx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Width of cells in the x direction&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">hy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Width of cells in the y direction&quot;</span>
+        <span class="k">return</span> <span class="kc">None</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">hz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Width of cells in the z direction&quot;</span>
+        <span class="k">return</span> <span class="kc">None</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vectorNx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Nodal grid vector (1D) in the x direction.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hx</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vectorNy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Nodal grid vector (1D) in the y direction.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="kc">None</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hy</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vectorNz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Nodal grid vector (1D) in the z direction.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="kc">None</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hz</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vectorCCx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Cell-centered grid vector (1D) in the x direction.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">hx</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vectorCCy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Cell-centered grid vector (1D) in the y direction.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="kc">None</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="k">else</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hy</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">hy</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vectorCCz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Cell-centered grid vector (1D) in the z direction.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="kc">None</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="k">else</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hz</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">hz</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridCC</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Cell-centered grid.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getTensorGrid</span><span class="p">(</span><span class="s1">&#39;CC&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridN</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Nodal grid.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getTensorGrid</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">h_gridded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns an (nC, dim) numpy array with the widths of all cells in order</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">hx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nCy</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">hy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nCx</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">hx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nCy</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">nCz</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">hy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nCz</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nCx</span><span class="p">)))</span>
+            <span class="n">hz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nCx</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">nCy</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">,</span> <span class="n">hz</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridFx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Face staggered grid in the x direction.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getTensorGrid</span><span class="p">(</span><span class="s1">&#39;Fx&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridFy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Face staggered grid in the y direction.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFy</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getTensorGrid</span><span class="p">(</span><span class="s1">&#39;Fy&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridFz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Face staggered grid in the z direction.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFz</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getTensorGrid</span><span class="p">(</span><span class="s1">&#39;Fz&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridEx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Edge staggered grid in the x direction.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nEx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getTensorGrid</span><span class="p">(</span><span class="s1">&#39;Ex&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridEy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Edge staggered grid in the y direction.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nEy</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getTensorGrid</span><span class="p">(</span><span class="s1">&#39;Ey&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gridEz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Edge staggered grid in the z direction.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nEz</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getTensorGrid</span><span class="p">(</span><span class="s1">&#39;Ez&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_getTensorGrid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_grid&#39;</span> <span class="o">+</span> <span class="n">key</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_grid&#39;</span> <span class="o">+</span> <span class="n">key</span><span class="p">,</span> <span class="n">utils</span><span class="o">.</span><span class="n">ndgrid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getTensor</span><span class="p">(</span><span class="n">key</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_grid&#39;</span> <span class="o">+</span> <span class="n">key</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BaseTensorMesh.getTensor"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseTensorMesh.html#discretize.BaseTensorMesh.getTensor">[docs]</a>    <span class="k">def</span> <span class="nf">getTensor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns a tensor list.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">        key : str</span>
+<span class="sd">            Which tensor (see below)</span>
+
+<span class="sd">            key can be::</span>
+
+<span class="sd">                &#39;CC&#39;    -&gt; scalar field defined on cell centers</span>
+<span class="sd">                &#39;N&#39;     -&gt; scalar field defined on nodes</span>
+<span class="sd">                &#39;Fx&#39;    -&gt; x-component of field defined on faces</span>
+<span class="sd">                &#39;Fy&#39;    -&gt; y-component of field defined on faces</span>
+<span class="sd">                &#39;Fz&#39;    -&gt; z-component of field defined on faces</span>
+<span class="sd">                &#39;Ex&#39;    -&gt; x-component of field defined on edges</span>
+<span class="sd">                &#39;Ey&#39;    -&gt; y-component of field defined on edges</span>
+<span class="sd">                &#39;Ez&#39;    -&gt; z-component of field defined on edges</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+
+<span class="sd">        list</span>
+<span class="sd">            list of the tensors that make up the mesh.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;Fx&#39;</span><span class="p">:</span>
+            <span class="n">ten</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorNx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorCCy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorCCz</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;Fy&#39;</span><span class="p">:</span>
+            <span class="n">ten</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorCCx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorNy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorCCz</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;Fz&#39;</span><span class="p">:</span>
+            <span class="n">ten</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorCCx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorCCy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorNz</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;Ex&#39;</span><span class="p">:</span>
+            <span class="n">ten</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorCCx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorNy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorNz</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;Ey&#39;</span><span class="p">:</span>
+            <span class="n">ten</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorNx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorCCy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorNz</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;Ez&#39;</span><span class="p">:</span>
+            <span class="n">ten</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorNx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorNy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorCCz</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
+            <span class="n">ten</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorCCx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorCCy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorCCz</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span>
+            <span class="n">ten</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorNx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorNy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorNz</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">ten</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span></div>
+
+    <span class="c1"># --------------- Methods ---------------------</span>
+
+<div class="viewcode-block" id="BaseTensorMesh.isInside"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseTensorMesh.html#discretize.BaseTensorMesh.isInside">[docs]</a>    <span class="k">def</span> <span class="nf">isInside</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">locType</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Determines if a set of points are inside a mesh.</span>
+
+<span class="sd">        :param numpy.ndarray pts: Location of points to test</span>
+<span class="sd">        :rtype: numpy.ndarray</span>
+<span class="sd">        :return: inside, numpy array of booleans</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">pts</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">asArray_N_x_Dim</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+
+        <span class="n">tensors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getTensor</span><span class="p">(</span><span class="n">locType</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">locType</span> <span class="o">==</span> <span class="s1">&#39;N&#39;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_meshType</span> <span class="o">==</span> <span class="s1">&#39;CYL&#39;</span><span class="p">:</span>
+            <span class="c1"># NOTE: for a CYL mesh we add a node to check if we are inside in</span>
+            <span class="c1"># the radial direction!</span>
+            <span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+            <span class="n">tensors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">tensors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">]</span>
+
+        <span class="n">inside</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">pts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tensors</span><span class="p">):</span>
+            <span class="n">TOL</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1.0e-10</span>
+            <span class="n">inside</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">inside</span> <span class="o">&amp;</span>
+                <span class="p">(</span><span class="n">pts</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">-</span><span class="n">TOL</span><span class="p">)</span> <span class="o">&amp;</span>
+                <span class="p">(</span><span class="n">pts</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="n">TOL</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">inside</span></div>
+
+    <span class="k">def</span> <span class="nf">_getInterpolationMat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">locType</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="n">zerosOutside</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Produces interpolation matrix</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        loc : numpy.ndarray</span>
+<span class="sd">            Location of points to interpolate to</span>
+
+<span class="sd">        locType: stc</span>
+<span class="sd">            What to interpolate</span>
+
+<span class="sd">            locType can be::</span>
+
+<span class="sd">                &#39;Ex&#39;    -&gt; x-component of field defined on edges</span>
+<span class="sd">                &#39;Ey&#39;    -&gt; y-component of field defined on edges</span>
+<span class="sd">                &#39;Ez&#39;    -&gt; z-component of field defined on edges</span>
+<span class="sd">                &#39;Fx&#39;    -&gt; x-component of field defined on faces</span>
+<span class="sd">                &#39;Fy&#39;    -&gt; y-component of field defined on faces</span>
+<span class="sd">                &#39;Fz&#39;    -&gt; z-component of field defined on faces</span>
+<span class="sd">                &#39;N&#39;     -&gt; scalar field defined on nodes</span>
+<span class="sd">                &#39;CC&#39;    -&gt; scalar field defined on cell centers</span>
+<span class="sd">                &#39;CCVx&#39;  -&gt; x-component of vector field defined on cell centers</span>
+<span class="sd">                &#39;CCVy&#39;  -&gt; y-component of vector field defined on cell centers</span>
+<span class="sd">                &#39;CCVz&#39;  -&gt; z-component of vector field defined on cell centers</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scipy.sparse.csr_matrix</span>
+<span class="sd">            M, the interpolation matrix</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">loc</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">asArray_N_x_Dim</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">zerosOutside</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">isInside</span><span class="p">(</span><span class="n">loc</span><span class="p">)),</span> <span class="s2">&quot;Points outside of mesh&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">indZeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">isInside</span><span class="p">(</span><span class="n">loc</span><span class="p">))</span>
+            <span class="n">loc</span><span class="p">[</span><span class="n">indZeros</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+                <span class="n">v</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getTensor</span><span class="p">(</span><span class="s1">&#39;CC&#39;</span><span class="p">)</span>
+            <span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">locType</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Fz&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">,</span> <span class="s1">&#39;Ez&#39;</span><span class="p">]:</span>
+            <span class="n">ind</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}[</span><span class="n">locType</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&gt;=</span> <span class="n">ind</span><span class="p">,</span> <span class="s1">&#39;mesh is not high enough dimension.&#39;</span>
+            <span class="n">nF_nE</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnF</span> <span class="k">if</span> <span class="s1">&#39;F&#39;</span> <span class="ow">in</span> <span class="n">locType</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnE</span>
+            <span class="n">components</span> <span class="o">=</span> <span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">spzeros</span><span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nF_nE</span><span class="p">]</span>
+            <span class="n">components</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">interpmat</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">getTensor</span><span class="p">(</span><span class="n">locType</span><span class="p">))</span>
+            <span class="c1"># remove any zero blocks (hstack complains)</span>
+            <span class="n">components</span> <span class="o">=</span> <span class="p">[</span><span class="n">comp</span> <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">components</span> <span class="k">if</span> <span class="n">comp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">Q</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">components</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">locType</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">]:</span>
+            <span class="n">Q</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">interpmat</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">getTensor</span><span class="p">(</span><span class="n">locType</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">locType</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;CCVx&#39;</span><span class="p">,</span> <span class="s1">&#39;CCVy&#39;</span><span class="p">,</span> <span class="s1">&#39;CCVz&#39;</span><span class="p">]:</span>
+            <span class="n">Q</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">interpmat</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">getTensor</span><span class="p">(</span><span class="s1">&#39;CC&#39;</span><span class="p">))</span>
+            <span class="n">Z</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">spzeros</span><span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">locType</span> <span class="o">==</span> <span class="s1">&#39;CCVx&#39;</span><span class="p">:</span>
+                <span class="n">Q</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Q</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">Z</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">locType</span> <span class="o">==</span> <span class="s1">&#39;CCVy&#39;</span><span class="p">:</span>
+                <span class="n">Q</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Z</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">Z</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">locType</span> <span class="o">==</span> <span class="s1">&#39;CCVz&#39;</span><span class="p">:</span>
+                <span class="n">Q</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Z</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">Q</span><span class="p">])</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="s1">&#39;getInterpolationMat: locType==&#39;</span> <span class="o">+</span> <span class="n">locType</span> <span class="o">+</span>
+                <span class="s1">&#39; and mesh.dim==&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">zerosOutside</span><span class="p">:</span>
+            <span class="n">Q</span><span class="p">[</span><span class="n">indZeros</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">return</span> <span class="n">Q</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()</span>
+
+<div class="viewcode-block" id="BaseTensorMesh.getInterpolationMat"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseTensorMesh.html#discretize.BaseTensorMesh.getInterpolationMat">[docs]</a>    <span class="k">def</span> <span class="nf">getInterpolationMat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">locType</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="n">zerosOutside</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Produces interpolation matrix</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        loc : numpy.ndarray</span>
+<span class="sd">            Location of points to interpolate to</span>
+
+<span class="sd">        locType : str</span>
+<span class="sd">            What to interpolate (see below)</span>
+
+<span class="sd">            locType can be::</span>
+
+<span class="sd">                &#39;Ex&#39;    -&gt; x-component of field defined on edges</span>
+<span class="sd">                &#39;Ey&#39;    -&gt; y-component of field defined on edges</span>
+<span class="sd">                &#39;Ez&#39;    -&gt; z-component of field defined on edges</span>
+<span class="sd">                &#39;Fx&#39;    -&gt; x-component of field defined on faces</span>
+<span class="sd">                &#39;Fy&#39;    -&gt; y-component of field defined on faces</span>
+<span class="sd">                &#39;Fz&#39;    -&gt; z-component of field defined on faces</span>
+<span class="sd">                &#39;N&#39;     -&gt; scalar field defined on nodes</span>
+<span class="sd">                &#39;CC&#39;    -&gt; scalar field defined on cell centers</span>
+<span class="sd">                &#39;CCVx&#39;  -&gt; x-component of vector field defined on cell centers</span>
+<span class="sd">                &#39;CCVy&#39;  -&gt; y-component of vector field defined on cell centers</span>
+<span class="sd">                &#39;CCVz&#39;  -&gt; z-component of vector field defined on cell centers</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+
+<span class="sd">        scipy.sparse.csr_matrix</span>
+<span class="sd">            M, the interpolation matrix</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getInterpolationMat</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">locType</span><span class="p">,</span> <span class="n">zerosOutside</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_fastInnerProduct</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">projType</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">invProp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">invMat</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Fast version of getFaceInnerProduct.</span>
+<span class="sd">            This does not handle the case of a full tensor prop.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">        prop : numpy.array</span>
+<span class="sd">            material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</span>
+
+<span class="sd">        projType : str</span>
+<span class="sd">            &#39;E&#39; or &#39;F&#39;</span>
+
+<span class="sd">        returnP : bool</span>
+<span class="sd">            returns the projection matrices</span>
+
+<span class="sd">        invProp : bool</span>
+<span class="sd">            inverts the material property</span>
+
+<span class="sd">        invMat : bool</span>
+<span class="sd">            inverts the matrix</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scipy.sparse.csr_matrix</span>
+<span class="sd">            M, the inner product matrix (nF, nF)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="n">projType</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">],</span> <span class="p">(</span>
+            <span class="s2">&quot;projType must be &#39;F&#39; for faces or &#39;E&#39; for edges&quot;</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">prop</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">prop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">invProp</span><span class="p">:</span>
+            <span class="n">prop</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">prop</span>
+
+        <span class="k">if</span> <span class="n">utils</span><span class="o">.</span><span class="n">isScalar</span><span class="p">(</span><span class="n">prop</span><span class="p">):</span>
+            <span class="n">prop</span> <span class="o">=</span> <span class="n">prop</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span>
+
+        <span class="c1"># number of elements we are averaging (equals dim for regular</span>
+        <span class="c1"># meshes, but for cyl, where we use symmetry, it is 1 for edge</span>
+        <span class="c1"># variables and 2 for face variables)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_meshType</span> <span class="o">==</span> <span class="s1">&#39;CYL&#39;</span><span class="p">:</span>
+            <span class="n">n_elements</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;vn&#39;</span><span class="o">+</span><span class="n">projType</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n_elements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span>
+
+        <span class="c1"># Isotropic? or anisotropic?</span>
+        <span class="k">if</span> <span class="n">prop</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">:</span>
+            <span class="n">Av</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;ave&#39;</span><span class="o">+</span><span class="n">projType</span><span class="o">+</span><span class="s1">&#39;2CC&#39;</span><span class="p">)</span>
+            <span class="n">Vprop</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vol</span> <span class="o">*</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span>
+            <span class="n">M</span> <span class="o">=</span> <span class="n">n_elements</span> <span class="o">*</span> <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">Vprop</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">prop</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">:</span>
+            <span class="n">Av</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;ave&#39;</span><span class="o">+</span><span class="n">projType</span><span class="o">+</span><span class="s1">&#39;2CCV&#39;</span><span class="p">)</span>
+
+            <span class="c1"># if cyl, then only certain components are relevant due to symmetry</span>
+            <span class="c1"># for faces, x, z matters, for edges, y (which is theta) matters</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_meshType</span> <span class="o">==</span> <span class="s1">&#39;CYL&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">projType</span> <span class="o">==</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span>
+                    <span class="n">prop</span> <span class="o">=</span> <span class="n">prop</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># this is the action of a projection mat</span>
+                <span class="k">elif</span> <span class="n">projType</span> <span class="o">==</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span>
+                    <span class="n">prop</span> <span class="o">=</span> <span class="n">prop</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+
+            <span class="n">V</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">n_elements</span><span class="p">),</span> <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vol</span><span class="p">))</span>
+            <span class="n">M</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">V</span> <span class="o">*</span> <span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">prop</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">invMat</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">utils</span><span class="o">.</span><span class="n">sdInv</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">M</span>
+
+    <span class="k">def</span> <span class="nf">_fastInnerProductDeriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">projType</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">invProp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                               <span class="n">invMat</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">        projType : str</span>
+<span class="sd">            &#39;E&#39; or &#39;F&#39;</span>
+
+<span class="sd">        tensorType : TensorType</span>
+<span class="sd">            type of the tensor</span>
+
+<span class="sd">        invProp : bool</span>
+<span class="sd">            inverts the material property</span>
+
+<span class="sd">        invMat : bool</span>
+<span class="sd">            inverts the matrix</span>
+
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        function</span>
+<span class="sd">            dMdmu, the derivative of the inner product matrix</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="n">projType</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">],</span> <span class="p">(</span><span class="s2">&quot;projType must be &#39;F&#39; for faces or &#39;E&#39;&quot;</span>
+                                        <span class="s2">&quot; for edges&quot;</span><span class="p">)</span>
+
+        <span class="n">tensorType</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">TensorType</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prop</span><span class="p">)</span>
+
+        <span class="n">dMdprop</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">invMat</span> <span class="ow">or</span> <span class="n">invProp</span><span class="p">:</span>
+            <span class="n">MI</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fastInnerProduct</span><span class="p">(</span><span class="n">projType</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">invProp</span><span class="o">=</span><span class="n">invProp</span><span class="p">,</span>
+                                        <span class="n">invMat</span><span class="o">=</span><span class="n">invMat</span><span class="p">)</span>
+
+        <span class="c1"># number of elements we are averaging (equals dim for regular</span>
+        <span class="c1"># meshes, but for cyl, where we use symmetry, it is 1 for edge</span>
+        <span class="c1"># variables and 2 for face variables)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_meshType</span> <span class="o">==</span> <span class="s1">&#39;CYL&#39;</span><span class="p">:</span>
+            <span class="n">n_elements</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;vn&#39;</span><span class="o">+</span><span class="n">projType</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n_elements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span>
+
+        <span class="k">if</span> <span class="n">tensorType</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># isotropic, constant</span>
+            <span class="n">Av</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;ave&#39;</span><span class="o">+</span><span class="n">projType</span><span class="o">+</span><span class="s1">&#39;2CC&#39;</span><span class="p">)</span>
+            <span class="n">V</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vol</span><span class="p">)</span>
+            <span class="n">ones</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">),</span> <span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">))),</span>
+                <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">invMat</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">invProp</span><span class="p">:</span>
+                <span class="n">dMdprop</span> <span class="o">=</span> <span class="n">n_elements</span> <span class="o">*</span> <span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">V</span> <span class="o">*</span> <span class="n">ones</span>
+            <span class="k">elif</span> <span class="n">invMat</span> <span class="ow">and</span> <span class="n">invProp</span><span class="p">:</span>
+                <span class="n">dMdprop</span> <span class="o">=</span>  <span class="n">n_elements</span> <span class="o">*</span> <span class="p">(</span>
+                    <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="n">MI</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">V</span> <span class="o">*</span> <span class="n">ones</span> <span class="o">*</span>
+                    <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">prop</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">invProp</span><span class="p">:</span>
+                <span class="n">dMdprop</span> <span class="o">=</span> <span class="n">n_elements</span> <span class="o">*</span> <span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">V</span> <span class="o">*</span> <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="o">-</span> <span class="mf">1.</span><span class="o">/</span><span class="n">prop</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">invMat</span><span class="p">:</span>
+                <span class="n">dMdprop</span> <span class="o">=</span> <span class="n">n_elements</span> <span class="o">*</span> <span class="p">(</span>
+                    <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="o">-</span> <span class="n">MI</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">V</span>
+                <span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">tensorType</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># isotropic, variable in space</span>
+            <span class="n">Av</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;ave&#39;</span><span class="o">+</span><span class="n">projType</span><span class="o">+</span><span class="s1">&#39;2CC&#39;</span><span class="p">)</span>
+            <span class="n">V</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vol</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">invMat</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">invProp</span><span class="p">:</span>
+                <span class="n">dMdprop</span> <span class="o">=</span> <span class="n">n_elements</span> <span class="o">*</span> <span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">V</span>
+            <span class="k">elif</span> <span class="n">invMat</span> <span class="ow">and</span> <span class="n">invProp</span><span class="p">:</span>
+                <span class="n">dMdprop</span> <span class="o">=</span>  <span class="n">n_elements</span> <span class="o">*</span> <span class="p">(</span>
+                    <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="n">MI</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">V</span> <span class="o">*</span>
+                    <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">prop</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">invProp</span><span class="p">:</span>
+                <span class="n">dMdprop</span> <span class="o">=</span> <span class="n">n_elements</span> <span class="o">*</span> <span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">V</span> <span class="o">*</span> <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="n">prop</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">invMat</span><span class="p">:</span>
+                <span class="n">dMdprop</span> <span class="o">=</span> <span class="n">n_elements</span> <span class="o">*</span> <span class="p">(</span>
+                    <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="o">-</span> <span class="n">MI</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">V</span>
+                <span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">tensorType</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span> <span class="c1"># anisotropic</span>
+            <span class="n">Av</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;ave&#39;</span><span class="o">+</span><span class="n">projType</span><span class="o">+</span><span class="s1">&#39;2CCV&#39;</span><span class="p">)</span>
+            <span class="n">V</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">),</span> <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vol</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_meshType</span> <span class="o">==</span> <span class="s1">&#39;CYL&#39;</span><span class="p">:</span>
+                <span class="n">Zero</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">))</span>
+                <span class="n">Eye</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">projType</span> <span class="o">==</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span>
+                    <span class="n">P</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Zero</span><span class="p">,</span> <span class="n">Eye</span><span class="p">,</span> <span class="n">Zero</span><span class="p">])</span>
+                    <span class="c1"># print(P.todense())</span>
+                <span class="k">elif</span> <span class="n">projType</span> <span class="o">==</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span>
+                    <span class="n">P</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">sp</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Eye</span><span class="p">,</span> <span class="n">Zero</span><span class="p">,</span> <span class="n">Zero</span><span class="p">]),</span>
+                                   <span class="n">sp</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Zero</span><span class="p">,</span> <span class="n">Zero</span><span class="p">,</span> <span class="n">Eye</span><span class="p">])])</span>
+                    <span class="c1"># print(P.todense())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">P</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">invMat</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">invProp</span><span class="p">:</span>
+                <span class="n">dMdprop</span> <span class="o">=</span> <span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">P</span> <span class="o">*</span> <span class="n">V</span>
+            <span class="k">elif</span> <span class="n">invMat</span> <span class="ow">and</span> <span class="n">invProp</span><span class="p">:</span>
+                <span class="n">dMdprop</span> <span class="o">=</span> <span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="n">MI</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">P</span> <span class="o">*</span> <span class="n">V</span> <span class="o">*</span>
+                           <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">prop</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">invProp</span><span class="p">:</span>
+                <span class="n">dMdprop</span> <span class="o">=</span> <span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">P</span> <span class="o">*</span> <span class="n">V</span> <span class="o">*</span> <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="n">prop</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">invMat</span><span class="p">:</span>
+                <span class="n">dMdprop</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="o">-</span> <span class="n">MI</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">P</span> <span class="o">*</span> <span class="n">V</span>
+
+        <span class="k">if</span> <span class="n">dMdprop</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">innerProductDeriv</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                        <span class="s2">&quot;Depreciation Warning: TensorMesh.innerProductDeriv.&quot;</span>
+                        <span class="s2">&quot; You should be supplying a vector. &quot;</span>
+                        <span class="s2">&quot;Use: sdiag(u)*dMdprop&quot;</span><span class="p">,</span> <span class="ne">FutureWarning</span>
+                    <span class="p">)</span>
+                    <span class="k">return</span> <span class="n">dMdprop</span>
+                <span class="k">return</span> <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">*</span> <span class="n">dMdprop</span>
+            <span class="k">return</span> <span class="n">innerProductDeriv</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<div role="contentinfo">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    2013-2019,
+    <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
+    Except where noted, this work is licensed under a <br />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons Attribution 4.0 International License
+    </a>
+</div>
+<br>
+<div>
+Built with
+    <a href="http://sphinx-doc.org/">Sphinx</a>
+    using a
+    <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+    provided by
+    <a href="https://readthedocs.org">Read the Docs</a>.
+ </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

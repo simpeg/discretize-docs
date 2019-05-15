@@ -1,0 +1,390 @@
+discretize.TreeMesh
+===================
+
+.. currentmodule:: discretize
+
+.. autoclass:: TreeMesh
+    :show-inheritance:
+
+.. include:: backreferences/discretize.TreeMesh.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>
+
+Attributes
+^^^^^^^^^^
+
+
+.. autoattribute:: TreeMesh.area
+
+.. autoattribute:: TreeMesh.aveCC2F
+
+.. autoattribute:: TreeMesh.aveCC2Fx
+
+.. autoattribute:: TreeMesh.aveCC2Fy
+
+.. autoattribute:: TreeMesh.aveCC2Fz
+
+.. autoattribute:: TreeMesh.aveCCV2F
+
+.. autoattribute:: TreeMesh.aveE2CC
+
+.. autoattribute:: TreeMesh.aveE2CCV
+
+.. autoattribute:: TreeMesh.aveEx2CC
+
+.. autoattribute:: TreeMesh.aveEy2CC
+
+.. autoattribute:: TreeMesh.aveEz2CC
+
+.. autoattribute:: TreeMesh.aveF2CC
+
+.. autoattribute:: TreeMesh.aveF2CCV
+
+.. autoattribute:: TreeMesh.aveFx2CC
+
+.. autoattribute:: TreeMesh.aveFy2CC
+
+.. autoattribute:: TreeMesh.aveFz2CC
+
+.. autoattribute:: TreeMesh.aveN2CC
+
+.. autoattribute:: TreeMesh.aveN2E
+
+.. autoattribute:: TreeMesh.aveN2Ex
+
+.. autoattribute:: TreeMesh.aveN2Ey
+
+.. autoattribute:: TreeMesh.aveN2Ez
+
+.. autoattribute:: TreeMesh.aveN2F
+
+.. autoattribute:: TreeMesh.aveN2Fx
+
+.. autoattribute:: TreeMesh.aveN2Fy
+
+.. autoattribute:: TreeMesh.aveN2Fz
+
+.. autoattribute:: TreeMesh.axis_u
+
+.. autoattribute:: TreeMesh.axis_v
+
+.. autoattribute:: TreeMesh.axis_w
+
+.. autoattribute:: TreeMesh.cellBoundaryInd
+
+.. autoattribute:: TreeMesh.cellGrad
+
+.. autoattribute:: TreeMesh.cellGradStencil
+
+.. autoattribute:: TreeMesh.cellGradx
+
+.. autoattribute:: TreeMesh.cellGrady
+
+.. autoattribute:: TreeMesh.cellGradz
+
+.. autoattribute:: TreeMesh.dim
+
+.. autoattribute:: TreeMesh.edge
+
+.. autoattribute:: TreeMesh.edgeCurl
+
+.. autoattribute:: TreeMesh.faceBoundaryInd
+
+.. autoattribute:: TreeMesh.faceDiv
+
+.. autoattribute:: TreeMesh.faceDivx
+
+.. autoattribute:: TreeMesh.faceDivy
+
+.. autoattribute:: TreeMesh.faceDivz
+
+.. autoattribute:: TreeMesh.fill
+
+.. autoattribute:: TreeMesh.gridCC
+
+.. autoattribute:: TreeMesh.gridEx
+
+.. autoattribute:: TreeMesh.gridEy
+
+.. autoattribute:: TreeMesh.gridEz
+
+.. autoattribute:: TreeMesh.gridFx
+
+.. autoattribute:: TreeMesh.gridFy
+
+.. autoattribute:: TreeMesh.gridFz
+
+.. autoattribute:: TreeMesh.gridN
+
+.. autoattribute:: TreeMesh.gridhEx
+
+.. autoattribute:: TreeMesh.gridhEy
+
+.. autoattribute:: TreeMesh.gridhEz
+
+.. autoattribute:: TreeMesh.gridhFx
+
+.. autoattribute:: TreeMesh.gridhFy
+
+.. autoattribute:: TreeMesh.gridhFz
+
+.. autoattribute:: TreeMesh.gridhN
+
+.. autoattribute:: TreeMesh.h
+
+.. autoattribute:: TreeMesh.h_gridded
+
+.. autoattribute:: TreeMesh.hx
+
+.. autoattribute:: TreeMesh.hy
+
+.. autoattribute:: TreeMesh.hz
+
+.. autoattribute:: TreeMesh.maxLevel
+
+.. autoattribute:: TreeMesh.max_level
+
+.. autoattribute:: TreeMesh.nC
+
+.. autoattribute:: TreeMesh.nE
+
+.. autoattribute:: TreeMesh.nEx
+
+.. autoattribute:: TreeMesh.nEy
+
+.. autoattribute:: TreeMesh.nEz
+
+.. autoattribute:: TreeMesh.nF
+
+.. autoattribute:: TreeMesh.nFx
+
+.. autoattribute:: TreeMesh.nFy
+
+.. autoattribute:: TreeMesh.nFz
+
+.. autoattribute:: TreeMesh.nN
+
+.. autoattribute:: TreeMesh.nhE
+
+.. autoattribute:: TreeMesh.nhEx
+
+.. autoattribute:: TreeMesh.nhEy
+
+.. autoattribute:: TreeMesh.nhEz
+
+.. autoattribute:: TreeMesh.nhF
+
+.. autoattribute:: TreeMesh.nhFx
+
+.. autoattribute:: TreeMesh.nhFy
+
+.. autoattribute:: TreeMesh.nhFz
+
+.. autoattribute:: TreeMesh.nhN
+
+.. autoattribute:: TreeMesh.nodalGrad
+
+.. autoattribute:: TreeMesh.normals
+
+.. autoattribute:: TreeMesh.ntE
+
+.. autoattribute:: TreeMesh.ntEx
+
+.. autoattribute:: TreeMesh.ntEy
+
+.. autoattribute:: TreeMesh.ntEz
+
+.. autoattribute:: TreeMesh.ntF
+
+.. autoattribute:: TreeMesh.ntFx
+
+.. autoattribute:: TreeMesh.ntFy
+
+.. autoattribute:: TreeMesh.ntFz
+
+.. autoattribute:: TreeMesh.ntN
+
+.. autoattribute:: TreeMesh.permuteCC
+
+.. autoattribute:: TreeMesh.permuteE
+
+.. autoattribute:: TreeMesh.permuteF
+
+.. autoattribute:: TreeMesh.reference_is_rotated
+
+.. autoattribute:: TreeMesh.reference_system
+
+.. autoattribute:: TreeMesh.rotation_matrix
+
+.. autoattribute:: TreeMesh.tangents
+
+.. autoattribute:: TreeMesh.vectorCCx
+
+.. autoattribute:: TreeMesh.vectorCCy
+
+.. autoattribute:: TreeMesh.vectorCCz
+
+.. autoattribute:: TreeMesh.vectorNx
+
+.. autoattribute:: TreeMesh.vectorNy
+
+.. autoattribute:: TreeMesh.vectorNz
+
+.. autoattribute:: TreeMesh.vnE
+
+.. autoattribute:: TreeMesh.vnF
+
+.. autoattribute:: TreeMesh.vntE
+
+.. autoattribute:: TreeMesh.vntF
+
+.. autoattribute:: TreeMesh.vol
+
+.. autoattribute:: TreeMesh.x0
+
+
+
+Methods
+^^^^^^^
+
+
+
+
+
+.. automethod:: TreeMesh.copy
+
+
+
+.. automethod:: TreeMesh.deserialize
+
+
+
+.. automethod:: TreeMesh.equal
+
+
+
+.. automethod:: TreeMesh.finalize
+
+
+
+.. automethod:: TreeMesh.getEdgeInnerProduct
+
+
+
+.. automethod:: TreeMesh.getEdgeInnerProductDeriv
+
+
+
+.. automethod:: TreeMesh.getFaceInnerProduct
+
+
+
+.. automethod:: TreeMesh.getFaceInnerProductDeriv
+
+
+
+.. automethod:: TreeMesh.getInterpolationMat
+
+
+
+.. automethod:: TreeMesh.getTensor
+
+
+
+.. automethod:: TreeMesh.get_boundary_cells
+
+
+
+.. automethod:: TreeMesh.insert_cells
+
+
+
+.. automethod:: TreeMesh.isInside
+
+
+
+.. automethod:: TreeMesh.load
+
+
+
+.. automethod:: TreeMesh.number
+
+
+
+.. automethod:: TreeMesh.plotGrid
+
+
+
+.. automethod:: TreeMesh.plotImage
+
+
+
+.. automethod:: TreeMesh.plotSlice
+
+
+
+.. automethod:: TreeMesh.point2index
+
+
+
+.. automethod:: TreeMesh.projectEdgeVector
+
+
+
+.. automethod:: TreeMesh.projectFaceVector
+
+
+
+.. automethod:: TreeMesh.readModelUBC
+
+
+
+.. automethod:: TreeMesh.readUBC
+
+
+
+.. automethod:: TreeMesh.refine
+
+
+
+.. automethod:: TreeMesh.save
+
+
+
+.. automethod:: TreeMesh.serialize
+
+
+
+.. automethod:: TreeMesh.toVTK
+
+
+
+.. automethod:: TreeMesh.to_omf
+
+
+
+.. automethod:: TreeMesh.to_vtk
+
+
+
+.. automethod:: TreeMesh.validate
+
+
+
+.. automethod:: TreeMesh.writeUBC
+
+
+
+.. automethod:: TreeMesh.writeVTK
+
+
+
+.. automethod:: TreeMesh.write_vtk
+
+
+
+.. raw:: html
+
+     <div style='clear:both'></div>

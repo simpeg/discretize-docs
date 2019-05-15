@@ -1,0 +1,670 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>discretize.Tests &mdash; discretize 0.4.3 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+ 
+
+<meta name="description" content="Simulation and Parameter Estimation in Geophysics">
+<meta name="author" content="SimPEG Developers">
+<meta name="keywords" content="python, geophysics, inversion, electromagnetics, magnetotellurics, magnetics, gravity, DC, flow inverse problems, open source, finite volume">
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45185336-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> discretize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/big_picture.html">Why discretize?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/additional_resources.html">Additional Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/mesh_overview.html">Overview of mesh types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/tensor_mesh.html">Tensor meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/cylindrical_mesh.html">Cylindrical meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Reference</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting connected
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://simpeg.xyz"><i class="fa fa-external-link-square fa-fw"></i> SimPEG</a></li>
+            
+                <li class="toctree-l1"><a href="http://slack.simpeg.xyz"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/simpeg/discretize"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">discretize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>discretize.Tests</li>
+    
+    
+
+    <li class="wy-breadcrumbs-aside">
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for discretize.Tests</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sp</span>
+
+<span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="k">import</span> <span class="n">mkvc</span><span class="p">,</span> <span class="n">sdiag</span>
+<span class="kn">from</span> <span class="nn">discretize</span> <span class="k">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">discretize</span> <span class="k">import</span> <span class="n">TensorMesh</span><span class="p">,</span> <span class="n">CurvilinearMesh</span><span class="p">,</span> <span class="n">CylMesh</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">discretize.TreeMesh</span> <span class="k">import</span> <span class="n">TreeMesh</span> <span class="k">as</span> <span class="n">Tree</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">Tree</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">getpass</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;You&#39;</span>
+
+<span class="n">happiness</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;The test be workin!&#39;</span><span class="p">,</span> <span class="s1">&#39;You get a gold star!&#39;</span><span class="p">,</span> <span class="s1">&#39;Yay passed!&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Happy little convergence test!&#39;</span><span class="p">,</span> <span class="s1">&#39;That was easy!&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Testing is important.&#39;</span><span class="p">,</span> <span class="s1">&#39;You are awesome.&#39;</span><span class="p">,</span> <span class="s1">&#39;Go Test Go!&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Once upon a time, a happy little test passed.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;And then everyone was happy.&#39;</span><span class="p">,</span><span class="s1">&#39;Not just a pretty face &#39;</span><span class="o">+</span><span class="n">name</span><span class="p">,</span>
+    <span class="s1">&#39;You deserve a pat on the back!&#39;</span><span class="p">,</span> <span class="s1">&#39;Well done &#39;</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;!&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Awesome, &#39;</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;, just awesome.&#39;</span>
+<span class="p">]</span>
+<span class="n">sadness</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;No gold star for you.&#39;</span><span class="p">,</span> <span class="s1">&#39;Try again soon.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Thankfully,  persistence is a great substitute for talent.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;It might be easier to call this a feature...&#39;</span><span class="p">,</span> <span class="s1">&#39;Coffee break?&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Boooooooo  :(&#39;</span><span class="p">,</span>  <span class="s1">&#39;Testing is important. Do it again.&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;Did you put your clever trousers on today?&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Just think about a dancing dinosaur and life will get better!&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;You had so much promise &#39;</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;, oh well...&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39; ERROR!&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Get on it &#39;</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="s1">&#39;You break it, you fix it.&#39;</span>
+<span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">setupMesh</span><span class="p">(</span><span class="n">meshType</span><span class="p">,</span> <span class="n">nC</span><span class="p">,</span> <span class="n">nDim</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    For a given number of cells nc, generate a TensorMesh with uniform</span>
+<span class="sd">    cells with edge length h=1/nc.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="s1">&#39;TensorMesh&#39;</span> <span class="ow">in</span> <span class="n">meshType</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;uniform&#39;</span> <span class="ow">in</span> <span class="n">meshType</span><span class="p">:</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="n">nC</span><span class="p">,</span> <span class="n">nC</span><span class="p">,</span> <span class="n">nC</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="s1">&#39;random&#39;</span> <span class="ow">in</span> <span class="n">meshType</span><span class="p">:</span>
+            <span class="n">h1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nC</span><span class="p">)</span><span class="o">*</span><span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span>
+            <span class="n">h2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nC</span><span class="p">)</span><span class="o">*</span><span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span>
+            <span class="n">h3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nC</span><span class="p">)</span><span class="o">*</span><span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="n">hi</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span> <span class="k">for</span> <span class="n">hi</span> <span class="ow">in</span> <span class="p">[</span><span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">,</span> <span class="n">h3</span><span class="p">]]</span>  <span class="c1"># normalize</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Unexpected meshType&#39;</span><span class="p">)</span>
+
+        <span class="n">mesh</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">(</span><span class="n">h</span><span class="p">[:</span><span class="n">nDim</span><span class="p">])</span>
+        <span class="n">max_h</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span> <span class="k">for</span> <span class="n">hi</span> <span class="ow">in</span> <span class="n">mesh</span><span class="o">.</span><span class="n">h</span><span class="p">])</span>
+
+    <span class="k">elif</span> <span class="s1">&#39;CylMesh&#39;</span> <span class="ow">in</span> <span class="n">meshType</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;uniform&#39;</span> <span class="ow">in</span> <span class="n">meshType</span><span class="p">:</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="n">nC</span><span class="p">,</span> <span class="n">nC</span><span class="p">,</span> <span class="n">nC</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="s1">&#39;random&#39;</span> <span class="ow">in</span> <span class="n">meshType</span><span class="p">:</span>
+            <span class="n">h1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nC</span><span class="p">)</span><span class="o">*</span><span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span>
+            <span class="n">h2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nC</span><span class="p">)</span><span class="o">*</span><span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span>
+            <span class="n">h3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nC</span><span class="p">)</span><span class="o">*</span><span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="n">hi</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span> <span class="k">for</span> <span class="n">hi</span> <span class="ow">in</span> <span class="p">[</span><span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">,</span> <span class="n">h3</span><span class="p">]]</span>  <span class="c1"># normalize</span>
+            <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Unexpected meshType&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">nDim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">mesh</span> <span class="o">=</span> <span class="n">CylMesh</span><span class="p">([</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+            <span class="n">max_h</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span> <span class="k">for</span> <span class="n">hi</span> <span class="ow">in</span> <span class="p">[</span><span class="n">mesh</span><span class="o">.</span><span class="n">hx</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">hz</span><span class="p">]])</span>
+        <span class="k">elif</span> <span class="n">nDim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">mesh</span> <span class="o">=</span> <span class="n">CylMesh</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+            <span class="n">max_h</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span> <span class="k">for</span> <span class="n">hi</span> <span class="ow">in</span> <span class="n">mesh</span><span class="o">.</span><span class="n">h</span><span class="p">])</span>
+
+    <span class="k">elif</span> <span class="s1">&#39;Curv&#39;</span> <span class="ow">in</span> <span class="n">meshType</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;uniform&#39;</span> <span class="ow">in</span> <span class="n">meshType</span><span class="p">:</span>
+            <span class="n">kwrd</span> <span class="o">=</span> <span class="s1">&#39;rect&#39;</span>
+        <span class="k">elif</span> <span class="s1">&#39;rotate&#39;</span> <span class="ow">in</span> <span class="n">meshType</span><span class="p">:</span>
+            <span class="n">kwrd</span> <span class="o">=</span> <span class="s1">&#39;rotate&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Unexpected meshType&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">nDim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Lom not supported for 1D&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">nDim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">exampleLrmGrid</span><span class="p">([</span><span class="n">nC</span><span class="p">,</span> <span class="n">nC</span><span class="p">],</span> <span class="n">kwrd</span><span class="p">)</span>
+            <span class="n">mesh</span> <span class="o">=</span> <span class="n">CurvilinearMesh</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">nDim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">exampleLrmGrid</span><span class="p">([</span><span class="n">nC</span><span class="p">,</span> <span class="n">nC</span><span class="p">,</span> <span class="n">nC</span><span class="p">],</span> <span class="n">kwrd</span><span class="p">)</span>
+            <span class="n">mesh</span> <span class="o">=</span> <span class="n">CurvilinearMesh</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">])</span>
+        <span class="n">max_h</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">nC</span>
+
+    <span class="k">elif</span> <span class="s1">&#39;Tree&#39;</span> <span class="ow">in</span> <span class="n">meshType</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">Tree</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="s2">&quot;Tree Mesh not installed. Run &#39;python setup.py install&#39;&quot;</span>
+            <span class="p">)</span>
+        <span class="n">nC</span> <span class="o">*=</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="s1">&#39;uniform&#39;</span> <span class="ow">in</span> <span class="n">meshType</span> <span class="ow">or</span> <span class="s1">&#39;notatree&#39;</span> <span class="ow">in</span> <span class="n">meshType</span><span class="p">:</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="n">nC</span><span class="p">,</span> <span class="n">nC</span><span class="p">,</span> <span class="n">nC</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="s1">&#39;random&#39;</span> <span class="ow">in</span> <span class="n">meshType</span><span class="p">:</span>
+            <span class="n">h1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nC</span><span class="p">)</span><span class="o">*</span><span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span>
+            <span class="n">h2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nC</span><span class="p">)</span><span class="o">*</span><span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span>
+            <span class="n">h3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nC</span><span class="p">)</span><span class="o">*</span><span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">nC</span><span class="o">*</span><span class="mf">0.5</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="n">hi</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span> <span class="k">for</span> <span class="n">hi</span> <span class="ow">in</span> <span class="p">[</span><span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">,</span> <span class="n">h3</span><span class="p">]]</span>  <span class="c1"># normalize</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Unexpected meshType&#39;</span><span class="p">)</span>
+
+        <span class="n">levels</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">nC</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">mesh</span> <span class="o">=</span> <span class="n">Tree</span><span class="p">(</span><span class="n">h</span><span class="p">[:</span><span class="n">nDim</span><span class="p">],</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">cell</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s1">&#39;notatree&#39;</span> <span class="ow">in</span> <span class="n">meshType</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">levels</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">center</span> <span class="o">-</span> <span class="mf">0.5</span>
+            <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="mf">0.2</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">levels</span>
+            <span class="k">return</span> <span class="n">levels</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">mesh</span><span class="o">.</span><span class="n">refine</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+        <span class="c1"># mesh.number()</span>
+        <span class="c1"># mesh.plotGrid(showIt=True)</span>
+        <span class="n">max_h</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span> <span class="k">for</span> <span class="n">hi</span> <span class="ow">in</span> <span class="n">mesh</span><span class="o">.</span><span class="n">h</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">mesh</span><span class="p">,</span> <span class="n">max_h</span>
+
+
+<div class="viewcode-block" id="OrderTest"><a class="viewcode-back" href="../../api/generated/discretize.Tests.OrderTest.html#discretize.Tests.OrderTest">[docs]</a><span class="k">class</span> <span class="nc">OrderTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    OrderTest is a base class for testing convergence orders with respect to mesh</span>
+<span class="sd">    sizes of integral/differential operators.</span>
+
+<span class="sd">    Mathematical Problem:</span>
+
+<span class="sd">        Given are an operator A and its discretization A[h]. For a given test function f</span>
+<span class="sd">        and h --&gt; 0  we compare:</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            error(h) = \| A[h](f) - A(f) \|_{\infty}</span>
+
+<span class="sd">        Note that you can provide any norm.</span>
+
+<span class="sd">        Test is passed when estimated rate order of convergence is  at least within the specified tolerance of the</span>
+<span class="sd">        estimated rate supplied by the user.</span>
+
+<span class="sd">    Minimal example for a curl operator::</span>
+
+<span class="sd">        class TestCURL(OrderTest):</span>
+<span class="sd">            name = &quot;Curl&quot;</span>
+
+<span class="sd">            def getError(self):</span>
+<span class="sd">                # For given Mesh, generate A[h], f and A(f) and return norm of error.</span>
+
+
+<span class="sd">                fun  = lambda x: np.cos(x)  # i (cos(y)) + j (cos(z)) + k (cos(x))</span>
+<span class="sd">                sol = lambda x: np.sin(x)  # i (sin(z)) + j (sin(x)) + k (sin(y))</span>
+
+
+<span class="sd">                Ex = fun(self.M.gridEx[:, 1])</span>
+<span class="sd">                Ey = fun(self.M.gridEy[:, 2])</span>
+<span class="sd">                Ez = fun(self.M.gridEz[:, 0])</span>
+<span class="sd">                f = np.concatenate((Ex, Ey, Ez))</span>
+
+<span class="sd">                Fx = sol(self.M.gridFx[:, 2])</span>
+<span class="sd">                Fy = sol(self.M.gridFy[:, 0])</span>
+<span class="sd">                Fz = sol(self.M.gridFz[:, 1])</span>
+<span class="sd">                Af = np.concatenate((Fx, Fy, Fz))</span>
+
+<span class="sd">                # Generate DIV matrix</span>
+<span class="sd">                Ah = self.M.edgeCurl</span>
+
+<span class="sd">                curlE = Ah*E</span>
+<span class="sd">                err = np.linalg.norm((Ah*f -Af), np.inf)</span>
+<span class="sd">                return err</span>
+
+<span class="sd">            def test_order(self):</span>
+<span class="sd">                # runs the test</span>
+<span class="sd">                self.orderTest()</span>
+
+<span class="sd">    See also: test_operatorOrder.py</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Order Test&quot;</span>
+    <span class="n">expectedOrders</span> <span class="o">=</span> <span class="mf">2.</span>  <span class="c1"># This can be a list of orders, must be the same length as meshTypes</span>
+    <span class="n">tolerance</span> <span class="o">=</span> <span class="mf">0.85</span>     <span class="c1"># This can also be a list, must be the same length as meshTypes</span>
+    <span class="n">meshSizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">]</span>
+    <span class="n">meshTypes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;uniformTensorMesh&#39;</span><span class="p">]</span>
+    <span class="n">_meshType</span> <span class="o">=</span> <span class="n">meshTypes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">meshDimension</span> <span class="o">=</span> <span class="mi">3</span>
+
+<div class="viewcode-block" id="OrderTest.setupMesh"><a class="viewcode-back" href="../../api/generated/discretize.Tests.OrderTest.html#discretize.Tests.OrderTest.setupMesh">[docs]</a>    <span class="k">def</span> <span class="nf">setupMesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nC</span><span class="p">):</span>
+        <span class="n">mesh</span><span class="p">,</span> <span class="n">max_h</span> <span class="o">=</span> <span class="n">setupMesh</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_meshType</span><span class="p">,</span> <span class="n">nC</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">meshDimension</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">M</span> <span class="o">=</span> <span class="n">mesh</span>
+        <span class="k">return</span> <span class="n">max_h</span></div>
+
+<div class="viewcode-block" id="OrderTest.getError"><a class="viewcode-back" href="../../api/generated/discretize.Tests.OrderTest.html#discretize.Tests.OrderTest.getError">[docs]</a>    <span class="k">def</span> <span class="nf">getError</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;For given h, generate A[h], f and A(f) and return norm of error.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mf">1.</span></div>
+
+<div class="viewcode-block" id="OrderTest.orderTest"><a class="viewcode-back" href="../../api/generated/discretize.Tests.OrderTest.html#discretize.Tests.OrderTest.orderTest">[docs]</a>    <span class="k">def</span> <span class="nf">orderTest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        For number of cells specified in meshSizes setup mesh, call getError</span>
+<span class="sd">        and prints mesh size, error, ratio between current and previous error,</span>
+<span class="sd">        and estimated order of convergence.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meshTypes</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;meshTypes must be a list&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tolerance</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tolerance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meshTypes</span><span class="p">))</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">tolerance</span>
+
+        <span class="c1"># if we just provide one expected order, repeat it for each mesh type</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expectedOrders</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expectedOrders</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">expectedOrders</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">expectedOrders</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meshTypes</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expectedOrders</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">expectedOrders</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expectedOrders</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expectedOrders</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">,</span> <span class="s1">&#39;expectedOrders must be a list&#39;</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expectedOrders</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meshTypes</span><span class="p">),</span> <span class="s1">&#39;expectedOrders must have the same length as the meshTypes&#39;</span>
+
+        <span class="k">for</span> <span class="n">ii_meshType</span><span class="p">,</span> <span class="n">meshType</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meshTypes</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_meshType</span> <span class="o">=</span> <span class="n">meshType</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tolerance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tolerance</span><span class="p">[</span><span class="n">ii_meshType</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_expectedOrder</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">expectedOrders</span><span class="p">[</span><span class="n">ii_meshType</span><span class="p">]</span>
+
+            <span class="n">order</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">err_old</span> <span class="o">=</span> <span class="mf">0.</span>
+            <span class="n">max_h_old</span> <span class="o">=</span> <span class="mf">0.</span>
+            <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="n">nc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meshSizes</span><span class="p">):</span>
+                <span class="n">max_h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">setupMesh</span><span class="p">(</span><span class="n">nc</span><span class="p">)</span>
+                <span class="n">err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getError</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">ii</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_meshType</span> <span class="o">+</span> <span class="s1">&#39;:  &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;_____________________________________________&#39;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   h  |    error    | e(i-1)/e(i) |  order&#39;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;~~~~~~|~~~~~~~~~~~~~|~~~~~~~~~~~~~|~~~~~~~~~~&#39;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0:4d}</span><span class="s1">  |  </span><span class="si">{1:8.2e}</span><span class="s1">   |&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span> <span class="n">err</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="o">/</span><span class="n">err_old</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">max_h</span><span class="o">/</span><span class="n">max_h_old</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0:4d}</span><span class="s1">  |  </span><span class="si">{1:8.2e}</span><span class="s1">   |   </span><span class="si">{2:6.4f}</span><span class="s1">    |  </span><span class="si">{3:6.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">err_old</span><span class="o">/</span><span class="n">err</span><span class="p">,</span> <span class="n">order</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+                <span class="n">err_old</span> <span class="o">=</span> <span class="n">err</span>
+                <span class="n">max_h_old</span> <span class="o">=</span> <span class="n">max_h</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------------------------------------&#39;</span><span class="p">)</span>
+            <span class="n">passTest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">order</span><span class="p">))</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tolerance</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_expectedOrder</span>
+            <span class="k">if</span> <span class="n">passTest</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">happiness</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">happiness</span><span class="p">))])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Failed to pass test on &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_meshType</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">sadness</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sadness</span><span class="p">))])</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">passTest</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Rosenbrock"><a class="viewcode-back" href="../../api/generated/discretize.Tests.Rosenbrock.html#discretize.Tests.Rosenbrock">[docs]</a><span class="k">def</span> <span class="nf">Rosenbrock</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">return_g</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_H</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Rosenbrock function for testing GaussNewton scheme&quot;&quot;&quot;</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">200</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span><span class="o">-</span><span class="mi">200</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="mi">200</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)])</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">400</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1200</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">400</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="o">-</span><span class="mi">400</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">200</span><span class="p">]]))</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">,)</span>
+    <span class="k">if</span> <span class="n">return_g</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">+=</span> <span class="p">(</span><span class="n">g</span><span class="p">,)</span>
+    <span class="k">if</span> <span class="n">return_H</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">+=</span> <span class="p">(</span><span class="n">H</span><span class="p">,)</span>
+    <span class="k">return</span> <span class="n">out</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="checkDerivative"><a class="viewcode-back" href="../../api/generated/discretize.Tests.checkDerivative.html#discretize.Tests.checkDerivative">[docs]</a><span class="k">def</span> <span class="nf">checkDerivative</span><span class="p">(</span><span class="n">fctn</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">plotIt</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">expectedOrder</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Basic derivative check</span>
+
+<span class="sd">        Compares error decay of 0th and 1st order Taylor approximation at point</span>
+<span class="sd">        x0 for a randomized search direction.</span>
+
+<span class="sd">        :param callable fctn: function handle</span>
+<span class="sd">        :param numpy.ndarray x0: point at which to check derivative</span>
+<span class="sd">        :param int num: number of times to reduce step length, h</span>
+<span class="sd">        :param bool plotIt: if you would like to plot</span>
+<span class="sd">        :param numpy.ndarray dx: step direction</span>
+<span class="sd">        :param int expectedOrder: The order that you expect the derivative to yield.</span>
+<span class="sd">        :param float tolerance: The tolerance on the expected order.</span>
+<span class="sd">        :param float eps: What is zero?</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        :return: did you pass the test?!</span>
+
+
+<span class="sd">        .. plot::</span>
+<span class="sd">            :include-source:</span>
+
+<span class="sd">            from discretize import Tests, utils</span>
+<span class="sd">            import numpy as np</span>
+
+<span class="sd">            def simplePass(x):</span>
+<span class="sd">                return np.sin(x), utils.sdiag(np.cos(x))</span>
+<span class="sd">            Tests.checkDerivative(simplePass, np.random.randn(5))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0!s}</span><span class="s2"> checkDerivative </span><span class="si">{1!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">20</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;iter    h         |ft-f0|   |ft-f0-h*J0*dx|  Order</span><span class="se">\n</span><span class="si">{0!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">57</span><span class="p">)))</span>
+
+    <span class="n">f0</span><span class="p">,</span> <span class="n">J0</span> <span class="o">=</span> <span class="n">fctn</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+
+    <span class="n">x0</span> <span class="o">=</span> <span class="n">mkvc</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">dx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x0</span><span class="p">))</span>
+
+    <span class="n">h</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="n">num</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+    <span class="n">E0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">E1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">l2norm</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="c1"># because np.norm breaks if they are scalars?</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vdot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)))</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+        <span class="c1"># Evaluate at test point</span>
+        <span class="n">ft</span><span class="p">,</span> <span class="n">Jt</span> <span class="o">=</span> <span class="n">fctn</span><span class="p">(</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">dx</span> <span class="p">)</span>
+        <span class="c1"># 0th order Taylor</span>
+        <span class="n">E0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">l2norm</span><span class="p">(</span> <span class="n">ft</span> <span class="o">-</span> <span class="n">f0</span> <span class="p">)</span>
+        <span class="c1"># 1st order Taylor</span>
+        <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isfunction</span><span class="p">(</span><span class="n">J0</span><span class="p">):</span>
+            <span class="n">E1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">l2norm</span><span class="p">(</span> <span class="n">ft</span> <span class="o">-</span> <span class="n">f0</span> <span class="o">-</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">J0</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># We assume it is a numpy.ndarray</span>
+            <span class="n">E1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">l2norm</span><span class="p">(</span> <span class="n">ft</span> <span class="o">-</span> <span class="n">f0</span> <span class="o">-</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">J0</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span> <span class="p">)</span>
+
+        <span class="n">order0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">E0</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">E0</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="n">order1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">E1</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">E1</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; </span><span class="si">{0:d}</span><span class="s2">   </span><span class="si">{1:1.2e}</span><span class="s2">    </span><span class="si">{2:1.3e}</span><span class="s2">     </span><span class="si">{3:1.3e}</span><span class="s2">      </span><span class="si">{4:1.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">E0</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">E1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">order1</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="c1"># Ensure we are about precision</span>
+    <span class="n">order0</span> <span class="o">=</span> <span class="n">order0</span><span class="p">[</span><span class="n">E0</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&gt;</span> <span class="n">eps</span><span class="p">]</span>
+    <span class="n">order1</span> <span class="o">=</span> <span class="n">order1</span><span class="p">[</span><span class="n">E1</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&gt;</span> <span class="n">eps</span><span class="p">]</span>
+    <span class="n">belowTol</span> <span class="o">=</span> <span class="p">(</span><span class="n">order1</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">order0</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># Make sure we get the correct order</span>
+    <span class="n">correctOrder</span> <span class="o">=</span> <span class="n">order1</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">order1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">tolerance</span> <span class="o">*</span> <span class="n">expectedOrder</span>
+
+    <span class="n">passTest</span> <span class="o">=</span> <span class="n">belowTol</span> <span class="ow">or</span> <span class="n">correctOrder</span>
+
+    <span class="k">if</span> <span class="n">passTest</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0!s}</span><span class="s2"> PASS! </span><span class="si">{1!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">25</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">happiness</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">happiness</span><span class="p">))]</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0!s}</span><span class="se">\n</span><span class="si">{1!s}</span><span class="s2"> FAIL! </span><span class="si">{2!s}</span><span class="se">\n</span><span class="si">{3!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="o">*</span><span class="mi">57</span><span class="p">,</span> <span class="s1">&#39;&lt;&#39;</span><span class="o">*</span><span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="o">*</span><span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="o">*</span><span class="mi">57</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">sadness</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sadness</span><span class="p">))]</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+    <span class="k">if</span> <span class="n">plotIt</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span> <span class="ow">or</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">E0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">E1</span><span class="p">,</span> <span class="s1">&#39;g--&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Check Derivative - </span><span class="si">{0!s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="s1">&#39;PASSED :)&#39;</span> <span class="k">if</span> <span class="n">passTest</span> <span class="k">else</span> <span class="s1">&#39;FAILED :(&#39;</span><span class="p">)))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Error&#39;</span><span class="p">)</span>
+        <span class="n">leg</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;$\mathcal</span><span class="si">{O}</span><span class="s1">(h)$&#39;</span><span class="p">,</span> <span class="s1">&#39;$\mathcal</span><span class="si">{O}</span><span class="s1">(h^2)$&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="s2">&quot;$f(x + h\Delta x) - f(x) - h g(x) \Delta x - \mathcal</span><span class="si">{O}</span><span class="s2">(h^2) = 0$&quot;</span><span class="p">,</span>
+            <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">leg</span><span class="o">.</span><span class="n">get_title</span><span class="p">(),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">passTest</span></div>
+
+
+<div class="viewcode-block" id="getQuadratic"><a class="viewcode-back" href="../../api/generated/discretize.Tests.getQuadratic.html#discretize.Tests.getQuadratic">[docs]</a><span class="k">def</span> <span class="nf">getQuadratic</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Given A, b and c, this returns a quadratic, Q</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \mathbf{Q( x ) = 0.5 x A x + b x} + c</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">Quadratic</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">return_g</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_H</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">x</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span> <span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">+</span> <span class="n">c</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">,)</span>
+        <span class="k">if</span> <span class="n">return_g</span><span class="p">:</span>
+            <span class="n">g</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>
+            <span class="n">out</span> <span class="o">+=</span> <span class="p">(</span><span class="n">g</span><span class="p">,)</span>
+        <span class="k">if</span> <span class="n">return_H</span><span class="p">:</span>
+            <span class="n">H</span> <span class="o">=</span> <span class="n">A</span>
+            <span class="n">out</span> <span class="o">+=</span> <span class="p">(</span><span class="n">H</span><span class="p">,)</span>
+        <span class="k">return</span> <span class="n">out</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">Quadratic</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<div role="contentinfo">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    2013-2019,
+    <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
+    Except where noted, this work is licensed under a <br />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons Attribution 4.0 International License
+    </a>
+</div>
+<br>
+<div>
+Built with
+    <a href="http://sphinx-doc.org/">Sphinx</a>
+    using a
+    <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+    provided by
+    <a href="https://readthedocs.org">Read the Docs</a>.
+ </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

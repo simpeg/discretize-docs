@@ -1,0 +1,413 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Why discretize? &mdash; discretize 0.4.3 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/logo-block.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installing" href="installing.html" />
+    <link rel="prev" title="discretize" href="../index.html" />
+ 
+
+<meta name="description" content="Simulation and Parameter Estimation in Geophysics">
+<meta name="author" content="SimPEG Developers">
+<meta name="keywords" content="python, geophysics, inversion, electromagnetics, magnetotellurics, magnetics, gravity, DC, flow inverse problems, open source, finite volume">
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45185336-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> discretize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Why discretize?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#citing-discretize">Citing discretize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authors">Authors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional_resources.html">Additional Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/mesh_overview.html">Overview of mesh types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tensor_mesh.html">Tensor meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cylindrical_mesh.html">Cylindrical meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inner_products.html">Inner Products</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting connected
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://simpeg.xyz"><i class="fa fa-external-link-square fa-fw"></i> SimPEG</a></li>
+            
+                <li class="toctree-l1"><a href="http://slack.simpeg.xyz"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/simpeg/discretize"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">discretize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Why discretize?</li>
+    
+    
+
+    <li class="wy-breadcrumbs-aside">
+        
+            
+                <a href="https://github.com/simpeg/discretize/edit/master/doc/content/big_picture.rst"
+                   class="fa fa-github"> Edit this page</a>
+            
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="why-discretize">
+<h1>Why discretize?<a class="headerlink" href="#why-discretize" title="Permalink to this headline">¶</a></h1>
+<p>Inverse problems are common across the geosciences: imaging in geophysics,
+history matching, parameter estimation, and many of these require constrained
+optimization using partial differential equations (PDEs) where the derivative
+of mesh variables are sought. Finite difference, finite element and finite
+volume techniques allow subdivision of continuous differential equations into
+discrete domains. The knowledge and appropriate application of these methods
+is fundamental to simulating physical processes. Many inverse problems in the
+geosciences are solved using stochastic techniques or external finite
+difference based tools (e.g. PEST); these are robust to
+local minima and the programmatic implementation, respectively, however these
+methods do not scale to millions of parameters to be estimated. This sort of
+scale is necessary for solving many of the inverse problems in geophysics and
+increasingly hydrogeology (e.g. electromagnetics, gravity, and fluid flow
+problems).</p>
+<p>In the context of the inverse problem, when the physical properties, the
+domain, and the boundary conditions are not necessarily known, the simplicity
+and efficiency in mesh generation are important criteria. Complex mesh
+geometries, such as body fitted grids, commonly used when the domain is
+explicitly given, are less appropriate. Additionally, when considering the
+inverse problem, it is important that operators and their derivatives are
+accessible to interrogation and extension. The goal of this work is to
+provide a high level background to finite volume techniques abstracted across
+four mesh types:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>tensor product mesh  <a class="reference internal" href="../api/generated/discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code></a></p></li>
+<li><p>cylindrically symmetric mesh <a class="reference internal" href="../api/generated/discretize.CylMesh.html#discretize.CylMesh" title="discretize.CylMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.CylMesh</span></code></a></p></li>
+<li><p>curvilinear mesh <a class="reference internal" href="../api/generated/discretize.CurvilinearMesh.html#discretize.CurvilinearMesh" title="discretize.CurvilinearMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.CurvilinearMesh</span></code></a></p></li>
+<li><p>octree and quadtree meshes <a class="reference internal" href="../api/generated/discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code></a></p></li>
+</ol>
+</div></blockquote>
+<p><code class="code docutils literal notranslate"><span class="pre">discretize</span></code> contributes an overview of finite volume techniques in the
+context of geoscience inverse problems, which are treated in a consistent way
+across various mesh types, highlighting similarities and differences.</p>
+<div class="section" id="citing-discretize">
+<h2>Citing discretize<a class="headerlink" href="#citing-discretize" title="Permalink to this headline">¶</a></h2>
+<p>There is a <a class="reference external" href="http://dx.doi.org/10.1016/j.cageo.2015.09.015">paper about discretize</a> as it is used in SimPEG,
+if you use this code, please help our scientific visibility by citing our work!</p>
+<blockquote>
+<div><p>Cockett, R., Kang, S., Heagy, L. J., Pidlisecky, A., &amp; Oldenburg, D. W. (2015). SimPEG: An open source framework for simulation and gradient based parameter estimation in geophysical applications. Computers &amp; Geosciences.</p>
+</div></blockquote>
+<p>BibTex:</p>
+<div class="highlight-Latex notranslate"><div class="highlight"><pre><span></span>@article<span class="nb">{</span>Cockett2015,
+  title=<span class="nb">{</span>SimPEG: An open source framework for simulation and gradient based parameter estimation in geophysical applications<span class="nb">}</span>,
+  author=<span class="nb">{</span>Cockett, Rowan and Kang, Seogi and Heagy, Lindsey J and Pidlisecky, Adam and Oldenburg, Douglas W<span class="nb">}</span>,
+  journal=<span class="nb">{</span>Computers <span class="k">\&amp;</span> Geosciences<span class="nb">}</span>,
+  year=<span class="nb">{</span>2015<span class="nb">}</span>,
+  publisher=<span class="nb">{</span>Elsevier<span class="nb">}</span>
+<span class="nb">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="authors">
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Rowan Cockett, (<a class="reference external" href="https://github.com/rowanc1/">&#64;rowanc1</a>)</p></li>
+<li><p>Lindsey Heagy, (<a class="reference external" href="https://github.com/lheagy/">&#64;lheagy</a>)</p></li>
+<li><p>Seogi Kang, (<a class="reference external" href="https://github.com/sgkang/">&#64;sgkang</a>)</p></li>
+<li><p>Brendan Smithyman, (<a class="reference external" href="https://github.com/bsmithyman/">&#64;bsmithyman</a>)</p></li>
+<li><p>Gudni Rosenkjaer, (<a class="reference external" href="https://github.com/grosenkj/">&#64;grosenkj</a>)</p></li>
+<li><p>Dom Fournier, (<a class="reference external" href="https://github.com/fourndo/">&#64;fourndo</a>)</p></li>
+<li><p>Dave Marchant, (<a class="reference external" href="https://github.com/dwfmarchant/">&#64;dwfmarchant</a>)</p></li>
+<li><p>Lars Ruthotto, (<a class="reference external" href="https://github.com/lruthotto/">&#64;lruthotto</a>)</p></li>
+<li><p>Mike Wathen, (<a class="reference external" href="https://github.com/wathenmp/">&#64;wathenmp</a>)</p></li>
+<li><p>Luz Angelica Caudillo-Mata, (<a class="reference external" href="https://github.com/lacmajedrez/">&#64;lacmajedrez</a>)</p></li>
+<li><p>Eldad Haber, (<a class="reference external" href="https://github.com/eldadhaber/">&#64;eldadhaber</a>)</p></li>
+<li><p>Doug Oldenburg, (<a class="reference external" href="https://github.com/dougoldenburg/">&#64;dougoldenburg</a>)</p></li>
+<li><p>Adam Pidlisecky, (<a class="reference external" href="https://github.com/aPid1/">&#64;aPid1</a>)</p></li>
+<li><p>Dieter Werthmüller, (<a class="reference external" href="https://github.com/prisae/">&#64;prisae</a>)</p></li>
+<li><p>Bane Sullivan, (<a class="reference external" href="https://github.com/banesullivan">&#64;banesullivan</a>)</p></li>
+<li><p>Joseph Capriotti, (<a class="reference external" href="https://github.com/jcapriot/">&#64;jcapriot</a>)</p></li>
+</ul>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>The MIT License (MIT)</p>
+<p>Copyright (c) 2013-2017 SimPEG Developers</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the “Software”), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installing.html" class="btn btn-neutral float-right" title="Installing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="discretize" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<div role="contentinfo">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    2013-2019,
+    <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
+    Except where noted, this work is licensed under a <br />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons Attribution 4.0 International License
+    </a>
+</div>
+<br>
+<div>
+Built with
+    <a href="http://sphinx-doc.org/">Sphinx</a>
+    using a
+    <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+    provided by
+    <a href="https://readthedocs.org">Read the Docs</a>.
+ </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

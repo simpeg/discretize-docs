@@ -1,0 +1,1227 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>discretize.base.BaseRectangularMesh &mdash; discretize 0.4.3 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="discretize.base.BaseTensorMesh" href="discretize.base.BaseTensorMesh.html" />
+    <link rel="prev" title="discretize.base.BaseMesh" href="discretize.base.BaseMesh.html" />
+ 
+
+<meta name="description" content="Simulation and Parameter Estimation in Geophysics">
+<meta name="author" content="SimPEG Developers">
+<meta name="keywords" content="python, geophysics, inversion, electromagnetics, magnetotellurics, magnetics, gravity, DC, flow inverse problems, open source, finite volume">
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45185336-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> discretize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/big_picture.html">Why discretize?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/additional_resources.html">Additional Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/mesh_overview.html">Overview of mesh types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/tensor_mesh.html">Tensor meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/cylindrical_mesh.html">Cylindrical meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#meshes">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.InnerProducts">Numerical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mesh-io">Mesh IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#visualization">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.utils">Utilities</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#module-discretize.base">Base Mesh</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="discretize.base.BaseMesh.html">discretize.base.BaseMesh</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">discretize.base.BaseRectangularMesh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.base.BaseTensorMesh.html">discretize.base.BaseTensorMesh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting connected
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://simpeg.xyz"><i class="fa fa-external-link-square fa-fw"></i> SimPEG</a></li>
+            
+                <li class="toctree-l1"><a href="http://slack.simpeg.xyz"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/simpeg/discretize"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">discretize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+        
+      <li>discretize.base.BaseRectangularMesh</li>
+    
+    
+
+    <li class="wy-breadcrumbs-aside">
+        
+            
+                
+                
+                <a href="https://github.com/simpeg/discretize/issues/new?title=Suggested%20improvement%20for%20api/generated/discretize.base.BaseRectangularMesh&body=Please%20describe%20what%20could%20be%20improved%20about%20this%20page%20or%20the%20typo/mistake%20that%20you%20found%3A"
+                   class="fa fa-github"> Edit this page</a>
+            
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="discretize-base-baserectangularmesh">
+<h1>discretize.base.BaseRectangularMesh<a class="headerlink" href="#discretize-base-baserectangularmesh" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="discretize.base.BaseRectangularMesh">
+<em class="property">class </em><code class="descclassname">discretize.base.</code><code class="descname">BaseRectangularMesh</code><span class="sig-paren">(</span><em>n</em>, <em>x0=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/base/base_mesh.html#BaseRectangularMesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.base.BaseRectangularMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.base.base_mesh.BaseMesh</span></code></p>
+<blockquote>
+<div><p>BaseRectangularMesh</p>
+</div></blockquote>
+<p><strong>Required Properties:</strong></p>
+<ul class="simple">
+<li><p><strong>axis_u</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of u-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: X</p></li>
+<li><p><strong>axis_v</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of v-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Y</p></li>
+<li><p><strong>axis_w</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of w-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Z</p></li>
+<li><p><strong>reference_system</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">String</span></code></a>): The type of coordinate reference frame. Can take on the values cartesian, cylindrical, or spherical. Abbreviations of these are allowed., a unicode string, Default: cartesian</p></li>
+<li><p><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt; with shape (*)</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.axis_u" title="discretize.base.BaseRectangularMesh.axis_u"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axis_u</span></code></a></dt><dd><p><strong>axis_u</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of u-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: X</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.axis_v" title="discretize.base.BaseRectangularMesh.axis_v"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axis_v</span></code></a></dt><dd><p><strong>axis_v</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of v-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Y</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.axis_w" title="discretize.base.BaseRectangularMesh.axis_w"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axis_w</span></code></a></dt><dd><p><strong>axis_w</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of w-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Z</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.dim" title="discretize.base.BaseRectangularMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a></dt><dd><p>The dimension of the mesh (1, 2, or 3).</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nC" title="discretize.base.BaseRectangularMesh.nC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nC</span></code></a></dt><dd><p>Total number of cells</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nCx" title="discretize.base.BaseRectangularMesh.nCx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nCx</span></code></a></dt><dd><p>Number of cells in the x direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nCy" title="discretize.base.BaseRectangularMesh.nCy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nCy</span></code></a></dt><dd><p>Number of cells in the y direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nCz" title="discretize.base.BaseRectangularMesh.nCz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nCz</span></code></a></dt><dd><p>Number of cells in the z direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nE" title="discretize.base.BaseRectangularMesh.nE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nE</span></code></a></dt><dd><p>Total number of edges.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nEx" title="discretize.base.BaseRectangularMesh.nEx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nEx</span></code></a></dt><dd><p>Number of x-edges</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nEy" title="discretize.base.BaseRectangularMesh.nEy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nEy</span></code></a></dt><dd><p>Number of y-edges</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nEz" title="discretize.base.BaseRectangularMesh.nEz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nEz</span></code></a></dt><dd><p>Number of z-edges</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nF" title="discretize.base.BaseRectangularMesh.nF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nF</span></code></a></dt><dd><p>Total number of faces.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nFx" title="discretize.base.BaseRectangularMesh.nFx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nFx</span></code></a></dt><dd><p>Number of x-faces</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nFy" title="discretize.base.BaseRectangularMesh.nFy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nFy</span></code></a></dt><dd><p>Number of y-faces</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nFz" title="discretize.base.BaseRectangularMesh.nFz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nFz</span></code></a></dt><dd><p>Number of z-faces</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nN" title="discretize.base.BaseRectangularMesh.nN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nN</span></code></a></dt><dd><p>Total number of nodes</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nNx" title="discretize.base.BaseRectangularMesh.nNx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nNx</span></code></a></dt><dd><p>Number of nodes in the x-direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nNy" title="discretize.base.BaseRectangularMesh.nNy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nNy</span></code></a></dt><dd><p>Number of nodes in the y-direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.nNz" title="discretize.base.BaseRectangularMesh.nNz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nNz</span></code></a></dt><dd><p>Number of nodes in the z-direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.normals" title="discretize.base.BaseRectangularMesh.normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normals</span></code></a></dt><dd><p>Face Normals</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.reference_is_rotated" title="discretize.base.BaseRectangularMesh.reference_is_rotated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reference_is_rotated</span></code></a></dt><dd><p>True if the axes are rotated from the traditional &lt;X,Y,Z&gt; system</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.reference_system" title="discretize.base.BaseRectangularMesh.reference_system"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reference_system</span></code></a></dt><dd><p><strong>reference_system</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">String</span></code></a>): The type of coordinate reference frame. Can take on the values cartesian, cylindrical, or spherical. Abbreviations of these are allowed., a unicode string, Default: cartesian</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.rotation_matrix" title="discretize.base.BaseRectangularMesh.rotation_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a></dt><dd><p>Builds a rotation matrix to transform coordinates from their coordinate system into a conventional cartesian system.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.tangents" title="discretize.base.BaseRectangularMesh.tangents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tangents</span></code></a></dt><dd><p>Edge Tangents</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.vnC" title="discretize.base.BaseRectangularMesh.vnC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vnC</span></code></a></dt><dd><p>Total number of cells in each direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.vnE" title="discretize.base.BaseRectangularMesh.vnE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vnE</span></code></a></dt><dd><p>Total number of edges in each direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.vnEx" title="discretize.base.BaseRectangularMesh.vnEx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vnEx</span></code></a></dt><dd><p>Number of x-edges in each direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.vnEy" title="discretize.base.BaseRectangularMesh.vnEy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vnEy</span></code></a></dt><dd><p>Number of y-edges in each direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.vnEz" title="discretize.base.BaseRectangularMesh.vnEz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vnEz</span></code></a></dt><dd><p>Number of z-edges in each direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.vnF" title="discretize.base.BaseRectangularMesh.vnF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vnF</span></code></a></dt><dd><p>Total number of faces in each direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.vnFx" title="discretize.base.BaseRectangularMesh.vnFx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vnFx</span></code></a></dt><dd><p>Number of x-faces in each direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.vnFy" title="discretize.base.BaseRectangularMesh.vnFy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vnFy</span></code></a></dt><dd><p>Number of y-faces in each direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.vnFz" title="discretize.base.BaseRectangularMesh.vnFz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vnFz</span></code></a></dt><dd><p>Number of z-faces in each direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.vnN" title="discretize.base.BaseRectangularMesh.vnN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vnN</span></code></a></dt><dd><p>Total number of nodes in each direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.base.BaseRectangularMesh.x0" title="discretize.base.BaseRectangularMesh.x0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x0</span></code></a></dt><dd><p><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt; with shape (*)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.base.BaseRectangularMesh.copy" title="discretize.base.BaseRectangularMesh.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>(self)</p></td>
+<td><p>Make a copy of the current mesh</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.base.BaseRectangularMesh.deserialize" title="discretize.base.BaseRectangularMesh.deserialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deserialize</span></code></a>(value[, trusted, strict, …])</p></td>
+<td><p>Creates <strong>HasProperties</strong> instance from serialized dictionary</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.base.BaseRectangularMesh.equal" title="discretize.base.BaseRectangularMesh.equal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">equal</span></code></a>(self, other)</p></td>
+<td><p>Determine if two <strong>HasProperties</strong> instances are equivalent</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.base.BaseRectangularMesh.projectEdgeVector" title="discretize.base.BaseRectangularMesh.projectEdgeVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectEdgeVector</span></code></a>(self, eV)</p></td>
+<td><p>Given a vector, eV, in cartesian coordinates, this will project it onto the mesh using the tangents</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.base.BaseRectangularMesh.projectFaceVector" title="discretize.base.BaseRectangularMesh.projectFaceVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectFaceVector</span></code></a>(self, fV)</p></td>
+<td><p>Given a vector, fV, in cartesian coordinates, this will project it onto the mesh using the normals</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.base.BaseRectangularMesh.r" title="discretize.base.BaseRectangularMesh.r"><code class="xref py py-obj docutils literal notranslate"><span class="pre">r</span></code></a>(self, x[, xType, outType, format])</p></td>
+<td><p><cite>r</cite> is a quick reshape command that will do the best it can at giving you what you want.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.base.BaseRectangularMesh.save" title="discretize.base.BaseRectangularMesh.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(self[, filename, verbose])</p></td>
+<td><p>Save the mesh to json :param str file: filename for saving the casing properties :param str directory: working directory for saving the file</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.base.BaseRectangularMesh.serialize" title="discretize.base.BaseRectangularMesh.serialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serialize</span></code></a>(self[, include_class, save_dynamic])</p></td>
+<td><p>Serializes a <strong>HasProperties</strong> instance to dictionary</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.base.BaseRectangularMesh.toVTK" title="discretize.base.BaseRectangularMesh.toVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toVTK</span></code></a>(mesh[, models])</p></td>
+<td><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data object with the given model dictionary as the cell data of that dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.base.BaseRectangularMesh.to_omf" title="discretize.base.BaseRectangularMesh.to_omf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_omf</span></code></a>(mesh[, models])</p></td>
+<td><p>Convert this mesh object to it’s proper <code class="docutils literal notranslate"><span class="pre">omf</span></code> data object with the given model dictionary as the cell data of that dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.base.BaseRectangularMesh.to_vtk" title="discretize.base.BaseRectangularMesh.to_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vtk</span></code></a>(mesh[, models])</p></td>
+<td><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data object with the given model dictionary as the cell data of that dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.base.BaseRectangularMesh.validate" title="discretize.base.BaseRectangularMesh.validate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate</span></code></a>(self)</p></td>
+<td><p>Call all registered class validator methods</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.base.BaseRectangularMesh.writeVTK" title="discretize.base.BaseRectangularMesh.writeVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeVTK</span></code></a>(mesh, filename[, models, directory])</p></td>
+<td><p>Makes and saves a VTK object from this mesh and given models</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.base.BaseRectangularMesh.write_vtk" title="discretize.base.BaseRectangularMesh.write_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_vtk</span></code></a>(mesh, filename[, models, directory])</p></td>
+<td><p>Makes and saves a VTK object from this mesh and given models</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div style='clear:both'></div><div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.axis_u">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">axis_u</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.axis_u" title="Permalink to this definition">¶</a></dt>
+<dd><p>X</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><strong>axis_u</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>)</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>Vector orientation of u-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.axis_v">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">axis_v</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.axis_v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Y</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><strong>axis_v</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>)</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>Vector orientation of v-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.axis_w">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">axis_w</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.axis_w" title="Permalink to this definition">¶</a></dt>
+<dd><p>Z</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><strong>axis_w</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>)</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>Vector orientation of w-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.dim">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">dim</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.dim" title="Permalink to this definition">¶</a></dt>
+<dd><p>The dimension of the mesh (1, 2, or 3).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dimension of the mesh</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nC">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nC</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of cells</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nC</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nCx">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nCx</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nCx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of cells in the x direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nCx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nCy">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nCy</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nCy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of cells in the y direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nCy or None if dim &lt; 2</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nCz">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nCz</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nCz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of cells in the z direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nCz or None if dim &lt; 3</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nE">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nE</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of edges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>nE</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int = sum([nEx, nEy, nEz])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nEx">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nEx</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nEx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of x-edges</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nEx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nEy">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nEy</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nEy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of y-edges</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nEy</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nEz">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nEz</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nEz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of z-edges</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nEz</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nF">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nF</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>sum([nFx, nFy, nFz])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nFx">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nFx</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nFx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of x-faces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nFx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nFy">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nFy</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nFy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of y-faces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nFy</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nFz">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nFz</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nFz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of z-faces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nFz</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nN">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nN</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nN</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nNx">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nNx</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nNx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of nodes in the x-direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nNx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nNy">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nNy</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nNy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of nodes in the y-direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nNy or None if dim &lt; 2</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.nNz">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">nNz</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.nNz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of nodes in the z-direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nNz or None if dim &lt; 3</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.normals">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">normals</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.normals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Face Normals</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>normals, (sum(nF), dim)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.reference_is_rotated">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">reference_is_rotated</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.reference_is_rotated" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the axes are rotated from the traditional &lt;X,Y,Z&gt; system
+with vectors of <span class="math notranslate nohighlight">\((1,0,0)\)</span>, <span class="math notranslate nohighlight">\((0,1,0)\)</span>, and <span class="math notranslate nohighlight">\((0,0,1)\)</span></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.reference_system">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">reference_system</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.reference_system" title="Permalink to this definition">¶</a></dt>
+<dd><p>cartesian</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><strong>reference_system</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">String</span></code></a>)</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>The type of coordinate reference frame. Can take on the values cartesian, cylindrical, or spherical. Abbreviations of these are allowed., a unicode string, Default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.rotation_matrix">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">rotation_matrix</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds a rotation matrix to transform coordinates from their coordinate
+system into a conventional cartesian system. This is built off of the
+three <cite>axis_u</cite>, <cite>axis_v</cite>, and <cite>axis_w</cite> properties; these mapping
+coordinates use the letters U, V, and W (the three letters preceding X,
+Y, and Z in the alphabet) to define the projection of the X, Y, and Z
+durections. These UVW vectors describe the placement and transformation
+of the mesh’s coordinate sytem assuming at most 3 directions.</p>
+<p>Why would you want to use these UVW mapping vectors the this
+<cite>rotation_matrix</cite> property? They allow us to define the realationship
+between local and global coordinate systems and provide a tool for
+switching between the two while still maintaing the connectivity of the
+mesh’s cells. For a visual example of this, please see the figure in the
+docs for the <a class="reference internal" href="discretize.mixins.vtkModule.InterfaceVTK.html#discretize.mixins.vtkModule.InterfaceVTK" title="discretize.mixins.vtkModule.InterfaceVTK"><code class="xref py py-class docutils literal notranslate"><span class="pre">InterfaceVTK</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.tangents">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">tangents</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.tangents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edge Tangents</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>normals, (sum(nE), dim)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.vnC">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">vnC</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.vnC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of cells in each direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[nCx, nCy, nCz]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.vnE">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">vnE</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.vnE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of edges in each direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul>
+<li><p><strong>vnE</strong> (<em>numpy.ndarray = [nEx, nEy, nEz], (dim, )</em>)</p></li>
+<li><p><em>.. plot::</em> – :include-source:</p>
+<p>import discretize
+import numpy as np
+M = discretize.TensorMesh([np.ones(n) for n in [2,3]])
+M.plotGrid(edges=True, showIt=True)</p>
+</li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.vnEx">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">vnEx</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.vnEx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of x-edges in each direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>vnEx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.vnEy">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">vnEy</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.vnEy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of y-edges in each direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>vnEy or None if dim &lt; 2</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.vnEz">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">vnEz</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.vnEz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of z-edges in each direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>vnEz or None if dim &lt; 3</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.vnF">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">vnF</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.vnF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of faces in each direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[nFx, nFy, nFz], (dim, )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">M</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">faces</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-base-BaseRectangularMesh-1.py">Source code</a>)</p>
+<div class="figure align-center">
+<img alt="../../_images/discretize-base-BaseRectangularMesh-1.png" src="../../_images/discretize-base-BaseRectangularMesh-1.png" />
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.vnFx">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">vnFx</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.vnFx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of x-faces in each direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>vnFx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.vnFy">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">vnFy</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.vnFy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of y-faces in each direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>vnFy or None if dim &lt; 2</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.vnFz">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">vnFz</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.vnFz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of z-faces in each direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>vnFz or None if dim &lt; 3</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.vnN">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">vnN</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.vnN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of nodes in each direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[nNx, nNy, nNz]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.base.BaseRectangularMesh.x0">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">x0</code><a class="headerlink" href="#discretize.base.BaseRectangularMesh.x0" title="Permalink to this definition">¶</a></dt>
+<dd><p>origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt; with shape (*)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="discretize.base.BaseRectangularMesh.copy">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">copy</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.base.BaseRectangularMesh.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a copy of the current mesh</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="discretize.base.BaseRectangularMesh.deserialize">
+<em class="property">classmethod </em><code class="descclassname">BaseRectangularMesh.</code><code class="descname">deserialize</code><span class="sig-paren">(</span><em>value</em>, <em>trusted=False</em>, <em>strict=False</em>, <em>assert_valid=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.base.BaseRectangularMesh.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates <strong>HasProperties</strong> instance from serialized dictionary</p>
+<p>This uses the Property deserializers to deserialize all
+JSON-compatible dictionary values into their corresponding Property
+values on a new instance of a <strong>HasProperties</strong> class. Extra keys
+in the dictionary that do not correspond to Properties will be
+ignored.</p>
+<p><strong>Parameters</strong>:</p>
+<ul class="simple">
+<li><p><strong>value</strong> - Dictionary to deserialize new instance from.</p></li>
+<li><p><strong>trusted</strong> - If True (and if the input dictionary has
+<code class="code docutils literal notranslate"><span class="pre">'__class__'</span></code> keyword and this class is in the registry), the
+new <strong>HasProperties</strong> class will come from the dictionary.
+If False (the default), only the <strong>HasProperties</strong> class this
+method is called on will be constructed.</p></li>
+<li><p><strong>strict</strong> - Requires <code class="code docutils literal notranslate"><span class="pre">'__class__'</span></code>, if present on the input
+dictionary, to match the deserialized instance’s class. Also
+disallows unused properties in the input dictionary. Default
+is False.</p></li>
+<li><p><strong>assert_valid</strong> - Require deserialized instance to be valid.
+Default is False.</p></li>
+<li><p>Any other keyword arguments will be passed through to the Property
+deserializers.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.base.BaseRectangularMesh.equal">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">equal</code><span class="sig-paren">(</span><em>self</em>, <em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.base.BaseRectangularMesh.equal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if two <strong>HasProperties</strong> instances are equivalent</p>
+<p>Equivalence is determined by checking if all Property values on
+two instances are equal, using <code class="code docutils literal notranslate"><span class="pre">Property.equal</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.base.BaseRectangularMesh.projectEdgeVector">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">projectEdgeVector</code><span class="sig-paren">(</span><em>self</em>, <em>eV</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.base.BaseRectangularMesh.projectEdgeVector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a vector, eV, in cartesian coordinates, this will project
+it onto the mesh using the tangents</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>eV</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – edge vector with shape (nE, dim)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>projected edge vector, (nE, )</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.base.BaseRectangularMesh.projectFaceVector">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">projectFaceVector</code><span class="sig-paren">(</span><em>self</em>, <em>fV</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.base.BaseRectangularMesh.projectFaceVector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a vector, fV, in cartesian coordinates, this will project
+it onto the mesh using the normals</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fV</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – face vector with shape (nF, dim)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>projected face vector, (nF, )</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.base.BaseRectangularMesh.r">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">r</code><span class="sig-paren">(</span><em>self</em>, <em>x</em>, <em>xType='CC'</em>, <em>outType='CC'</em>, <em>format='V'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/base/base_mesh.html#BaseRectangularMesh.r"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.base.BaseRectangularMesh.r" title="Permalink to this definition">¶</a></dt>
+<dd><p><cite>r</cite> is a quick reshape command that will do the best it
+can at giving you what you want.</p>
+<p>For example, you have a face variable, and you want the x
+component of it reshaped to a 3D matrix.</p>
+<p><cite>r</cite> can fulfil your dreams:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span>
+       <span class="o">|</span>   <span class="o">|</span>     <span class="o">|</span>    <span class="o">|</span>
+       <span class="o">|</span>   <span class="o">|</span>     <span class="o">|</span>    <span class="p">{</span>
+       <span class="o">|</span>   <span class="o">|</span>     <span class="o">|</span>      <span class="n">How</span><span class="p">:</span> <span class="s1">&#39;M&#39;</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;V&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="n">matrix</span>
+       <span class="o">|</span>   <span class="o">|</span>     <span class="o">|</span>      <span class="p">(</span><span class="n">ndgrid</span> <span class="n">style</span><span class="p">)</span> <span class="ow">or</span> <span class="n">a</span> <span class="n">vector</span> <span class="p">(</span><span class="n">n</span> <span class="n">x</span> <span class="n">dim</span><span class="p">)</span>
+       <span class="o">|</span>   <span class="o">|</span>     <span class="o">|</span>    <span class="p">}</span>
+       <span class="o">|</span>   <span class="o">|</span>     <span class="p">{</span>
+       <span class="o">|</span>   <span class="o">|</span>       <span class="n">What</span> <span class="n">you</span> <span class="n">want</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;CC&#39;</span><span class="p">],</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span>
+       <span class="o">|</span>   <span class="o">|</span>                       <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Fz&#39;</span><span class="p">,</span>
+       <span class="o">|</span>   <span class="o">|</span>                       <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">,</span> <span class="ow">or</span> <span class="s1">&#39;Ez&#39;</span>
+       <span class="o">|</span>   <span class="o">|</span>     <span class="p">}</span>
+       <span class="o">|</span>   <span class="p">{</span>
+       <span class="o">|</span>     <span class="n">What</span> <span class="ow">is</span> <span class="n">it</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;CC&#39;</span><span class="p">],</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span>
+       <span class="o">|</span>                  <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Fz&#39;</span><span class="p">,</span>
+       <span class="o">|</span>                  <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">,</span> <span class="ow">or</span> <span class="s1">&#39;Ez&#39;</span>
+       <span class="o">|</span>   <span class="p">}</span>
+       <span class="p">{</span>
+         <span class="n">The</span> <span class="nb">input</span><span class="p">:</span> <span class="k">as</span> <span class="n">a</span> <span class="nb">list</span> <span class="ow">or</span> <span class="n">ndarray</span>
+       <span class="p">}</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Separates each component of the Ex grid into 3 matrices</span>
+<span class="n">Xex</span><span class="p">,</span> <span class="n">Yex</span><span class="p">,</span> <span class="n">Zex</span> <span class="o">=</span> <span class="n">r</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">gridEx</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span>
+
+<span class="c1"># Given an edge vector, return just the x edges as a vector</span>
+<span class="n">XedgeVector</span> <span class="o">=</span> <span class="n">r</span><span class="p">(</span><span class="n">edgeVector</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">)</span>
+
+<span class="c1"># Separates each component of the edgeVector into 3 vectors</span>
+<span class="n">eX</span><span class="p">,</span> <span class="n">eY</span><span class="p">,</span> <span class="n">eZ</span> <span class="o">=</span> <span class="n">r</span><span class="p">(</span><span class="n">edgeVector</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.base.BaseRectangularMesh.save">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">save</code><span class="sig-paren">(</span><em>self</em>, <em>filename='mesh.json'</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.base.BaseRectangularMesh.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the mesh to json
+:param str file: filename for saving the casing properties
+:param str directory: working directory for saving the file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.base.BaseRectangularMesh.serialize">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">serialize</code><span class="sig-paren">(</span><em>self</em>, <em>include_class=True</em>, <em>save_dynamic=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.base.BaseRectangularMesh.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serializes a <strong>HasProperties</strong> instance to dictionary</p>
+<p>This uses the Property serializers to serialize all Property values
+to a JSON-compatible dictionary. Properties that are undefined are
+not included. If the <strong>HasProperties</strong> instance contains a reference
+to itself, a <code class="code docutils literal notranslate"><span class="pre">properties.SelfReferenceError</span></code> will be raised.</p>
+<p><strong>Parameters</strong>:</p>
+<ul class="simple">
+<li><p><strong>include_class</strong> - If True (the default), the name of the class
+will also be saved to the serialized dictionary under key
+<code class="code docutils literal notranslate"><span class="pre">'__class__'</span></code></p></li>
+<li><p><strong>save_dynamic</strong> - If True, dynamic properties are written to
+the serialized dict (default: False).</p></li>
+<li><p>Any other keyword arguments will be passed through to the Property
+serializers.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.base.BaseRectangularMesh.toVTK">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">toVTK</code><span class="sig-paren">(</span><em>mesh</em>, <em>models=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.base.BaseRectangularMesh.toVTK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data
+object with the given model dictionary as the cell data of that dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a><em>(</em><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.base.BaseRectangularMesh.to_omf">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">to_omf</code><span class="sig-paren">(</span><em>mesh</em>, <em>models=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.base.BaseRectangularMesh.to_omf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert this mesh object to it’s proper <code class="docutils literal notranslate"><span class="pre">omf</span></code> data object with
+the given model dictionary as the cell data of that dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a><em>(</em><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.base.BaseRectangularMesh.to_vtk">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">to_vtk</code><span class="sig-paren">(</span><em>mesh</em>, <em>models=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.base.BaseRectangularMesh.to_vtk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data
+object with the given model dictionary as the cell data of that dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a><em>(</em><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.base.BaseRectangularMesh.validate">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">validate</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.base.BaseRectangularMesh.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call all registered class validator methods</p>
+<p>These are all methods decorated with <code class="code docutils literal notranslate"><span class="pre">&#64;properties.validator</span></code>.
+Validator methods are expected to raise a ValidationError if they
+fail.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.base.BaseRectangularMesh.writeVTK">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">writeVTK</code><span class="sig-paren">(</span><em>mesh</em>, <em>filename</em>, <em>models=None</em>, <em>directory=''</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.base.BaseRectangularMesh.writeVTK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes and saves a VTK object from this mesh and given models</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – path to the output vtk file or just its name if directory is specified</p></li>
+<li><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</p></li>
+<li><p><strong>directory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – directory where the UBC GIF file lives</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.base.BaseRectangularMesh.write_vtk">
+<code class="descclassname">BaseRectangularMesh.</code><code class="descname">write_vtk</code><span class="sig-paren">(</span><em>mesh</em>, <em>filename</em>, <em>models=None</em>, <em>directory=''</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.base.BaseRectangularMesh.write_vtk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes and saves a VTK object from this mesh and given models</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – path to the output vtk file or just its name if directory is specified</p></li>
+<li><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</p></li>
+<li><p><strong>directory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – directory where the UBC GIF file lives</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div style='clear:both'></div></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="discretize.base.BaseTensorMesh.html" class="btn btn-neutral float-right" title="discretize.base.BaseTensorMesh" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="discretize.base.BaseMesh.html" class="btn btn-neutral float-left" title="discretize.base.BaseMesh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<div role="contentinfo">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    2013-2019,
+    <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
+    Except where noted, this work is licensed under a <br />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons Attribution 4.0 International License
+    </a>
+</div>
+<br>
+<div>
+Built with
+    <a href="http://sphinx-doc.org/">Sphinx</a>
+    using a
+    <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+    provided by
+    <a href="https://readthedocs.org">Read the Docs</a>.
+ </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

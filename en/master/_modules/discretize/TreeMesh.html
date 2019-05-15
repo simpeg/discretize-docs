@@ -1,0 +1,764 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>discretize.TreeMesh &mdash; discretize 0.4.3 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+ 
+
+<meta name="description" content="Simulation and Parameter Estimation in Geophysics">
+<meta name="author" content="SimPEG Developers">
+<meta name="keywords" content="python, geophysics, inversion, electromagnetics, magnetotellurics, magnetics, gravity, DC, flow inverse problems, open source, finite volume">
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45185336-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> discretize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/big_picture.html">Why discretize?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/additional_resources.html">Additional Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/mesh_overview.html">Overview of mesh types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/tensor_mesh.html">Tensor meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/cylindrical_mesh.html">Cylindrical meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Reference</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting connected
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://simpeg.xyz"><i class="fa fa-external-link-square fa-fw"></i> SimPEG</a></li>
+            
+                <li class="toctree-l1"><a href="http://slack.simpeg.xyz"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/simpeg/discretize"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">discretize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>discretize.TreeMesh</li>
+    
+    
+
+    <li class="wy-breadcrumbs-aside">
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for discretize.TreeMesh</h1><div class="highlight"><pre>
+<span></span><span class="c1">#      ___          ___       ___          ___          ___          ___</span>
+<span class="c1">#     /\  \        /\  \     /\  \        /\  \        /\  \        /\  \</span>
+<span class="c1">#    /::\  \      /::\  \    \:\  \      /::\  \      /::\  \      /::\  \</span>
+<span class="c1">#   /:/\:\  \    /:/\:\  \    \:\  \    /:/\:\  \    /:/\:\  \    /:/\:\  \</span>
+<span class="c1">#  /:/  \:\  \  /:/  \:\  \   /::\  \  /::\~\:\  \  /::\~\:\  \  /::\~\:\  \</span>
+<span class="c1"># /:/__/ \:\__\/:/__/ \:\__\ /:/\:\__\/:/\:\ \:\__\/:/\:\ \:\__\/:/\:\ \:\__\</span>
+<span class="c1"># \:\  \ /:/  /\:\  \  \/__//:/  \/__/\/_|::\/:/  /\:\~\:\ \/__/\:\~\:\ \/__/</span>
+<span class="c1">#  \:\  /:/  /  \:\  \     /:/  /        |:|::/  /  \:\ \:\__\   \:\ \:\__\</span>
+<span class="c1">#   \:\/:/  /    \:\  \    \/__/         |:|\/__/    \:\ \/__/    \:\ \/__/</span>
+<span class="c1">#    \::/  /      \:\__\                 |:|  |       \:\__\       \:\__\</span>
+<span class="c1">#     \/__/        \/__/                  \|__|        \/__/        \/__/</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#                      .----------------.----------------.</span>
+<span class="c1">#                     /|               /|               /|</span>
+<span class="c1">#                    / |              / |              / |</span>
+<span class="c1">#                   /  |      6      /  |     7       /  |</span>
+<span class="c1">#                  /   |            /   |            /   |</span>
+<span class="c1">#                 .----------------.----+-----------.    |</span>
+<span class="c1">#                /|    . ---------/|----.----------/|----.</span>
+<span class="c1">#               / |   /|         / |   /|         / |   /|</span>
+<span class="c1">#              /  |  / |  4     /  |  / |   5    /  |  / |</span>
+<span class="c1">#             /   | /  |       /   | /  |       /   | /  |</span>
+<span class="c1">#            . -------------- .----------------.    |/   |</span>
+<span class="c1">#            |    . ---+------|----.----+------|----.    |</span>
+<span class="c1">#            |   /|    .______|___/|____.______|___/|____.</span>
+<span class="c1">#            |  / |   /    2  |  / |   /     3 |  / |   /</span>
+<span class="c1">#            | /  |  /        | /  |  /        | /  |  /</span>
+<span class="c1">#            . ---+---------- . ---+---------- .    | /</span>
+<span class="c1">#            |    |/          |    |/          |    |/             z</span>
+<span class="c1">#            |    . ----------|----.-----------|----.              ^   y</span>
+<span class="c1">#            |   /      0     |   /       1    |   /               |  /</span>
+<span class="c1">#            |  /             |  /             |  /                | /</span>
+<span class="c1">#            | /              | /              | /                 o----&gt; x</span>
+<span class="c1">#            . -------------- . -------------- .</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1"># Face Refinement:</span>
+<span class="c1">#</span>
+<span class="c1">#      2_______________3                    _______________</span>
+<span class="c1">#      |               |                   |       |       |</span>
+<span class="c1">#   ^  |               |                   |   2   |   3   |</span>
+<span class="c1">#   |  |               |                   |       |       |</span>
+<span class="c1">#   |  |       x       |        ---&gt;       |-------+-------|</span>
+<span class="c1">#   t1 |               |                   |       |       |</span>
+<span class="c1">#      |               |                   |   0   |   1   |</span>
+<span class="c1">#      |_______________|                   |_______|_______|</span>
+<span class="c1">#      0      t0--&gt;    1</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1"># Face and Edge naming conventions:</span>
+<span class="c1">#</span>
+<span class="c1">#                      fZp</span>
+<span class="c1">#                       |</span>
+<span class="c1">#                 6 ------eX3------ 7</span>
+<span class="c1">#                /|     |         / |</span>
+<span class="c1">#               /eZ2    .        / eZ3</span>
+<span class="c1">#             eY2 |        fYp eY3  |</span>
+<span class="c1">#             /   |            / fXp|</span>
+<span class="c1">#            4 ------eX2----- 5     |</span>
+<span class="c1">#            |fXm 2 -----eX1--|---- 3          z</span>
+<span class="c1">#           eZ0  /            |  eY1           ^   y</span>
+<span class="c1">#            | eY0   .  fYm  eZ1 /             |  /</span>
+<span class="c1">#            | /     |        | /              | /</span>
+<span class="c1">#            0 ------eX0------1                o----&gt; x</span>
+<span class="c1">#                    |</span>
+<span class="c1">#                   fZm</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#            fX                                  fY</span>
+<span class="c1">#      2___________3                       2___________3</span>
+<span class="c1">#      |     e1    |                       |     e1    |</span>
+<span class="c1">#      |           |                       |           |</span>
+<span class="c1">#   e0 |     x     | e2      z          e0 |     x     | e2      z</span>
+<span class="c1">#      |           |         ^             |           |         ^</span>
+<span class="c1">#      |___________|         |___&gt; y       |___________|         |___&gt; x</span>
+<span class="c1">#      0    e3     1                       0    e3     1</span>
+<span class="c1">#           fZ</span>
+<span class="c1">#      2___________3</span>
+<span class="c1">#      |     e1    |</span>
+<span class="c1">#      |           |</span>
+<span class="c1">#   e0 |     x     | e2      y</span>
+<span class="c1">#      |           |         ^</span>
+<span class="c1">#      |___________|         |___&gt; x</span>
+<span class="c1">#      0    e3     1</span>
+<span class="kn">from</span> <span class="nn">.base</span> <span class="k">import</span> <span class="n">BaseTensorMesh</span>
+<span class="kn">from</span> <span class="nn">.InnerProducts</span> <span class="k">import</span> <span class="n">InnerProducts</span>
+<span class="kn">from</span> <span class="nn">.MeshIO</span> <span class="k">import</span> <span class="n">TreeMeshIO</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">.tree_ext</span> <span class="k">import</span> <span class="n">_TreeMesh</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="k">import</span> <span class="n">Delaunay</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">six</span> <span class="k">import</span> <span class="n">integer_types</span>
+
+<div class="viewcode-block" id="TreeMesh"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh">[docs]</a><span class="k">class</span> <span class="nc">TreeMesh</span><span class="p">(</span><span class="n">_TreeMesh</span><span class="p">,</span> <span class="n">BaseTensorMesh</span><span class="p">,</span> <span class="n">InnerProducts</span><span class="p">,</span> <span class="n">TreeMeshIO</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    TreeMesh is a class for adaptive QuadTree (2D) and OcTree (3D) meshes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_meshType</span> <span class="o">=</span> <span class="s1">&#39;TREE&#39;</span>
+
+    <span class="c1">#inheriting stuff from BaseTensorMesh that isn&#39;t defined in _QuadTree</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">BaseTensorMesh</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span><span class="c1">#TODO:, **kwargs) # pass the kwargs for copy/paste</span>
+
+        <span class="n">nx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">ny</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">nz</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="mi">2</span>
+        <span class="k">def</span> <span class="nf">is_pow2</span><span class="p">(</span><span class="n">num</span><span class="p">):</span> <span class="k">return</span> <span class="p">((</span><span class="n">num</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">num</span> <span class="o">!=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">is_pow2</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_pow2</span><span class="p">(</span><span class="n">ny</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_pow2</span><span class="p">(</span><span class="n">nz</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;length of cell width vectors must be a power of 2&quot;</span><span class="p">)</span>
+        <span class="c1"># Now can initialize cpp tree parent</span>
+        <span class="n">_TreeMesh</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">outStr</span> <span class="o">=</span> <span class="s1">&#39;  ---- </span><span class="si">{0!s}</span><span class="s1">TreeMesh ----  &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="p">(</span><span class="s1">&#39;Oc&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="s1">&#39;Quad&#39;</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">printH</span><span class="p">(</span><span class="n">hx</span><span class="p">,</span> <span class="n">outStr</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">hx</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="n">hx</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="n">h</span> <span class="o">=</span> <span class="n">hx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">hx</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">hx</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">h</span><span class="p">:</span>
+                        <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+                        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">break</span>
+                <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">outStr</span> <span class="o">+=</span> <span class="s1">&#39; </span><span class="si">{0:.2f}</span><span class="s1">, &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">outStr</span> <span class="o">+=</span> <span class="s1">&#39; </span><span class="si">{0:d}</span><span class="s1">*</span><span class="si">{1:.2f}</span><span class="s1">, &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">outStr</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">outStr</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">   x0: </span><span class="si">{0:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">outStr</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">   y0: </span><span class="si">{0:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">outStr</span> <span class="o">+=</span> <span class="n">printH</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hx</span><span class="p">,</span> <span class="n">outStr</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">   hx:&#39;</span><span class="p">)</span>
+            <span class="n">outStr</span> <span class="o">+=</span> <span class="n">printH</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hy</span><span class="p">,</span> <span class="n">outStr</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">   hy:&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">outStr</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">   x0: </span><span class="si">{0:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">outStr</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">   y0: </span><span class="si">{0:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">outStr</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">   z0: </span><span class="si">{0:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="n">outStr</span> <span class="o">+=</span> <span class="n">printH</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hx</span><span class="p">,</span> <span class="n">outStr</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">   hx:&#39;</span><span class="p">)</span>
+            <span class="n">outStr</span> <span class="o">+=</span> <span class="n">printH</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hy</span><span class="p">,</span> <span class="n">outStr</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">   hy:&#39;</span><span class="p">)</span>
+            <span class="n">outStr</span> <span class="o">+=</span> <span class="n">printH</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hz</span><span class="p">,</span> <span class="n">outStr</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">   hz:&#39;</span><span class="p">)</span>
+        <span class="n">outStr</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">  nC: </span><span class="si">{0:d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span>
+        <span class="n">outStr</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">  Fill: </span><span class="si">{0:2.2f}</span><span class="s1">%&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">fill</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">outStr</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vntF</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ntFx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ntFy</span><span class="p">]</span> <span class="o">+</span> <span class="p">([]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span> <span class="k">else</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ntFz</span><span class="p">])</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vntE</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ntEx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ntEy</span><span class="p">]</span> <span class="o">+</span> <span class="p">([]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span> <span class="k">else</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ntEz</span><span class="p">])</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cellGradStencil</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_cellGradStencil&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cellGradStencil</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_cellGradxStencil</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cellGradyStencil</span>
+            <span class="p">])</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_cellGradStencil</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_cellGradStencil</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cellGradzStencil</span>
+                <span class="p">])</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cellGradStencil</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cellGrad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cell centered Gradient operator built off of the faceDiv operator.</span>
+<span class="sd">        Grad =  - (Mf)^{-1} * Div * diag (volume)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_cellGrad&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="n">i_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">faceBoundaryInd</span>
+
+            <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nFx</span><span class="p">)</span>
+            <span class="n">ix</span><span class="p">[</span><span class="n">i_s</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.</span>
+            <span class="n">ix</span><span class="p">[</span><span class="n">i_s</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.</span>
+            <span class="n">Pafx</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
+
+            <span class="n">iy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nFy</span><span class="p">)</span>
+            <span class="n">iy</span><span class="p">[</span><span class="n">i_s</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.</span>
+            <span class="n">iy</span><span class="p">[</span><span class="n">i_s</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.</span>
+            <span class="n">Pafy</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span>
+
+            <span class="n">MfI</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getFaceInnerProduct</span><span class="p">(</span><span class="n">invMat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">Pi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">block_diag</span><span class="p">([</span><span class="n">Pafx</span><span class="p">,</span> <span class="n">Pafy</span><span class="p">])</span>
+
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">iz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nFz</span><span class="p">)</span>
+                <span class="n">iz</span><span class="p">[</span><span class="n">i_s</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.</span>
+                <span class="n">iz</span><span class="p">[</span><span class="n">i_s</span><span class="p">[</span><span class="mi">5</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.</span>
+                <span class="n">Pafz</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">iz</span><span class="p">)</span>
+                <span class="n">Pi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">block_diag</span><span class="p">([</span><span class="n">Pafx</span><span class="p">,</span> <span class="n">Pafy</span><span class="p">,</span> <span class="n">Pafz</span><span class="p">])</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cellGrad</span> <span class="o">=</span> <span class="o">-</span><span class="n">Pi</span> <span class="o">*</span> <span class="n">MfI</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">faceDiv</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vol</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cellGrad</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cellGradx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cell centered Gradient operator in x-direction (Gradx)</span>
+<span class="sd">        Grad = sp.vstack((Gradx, Grady, Gradz))</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_cellGradx&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="n">nFx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFx</span>
+            <span class="n">i_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">faceBoundaryInd</span>
+
+            <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nFx</span><span class="p">)</span>
+            <span class="n">ix</span><span class="p">[</span><span class="n">i_s</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">ix</span><span class="p">[</span><span class="n">i_s</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">Pafx</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
+
+            <span class="n">MfI</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getFaceInnerProduct</span><span class="p">(</span><span class="n">invMat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">MfIx</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">MfI</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()[:</span><span class="n">nFx</span><span class="p">])</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cellGradx</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="o">-</span><span class="n">Pafx</span> <span class="o">*</span> <span class="n">MfIx</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">faceDivx</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vol</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cellGradx</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cellGrady</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cell centered Gradient operator in y-direction (Gradx)</span>
+<span class="sd">        Grad = sp.vstack((Gradx, Grady, Gradz))</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_cellGrady&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="n">nFx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFx</span>
+            <span class="n">nFy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFy</span>
+            <span class="n">i_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">faceBoundaryInd</span>
+
+            <span class="n">iy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nFy</span><span class="p">)</span>
+            <span class="n">iy</span><span class="p">[</span><span class="n">i_s</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.</span>
+            <span class="n">iy</span><span class="p">[</span><span class="n">i_s</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.</span>
+            <span class="n">Pafy</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span>
+
+            <span class="n">MfI</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getFaceInnerProduct</span><span class="p">(</span><span class="n">invMat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">MfIy</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">MfI</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()[</span><span class="n">nFx</span><span class="p">:</span><span class="n">nFx</span><span class="o">+</span><span class="n">nFy</span><span class="p">])</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cellGrady</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="o">-</span><span class="n">Pafy</span> <span class="o">*</span> <span class="n">MfIy</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">faceDivy</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vol</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cellGrady</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cellGradz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cell centered Gradient operator in z-direction (Gradz)</span>
+<span class="sd">        Grad = sp.vstack((Gradx, Grady, Gradz))</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_cellGradz&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="n">nFx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFx</span>
+            <span class="n">nFy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFy</span>
+            <span class="n">i_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">faceBoundaryInd</span>
+
+            <span class="n">iz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nFz</span><span class="p">)</span>
+            <span class="n">iz</span><span class="p">[</span><span class="n">i_s</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.</span>
+            <span class="n">iz</span><span class="p">[</span><span class="n">i_s</span><span class="p">[</span><span class="mi">5</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.</span>
+            <span class="n">Pafz</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">iz</span><span class="p">)</span>
+
+            <span class="n">MfI</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getFaceInnerProduct</span><span class="p">(</span><span class="n">invMat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">MfIz</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">MfI</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()[</span><span class="n">nFx</span><span class="o">+</span><span class="n">nFy</span><span class="p">:])</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cellGradz</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="o">-</span><span class="n">Pafz</span> <span class="o">*</span> <span class="n">MfIz</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">faceDivz</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vol</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cellGradz</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">faceDivx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_faceDivx&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_faceDivx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">faceDiv</span><span class="p">[:,</span> <span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">nFx</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_faceDivx</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">faceDivy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_faceDivy&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_faceDivy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">faceDiv</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFx</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">nFx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">nFy</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_faceDivy</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">faceDivz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_faceDivz&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_faceDivz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">faceDiv</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">nFy</span><span class="p">:]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_faceDivz</span>
+
+<div class="viewcode-block" id="TreeMesh.point2index"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh.point2index">[docs]</a>    <span class="k">def</span> <span class="nf">point2index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locs</span><span class="p">):</span>
+        <span class="n">locs</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">asArray_N_x_Dim</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+
+        <span class="n">inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">locs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">loc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">locs</span><span class="p">):</span>
+            <span class="n">inds</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_containing_cell_index</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">inds</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">permuteCC</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># TODO: cache these?</span>
+        <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lexsort</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1"># sort by x, then y, then z</span>
+        <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()[</span><span class="n">P</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">permuteF</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># TODO: cache these?</span>
+        <span class="n">Px</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lexsort</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFx</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">Py</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lexsort</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFy</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">nFx</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">Px</span><span class="p">,</span> <span class="n">Py</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Pz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lexsort</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridFz</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nFx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">nFy</span><span class="p">)</span>
+            <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">Px</span><span class="p">,</span> <span class="n">Py</span><span class="p">,</span> <span class="n">Pz</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nF</span><span class="p">)</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()[</span><span class="n">P</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">permuteE</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># TODO: cache these?</span>
+        <span class="n">Px</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lexsort</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridEx</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">Py</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lexsort</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridEy</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">nEx</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">Px</span><span class="p">,</span> <span class="n">Py</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">Pz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lexsort</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridEz</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nEx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">nEy</span><span class="p">)</span>
+            <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">Px</span><span class="p">,</span> <span class="n">Py</span><span class="p">,</span> <span class="n">Pz</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nE</span><span class="p">)</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()[</span><span class="n">P</span><span class="p">]</span>
+
+<div class="viewcode-block" id="TreeMesh.plotSlice"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh.plotSlice">[docs]</a>    <span class="k">def</span> <span class="nf">plotSlice</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">vType</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span>
+        <span class="n">normal</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">ind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">pcolorOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">streamOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gridOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">range_x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">range_y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">pcolorOpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">pcolorOpts</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">streamOpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">streamOpts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">gridOpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">gridOpts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>
+        <span class="n">vTypeOpts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Fz&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">,</span> <span class="s1">&#39;Ez&#39;</span><span class="p">]</span>
+        <span class="n">viewOpts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;real&#39;</span><span class="p">,</span> <span class="s1">&#39;imag&#39;</span><span class="p">,</span> <span class="s1">&#39;abs&#39;</span><span class="p">]</span>
+        <span class="n">normalOpts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">vType</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vTypeOpts</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;vType must be in [&#39;</span><span class="si">{0!s}</span><span class="s2">&#39;]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vTypeOpts</span><span class="p">))</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="s1">&#39;Must be a 3D mesh. Use plotImage.&#39;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">view</span> <span class="o">==</span> <span class="s1">&#39;vec&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="s1">&#39;Vector view plotting is not implemented for TreeMesh (yet)&#39;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">view</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">viewOpts</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;view must be in [&#39;</span><span class="si">{0!s}</span><span class="s2">&#39;]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">viewOpts</span><span class="p">))</span>
+            <span class="p">)</span>
+        <span class="n">normal</span> <span class="o">=</span> <span class="n">normal</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">normal</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">normalOpts</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;normal must be in [&#39;</span><span class="si">{0!s}</span><span class="s2">&#39;]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">normalOpts</span><span class="p">))</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;grid must be a boolean&#39;</span><span class="p">)</span>
+
+        <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+        <span class="kn">import</span> <span class="nn">matplotlib</span>
+
+        <span class="n">normalInd</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}[</span><span class="n">normal</span><span class="p">]</span>
+        <span class="n">antiNormalInd</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;Z&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}[</span><span class="n">normal</span><span class="p">]</span>
+
+        <span class="n">h2d</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="n">antiNormalInd</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="n">antiNormalInd</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="n">x2d</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="n">antiNormalInd</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="n">antiNormalInd</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+
+        <span class="c1">#: Size of the sliced dimension</span>
+        <span class="n">szSliceDim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="n">normalInd</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">ind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ind</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">szSliceDim</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="n">cc_tensor</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="n">cc_tensor</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+            <span class="n">cc_tensor</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">cc_tensor</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">cc_tensor</span><span class="p">[</span><span class="n">i</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="mf">0.5</span>
+        <span class="n">slice_loc</span> <span class="o">=</span> <span class="n">cc_tensor</span><span class="p">[</span><span class="n">normalInd</span><span class="p">][</span><span class="n">ind</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">integer_types</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;ind must be an integer&#39;</span><span class="p">)</span>
+
+        <span class="c1"># create a temporary TreeMesh with the slice through</span>
+        <span class="n">temp_mesh</span> <span class="o">=</span> <span class="n">TreeMesh</span><span class="p">(</span><span class="n">h2d</span><span class="p">,</span> <span class="n">x2d</span><span class="p">)</span>
+        <span class="n">level_diff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_level</span> <span class="o">-</span> <span class="n">temp_mesh</span><span class="o">.</span><span class="n">max_level</span>
+
+        <span class="n">XS</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="n">XS</span><span class="p">[</span><span class="n">antiNormalInd</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">XS</span><span class="p">[</span><span class="n">antiNormalInd</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">cc_tensor</span><span class="p">[</span><span class="n">antiNormalInd</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+                                                                 <span class="n">cc_tensor</span><span class="p">[</span><span class="n">antiNormalInd</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="n">XS</span><span class="p">[</span><span class="n">normalInd</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">XS</span><span class="p">[</span><span class="n">antiNormalInd</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span><span class="o">*</span><span class="n">slice_loc</span>
+        <span class="n">loc_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">XS</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">XS</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">XS</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+        <span class="n">inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_containing_cell_indexes</span><span class="p">(</span><span class="n">loc_grid</span><span class="p">))</span>
+
+        <span class="n">grid2d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[</span><span class="n">inds</span><span class="p">][:,</span> <span class="n">antiNormalInd</span><span class="p">]</span>
+        <span class="n">levels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cell_levels_by_indexes</span><span class="p">(</span><span class="n">inds</span><span class="p">)</span> <span class="o">-</span> <span class="n">level_diff</span>
+        <span class="n">temp_mesh</span><span class="o">.</span><span class="n">insert_cells</span><span class="p">(</span><span class="n">grid2d</span><span class="p">,</span> <span class="n">levels</span><span class="p">)</span>
+        <span class="n">tm_gridboost</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">temp_mesh</span><span class="o">.</span><span class="n">nC</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="n">tm_gridboost</span><span class="p">[:,</span> <span class="n">antiNormalInd</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp_mesh</span><span class="o">.</span><span class="n">gridCC</span>
+        <span class="n">tm_gridboost</span><span class="p">[:,</span> <span class="n">normalInd</span><span class="p">]</span> <span class="o">=</span> <span class="n">slice_loc</span>
+
+        <span class="c1"># interpolate values to self.gridCC if not &#39;CC&#39;</span>
+        <span class="k">if</span> <span class="n">vType</span> <span class="ow">is</span> <span class="ow">not</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
+            <span class="n">aveOp</span> <span class="o">=</span> <span class="s1">&#39;ave&#39;</span> <span class="o">+</span> <span class="n">vType</span> <span class="o">+</span> <span class="s1">&#39;2CC&#39;</span>
+            <span class="n">Av</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aveOp</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">Av</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">Av</span><span class="o">*</span><span class="n">v</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">vType</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="c1"># was one of Fx, Fy, Fz, Ex, Ey, Ez</span>
+                <span class="c1"># assuming v has all three components in these cases</span>
+                <span class="n">vec_ind</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}[</span><span class="n">vType</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+                <span class="k">if</span> <span class="n">vType</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span>
+                    <span class="n">i_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nEx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nEy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nEz</span><span class="p">])</span>
+                <span class="k">elif</span> <span class="n">vType</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span>
+                    <span class="n">i_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFz</span><span class="p">])</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i_s</span><span class="p">[</span><span class="n">vec_ind</span><span class="p">]:</span><span class="n">i_s</span><span class="p">[</span><span class="n">vec_ind</span><span class="o">+</span><span class="mi">1</span><span class="p">]]</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">Av</span><span class="o">*</span><span class="n">v</span>
+
+        <span class="c1"># interpolate values from self.gridCC to grid2d</span>
+        <span class="n">ind_3d_to_2d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_containing_cell_indexes</span><span class="p">(</span><span class="n">tm_gridboost</span><span class="p">)</span>
+        <span class="n">v2d</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">ind_3d_to_2d</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">Axes</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;ax must be an matplotlib.axes.Axes&quot;</span><span class="p">)</span>
+
+        <span class="n">out</span> <span class="o">=</span> <span class="n">temp_mesh</span><span class="o">.</span><span class="n">plotImage</span><span class="p">(</span>
+            <span class="n">v2d</span><span class="p">,</span> <span class="n">vType</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span>
+            <span class="n">grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="n">view</span><span class="p">,</span>
+            <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">pcolorOpts</span><span class="o">=</span><span class="n">pcolorOpts</span><span class="p">,</span>
+            <span class="n">gridOpts</span><span class="o">=</span><span class="n">gridOpts</span><span class="p">,</span>
+            <span class="n">range_x</span><span class="o">=</span><span class="n">range_x</span><span class="p">,</span>
+            <span class="n">range_y</span><span class="o">=</span><span class="n">range_y</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span> <span class="k">if</span> <span class="n">normal</span> <span class="o">==</span> <span class="s1">&#39;X&#39;</span> <span class="k">else</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span> <span class="k">if</span> <span class="n">normal</span> <span class="o">==</span> <span class="s1">&#39;Z&#39;</span> <span class="k">else</span> <span class="s1">&#39;z&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+            <span class="s1">&#39;Slice </span><span class="si">{0:d}</span><span class="s1">, </span><span class="si">{1!s}</span><span class="s1"> = </span><span class="si">{2:4.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">slice_loc</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">showIt</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">out</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TreeMesh.save"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TreeMesh.load"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TreeMesh.copy"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">__reduce__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">TreeMesh</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getstate__</span><span class="p">()</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<div role="contentinfo">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    2013-2019,
+    <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
+    Except where noted, this work is licensed under a <br />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons Attribution 4.0 International License
+    </a>
+</div>
+<br>
+<div>
+Built with
+    <a href="http://sphinx-doc.org/">Sphinx</a>
+    using a
+    <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+    provided by
+    <a href="https://readthedocs.org">Read the Docs</a>.
+ </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
