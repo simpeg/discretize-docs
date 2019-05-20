@@ -280,25 +280,29 @@ and padding distance.
 If a base_mesh is provided, the core cells will be centered
 on the underlaying mesh to reduce interpolation errors.
 The core extent is set by the bounding box of the xyz location.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>xyz</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – Location points [n x dim]</p></li>
-<li><p><strong>h</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – Cell size for the core mesh [1 x ndim]</p></li>
-<li><p><strong>padding_distance</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – Padding distances [[W,E], [N,S], [Down,Up]]</p></li>
-<li><p><strong>base_mesh</strong> (<em>discretize.BaseMesh</em>) – discretize mesh used to center the core mesh</p></li>
-<li><p><strong>depth_core</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Depth of core mesh below xyz</p></li>
-<li><p><strong>expansion_factor</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Expension factor for padding cells [1.3]</p></li>
-<li><p><strong>mesh_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Specify output mesh type: [“TENSOR”] or “TREE”</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>xyz</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – Location points [n x dim]</li>
+<li><strong>h</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – Cell size for the core mesh [1 x ndim]</li>
+<li><strong>padding_distance</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – Padding distances [[W,E], [N,S], [Down,Up]]</li>
+<li><strong>base_mesh</strong> (<em>discretize.BaseMesh</em>) – discretize mesh used to center the core mesh</li>
+<li><strong>depth_core</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Depth of core mesh below xyz</li>
+<li><strong>expansion_factor</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Expension factor for padding cells [1.3]</li>
+<li><strong>mesh_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Specify output mesh type: [“TENSOR”] or “TREE”</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Mesh of “mesh_type”</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>discretize.BaseMesh</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Mesh of “mesh_type”</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">discretize.BaseMesh</p>
+</td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Example</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -320,7 +324,7 @@ The core extent is set by the bounding box of the xyz location.</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../api/generated/discretize-utils-mesh_builder_xyz-1.py">Source code</a>)</p>
-<div class="figure align-center">
+<div class="figure">
 <img alt="../../_images/discretize-utils-mesh_builder_xyz-1.png" src="../../_images/discretize-utils-mesh_builder_xyz-1.png" />
 </div>
 </dd></dl>

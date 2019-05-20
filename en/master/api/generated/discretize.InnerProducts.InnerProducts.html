@@ -270,33 +270,39 @@
 <p>This is a base for the discretize mesh classes.
 This mixIn creates the all the inner product matrices that you need!</p>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-center">
+<table border="1" class="longtable docutils">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
+<col width="10%" />
+<col width="90%" />
 </colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.InnerProducts.InnerProducts.getEdgeInnerProduct" title="discretize.InnerProducts.InnerProducts.getEdgeInnerProduct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEdgeInnerProduct</span></code></a>(self[, prop, invProp, …])</p></td>
-<td><p>Generate the edge inner product matrix</p></td>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.InnerProducts.InnerProducts.getEdgeInnerProduct" title="discretize.InnerProducts.InnerProducts.getEdgeInnerProduct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEdgeInnerProduct</span></code></a>(self[,&nbsp;prop,&nbsp;invProp,&nbsp;…])</td>
+<td>Generate the edge inner product matrix</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#discretize.InnerProducts.InnerProducts.getEdgeInnerProductDeriv" title="discretize.InnerProducts.InnerProducts.getEdgeInnerProductDeriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEdgeInnerProductDeriv</span></code></a>(self, prop[, …])</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param prop</dt>
-<dd class="field-odd"><p>material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p>
-</dd>
-</dl>
-</p></td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.InnerProducts.InnerProducts.getEdgeInnerProductDeriv" title="discretize.InnerProducts.InnerProducts.getEdgeInnerProductDeriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEdgeInnerProductDeriv</span></code></a>(self,&nbsp;prop[,&nbsp;…])</td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param prop:</th><td class="field-body">material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.InnerProducts.InnerProducts.getFaceInnerProduct" title="discretize.InnerProducts.InnerProducts.getFaceInnerProduct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFaceInnerProduct</span></code></a>(self[, prop, invProp, …])</p></td>
-<td><p>Generate the face inner product matrix</p></td>
+</tbody>
+</table>
+</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#discretize.InnerProducts.InnerProducts.getFaceInnerProductDeriv" title="discretize.InnerProducts.InnerProducts.getFaceInnerProductDeriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFaceInnerProductDeriv</span></code></a>(self, prop[, …])</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param prop</dt>
-<dd class="field-odd"><p>material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p>
-</dd>
-</dl>
-</p></td>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.InnerProducts.InnerProducts.getFaceInnerProduct" title="discretize.InnerProducts.InnerProducts.getFaceInnerProduct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFaceInnerProduct</span></code></a>(self[,&nbsp;prop,&nbsp;invProp,&nbsp;…])</td>
+<td>Generate the face inner product matrix</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.InnerProducts.InnerProducts.getFaceInnerProductDeriv" title="discretize.InnerProducts.InnerProducts.getFaceInnerProductDeriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFaceInnerProductDeriv</span></code></a>(self,&nbsp;prop[,&nbsp;…])</td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param prop:</th><td class="field-body">material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</td>
+</tr>
+</tbody>
+</table>
+</td>
 </tr>
 </tbody>
 </table>
@@ -311,86 +317,102 @@ This mixIn creates the all the inner product matrices that you need!</p>
 <dt id="discretize.InnerProducts.InnerProducts.getEdgeInnerProduct">
 <code class="descclassname">InnerProducts.</code><code class="descname">getEdgeInnerProduct</code><span class="sig-paren">(</span><em>self</em>, <em>prop=None</em>, <em>invProp=False</em>, <em>invMat=False</em>, <em>doFast=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/InnerProducts.html#InnerProducts.getEdgeInnerProduct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.InnerProducts.InnerProducts.getEdgeInnerProduct" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the edge inner product matrix</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
-<li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the material property</p></li>
-<li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the matrix</p></li>
-<li><p><strong>doFast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – do a faster implementation if available.</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>prop</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</li>
+<li><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the material property</li>
+<li><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the matrix</li>
+<li><strong>doFast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – do a faster implementation if available.</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>M, the inner product matrix (nE, nE)</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.2.1)">scipy.sparse.csr_matrix</a></p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M, the inner product matrix (nE, nE)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.0)">scipy.sparse.csr_matrix</a></p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="discretize.InnerProducts.InnerProducts.getEdgeInnerProductDeriv">
 <code class="descclassname">InnerProducts.</code><code class="descname">getEdgeInnerProductDeriv</code><span class="sig-paren">(</span><em>self</em>, <em>prop</em>, <em>doFast=True</em>, <em>invProp=False</em>, <em>invMat=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/InnerProducts.html#InnerProducts.getEdgeInnerProductDeriv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.InnerProducts.InnerProducts.getEdgeInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
-<li><p><strong>doFast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – do a faster implementation if available.</p></li>
-<li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the material property</p></li>
-<li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the matrix</p></li>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>prop</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</li>
+<li><strong>doFast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – do a faster implementation if available.</li>
+<li><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the material property</li>
+<li><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the matrix</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dMdm, the derivative of the inner product matrix (nE, nC*nA)</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.2.1)">scipy.sparse.csr_matrix</a></p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dMdm, the derivative of the inner product matrix (nE, nC*nA)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.0)">scipy.sparse.csr_matrix</a></p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="discretize.InnerProducts.InnerProducts.getFaceInnerProduct">
 <code class="descclassname">InnerProducts.</code><code class="descname">getFaceInnerProduct</code><span class="sig-paren">(</span><em>self</em>, <em>prop=None</em>, <em>invProp=False</em>, <em>invMat=False</em>, <em>doFast=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/InnerProducts.html#InnerProducts.getFaceInnerProduct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.InnerProducts.InnerProducts.getFaceInnerProduct" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the face inner product matrix</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
-<li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the material property</p></li>
-<li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the matrix</p></li>
-<li><p><strong>doFast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – do a faster implementation if available.</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>prop</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</li>
+<li><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the material property</li>
+<li><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the matrix</li>
+<li><strong>doFast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – do a faster implementation if available.</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>M, the inner product matrix (nF, nF)</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.2.1)">scipy.sparse.csr_matrix</a></p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M, the inner product matrix (nF, nF)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.0)">scipy.sparse.csr_matrix</a></p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="discretize.InnerProducts.InnerProducts.getFaceInnerProductDeriv">
 <code class="descclassname">InnerProducts.</code><code class="descname">getFaceInnerProductDeriv</code><span class="sig-paren">(</span><em>self</em>, <em>prop</em>, <em>doFast=True</em>, <em>invProp=False</em>, <em>invMat=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/InnerProducts.html#InnerProducts.getFaceInnerProductDeriv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.InnerProducts.InnerProducts.getFaceInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
-<li><p><strong>doFast</strong> – bool  do a faster implementation if available.</p></li>
-<li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the material property</p></li>
-<li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the matrix</p></li>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>prop</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</li>
+<li><strong>doFast</strong> – bool  do a faster implementation if available.</li>
+<li><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the material property</li>
+<li><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – inverts the matrix</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dMdmu(u), the derivative of the inner product matrix for a certain u</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.2.1)">scipy.sparse.csr_matrix</a></p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dMdmu(u), the derivative of the inner product matrix for a certain u</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.0)">scipy.sparse.csr_matrix</a></p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <div style='clear:both'></div></div>

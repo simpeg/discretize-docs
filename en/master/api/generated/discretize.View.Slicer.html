@@ -274,8 +274,7 @@
 <p>Plot slices of a 3D volume, interactively (scroll wheel).</p>
 <p>If called from a notebook, make sure to set</p>
 <blockquote>
-<div><p>%matplotlib notebook</p>
-</div></blockquote>
+<div>%matplotlib notebook</div></blockquote>
 <p>The straight forward usage for the Slicer is through, e.g., a
 <cite>TensorMesh</cite>-mesh, by accessing its <cite>mesh.plot_3d_slicer</cite>.</p>
 <p>If you, however, call this class directly, you have first to initiate a
@@ -290,61 +289,62 @@ figure, and afterwards connect it:</p>
 </pre></div>
 </div>
 <p><strong>Parameters</strong></p>
-<dl>
-<dt>v<span class="classifier">array</span></dt><dd><p>Data array of length self.nC.</p>
-</dd>
-<dt>xslice, yslice, zslice<span class="classifier">floats, optional</span></dt><dd><p>Initial slice locations (in meter);
-defaults to the middle of the volume.</p>
-</dd>
-<dt>vType: str</dt><dd><p>Type of visualization. Default is ‘CC’.
-One of [‘CC’, ‘Fx’, ‘Fy’, ‘Fz’, ‘Ex’, ‘Ey’, ‘Ez’].</p>
-</dd>
-<dt>view<span class="classifier">str</span></dt><dd><p>Which component to show. Defaults to ‘real’.
-One of  [‘real’, ‘imag’, ‘abs’].</p>
-</dd>
-<dt>axis<span class="classifier">‘xy’ (default) or ‘yx’</span></dt><dd><p>‘xy’: horizontal axis is x, vertical axis is y. Reversed otherwise.</p>
-</dd>
-<dt>transparent<span class="classifier">‘slider’ or list of floats or pairs of floats, optional</span></dt><dd><p>Values to be removed. E.g. air, water.
+<dl class="docutils">
+<dt>v <span class="classifier-delimiter">:</span> <span class="classifier">array</span></dt>
+<dd>Data array of length self.nC.</dd>
+<dt>xslice, yslice, zslice <span class="classifier-delimiter">:</span> <span class="classifier">floats, optional</span></dt>
+<dd>Initial slice locations (in meter);
+defaults to the middle of the volume.</dd>
+<dt>vType: str</dt>
+<dd>Type of visualization. Default is ‘CC’.
+One of [‘CC’, ‘Fx’, ‘Fy’, ‘Fz’, ‘Ex’, ‘Ey’, ‘Ez’].</dd>
+<dt>view <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>Which component to show. Defaults to ‘real’.
+One of  [‘real’, ‘imag’, ‘abs’].</dd>
+<dt>axis <span class="classifier-delimiter">:</span> <span class="classifier">‘xy’ (default) or ‘yx’</span></dt>
+<dd>‘xy’: horizontal axis is x, vertical axis is y. Reversed otherwise.</dd>
+<dt>transparent <span class="classifier-delimiter">:</span> <span class="classifier">‘slider’ or list of floats or pairs of floats, optional</span></dt>
+<dd>Values to be removed. E.g. air, water.
 If single value, only exact matches are removed. Pairs are treated as
 ranges. E.g. [0.3, [1, 4], [-np.infty, -10]] removes all values equal
 to 0.3, all values between 1 and 4, and all values smaller than -10.
 If ‘slider’ is provided it will plot an interactive slider to choose
-the shown range.</p>
-</dd>
-<dt>clim<span class="classifier">None or list of [min, max]</span></dt><dd><p>For pcolormesh (vmin, vmax).</p>
-</dd>
-<dt>aspect<span class="classifier">‘auto’, ‘equal’, or num</span></dt><dd><p>Aspect ratio of subplots. Defaults to ‘auto’.</p>
+the shown range.</dd>
+<dt>clim <span class="classifier-delimiter">:</span> <span class="classifier">None or list of [min, max]</span></dt>
+<dd>For pcolormesh (vmin, vmax).</dd>
+<dt>aspect <span class="classifier-delimiter">:</span> <span class="classifier">‘auto’, ‘equal’, or num</span></dt>
+<dd><p class="first">Aspect ratio of subplots. Defaults to ‘auto’.</p>
 <p>A list of two values can be provided. The first will be for the
 XY-plot, the second for the XZ- and YZ-plots, e.g. [‘equal’, 2] to have
 the vertical dimension exaggerated by a factor of 2.</p>
-<dl class="simple">
-<dt>WARNING: For anything else than ‘auto’, unexpected things might happen</dt><dd><p>when zooming, and the subplot-arrangement won’t look pretty.</p>
-</dd>
+<dl class="last docutils">
+<dt>WARNING: For anything else than ‘auto’, unexpected things might happen</dt>
+<dd>when zooming, and the subplot-arrangement won’t look pretty.</dd>
 </dl>
 </dd>
-<dt>grid<span class="classifier">list of 3 int</span></dt><dd><p>Number of cells occupied by x, y, and z dimension on plt.subplot2grid.</p>
-</dd>
-<dt>pcolorOpts<span class="classifier">dictionary</span></dt><dd><p>Passed to pcolormesh.</p>
-</dd>
+<dt>grid <span class="classifier-delimiter">:</span> <span class="classifier">list of 3 int</span></dt>
+<dd>Number of cells occupied by x, y, and z dimension on plt.subplot2grid.</dd>
+<dt>pcolorOpts <span class="classifier-delimiter">:</span> <span class="classifier">dictionary</span></dt>
+<dd>Passed to pcolormesh.</dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-center">
+<table border="1" class="longtable docutils">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
+<col width="10%" />
+<col width="90%" />
 </colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.View.Slicer.onscroll" title="discretize.View.Slicer.onscroll"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onscroll</span></code></a>(self, event)</p></td>
-<td><p>Update index and data when scrolling.</p></td>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.View.Slicer.onscroll" title="discretize.View.Slicer.onscroll"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onscroll</span></code></a>(self,&nbsp;event)</td>
+<td>Update index and data when scrolling.</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#discretize.View.Slicer.update_xy" title="discretize.View.Slicer.update_xy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_xy</span></code></a>(self)</p></td>
-<td><p>Update plot for change in Z-index.</p></td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.View.Slicer.update_xy" title="discretize.View.Slicer.update_xy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_xy</span></code></a>(self)</td>
+<td>Update plot for change in Z-index.</td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.View.Slicer.update_xz" title="discretize.View.Slicer.update_xz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_xz</span></code></a>(self)</p></td>
-<td><p>Update plot for change in Y-index.</p></td>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.View.Slicer.update_xz" title="discretize.View.Slicer.update_xz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_xz</span></code></a>(self)</td>
+<td>Update plot for change in Y-index.</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#discretize.View.Slicer.update_zy" title="discretize.View.Slicer.update_zy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_zy</span></code></a>(self)</p></td>
-<td><p>Update plot for change in X-index.</p></td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.View.Slicer.update_zy" title="discretize.View.Slicer.update_zy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_zy</span></code></a>(self)</td>
+<td>Update plot for change in X-index.</td>
 </tr>
 </tbody>
 </table>
@@ -352,9 +352,9 @@ the vertical dimension exaggerated by a factor of 2.</p>
 
 <div class="section" id="examples-using-discretize-view-slicer">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">discretize.View.Slicer</span></code><a class="headerlink" href="#examples-using-discretize-view-slicer" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="The example demonstrates the `plot_3d_slicer`"><div class="figure align-center" id="id1">
+<div class="sphx-glr-thumbcontainer" tooltip="The example demonstrates the `plot_3d_slicer`"><div class="figure" id="id1">
 <img alt="../../_images/sphx_glr_plot_slicer_demo_thumb.png" src="../../_images/sphx_glr_plot_slicer_demo_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../gallery/plot_slicer_demo.html#sphx-glr-gallery-plot-slicer-demo-py"><span class="std std-ref">Slicer demo</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../gallery/plot_slicer_demo.html#sphx-glr-gallery-plot-slicer-demo-py"><span class="std std-ref">Slicer demo</span></a></span></p>
 </div>
 </div><div style='clear:both'></div></div>
 <div class="section" id="attributes">

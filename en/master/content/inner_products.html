@@ -256,8 +256,8 @@ meshes. We will define the inner product as:</p>
 \[\left(a,b\right) = \int_\Omega{a \cdot b}{\partial v}\]</div>
 <p>where a and b are either scalars or vectors.</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The InnerProducts class is a base class providing inner product matrices
+<p class="first admonition-title">Note</p>
+<p class="last">The InnerProducts class is a base class providing inner product matrices
 for meshes and cannot run on its own.</p>
 </div>
 <div class="section" id="example-problem-for-dc-resistivity">
@@ -286,8 +286,8 @@ the DC resistivity equation.</p>
 <div class="math notranslate nohighlight">
 \[v_{\text{cell}} \sigma^{-1} (\mathbf{J}_x \mathbf{F}_x +\mathbf{J}_y \mathbf{F}_y  + \mathbf{J}_z \mathbf{F}_z ) = -\phi^{\top} v_{\text{cell}} \mathbf{D}_{\text{cell}} \mathbf{F}  + \text{BC}\]</div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We have discretized the dot product above, but remember that we do not
+<p class="first admonition-title">Note</p>
+<p class="last">We have discretized the dot product above, but remember that we do not
 really have a single vector <span class="math notranslate nohighlight">\(\mathbf{J}\)</span>, but approximations of
 <span class="math notranslate nohighlight">\(\vec{j}\)</span> on each face of our cell. In 2D that means 2
 approximations of <span class="math notranslate nohighlight">\(\mathbf{J}_x\)</span> and 2 approximations of
@@ -337,8 +337,8 @@ of the projection, volume, and any normalization to Cartesian coordinates
 <div class="math notranslate nohighlight">
 \[\mathbf{P}_{(i)} =  \sqrt{ \frac{1}{2^d} \mathbf{I}^d \otimes \text{diag}(\mathbf{v})} \overbrace{\mathbf{N}_{(i)}^{-1}}^{\text{Curv only}} \mathbf{Q}_{(i)}\]</div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is actually completed for each cell in the mesh at the same time, and the full matrices are returned.</p>
+<p class="first admonition-title">Note</p>
+<p class="last">This is actually completed for each cell in the mesh at the same time, and the full matrices are returned.</p>
 </div>
 <p>If <code class="docutils literal notranslate"><span class="pre">returnP=True</span></code> is requested in any of these methods the projection matrices are returned as a list ordered by nodes around which the fluxes were approximated:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># In 3D</span>
@@ -363,8 +363,7 @@ property is interpreted as follows:</p>
 \[ \begin{align}\begin{aligned}\begin{split}\vec{\mu} = \left[\begin{matrix} \mu_{1} &amp; 0 &amp; 0 \\ 0 &amp; \mu_{1} &amp; 0 \\ 0 &amp; 0 &amp; \mu_{1}  \end{matrix}\right]\end{split}\\\begin{split}\vec{\mu} = \left[\begin{matrix} \mu_{1} &amp; 0 &amp; 0 \\ 0 &amp; \mu_{2} &amp; 0 \\ 0 &amp; 0 &amp; \mu_{3}  \end{matrix}\right]\end{split}\\\begin{split}\vec{\mu} = \left[\begin{matrix} \mu_{1} &amp; \mu_{4} &amp; \mu_{5} \\ \mu_{4} &amp; \mu_{2} &amp; \mu_{6} \\ \mu_{5} &amp; \mu_{6} &amp; \mu_{3}  \end{matrix}\right]\end{split}\end{aligned}\end{align} \]</div>
 <p><strong>For 2D:</strong></p>
 <blockquote>
-<div><p>Depending on the number of columns (either 1, 2, or 3) of mu, the material property is interpreted as follows:</p>
-</div></blockquote>
+<div>Depending on the number of columns (either 1, 2, or 3) of mu, the material property is interpreted as follows:</div></blockquote>
 <div class="math notranslate nohighlight">
 \[ \begin{align}\begin{aligned}\begin{split}\vec{\mu} = \left[\begin{matrix} \mu_{1} &amp; 0 \\ 0 &amp; \mu_{1} \end{matrix}\right]\end{split}\\\begin{split}\vec{\mu} = \left[\begin{matrix} \mu_{1} &amp; 0 \\ 0 &amp; \mu_{2} \end{matrix}\right]\end{split}\\\begin{split}\vec{\mu} = \left[\begin{matrix} \mu_{1} &amp; \mu_{3} \\ \mu_{3} &amp; \mu_{2} \end{matrix}\right]\end{split}\end{aligned}\end{align} \]</div>
 </div>
@@ -373,7 +372,7 @@ property is interpreted as follows:</p>
 <p>Both the isotropic, and anisotropic material properties result in a diagonal mass matrix.
 Which is nice and easy to invert if necessary, however, in the fully anisotropic case which is not aligned with the grid, the matrix is not diagonal. This can be seen for a 3D mesh in the figure below.</p>
 <p>(<a class="reference external" href="../content/inner_products-1.py">Source code</a>)</p>
-<div class="figure align-center">
+<div class="figure">
 <img alt="../_images/inner_products-1.png" src="../_images/inner_products-1.png" />
 </div>
 </div>

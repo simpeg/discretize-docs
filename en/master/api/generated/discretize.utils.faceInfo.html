@@ -275,16 +275,16 @@
 <div><p>Returns the averaged normal, area, and edge lengths for a given set of faces.</p>
 <p>If average option is FALSE then N is a cell array {nA,nB,nC,nD}</p>
 </div></blockquote>
-<dl class="simple">
-<dt>Input:</dt><dd><p>xyz          - X,Y,Z vertex vector
-A,B,C,D      - vert index of the face (counter clockwize)</p>
-</dd>
-<dt>Options:</dt><dd><p>average      - [true]/false, toggles returning all normals or the average</p>
-</dd>
-<dt>Output:</dt><dd><p>N            - average face normal or {nA,nB,nC,nD} if average = false
+<dl class="docutils">
+<dt>Input:</dt>
+<dd>xyz          - X,Y,Z vertex vector
+A,B,C,D      - vert index of the face (counter clockwize)</dd>
+<dt>Options:</dt>
+<dd>average      - [true]/false, toggles returning all normals or the average</dd>
+<dt>Output:</dt>
+<dd>N            - average face normal or {nA,nB,nC,nD} if average = false
 area         - average face area
-edgeLengths  - exact edge Lengths, 4 column vector [AB, BC, CD, DA]</p>
-</dd>
+edgeLengths  - exact edge Lengths, 4 column vector [AB, BC, CD, DA]</dd>
 </dl>
 <p>see also testFaceNormal testFaceArea</p>
 <p>&#64;author Rowan Cockett</p>

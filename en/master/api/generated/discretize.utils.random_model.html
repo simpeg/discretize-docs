@@ -276,23 +276,27 @@
 <code class="descclassname">discretize.utils.</code><code class="descname">random_model</code><span class="sig-paren">(</span><em>shape</em>, <em>seed=None</em>, <em>anisotropy=None</em>, <em>its=100</em>, <em>bounds=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/meshutils.html#random_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.random_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a random model by convolving a kernel with a
 uniformly distributed model.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>shape</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><em>tuple</em></a>) – shape of the model.</p></li>
-<li><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – pick which model to produce, prints the seed if you don’t choose.</p></li>
-<li><p><strong>anisotropy</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – this is the (3 x n) blurring kernel that is used.</p></li>
-<li><p><strong>its</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – number of smoothing iterations</p></li>
-<li><p><strong>bounds</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – bounds on the model, len(list) == 2</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>shape</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><em>tuple</em></a>) – shape of the model.</li>
+<li><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – pick which model to produce, prints the seed if you don’t choose.</li>
+<li><strong>anisotropy</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – this is the (3 x n) blurring kernel that is used.</li>
+<li><strong>its</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – number of smoothing iterations</li>
+<li><strong>bounds</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – bounds on the model, len(list) == 2</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>M, the model</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M, the model</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Example</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">discretize</span>
@@ -302,16 +306,16 @@ uniformly distributed model.</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../api/generated/discretize-utils-random_model-1.py">Source code</a>)</p>
-<div class="figure align-center">
+<div class="figure">
 <img alt="../../_images/discretize-utils-random_model-1.png" src="../../_images/discretize-utils-random_model-1.png" />
 </div>
 </dd></dl>
 
 <div class="section" id="examples-using-discretize-utils-random-model">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">discretize.utils.random_model</span></code><a class="headerlink" href="#examples-using-discretize-utils-random-model" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="You can use M.PlotImage to plot images on all of the Meshes."><div class="figure align-center" id="id1">
+<div class="sphx-glr-thumbcontainer" tooltip="You can use M.PlotImage to plot images on all of the Meshes."><div class="figure" id="id1">
 <img alt="../../_images/sphx_glr_plot_image_thumb.png" src="../../_images/sphx_glr_plot_image_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../gallery/plot_image.html#sphx-glr-gallery-plot-image-py"><span class="std std-ref">Basic: PlotImage</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../gallery/plot_image.html#sphx-glr-gallery-plot-image-py"><span class="std std-ref">Basic: PlotImage</span></a></span></p>
 </div>
 </div><div style='clear:both'></div></div>
 </div>

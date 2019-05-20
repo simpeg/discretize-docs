@@ -273,23 +273,23 @@
 <p>Provides viewing functions for TensorMesh</p>
 <p>This class is inherited by TensorMesh</p>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-center">
+<table border="1" class="longtable docutils">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
+<col width="10%" />
+<col width="90%" />
 </colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.View.TensorView.plotGrid" title="discretize.View.TensorView.plotGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotGrid</span></code></a>(self[, ax, nodes, faces, centers, …])</p></td>
-<td><p>Plot the nodal, cell-centered and staggered grids for 1,2 and 3 dimensions.</p></td>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.View.TensorView.plotGrid" title="discretize.View.TensorView.plotGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotGrid</span></code></a>(self[,&nbsp;ax,&nbsp;nodes,&nbsp;faces,&nbsp;centers,&nbsp;…])</td>
+<td>Plot the nodal, cell-centered and staggered grids for 1,2 and 3 dimensions.</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#discretize.View.TensorView.plotImage" title="discretize.View.TensorView.plotImage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotImage</span></code></a>(v)</p></td>
-<td><p>Plots scalar fields on the given mesh.</p></td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.View.TensorView.plotImage" title="discretize.View.TensorView.plotImage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotImage</span></code></a>(v)</td>
+<td>Plots scalar fields on the given mesh.</td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.View.TensorView.plotSlice" title="discretize.View.TensorView.plotSlice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotSlice</span></code></a>(self, v[, vType, normal, ind, …])</p></td>
-<td><p>Plots a slice of a 3D mesh.</p></td>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.View.TensorView.plotSlice" title="discretize.View.TensorView.plotSlice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotSlice</span></code></a>(self,&nbsp;v[,&nbsp;vType,&nbsp;normal,&nbsp;ind,&nbsp;…])</td>
+<td>Plots a slice of a 3D mesh.</td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#discretize.View.TensorView.plot_3d_slicer" title="discretize.View.TensorView.plot_3d_slicer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_3d_slicer</span></code></a>(self, v[, xslice, yslice, …])</p></td>
-<td><p>Plot slices of a 3D volume, interactively (scroll wheel).</p></td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.View.TensorView.plot_3d_slicer" title="discretize.View.TensorView.plot_3d_slicer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_3d_slicer</span></code></a>(self,&nbsp;v[,&nbsp;xslice,&nbsp;yslice,&nbsp;…])</td>
+<td>Plot slices of a 3D volume, interactively (scroll wheel).</td>
 </tr>
 </tbody>
 </table>
@@ -304,18 +304,22 @@
 <dt id="discretize.View.TensorView.plotGrid">
 <code class="descclassname">TensorView.</code><code class="descname">plotGrid</code><span class="sig-paren">(</span><em>self</em>, <em>ax=None</em>, <em>nodes=False</em>, <em>faces=False</em>, <em>centers=False</em>, <em>edges=False</em>, <em>lines=True</em>, <em>showIt=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#TensorView.plotGrid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.TensorView.plotGrid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the nodal, cell-centered and staggered grids for 1,2 and 3 dimensions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>nodes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – plot nodes</p></li>
-<li><p><strong>faces</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – plot faces</p></li>
-<li><p><strong>centers</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – plot centers</p></li>
-<li><p><strong>edges</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – plot edges</p></li>
-<li><p><strong>lines</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – plot lines connecting nodes</p></li>
-<li><p><strong>showIt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – call plt.show()</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – plot nodes</li>
+<li><strong>faces</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – plot faces</li>
+<li><strong>centers</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – plot centers</li>
+<li><strong>edges</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – plot edges</li>
+<li><strong>lines</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – plot lines connecting nodes</li>
+<li><strong>showIt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – call plt.show()</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="n">h1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -325,7 +329,7 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../api/generated/discretize-View-TensorView-1.py">Source code</a>)</p>
-<div class="figure align-center">
+<div class="figure">
 <img alt="../../_images/discretize-View-TensorView-1.png" src="../../_images/discretize-View-TensorView-1.png" />
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
@@ -338,7 +342,7 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../api/generated/discretize-View-TensorView-2.py">Source code</a>)</p>
-<div class="figure align-center">
+<div class="figure">
 <img alt="../../_images/discretize-View-TensorView-2.png" src="../../_images/discretize-View-TensorView-2.png" />
 </div>
 </dd></dl>
@@ -348,30 +352,41 @@
 <code class="descclassname">TensorView.</code><code class="descname">plotImage</code><span class="sig-paren">(</span><em>v</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#TensorView.plotImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.TensorView.plotImage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots scalar fields on the given mesh.</p>
 <p>Input:</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>v</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – vector</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – vector</td>
+</tr>
+</tbody>
+</table>
 <p>Optional Inputs:</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>vType</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – type of vector (‘CC’, ‘N’, ‘F’, ‘Fx’, ‘Fy’, ‘Fz’, ‘E’, ‘Ex’, ‘Ey’, ‘Ez’)</p></li>
-<li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.0.3)"><em>matplotlib.axes.Axes</em></a>) – axis to plot to</p></li>
-<li><p><strong>showIt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – call plt.show()</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vType</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – type of vector (‘CC’, ‘N’, ‘F’, ‘Fx’, ‘Fy’, ‘Fz’, ‘E’, ‘Ex’, ‘Ey’, ‘Ez’)</li>
+<li><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.1.0)"><em>matplotlib.axes.Axes</em></a>) – axis to plot to</li>
+<li><strong>showIt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – call plt.show()</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 <p>3D Inputs:</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>numbering</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – show numbering of slices, 3D only</p></li>
-<li><p><strong>annotationColor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – color of annotation, e.g. ‘w’, ‘k’, ‘b’</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>numbering</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – show numbering of slices, 3D only</li>
+<li><strong>annotationColor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – color of annotation, e.g. ‘w’, ‘k’, ‘b’</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
@@ -380,7 +395,7 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../api/generated/discretize-View-TensorView-3.py">Source code</a>)</p>
-<div class="figure align-center">
+<div class="figure">
 <img alt="../../_images/discretize-View-TensorView-3.png" src="../../_images/discretize-View-TensorView-3.png" />
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
@@ -391,7 +406,7 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../api/generated/discretize-View-TensorView-4.py">Source code</a>)</p>
-<div class="figure align-center">
+<div class="figure">
 <img alt="../../_images/discretize-View-TensorView-4.png" src="../../_images/discretize-View-TensorView-4.png" />
 </div>
 </dd></dl>
@@ -401,7 +416,7 @@
 <code class="descclassname">TensorView.</code><code class="descname">plotSlice</code><span class="sig-paren">(</span><em>self</em>, <em>v</em>, <em>vType='CC'</em>, <em>normal='Z'</em>, <em>ind=None</em>, <em>grid=False</em>, <em>view='real'</em>, <em>ax=None</em>, <em>clim=None</em>, <em>showIt=False</em>, <em>pcolorOpts=None</em>, <em>streamOpts=None</em>, <em>gridOpts=None</em>, <em>range_x=None</em>, <em>range_y=None</em>, <em>sample_grid=None</em>, <em>stream_threshold=None</em>, <em>stream_thickness=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#TensorView.plotSlice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.TensorView.plotSlice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots a slice of a 3D mesh.</p>
 <p>(<a class="reference external" href="../../api/generated/discretize-View-TensorView-5.py">Source code</a>)</p>
-<div class="figure align-center">
+<div class="figure">
 <img alt="../../_images/discretize-View-TensorView-5.png" src="../../_images/discretize-View-TensorView-5.png" />
 </div>
 </dd></dl>
@@ -412,22 +427,18 @@
 <dd><p>Plot slices of a 3D volume, interactively (scroll wheel).</p>
 <p>If called from a notebook, make sure to set</p>
 <blockquote>
-<div><p>%matplotlib notebook</p>
-</div></blockquote>
+<div>%matplotlib notebook</div></blockquote>
 <p>See the class <cite>discretize.View.Slicer</cite> for more information.</p>
 <p>It returns nothing. However, if you need the different figure handles
 you can get it via</p>
 <blockquote>
-<div><p><cite>fig = plt.gcf()</cite></p>
-</div></blockquote>
+<div><cite>fig = plt.gcf()</cite></div></blockquote>
 <p>and subsequently its children via</p>
 <blockquote>
-<div><p><cite>fig.get_children()</cite></p>
-</div></blockquote>
+<div><cite>fig.get_children()</cite></div></blockquote>
 <p>and recursively deeper, e.g.,</p>
 <blockquote>
-<div><p><cite>fig.get_children()[0].get_children()</cite>.</p>
-</div></blockquote>
+<div><cite>fig.get_children()[0].get_children()</cite>.</div></blockquote>
 <p>One can also provide an existing figure instance, which can be useful
 for interactive widgets in Notebooks. The provided figure is cleared
 first.</p>

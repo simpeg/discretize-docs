@@ -254,8 +254,8 @@
 }
 </style>
 <div class="sphx-glr-download-link-note admonition note">
-<p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-tutorials-mesh-overview-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+<p class="first admonition-title">Note</p>
+<p class="last">Click <a class="reference internal" href="#sphx-glr-download-tutorials-mesh-overview-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="overview-of-mesh-types">
 <span id="sphx-glr-tutorials-mesh-overview-py"></span><h1>Overview of mesh types<a class="headerlink" href="#overview-of-mesh-types" title="Permalink to this headline">¶</a></h1>
@@ -271,11 +271,12 @@ number of cells <cite>nC</cite>, and methods, like <cite>plotGrid</cite>.</p>
 </div>
 <div class="section" id="general-categories-of-meshes">
 <h2>General categories of meshes<a class="headerlink" href="#general-categories-of-meshes" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
-<dt>The three main types of meshes in discretize are</dt><dd><ul class="simple">
-<li><p>TensorMesh (<a class="reference internal" href="../api/generated/discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code></a>): includes cylindrical meshes (<a class="reference internal" href="../api/generated/discretize.CylMesh.html#discretize.CylMesh" title="discretize.CylMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.CylMesh</span></code></a>)</p></li>
-<li><p>TreeMesh (<a class="reference internal" href="../api/generated/discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code></a>): also referred to as QuadTree or OcTree meshes</p></li>
-<li><p>CurvilinearMesh (<code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.CurviMesh</span></code>): also referred to as logically rectangular</p></li>
+<dl class="docutils">
+<dt>The three main types of meshes in discretize are</dt>
+<dd><ul class="first last simple">
+<li>TensorMesh (<a class="reference internal" href="../api/generated/discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code></a>): includes cylindrical meshes (<a class="reference internal" href="../api/generated/discretize.CylMesh.html#discretize.CylMesh" title="discretize.CylMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.CylMesh</span></code></a>)</li>
+<li>TreeMesh (<a class="reference internal" href="../api/generated/discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code></a>): also referred to as QuadTree or OcTree meshes</li>
+<li>CurvilinearMesh (<code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.CurviMesh</span></code>): also referred to as logically rectangular</li>
 </ul>
 </dd>
 </dl>
@@ -378,9 +379,9 @@ discretize makes this pretty easy:</p>
 <p><cite>discretize</cite> also counts the nodes, faces, and edges.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Nodes: <cite>mesh.nN</cite>, <cite>mesh.nNx</cite>, <cite>mesh.nNy</cite>, <cite>mesh.nNz</cite>, <cite>mesh.vnN</cite></p></li>
-<li><p>Faces: <cite>mesh.nF</cite>, <cite>mesh.nFx</cite>, <cite>mesh.nFy</cite>, <cite>mesh.nFz</cite>, <cite>mesh.vnF</cite>, <cite>mesh.vnFx</cite>, <cite>mesh.vnFy</cite>, <cite>mesh.vnFz</cite></p></li>
-<li><p>Edges: <cite>mesh.nE</cite>, <cite>mesh.nEx</cite>, <cite>mesh.nEy</cite>, <cite>mesh.nEz</cite>, <cite>mesh.vnE</cite>, <cite>mesh.vnEx</cite>, <cite>mesh.vnEy</cite>, <cite>mesh.vnEz</cite></p></li>
+<li>Nodes: <cite>mesh.nN</cite>, <cite>mesh.nNx</cite>, <cite>mesh.nNy</cite>, <cite>mesh.nNz</cite>, <cite>mesh.vnN</cite></li>
+<li>Faces: <cite>mesh.nF</cite>, <cite>mesh.nFx</cite>, <cite>mesh.nFy</cite>, <cite>mesh.nFz</cite>, <cite>mesh.vnF</cite>, <cite>mesh.vnFx</cite>, <cite>mesh.vnFy</cite>, <cite>mesh.vnFz</cite></li>
+<li>Edges: <cite>mesh.nE</cite>, <cite>mesh.nEx</cite>, <cite>mesh.nEy</cite>, <cite>mesh.nEz</cite>, <cite>mesh.vnE</cite>, <cite>mesh.vnEx</cite>, <cite>mesh.vnEy</cite>, <cite>mesh.vnEz</cite></li>
 </ul>
 </div></blockquote>
 <p>Face and edge variables have different counts depending on
@@ -415,14 +416,12 @@ notation:</p>
 </pre></div>
 </div>
 <img alt="../_images/sphx_glr_mesh_overview_004.png" class="sphx-glr-single-img" src="../_images/sphx_glr_mesh_overview_004.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.712 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.695 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-mesh-overview-py">
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/c53581a97b20ece516d275bde94f9bba/mesh_overview.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">mesh_overview.py</span></code></a></p>
-</div>
+<a class="reference download internal" download="" href="../_downloads/c53581a97b20ece516d275bde94f9bba/mesh_overview.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">mesh_overview.py</span></code></a></div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/8da81837fde48a8753fa232a1390bd84/mesh_overview.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">mesh_overview.ipynb</span></code></a></p>
-</div>
+<a class="reference download internal" download="" href="../_downloads/8da81837fde48a8753fa232a1390bd84/mesh_overview.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">mesh_overview.ipynb</span></code></a></div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>
