@@ -950,8 +950,9 @@
 
 <div class="viewcode-block" id="TensorView.plot_3d_slicer"><a class="viewcode-back" href="../../api/generated/discretize.View.TensorView.html#discretize.TensorView.plot_3d_slicer">[docs]</a>    <span class="k">def</span> <span class="nf">plot_3d_slicer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">xslice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yslice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zslice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                        <span class="n">vType</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                       <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-                       <span class="n">pcolorOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                       <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                       <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">pcolorOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                       <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plot slices of a 3D volume, interactively (scroll wheel).</span>
 
 <span class="sd">        If called from a notebook, make sure to set</span>
@@ -985,13 +986,16 @@
             <span class="n">fig</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
 
         <span class="c1"># Populate figure</span>
-        <span class="n">tracker</span> <span class="o">=</span> <span class="n">Slicer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">xslice</span><span class="p">,</span> <span class="n">yslice</span><span class="p">,</span> <span class="n">zslice</span><span class="p">,</span> <span class="n">vType</span><span class="p">,</span> <span class="n">view</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span>
-                         <span class="n">transparent</span><span class="p">,</span> <span class="n">clim</span><span class="p">,</span> <span class="n">aspect</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">pcolorOpts</span><span class="p">)</span>
+        <span class="n">tracker</span> <span class="o">=</span> <span class="n">Slicer</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">xslice</span><span class="p">,</span> <span class="n">yslice</span><span class="p">,</span> <span class="n">zslice</span><span class="p">,</span> <span class="n">vType</span><span class="p">,</span> <span class="n">view</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">transparent</span><span class="p">,</span>
+            <span class="n">clim</span><span class="p">,</span> <span class="n">xlim</span><span class="p">,</span> <span class="n">ylim</span><span class="p">,</span> <span class="n">zlim</span><span class="p">,</span> <span class="n">aspect</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">pcolorOpts</span>
+        <span class="p">)</span>
 
         <span class="c1"># Connect figure to scrolling</span>
         <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s1">&#39;scroll_event&#39;</span><span class="p">,</span> <span class="n">tracker</span><span class="o">.</span><span class="n">onscroll</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">fig</span></div></div>
+        <span class="c1"># Show figure</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div></div>
 
 
 <div class="viewcode-block" id="CylView"><a class="viewcode-back" href="../../api/generated/discretize.View.CylView.html#discretize.CylView">[docs]</a><span class="k">class</span> <span class="nc">CylView</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -1429,6 +1433,9 @@
 <span class="sd">    clim : None or list of [min, max]</span>
 <span class="sd">        For pcolormesh (vmin, vmax).</span>
 
+<span class="sd">    xlim, ylim, zlim : None or list of [min, max]</span>
+<span class="sd">        Axis limits.</span>
+
 <span class="sd">    aspect : &#39;auto&#39;, &#39;equal&#39;, or num</span>
 <span class="sd">        Aspect ratio of subplots. Defaults to &#39;auto&#39;.</span>
 
@@ -1449,7 +1456,8 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mesh</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">xslice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yslice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zslice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">vType</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">pcolorOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                 <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+                 <span class="n">grid</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">pcolorOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initialize interactive figure.&quot;&quot;&quot;</span>
 
         <span class="c1"># 0. Some checks, not very extensive</span>
@@ -1554,8 +1562,16 @@
                                     <span class="n">rowspan</span><span class="o">=</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">aspect</span><span class="o">=</span><span class="n">aspect1</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">yx</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ylim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+            <span class="k">if</span> <span class="n">xlim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">xlim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+            <span class="k">if</span> <span class="n">ylim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ax1</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
@@ -1566,9 +1582,15 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">yx</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ylim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">xlim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">zlim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">zlim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">zlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
 
         <span class="c1"># Z-Y</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">figgrid</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">colspan</span><span class="o">=</span><span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
@@ -1578,6 +1600,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">ax3</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ax3</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ax3</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">yx</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">xlim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ax3</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ylim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ax3</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="k">if</span> <span class="n">zlim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ax3</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">zlim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">zlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
 
         <span class="c1"># Cross-line properties</span>
         <span class="c1"># We have to lines, a thick white one, and in the middle a thin black</span>

@@ -269,7 +269,7 @@
 <h1>discretize.View.Slicer<a class="headerlink" href="#discretize-view-slicer" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="discretize.View.Slicer">
-<em class="property">class </em><code class="descclassname">discretize.View.</code><code class="descname">Slicer</code><span class="sig-paren">(</span><em>mesh, v, xslice=None, yslice=None, zslice=None, vType='CC', view='real', axis='xy', transparent=None, clim=None, aspect='auto', grid=[2, 2, 1], pcolorOpts=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#Slicer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.Slicer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">discretize.View.</code><code class="descname">Slicer</code><span class="sig-paren">(</span><em>mesh, v, xslice=None, yslice=None, zslice=None, vType='CC', view='real', axis='xy', transparent=None, clim=None, xlim=None, ylim=None, zlim=None, aspect='auto', grid=[2, 2, 1], pcolorOpts=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#Slicer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.Slicer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Plot slices of a 3D volume, interactively (scroll wheel).</p>
 <p>If called from a notebook, make sure to set</p>
@@ -312,6 +312,8 @@ If ‘slider’ is provided it will plot an interactive slider to choose
 the shown range.</dd>
 <dt>clim <span class="classifier-delimiter">:</span> <span class="classifier">None or list of [min, max]</span></dt>
 <dd>For pcolormesh (vmin, vmax).</dd>
+<dt>xlim, ylim, zlim <span class="classifier-delimiter">:</span> <span class="classifier">None or list of [min, max]</span></dt>
+<dd>Axis limits.</dd>
 <dt>aspect <span class="classifier-delimiter">:</span> <span class="classifier">‘auto’, ‘equal’, or num</span></dt>
 <dd><p class="first">Aspect ratio of subplots. Defaults to ‘auto’.</p>
 <p>A list of two values can be provided. The first will be for the
