@@ -242,6 +242,47 @@
         <span class="k">assert</span> <span class="n">pts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">dim</span><span class="p">,</span> <span class="s2">&quot;pts must be a column vector of shape (nPts, </span><span class="si">{0:d}</span><span class="s2">) not (</span><span class="si">{1:d}</span><span class="s2">, </span><span class="si">{2:d}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="p">((</span><span class="n">dim</span><span class="p">,)</span><span class="o">+</span><span class="n">pts</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">pts</span></div>
+
+
+<span class="k">def</span> <span class="nf">requires</span><span class="p">(</span><span class="n">modules</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Decorator to wrap functions with soft dependencies.</span>
+
+<span class="sd">    This function was inspired by the `requires` function of pysal,</span>
+<span class="sd">    which is released under the &#39;BSD 3-Clause &quot;New&quot; or &quot;Revised&quot; License&#39;.</span>
+
+<span class="sd">    https://github.com/pysal/pysal/blob/master/pysal/lib/common.py</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    modules : dict</span>
+<span class="sd">        Dictionary containing soft dependencies, e.g.,</span>
+<span class="sd">        {&#39;matplotlib&#39;: matplotlib}.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    decorated_function : function</span>
+<span class="sd">        Original function if all soft dependencies are met, otherwise</span>
+<span class="sd">        it returns an empty function which prints why it is not running.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Check the required modules, add missing ones in the list `missing`.</span>
+    <span class="n">missing</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">modules</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">missing</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">decorated_function</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Wrap function.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">missing</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">function</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">passer</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">((</span><span class="s1">&#39;Missing dependencies: </span><span class="si">{d}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">missing</span><span class="p">)))</span>
+                <span class="nb">print</span><span class="p">((</span><span class="s1">&#39;Not running `</span><span class="si">{}</span><span class="s1">`.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)))</span>
+            <span class="k">return</span> <span class="n">passer</span>
+
+    <span class="k">return</span> <span class="n">decorated_function</span>
 </pre></div>
 
            </div>
