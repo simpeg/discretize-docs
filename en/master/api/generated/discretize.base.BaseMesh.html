@@ -371,34 +371,37 @@ BaseMesh should be inherited by meshes with a regular structure.</div></blockquo
 <tr class="row-odd"><td><a class="reference internal" href="#discretize.base.BaseMesh.equal" title="discretize.base.BaseMesh.equal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">equal</span></code></a>(self,&nbsp;other)</td>
 <td>Determine if two <strong>HasProperties</strong> instances are equivalent</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#discretize.base.BaseMesh.projectEdgeVector" title="discretize.base.BaseMesh.projectEdgeVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectEdgeVector</span></code></a>(self,&nbsp;eV)</td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.base.BaseMesh.from_omf" title="discretize.base.BaseMesh.from_omf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_omf</span></code></a>(element)</td>
+<td>Convert an OMF element to it’s proper <code class="docutils literal notranslate"><span class="pre">discretize</span></code> type.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.base.BaseMesh.projectEdgeVector" title="discretize.base.BaseMesh.projectEdgeVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectEdgeVector</span></code></a>(self,&nbsp;eV)</td>
 <td>Given a vector, eV, in cartesian coordinates, this will project it onto the mesh using the tangents</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#discretize.base.BaseMesh.projectFaceVector" title="discretize.base.BaseMesh.projectFaceVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectFaceVector</span></code></a>(self,&nbsp;fV)</td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.base.BaseMesh.projectFaceVector" title="discretize.base.BaseMesh.projectFaceVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectFaceVector</span></code></a>(self,&nbsp;fV)</td>
 <td>Given a vector, fV, in cartesian coordinates, this will project it onto the mesh using the normals</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#discretize.base.BaseMesh.save" title="discretize.base.BaseMesh.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(self[,&nbsp;filename,&nbsp;verbose])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.base.BaseMesh.save" title="discretize.base.BaseMesh.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(self[,&nbsp;filename,&nbsp;verbose])</td>
 <td>Save the mesh to json :param str file: filename for saving the casing properties :param str directory: working directory for saving the file</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#discretize.base.BaseMesh.serialize" title="discretize.base.BaseMesh.serialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serialize</span></code></a>(self[,&nbsp;include_class,&nbsp;save_dynamic])</td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.base.BaseMesh.serialize" title="discretize.base.BaseMesh.serialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serialize</span></code></a>(self[,&nbsp;include_class,&nbsp;save_dynamic])</td>
 <td>Serializes a <strong>HasProperties</strong> instance to dictionary</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#discretize.base.BaseMesh.toVTK" title="discretize.base.BaseMesh.toVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toVTK</span></code></a>(mesh[,&nbsp;models])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.base.BaseMesh.toVTK" title="discretize.base.BaseMesh.toVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toVTK</span></code></a>(mesh[,&nbsp;models])</td>
 <td>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data object with the given model dictionary as the cell data of that dataset.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#discretize.base.BaseMesh.to_omf" title="discretize.base.BaseMesh.to_omf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_omf</span></code></a>(mesh[,&nbsp;models])</td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.base.BaseMesh.to_omf" title="discretize.base.BaseMesh.to_omf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_omf</span></code></a>(mesh[,&nbsp;models])</td>
 <td>Convert this mesh object to it’s proper <code class="docutils literal notranslate"><span class="pre">omf</span></code> data object with the given model dictionary as the cell data of that dataset.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#discretize.base.BaseMesh.to_vtk" title="discretize.base.BaseMesh.to_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vtk</span></code></a>(mesh[,&nbsp;models])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.base.BaseMesh.to_vtk" title="discretize.base.BaseMesh.to_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vtk</span></code></a>(mesh[,&nbsp;models])</td>
 <td>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data object with the given model dictionary as the cell data of that dataset.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#discretize.base.BaseMesh.validate" title="discretize.base.BaseMesh.validate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate</span></code></a>(self)</td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.base.BaseMesh.validate" title="discretize.base.BaseMesh.validate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate</span></code></a>(self)</td>
 <td>Call all registered class validator methods</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#discretize.base.BaseMesh.writeVTK" title="discretize.base.BaseMesh.writeVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeVTK</span></code></a>(mesh,&nbsp;filename[,&nbsp;models,&nbsp;directory])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.base.BaseMesh.writeVTK" title="discretize.base.BaseMesh.writeVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeVTK</span></code></a>(mesh,&nbsp;filename[,&nbsp;models,&nbsp;directory])</td>
 <td>Makes and saves a VTK object from this mesh and given models</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#discretize.base.BaseMesh.write_vtk" title="discretize.base.BaseMesh.write_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_vtk</span></code></a>(mesh,&nbsp;filename[,&nbsp;models,&nbsp;directory])</td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.base.BaseMesh.write_vtk" title="discretize.base.BaseMesh.write_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_vtk</span></code></a>(mesh,&nbsp;filename[,&nbsp;models,&nbsp;directory])</td>
 <td>Makes and saves a VTK object from this mesh and given models</td>
 </tr>
 </tbody>
@@ -835,6 +838,14 @@ deserializers.</li>
 <dd><p>Determine if two <strong>HasProperties</strong> instances are equivalent</p>
 <p>Equivalence is determined by checking if all Property values on
 two instances are equal, using <code class="code docutils literal notranslate"><span class="pre">Property.equal</span></code>.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="discretize.base.BaseMesh.from_omf">
+<em class="property">static </em><code class="descclassname">BaseMesh.</code><code class="descname">from_omf</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.base.BaseMesh.from_omf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert an OMF element to it’s proper <code class="docutils literal notranslate"><span class="pre">discretize</span></code> type.
+Automatically determines the output type. Returns both the mesh and a
+dictionary of model arrays.</p>
 </dd></dl>
 
 <dl class="method">

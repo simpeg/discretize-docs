@@ -291,13 +291,13 @@ To run this example, you will need to <a class="reference external" href="http:/
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Set a documentation friendly plotting theme</span>
-<a href="https://docs.pyvista.org/tools/plotting.html#pyvista.set_plot_theme" title="View documentation for pyvista.set_plot_theme"><span class="n">pv</span><span class="o">.</span><span class="n">set_plot_theme</span></a><span class="p">(</span><span class="s1">&#39;document&#39;</span><span class="p">)</span>
+<a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.set_plot_theme" title="View documentation for pyvista.set_plot_theme"><span class="n">pv</span><span class="o">.</span><span class="n">set_plot_theme</span></a><span class="p">(</span><span class="s1">&#39;document&#39;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PyVista Version: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pv</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>PyVista Version: 0.20.4
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>PyVista Version: 0.21.0
 </pre></div>
 </div>
 <div class="section" id="download-and-load-data">
@@ -353,14 +353,14 @@ data.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load topography points from text file as XYZ numpy array</span>
 <span class="n">topo_pts</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.loadtxt.html#numpy.loadtxt" title="View documentation for numpy.loadtxt"><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span></a><span class="p">(</span><span class="s1">&#39;Chile_GRAV_4_Miller/LdM_topo.topo&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Create the topography points and apply an elevation filter</span>
-<span class="n">topo</span> <span class="o">=</span> <a href="https://docs.pyvista.org/types/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">pv</span><span class="o">.</span><span class="n">PolyData</span></a><span class="p">(</span><span class="n">topo_pts</span><span class="p">)</span><span class="o">.</span><span class="n">delaunay_2d</span><span class="p">()</span><span class="o">.</span><span class="n">elevation</span><span class="p">()</span>
+<span class="n">topo</span> <span class="o">=</span> <a href="https://docs.pyvista.org/core/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">pv</span><span class="o">.</span><span class="n">PolyData</span></a><span class="p">(</span><span class="n">topo_pts</span><span class="p">)</span><span class="o">.</span><span class="n">delaunay_2d</span><span class="p">()</span><span class="o">.</span><span class="n">elevation</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the gravity data from text file as XYZ+attributes numpy array</span>
 <span class="n">grav_data</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.loadtxt.html#numpy.loadtxt" title="View documentation for numpy.loadtxt"><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span></a><span class="p">(</span><span class="s1">&#39;Chile_GRAV_4_Miller/LdM_grav_obs.grv&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;gravity file shape: &#39;</span><span class="p">,</span> <span class="n">grav_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="c1"># Use the points to create PolyData</span>
-<span class="n">grav</span> <span class="o">=</span> <a href="https://docs.pyvista.org/types/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">pv</span><span class="o">.</span><span class="n">PolyData</span></a><span class="p">(</span><span class="n">grav_data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">grav</span> <span class="o">=</span> <a href="https://docs.pyvista.org/core/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">pv</span><span class="o">.</span><span class="n">PolyData</span></a><span class="p">(</span><span class="n">grav_data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 <span class="c1"># Add the data arrays</span>
 <span class="n">grav</span><span class="o">.</span><span class="n">point_arrays</span><span class="p">[</span><span class="s1">&#39;comp-1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grav_data</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">grav</span><span class="o">.</span><span class="n">point_arrays</span><span class="p">[</span><span class="s1">&#39;comp-2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grav_data</span><span class="p">[:,</span><span class="mi">4</span><span class="p">]</span>
@@ -371,7 +371,7 @@ data.</p>
 </pre></div>
 </div>
 <p>Plot the topographic surface and the gravity data</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <a href="https://docs.pyvista.org/tools/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span></a><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span></a><span class="p">()</span>
 <span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">topo</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
 <span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">grav</span><span class="p">,</span> <span class="n">stitle</span><span class="o">=</span><span class="s1">&#39;Observed Gravtiy Data&#39;</span><span class="p">,</span> <span class="n">point_size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
            <span class="n">render_points_as_spheres</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -400,7 +400,7 @@ data.</p>
 <span class="n">threshed</span> <span class="o">=</span> <span class="n">dataset_t</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">invert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Create the rendering scene</span>
-<span class="n">p</span> <span class="o">=</span> <a href="https://docs.pyvista.org/tools/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span></a><span class="p">()</span>
+<span class="n">p</span> <span class="o">=</span> <a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span></a><span class="p">()</span>
 <span class="c1"># add a grid axes</span>
 <span class="n">p</span><span class="o">.</span><span class="n">show_grid</span><span class="p">()</span>
 
@@ -426,7 +426,7 @@ data.</p>
 </pre></div>
 </div>
 <img alt="../_images/sphx_glr_plot_pyvista_laguna_002.png" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_pyvista_laguna_002.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  30.275 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  28.711 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-plot-pyvista-laguna-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" download="" href="../_downloads/5438a819f2454f7c4e0345be4f2b1154/plot_pyvista_laguna.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_pyvista_laguna.py</span></code></a></div>
