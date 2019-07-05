@@ -1,0 +1,594 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Basic Inner Products &mdash; discretize 0.4.6 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Constitutive Relations" href="2_physical_properties.html" />
+    <link rel="prev" title="Inner Products" href="index.html" />
+ 
+
+<meta name="description" content="Simulation and Parameter Estimation in Geophysics">
+<meta name="author" content="SimPEG Developers">
+<meta name="keywords" content="python, geophysics, inversion, electromagnetics, magnetotellurics, magnetics, gravity, DC, flow inverse problems, open source, finite volume">
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45185336-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> discretize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/big_picture.html">Why discretize?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/additional_resources.html">Additional Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../mesh_generation/index.html">Mesh Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../operators/index.html">Operators</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Inner Products</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Inner Products</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#import-packages">Import Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scalars">Scalars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vectors">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inverse-of-inner-product-matricies">Inverse of Inner Product Matricies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_physical_properties.html">Constitutive Relations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_calculus.html">Differential Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_advanced.html">Advanced Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/index.html">Solving PDEs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting connected
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://simpeg.xyz"><i class="fa fa-external-link-square fa-fw"></i> SimPEG</a></li>
+            
+                <li class="toctree-l1"><a href="http://slack.simpeg.xyz"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/simpeg/discretize"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">discretize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Inner Products</a> &raquo;</li>
+        
+      <li>Basic Inner Products</li>
+    
+    
+
+    <li class="wy-breadcrumbs-aside">
+        
+            
+                <a href="https://github.com/simpeg/discretize/edit/master/doc/tutorials/inner_products/1_basic.rst"
+                   class="fa fa-github"> Edit this page</a>
+            
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="sphx-glr-download-link-note admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Click <a class="reference internal" href="#sphx-glr-download-tutorials-inner-products-1-basic-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="basic-inner-products">
+<span id="sphx-glr-tutorials-inner-products-1-basic-py"></span><h1>Basic Inner Products<a class="headerlink" href="#basic-inner-products" title="Permalink to this headline">¶</a></h1>
+<p>Inner products between two scalar or vector quantities represents the most
+basic class of inner products. For this class of inner products, we demonstrate:</p>
+<blockquote>
+<div><ul class="simple">
+<li>How to construct the inner product matrix</li>
+<li>How to use inner product matricies to approximate the inner product</li>
+<li>How to construct the inverse of the inner product matrix.</li>
+</ul>
+</div></blockquote>
+<p>For scalar quantities <span class="math notranslate nohighlight">\(\psi\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span>, the
+inner product is given by:</p>
+<div class="math notranslate nohighlight">
+\[(\psi , \phi ) = \int_\Omega \psi \, \phi \, dv\]</div>
+<p>And for vector quantities <span class="math notranslate nohighlight">\(\vec{u}\)</span> and <span class="math notranslate nohighlight">\(\vec{v}\)</span>, the
+inner product is given by:</p>
+<div class="math notranslate nohighlight">
+\[(\vec{u}, \vec{v}) = \int_\Omega \vec{u} \cdot \vec{v} \, dv\]</div>
+<p>In discretized form, we can approximate the aforementioned inner-products as:</p>
+<div class="math notranslate nohighlight">
+\[(\psi , \phi) \approx \mathbf{\psi^T \, M \, \phi}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[(\vec{u}, \vec{v}) \approx \mathbf{u^T \, M \, v}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{M}\)</span> in either equation represents an
+<em>inner-product matrix</em>. <span class="math notranslate nohighlight">\(\mathbf{\psi}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{\phi}\)</span>,
+<span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> are discrete variables that live
+on the mesh. It is important to note a few things about the
+inner-product matrix in this case:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>It depends on the dimensions and discretization of the mesh</li>
+<li>It depends on where the discrete variables live; e.g. edges, faces, nodes, centers</li>
+</ol>
+</div></blockquote>
+<p>For this simple class of inner products, the inner product matricies for
+discrete quantities living on various parts of the mesh have the form:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\textrm{Centers:} \; \mathbf{M_c} &amp;= \textrm{diag} (\mathbf{v} )\\\textrm{Nodes:} \; \mathbf{M_n} &amp;= \frac{1}{2^{2k}} \mathbf{P_n^T } \textrm{diag} (\mathbf{v} ) \mathbf{P_n}\\\textrm{Faces:} \; \mathbf{M_f} &amp;= \frac{1}{4} \mathbf{P_f^T } \textrm{diag} (\mathbf{I_k \otimes v} ) \mathbf{P_f}\\\textrm{Edges:} \; \mathbf{M_e} &amp;= \frac{1}{4^{k-1}} \mathbf{P_e^T } \textrm{diag} (\mathbf{I_k \otimes v}) \mathbf{P_e}\end{aligned}\end{align} \]</div>
+<p>where <span class="math notranslate nohighlight">\(k = 1,2,3\)</span>, <span class="math notranslate nohighlight">\(\mathbf{I_k}\)</span> is the identity matrix and
+<span class="math notranslate nohighlight">\(\otimes\)</span> is the kronecker product. <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> are projection
+matricies that map quantities from one part of the cell (nodes, faces, edges)
+to cell centers.</p>
+<div class="section" id="import-packages">
+<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">¶</a></h2>
+<p>Here we import the packages required for this tutorial</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="k">import</span> <span class="n">sdiag</span>
+<span class="kn">from</span> <span class="nn">discretize</span> <span class="k">import</span> <span class="n">TensorMesh</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># sphinx_gallery_thumbnail_number = 2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scalars">
+<h2>Scalars<a class="headerlink" href="#scalars" title="Permalink to this headline">¶</a></h2>
+<p>It is natural for scalar quantities to live at cell centers or nodes. Here
+we will define a scalar function (a Gaussian distribution in this case):</p>
+<div class="math notranslate nohighlight">
+\[\phi(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \, e^{- \frac{(x- \mu )^2}{2 \sigma^2}}\]</div>
+<p>We will then evaluate the following inner product:</p>
+<div class="math notranslate nohighlight">
+\[(\phi , \phi) = \int_\Omega \phi^2 \, dx = \frac{1}{2\sigma \sqrt{\pi}}\]</div>
+<p>according to the mid-point rule using inner-product matricies. Next we
+compare the numerical approximation of the inner product with the analytic
+solution. <em>Note that the method for evaluating inner products here can be
+extended to variables in 2D and 3D</em>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the Gaussian function</span>
+<span class="k">def</span> <span class="nf">fcn_gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sig</span><span class="p">):</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sqrt.html#numpy.sqrt" title="View documentation for numpy.sqrt"><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span></a><span class="p">(</span><span class="mi">2</span><span class="o">*</span><a href="https://docs.scipy.org/doc/numpy/reference/constants.html#numpy.pi" title="View documentation for numpy.pi"><span class="n">np</span><span class="o">.</span><span class="n">pi</span></a><span class="o">*</span><span class="n">sig</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.exp.html#numpy.exp" title="View documentation for numpy.exp"><span class="n">np</span><span class="o">.</span><span class="n">exp</span></a><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">sig</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Create a tensor mesh that is sufficiently large</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html#numpy.ones" title="View documentation for numpy.ones"><span class="n">np</span><span class="o">.</span><span class="n">ones</span></a><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">([</span><span class="n">h</span><span class="p">],</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define center point and standard deviation</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sig</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="c1"># Evaluate at cell centers and nodes</span>
+<span class="n">phi_c</span> <span class="o">=</span> <span class="n">fcn_gaussian</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">gridCC</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
+<span class="n">phi_n</span> <span class="o">=</span> <span class="n">fcn_gaussian</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
+
+<span class="c1"># Define inner-product matricies</span>
+<span class="n">Mc</span> <span class="o">=</span> <span class="n">sdiag</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vol</span><span class="p">)</span>  <span class="c1"># cell-centered</span>
+<span class="c1"># Mn = mesh.getNodalInnerProduct()  # on nodes (*functionality pending*)</span>
+
+<span class="c1"># Compute the inner product</span>
+<span class="n">ipt</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sig</span><span class="o">*</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sqrt.html#numpy.sqrt" title="View documentation for numpy.sqrt"><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span></a><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/constants.html#numpy.pi" title="View documentation for numpy.pi"><span class="n">np</span><span class="o">.</span><span class="n">pi</span></a><span class="p">))</span>  <span class="c1"># true value of (f, f)</span>
+<span class="n">ipc</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html#numpy.dot" title="View documentation for numpy.dot"><span class="n">np</span><span class="o">.</span><span class="n">dot</span></a><span class="p">(</span><span class="n">phi_c</span><span class="p">,</span> <span class="p">(</span><span class="n">Mc</span><span class="o">*</span><span class="n">phi_c</span><span class="p">))</span>
+<span class="c1"># ipn = np.dot(phi_n, (Mn*phi_n)) (*functionality pending*)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">gridCC</span><span class="p">,</span> <span class="n">phi_c</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;phi at cell centers&#39;</span><span class="p">)</span>
+
+<span class="c1"># Verify accuracy</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ACCURACY&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Analytic solution:    &#39;</span><span class="p">,</span> <span class="n">ipt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cell-centered approx.:&#39;</span><span class="p">,</span> <span class="n">ipc</span><span class="p">)</span>
+<span class="c1"># print(&#39;Nodal approx.:        &#39;, ipn)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_1_basic_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_1_basic_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>ACCURACY
+Analytic solution:     0.18806319451591877
+Cell-centered approx.: 0.1880627417065552
+</pre></div>
+</div>
+</div>
+<div class="section" id="vectors">
+<h2>Vectors<a class="headerlink" href="#vectors" title="Permalink to this headline">¶</a></h2>
+<p>To preserve the natural boundary conditions for each cell, it is standard
+practice to define fields on cell edges and fluxes on cell faces. Here we
+will define a 2D vector quantity:</p>
+<div class="math notranslate nohighlight">
+\[\vec{v}(x,y) = \Bigg [ \frac{-y}{r} \hat{x} + \frac{x}{r} \hat{y} \Bigg ]
+\, e^{-\frac{x^2+y^2}{2\sigma^2}}\]</div>
+<p>We will then evaluate the following inner product:</p>
+<div class="math notranslate nohighlight">
+\[(\vec{v}, \vec{v}) = \int_\Omega \vec{v} \cdot \vec{v} \, da
+= 2 \pi \sigma^2\]</div>
+<p>using inner-product matricies. Next we compare the numerical evaluation
+of the inner products with the analytic solution. <em>Note that the method for
+evaluating inner products here can be extended to variables in 3D</em>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define components of the function</span>
+<span class="k">def</span> <span class="nf">fcn_x</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">sig</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">/</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sqrt.html#numpy.sqrt" title="View documentation for numpy.sqrt"><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span></a><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html#numpy.sum" title="View documentation for numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span><span class="n">xy</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)))</span><span class="o">*</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.exp.html#numpy.exp" title="View documentation for numpy.exp"><span class="n">np</span><span class="o">.</span><span class="n">exp</span></a><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html#numpy.sum" title="View documentation for numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span><span class="n">xy</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">sig</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">fcn_y</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">sig</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">/</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sqrt.html#numpy.sqrt" title="View documentation for numpy.sqrt"><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span></a><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html#numpy.sum" title="View documentation for numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span><span class="n">xy</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)))</span><span class="o">*</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.exp.html#numpy.exp" title="View documentation for numpy.exp"><span class="n">np</span><span class="o">.</span><span class="n">exp</span></a><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html#numpy.sum" title="View documentation for numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span><span class="n">xy</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">sig</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Create a tensor mesh that is sufficiently large</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html#numpy.ones" title="View documentation for numpy.ones"><span class="n">np</span><span class="o">.</span><span class="n">ones</span></a><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">([</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">],</span> <span class="s1">&#39;CC&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define center point and standard deviation</span>
+<span class="n">sig</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="c1"># Evaluate inner-product using edge-defined discrete variables</span>
+<span class="n">vx</span> <span class="o">=</span> <span class="n">fcn_x</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">gridEx</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
+<span class="n">vy</span> <span class="o">=</span> <span class="n">fcn_y</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">gridEy</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.r_.html#numpy.r_" title="View documentation for numpy.r_"><span class="n">np</span><span class="o">.</span><span class="n">r_</span></a><span class="p">[</span><span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">]</span>
+
+<span class="n">Me</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">getEdgeInnerProduct</span><span class="p">()</span>  <span class="c1"># Edge inner product matrix</span>
+
+<span class="n">ipe</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html#numpy.dot" title="View documentation for numpy.dot"><span class="n">np</span><span class="o">.</span><span class="n">dot</span></a><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Me</span><span class="o">*</span><span class="n">v</span><span class="p">)</span>
+
+<span class="c1"># Evaluate inner-product using face-defined discrete variables</span>
+<span class="n">vx</span> <span class="o">=</span> <span class="n">fcn_x</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">gridFx</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
+<span class="n">vy</span> <span class="o">=</span> <span class="n">fcn_y</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">gridFy</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.r_.html#numpy.r_" title="View documentation for numpy.r_"><span class="n">np</span><span class="o">.</span><span class="n">r_</span></a><span class="p">[</span><span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">]</span>
+
+<span class="n">Mf</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">getFaceInnerProduct</span><span class="p">()</span>  <span class="c1"># Edge inner product matrix</span>
+
+<span class="n">ipf</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html#numpy.dot" title="View documentation for numpy.dot"><span class="n">np</span><span class="o">.</span><span class="n">dot</span></a><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Mf</span><span class="o">*</span><span class="n">v</span><span class="p">)</span>
+
+<span class="c1"># The analytic solution of (v, v)</span>
+<span class="n">ipt</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/constants.html#numpy.pi" title="View documentation for numpy.pi"><span class="n">np</span><span class="o">.</span><span class="n">pi</span></a><span class="o">*</span><span class="n">sig</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># Plot the vector function</span>
+<span class="n">fig</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">plotImage</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">vType</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;vec&#39;</span><span class="p">,</span>
+               <span class="n">streamOpts</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;density&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;v at cell faces&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Verify accuracy</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ACCURACY&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Analytic solution:    &#39;</span><span class="p">,</span> <span class="n">ipt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Edge variable approx.:&#39;</span><span class="p">,</span> <span class="n">ipe</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Face variable approx.:&#39;</span><span class="p">,</span> <span class="n">ipf</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_1_basic_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_1_basic_002.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/travis/build/simpeg/discretize/tutorials/inner_products/1_basic.py:209: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+  fig.show()
+ACCURACY
+Analytic solution:     7.0685834705770345
+Edge variable approx.: 7.057606391882404
+Face variable approx.: 7.079491591932575
+</pre></div>
+</div>
+</div>
+<div class="section" id="inverse-of-inner-product-matricies">
+<h2>Inverse of Inner Product Matricies<a class="headerlink" href="#inverse-of-inner-product-matricies" title="Permalink to this headline">¶</a></h2>
+<p>The final discretized system using the finite volume method may contain
+the inverse of an inner-product matrix. Here we show how the inverse of
+the inner product matrix can be explicitly constructed. We validate its
+accuracy for cell-centers, nodes, edges and faces by computing the folling
+L2-norm for each:</p>
+<div class="math notranslate nohighlight">
+\[\| \mathbf{v - M^{-1} M v} \|^2\]</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a tensor mesh</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html#numpy.ones" title="View documentation for numpy.ones"><span class="n">np</span><span class="o">.</span><span class="n">ones</span></a><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">([</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">],</span> <span class="s1">&#39;CC&#39;</span><span class="p">)</span>
+
+<span class="c1"># Cell centered for scalar quantities</span>
+<span class="n">Mc</span> <span class="o">=</span> <span class="n">sdiag</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vol</span><span class="p">)</span>
+<span class="n">Mc_inv</span> <span class="o">=</span> <span class="n">sdiag</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">mesh</span><span class="o">.</span><span class="n">vol</span><span class="p">)</span>
+
+<span class="c1"># Nodes for scalar quantities  (*functionality pending*)</span>
+<span class="c1"># Mn = mesh.getNodalInnerProduct()</span>
+<span class="c1"># Mn_inv = mesh.getNodalInnerProduct(invMat=True)</span>
+
+<span class="c1"># Edges for vector quantities</span>
+<span class="n">Me</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">getEdgeInnerProduct</span><span class="p">()</span>
+<span class="n">Me_inv</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">getEdgeInnerProduct</span><span class="p">(</span><span class="n">invMat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Faces for vector quantities</span>
+<span class="n">Mf</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">getFaceInnerProduct</span><span class="p">()</span>
+<span class="n">Mf_inv</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">getFaceInnerProduct</span><span class="p">(</span><span class="n">invMat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Generate some random vectors</span>
+<span class="n">phi_c</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand" title="View documentation for numpy.random.rand"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span>
+<span class="n">phi_n</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand" title="View documentation for numpy.random.rand"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">nN</span><span class="p">)</span>
+<span class="n">vec_e</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand" title="View documentation for numpy.random.rand"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">nE</span><span class="p">)</span>
+<span class="n">vec_f</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand" title="View documentation for numpy.random.rand"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">nF</span><span class="p">)</span>
+
+<span class="c1"># Generate some random vectors</span>
+<span class="n">norm_c</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html#numpy.linalg.norm" title="View documentation for numpy.linalg.norm"><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span></a><span class="p">(</span><span class="n">phi_c</span> <span class="o">-</span> <span class="n">Mc_inv</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Mc</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">phi_c</span><span class="p">)))</span>
+<span class="c1"># norm_n = np.linalg.norm(phi_n - Mn_inv*Mn*phi_n)</span>
+<span class="n">norm_e</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html#numpy.linalg.norm" title="View documentation for numpy.linalg.norm"><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span></a><span class="p">(</span><span class="n">vec_e</span> <span class="o">-</span> <span class="n">Me_inv</span><span class="o">*</span><span class="n">Me</span><span class="o">*</span><span class="n">vec_e</span><span class="p">)</span>
+<span class="n">norm_f</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html#numpy.linalg.norm" title="View documentation for numpy.linalg.norm"><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span></a><span class="p">(</span><span class="n">vec_f</span> <span class="o">-</span> <span class="n">Mf_inv</span><span class="o">*</span><span class="n">Mf</span><span class="o">*</span><span class="n">vec_f</span><span class="p">)</span>
+
+<span class="c1"># Verify accuracy</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ACCURACY&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Norm for centers:&#39;</span><span class="p">,</span> <span class="n">norm_c</span><span class="p">)</span>
+<span class="c1"># print(&#39;Norm for nodes:  &#39;, norm_n)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Norm for edges:  &#39;</span><span class="p">,</span> <span class="n">norm_e</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Norm for faces:  &#39;</span><span class="p">,</span> <span class="n">norm_f</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>ACCURACY
+Norm for centers: 4.823558845120255e-15
+Norm for edges:   0.0
+Norm for faces:   0.0
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.836 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-inner-products-1-basic-py">
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" download="" href="../../_downloads/2d24d5660fad523df58c2291af671014/1_basic.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">1_basic.py</span></code></a></div>
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" download="" href="../../_downloads/743c3322e88f6c96fefe61c8f7f0cb78/1_basic.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">1_basic.ipynb</span></code></a></div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="2_physical_properties.html" class="btn btn-neutral float-right" title="Constitutive Relations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Inner Products" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<div role="contentinfo">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    2013-2019,
+    <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
+    Except where noted, this work is licensed under a <br />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons Attribution 4.0 International License
+    </a>
+</div>
+<br>
+<div>
+Built with
+    <a href="http://sphinx-doc.org/">Sphinx</a>
+    using a
+    <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+    provided by
+    <a href="https://readthedocs.org">Read the Docs</a>.
+ </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

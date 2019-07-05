@@ -113,16 +113,15 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../content/big_picture.html">Why discretize?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../content/installing.html">Installing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../content/additional_resources.html">Additional Resources</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/mesh_overview.html">Overview of mesh types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/tensor_mesh.html">Tensor meshes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/cylindrical_mesh.html">Cylindrical meshes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/mesh_generation/index.html">Mesh Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/operators/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/inner_products/index.html">Inner Products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/pde/index.html">Solving PDEs</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Reference documentation</span></p>
 <ul class="current">
@@ -165,6 +164,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.base">Base Mesh</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
 </ul>
 
             
@@ -294,7 +298,27 @@
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">discretize.utils.sdiag</span></code><a class="headerlink" href="#examples-using-discretize-utils-sdiag" title="Permalink to this headline">¶</a></h2>
 <div class="sphx-glr-thumbcontainer" tooltip="This example is based on the example in the FiPy_ library. Please see their documentation for m..."><div class="figure" id="id1">
 <img alt="../../_images/sphx_glr_plot_cahn_hilliard_thumb.png" src="../../_images/sphx_glr_plot_cahn_hilliard_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../gallery/plot_cahn_hilliard.html#sphx-glr-gallery-plot-cahn-hilliard-py"><span class="std std-ref">Operators: Cahn Hilliard</span></a></span></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_cahn_hilliard.html#sphx-glr-examples-plot-cahn-hilliard-py"><span class="std std-ref">Operators: Cahn Hilliard</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Inner products between two scalar or vector quantities represents the most basic class of inner..."><div class="figure" id="id2">
+<img alt="../../_images/sphx_glr_1_basic_thumb.png" src="../../_images/sphx_glr_1_basic_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/1_basic.html#sphx-glr-tutorials-inner-products-1-basic-py"><span class="std std-ref">Basic Inner Products</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain differential ope..."><div class="figure" id="id3">
+<img alt="../../_images/sphx_glr_3_calculus_thumb.png" src="../../_images/sphx_glr_3_calculus_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/3_calculus.html#sphx-glr-tutorials-inner-products-3-calculus-py"><span class="std std-ref">Differential Operators</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this section, we demonstrate how to go from the inner product to the discrete approximation ..."><div class="figure" id="id4">
+<img alt="../../_images/sphx_glr_4_advanced_thumb.png" src="../../_images/sphx_glr_4_advanced_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/4_advanced.html#sphx-glr-tutorials-inner-products-4-advanced-py"><span class="std std-ref">Advanced Examples</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to solve for the electric potential (:math:`\phi`) and elect..."><div class="figure" id="id5">
+<img alt="../../_images/sphx_glr_1_poisson_thumb.png" src="../../_images/sphx_glr_1_poisson_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/pde/1_poisson.html#sphx-glr-tutorials-pde-1-poisson-py"><span class="std std-ref">Gauss’ Law of Electrostatics</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to model the advection-diffusion equation. The goal of this ..."><div class="figure" id="id6">
+<img alt="../../_images/sphx_glr_2_advection_diffusion_thumb.png" src="../../_images/sphx_glr_2_advection_diffusion_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/pde/2_advection_diffusion.html#sphx-glr-tutorials-pde-2-advection-diffusion-py"><span class="std std-ref">Advection-Diffusion Equation</span></a></span></p>
 </div>
 </div><div style='clear:both'></div></div>
 </div>

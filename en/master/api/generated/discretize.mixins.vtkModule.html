@@ -113,16 +113,15 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../content/big_picture.html">Why discretize?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../content/installing.html">Installing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../content/additional_resources.html">Additional Resources</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/mesh_overview.html">Overview of mesh types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/tensor_mesh.html">Tensor meshes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/cylindrical_mesh.html">Cylindrical meshes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/mesh_generation/index.html">Mesh Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/operators/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/inner_products/index.html">Inner Products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/pde/index.html">Solving PDEs</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Reference documentation</span></p>
 <ul class="current">
@@ -152,6 +151,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.base">Base Mesh</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
 </ul>
 
             
@@ -292,7 +296,7 @@ Python data structures and NumPy arrays:</p>
 </div>
 <p>By default, the <code class="docutils literal notranslate"><span class="pre">to_vtk()</span></code> method will return a <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data object so that
 users can immediately start visualizing their data in 3D.</p>
-<p>See <a class="reference internal" href="../../gallery/plot_pyvista_laguna.html#pyvista-demo-ref"><span class="std std-ref">3D Visualization with PyVista</span></a> for an example of the types of integrated
+<p>See <a class="reference internal" href="../../examples/plot_pyvista_laguna.html#pyvista-demo-ref"><span class="std std-ref">3D Visualization with PyVista</span></a> for an example of the types of integrated
 visualizations that are possible leveraging the link between discretize, <a class="reference external" href="http://docs.pyvista.org">pyvista</a>,
 and <a class="reference external" href="http://pvgeo.org">PVGeo</a>:</p>
 <a class="reference external image-reference" href="http://pvgeo.org"><img alt="PVGeo Example Visualization" src="api/generated/../images/pyvista_laguna_del_maule.png" /></a>

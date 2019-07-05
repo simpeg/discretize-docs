@@ -1,0 +1,484 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Advanced Examples &mdash; discretize 0.4.6 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Solving PDEs" href="../pde/index.html" />
+    <link rel="prev" title="Differential Operators" href="3_calculus.html" />
+ 
+
+<meta name="description" content="Simulation and Parameter Estimation in Geophysics">
+<meta name="author" content="SimPEG Developers">
+<meta name="keywords" content="python, geophysics, inversion, electromagnetics, magnetotellurics, magnetics, gravity, DC, flow inverse problems, open source, finite volume">
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45185336-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> discretize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/big_picture.html">Why discretize?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/additional_resources.html">Additional Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../mesh_generation/index.html">Mesh Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../operators/index.html">Operators</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Inner Products</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_basic.html">Basic Inner Products</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_physical_properties.html">Constitutive Relations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_calculus.html">Differential Operators</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Advanced Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#import-packages">Import Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constitive-relations-and-differential-operators">Constitive Relations and Differential Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#divergence-of-a-scalar-and-a-vector-field">Divergence of a Scalar and a Vector Field</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/index.html">Solving PDEs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting connected
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://simpeg.xyz"><i class="fa fa-external-link-square fa-fw"></i> SimPEG</a></li>
+            
+                <li class="toctree-l1"><a href="http://slack.simpeg.xyz"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/simpeg/discretize"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">discretize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Inner Products</a> &raquo;</li>
+        
+      <li>Advanced Examples</li>
+    
+    
+
+    <li class="wy-breadcrumbs-aside">
+        
+            
+                <a href="https://github.com/simpeg/discretize/edit/master/doc/tutorials/inner_products/4_advanced.rst"
+                   class="fa fa-github"> Edit this page</a>
+            
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="sphx-glr-download-link-note admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Click <a class="reference internal" href="#sphx-glr-download-tutorials-inner-products-4-advanced-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="advanced-examples">
+<span id="sphx-glr-tutorials-inner-products-4-advanced-py"></span><h1>Advanced Examples<a class="headerlink" href="#advanced-examples" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we demonstrate how to go from the inner product to the
+discrete approximation for some special cases. We also show how all
+necessary operators are constructed for each case.</p>
+<div class="section" id="import-packages">
+<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">¶</a></h2>
+<p>Here we import the packages required for this tutorial</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="k">import</span> <span class="n">sdiag</span>
+<span class="kn">from</span> <span class="nn">discretize</span> <span class="k">import</span> <span class="n">TensorMesh</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="constitive-relations-and-differential-operators">
+<h2>Constitive Relations and Differential Operators<a class="headerlink" href="#constitive-relations-and-differential-operators" title="Permalink to this headline">¶</a></h2>
+<p>Where <span class="math notranslate nohighlight">\(\psi\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span> are scalar quantities,
+<span class="math notranslate nohighlight">\(\vec{u}\)</span> and <span class="math notranslate nohighlight">\(\vec{v}\)</span> are vector quantities, and
+<span class="math notranslate nohighlight">\(\sigma\)</span> defines a constitutive relationship, we may need to derive
+discrete approximations for the following inner products:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><span class="math notranslate nohighlight">\((\vec{u} , \sigma \nabla \phi)\)</span></li>
+<li><span class="math notranslate nohighlight">\((\psi , \sigma \nabla \cdot \vec{v})\)</span></li>
+<li><span class="math notranslate nohighlight">\((\vec{u} , \sigma \nabla \times \vec{v})\)</span></li>
+</ol>
+</div></blockquote>
+<p>These cases effectively combine what was learned in the previous two
+tutorials. For each case, we must:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Define discretized quantities at the appropriate mesh locations</li>
+<li>Define an inner product matrix that depends on a single constitutive parameter (<span class="math notranslate nohighlight">\(\sigma\)</span>) or a tensor (<span class="math notranslate nohighlight">\(\Sigma\)</span>)</li>
+<li>Construct differential operators that may require you to define boundary conditions</li>
+</ul>
+</div></blockquote>
+<p>Where <span class="math notranslate nohighlight">\(\mathbf{M_e}(\sigma)\)</span> is the property dependent inner-product
+matrix for quantities on cell edges, <span class="math notranslate nohighlight">\(\mathbf{M_f}(\sigma)\)</span> is the
+property dependent inner-product matrix for quantities on cell faces,
+<span class="math notranslate nohighlight">\(\mathbf{G_{ne}}\)</span> is the nodes to edges gradient operator and
+<span class="math notranslate nohighlight">\(\mathbf{G_{cf}}\)</span> is the centers to faces gradient operator:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}(\vec{u} , \sigma \nabla \phi) &amp;= \mathbf{u_f^T M_f}(\sigma) \mathbf{ G_{cf} \, \phi_c} \;\;\;\;\; (\vec{u} \;\textrm{on faces and} \; \phi \; \textrm{at centers}) \\
+&amp;= \mathbf{u_e^T M_e}(\sigma) \mathbf{ G_{ne} \, \phi_n} \;\;\;\; (\vec{u} \;\textrm{on edges and} \; \phi \; \textrm{on nodes})\end{split}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\mathbf{M_c}(\sigma)\)</span> is the property dependent inner-product
+matrix for quantities at cell centers and <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> is the faces
+to centers divergence operator:</p>
+<div class="math notranslate nohighlight">
+\[(\psi , \sigma \nabla \cdot \vec{v}) = \mathbf{\psi_c^T M_c} (\sigma)\mathbf{ D v_f} \;\;\;\; (\psi \;\textrm{at centers and} \; \vec{v} \; \textrm{on faces} )\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\mathbf{C_{ef}}\)</span> is the edges to faces curl operator and
+<span class="math notranslate nohighlight">\(\mathbf{C_{fe}}\)</span> is the faces to edges curl operator:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}(\vec{u} , \sigma \nabla \times \vec{v}) &amp;= \mathbf{u_f^T M_f} (\sigma) \mathbf{ C_{ef} \, v_e} \;\;\;\; (\vec{u} \;\textrm{on edges and} \; \vec{v} \; \textrm{on faces} )\\
+&amp;= \mathbf{u_e^T M_e} (\sigma) \mathbf{ C_{fe} \, v_f} \;\;\;\; (\vec{u} \;\textrm{on faces and} \; \vec{v} \; \textrm{on edges} )\end{split}\]</div>
+<p><strong>With the operators constructed below, you can compute all of the
+aforementioned inner products.</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make basic mesh</span>
+<span class="n">h</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html#numpy.ones" title="View documentation for numpy.ones"><span class="n">np</span><span class="o">.</span><span class="n">ones</span></a><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">([</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">])</span>
+<span class="n">sig</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand" title="View documentation for numpy.random.rand"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span>     <span class="c1"># isotropic</span>
+<span class="n">Sig</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand" title="View documentation for numpy.random.rand"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">nC</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>  <span class="c1"># anisotropic</span>
+
+<span class="c1"># Inner product matricies</span>
+<span class="n">Mc</span> <span class="o">=</span> <span class="n">sdiag</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vol</span><span class="o">*</span><span class="n">sig</span><span class="p">)</span>             <span class="c1"># Inner product matrix (centers)</span>
+<span class="c1"># Mn = mesh.getNodalInnerProduct(sig)  # Inner product matrix (nodes)  (*functionality pending*)</span>
+<span class="n">Me</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">getEdgeInnerProduct</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span>   <span class="c1"># Inner product matrix (edges)</span>
+<span class="n">Mf</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">getFaceInnerProduct</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span>   <span class="c1"># Inner product matrix for tensor (faces)</span>
+
+<span class="c1"># Differential operators</span>
+<span class="n">Gne</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">nodalGrad</span>              <span class="c1"># Nodes to edges gradient</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">setCellGradBC</span><span class="p">([</span><span class="s1">&#39;neumann&#39;</span><span class="p">,</span> <span class="s1">&#39;dirichlet&#39;</span><span class="p">,</span> <span class="s1">&#39;neumann&#39;</span><span class="p">])</span>  <span class="c1"># Set boundary conditions</span>
+<span class="n">Gcf</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cellGrad</span>               <span class="c1"># Cells to faces gradient</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faceDiv</span>                  <span class="c1"># Faces to centers divergence</span>
+<span class="n">Cef</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">edgeCurl</span>               <span class="c1"># Edges to faces curl</span>
+<span class="n">Cfe</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">edgeCurl</span><span class="o">.</span><span class="n">T</span>             <span class="c1"># Faces to edges curl</span>
+
+<span class="c1"># EXAMPLE: (u, sig*Curl*v)</span>
+<span class="n">fig</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">Mf</span><span class="o">*</span><span class="n">Cef</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Me(sig)*Cef (Isotropic)&#39;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">Mf_tensor</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">getFaceInnerProduct</span><span class="p">(</span><span class="n">Sig</span><span class="p">)</span>  <span class="c1"># inner product matrix for tensor</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">Mf_tensor</span><span class="o">*</span><span class="n">Cef</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Me(sig)*Cef (Anisotropic)&#39;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_4_advanced_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_4_advanced_001.png" />
+</div>
+<div class="section" id="divergence-of-a-scalar-and-a-vector-field">
+<h2>Divergence of a Scalar and a Vector Field<a class="headerlink" href="#divergence-of-a-scalar-and-a-vector-field" title="Permalink to this headline">¶</a></h2>
+<p>Where <span class="math notranslate nohighlight">\(\psi\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span> are scalar quantities, and
+<span class="math notranslate nohighlight">\(\vec{u}\)</span> is a known vector field, we may need to derive
+a discrete approximation for the following inner product:</p>
+<div class="math notranslate nohighlight">
+\[(\psi , \nabla \cdot \phi \vec{u})\]</div>
+<p>Scalar and vector quantities are generally discretized to lie on
+different locations on the mesh. As result, it is better to use the
+identity <span class="math notranslate nohighlight">\(\nabla \cdot \phi \vec{u} = \phi \nabla \cdot \vec{u} + \vec{u} \cdot \nabla \phi\)</span>
+and separate the inner product into two parts:</p>
+<div class="math notranslate nohighlight">
+\[(\psi , \phi \nabla \cdot \vec{u} ) + (\psi , \vec{u} \cdot \nabla \phi)\]</div>
+<p><strong>Term 1:</strong></p>
+<p>If the vector field <span class="math notranslate nohighlight">\(\vec{u}\)</span> is divergence free, there is no need
+to evaluate the first inner product term. This is the case for advection when
+the fluid is incompressible.</p>
+<p>Where <span class="math notranslate nohighlight">\(\mathbf{D_{fc}}\)</span> is the faces to centers divergence operator, and
+<span class="math notranslate nohighlight">\(\mathbf{M_c}\)</span> is the basic inner product matrix for cell centered
+quantities, we can approximate this inner product as:</p>
+<div class="math notranslate nohighlight">
+\[(\psi , \phi \nabla \cdot \vec{u} ) = \mathbf{\psi_c^T M_c} \textrm{diag} (\mathbf{D_{fc} u_f} ) \, \mathbf{\phi_c}\]</div>
+<p><strong>Term 2:</strong></p>
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{G_{cf}}\)</span> be the cell centers to faces gradient operator,
+<span class="math notranslate nohighlight">\(\mathbf{M_c}\)</span> be the basic inner product matrix for cell centered
+quantities, and <span class="math notranslate nohighlight">\(\mathbf{\tilde{A}_{fc}}\)</span> and averages <em>and</em> sums the
+cartesian contributions of <span class="math notranslate nohighlight">\(\vec{u} \cdot \nabla \phi\)</span>, we can
+approximate the inner product as:</p>
+<div class="math notranslate nohighlight">
+\[(\psi , \vec{u} \cdot \nabla \phi) = \mathbf{\psi_c^T M_c \tilde A_{fc}} \text{diag} (\mathbf{u_f} ) \mathbf{G_{cf} \, \phi_c}\]</div>
+<p><strong>With the operators constructed below, you can compute all of the
+inner products.</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make basic mesh</span>
+<span class="n">h</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html#numpy.ones" title="View documentation for numpy.ones"><span class="n">np</span><span class="o">.</span><span class="n">ones</span></a><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">([</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">])</span>
+
+<span class="c1"># Inner product matricies</span>
+<span class="n">Mc</span> <span class="o">=</span> <span class="n">sdiag</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vol</span><span class="o">*</span><span class="n">sig</span><span class="p">)</span>             <span class="c1"># Inner product matrix (centers)</span>
+
+<span class="c1"># Differential operators</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">setCellGradBC</span><span class="p">([</span><span class="s1">&#39;neumann&#39;</span><span class="p">,</span> <span class="s1">&#39;dirichlet&#39;</span><span class="p">,</span> <span class="s1">&#39;neumann&#39;</span><span class="p">])</span>  <span class="c1"># Set boundary conditions</span>
+<span class="n">Gcf</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cellGrad</span>               <span class="c1"># Cells to faces gradient</span>
+<span class="n">Dfc</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faceDiv</span>                <span class="c1"># Faces to centers divergence</span>
+
+<span class="c1"># Averaging and summing matrix</span>
+<span class="n">Afc</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">dim</span><span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">aveF2CC</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.355 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-inner-products-4-advanced-py">
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" download="" href="../../_downloads/708f9fd3f55cf9b04e259edf9d1f7b3f/4_advanced.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">4_advanced.py</span></code></a></div>
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" download="" href="../../_downloads/0ffac5d6cb0c3e02abd2096128d3c23a/4_advanced.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">4_advanced.ipynb</span></code></a></div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../pde/index.html" class="btn btn-neutral float-right" title="Solving PDEs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="3_calculus.html" class="btn btn-neutral float-left" title="Differential Operators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<div role="contentinfo">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    2013-2019,
+    <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
+    Except where noted, this work is licensed under a <br />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons Attribution 4.0 International License
+    </a>
+</div>
+<br>
+<div>
+Built with
+    <a href="http://sphinx-doc.org/">Sphinx</a>
+    using a
+    <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+    provided by
+    <a href="https://readthedocs.org">Read the Docs</a>.
+ </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
