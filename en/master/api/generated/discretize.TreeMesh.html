@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="discretize.CurvilinearMesh" href="discretize.CurvilinearMesh.html" />
+    <link rel="next" title="discretize.TreeMesh.TreeCell" href="discretize.TreeMesh.TreeCell.html" />
     <link rel="prev" title="discretize.CylMesh" href="discretize.CylMesh.html" />
  
 
@@ -135,6 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.TreeCell.html">discretize.TreeMesh.TreeCell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.html">discretize.CurvilinearMesh</a></li>
 </ul>
 </li>
@@ -290,62 +291,81 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>area</strong></dt>
-<dd></dd>
-<dt><strong>aveCC2F</strong></dt>
-<dd></dd>
-<dt><strong>aveCC2Fx</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.area" title="discretize.TreeMesh.area"><code class="xref py py-obj docutils literal notranslate"><span class="pre">area</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of length nF with the area (length in 2D) of all faces ordered by x, then y, then z.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveCC2F" title="discretize.TreeMesh.aveCC2F"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveCC2F</span></code></a></dt>
+<dd><p class="first last">Construct the averaging operator on cell centers to cell faces.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveCC2Fx" title="discretize.TreeMesh.aveCC2Fx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveCC2Fx</span></code></a></dt>
+<dd><p class="first last">Construct the averaging operator on cell centers to cell x-faces.</p>
+</dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.aveCC2Fy" title="discretize.TreeMesh.aveCC2Fy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveCC2Fy</span></code></a></dt>
 <dd><p class="first last">Construct the averaging operator on cell centers to cell y-faces.</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.aveCC2Fz" title="discretize.TreeMesh.aveCC2Fz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveCC2Fz</span></code></a></dt>
 <dd><p class="first last">Construct the averaging operator on cell centers to cell z-faces.</p>
 </dd>
-<dt><strong>aveCCV2F</strong></dt>
-<dd></dd>
-<dt><strong>aveE2CC</strong></dt>
-<dd></dd>
-<dt><strong>aveE2CCV</strong></dt>
-<dd></dd>
-<dt><strong>aveEx2CC</strong></dt>
-<dd></dd>
-<dt><strong>aveEy2CC</strong></dt>
-<dd></dd>
-<dt><strong>aveEz2CC</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveCCV2F" title="discretize.TreeMesh.aveCCV2F"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveCCV2F</span></code></a></dt>
+<dd><p class="first last">Construct the averaging operator on cell centers to cell faces.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveE2CC" title="discretize.TreeMesh.aveE2CC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveE2CC</span></code></a></dt>
+<dd><p class="first last">Construct the averaging operator on cell edges to cell centers.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveE2CCV" title="discretize.TreeMesh.aveE2CCV"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveE2CCV</span></code></a></dt>
+<dd><p class="first last">Construct the averaging operator on cell edges to cell centers.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveEx2CC" title="discretize.TreeMesh.aveEx2CC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveEx2CC</span></code></a></dt>
+<dd><p class="first last">Construct the averaging operator on cell edges in the x direction to cell centers.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveEy2CC" title="discretize.TreeMesh.aveEy2CC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveEy2CC</span></code></a></dt>
+<dd><p class="first last">Construct the averaging operator on cell edges in the y direction to cell centers.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveEz2CC" title="discretize.TreeMesh.aveEz2CC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveEz2CC</span></code></a></dt>
+<dd><p class="first last">Construct the averaging operator on cell edges in the z direction to cell centers.</p>
+</dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.aveF2CC" title="discretize.TreeMesh.aveF2CC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveF2CC</span></code></a></dt>
 <dd><p class="first last">Construct the averaging operator on cell faces to cell centers.</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.aveF2CCV" title="discretize.TreeMesh.aveF2CCV"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveF2CCV</span></code></a></dt>
 <dd><p class="first last">Construct the averaging operator on cell faces to cell centers.</p>
 </dd>
-<dt><strong>aveFx2CC</strong></dt>
-<dd></dd>
-<dt><strong>aveFy2CC</strong></dt>
-<dd></dd>
-<dt><strong>aveFz2CC</strong></dt>
-<dd></dd>
-<dt><strong>aveN2CC</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveFx2CC" title="discretize.TreeMesh.aveFx2CC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveFx2CC</span></code></a></dt>
+<dd><p class="first last">Construct the averaging operator on cell faces in the x direction to cell centers.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveFy2CC" title="discretize.TreeMesh.aveFy2CC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveFy2CC</span></code></a></dt>
+<dd><p class="first last">Construct the averaging operator on cell faces in the y direction to cell centers.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveFz2CC" title="discretize.TreeMesh.aveFz2CC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveFz2CC</span></code></a></dt>
+<dd><p class="first last">Construct the averaging operator on cell faces in the z direction to cell centers.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveN2CC" title="discretize.TreeMesh.aveN2CC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveN2CC</span></code></a></dt>
+<dd><p class="first last">Construct the averaging operator on cell nodes to cell centers.</p>
+</dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.aveN2E" title="discretize.TreeMesh.aveN2E"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveN2E</span></code></a></dt>
 <dd><p class="first last">Construct the averaging operator on cell nodes to cell edges, keeping each dimension separate.</p>
 </dd>
-<dt><strong>aveN2Ex</strong></dt>
-<dd></dd>
-<dt><strong>aveN2Ey</strong></dt>
-<dd></dd>
-<dt><strong>aveN2Ez</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveN2Ex" title="discretize.TreeMesh.aveN2Ex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveN2Ex</span></code></a></dt>
+<dd><p class="first last">Averaging operator on cell nodes to x-edges</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveN2Ey" title="discretize.TreeMesh.aveN2Ey"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveN2Ey</span></code></a></dt>
+<dd><p class="first last">Averaging operator on cell nodes to y-edges</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveN2Ez" title="discretize.TreeMesh.aveN2Ez"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveN2Ez</span></code></a></dt>
+<dd><p class="first last">Averaging operator on cell nodes to z-edges</p>
+</dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.aveN2F" title="discretize.TreeMesh.aveN2F"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveN2F</span></code></a></dt>
 <dd><p class="first last">Construct the averaging operator on cell nodes to cell edges, keeping each dimension separate.</p>
 </dd>
-<dt><strong>aveN2Fx</strong></dt>
-<dd></dd>
-<dt><strong>aveN2Fy</strong></dt>
-<dd></dd>
-<dt><strong>aveN2Fz</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveN2Fx" title="discretize.TreeMesh.aveN2Fx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveN2Fx</span></code></a></dt>
+<dd><p class="first last">Averaging operator on cell nodes to x-faces</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveN2Fy" title="discretize.TreeMesh.aveN2Fy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveN2Fy</span></code></a></dt>
+<dd><p class="first last">Averaging operator on cell nodes to y-faces</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.aveN2Fz" title="discretize.TreeMesh.aveN2Fz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aveN2Fz</span></code></a></dt>
+<dd><p class="first last">Averaging operator on cell nodes to z-faces</p>
+</dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.axis_u" title="discretize.TreeMesh.axis_u"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axis_u</span></code></a></dt>
 <dd><p class="first last"><strong>axis_u</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of u-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: X</p>
 </dd>
@@ -355,8 +375,9 @@
 <dt><a class="reference internal" href="#discretize.TreeMesh.axis_w" title="discretize.TreeMesh.axis_w"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axis_w</span></code></a></dt>
 <dd><p class="first last"><strong>axis_w</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of w-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Z</p>
 </dd>
-<dt><strong>cellBoundaryInd</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.cellBoundaryInd" title="discretize.TreeMesh.cellBoundaryInd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cellBoundaryInd</span></code></a></dt>
+<dd><p class="first last">Returns a tuple of arrays of indexes for boundary cells in each direction</p>
+</dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.cellGrad" title="discretize.TreeMesh.cellGrad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cellGrad</span></code></a></dt>
 <dd><p class="first last">Cell centered Gradient operator built off of the faceDiv operator.</p>
 </dd>
@@ -366,7 +387,7 @@
 <dd><p class="first last">Cell centered Gradient operator in x-direction (Gradx)</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.cellGrady" title="discretize.TreeMesh.cellGrady"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cellGrady</span></code></a></dt>
-<dd><p class="first last">Cell centered Gradient operator in y-direction (Gradx)</p>
+<dd><p class="first last">Cell centered Gradient operator in y-direction (Grady)</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.cellGradz" title="discretize.TreeMesh.cellGradz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cellGradz</span></code></a></dt>
 <dd><p class="first last">Cell centered Gradient operator in z-direction (Gradz)</p>
@@ -374,14 +395,18 @@
 <dt><a class="reference internal" href="#discretize.TreeMesh.dim" title="discretize.TreeMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a></dt>
 <dd><p class="first last">The dimension of the mesh (1, 2, or 3).</p>
 </dd>
-<dt><strong>edge</strong></dt>
-<dd></dd>
-<dt><strong>edgeCurl</strong></dt>
-<dd></dd>
-<dt><strong>faceBoundaryInd</strong></dt>
-<dd></dd>
-<dt><strong>faceDiv</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.edge" title="discretize.TreeMesh.edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of length nE with the length of all edges ordered by x, then y, then z.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.edgeCurl" title="discretize.TreeMesh.edgeCurl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edgeCurl</span></code></a></dt>
+<dd><p class="first last">Construct the 3D curl operator.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.faceBoundaryInd" title="discretize.TreeMesh.faceBoundaryInd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceBoundaryInd</span></code></a></dt>
+<dd><p class="first last">Returns a tuple of arrays of indexes for boundary faces in each direction</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.faceDiv" title="discretize.TreeMesh.faceDiv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceDiv</span></code></a></dt>
+<dd><p class="first last">Construct divergence operator (face-stg to cell-centres).</p>
+</dd>
 <dt><strong>faceDivx</strong></dt>
 <dd></dd>
 <dt><strong>faceDivy</strong></dt>
@@ -392,37 +417,50 @@
 <dd><p class="first last">How filled is the mesh compared to a TensorMesh? As a fraction: [0, 1].</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.gridCC" title="discretize.TreeMesh.gridCC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridCC</span></code></a></dt>
-<dd><p class="first last">Returns an M by N numpy array with the center locations of all cells in order.</p>
+<dd><p class="first last">Returns a numpy arrayof shape (nC, dim) with the center locations of all cells in order.</p>
 </dd>
-<dt><strong>gridEx</strong></dt>
-<dd></dd>
-<dt><strong>gridEy</strong></dt>
-<dd></dd>
-<dt><strong>gridEz</strong></dt>
-<dd></dd>
-<dt><strong>gridFx</strong></dt>
-<dd></dd>
-<dt><strong>gridFy</strong></dt>
-<dd></dd>
-<dt><strong>gridFz</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.gridEx" title="discretize.TreeMesh.gridEx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridEx</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of shape (nEx, dim) with the centers of all non-hanging edges along the first dimension in order.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.gridEy" title="discretize.TreeMesh.gridEy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridEy</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of shape (nEy, dim) with the centers of all non-hanging edges along the second dimension in order.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.gridEz" title="discretize.TreeMesh.gridEz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridEz</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of shape (nEz, dim) with the centers of all non-hanging edges along the third dimension in order.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.gridFx" title="discretize.TreeMesh.gridFx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridFx</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of shape (nFx, dim) with the centers of all non-hanging faces along the first dimension in order.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.gridFy" title="discretize.TreeMesh.gridFy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridFy</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of shape (nFy, dim) with the centers of all non-hanging faces along the second dimension in order.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.gridFz" title="discretize.TreeMesh.gridFz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridFz</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of shape (nFz, dim) with the centers of all non-hanging faces along the third dimension in order.</p>
+</dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.gridN" title="discretize.TreeMesh.gridN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridN</span></code></a></dt>
-<dd><p class="first last">Returns an M by N numpy array with the widths of all cells in order.</p>
+<dd><p class="first last">Returns a numpy array of shape (nN, dim) with the locations of all non-hanging nodes in order.</p>
 </dd>
-<dt><strong>gridhEx</strong></dt>
-<dd></dd>
-<dt><strong>gridhEy</strong></dt>
-<dd></dd>
-<dt><strong>gridhEz</strong></dt>
-<dd></dd>
-<dt><strong>gridhFx</strong></dt>
-<dd></dd>
-<dt><strong>gridhFy</strong></dt>
-<dd></dd>
-<dt><strong>gridhFz</strong></dt>
-<dd></dd>
-<dt><strong>gridhN</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.gridhEx" title="discretize.TreeMesh.gridhEx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridhEx</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of shape (nhEx, dim) with the centers of all hanging edges along the first dimension in order.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.gridhEy" title="discretize.TreeMesh.gridhEy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridhEy</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of shape (nhEy, dim) with the centers of all hanging edges along the second dimension in order.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.gridhEz" title="discretize.TreeMesh.gridhEz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridhEz</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of shape (nhEz, dim) with the centers of all hanging edges along the third dimension in order.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.gridhFx" title="discretize.TreeMesh.gridhFx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridhFx</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of shape (nhFx, dim) with the centers of all hanging faces along the first dimension in order.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.gridhFy" title="discretize.TreeMesh.gridhFy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridhFy</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of shape (nhFy, dim) with the centers of all hanging faces along the second dimension in order.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.gridhFz" title="discretize.TreeMesh.gridhFz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridhFz</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of shape (nhFz, dim) with the centers of all hanging faces along the third dimension in order.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.gridhN" title="discretize.TreeMesh.gridhN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridhN</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of shape (nN, dim) with the locations of all hanging nodes in order.</p>
+</dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.h" title="discretize.TreeMesh.h"><code class="xref py py-obj docutils literal notranslate"><span class="pre">h</span></code></a></dt>
 <dd><p class="first last"><strong>h</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): h is a list containing the cell widths of the tensor mesh in each dimension., a list (each item is a list or numpy array of &lt;class ‘float’&gt; with shape (*)) with length between 0 and 3</p>
 </dd>
@@ -439,77 +477,112 @@
 <dd><p class="first last">Width of cells in the z direction</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.maxLevel" title="discretize.TreeMesh.maxLevel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maxLevel</span></code></a></dt>
-<dd><p class="first last">The maximum level used, which may be less than <cite>levels</cite>.</p>
+<dd><p class="first last">The maximum level used, which may be less than <cite>levels</cite> or <cite>max_level</cite>.</p>
 </dd>
-<dt><strong>max_level</strong></dt>
-<dd></dd>
-<dt><strong>nC</strong></dt>
-<dd></dd>
-<dt><strong>nE</strong></dt>
-<dd></dd>
-<dt><strong>nEx</strong></dt>
-<dd></dd>
-<dt><strong>nEy</strong></dt>
-<dd></dd>
-<dt><strong>nEz</strong></dt>
-<dd></dd>
-<dt><strong>nF</strong></dt>
-<dd></dd>
-<dt><strong>nFx</strong></dt>
-<dd></dd>
-<dt><strong>nFy</strong></dt>
-<dd></dd>
-<dt><strong>nFz</strong></dt>
-<dd></dd>
-<dt><strong>nN</strong></dt>
-<dd></dd>
-<dt><strong>nhE</strong></dt>
-<dd></dd>
-<dt><strong>nhEx</strong></dt>
-<dd></dd>
-<dt><strong>nhEy</strong></dt>
-<dd></dd>
-<dt><strong>nhEz</strong></dt>
-<dd></dd>
-<dt><strong>nhF</strong></dt>
-<dd></dd>
-<dt><strong>nhFx</strong></dt>
-<dd></dd>
-<dt><strong>nhFy</strong></dt>
-<dd></dd>
-<dt><strong>nhFz</strong></dt>
-<dd></dd>
-<dt><strong>nhN</strong></dt>
-<dd></dd>
-<dt><strong>nodalGrad</strong></dt>
+<dt><a class="reference internal" href="#discretize.TreeMesh.max_level" title="discretize.TreeMesh.max_level"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_level</span></code></a></dt>
+<dd><p class="first last">The maximum possible level for a cell on this mesh</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nC" title="discretize.TreeMesh.nC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nC</span></code></a></dt>
+<dd><p class="first last">Number of cells</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nE" title="discretize.TreeMesh.nE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nE</span></code></a></dt>
+<dd><p class="first last">Total number of non-hanging edges amongst all dimensions</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nEx" title="discretize.TreeMesh.nEx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nEx</span></code></a></dt>
+<dd><p class="first last">Number of non-hanging edges oriented along the first dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nEy" title="discretize.TreeMesh.nEy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nEy</span></code></a></dt>
+<dd><p class="first last">Number of non-hanging edges oriented along the second dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nEz" title="discretize.TreeMesh.nEz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nEz</span></code></a></dt>
+<dd><p class="first last">Number of non-hanging edges oriented along the third dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nF" title="discretize.TreeMesh.nF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nF</span></code></a></dt>
+<dd><p class="first last">Total number of non-hanging faces amongst all dimensions</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nFx" title="discretize.TreeMesh.nFx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nFx</span></code></a></dt>
+<dd><p class="first last">Number of non-hanging faces oriented along the first dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nFy" title="discretize.TreeMesh.nFy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nFy</span></code></a></dt>
+<dd><p class="first last">Number of non-hanging faces oriented along the second dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nFz" title="discretize.TreeMesh.nFz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nFz</span></code></a></dt>
+<dd><p class="first last">Number of non-hanging faces oriented along the third dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nN" title="discretize.TreeMesh.nN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nN</span></code></a></dt>
+<dd><p class="first last">Number of non-hanging nodes</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nhE" title="discretize.TreeMesh.nhE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nhE</span></code></a></dt>
+<dd><p class="first last">Total number of hanging edges amongst all dimensions</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nhEx" title="discretize.TreeMesh.nhEx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nhEx</span></code></a></dt>
+<dd><p class="first last">Number of hanging edges oriented along the first dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nhEy" title="discretize.TreeMesh.nhEy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nhEy</span></code></a></dt>
+<dd><p class="first last">Number of hanging edges oriented along the second dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nhEz" title="discretize.TreeMesh.nhEz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nhEz</span></code></a></dt>
+<dd><p class="first last">Number of hanging edges oriented along the third dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nhF" title="discretize.TreeMesh.nhF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nhF</span></code></a></dt>
+<dd><p class="first last">Total number of hanging faces amongst all dimensions</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nhFx" title="discretize.TreeMesh.nhFx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nhFx</span></code></a></dt>
+<dd><p class="first last">Number of hanging faces oriented along the first dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nhFy" title="discretize.TreeMesh.nhFy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nhFy</span></code></a></dt>
+<dd><p class="first last">Number of hanging faces oriented along the second dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nhFz" title="discretize.TreeMesh.nhFz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nhFz</span></code></a></dt>
+<dd><p class="first last">Number of hanging faces oriented along the third dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nhN" title="discretize.TreeMesh.nhN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nhN</span></code></a></dt>
+<dd><p class="first last">Number of hanging nodes</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.nodalGrad" title="discretize.TreeMesh.nodalGrad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodalGrad</span></code></a></dt>
+<dd><p class="first last">Construct gradient operator (nodes to edges).</p>
+</dd>
+<dt><strong>nodalLaplacian</strong></dt>
 <dd></dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.normals" title="discretize.TreeMesh.normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normals</span></code></a></dt>
 <dd><p class="first last">Face Normals</p>
 </dd>
-<dt><strong>ntE</strong></dt>
-<dd></dd>
-<dt><strong>ntEx</strong></dt>
-<dd></dd>
-<dt><strong>ntEy</strong></dt>
-<dd></dd>
-<dt><strong>ntEz</strong></dt>
-<dd></dd>
-<dt><strong>ntF</strong></dt>
-<dd></dd>
-<dt><strong>ntFx</strong></dt>
-<dd></dd>
-<dt><strong>ntFy</strong></dt>
-<dd></dd>
-<dt><strong>ntFz</strong></dt>
-<dd></dd>
-<dt><strong>ntN</strong></dt>
-<dd></dd>
-<dt><strong>permuteCC</strong></dt>
-<dd></dd>
-<dt><strong>permuteE</strong></dt>
-<dd></dd>
-<dt><strong>permuteF</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.ntE" title="discretize.TreeMesh.ntE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ntE</span></code></a></dt>
+<dd><p class="first last">Total number of non-hanging and hanging edges amongst all dimensions</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.ntEx" title="discretize.TreeMesh.ntEx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ntEx</span></code></a></dt>
+<dd><p class="first last">Number of non-hanging and hanging edges oriented along the first dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.ntEy" title="discretize.TreeMesh.ntEy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ntEy</span></code></a></dt>
+<dd><p class="first last">Number of non-hanging and hanging edges oriented along the second dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.ntEz" title="discretize.TreeMesh.ntEz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ntEz</span></code></a></dt>
+<dd><p class="first last">Number of non-hanging and hanging edges oriented along the third dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.ntF" title="discretize.TreeMesh.ntF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ntF</span></code></a></dt>
+<dd><p class="first last">Total number of hanging and non-hanging faces amongst all dimensions</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.ntFx" title="discretize.TreeMesh.ntFx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ntFx</span></code></a></dt>
+<dd><p class="first last">Number of non-hanging and hanging faces oriented along the first dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.ntFy" title="discretize.TreeMesh.ntFy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ntFy</span></code></a></dt>
+<dd><p class="first last">Number of non-hanging and hanging faces oriented along the second dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.ntFz" title="discretize.TreeMesh.ntFz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ntFz</span></code></a></dt>
+<dd><p class="first last">Number of non-hanging and hanging faces oriented along the third dimension</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.ntN" title="discretize.TreeMesh.ntN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ntN</span></code></a></dt>
+<dd><p class="first last">Number of non-hanging and hanging nodes</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.permuteCC" title="discretize.TreeMesh.permuteCC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">permuteCC</span></code></a></dt>
+<dd><p class="first last">Permutation matrix re-ordering of cells sorted by x, then y, then z</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.permuteE" title="discretize.TreeMesh.permuteE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">permuteE</span></code></a></dt>
+<dd><p class="first last">Permutation matrix re-ordering of edges sorted by x, then y, then z</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.permuteF" title="discretize.TreeMesh.permuteF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">permuteF</span></code></a></dt>
+<dd><p class="first last">Permutation matrix re-ordering of faces sorted by x, then y, then z</p>
+</dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.reference_is_rotated" title="discretize.TreeMesh.reference_is_rotated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reference_is_rotated</span></code></a></dt>
 <dd><p class="first last">True if the axes are rotated from the traditional &lt;X,Y,Z&gt; system</p>
 </dd>
@@ -546,14 +619,18 @@
 <dt><a class="reference internal" href="#discretize.TreeMesh.vnF" title="discretize.TreeMesh.vnF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vnF</span></code></a></dt>
 <dd><p class="first last">Total number of faces in each direction</p>
 </dd>
-<dt><strong>vntE</strong></dt>
-<dd></dd>
-<dt><strong>vntF</strong></dt>
-<dd></dd>
-<dt><strong>vol</strong></dt>
-<dd></dd>
-<dt><strong>x0</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.vntE" title="discretize.TreeMesh.vntE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vntE</span></code></a></dt>
+<dd><p class="first last">Total number of hanging and non-hanging edges in a [nx,ny,nz] form</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.vntF" title="discretize.TreeMesh.vntF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vntF</span></code></a></dt>
+<dd><p class="first last">Total number of hanging and non-hanging faces in a [nx,ny,nz] form</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.vol" title="discretize.TreeMesh.vol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vol</span></code></a></dt>
+<dd><p class="first last">Returns a numpy array of length nC with the volumes (areas in 2D) of all cells in order.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.TreeMesh.x0" title="discretize.TreeMesh.x0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x0</span></code></a></dt>
+<dd><p class="first last">Origin of the mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -566,13 +643,19 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.copy" title="discretize.TreeMesh.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a></td>
-<td>Generic (shallow and deep) copying operations.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.deserialize" title="discretize.TreeMesh.deserialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deserialize</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.cell_levels_by_index" title="discretize.TreeMesh.cell_levels_by_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_levels_by_index</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.equal" title="discretize.TreeMesh.equal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">equal</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.copy" title="discretize.TreeMesh.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a></td>
+<td>Generic (shallow and deep) copying operations.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.deserialize" title="discretize.TreeMesh.deserialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deserialize</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.equal" title="discretize.TreeMesh.equal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">equal</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.finalize" title="discretize.TreeMesh.finalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize</span></code></a></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.from_omf" title="discretize.TreeMesh.from_omf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_omf</span></code></a></td>
@@ -590,25 +673,49 @@
 <tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.getFaceInnerProductDeriv" title="discretize.TreeMesh.getFaceInnerProductDeriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFaceInnerProductDeriv</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.getTensor" title="discretize.TreeMesh.getTensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getTensor</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.getInterpolationMat" title="discretize.TreeMesh.getInterpolationMat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterpolationMat</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.get_boundary_cells" title="discretize.TreeMesh.get_boundary_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_boundary_cells</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.getTensor" title="discretize.TreeMesh.getTensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getTensor</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.isInside" title="discretize.TreeMesh.isInside"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isInside</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.get_boundary_cells" title="discretize.TreeMesh.get_boundary_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_boundary_cells</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.projectEdgeVector" title="discretize.TreeMesh.projectEdgeVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectEdgeVector</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.get_cells_along_line" title="discretize.TreeMesh.get_cells_along_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cells_along_line</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.projectFaceVector" title="discretize.TreeMesh.projectFaceVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectFaceVector</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.insert_cells" title="discretize.TreeMesh.insert_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_cells</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.readModelUBC" title="discretize.TreeMesh.readModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readModelUBC</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.isInside" title="discretize.TreeMesh.isInside"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isInside</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.readUBC" title="discretize.TreeMesh.readUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readUBC</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.number" title="discretize.TreeMesh.number"><code class="xref py py-obj docutils literal notranslate"><span class="pre">number</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.plotGrid" title="discretize.TreeMesh.plotGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotGrid</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.plotImage" title="discretize.TreeMesh.plotImage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotImage</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.point2index" title="discretize.TreeMesh.point2index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">point2index</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.projectEdgeVector" title="discretize.TreeMesh.projectEdgeVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectEdgeVector</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.projectFaceVector" title="discretize.TreeMesh.projectFaceVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectFaceVector</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.readModelUBC" title="discretize.TreeMesh.readModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readModelUBC</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.readUBC" title="discretize.TreeMesh.readUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readUBC</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.refine" title="discretize.TreeMesh.refine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine</span></code></a></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.save" title="discretize.TreeMesh.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a></td>
@@ -642,38 +749,14 @@
 </table>
 <table border="1" class="docutils">
 <colgroup>
-<col width="70%" />
-<col width="30%" />
+<col width="57%" />
+<col width="43%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><strong>finalize</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>getInterpolationMat</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>insert_cells</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>load</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>number</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>plotGrid</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>plotImage</strong></td>
+<tr class="row-odd"><td><strong>load</strong></td>
 <td>&#160;</td>
 </tr>
 <tr class="row-even"><td><strong>plotSlice</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>point2index</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>refine</strong></td>
 <td>&#160;</td>
 </tr>
 </tbody>
@@ -686,19 +769,23 @@
 <img alt="../../_images/sphx_glr_plot_image_thumb.png" src="../../_images/sphx_glr_plot_image_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_image.html#sphx-glr-examples-plot-image-py"><span class="std std-ref">Basic: PlotImage</span></a></span></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="You can give the refine method a function, which is evaluated on every cell of the TreeMesh."><div class="figure" id="id2">
+</div><div class="sphx-glr-thumbcontainer" tooltip="For a tree mesh, there needs to be special attention taken for the hanging faces to achieve sec..."><div class="figure" id="id2">
+<img alt="../../_images/sphx_glr_plot_quadtree_divergence_thumb.png" src="../../_images/sphx_glr_plot_quadtree_divergence_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_quadtree_divergence.html#sphx-glr-examples-plot-quadtree-divergence-py"><span class="std std-ref">QuadTree: FaceDiv</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="You can give the refine method a function, which is evaluated on every cell of the TreeMesh."><div class="figure" id="id3">
 <img alt="../../_images/sphx_glr_plot_quadtree_hanging_thumb.png" src="../../_images/sphx_glr_plot_quadtree_hanging_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_quadtree_hanging.html#sphx-glr-examples-plot-quadtree-hanging-py"><span class="std std-ref">QuadTree: Hanging Nodes</span></a></span></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Here we provide an overview of mesh types and define some terminology. Separate tutorials have ..."><div class="figure" id="id3">
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we provide an overview of mesh types and define some terminology. Separate tutorials have ..."><div class="figure" id="id4">
 <img alt="../../_images/sphx_glr_1_mesh_overview_thumb.png" src="../../_images/sphx_glr_1_mesh_overview_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/1_mesh_overview.html#sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">Overview of Mesh Types</span></a></span></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Compared to tensor meshes, tree meshes are able to provide higher levels of discretization in c..."><div class="figure" id="id4">
+</div><div class="sphx-glr-thumbcontainer" tooltip="Compared to tensor meshes, tree meshes are able to provide higher levels of discretization in c..."><div class="figure" id="id5">
 <img alt="../../_images/sphx_glr_4_tree_mesh_thumb.png" src="../../_images/sphx_glr_4_tree_mesh_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/4_tree_mesh.html#sphx-glr-tutorials-mesh-generation-4-tree-mesh-py"><span class="std std-ref">Tree Meshes</span></a></span></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="For discretized quantities living on a mesh, sparse matricies can be used to approximate the fo..."><div class="figure" id="id5">
+</div><div class="sphx-glr-thumbcontainer" tooltip="For discretized quantities living on a mesh, sparse matricies can be used to approximate the fo..."><div class="figure" id="id6">
 <img alt="../../_images/sphx_glr_2_differential_thumb.png" src="../../_images/sphx_glr_2_differential_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/operators/2_differential.html#sphx-glr-tutorials-operators-2-differential-py"><span class="std std-ref">Differential Operators</span></a></span></p>
 </div>
@@ -708,17 +795,21 @@
 <dl class="attribute">
 <dt id="discretize.TreeMesh.area">
 <code class="descclassname">TreeMesh.</code><code class="descname">area</code><a class="headerlink" href="#discretize.TreeMesh.area" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of length nF with the area (length in 2D) of all
+faces ordered by x, then y, then z.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveCC2F">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveCC2F</code><a class="headerlink" href="#discretize.TreeMesh.aveCC2F" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Construct the averaging operator on cell centers to cell faces.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveCC2Fx">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveCC2Fx</code><a class="headerlink" href="#discretize.TreeMesh.aveCC2Fx" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Construct the averaging operator on cell centers to cell x-faces.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveCC2Fy">
@@ -735,32 +826,41 @@
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveCCV2F">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveCCV2F</code><a class="headerlink" href="#discretize.TreeMesh.aveCCV2F" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Construct the averaging operator on cell centers to cell faces.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveE2CC">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveE2CC</code><a class="headerlink" href="#discretize.TreeMesh.aveE2CC" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Construct the averaging operator on cell edges to cell centers.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveE2CCV">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveE2CCV</code><a class="headerlink" href="#discretize.TreeMesh.aveE2CCV" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Construct the averaging operator on cell edges to cell centers.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveEx2CC">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveEx2CC</code><a class="headerlink" href="#discretize.TreeMesh.aveEx2CC" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Construct the averaging operator on cell edges in the x direction to
+cell centers.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveEy2CC">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveEy2CC</code><a class="headerlink" href="#discretize.TreeMesh.aveEy2CC" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Construct the averaging operator on cell edges in the y direction to
+cell centers.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveEz2CC">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveEz2CC</code><a class="headerlink" href="#discretize.TreeMesh.aveEz2CC" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Construct the averaging operator on cell edges in the z direction to
+cell centers.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveF2CC">
@@ -777,22 +877,29 @@
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveFx2CC">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveFx2CC</code><a class="headerlink" href="#discretize.TreeMesh.aveFx2CC" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Construct the averaging operator on cell faces in the x direction to
+cell centers.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveFy2CC">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveFy2CC</code><a class="headerlink" href="#discretize.TreeMesh.aveFy2CC" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Construct the averaging operator on cell faces in the y direction to
+cell centers.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveFz2CC">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveFz2CC</code><a class="headerlink" href="#discretize.TreeMesh.aveFz2CC" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Construct the averaging operator on cell faces in the z direction to
+cell centers.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveN2CC">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveN2CC</code><a class="headerlink" href="#discretize.TreeMesh.aveN2CC" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Construct the averaging operator on cell nodes to cell centers.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveN2E">
@@ -804,17 +911,20 @@ each dimension separate.</p>
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveN2Ex">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveN2Ex</code><a class="headerlink" href="#discretize.TreeMesh.aveN2Ex" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Averaging operator on cell nodes to x-edges</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveN2Ey">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveN2Ey</code><a class="headerlink" href="#discretize.TreeMesh.aveN2Ey" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Averaging operator on cell nodes to y-edges</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveN2Ez">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveN2Ez</code><a class="headerlink" href="#discretize.TreeMesh.aveN2Ez" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Averaging operator on cell nodes to z-edges</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveN2F">
@@ -826,17 +936,20 @@ each dimension separate.</p>
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveN2Fx">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveN2Fx</code><a class="headerlink" href="#discretize.TreeMesh.aveN2Fx" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Averaging operator on cell nodes to x-faces</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveN2Fy">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveN2Fy</code><a class="headerlink" href="#discretize.TreeMesh.aveN2Fy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Averaging operator on cell nodes to y-faces</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.aveN2Fz">
 <code class="descclassname">TreeMesh.</code><code class="descname">aveN2Fz</code><a class="headerlink" href="#discretize.TreeMesh.aveN2Fz" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Averaging operator on cell nodes to z-faces</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.axis_u">
@@ -889,7 +1002,9 @@ each dimension separate.</p>
 <dl class="attribute">
 <dt id="discretize.TreeMesh.cellBoundaryInd">
 <code class="descclassname">TreeMesh.</code><code class="descname">cellBoundaryInd</code><a class="headerlink" href="#discretize.TreeMesh.cellBoundaryInd" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a tuple of arrays of indexes for boundary cells in each direction
+xdown, xup, ydown, yup, zdown, zup</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.cellGrad">
@@ -913,7 +1028,7 @@ Grad = sp.vstack((Gradx, Grady, Gradz))</p>
 <dl class="attribute">
 <dt id="discretize.TreeMesh.cellGrady">
 <code class="descclassname">TreeMesh.</code><code class="descname">cellGrady</code><a class="headerlink" href="#discretize.TreeMesh.cellGrady" title="Permalink to this definition">¶</a></dt>
-<dd><p>Cell centered Gradient operator in y-direction (Gradx)
+<dd><p>Cell centered Gradient operator in y-direction (Grady)
 Grad = sp.vstack((Gradx, Grady, Gradz))</p>
 </dd></dl>
 
@@ -943,22 +1058,28 @@ Grad = sp.vstack((Gradx, Grady, Gradz))</p>
 <dl class="attribute">
 <dt id="discretize.TreeMesh.edge">
 <code class="descclassname">TreeMesh.</code><code class="descname">edge</code><a class="headerlink" href="#discretize.TreeMesh.edge" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of length nE with the length of all edges ordered
+by x, then y, then z.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.edgeCurl">
 <code class="descclassname">TreeMesh.</code><code class="descname">edgeCurl</code><a class="headerlink" href="#discretize.TreeMesh.edgeCurl" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Construct the 3D curl operator.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.faceBoundaryInd">
 <code class="descclassname">TreeMesh.</code><code class="descname">faceBoundaryInd</code><a class="headerlink" href="#discretize.TreeMesh.faceBoundaryInd" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a tuple of arrays of indexes for boundary faces in each direction
+xdown, xup, ydown, yup, zdown, zup</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.faceDiv">
 <code class="descclassname">TreeMesh.</code><code class="descname">faceDiv</code><a class="headerlink" href="#discretize.TreeMesh.faceDiv" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Construct divergence operator (face-stg to cell-centres).</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.faceDivx">
@@ -985,82 +1106,107 @@ As a fraction: [0, 1].</p>
 <dl class="attribute">
 <dt id="discretize.TreeMesh.gridCC">
 <code class="descclassname">TreeMesh.</code><code class="descname">gridCC</code><a class="headerlink" href="#discretize.TreeMesh.gridCC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an M by N numpy array with the center locations of all cells
-in order. M is the number of cells and N=2,3 is the dimension of the
-mesh.</p>
+<dd><p>Returns a numpy arrayof shape (nC, dim) with the center locations of all cells
+in order.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.gridEx">
 <code class="descclassname">TreeMesh.</code><code class="descname">gridEx</code><a class="headerlink" href="#discretize.TreeMesh.gridEx" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of shape (nEx, dim) with the centers of all
+non-hanging edges along the first dimension in order.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.gridEy">
 <code class="descclassname">TreeMesh.</code><code class="descname">gridEy</code><a class="headerlink" href="#discretize.TreeMesh.gridEy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of shape (nEy, dim) with the centers of all
+non-hanging edges along the second dimension in order.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.gridEz">
 <code class="descclassname">TreeMesh.</code><code class="descname">gridEz</code><a class="headerlink" href="#discretize.TreeMesh.gridEz" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of shape (nEz, dim) with the centers of all
+non-hanging edges along the third dimension in order.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.gridFx">
 <code class="descclassname">TreeMesh.</code><code class="descname">gridFx</code><a class="headerlink" href="#discretize.TreeMesh.gridFx" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of shape (nFx, dim) with the centers of all
+non-hanging faces along the first dimension in order.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.gridFy">
 <code class="descclassname">TreeMesh.</code><code class="descname">gridFy</code><a class="headerlink" href="#discretize.TreeMesh.gridFy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of shape (nFy, dim) with the centers of all
+non-hanging faces along the second dimension in order.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.gridFz">
 <code class="descclassname">TreeMesh.</code><code class="descname">gridFz</code><a class="headerlink" href="#discretize.TreeMesh.gridFz" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of shape (nFz, dim) with the centers of all
+non-hanging faces along the third dimension in order.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.gridN">
 <code class="descclassname">TreeMesh.</code><code class="descname">gridN</code><a class="headerlink" href="#discretize.TreeMesh.gridN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an M by N numpy array with the widths of all cells in order.
-M is the number of nodes and N=2,3 is the dimension of the mesh.</p>
+<dd><p>Returns a numpy array of shape (nN, dim) with the locations of all
+non-hanging nodes in order.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.gridhEx">
 <code class="descclassname">TreeMesh.</code><code class="descname">gridhEx</code><a class="headerlink" href="#discretize.TreeMesh.gridhEx" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of shape (nhEx, dim) with the centers of all
+hanging edges along the first dimension in order.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.gridhEy">
 <code class="descclassname">TreeMesh.</code><code class="descname">gridhEy</code><a class="headerlink" href="#discretize.TreeMesh.gridhEy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of shape (nhEy, dim) with the centers of all
+hanging edges along the second dimension in order.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.gridhEz">
 <code class="descclassname">TreeMesh.</code><code class="descname">gridhEz</code><a class="headerlink" href="#discretize.TreeMesh.gridhEz" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of shape (nhEz, dim) with the centers of all
+hanging edges along the third dimension in order.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.gridhFx">
 <code class="descclassname">TreeMesh.</code><code class="descname">gridhFx</code><a class="headerlink" href="#discretize.TreeMesh.gridhFx" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of shape (nhFx, dim) with the centers of all
+hanging faces along the first dimension in order.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.gridhFy">
 <code class="descclassname">TreeMesh.</code><code class="descname">gridhFy</code><a class="headerlink" href="#discretize.TreeMesh.gridhFy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of shape (nhFy, dim) with the centers of all
+hanging faces along the second dimension in order.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.gridhFz">
 <code class="descclassname">TreeMesh.</code><code class="descname">gridhFz</code><a class="headerlink" href="#discretize.TreeMesh.gridhFz" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of shape (nhFz, dim) with the centers of all
+hanging faces along the third dimension in order.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.gridhN">
 <code class="descclassname">TreeMesh.</code><code class="descname">gridhN</code><a class="headerlink" href="#discretize.TreeMesh.gridhN" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of shape (nN, dim) with the locations of all
+hanging nodes in order.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.h">
@@ -1104,112 +1250,138 @@ M is the number of nodes and N=2,3 is the dimension of the mesh.</p>
 <dt id="discretize.TreeMesh.maxLevel">
 <code class="descclassname">TreeMesh.</code><code class="descname">maxLevel</code><a class="headerlink" href="#discretize.TreeMesh.maxLevel" title="Permalink to this definition">¶</a></dt>
 <dd><p>The maximum level used, which may be
-less than <cite>levels</cite>.</p>
+less than <cite>levels</cite> or <cite>max_level</cite>.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.max_level">
 <code class="descclassname">TreeMesh.</code><code class="descname">max_level</code><a class="headerlink" href="#discretize.TreeMesh.max_level" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The maximum possible level for a cell on this mesh</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nC">
 <code class="descclassname">TreeMesh.</code><code class="descname">nC</code><a class="headerlink" href="#discretize.TreeMesh.nC" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of cells</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nE">
 <code class="descclassname">TreeMesh.</code><code class="descname">nE</code><a class="headerlink" href="#discretize.TreeMesh.nE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Total number of non-hanging edges amongst all dimensions</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nEx">
 <code class="descclassname">TreeMesh.</code><code class="descname">nEx</code><a class="headerlink" href="#discretize.TreeMesh.nEx" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of non-hanging edges oriented along the first dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nEy">
 <code class="descclassname">TreeMesh.</code><code class="descname">nEy</code><a class="headerlink" href="#discretize.TreeMesh.nEy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of non-hanging edges oriented along the second dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nEz">
 <code class="descclassname">TreeMesh.</code><code class="descname">nEz</code><a class="headerlink" href="#discretize.TreeMesh.nEz" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of non-hanging edges oriented along the third dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nF">
 <code class="descclassname">TreeMesh.</code><code class="descname">nF</code><a class="headerlink" href="#discretize.TreeMesh.nF" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Total number of non-hanging faces amongst all dimensions</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nFx">
 <code class="descclassname">TreeMesh.</code><code class="descname">nFx</code><a class="headerlink" href="#discretize.TreeMesh.nFx" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of non-hanging faces oriented along the first dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nFy">
 <code class="descclassname">TreeMesh.</code><code class="descname">nFy</code><a class="headerlink" href="#discretize.TreeMesh.nFy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of non-hanging faces oriented along the second dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nFz">
 <code class="descclassname">TreeMesh.</code><code class="descname">nFz</code><a class="headerlink" href="#discretize.TreeMesh.nFz" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of non-hanging faces oriented along the third dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nN">
 <code class="descclassname">TreeMesh.</code><code class="descname">nN</code><a class="headerlink" href="#discretize.TreeMesh.nN" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of non-hanging nodes</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nhE">
 <code class="descclassname">TreeMesh.</code><code class="descname">nhE</code><a class="headerlink" href="#discretize.TreeMesh.nhE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Total number of hanging edges amongst all dimensions</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nhEx">
 <code class="descclassname">TreeMesh.</code><code class="descname">nhEx</code><a class="headerlink" href="#discretize.TreeMesh.nhEx" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of hanging edges oriented along the first dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nhEy">
 <code class="descclassname">TreeMesh.</code><code class="descname">nhEy</code><a class="headerlink" href="#discretize.TreeMesh.nhEy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of hanging edges oriented along the second dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nhEz">
 <code class="descclassname">TreeMesh.</code><code class="descname">nhEz</code><a class="headerlink" href="#discretize.TreeMesh.nhEz" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of hanging edges oriented along the third dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nhF">
 <code class="descclassname">TreeMesh.</code><code class="descname">nhF</code><a class="headerlink" href="#discretize.TreeMesh.nhF" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Total number of hanging faces amongst all dimensions</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nhFx">
 <code class="descclassname">TreeMesh.</code><code class="descname">nhFx</code><a class="headerlink" href="#discretize.TreeMesh.nhFx" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of hanging faces oriented along the first dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nhFy">
 <code class="descclassname">TreeMesh.</code><code class="descname">nhFy</code><a class="headerlink" href="#discretize.TreeMesh.nhFy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of hanging faces oriented along the second dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nhFz">
 <code class="descclassname">TreeMesh.</code><code class="descname">nhFz</code><a class="headerlink" href="#discretize.TreeMesh.nhFz" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of hanging faces oriented along the third dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nhN">
 <code class="descclassname">TreeMesh.</code><code class="descname">nhN</code><a class="headerlink" href="#discretize.TreeMesh.nhN" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of hanging nodes</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.nodalGrad">
 <code class="descclassname">TreeMesh.</code><code class="descname">nodalGrad</code><a class="headerlink" href="#discretize.TreeMesh.nodalGrad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct gradient operator (nodes to edges).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="discretize.TreeMesh.nodalLaplacian">
+<code class="descclassname">TreeMesh.</code><code class="descname">nodalLaplacian</code><a class="headerlink" href="#discretize.TreeMesh.nodalLaplacian" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1231,62 +1403,74 @@ less than <cite>levels</cite>.</p>
 <dl class="attribute">
 <dt id="discretize.TreeMesh.ntE">
 <code class="descclassname">TreeMesh.</code><code class="descname">ntE</code><a class="headerlink" href="#discretize.TreeMesh.ntE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Total number of non-hanging and hanging edges amongst all dimensions</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.ntEx">
 <code class="descclassname">TreeMesh.</code><code class="descname">ntEx</code><a class="headerlink" href="#discretize.TreeMesh.ntEx" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of non-hanging and hanging edges oriented along the first dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.ntEy">
 <code class="descclassname">TreeMesh.</code><code class="descname">ntEy</code><a class="headerlink" href="#discretize.TreeMesh.ntEy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of non-hanging and hanging edges oriented along the second dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.ntEz">
 <code class="descclassname">TreeMesh.</code><code class="descname">ntEz</code><a class="headerlink" href="#discretize.TreeMesh.ntEz" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of non-hanging and hanging edges oriented along the third dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.ntF">
 <code class="descclassname">TreeMesh.</code><code class="descname">ntF</code><a class="headerlink" href="#discretize.TreeMesh.ntF" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Total number of hanging and non-hanging faces amongst all dimensions</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.ntFx">
 <code class="descclassname">TreeMesh.</code><code class="descname">ntFx</code><a class="headerlink" href="#discretize.TreeMesh.ntFx" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of non-hanging and hanging faces oriented along the first dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.ntFy">
 <code class="descclassname">TreeMesh.</code><code class="descname">ntFy</code><a class="headerlink" href="#discretize.TreeMesh.ntFy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of non-hanging and hanging faces oriented along the second dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.ntFz">
 <code class="descclassname">TreeMesh.</code><code class="descname">ntFz</code><a class="headerlink" href="#discretize.TreeMesh.ntFz" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of non-hanging and hanging faces oriented along the third dimension</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.ntN">
 <code class="descclassname">TreeMesh.</code><code class="descname">ntN</code><a class="headerlink" href="#discretize.TreeMesh.ntN" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number of non-hanging and hanging nodes</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.permuteCC">
 <code class="descclassname">TreeMesh.</code><code class="descname">permuteCC</code><a class="headerlink" href="#discretize.TreeMesh.permuteCC" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Permutation matrix re-ordering of cells sorted by x, then y, then z</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.permuteE">
 <code class="descclassname">TreeMesh.</code><code class="descname">permuteE</code><a class="headerlink" href="#discretize.TreeMesh.permuteE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Permutation matrix re-ordering of edges sorted by x, then y, then z</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.permuteF">
 <code class="descclassname">TreeMesh.</code><code class="descname">permuteF</code><a class="headerlink" href="#discretize.TreeMesh.permuteF" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Permutation matrix re-ordering of faces sorted by x, then y, then z</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.reference_is_rotated">
@@ -1432,26 +1616,49 @@ M.plotGrid(edges=True, showIt=True)</p>
 <dl class="attribute">
 <dt id="discretize.TreeMesh.vntE">
 <code class="descclassname">TreeMesh.</code><code class="descname">vntE</code><a class="headerlink" href="#discretize.TreeMesh.vntE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Total number of hanging and non-hanging edges in a [nx,ny,nz] form</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.vntF">
 <code class="descclassname">TreeMesh.</code><code class="descname">vntF</code><a class="headerlink" href="#discretize.TreeMesh.vntF" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Total number of hanging and non-hanging faces in a [nx,ny,nz] form</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.vol">
 <code class="descclassname">TreeMesh.</code><code class="descname">vol</code><a class="headerlink" href="#discretize.TreeMesh.vol" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a numpy array of length nC with the volumes (areas in 2D) of all
+cells in order.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="discretize.TreeMesh.x0">
 <code class="descclassname">TreeMesh.</code><code class="descname">x0</code><a class="headerlink" href="#discretize.TreeMesh.x0" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Origin of the mesh</p>
+</dd></dl>
 
 </div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="discretize.TreeMesh.cell_levels_by_index">
+<code class="descclassname">TreeMesh.</code><code class="descname">cell_levels_by_index</code><span class="sig-paren">(</span><em>self</em>, <em>indices</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.cell_levels_by_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.cell_levels_by_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fast function to return a list of levels for the given cell indices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>array_like of length</em><em> (</em><em>N</em><em>)</em>) – Cell indexes to query</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Levels for the cells.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">numpy.array of length (N)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="discretize.TreeMesh.copy">
 <code class="descclassname">TreeMesh.</code><code class="descname">copy</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.copy" title="Permalink to this definition">¶</a></dt>
@@ -1497,7 +1704,10 @@ two instances are equal, using <code class="code docutils literal notranslate"><
 <dl class="method">
 <dt id="discretize.TreeMesh.finalize">
 <code class="descclassname">TreeMesh.</code><code class="descname">finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.finalize" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Finalize the TreeMesh
+Called after finished cronstruction of the mesh. Can only be called once.
+After finalize is called, all other attributes and functions are valid.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="discretize.TreeMesh.from_omf">
@@ -1611,8 +1821,39 @@ dictionary of model arrays.</p>
 
 <dl class="method">
 <dt id="discretize.TreeMesh.getInterpolationMat">
-<code class="descclassname">TreeMesh.</code><code class="descname">getInterpolationMat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.getInterpolationMat" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">TreeMesh.</code><code class="descname">getInterpolationMat</code><span class="sig-paren">(</span><em>self</em>, <em>locs</em>, <em>locType</em>, <em>zerosOutside=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.getInterpolationMat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.getInterpolationMat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces interpolation matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>loc</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – Location of points to interpolate to</li>
+<li><strong>locType</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – <p>What to interpolate</p>
+<p>locType can be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Ex&#39;</span>    <span class="o">-&gt;</span> <span class="n">x</span><span class="o">-</span><span class="n">component</span> <span class="n">of</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">edges</span>
+<span class="s1">&#39;Ey&#39;</span>    <span class="o">-&gt;</span> <span class="n">y</span><span class="o">-</span><span class="n">component</span> <span class="n">of</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">edges</span>
+<span class="s1">&#39;Ez&#39;</span>    <span class="o">-&gt;</span> <span class="n">z</span><span class="o">-</span><span class="n">component</span> <span class="n">of</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">edges</span>
+<span class="s1">&#39;Fx&#39;</span>    <span class="o">-&gt;</span> <span class="n">x</span><span class="o">-</span><span class="n">component</span> <span class="n">of</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">faces</span>
+<span class="s1">&#39;Fy&#39;</span>    <span class="o">-&gt;</span> <span class="n">y</span><span class="o">-</span><span class="n">component</span> <span class="n">of</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">faces</span>
+<span class="s1">&#39;Fz&#39;</span>    <span class="o">-&gt;</span> <span class="n">z</span><span class="o">-</span><span class="n">component</span> <span class="n">of</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">faces</span>
+<span class="s1">&#39;N&#39;</span>     <span class="o">-&gt;</span> <span class="n">scalar</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">nodes</span>
+<span class="s1">&#39;CC&#39;</span>    <span class="o">-&gt;</span> <span class="n">scalar</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">cell</span> <span class="n">centers</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M, the interpolation matrix</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.0)">scipy.sparse.csr_matrix</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="discretize.TreeMesh.getTensor">
@@ -1648,18 +1889,79 @@ dictionary of model arrays.</p>
 <dt id="discretize.TreeMesh.get_boundary_cells">
 <code class="descclassname">TreeMesh.</code><code class="descname">get_boundary_cells</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.get_boundary_cells" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the indices of boundary cells in a given direction given an active index array.</p>
-<p>Optional Input:
-:param numpy.array active_ind: None or Boolean array of active indexes in the mesh
-:param str direction: one of (‘zu’, ‘zd’, ‘xu’, ‘xd’, ‘yu’, ‘yd’)</p>
-<p>Output:
-:rtype: numpy.array
-:return: Array of indices for the boundary cells in a given direction</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>active_ind</strong> (<em>array_like of bool</em><em>, </em><em>optional</em>) – If not None, then this must show which cells are active</li>
+<li><strong>direction</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><em>optional</em>) – must be one of (‘zu’, ‘zd’, ‘xu’, ‘xd’, ‘yu’, ‘yd’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Array of indices for the boundary cells in the requested direction</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">numpy.array</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="discretize.TreeMesh.get_cells_along_line">
+<code class="descclassname">TreeMesh.</code><code class="descname">get_cells_along_line</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.get_cells_along_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the cells along a line segment defined by two points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x0</strong><strong>,</strong><strong>x1</strong> (<em>array_like of length</em><em> (</em><em>dim</em><em>)</em>) – Begining and ending point of the line segment.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Indexes for cells that contain the a line defined by the two input
+points, ordered in the direction of the line.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of ints</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="discretize.TreeMesh.insert_cells">
 <code class="descclassname">TreeMesh.</code><code class="descname">insert_cells</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.insert_cells" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Insert cells into the TreeMesh that contain given points</p>
+<p>Insert cell(s) into the TreeMesh that contain the given point(s) at the
+assigned level(s).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>points</strong> (<em>array_like with shape</em><em> (</em><em>N</em><em>, </em><em>dim</em><em>)</em>) – </li>
+<li><strong>levels</strong> (<em>array_like of integers with shape</em><em> (</em><em>N</em><em>)</em>) – </li>
+<li><strong>finalize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to finalize after inserting point(s)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">discretize</span> <span class="k">import</span> <span class="n">TreeMesh</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">TreeMesh</span><span class="p">([</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">insert_cells</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">max_level</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+<span class="go">---- QuadTreeMesh ----</span>
+<span class="go"> x0: 0.00</span>
+<span class="go"> y0: 0.00</span>
+<span class="go"> hx: 32*0.03,</span>
+<span class="go"> hy: 32*0.03,</span>
+<span class="go">nC: 40</span>
+<span class="go">Fill: 3.91%</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="method">
 <dt id="discretize.TreeMesh.isInside">
@@ -1687,17 +1989,69 @@ dictionary of model arrays.</p>
 <dl class="method">
 <dt id="discretize.TreeMesh.number">
 <code class="descclassname">TreeMesh.</code><code class="descname">number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.number" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Number the cells, nodes, faces, and edges of the TreeMesh</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="discretize.TreeMesh.plotGrid">
 <code class="descclassname">TreeMesh.</code><code class="descname">plotGrid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.plotGrid" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Plot the nodel, cell-centered, and staggered grids for 2 and 3 dimensions
+Plots the mesh grid in either 2D or 3D of the TreeMesh</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.1.1)"><em>matplotlib.axes.Axes</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><em>optional</em>) – The axes handle to plot on</li>
+<li><strong>nodes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the nodal points</li>
+<li><strong>faces</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the center points of the faces</li>
+<li><strong>centers</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the center points of the cells</li>
+<li><strong>edges</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the center points of the edges</li>
+<li><strong>lines</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the lines connecting the nodes</li>
+<li><strong>cell_line</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the line through the cell centers in order</li>
+<li><strong>faces_y</strong><strong>, </strong><strong>faces_z</strong> (<em>faces_x</em><em>,</em>) – Plot the center points of the x, y, or z faces</li>
+<li><strong>edges_y</strong><strong>, </strong><strong>edges_z</strong> (<em>edges_x</em><em>,</em>) – Plot the center points of the x, y, or z edges</li>
+<li><strong>showIt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – whether to call plt.show() within the codes</li>
+<li><strong>color</strong> (<em>Color</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><em>optional</em>) – if lines=True, the color of the lines, defaults to first color.</li>
+<li><strong>linewidth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – if lines=True, the linewidth for the lines.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Axes handle for the plot</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.1.1)">matplotlib.axes.Axes</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="discretize.TreeMesh.plotImage">
 <code class="descclassname">TreeMesh.</code><code class="descname">plotImage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.plotImage" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Plots an image of values defined on the TreeMesh
+If 3D, this function plots a default slice of the TreeMesh</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>v</strong> (<em>array_like</em>) – Array containing the values to plot</li>
+<li><strong>vType</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><em>optional</em>) – type of value in <cite>v</cite> one of ‘CC’, ‘N’, ‘Fx’, ‘Fy’, ‘Fz’, ‘Ex’, ‘Ey’, or ‘Ez’</li>
+<li><strong>grid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – plot the grid lines</li>
+<li><strong>view</strong> (<em>[</em><em>'real'</em><em>, </em><em>'imag'</em><em>, </em><em>'abs'</em><em>]</em><em>, </em><em>optional</em>) – The values to plot from v</li>
+<li><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.1.1)"><em>matplotlib.axes.Axes</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><em>optional</em>) – The axes handle</li>
+<li><strong>clim</strong> (<em>array_like of length 2</em><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><em>optional</em>) – A pair of [min, max] for the Colorbar</li>
+<li><strong>pcolorOpts</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – options to be passed on to pcolormesh</li>
+<li><strong>gridOpt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – options for the plotting the grid</li>
+<li><strong>range_y</strong> (<em>range_x</em><em>,</em>) – pairs of [min, max] values for the x and y ranges</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="discretize.TreeMesh.plotSlice">
@@ -1707,7 +2061,22 @@ dictionary of model arrays.</p>
 <dl class="method">
 <dt id="discretize.TreeMesh.point2index">
 <code class="descclassname">TreeMesh.</code><code class="descname">point2index</code><span class="sig-paren">(</span><em>self</em>, <em>locs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.point2index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.point2index" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Finds cells that contain the given points.
+Returns an array of index values of the cells that contain the given
+points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locs</strong> (<em>array_like of shape</em><em> (</em><em>N</em><em>, </em><em>dim</em><em>)</em>) – points to search for the location of</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Cell indices that contain the points</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">numpy.array of integers of length(N)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="discretize.TreeMesh.projectEdgeVector">
@@ -1769,7 +2138,50 @@ Input:
 <dl class="method">
 <dt id="discretize.TreeMesh.refine">
 <code class="descclassname">TreeMesh.</code><code class="descname">refine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.refine" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Refine a TreeMesh using a user supplied function.</p>
+<p>Refines the TreeMesh using a function that is recursively called on each
+cell of the mesh. It must accept an object of type <cite>discretize.TreeMesh.Cell</cite>
+and return an integer like object defining the desired level.
+The function can also simply be an integer, which will then cause all
+cells to be at least that level.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>function</strong> (<em>callable | int</em>) – a function describing the desired level,
+or an integer to refine all cells to at least that level.</li>
+<li><strong>finalize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to finalize the mesh</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">discretize</span> <span class="k">import</span> <span class="n">TreeMesh</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">TreeMesh</span><span class="p">([</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">cell</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">center</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="n">mesh</span><span class="o">.</span><span class="n">max_level</span> <span class="k">if</span> <span class="n">r</span><span class="o">&lt;</span><span class="mf">0.2</span> <span class="k">else</span> <span class="n">mesh</span><span class="o">.</span><span class="n">max_level</span><span class="o">-</span><span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">refine</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span>
+<span class="go">---- QuadTreeMesh ----</span>
+<span class="go"> x0: 0.00</span>
+<span class="go"> y0: 0.00</span>
+<span class="go"> hx: 32*0.03,</span>
+<span class="go"> hy: 32*0.03,</span>
+<span class="go">nC: 352</span>
+<span class="go">Fill: 34.38%</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="discretize.TreeMesh.TreeCell.html#discretize.TreeMesh.TreeCell" title="discretize.TreeMesh.TreeCell"><code class="xref py py-meth docutils literal notranslate"><span class="pre">discretize.TreeMesh.TreeCell()</span></code></a></dt>
+<dd>a description of the TreeCell object</dd>
+</dl>
+</div>
+</dd></dl>
 
 <dl class="method">
 <dt id="discretize.TreeMesh.save">
@@ -1911,7 +2323,7 @@ octree mesh and model.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="discretize.CurvilinearMesh.html" class="btn btn-neutral float-right" title="discretize.CurvilinearMesh" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="discretize.TreeMesh.TreeCell.html" class="btn btn-neutral float-right" title="discretize.TreeMesh.TreeCell" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="discretize.CylMesh.html" class="btn btn-neutral float-left" title="discretize.CylMesh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
