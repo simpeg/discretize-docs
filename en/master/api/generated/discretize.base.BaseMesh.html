@@ -270,7 +270,7 @@
 <h1>discretize.base.BaseMesh<a class="headerlink" href="#discretize-base-basemesh" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="discretize.base.BaseMesh">
-<em class="property">class </em><code class="descclassname">discretize.base.</code><code class="descname">BaseMesh</code><span class="sig-paren">(</span><em>n</em>, <em>x0=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/base/base_mesh.html#BaseMesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.base.BaseMesh" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">discretize.base.</code><code class="descname">BaseMesh</code><span class="sig-paren">(</span><em>n=None</em>, <em>x0=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/base/base_mesh.html#BaseMesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.base.BaseMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">properties.base.base.HasProperties</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.mixins.InterfaceMixins</span></code></p>
 <blockquote>
 <div>BaseMesh does all the counting you don’t want to do.
@@ -281,7 +281,7 @@ BaseMesh should be inherited by meshes with a regular structure.</div></blockquo
 <li><strong>axis_v</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of v-direction. For more details see the docs for the <a class="reference internal" href="#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Y</li>
 <li><strong>axis_w</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of w-direction. For more details see the docs for the <a class="reference internal" href="#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Z</li>
 <li><strong>reference_system</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">String</span></code></a>): The type of coordinate reference frame. Can take on the values cartesian, cylindrical, or spherical. Abbreviations of these are allowed., a unicode string, Default: cartesian</li>
-<li><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt; with shape (*)</li>
+<li><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</li>
 </ul>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -352,7 +352,7 @@ BaseMesh should be inherited by meshes with a regular structure.</div></blockquo
 <dd><p class="first last">Total number of faces in each direction</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.base.BaseMesh.x0" title="discretize.base.BaseMesh.x0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x0</span></code></a></dt>
-<dd><p class="first last"><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt; with shape (*)</p>
+<dd><p class="first last"><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</p>
 </dd>
 </dl>
 </td>
@@ -788,7 +788,7 @@ M.plotGrid(edges=True, showIt=True)</p>
 <dl class="attribute">
 <dt id="discretize.base.BaseMesh.x0">
 <code class="descclassname">BaseMesh.</code><code class="descname">x0</code><a class="headerlink" href="#discretize.base.BaseMesh.x0" title="Permalink to this definition">¶</a></dt>
-<dd><p>origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt; with shape (*)</p>
+<dd><p>origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

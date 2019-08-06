@@ -273,7 +273,7 @@
 <h1>discretize.TreeMesh<a class="headerlink" href="#discretize-treemesh" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="discretize.TreeMesh">
-<em class="property">class </em><code class="descclassname">discretize.</code><code class="descname">TreeMesh</code><span class="sig-paren">(</span><em>h</em>, <em>x0=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">discretize.</code><code class="descname">TreeMesh</code><span class="sig-paren">(</span><em>h=None</em>, <em>x0=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.tree_ext._TreeMesh</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.base.base_tensor_mesh.BaseTensorMesh</span></code>, <a class="reference internal" href="discretize.InnerProducts.InnerProducts.html#discretize.InnerProducts.InnerProducts" title="discretize.InnerProducts.InnerProducts"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.InnerProducts.InnerProducts</span></code></a>, <a class="reference internal" href="discretize.MeshIO.TreeMeshIO.html#discretize.MeshIO.TreeMeshIO" title="discretize.MeshIO.TreeMeshIO"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.MeshIO.TreeMeshIO</span></code></a></p>
 <blockquote>
 <div>TreeMesh is a class for adaptive QuadTree (2D) and OcTree (3D) meshes.</div></blockquote>
@@ -284,7 +284,7 @@
 <li><strong>axis_w</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of w-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Z</li>
 <li><strong>h</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): h is a list containing the cell widths of the tensor mesh in each dimension., a list (each item is a list or numpy array of &lt;class ‘float’&gt; with shape (*)) with length between 0 and 3</li>
 <li><strong>reference_system</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">String</span></code></a>): The type of coordinate reference frame. Can take on the values cartesian, cylindrical, or spherical. Abbreviations of these are allowed., a unicode string, Default: cartesian</li>
-<li><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt; with shape (*)</li>
+<li><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</li>
 </ul>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -629,7 +629,7 @@
 <dd><p class="first last">Returns a numpy array of length nC with the volumes (areas in 2D) of all cells in order.</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.TreeMesh.x0" title="discretize.TreeMesh.x0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x0</span></code></a></dt>
-<dd><p class="first last">Origin of the mesh</p>
+<dd><p class="first last"><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</p>
 </dd>
 </dl>
 </td>
@@ -1635,7 +1635,15 @@ cells in order.</p>
 <dl class="attribute">
 <dt id="discretize.TreeMesh.x0">
 <code class="descclassname">TreeMesh.</code><code class="descname">x0</code><a class="headerlink" href="#discretize.TreeMesh.x0" title="Permalink to this definition">¶</a></dt>
-<dd><p>Origin of the mesh</p>
+<dd><p>origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -1667,7 +1675,7 @@ cells in order.</p>
 
 <dl class="classmethod">
 <dt id="discretize.TreeMesh.deserialize">
-<em class="property">classmethod </em><code class="descclassname">TreeMesh.</code><code class="descname">deserialize</code><span class="sig-paren">(</span><em>value</em>, <em>trusted=False</em>, <em>strict=False</em>, <em>assert_valid=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.deserialize" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descclassname">TreeMesh.</code><code class="descname">deserialize</code><span class="sig-paren">(</span><em>serial</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.deserialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.deserialize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates <strong>HasProperties</strong> instance from serialized dictionary</p>
 <p>This uses the Property deserializers to deserialize all
 JSON-compatible dictionary values into their corresponding Property
@@ -2185,7 +2193,7 @@ or an integer to refine all cells to at least that level.</li>
 
 <dl class="method">
 <dt id="discretize.TreeMesh.save">
-<code class="descclassname">TreeMesh.</code><code class="descname">save</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.save" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">TreeMesh.</code><code class="descname">save</code><span class="sig-paren">(</span><em>self</em>, <em>filename='mesh.json'</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save the mesh to json
 :param str file: filename for saving the casing properties
 :param str directory: working directory for saving the file</p>
@@ -2193,7 +2201,7 @@ or an integer to refine all cells to at least that level.</li>
 
 <dl class="method">
 <dt id="discretize.TreeMesh.serialize">
-<code class="descclassname">TreeMesh.</code><code class="descname">serialize</code><span class="sig-paren">(</span><em>self</em>, <em>include_class=True</em>, <em>save_dynamic=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.serialize" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">TreeMesh.</code><code class="descname">serialize</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.serialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.serialize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Serializes a <strong>HasProperties</strong> instance to dictionary</p>
 <p>This uses the Property serializers to serialize all Property values
 to a JSON-compatible dictionary. Properties that are undefined are

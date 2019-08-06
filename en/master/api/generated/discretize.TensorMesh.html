@@ -320,7 +320,7 @@ such that it can defined by a single width vector, called ‘h’.</p>
 <li><strong>axis_w</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of w-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Z</li>
 <li><strong>h</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): h is a list containing the cell widths of the tensor mesh in each dimension., a list (each item is a list or numpy array of &lt;class ‘float’&gt; with shape (*)) with length between 0 and 3</li>
 <li><strong>reference_system</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">String</span></code></a>): The type of coordinate reference frame. Can take on the values cartesian, cylindrical, or spherical. Abbreviations of these are allowed., a unicode string, Default: cartesian</li>
-<li><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt; with shape (*)</li>
+<li><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</li>
 </ul>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -602,7 +602,7 @@ such that it can defined by a single width vector, called ‘h’.</p>
 <dd><p class="first last">Construct cell volumes of the 3D model as 1d array.</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.TensorMesh.x0" title="discretize.TensorMesh.x0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x0</span></code></a></dt>
-<dd><p class="first last"><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt; with shape (*)</p>
+<dd><p class="first last"><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</p>
 </dd>
 </dl>
 </td>
@@ -1722,7 +1722,7 @@ M.plotGrid(edges=True, showIt=True)</p>
 <dl class="attribute">
 <dt id="discretize.TensorMesh.x0">
 <code class="descclassname">TensorMesh.</code><code class="descname">x0</code><a class="headerlink" href="#discretize.TensorMesh.x0" title="Permalink to this definition">¶</a></dt>
-<dd><p>origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt; with shape (*)</p>
+<dd><p>origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

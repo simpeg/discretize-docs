@@ -302,6 +302,9 @@
 <span class="c1">#      |           |         ^</span>
 <span class="c1">#      |___________|         |___&gt; x</span>
 <span class="c1">#      0    e3     1</span>
+
+<span class="kn">import</span> <span class="nn">properties</span>
+
 <span class="kn">from</span> <span class="nn">.base</span> <span class="k">import</span> <span class="n">BaseTensorMesh</span>
 <span class="kn">from</span> <span class="nn">.InnerProducts</span> <span class="k">import</span> <span class="n">InnerProducts</span>
 <span class="kn">from</span> <span class="nn">.MeshIO</span> <span class="k">import</span> <span class="n">TreeMeshIO</span>
@@ -319,7 +322,12 @@
     <span class="n">_meshType</span> <span class="o">=</span> <span class="s1">&#39;TREE&#39;</span>
 
     <span class="c1">#inheriting stuff from BaseTensorMesh that isn&#39;t defined in _QuadTree</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;h&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;x0&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">x0</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;x0&#39;</span><span class="p">)</span>
+        <span class="c1"># print(h, x0)</span>
         <span class="n">BaseTensorMesh</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span><span class="c1">#TODO:, **kwargs) # pass the kwargs for copy/paste</span>
 
         <span class="n">nx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -330,6 +338,11 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;length of cell width vectors must be a power of 2&quot;</span><span class="p">)</span>
         <span class="c1"># Now can initialize cpp tree parent</span>
         <span class="n">_TreeMesh</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s1">&#39;cell_levels&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="s1">&#39;cell_indexes&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">inds</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;cell_indexes&#39;</span><span class="p">)</span>
+            <span class="n">levels</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;cell_levels&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__setstate__</span><span class="p">((</span><span class="n">inds</span><span class="p">,</span> <span class="n">levels</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plain text representation.&quot;&quot;&quot;</span>
@@ -448,6 +461,10 @@
         <span class="n">full_tbl</span> <span class="o">+=</span> <span class="s2">&quot;&lt;/table&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
 
         <span class="k">return</span> <span class="n">full_tbl</span>
+
+    <span class="nd">@properties</span><span class="o">.</span><span class="n">validator</span><span class="p">(</span><span class="s1">&#39;x0&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_x0_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">change</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_x0</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">vntF</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -850,8 +867,17 @@
             <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
         <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">out</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="TreeMesh.save"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+<div class="viewcode-block" id="TreeMesh.serialize"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh.serialize">[docs]</a>    <span class="k">def</span> <span class="nf">serialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">serial</span> <span class="o">=</span> <span class="n">BaseTensorMesh</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">inds</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getstate__</span><span class="p">()</span>
+        <span class="n">serial</span><span class="p">[</span><span class="s1">&#39;cell_indexes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inds</span>
+        <span class="n">serial</span><span class="p">[</span><span class="s1">&#39;cell_levels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">levels</span>
+        <span class="k">return</span> <span class="n">serial</span></div>
+
+<div class="viewcode-block" id="TreeMesh.deserialize"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh.deserialize">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">deserialize</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">serial</span><span class="p">):</span>
+        <span class="n">mesh</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">serial</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mesh</span></div>
 
 <div class="viewcode-block" id="TreeMesh.load"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>

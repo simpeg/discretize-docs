@@ -301,7 +301,8 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
                         <span class="s2">&quot;x0[</span><span class="si">{0:d}</span><span class="s2">] must be a scalar or &#39;0&#39; to be zero, &quot;</span>
-                        <span class="s2">&quot;&#39;C&#39; to center, or &#39;N&#39; to be negative.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                        <span class="s2">&quot;&#39;C&#39; to center, or &#39;N&#39; to be negative. The input value&quot;</span>
+                        <span class="s2">&quot; </span><span class="si">{1}</span><span class="s2"> </span><span class="si">{2}</span><span class="s2"> is invalid&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x_i</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x_i</span><span class="p">))</span>
                     <span class="p">)</span>
 
         <span class="k">if</span> <span class="s1">&#39;n&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
