@@ -315,6 +315,15 @@
 <span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="kn">from</span> <span class="nn">six</span> <span class="k">import</span> <span class="n">integer_types</span>
 
+<span class="kn">from</span> <span class="nn">discretize.utils.codeutils</span> <span class="k">import</span> <span class="n">requires</span>
+<span class="c1"># matplotlib is a soft dependencies for discretize</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+    <span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">matplotlib</span> <span class="o">=</span> <span class="kc">False</span>
+
+
 <div class="viewcode-block" id="TreeMesh"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh">[docs]</a><span class="k">class</span> <span class="nc">TreeMesh</span><span class="p">(</span><span class="n">_TreeMesh</span><span class="p">,</span> <span class="n">BaseTensorMesh</span><span class="p">,</span> <span class="n">InnerProducts</span><span class="p">,</span> <span class="n">TreeMeshIO</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    TreeMesh is a class for adaptive QuadTree (2D) and OcTree (3D) meshes.</span>
@@ -739,7 +748,8 @@
             <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">Px</span><span class="p">,</span> <span class="n">Py</span><span class="p">,</span> <span class="n">Pz</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nE</span><span class="p">)</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()[</span><span class="n">P</span><span class="p">]</span>
 
-<div class="viewcode-block" id="TreeMesh.plotSlice"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh.plotSlice">[docs]</a>    <span class="k">def</span> <span class="nf">plotSlice</span><span class="p">(</span>
+<div class="viewcode-block" id="TreeMesh.plotSlice"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh.plotSlice">[docs]</a>    <span class="nd">@requires</span><span class="p">({</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">:</span> <span class="n">matplotlib</span><span class="p">})</span>
+    <span class="k">def</span> <span class="nf">plotSlice</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">vType</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span>
         <span class="n">normal</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">ind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">,</span>
         <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -780,9 +790,6 @@
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;grid must be a boolean&#39;</span><span class="p">)</span>
-
-        <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-        <span class="kn">import</span> <span class="nn">matplotlib</span>
 
         <span class="n">normalInd</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}[</span><span class="n">normal</span><span class="p">]</span>
         <span class="n">antiNormalInd</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;Z&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}[</span><span class="n">normal</span><span class="p">]</span>
