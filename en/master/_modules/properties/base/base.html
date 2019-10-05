@@ -28,6 +28,7 @@
         <script type="text/javascript" src="../../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -240,6 +241,40 @@
 <span class="n">GENERIC_ERRORS</span> <span class="o">=</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">KeyError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">)</span>
 
 
+<span class="k">def</span> <span class="nf">build_from_bases</span><span class="p">(</span><span class="n">bases</span><span class="p">,</span> <span class="n">classdict</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">attr_dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Helper function to build private HasProperties attributes&quot;&quot;&quot;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+    <span class="n">output_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">all_bases</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Go through the bases from furthest to nearest ancestor</span>
+    <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">bases</span><span class="p">):</span>
+        <span class="c1"># Only keep the items that are still defined on the bases</span>
+        <span class="k">if</span> <span class="n">base</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">object</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">PropertyMetaclass</span><span class="p">):</span>
+            <span class="n">output_keys</span> <span class="o">=</span> <span class="n">output_keys</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">attr</span><span class="p">))</span>
+        <span class="c1"># Collect all bases so we ensure overridden items are assigned</span>
+        <span class="c1"># in the correct order</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="vm">__mro__</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="nb">object</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">PropertyMetaclass</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">all_bases</span><span class="p">:</span>
+                <span class="n">all_bases</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="c1"># Update the items in reverse MRO order; only keep those that are</span>
+    <span class="c1"># defined on the bases</span>
+    <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">all_bases</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">attr</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">base</span><span class="o">.</span><span class="vm">__dict__</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">output_keys</span><span class="p">:</span>
+                <span class="n">output</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">val</span><span class="p">})</span>
+    <span class="c1"># Remove all items that were overridden by this class; this is</span>
+    <span class="c1"># potentially a superset of the items added back in the next step.</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">classdict</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="c1"># Update the items with those defined on this class</span>
+    <span class="n">output</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">attr_dict</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
+
+
+
 <span class="k">class</span> <span class="nc">PropertyMetaclass</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Metaclass to establish behavior of **HasProperties** classes</span>
 
@@ -284,38 +319,31 @@
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">handlers</span><span class="o">.</span><span class="n">ClassValidator</span><span class="p">)</span>
         <span class="p">}</span>
 
-        <span class="c1"># Get pointers to all inherited properties, observers, and validators</span>
-        <span class="n">_props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-        <span class="n">_prop_observers</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
-        <span class="n">_class_validators</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">bases</span><span class="p">):</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">((</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;_props&#39;</span><span class="p">),</span>
-                        <span class="nb">hasattr</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;_prop_observers&#39;</span><span class="p">),</span>
-                        <span class="nb">hasattr</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;_class_validators&#39;</span><span class="p">))):</span>
-                <span class="k">continue</span>
-            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">_props</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">prop_dict</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">classdict</span><span class="p">:</span>
-                    <span class="k">continue</span>
-                <span class="n">_props</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">val</span><span class="p">})</span>
-            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">_prop_observers</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">observer_dict</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">classdict</span><span class="p">:</span>
-                    <span class="k">continue</span>
-                <span class="n">_prop_observers</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">val</span><span class="p">})</span>
-            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">_class_validators</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">validator_dict</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">classdict</span><span class="p">:</span>
-                    <span class="k">continue</span>
-                <span class="n">_class_validators</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">val</span><span class="p">})</span>
-
-        <span class="c1"># Overwrite with this class&#39;s properties</span>
-        <span class="n">_props</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">prop_dict</span><span class="p">)</span>
-        <span class="n">_prop_observers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">observer_dict</span><span class="p">)</span>
-        <span class="n">_class_validators</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">validator_dict</span><span class="p">)</span>
-
-        <span class="c1"># Save these to the class</span>
+        <span class="c1"># Build dictionaries of properties, observers, and validators</span>
+        <span class="c1"># that are defined on the class or on it&#39;s bases, and add these</span>
+        <span class="c1"># dictionaries to the classdict. These respect standard class MRO.</span>
+        <span class="n">_props</span> <span class="o">=</span> <span class="n">build_from_bases</span><span class="p">(</span>
+            <span class="n">bases</span><span class="o">=</span><span class="n">bases</span><span class="p">,</span>
+            <span class="n">classdict</span><span class="o">=</span><span class="n">classdict</span><span class="p">,</span>
+            <span class="n">attr</span><span class="o">=</span><span class="s1">&#39;_props&#39;</span><span class="p">,</span>
+            <span class="n">attr_dict</span><span class="o">=</span><span class="n">prop_dict</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">_prop_observers</span> <span class="o">=</span> <span class="n">build_from_bases</span><span class="p">(</span>
+            <span class="n">bases</span><span class="o">=</span><span class="n">bases</span><span class="p">,</span>
+            <span class="n">classdict</span><span class="o">=</span><span class="n">classdict</span><span class="p">,</span>
+            <span class="n">attr</span><span class="o">=</span><span class="s1">&#39;_prop_observers&#39;</span><span class="p">,</span>
+            <span class="n">attr_dict</span><span class="o">=</span><span class="n">observer_dict</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">_class_validators</span> <span class="o">=</span> <span class="n">build_from_bases</span><span class="p">(</span>
+            <span class="n">bases</span><span class="o">=</span><span class="n">bases</span><span class="p">,</span>
+            <span class="n">classdict</span><span class="o">=</span><span class="n">classdict</span><span class="p">,</span>
+            <span class="n">attr</span><span class="o">=</span><span class="s1">&#39;_class_validators&#39;</span><span class="p">,</span>
+            <span class="n">attr_dict</span><span class="o">=</span><span class="n">validator_dict</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># Add these to the classdict</span>
         <span class="n">classdict</span><span class="p">[</span><span class="s1">&#39;_props&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_props</span>
         <span class="n">classdict</span><span class="p">[</span><span class="s1">&#39;_prop_observers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_prop_observers</span>
         <span class="n">classdict</span><span class="p">[</span><span class="s1">&#39;_class_validators&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_class_validators</span>
-
         <span class="c1"># Ensure prop names are valid and overwrite properties with @property</span>
         <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="n">prop_dict</span><span class="p">):</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">prop</span><span class="p">,</span> <span class="n">basic</span><span class="o">.</span><span class="n">Renamed</span><span class="p">)</span> <span class="ow">and</span> <span class="n">prop</span><span class="o">.</span><span class="n">new_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_props</span><span class="p">:</span>
