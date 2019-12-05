@@ -217,8 +217,8 @@
            <div itemprop="articleBody">
             
   <h1>Source code for discretize.InnerProducts</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">sparse</span> <span class="k">as</span> <span class="n">sp</span>
-<span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="k">import</span> <span class="p">(</span>
+<span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">sparse</span> <span class="k">as</span> <span class="n">sp</span>
+<span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">sub2ind</span><span class="p">,</span> <span class="n">sdiag</span><span class="p">,</span> <span class="n">invPropertyTensor</span><span class="p">,</span> <span class="n">TensorType</span><span class="p">,</span>
     <span class="n">makePropertyTensor</span><span class="p">,</span> <span class="n">ndgrid</span><span class="p">,</span> <span class="n">inv2X2BlockDiagonal</span><span class="p">,</span>
     <span class="n">getSubArray</span><span class="p">,</span> <span class="n">inv3X3BlockDiagonal</span><span class="p">,</span> <span class="n">spzeros</span><span class="p">,</span> <span class="n">sdInv</span>
@@ -230,7 +230,7 @@
     <span class="sd">&quot;&quot;&quot;This is a base for the discretize mesh classes.</span>
 <span class="sd">    This mixIn creates the all the inner product matrices that you need!</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
             <span class="s1">&#39;InnerProducts is a base class providing inner product matrices &#39;</span>
             <span class="s1">&#39;for meshes and cannot run on its own. Inherit to your favorite &#39;</span>

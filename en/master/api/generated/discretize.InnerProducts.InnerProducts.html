@@ -247,13 +247,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -337,7 +337,7 @@ This mixIn creates the all the inner product matrices that you need!</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M, the inner product matrix (nE, nE)</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></p>
 </td>
 </tr>
 </tbody>
@@ -362,7 +362,7 @@ This mixIn creates the all the inner product matrices that you need!</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dMdm, the derivative of the inner product matrix (nE, nC*nA)</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></p>
 </td>
 </tr>
 </tbody>
@@ -388,7 +388,7 @@ This mixIn creates the all the inner product matrices that you need!</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M, the inner product matrix (nF, nF)</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></p>
 </td>
 </tr>
 </tbody>
@@ -413,7 +413,7 @@ This mixIn creates the all the inner product matrices that you need!</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dMdmu(u), the derivative of the inner product matrix for a certain u</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></p>
 </td>
 </tr>
 </tbody>

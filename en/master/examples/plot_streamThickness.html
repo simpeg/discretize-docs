@@ -250,13 +250,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -280,32 +280,32 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="kn">from</span> <span class="nn">discretize</span> <span class="k">import</span> <span class="n">TensorMesh</span>
+<span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">TensorMesh</span>
 </pre></div>
 </div>
 <div class="section" id="create-mesh">
 <h2>Create mesh<a class="headerlink" href="#create-mesh" title="Permalink to this headline">¶</a></h2>
 <p>Minimum cell size in each direction</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="mf">1.</span>
-<span class="n">dy</span> <span class="o">=</span> <span class="mf">1.</span>
-<span class="n">dz</span> <span class="o">=</span> <span class="mf">1.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">dx</span></a> <span class="o">=</span> <span class="mf">1.</span>
+<a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">dy</span></a> <span class="o">=</span> <span class="mf">1.</span>
+<a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">dz</span></a> <span class="o">=</span> <span class="mf">1.</span>
 
 <span class="c1"># Number of core cells in each direction</span>
-<span class="n">nCoreX</span> <span class="o">=</span> <span class="mf">43.</span>
-<span class="n">nCoreY</span> <span class="o">=</span> <span class="mf">43.</span>
-<span class="n">nCoreZ</span> <span class="o">=</span> <span class="mf">43.</span>
+<a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">nCoreX</span></a> <span class="o">=</span> <span class="mf">43.</span>
+<a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">nCoreY</span></a> <span class="o">=</span> <span class="mf">43.</span>
+<a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">nCoreZ</span></a> <span class="o">=</span> <span class="mf">43.</span>
 
 <span class="c1"># Cell widths</span>
-<span class="n">hx</span> <span class="o">=</span> <span class="p">[(</span><span class="n">dx</span><span class="p">,</span><span class="n">nCoreX</span><span class="p">)]</span>
-<span class="n">hy</span> <span class="o">=</span> <span class="p">[(</span><span class="n">dy</span><span class="p">,</span><span class="n">nCoreY</span><span class="p">)]</span>
-<span class="n">hz</span> <span class="o">=</span> <span class="p">[(</span><span class="n">dz</span><span class="p">,</span><span class="n">nCoreZ</span><span class="p">)]</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">hx</span></a> <span class="o">=</span> <span class="p">[(</span><a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">dx</span></a><span class="p">,</span><a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">nCoreX</span></a><span class="p">)]</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">hy</span></a> <span class="o">=</span> <span class="p">[(</span><a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">dy</span></a><span class="p">,</span><a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">nCoreY</span></a><span class="p">)]</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">hz</span></a> <span class="o">=</span> <span class="p">[(</span><a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">dz</span></a><span class="p">,</span><a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">nCoreZ</span></a><span class="p">)]</span>
 
 <span class="c1"># Desired Core mesh origin (Bottom SW corner)</span>
-<span class="n">x0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">21.5</span>
-<span class="n">y0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">21.5</span>
-<span class="n">z0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">21.5</span>
+<a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">x0</span></a> <span class="o">=</span> <span class="o">-</span><span class="mf">21.5</span>
+<a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">y0</span></a> <span class="o">=</span> <span class="o">-</span><span class="mf">21.5</span>
+<a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">z0</span></a> <span class="o">=</span> <span class="o">-</span><span class="mf">21.5</span>
 
-<span class="n">mesh</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">([</span><span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">,</span> <span class="n">hz</span><span class="p">],[</span><span class="n">x0</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">z0</span><span class="p">])</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">([</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">hx</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">hy</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">hz</span></a><span class="p">],[</span><a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">x0</span></a><span class="p">,</span><a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">y0</span></a><span class="p">,</span><a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">z0</span></a><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -316,37 +316,37 @@
 </div>
 <div class="section" id="define-arbitrary-function-to-plot">
 <h2>Define arbitrary function to plot<a class="headerlink" href="#define-arbitrary-function-to-plot" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">X</span></a> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">Y</span></a> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">Z</span></a> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
 
-<span class="n">U</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span> <span class="o">+</span> <span class="n">Z</span>
-<span class="n">V</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">X</span> <span class="o">-</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Z</span>
-<span class="n">W</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span> <span class="o">-</span> <span class="n">Z</span><span class="o">**</span><span class="mi">2</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">U</span></a> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">X</span></a><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">Y</span></a> <span class="o">+</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">Z</span></a>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">V</span></a> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">X</span></a> <span class="o">-</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">Y</span></a><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">Z</span></a>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">W</span></a> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">X</span></a> <span class="o">+</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">Y</span></a> <span class="o">-</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">Z</span></a><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="plot-streamlines">
 <h2>Plot streamlines<a class="headerlink" href="#plot-streamlines" title="Permalink to this headline">¶</a></h2>
 <p>Create figure</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">set_figheight</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">set_figwidth</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
-<span class="n">labelsize</span> <span class="o">=</span> <span class="mf">30.</span>
-<span class="n">ticksize</span> <span class="o">=</span> <span class="mf">30.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="View documentation for matplotlib.figure.Figure"><span class="n">fig</span></a> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.SubplotBase.html#matplotlib.axes.SubplotBase" title="View documentation for matplotlib.axes.SubplotBase"><span class="n">ax</span></a> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure.set_figheight" title="View documentation for matplotlib.figure.Figure.set_figheight"><span class="n">fig</span><span class="o">.</span><span class="n">set_figheight</span></a><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure.set_figwidth" title="View documentation for matplotlib.figure.Figure.set_figwidth"><span class="n">fig</span><span class="o">.</span><span class="n">set_figwidth</span></a><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">labelsize</span></a> <span class="o">=</span> <span class="mf">30.</span>
+<a href="https://docs.python.org/3/library/functions.html#float" title="View documentation for builtins.float"><span class="n">ticksize</span></a> <span class="o">=</span> <span class="mf">30.</span>
 
 <span class="c1"># Create data vector</span>
-<span class="n">dataVec</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.hstack.html#numpy.hstack" title="View documentation for numpy.hstack"><span class="n">np</span><span class="o">.</span><span class="n">hstack</span></a><span class="p">([</span><span class="n">U</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">W</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dataVec</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">dataVec</span></a> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.hstack.html#numpy.hstack" title="View documentation for numpy.hstack"><span class="n">np</span><span class="o">.</span><span class="n">hstack</span></a><span class="p">([</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">U</span></a><span class="p">,</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">V</span></a><span class="p">,</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">W</span></a><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.shape.html#numpy.ndarray.shape" title="View documentation for numpy.ndarray.shape"><span class="n">dataVec</span><span class="o">.</span><span class="n">shape</span></a><span class="p">)</span>
 
 <span class="c1"># Set streamline plotting options</span>
-<span class="n">streamOpts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;density&#39;</span><span class="p">:</span><span class="mf">2.0</span><span class="p">}</span>
-<span class="n">pcolorOpts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cmap&quot;</span><span class="p">:</span><span class="s2">&quot;viridis&quot;</span><span class="p">}</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">streamOpts</span></a> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;density&#39;</span><span class="p">:</span><span class="mf">2.0</span><span class="p">}</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">pcolorOpts</span></a> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cmap&quot;</span><span class="p">:</span><span class="s2">&quot;viridis&quot;</span><span class="p">}</span>
 
-<span class="n">dat</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">plotSlice</span><span class="p">(</span>
-    <span class="n">dataVec</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">normal</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">ind</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">vType</span><span class="o">=</span><span class="s1">&#39;CCv&#39;</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;vec&#39;</span><span class="p">,</span>
-    <span class="n">streamOpts</span><span class="o">=</span><span class="n">streamOpts</span><span class="p">,</span> <span class="n">gridOpts</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;alpha&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">},</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="View documentation for builtins.tuple"><span class="n">dat</span></a> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">plotSlice</span><span class="p">(</span>
+    <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">dataVec</span></a><span class="p">,</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.SubplotBase.html#matplotlib.axes.SubplotBase" title="View documentation for matplotlib.axes.SubplotBase"><span class="n">ax</span></a><span class="o">=</span><a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.SubplotBase.html#matplotlib.axes.SubplotBase" title="View documentation for matplotlib.axes.SubplotBase"><span class="n">ax</span></a><span class="p">,</span> <span class="n">normal</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">ind</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">vType</span><span class="o">=</span><span class="s1">&#39;CCv&#39;</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;vec&#39;</span><span class="p">,</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">streamOpts</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">streamOpts</span></a><span class="p">,</span> <span class="n">gridOpts</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;alpha&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">},</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stream_thickness</span><span class="o">=</span><span class="mi">3</span>
 <span class="p">)</span>
 </pre></div>
@@ -361,7 +361,7 @@
 <h2>Moving Forward<a class="headerlink" href="#moving-forward" title="Permalink to this headline">¶</a></h2>
 <p>If you have suggestions for improving this example, please create a
 pull request on the example in discretize</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.778 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.506 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-streamthickness-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" download="" href="../_downloads/dfd11c18111d758658df092dc307e55f/plot_streamThickness.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_streamThickness.py</span></code></a></div>

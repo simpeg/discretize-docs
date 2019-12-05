@@ -249,13 +249,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -1178,7 +1178,7 @@ the specified test method’s docstring.</p>
 
 <dl class="method">
 <dt id="discretize.Tests.OrderTest.subTest">
-<code class="descclassname">OrderTest.</code><code class="descname">subTest</code><span class="sig-paren">(</span><em>self</em>, <em>msg=&lt;object object at 0x7fa17a276c00&gt;</em>, <em>**params</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.subTest" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">OrderTest.</code><code class="descname">subTest</code><span class="sig-paren">(</span><em>self</em>, <em>msg=&lt;object object at 0x7fbebe3a9c00&gt;</em>, <em>**params</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.subTest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a context manager that will return the enclosed block
 of code in a subtest identified by the optional message and
 keyword parameters.  A failure in the subtest marks the test

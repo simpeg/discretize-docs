@@ -251,13 +251,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -834,7 +834,7 @@ faces as a vector.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">matrix that averages from edges to cell centers</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></td>
 </tr>
 </tbody>
 </table>
@@ -850,7 +850,7 @@ faces as a vector.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">matrix that averages from edges to cell centered vectors</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></td>
 </tr>
 </tbody>
 </table>
@@ -866,7 +866,7 @@ faces as a vector.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">matrix that averages from x-edges to cell centers</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></td>
 </tr>
 </tbody>
 </table>
@@ -882,7 +882,7 @@ faces as a vector.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">matrix that averages from y-edges to cell centers</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></td>
 </tr>
 </tbody>
 </table>
@@ -898,7 +898,7 @@ faces as a vector.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">matrix that averages from z-edges to cell centers</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></td>
 </tr>
 </tbody>
 </table>
@@ -914,7 +914,7 @@ faces as a vector.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">matrix that averages from faces to cell centers</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></td>
 </tr>
 </tbody>
 </table>
@@ -930,7 +930,7 @@ faces as a vector.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">matrix that averages from faces to cell centered vectors</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></td>
 </tr>
 </tbody>
 </table>
@@ -946,7 +946,7 @@ faces as a vector.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">matrix that averages from x-faces to cell centers</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></td>
 </tr>
 </tbody>
 </table>
@@ -962,7 +962,7 @@ faces as a vector.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">matrix that averages from y-faces to cell centers</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></td>
 </tr>
 </tbody>
 </table>
@@ -978,7 +978,7 @@ faces as a vector.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">matrix that averages from z-faces to cell centers</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></td>
 </tr>
 </tbody>
 </table>
@@ -1139,7 +1139,7 @@ conditions.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">edge curl operator</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></td>
 </tr>
 </tbody>
 </table>
@@ -1802,9 +1802,9 @@ M.plotGrid(edges=True, showIt=True)</p>
 </tbody>
 </table>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
-<span class="n">M</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">faces</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">faces</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../api/generated/discretize-CylMesh-3.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-CylMesh-3.png">png</a>, <a class="reference external" href="../../api/generated/discretize-CylMesh-3.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-CylMesh-3.pdf">pdf</a>)</p>
@@ -2018,7 +2018,7 @@ when mixed boundary condition is used</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M, the inner product matrix (nE, nE)</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></p>
 </td>
 </tr>
 </tbody>
@@ -2043,7 +2043,7 @@ when mixed boundary condition is used</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dMdm, the derivative of the inner product matrix (nE, nC*nA)</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></p>
 </td>
 </tr>
 </tbody>
@@ -2069,7 +2069,7 @@ when mixed boundary condition is used</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M, the inner product matrix (nF, nF)</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></p>
 </td>
 </tr>
 </tbody>
@@ -2094,7 +2094,7 @@ when mixed boundary condition is used</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dMdmu(u), the derivative of the inner product matrix for a certain u</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></p>
 </td>
 </tr>
 </tbody>
@@ -2132,7 +2132,7 @@ when mixed boundary condition is used</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M, the interpolation matrix</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></p>
 </td>
 </tr>
 </tbody>
@@ -2158,7 +2158,7 @@ the cartesian grid.</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M, the interpolation matrix</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.1)">scipy.sparse.csr_matrix</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.3.3)">scipy.sparse.csr_matrix</a></p>
 </td>
 </tr>
 </tbody>

@@ -217,20 +217,20 @@
            <div itemprop="articleBody">
             
   <h1>Source code for discretize.CylMesh</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">properties</span>
 <span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sp</span>
-<span class="kn">from</span> <span class="nn">scipy.constants</span> <span class="k">import</span> <span class="n">pi</span>
+<span class="kn">from</span> <span class="nn">scipy.constants</span> <span class="kn">import</span> <span class="n">pi</span>
 
-<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">kron3</span><span class="p">,</span> <span class="n">ndgrid</span><span class="p">,</span> <span class="n">av</span><span class="p">,</span> <span class="n">speye</span><span class="p">,</span> <span class="n">ddx</span><span class="p">,</span> <span class="n">sdiag</span><span class="p">,</span> <span class="n">interpmat</span><span class="p">,</span> <span class="n">spzeros</span><span class="p">,</span> <span class="n">cyl2cart</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">.TensorMesh</span> <span class="k">import</span> <span class="n">BaseTensorMesh</span><span class="p">,</span> <span class="n">BaseRectangularMesh</span>
-<span class="kn">from</span> <span class="nn">.InnerProducts</span> <span class="k">import</span> <span class="n">InnerProducts</span>
-<span class="kn">from</span> <span class="nn">.View</span> <span class="k">import</span> <span class="n">CylView</span>
-<span class="kn">from</span> <span class="nn">.DiffOperators</span> <span class="k">import</span> <span class="n">DiffOperators</span>
+<span class="kn">from</span> <span class="nn">.TensorMesh</span> <span class="kn">import</span> <span class="n">BaseTensorMesh</span><span class="p">,</span> <span class="n">BaseRectangularMesh</span>
+<span class="kn">from</span> <span class="nn">.InnerProducts</span> <span class="kn">import</span> <span class="n">InnerProducts</span>
+<span class="kn">from</span> <span class="nn">.View</span> <span class="kn">import</span> <span class="n">CylView</span>
+<span class="kn">from</span> <span class="nn">.DiffOperators</span> <span class="kn">import</span> <span class="n">DiffOperators</span>
 
 
 <div class="viewcode-block" id="CylMesh"><a class="viewcode-back" href="../../api/generated/discretize.CylMesh.html#discretize.CylMesh">[docs]</a><span class="k">class</span> <span class="nc">CylMesh</span><span class="p">(</span>
@@ -282,7 +282,7 @@
         <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,)</span>
     <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">CylMesh</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="n">x0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">reference_system</span> <span class="o">=</span> <span class="s1">&#39;cylindrical&#39;</span>
 

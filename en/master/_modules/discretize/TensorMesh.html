@@ -217,16 +217,16 @@
            <div itemprop="articleBody">
             
   <h1>Source code for discretize.TensorMesh</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">discretize</span> <span class="k">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">utils</span>
 
-<span class="kn">from</span> <span class="nn">.base</span> <span class="k">import</span> <span class="n">BaseRectangularMesh</span><span class="p">,</span> <span class="n">BaseTensorMesh</span>
-<span class="kn">from</span> <span class="nn">.View</span> <span class="k">import</span> <span class="n">TensorView</span>
-<span class="kn">from</span> <span class="nn">.DiffOperators</span> <span class="k">import</span> <span class="n">DiffOperators</span>
-<span class="kn">from</span> <span class="nn">.InnerProducts</span> <span class="k">import</span> <span class="n">InnerProducts</span>
-<span class="kn">from</span> <span class="nn">.MeshIO</span> <span class="k">import</span> <span class="n">TensorMeshIO</span>
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseRectangularMesh</span><span class="p">,</span> <span class="n">BaseTensorMesh</span>
+<span class="kn">from</span> <span class="nn">.View</span> <span class="kn">import</span> <span class="n">TensorView</span>
+<span class="kn">from</span> <span class="nn">.DiffOperators</span> <span class="kn">import</span> <span class="n">DiffOperators</span>
+<span class="kn">from</span> <span class="nn">.InnerProducts</span> <span class="kn">import</span> <span class="n">InnerProducts</span>
+<span class="kn">from</span> <span class="nn">.MeshIO</span> <span class="kn">import</span> <span class="n">TensorMeshIO</span>
 
 
 <div class="viewcode-block" id="TensorMesh"><a class="viewcode-back" href="../../api/generated/discretize.TensorMesh.html#discretize.TensorMesh">[docs]</a><span class="k">class</span> <span class="nc">TensorMesh</span><span class="p">(</span>
@@ -276,10 +276,10 @@
 
     <span class="n">_meshType</span> <span class="o">=</span> <span class="s1">&#39;TENSOR&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">BaseTensorMesh</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="n">x0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plain text representation.&quot;&quot;&quot;</span>
         <span class="n">fmt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  </span><span class="si">{}</span><span class="s2">: </span><span class="si">{:,}</span><span class="s2"> cells</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span>
         <span class="n">fmt</span> <span class="o">+=</span> <span class="mi">22</span><span class="o">*</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="s2">&quot;MESH EXTENT&quot;</span><span class="o">+</span><span class="mi">13</span><span class="o">*</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="s2">&quot;CELL WIDTH      FACTOR</span><span class="se">\n</span><span class="s2">&quot;</span>

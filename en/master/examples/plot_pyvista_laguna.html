@@ -249,13 +249,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -308,30 +308,30 @@ To run this example, you will need to <a class="reference external" href="http:/
 get from running the laguna-del-maule inversion notebook as well as some of
 the raw data for the topography surface and gravity observations.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download Topography and Observed gravity data</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://storage.googleapis.com/simpeg/Chile_GRAV_4_Miller/Chile_GRAV_4_Miller.tar.gz&quot;</span>
-<span class="n">downloads</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">basePath</span> <span class="o">=</span> <span class="n">downloads</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="View documentation for builtins.str"><span class="n">url</span></a> <span class="o">=</span> <span class="s2">&quot;https://storage.googleapis.com/simpeg/Chile_GRAV_4_Miller/Chile_GRAV_4_Miller.tar.gz&quot;</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="View documentation for builtins.str"><span class="n">downloads</span></a> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="View documentation for builtins.str"><span class="n">url</span></a><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="View documentation for builtins.str"><span class="n">basePath</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#str.split" title="View documentation for builtins.str.split"><span class="n">downloads</span><span class="o">.</span><span class="n">split</span></a><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># unzip the tarfile</span>
-<span class="n">tar</span> <span class="o">=</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">downloads</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">tar</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
-<span class="n">tar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a href="https://docs.python.org/3/library/tarfile.html#tarfile.TarFile" title="View documentation for tarfile.TarFile"><span class="n">tar</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/tarfile.html#tarfile.open" title="View documentation for tarfile.open"><span class="n">tarfile</span><span class="o">.</span><span class="n">open</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="View documentation for builtins.str"><span class="n">downloads</span></a><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/tarfile.html#tarfile.TarFile.extractall" title="View documentation for tarfile.TarFile.extractall"><span class="n">tar</span><span class="o">.</span><span class="n">extractall</span></a><span class="p">()</span>
+<a href="https://docs.python.org/3/library/tarfile.html#tarfile.TarFile.close" title="View documentation for tarfile.TarFile.close"><span class="n">tar</span><span class="o">.</span><span class="n">close</span></a><span class="p">()</span>
 
 <span class="c1"># Download the inverted model</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">download</span><span class="p">(</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="View documentation for builtins.str"><span class="n">f</span></a> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">download</span><span class="p">(</span>
     <span class="s2">&quot;https://storage.googleapis.com/simpeg/laguna_del_maule_slicer.tar.gz&quot;</span>
 <span class="p">)</span>
-<span class="n">tar</span> <span class="o">=</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">tar</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
-<span class="n">tar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a href="https://docs.python.org/3/library/tarfile.html#tarfile.TarFile" title="View documentation for tarfile.TarFile"><span class="n">tar</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/tarfile.html#tarfile.open" title="View documentation for tarfile.open"><span class="n">tarfile</span><span class="o">.</span><span class="n">open</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="View documentation for builtins.str"><span class="n">f</span></a><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/tarfile.html#tarfile.TarFile.extractall" title="View documentation for tarfile.TarFile.extractall"><span class="n">tar</span><span class="o">.</span><span class="n">extractall</span></a><span class="p">()</span>
+<a href="https://docs.python.org/3/library/tarfile.html#tarfile.TarFile.close" title="View documentation for tarfile.TarFile.close"><span class="n">tar</span><span class="o">.</span><span class="n">close</span></a><span class="p">()</span>
 
-<span class="k">with</span> <span class="n">shelve</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./laguna_del_maule_slicer/laguna_del_maule-result&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">db</span><span class="p">:</span>
-    <span class="n">mesh</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;mesh&#39;</span><span class="p">]</span>
-    <span class="n">Lpout</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Lpout&#39;</span><span class="p">]</span>
+<span class="k">with</span> <a href="https://docs.python.org/3/library/shelve.html#shelve.open" title="View documentation for shelve.open"><span class="n">shelve</span><span class="o">.</span><span class="n">open</span></a><span class="p">(</span><span class="s1">&#39;./laguna_del_maule_slicer/laguna_del_maule-result&#39;</span><span class="p">)</span> <span class="k">as</span> <a href="https://docs.python.org/3/library/shelve.html#shelve.DbfilenameShelf" title="View documentation for shelve.DbfilenameShelf"><span class="n">db</span></a><span class="p">:</span>
+    <span class="n">mesh</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/shelve.html#shelve.DbfilenameShelf" title="View documentation for shelve.DbfilenameShelf"><span class="n">db</span></a><span class="p">[</span><span class="s1">&#39;mesh&#39;</span><span class="p">]</span>
+    <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">Lpout</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/shelve.html#shelve.DbfilenameShelf" title="View documentation for shelve.DbfilenameShelf"><span class="n">db</span></a><span class="p">[</span><span class="s1">&#39;Lpout&#39;</span><span class="p">]</span>
 
 <span class="c1"># Load the mesh/data</span>
 <span class="n">mesh</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
-<span class="n">models</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Lpout&#39;</span><span class="p">:</span><span class="n">Lpout</span><span class="p">}</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">models</span></a> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Lpout&#39;</span><span class="p">:</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">Lpout</span></a><span class="p">}</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -349,23 +349,23 @@ Download completed!
 <p>Here we start making PyVista data objects of all the spatially referenced
 data.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the PyVista dataset of the inverted model</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">to_vtk</span><span class="p">(</span><span class="n">models</span><span class="p">)</span>
+<a href="https://docs.pyvista.org/core/grids.html#pyvista.RectilinearGrid" title="View documentation for pyvista.RectilinearGrid"><span class="n">dataset</span></a> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">to_vtk</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">models</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load topography points from text file as XYZ numpy array</span>
-<span class="n">topo_pts</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.loadtxt.html#numpy.loadtxt" title="View documentation for numpy.loadtxt"><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span></a><span class="p">(</span><span class="s1">&#39;Chile_GRAV_4_Miller/LdM_topo.topo&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">topo_pts</span></a> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.loadtxt.html#numpy.loadtxt" title="View documentation for numpy.loadtxt"><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span></a><span class="p">(</span><span class="s1">&#39;Chile_GRAV_4_Miller/LdM_topo.topo&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Create the topography points and apply an elevation filter</span>
-<span class="n">topo</span> <span class="o">=</span> <a href="https://docs.pyvista.org/core/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">pv</span><span class="o">.</span><span class="n">PolyData</span></a><span class="p">(</span><span class="n">topo_pts</span><span class="p">)</span><span class="o">.</span><span class="n">delaunay_2d</span><span class="p">()</span><span class="o">.</span><span class="n">elevation</span><span class="p">()</span>
+<a href="https://docs.pyvista.org/core/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">topo</span></a> <span class="o">=</span> <a href="https://docs.pyvista.org/core/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">pv</span><span class="o">.</span><span class="n">PolyData</span></a><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">topo_pts</span></a><span class="p">)</span><span class="o">.</span><span class="n">delaunay_2d</span><span class="p">()</span><span class="o">.</span><span class="n">elevation</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the gravity data from text file as XYZ+attributes numpy array</span>
-<span class="n">grav_data</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.loadtxt.html#numpy.loadtxt" title="View documentation for numpy.loadtxt"><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span></a><span class="p">(</span><span class="s1">&#39;Chile_GRAV_4_Miller/LdM_grav_obs.grv&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;gravity file shape: &#39;</span><span class="p">,</span> <span class="n">grav_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">grav_data</span></a> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.loadtxt.html#numpy.loadtxt" title="View documentation for numpy.loadtxt"><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span></a><span class="p">(</span><span class="s1">&#39;Chile_GRAV_4_Miller/LdM_grav_obs.grv&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;gravity file shape: &#39;</span><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.shape.html#numpy.ndarray.shape" title="View documentation for numpy.ndarray.shape"><span class="n">grav_data</span><span class="o">.</span><span class="n">shape</span></a><span class="p">)</span>
 <span class="c1"># Use the points to create PolyData</span>
-<span class="n">grav</span> <span class="o">=</span> <a href="https://docs.pyvista.org/core/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">pv</span><span class="o">.</span><span class="n">PolyData</span></a><span class="p">(</span><span class="n">grav_data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<a href="https://docs.pyvista.org/core/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">grav</span></a> <span class="o">=</span> <a href="https://docs.pyvista.org/core/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">pv</span><span class="o">.</span><span class="n">PolyData</span></a><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">grav_data</span></a><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 <span class="c1"># Add the data arrays</span>
-<span class="n">grav</span><span class="o">.</span><span class="n">point_arrays</span><span class="p">[</span><span class="s1">&#39;comp-1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grav_data</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">grav</span><span class="o">.</span><span class="n">point_arrays</span><span class="p">[</span><span class="s1">&#39;comp-2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grav_data</span><span class="p">[:,</span><span class="mi">4</span><span class="p">]</span>
+<a href="https://docs.pyvista.org/core/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">grav</span></a><span class="o">.</span><span class="n">point_arrays</span><span class="p">[</span><span class="s1">&#39;comp-1&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">grav_data</span></a><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span>
+<a href="https://docs.pyvista.org/core/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">grav</span></a><span class="o">.</span><span class="n">point_arrays</span><span class="p">[</span><span class="s1">&#39;comp-2&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">grav_data</span></a><span class="p">[:,</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -373,22 +373,26 @@ data.</p>
 </pre></div>
 </div>
 <p>Plot the topographic surface and the gravity data</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span></a><span class="p">()</span>
-<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">topo</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">grav</span><span class="p">,</span> <span class="n">stitle</span><span class="o">=</span><span class="s1">&#39;Observed Gravtiy Data&#39;</span><span class="p">,</span> <span class="n">point_size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">p</span></a> <span class="o">=</span> <a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span></a><span class="p">()</span>
+<a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">p</span></a><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><a href="https://docs.pyvista.org/core/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">topo</span></a><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+<a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">p</span></a><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><a href="https://docs.pyvista.org/core/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">grav</span></a><span class="p">,</span> <span class="n">stitle</span><span class="o">=</span><span class="s1">&#39;Observed Gravtiy Data&#39;</span><span class="p">,</span> <span class="n">point_size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
            <span class="n">render_points_as_spheres</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># Use a non-phot-realistic shading technique to show topographic relief</span>
-<span class="n">p</span><span class="o">.</span><span class="n">enable_eye_dome_lighting</span><span class="p">()</span>
-<span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">window_size</span><span class="o">=</span><span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">768</span><span class="p">])</span>
+<a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">p</span></a><span class="o">.</span><span class="n">enable_eye_dome_lighting</span><span class="p">()</span>
+<a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter.show" title="View documentation for pyvista.Plotter.show"><span class="n">p</span><span class="o">.</span><span class="n">show</span></a><span class="p">(</span><span class="n">window_size</span><span class="o">=</span><span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">768</span><span class="p">])</span>
 </pre></div>
 </div>
 <img alt="../_images/sphx_glr_plot_pyvista_laguna_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_pyvista_laguna_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(390310.76909712993, 6034304.56909713, 29389.81909712996), (363497.94999999995, 6007491.75, 2577.0), (0.0, 0.0, 1.0)]
+</pre></div>
+</div>
 </div>
 <div class="section" id="visualize-using-pyvista">
 <h2>Visualize Using PyVista<a class="headerlink" href="#visualize-using-pyvista" title="Permalink to this headline">¶</a></h2>
 <p>Here we visualize all the data in 3D!</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create display parameters for inverted model</span>
-<span class="n">dparams</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">dparams</span></a> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
     <span class="n">show_edges</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span>
     <span class="n">clim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">],</span>
@@ -396,39 +400,43 @@ data.</p>
 
 <span class="c1"># Apply a threshold filter to remove topography</span>
 <span class="c1">#  no arguments will remove the NaN values</span>
-<span class="n">dataset_t</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">threshold</span><span class="p">()</span>
+<a href="https://docs.pyvista.org/core/point-grids.html#pyvista.UnstructuredGrid" title="View documentation for pyvista.UnstructuredGrid"><span class="n">dataset_t</span></a> <span class="o">=</span> <a href="https://docs.pyvista.org/core/grids.html#pyvista.RectilinearGrid" title="View documentation for pyvista.RectilinearGrid"><span class="n">dataset</span></a><span class="o">.</span><span class="n">threshold</span><span class="p">()</span>
 
 <span class="c1"># Extract volumetric threshold</span>
-<span class="n">threshed</span> <span class="o">=</span> <span class="n">dataset_t</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">invert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a href="https://docs.pyvista.org/core/point-grids.html#pyvista.UnstructuredGrid" title="View documentation for pyvista.UnstructuredGrid"><span class="n">threshed</span></a> <span class="o">=</span> <a href="https://docs.pyvista.org/core/point-grids.html#pyvista.UnstructuredGrid" title="View documentation for pyvista.UnstructuredGrid"><span class="n">dataset_t</span></a><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">invert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Create the rendering scene</span>
-<span class="n">p</span> <span class="o">=</span> <a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span></a><span class="p">()</span>
+<a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">p</span></a> <span class="o">=</span> <a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span></a><span class="p">()</span>
 <span class="c1"># add a grid axes</span>
-<span class="n">p</span><span class="o">.</span><span class="n">show_grid</span><span class="p">()</span>
+<a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">p</span></a><span class="o">.</span><span class="n">show_grid</span><span class="p">()</span>
 
 <span class="c1"># Add spatially referenced data to the scene</span>
-<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">dataset_t</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">),</span> <span class="o">**</span><span class="n">dparams</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">dataset_t</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">),</span> <span class="o">**</span><span class="n">dparams</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">threshed</span><span class="p">,</span> <span class="o">**</span><span class="n">dparams</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">topo</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span>
+<a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">p</span></a><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><a href="https://docs.pyvista.org/core/point-grids.html#pyvista.UnstructuredGrid" title="View documentation for pyvista.UnstructuredGrid"><span class="n">dataset_t</span></a><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">),</span> <span class="o">**</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">dparams</span></a><span class="p">)</span>
+<a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">p</span></a><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><a href="https://docs.pyvista.org/core/point-grids.html#pyvista.UnstructuredGrid" title="View documentation for pyvista.UnstructuredGrid"><span class="n">dataset_t</span></a><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">),</span> <span class="o">**</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">dparams</span></a><span class="p">)</span>
+<a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">p</span></a><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><a href="https://docs.pyvista.org/core/point-grids.html#pyvista.UnstructuredGrid" title="View documentation for pyvista.UnstructuredGrid"><span class="n">threshed</span></a><span class="p">,</span> <span class="o">**</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">dparams</span></a><span class="p">)</span>
+<a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">p</span></a><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><a href="https://docs.pyvista.org/core/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">topo</span></a><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span>
            <span class="c1">#cmap=&#39;gist_earth&#39;, clim=[1.7e+03, 3.104e+03],</span>
            <span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">grav</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">point_size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+<a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">p</span></a><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><a href="https://docs.pyvista.org/core/points.html#pyvista.PolyData" title="View documentation for pyvista.PolyData"><span class="n">grav</span></a><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">point_size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
            <span class="n">render_points_as_spheres</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Here is a nice camera position we manually found:</span>
-<span class="n">cpos</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">395020.7332989303</span><span class="p">,</span> <span class="mf">6039949.0452080015</span><span class="p">,</span> <span class="mf">20387.583125699253</span><span class="p">),</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">cpos</span></a> <span class="o">=</span> <span class="p">[(</span><span class="mf">395020.7332989303</span><span class="p">,</span> <span class="mf">6039949.0452080015</span><span class="p">,</span> <span class="mf">20387.583125699253</span><span class="p">),</span>
         <span class="p">(</span><span class="mf">364528.3152860675</span><span class="p">,</span> <span class="mf">6008839.363092581</span><span class="p">,</span> <span class="o">-</span><span class="mf">3776.318305935185</span><span class="p">),</span>
         <span class="p">(</span><span class="o">-</span><span class="mf">0.3423732500124074</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.34364514928896667</span><span class="p">,</span> <span class="mf">0.8744647328772646</span><span class="p">)]</span>
-<span class="n">p</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="n">cpos</span>
+<a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="View documentation for pyvista.Plotter"><span class="n">p</span></a><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">cpos</span></a>
 
 
 <span class="c1"># Render the scene!</span>
-<span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">window_size</span><span class="o">=</span><span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">768</span><span class="p">])</span>
+<a href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter.show" title="View documentation for pyvista.Plotter.show"><span class="n">p</span><span class="o">.</span><span class="n">show</span></a><span class="p">(</span><span class="n">window_size</span><span class="o">=</span><span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">768</span><span class="p">])</span>
 </pre></div>
 </div>
 <img alt="../_images/sphx_glr_plot_pyvista_laguna_002.png" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_pyvista_laguna_002.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  30.965 seconds)</p>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(395020.7332989303, 6039949.0452080015, 20387.583125699253), (364528.3152860675, 6008839.363092581, -3776.318305935185), (-0.34237325001240737, -0.3436451492889666, 0.8744647328772643)]
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  25.132 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-pyvista-laguna-py">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" download="" href="../_downloads/44cccab8a1ff4e3210df67e351a7d4a8/plot_pyvista_laguna.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_pyvista_laguna.py</span></code></a></div>

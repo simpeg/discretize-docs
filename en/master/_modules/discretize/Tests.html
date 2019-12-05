@@ -217,17 +217,17 @@
            <div itemprop="articleBody">
             
   <h1>Source code for discretize.Tests</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sp</span>
 
-<span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="k">import</span> <span class="n">mkvc</span><span class="p">,</span> <span class="n">sdiag</span>
-<span class="kn">from</span> <span class="nn">discretize</span> <span class="k">import</span> <span class="n">utils</span>
-<span class="kn">from</span> <span class="nn">discretize</span> <span class="k">import</span> <span class="n">TensorMesh</span><span class="p">,</span> <span class="n">CurvilinearMesh</span><span class="p">,</span> <span class="n">CylMesh</span>
-<span class="kn">from</span> <span class="nn">discretize.utils.codeutils</span> <span class="k">import</span> <span class="n">requires</span>
+<span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="n">mkvc</span><span class="p">,</span> <span class="n">sdiag</span>
+<span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">TensorMesh</span><span class="p">,</span> <span class="n">CurvilinearMesh</span><span class="p">,</span> <span class="n">CylMesh</span>
+<span class="kn">from</span> <span class="nn">discretize.utils.codeutils</span> <span class="kn">import</span> <span class="n">requires</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">discretize.TreeMesh</span> <span class="k">import</span> <span class="n">TreeMesh</span> <span class="k">as</span> <span class="n">Tree</span>
+    <span class="kn">from</span> <span class="nn">discretize.TreeMesh</span> <span class="kn">import</span> <span class="n">TreeMesh</span> <span class="k">as</span> <span class="n">Tree</span>
 <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="n">Tree</span> <span class="o">=</span> <span class="kc">None</span>
 

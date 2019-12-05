@@ -53,6 +53,7 @@ Using the inversion result from the example notebook
 
 
 
+
 Download and load data
 ----------------------
 
@@ -110,6 +111,7 @@ the raw data for the topography surface and gravity observations.
 
 
 
+
 Create PyVista data objects
 ---------------------------
 
@@ -130,6 +132,7 @@ data.
 
 
 
+
 .. code-block:: default
 
 
@@ -137,6 +140,7 @@ data.
     topo_pts = np.loadtxt('Chile_GRAV_4_Miller/LdM_topo.topo', skiprows=1)
     # Create the topography points and apply an elevation filter
     topo = pv.PolyData(topo_pts).delaunay_2d().elevation()
+
 
 
 
@@ -171,6 +175,7 @@ data.
 
 
 
+
 Plot the topographic surface and the gravity data
 
 
@@ -192,6 +197,15 @@ Plot the topographic surface and the gravity data
 .. image:: /examples/images/sphx_glr_plot_pyvista_laguna_001.png
     :class: sphx-glr-single-img
 
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    [(390310.76909712993, 6034304.56909713, 29389.81909712996), (363497.94999999995, 6007491.75, 2577.0), (0.0, 0.0, 1.0)]
 
 
 
@@ -249,12 +263,21 @@ Here we visualize all the data in 3D!
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    [(395020.7332989303, 6039949.0452080015, 20387.583125699253), (364528.3152860675, 6008839.363092581, -3776.318305935185), (-0.34237325001240737, -0.3436451492889666, 0.8744647328772643)]
+
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  30.965 seconds)
+   **Total running time of the script:** ( 0 minutes  25.132 seconds)
 
 
 .. _sphx_glr_download_examples_plot_pyvista_laguna.py:

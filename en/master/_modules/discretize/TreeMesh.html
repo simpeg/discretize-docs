@@ -306,17 +306,17 @@
 
 <span class="kn">import</span> <span class="nn">properties</span>
 
-<span class="kn">from</span> <span class="nn">.base</span> <span class="k">import</span> <span class="n">BaseTensorMesh</span>
-<span class="kn">from</span> <span class="nn">.InnerProducts</span> <span class="k">import</span> <span class="n">InnerProducts</span>
-<span class="kn">from</span> <span class="nn">.MeshIO</span> <span class="k">import</span> <span class="n">TreeMeshIO</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">utils</span>
-<span class="kn">from</span> <span class="nn">.tree_ext</span> <span class="k">import</span> <span class="n">_TreeMesh</span><span class="p">,</span> <span class="n">TreeCell</span>
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseTensorMesh</span>
+<span class="kn">from</span> <span class="nn">.InnerProducts</span> <span class="kn">import</span> <span class="n">InnerProducts</span>
+<span class="kn">from</span> <span class="nn">.MeshIO</span> <span class="kn">import</span> <span class="n">TreeMeshIO</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">.tree_ext</span> <span class="kn">import</span> <span class="n">_TreeMesh</span><span class="p">,</span> <span class="n">TreeCell</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="k">import</span> <span class="n">Delaunay</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">Delaunay</span>
 <span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sp</span>
-<span class="kn">from</span> <span class="nn">six</span> <span class="k">import</span> <span class="n">integer_types</span>
+<span class="kn">from</span> <span class="nn">six</span> <span class="kn">import</span> <span class="n">integer_types</span>
 
-<span class="kn">from</span> <span class="nn">discretize.utils.codeutils</span> <span class="k">import</span> <span class="n">requires</span>
+<span class="kn">from</span> <span class="nn">discretize.utils.codeutils</span> <span class="kn">import</span> <span class="n">requires</span>
 <span class="c1"># matplotlib is a soft dependencies for discretize</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -332,7 +332,7 @@
     <span class="n">_meshType</span> <span class="o">=</span> <span class="s1">&#39;TREE&#39;</span>
 
     <span class="c1">#inheriting stuff from BaseTensorMesh that isn&#39;t defined in _QuadTree</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="s1">&#39;h&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="n">h</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="s1">&#39;x0&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -354,7 +354,7 @@
             <span class="n">levels</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;cell_levels&#39;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__setstate__</span><span class="p">((</span><span class="n">inds</span><span class="p">,</span> <span class="n">levels</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plain text representation.&quot;&quot;&quot;</span>
         <span class="n">mesh_name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{0!s}</span><span class="s1">TreeMesh&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="s1">&#39;Oc&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="o">==</span><span class="mi">3</span> <span class="k">else</span> <span class="s1">&#39;Quad&#39;</span><span class="p">))</span>
 
