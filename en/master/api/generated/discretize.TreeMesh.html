@@ -737,13 +737,16 @@
 <tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.validate" title="discretize.TreeMesh.validate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.writeUBC" title="discretize.TreeMesh.writeUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeUBC</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.writeModelUBC" title="discretize.TreeMesh.writeModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeModelUBC</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.writeVTK" title="discretize.TreeMesh.writeVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeVTK</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.writeUBC" title="discretize.TreeMesh.writeUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeUBC</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.write_vtk" title="discretize.TreeMesh.write_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_vtk</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#discretize.TreeMesh.writeVTK" title="discretize.TreeMesh.writeVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeVTK</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#discretize.TreeMesh.write_vtk" title="discretize.TreeMesh.write_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_vtk</span></code></a></td>
 <td></td>
 </tr>
 </tbody>
@@ -2275,12 +2278,25 @@ fail.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="discretize.TreeMesh.writeModelUBC">
+<code class="descclassname">TreeMesh.</code><code class="descname">writeModelUBC</code><span class="sig-paren">(</span><em>mesh</em>, <em>fileName</em>, <em>model</em>, <em>directory=''</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.writeModelUBC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a model associated with a TreeMesh
+to a UBC-GIF format model file.</p>
+<p>Input:
+:param str fileName:  File to write to
+or just its name if directory is specified
+:param str directory: directory where the UBC GIF file lives
+:param numpy.ndarray model: The model</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="discretize.TreeMesh.writeUBC">
-<code class="descclassname">TreeMesh.</code><code class="descname">writeUBC</code><span class="sig-paren">(</span><em>mesh</em>, <em>fileName</em>, <em>models=None</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.writeUBC" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">TreeMesh.</code><code class="descname">writeUBC</code><span class="sig-paren">(</span><em>mesh</em>, <em>fileName</em>, <em>models=None</em>, <em>directory=''</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.writeUBC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write UBC ocTree mesh and model files from a
 octree mesh and model.
 :param string fileName: File to write to
-:param dict models: Models in a dict, where each key is the filename</p>
+:param dict models: Models in a dict, where each key is the filename
+:param str directory: directory where to save model(s)</p>
 </dd></dl>
 
 <dl class="method">
