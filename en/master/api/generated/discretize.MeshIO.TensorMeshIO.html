@@ -40,6 +40,8 @@
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="discretize.MeshIO.TreeMeshIO" href="discretize.MeshIO.TreeMeshIO.html" />
@@ -132,6 +134,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#mesh-io">Mesh IO</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="discretize.load_mesh.html">discretize.load_mesh</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">discretize.MeshIO.TensorMeshIO</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples-using-discretize-meshio-tensormeshio">Examples using <code class="docutils literal notranslate"><span class="pre">discretize.MeshIO.TensorMeshIO</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#attributes">Attributes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
 </ul>
@@ -293,7 +296,7 @@
 <td>Read VTK Rectilinear (vtr xml file) and return Tensor mesh and model</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#discretize.MeshIO.TensorMeshIO.vtk_to_tensor_mesh" title="discretize.MeshIO.TensorMeshIO.vtk_to_tensor_mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtk_to_tensor_mesh</span></code></a>(vtrGrid)</td>
-<td>Converts a <code class="docutils literal notranslate"><span class="pre">vtkRectilinearGrid</span></code> or <a class="reference external" href="https://docs.pyvista.org/core/grids.html#pyvista.RectilinearGrid" title="(in PyVista v0.23.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> to a <a class="reference internal" href="discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code></a> object.</td>
+<td>Converts a <code class="docutils literal notranslate"><span class="pre">vtkRectilinearGrid</span></code> or <a class="reference external" href="https://docs.pyvista.org/core/grids.html#pyvista.RectilinearGrid" title="(in PyVista v0.24.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> to a <a class="reference internal" href="discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code></a> object.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#discretize.MeshIO.TensorMeshIO.writeModelUBC" title="discretize.MeshIO.TensorMeshIO.writeModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeModelUBC</span></code></a>(mesh,&nbsp;fileName,&nbsp;model[,&nbsp;directory])</td>
 <td>Writes a model associated with a TensorMesh to a UBC-GIF format model file.</td>
@@ -305,7 +308,66 @@
 </table>
 </dd></dl>
 
-<div style='clear:both'></div><div class="section" id="attributes">
+<div class="section" id="examples-using-discretize-meshio-tensormeshio">
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">discretize.MeshIO.TensorMeshIO</span></code><a class="headerlink" href="#examples-using-discretize-meshio-tensormeshio" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="This example is based on the example in the FiPy_ library. Please see their documentation for m..."><div class="figure" id="id1">
+<img alt="../../_images/sphx_glr_plot_cahn_hilliard_thumb.png" src="../../_images/sphx_glr_plot_cahn_hilliard_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_cahn_hilliard.html#sphx-glr-examples-plot-cahn-hilliard-py"><span class="std std-ref">Operators: Cahn Hilliard</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="2D DC forward modeling example with Tensor and Curvilinear Meshes"><div class="figure" id="id2">
+<img alt="../../_images/sphx_glr_plot_dc_resistivity_thumb.png" src="../../_images/sphx_glr_plot_dc_resistivity_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_dc_resistivity.html#sphx-glr-examples-plot-dc-resistivity-py"><span class="std std-ref">Basic Forward 2D DC Resistivity</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="You can use M.PlotImage to plot images on all of the Meshes."><div class="figure" id="id3">
+<img alt="../../_images/sphx_glr_plot_image_thumb.png" src="../../_images/sphx_glr_plot_image_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_image.html#sphx-glr-examples-plot-image-py"><span class="std std-ref">Basic: PlotImage</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A simple example to vary streamline thickness based on the vector amplitudes"><div class="figure" id="id4">
+<img alt="../../_images/sphx_glr_plot_streamThickness_thumb.png" src="../../_images/sphx_glr_plot_streamThickness_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_streamThickness.html#sphx-glr-examples-plot-streamthickness-py"><span class="std std-ref">Plotting: Streamline thickness</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we provide an overview of mesh types and define some terminology. Separate tutorials have ..."><div class="figure" id="id5">
+<img alt="../../_images/sphx_glr_1_mesh_overview_thumb.png" src="../../_images/sphx_glr_1_mesh_overview_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/1_mesh_overview.html#sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">Overview of Mesh Types</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Tensor meshes are the most basic class of meshes that can be created with discretize. They belo..."><div class="figure" id="id6">
+<img alt="../../_images/sphx_glr_2_tensor_mesh_thumb.png" src="../../_images/sphx_glr_2_tensor_mesh_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/2_tensor_mesh.html#sphx-glr-tutorials-mesh-generation-2-tensor-mesh-py"><span class="std std-ref">Tensor meshes</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Averaging matricies are used when a discrete variable living on some part of the mesh (e.g. nod..."><div class="figure" id="id7">
+<img alt="../../_images/sphx_glr_1_averaging_thumb.png" src="../../_images/sphx_glr_1_averaging_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/operators/1_averaging.html#sphx-glr-tutorials-operators-1-averaging-py"><span class="std std-ref">Averaging Matricies</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="For discretized quantities living on a mesh, sparse matricies can be used to approximate the fo..."><div class="figure" id="id8">
+<img alt="../../_images/sphx_glr_2_differential_thumb.png" src="../../_images/sphx_glr_2_differential_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/operators/2_differential.html#sphx-glr-tutorials-operators-2-differential-py"><span class="std std-ref">Differential Operators</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Inner products between two scalar or vector quantities represents the most basic class of inner..."><div class="figure" id="id9">
+<img alt="../../_images/sphx_glr_1_basic_thumb.png" src="../../_images/sphx_glr_1_basic_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/1_basic.html#sphx-glr-tutorials-inner-products-1-basic-py"><span class="std std-ref">Basic Inner Products</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain constitutive rel..."><div class="figure" id="id10">
+<img alt="../../_images/sphx_glr_2_physical_properties_thumb.png" src="../../_images/sphx_glr_2_physical_properties_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/2_physical_properties.html#sphx-glr-tutorials-inner-products-2-physical-properties-py"><span class="std std-ref">Constitutive Relations</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain differential ope..."><div class="figure" id="id11">
+<img alt="../../_images/sphx_glr_3_calculus_thumb.png" src="../../_images/sphx_glr_3_calculus_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/3_calculus.html#sphx-glr-tutorials-inner-products-3-calculus-py"><span class="std std-ref">Differential Operators</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this section, we demonstrate how to go from the inner product to the discrete approximation ..."><div class="figure" id="id12">
+<img alt="../../_images/sphx_glr_4_advanced_thumb.png" src="../../_images/sphx_glr_4_advanced_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/4_advanced.html#sphx-glr-tutorials-inner-products-4-advanced-py"><span class="std std-ref">Advanced Examples</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to solve for the electric potential (:math:`\phi`) and elect..."><div class="figure" id="id13">
+<img alt="../../_images/sphx_glr_1_poisson_thumb.png" src="../../_images/sphx_glr_1_poisson_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/pde/1_poisson.html#sphx-glr-tutorials-pde-1-poisson-py"><span class="std std-ref">Gauss’ Law of Electrostatics</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to model the advection-diffusion equation. The goal of this ..."><div class="figure" id="id14">
+<img alt="../../_images/sphx_glr_2_advection_diffusion_thumb.png" src="../../_images/sphx_glr_2_advection_diffusion_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/pde/2_advection_diffusion.html#sphx-glr-tutorials-pde-2-advection-diffusion-py"><span class="std std-ref">Advection-Diffusion Equation</span></a></span></p>
+</div>
+</div><div style='clear:both'></div></div>
+<div class="section" id="attributes">
 <h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="methods">
@@ -389,7 +451,7 @@ or just its name if directory is specified
 <dl class="classmethod">
 <dt id="discretize.MeshIO.TensorMeshIO.vtk_to_tensor_mesh">
 <em class="property">classmethod </em><code class="descclassname">TensorMeshIO.</code><code class="descname">vtk_to_tensor_mesh</code><span class="sig-paren">(</span><em>vtrGrid</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.MeshIO.TensorMeshIO.vtk_to_tensor_mesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts a <code class="docutils literal notranslate"><span class="pre">vtkRectilinearGrid</span></code> or <a class="reference external" href="https://docs.pyvista.org/core/grids.html#pyvista.RectilinearGrid" title="(in PyVista v0.23.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a>
+<dd><p>Converts a <code class="docutils literal notranslate"><span class="pre">vtkRectilinearGrid</span></code> or <a class="reference external" href="https://docs.pyvista.org/core/grids.html#pyvista.RectilinearGrid" title="(in PyVista v0.24.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a>
 to a <a class="reference internal" href="discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code></a> object.</p>
 </dd></dl>
 

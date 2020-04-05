@@ -40,6 +40,8 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Slicer demo" href="plot_slicer_demo.html" />
@@ -265,7 +267,7 @@
 </style>
 <div class="sphx-glr-download-link-note admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-examples-plot-quadtree-hanging-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+<p class="last">Click <a class="reference internal" href="#sphx-glr-download-examples-plot-quadtree-hanging-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="quadtree-hanging-nodes">
 <span id="sphx-glr-examples-plot-quadtree-hanging-py"></span><h1>QuadTree: Hanging Nodes<a class="headerlink" href="#quadtree-hanging-nodes" title="Permalink to this headline">¶</a></h1>
@@ -288,7 +290,7 @@ on an 8x8 mesh (2^3).</p>
 
 
 <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">plotIt</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TreeMesh</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+    <span class="n">M</span> <span class="o">=</span> <a href="https://propertiespy.readthedocs.io/en/latest/content/hasproperties.html#properties.HasProperties" title="properties.HasProperties" class="sphx-glr-backref-module-properties sphx-glr-backref-type-py-class"><span class="n">discretize</span><span class="o">.</span><span class="n">TreeMesh</span></a><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
 
     <span class="k">def</span> <span class="nf">refine</span><span class="p">(</span><span class="n">cell</span><span class="p">):</span>
         <span class="n">xyz</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">center</span>
@@ -300,7 +302,7 @@ on an 8x8 mesh (2^3).</p>
     <span class="n">M</span><span class="o">.</span><span class="n">refine</span><span class="p">(</span><span class="n">refine</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">plotIt</span><span class="p">:</span>
         <span class="n">M</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">faces_x</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend" title="View documentation for matplotlib.pyplot.legend"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span></a><span class="p">((</span>
+        <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend" title="matplotlib.pyplot.legend" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span></a><span class="p">((</span>
             <span class="s1">&#39;Grid&#39;</span><span class="p">,</span>
             <span class="s1">&#39;Cell Centers&#39;</span><span class="p">,</span>
             <span class="s1">&#39;Nodes&#39;</span><span class="p">,</span>
@@ -310,15 +312,15 @@ on an 8x8 mesh (2^3).</p>
         <span class="p">))</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <a href="https://docs.python.org/3/library/functions.html#object" title="View documentation for builtins.object"><span class="n">run</span></a><span class="p">()</span>
-    <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+    <span class="n">run</span><span class="p">()</span>
+    <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.110 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.109 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-quadtree-hanging-py">
-<div class="sphx-glr-download docutils container">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
 <a class="reference download internal" download="" href="../_downloads/0bfe95d1fc299771776fc069f554d4fc/plot_quadtree_hanging.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_quadtree_hanging.py</span></code></a></div>
-<div class="sphx-glr-download docutils container">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <a class="reference download internal" download="" href="../_downloads/933aa84a68ab32d091375566b418ef13/plot_quadtree_hanging.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_quadtree_hanging.ipynb</span></code></a></div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
