@@ -133,6 +133,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../content/finite_volume.html">Finite Volume</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../content/inner_products.html">Inner Products</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Meta Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
+</ul>
 
             
           
@@ -283,8 +287,8 @@
 <span class="sd">    numpy.ndarray</span>
 <span class="sd">        M, the model</span>
 
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
 
 <span class="sd">    .. plot::</span>
 <span class="sd">        :include-source:</span>
@@ -547,8 +551,8 @@
 <span class="sd">    discretize.BaseMesh</span>
 <span class="sd">        Mesh of &quot;mesh_type&quot;</span>
 
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
 <span class="sd">    .. plot::</span>
 <span class="sd">        :include-source:</span>
 
@@ -705,7 +709,7 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    mesh: BaseMesh</span>
+<span class="sd">    mesh: TreeMesh</span>
 <span class="sd">        The TreeMesh object to be refined</span>
 <span class="sd">    xyz: numpy.ndarray</span>
 <span class="sd">        2D array of points</span>
@@ -879,6 +883,7 @@
             <span class="n">r</span><span class="p">,</span> <span class="n">ind</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">newLoc</span><span class="p">)</span>
 
             <span class="c1"># Apply vertical padding for current octree level</span>
+            <span class="n">dim</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span>
             <span class="n">zOffset</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">while</span> <span class="n">zOffset</span> <span class="o">&lt;</span> <span class="n">depth</span><span class="p">:</span>
                 <span class="n">indIn</span> <span class="o">=</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">max_distance</span> <span class="o">+</span> <span class="n">padWidth</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
@@ -886,7 +891,7 @@
                 <span class="k">if</span> <span class="n">nnz</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="n">mesh</span><span class="o">.</span><span class="n">insert_cells</span><span class="p">(</span>
                         <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span>
-                                <span class="n">newLoc</span><span class="p">[</span><span class="n">indIn</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span>
+                                <span class="n">newLoc</span><span class="p">[</span><span class="n">indIn</span><span class="p">,</span> <span class="p">:</span><span class="n">dim</span><span class="p">],</span>
                                 <span class="n">newLoc</span><span class="p">[</span><span class="n">indIn</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">zOffset</span><span class="p">],</span>
                         <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nnz</span><span class="p">)</span><span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">max_level</span><span class="o">-</span><span class="n">ii</span><span class="p">,</span>
                         <span class="n">finalize</span><span class="o">=</span><span class="kc">False</span>
@@ -991,6 +996,151 @@
         <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">mesh</span></div>
+
+
+<div class="viewcode-block" id="active_from_xyz"><a class="viewcode-back" href="../../../api/generated/discretize.utils.active_from_xyz.html#discretize.utils.active_from_xyz">[docs]</a><span class="k">def</span> <span class="nf">active_from_xyz</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">xyz</span><span class="p">,</span> <span class="n">grid_reference</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns an active cell index array below a surface</span>
+
+<span class="sd">    Get active cells in the `mesh` that are below the surface create by</span>
+<span class="sd">    interpolating over the last dimension of the input points. This method will</span>
+<span class="sd">    uses scipy&#39;s interpolation routine to interpolate between input points. This</span>
+<span class="sd">    will use a nearest neighbour interpolation for cell values outside the convex</span>
+<span class="sd">    hull of points.</span>
+
+<span class="sd">    For `grid_reference=&#39;CC&#39;`, this will check if the center of a given cell in</span>
+<span class="sd">    the mesh is below the interpolation surface to determine if that cell is</span>
+<span class="sd">    active.</span>
+
+<span class="sd">    For `grid_reference=&#39;N&#39;`, this will check if **every** node of a given cell</span>
+<span class="sd">    in the mesh is below the interpolation surface.</span>
+
+<span class="sd">    For the</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    mesh : TensorMesh or TreeMesh or CylMesh</span>
+<span class="sd">        Mesh object, (if CylMesh: mesh must be symmetric).</span>
+<span class="sd">    xyz : numpy.ndarray</span>
+<span class="sd">        Points coordinates shape (*, mesh.dim).</span>
+<span class="sd">    grid_reference : {&#39;CC&#39;, &#39;N&#39;}</span>
+<span class="sd">        Use cell coordinates from cells-center &#39;CC&#39; or nodes &#39;N&#39;.</span>
+<span class="sd">    method : {&#39;linear&#39;, &#39;nearest&#39;}</span>
+<span class="sd">        Interpolation method for the xyz points.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    active : numpy.ndarray</span>
+<span class="sd">        1D mask array of `bool` for the active cells below xyz.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+
+<span class="sd">    .. plot::</span>
+<span class="sd">        :include-source:</span>
+
+<span class="sd">        import matplotlib.pyplot as plt</span>
+<span class="sd">        import numpy as np</span>
+<span class="sd">        from discretize import TensorMesh</span>
+<span class="sd">        from discretize.utils import active_from_xyz</span>
+
+<span class="sd">        mesh = TensorMesh([5, 5])</span>
+<span class="sd">        topo_func = lambda x: -3*(x-0.2)*(x-0.8)+.5</span>
+<span class="sd">        topo_points = np.linspace(0, 1)</span>
+<span class="sd">        topo_vals = topo_func(topo_points)</span>
+
+<span class="sd">        active_cc = active_from_xyz(mesh, np.c_[topo_points, topo_vals], grid_reference=&#39;CC&#39;)</span>
+<span class="sd">        ax = plt.subplot(121)</span>
+<span class="sd">        mesh.plotImage(active_cc, ax=ax)</span>
+<span class="sd">        mesh.plotGrid(centers=True, ax=ax)</span>
+<span class="sd">        ax.plot(np.linspace(0,1), topo_func(np.linspace(0,1)), color=&#39;C3&#39;)</span>
+<span class="sd">        ax.set_title(&quot;CC&quot;)</span>
+
+<span class="sd">        active_n = active_from_xyz(mesh, np.c_[topo_points, topo_vals], grid_reference=&#39;N&#39;)</span>
+<span class="sd">        ax = plt.subplot(122)</span>
+<span class="sd">        mesh.plotImage(active_n, ax=ax)</span>
+<span class="sd">        mesh.plotGrid(nodes=True, ax=ax)</span>
+<span class="sd">        ax.plot(np.linspace(0,1), topo_func(np.linspace(0,1)), color=&#39;C3&#39;)</span>
+<span class="sd">        ax.set_title(&quot;N&quot;)</span>
+<span class="sd">        plt.show()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">discretize</span><span class="o">.</span><span class="n">CylMesh</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">mesh</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Unsymmetric CylMesh is not yet supported&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="p">(</span><span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">,</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TreeMesh</span><span class="p">,</span> <span class="n">discretize</span><span class="o">.</span><span class="n">CylMesh</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Mesh must be either TensorMesh, TreeMesh, or Symmetric CylMesh&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">grid_reference</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;CC&quot;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Value of grid_reference must be &#39;N&#39; (nodal) or &#39;CC&#39; (cell center)&quot;</span><span class="p">)</span>
+
+    <span class="n">dim</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">xyz</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;xyz locations of shape (*, 3) required for 3D mesh&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;linear&#39;</span><span class="p">:</span>
+            <span class="n">tri2D</span> <span class="o">=</span> <span class="n">Delaunay</span><span class="p">(</span><span class="n">xyz</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+            <span class="n">z_interpolate</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">LinearNDInterpolator</span><span class="p">(</span><span class="n">tri2D</span><span class="p">,</span> <span class="n">xyz</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">z_interpolate</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">NearestNDInterpolator</span><span class="p">(</span><span class="n">xyz</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">xyz</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">mesh</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">xyz</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;xyz locations of shape (*, 2) required for 2D mesh&quot;</span><span class="p">)</span>
+        <span class="n">z_interpolate</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
+            <span class="n">xyz</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xyz</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">method</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">xyz</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;xyz locations of shape (*, ) required for 1D mesh&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">grid_reference</span> <span class="o">==</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
+        <span class="n">locations</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">gridCC</span>
+
+        <span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">active</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">nC</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">)</span>
+            <span class="n">active</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vectorCCx</span><span class="p">,</span> <span class="n">xyz</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">():]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="n">active</span>
+
+    <span class="k">elif</span> <span class="n">grid_reference</span> <span class="o">==</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">locations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span>
+                <span class="n">mesh</span><span class="o">.</span><span class="n">gridCC</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">][:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">mesh</span><span class="o">.</span><span class="n">h_gridded</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span>
+                <span class="n">mesh</span><span class="o">.</span><span class="n">gridCC</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">][:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">mesh</span><span class="o">.</span><span class="n">h_gridded</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span>
+                <span class="n">mesh</span><span class="o">.</span><span class="n">gridCC</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">][:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">mesh</span><span class="o">.</span><span class="n">h_gridded</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span>
+                <span class="n">mesh</span><span class="o">.</span><span class="n">gridCC</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">][:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">mesh</span><span class="o">.</span><span class="n">h_gridded</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+            <span class="p">])</span>
+
+        <span class="k">elif</span> <span class="n">mesh</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">locations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span>
+                <span class="n">mesh</span><span class="o">.</span><span class="n">gridCC</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">][:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">mesh</span><span class="o">.</span><span class="n">h_gridded</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span>
+                <span class="n">mesh</span><span class="o">.</span><span class="n">gridCC</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">][:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">mesh</span><span class="o">.</span><span class="n">h_gridded</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span>
+            <span class="p">])</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">active</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">nC</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">)</span>
+            <span class="n">active</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vectorNx</span><span class="p">,</span> <span class="n">xyz</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">():]</span> <span class="o">=</span> <span class="kc">True</span>
+
+            <span class="k">return</span> <span class="n">active</span>
+
+    <span class="c1"># Interpolate z values on CC or N</span>
+    <span class="n">z_xyz</span> <span class="o">=</span> <span class="n">z_interpolate</span><span class="p">(</span><span class="n">locations</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+
+    <span class="c1"># Apply nearest neighbour if in extrapolation</span>
+    <span class="n">ind_nan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">z_xyz</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">ind_nan</span><span class="p">):</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">cKDTree</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">ind</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">locations</span><span class="p">[</span><span class="n">ind_nan</span><span class="p">,</span> <span class="p">:])</span>
+        <span class="n">z_xyz</span><span class="p">[</span><span class="n">ind_nan</span><span class="p">]</span> <span class="o">=</span> <span class="n">xyz</span><span class="p">[</span><span class="n">ind</span><span class="p">,</span> <span class="n">dim</span><span class="p">]</span>
+
+    <span class="c1"># Create an active bool of all True</span>
+    <span class="n">active</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">locations</span><span class="p">[:,</span> <span class="n">dim</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">z_xyz</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">mesh</span><span class="o">.</span><span class="n">nC</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">active</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span></div>
 </pre></div>
 
            </div>

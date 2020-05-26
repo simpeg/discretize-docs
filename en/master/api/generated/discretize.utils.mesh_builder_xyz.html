@@ -144,6 +144,7 @@
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.random_model.html">discretize.utils.random_model</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">discretize.utils.mesh_builder_xyz</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.refine_tree_xyz.html">discretize.utils.refine_tree_xyz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.active_from_xyz.html">discretize.utils.active_from_xyz</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../index.html#matrix-utilities">Matrix Utilities</a></li>
@@ -159,6 +160,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Meta Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release/index.html">Release Notes</a></li>
 </ul>
 
             
@@ -292,7 +297,7 @@ The core extent is set by the bounding box of the xyz location.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>xyz</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><em>numpy.ndarray</em></a>) – Location points [n x dim]</li>
+<li><strong>xyz</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – Location points [n x dim]</li>
 <li><strong>h</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – Cell size for the core mesh [1 x ndim]</li>
 <li><strong>padding_distance</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – Padding distances [[W,E], [N,S], [Down,Up]]</li>
 <li><strong>base_mesh</strong> (<em>discretize.BaseMesh</em>) – discretize mesh used to center the core mesh</li>
@@ -310,7 +315,7 @@ The core extent is set by the bounding box of the xyz location.</p>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Example</p>
+<p class="rubric">Examples</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>

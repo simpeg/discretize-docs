@@ -176,6 +176,7 @@
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.random_model.html">discretize.utils.random_model</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.mesh_builder_xyz.html">discretize.utils.mesh_builder_xyz</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.refine_tree_xyz.html">discretize.utils.refine_tree_xyz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.active_from_xyz.html">discretize.utils.active_from_xyz</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#matrix-utilities">Matrix Utilities</a><ul>
@@ -231,6 +232,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../content/finite_volume.html">Finite Volume</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../content/inner_products.html">Inner Products</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Meta Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 </ul>
 
             
@@ -506,6 +511,9 @@
 <tr class="row-odd"><td><a class="reference internal" href="generated/discretize.utils.refine_tree_xyz.html#discretize.utils.refine_tree_xyz" title="discretize.utils.refine_tree_xyz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.refine_tree_xyz</span></code></a>(mesh,&nbsp;xyz[,&nbsp;method,&nbsp;…])</td>
 <td>Refine a TreeMesh based on xyz point locations</td>
 </tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/discretize.utils.active_from_xyz.html#discretize.utils.active_from_xyz" title="discretize.utils.active_from_xyz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.active_from_xyz</span></code></a>(mesh,&nbsp;xyz[,&nbsp;…])</td>
+<td>Returns an active cell index array below a surface</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -544,7 +552,7 @@
 <tr class="row-odd"><td><a class="reference internal" href="generated/discretize.utils.av_extrap.html#discretize.utils.av_extrap" title="discretize.utils.av_extrap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.av_extrap</span></code></a>(n)</td>
 <td>Define 1D averaging operator from cell-centers to nodes.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/discretize.utils.ndgrid.html#discretize.utils.ndgrid" title="discretize.utils.ndgrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.ndgrid</span></code></a>(\*args,&nbsp;\*\*kwargs)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/discretize.utils.ndgrid.html#discretize.utils.ndgrid" title="discretize.utils.ndgrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.ndgrid</span></code></a>(*args,&nbsp;**kwargs)</td>
 <td>Form tensorial grid for 1, 2, or 3 dimensions.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/discretize.utils.ind2sub.html#discretize.utils.ind2sub" title="discretize.utils.ind2sub"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.ind2sub</span></code></a>(shape,&nbsp;inds)</td>
