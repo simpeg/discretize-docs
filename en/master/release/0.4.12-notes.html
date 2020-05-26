@@ -262,23 +262,28 @@
 <div class="section" id="discretize-0-4-12-release-notes">
 <h1><code class="docutils literal notranslate"><span class="pre">discretize</span></code> 0.4.12 Release Notes<a class="headerlink" href="#discretize-0-4-12-release-notes" title="Permalink to this headline">¶</a></h1>
 <p>This patch release is for a few small bugs and code speed improvements.</p>
-<p>There is now a fast function for return active cell indexes for <code class="docutils literal notranslate"><span class="pre">TensorMesh</span></code>-s
-and <code class="docutils literal notranslate"><span class="pre">TreeMesh</span></code>-s below a topography surface defined by scattered points,
-<code class="docutils literal notranslate"><span class="pre">discretize.utils.active_from_xyz</span></code>.</p>
+<p>There is now a fast function for return active cell indexes for <code class="docutils literal notranslate"><span class="pre">TensorMesh</span></code>-s,
+<code class="docutils literal notranslate"><span class="pre">TreeMesh</span></code>-s, and symmetric <code class="docutils literal notranslate"><span class="pre">CylMesh</span></code>-s below a topography surface defined by
+scattered points, <code class="docutils literal notranslate"><span class="pre">discretize.utils.active_from_xyz</span></code>.</p>
 <p>There is also a bug fix of <a class="reference external" href="https://github.com/simpeg/discretize/issues/197">#197</a>
 for the <code class="docutils literal notranslate"><span class="pre">discretize.utils.refine_tree_xyz</span></code> helper function on QuadTree meshes
 when attempting to extend the padding vertically using <code class="docutils literal notranslate"><span class="pre">method=surface</span></code>.</p>
+<p>We have update links as we are now using discourse over google groups as a means
+for users to ask for general help.</p>
 <div class="section" id="contributors">
 <h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>&#64;domfournier/&#64;fourndo</li>
 <li>&#64;jcapriot</li>
+<li>&#64;lheagy</li>
 </ul>
 </div>
 <div class="section" id="pull-requests">
 <h2>Pull requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/simpeg/discretize/issues/197">#198</a>: Refine tree xyz</li>
+<li><a class="reference external" href="https://github.com/simpeg/discretize/pull/197">#198</a>: Refine tree xyz</li>
+<li><a class="reference external" href="https://github.com/simpeg/discretize/pull/201">#201</a>: Update README.rst</li>
+<li><a class="reference external" href="https://github.com/simpeg/discretize/pull/203">#203</a>: consolidating tests on travis</li>
 </ul>
 </div>
 </div>
