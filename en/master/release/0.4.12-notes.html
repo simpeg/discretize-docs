@@ -139,6 +139,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Release Notes</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">discretize</span></code> 0.4.12 Release Notes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#contributors">Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pull-requests">Pull requests</a></li>
 </ul>
 </li>
@@ -267,9 +268,12 @@
 scattered points, <code class="docutils literal notranslate"><span class="pre">discretize.utils.active_from_xyz</span></code>.</p>
 <p>There is also a bug fix of <a class="reference external" href="https://github.com/simpeg/discretize/issues/197">#197</a>
 for the <code class="docutils literal notranslate"><span class="pre">discretize.utils.refine_tree_xyz</span></code> helper function on QuadTree meshes
-when attempting to extend the padding vertically using <code class="docutils literal notranslate"><span class="pre">method=surface</span></code>.</p>
-<p>We have update links as we are now using discourse over google groups as a means
-for users to ask for general help.</p>
+when attempting to extend the padding vertically using <code class="docutils literal notranslate"><span class="pre">method=surface</span></code>. There
+was also a bug when reading in a 2D UBC mesh that would only manifest if the UBC
+mesh’s origin wasn’t at the surface (<a class="reference external" href="https://github.com/simpeg/discretize/issues/194">#194</a>).</p>
+<p>We have updated links as we are now using discourse over google groups as a means
+for users to ask for general help. A few links to the SimPEG documentation needed to be updated for the re-organization of
+the examples folders.</p>
 <p>We are removing <code class="docutils literal notranslate"><span class="pre">pymatsolver</span></code> from the list of explicit dependancies for <code class="docutils literal notranslate"><span class="pre">discretize</span></code>.
 It is <strong>highly</strong> recommended, but it isn’t actually required to run anything
 within the <code class="docutils literal notranslate"><span class="pre">discretize</span></code> package.</p>
@@ -282,6 +286,13 @@ within the <code class="docutils literal notranslate"><span class="pre">discreti
 <li>&#64;prisae</li>
 </ul>
 </div>
+<div class="section" id="bug-fixes">
+<h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/simpeg/discretize/issues/194">#194</a>: z-dimension in write/readUBC</li>
+<li><a class="reference external" href="https://github.com/simpeg/discretize/issues/197">#197</a>: Amount of cells not changing when changing Octree levels in utils.refine_tree_xyz</li>
+</ul>
+</div>
 <div class="section" id="pull-requests">
 <h2>Pull requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -290,6 +301,8 @@ within the <code class="docutils literal notranslate"><span class="pre">discreti
 <li><a class="reference external" href="https://github.com/simpeg/discretize/pull/201">#201</a>: Update README.rst</li>
 <li><a class="reference external" href="https://github.com/simpeg/discretize/pull/203">#203</a>: consolidating tests on travis</li>
 <li><a class="reference external" href="https://github.com/simpeg/discretize/pull/205">#205</a>: Update requirements</li>
+<li><a class="reference external" href="https://github.com/simpeg/discretize/pull/206">#206</a>: Bug fix for 2D mesh read in.</li>
+<li><a class="reference external" href="https://github.com/simpeg/discretize/pull/207">#207</a>: update release notes</li>
 </ul>
 </div>
 </div>
