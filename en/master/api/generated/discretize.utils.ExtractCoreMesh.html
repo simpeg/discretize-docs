@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -32,12 +32,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -286,36 +286,31 @@
 </style>
 <div class="section" id="discretize-utils-extractcoremesh">
 <h1>discretize.utils.ExtractCoreMesh<a class="headerlink" href="#discretize-utils-extractcoremesh" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="discretize.utils.ExtractCoreMesh">
-<code class="descclassname">discretize.utils.</code><code class="descname">ExtractCoreMesh</code><span class="sig-paren">(</span><em>xyzlim</em>, <em>mesh</em>, <em>mesh_type='tensor'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/meshutils.html#ExtractCoreMesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.ExtractCoreMesh" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">ExtractCoreMesh</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xyzlim</span></em>, <em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">mesh_type</span><span class="o">=</span><span class="default_value">'tensor'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/meshutils.html#ExtractCoreMesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.ExtractCoreMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extracts Core Mesh from Global mesh</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>xyzlim</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – 2D array [ndim x 2]</li>
-<li><strong>mesh</strong> (<a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh" title="discretize.base.BaseMesh"><em>BaseMesh</em></a>) – The mesh</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xyzlim</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – 2D array [ndim x 2]</p></li>
+<li><p><strong>mesh</strong> (<a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh" title="discretize.base.BaseMesh"><em>BaseMesh</em></a>) – The mesh</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
-<dt>This function ouputs::</dt>
-<dd><ul class="first last simple">
-<li>actind: corresponding boolean index from global to core</li>
-<li>meshcore: core sdiscretize mesh</li>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>This function ouputs::</dt><dd><ul class="simple">
+<li><p>actind: corresponding boolean index from global to core</p></li>
+<li><p>meshcore: core sdiscretize mesh</p></li>
 </ul>
 </dd>
 </dl>
 </p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)">tuple</a></p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)">tuple</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <div style='clear:both'></div></div>

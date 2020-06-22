@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -32,12 +32,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -286,38 +286,34 @@
 </style>
 <div class="section" id="discretize-utils-mesh-builder-xyz">
 <h1>discretize.utils.mesh_builder_xyz<a class="headerlink" href="#discretize-utils-mesh-builder-xyz" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="discretize.utils.mesh_builder_xyz">
-<code class="descclassname">discretize.utils.</code><code class="descname">mesh_builder_xyz</code><span class="sig-paren">(</span><em>xyz, h, padding_distance=[[0, 0], [0, 0], [0, 0]], base_mesh=None, depth_core=None, expansion_factor=1.3, mesh_type='tensor'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/meshutils.html#mesh_builder_xyz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.mesh_builder_xyz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">mesh_builder_xyz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xyz</span></em>, <em class="sig-param"><span class="n">h</span></em>, <em class="sig-param"><span class="n">padding_distance</span><span class="o">=</span><span class="default_value">[[0, 0], [0, 0], [0, 0]]</span></em>, <em class="sig-param"><span class="n">base_mesh</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">depth_core</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">expansion_factor</span><span class="o">=</span><span class="default_value">1.3</span></em>, <em class="sig-param"><span class="n">mesh_type</span><span class="o">=</span><span class="default_value">'tensor'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/meshutils.html#mesh_builder_xyz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.mesh_builder_xyz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function to quickly generate a Tensor or Tree mesh
 given a cloud of xyz points, finest core cell size
 and padding distance.
 If a base_mesh is provided, the core cells will be centered
 on the underlaying mesh to reduce interpolation errors.
 The core extent is set by the bounding box of the xyz location.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>xyz</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – Location points [n x dim]</li>
-<li><strong>h</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – Cell size for the core mesh [1 x ndim]</li>
-<li><strong>padding_distance</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – Padding distances [[W,E], [N,S], [Down,Up]]</li>
-<li><strong>base_mesh</strong> (<em>discretize.BaseMesh</em>) – discretize mesh used to center the core mesh</li>
-<li><strong>depth_core</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Depth of core mesh below xyz</li>
-<li><strong>expansion_factor</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Expension factor for padding cells [1.3]</li>
-<li><strong>mesh_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Specify output mesh type: [“TENSOR”] or “TREE”</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xyz</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – Location points [n x dim]</p></li>
+<li><p><strong>h</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – Cell size for the core mesh [1 x ndim]</p></li>
+<li><p><strong>padding_distance</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – Padding distances [[W,E], [N,S], [Down,Up]]</p></li>
+<li><p><strong>base_mesh</strong> (<em>discretize.BaseMesh</em>) – discretize mesh used to center the core mesh</p></li>
+<li><p><strong>depth_core</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Depth of core mesh below xyz</p></li>
+<li><p><strong>expansion_factor</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Expension factor for padding cells [1.3]</p></li>
+<li><p><strong>mesh_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Specify output mesh type: [“TENSOR”] or “TREE”</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Mesh of “mesh_type”</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">discretize.BaseMesh</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Mesh of “mesh_type”</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>discretize.BaseMesh</p>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -339,7 +335,7 @@ The core extent is set by the bounding box of the xyz location.</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../api/generated/discretize-utils-mesh_builder_xyz-1.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-utils-mesh_builder_xyz-1.png">png</a>, <a class="reference external" href="../../api/generated/discretize-utils-mesh_builder_xyz-1.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-utils-mesh_builder_xyz-1.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../../_images/discretize-utils-mesh_builder_xyz-1.png" src="../../_images/discretize-utils-mesh_builder_xyz-1.png" />
 </div>
 </dd></dl>

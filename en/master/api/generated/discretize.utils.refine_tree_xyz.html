@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -32,12 +32,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -286,49 +286,45 @@
 </style>
 <div class="section" id="discretize-utils-refine-tree-xyz">
 <h1>discretize.utils.refine_tree_xyz<a class="headerlink" href="#discretize-utils-refine-tree-xyz" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="discretize.utils.refine_tree_xyz">
-<code class="descclassname">discretize.utils.</code><code class="descname">refine_tree_xyz</code><span class="sig-paren">(</span><em>mesh, xyz, method='radial', octree_levels=[1, 1, 1], octree_levels_padding=None, finalize=False, min_level=0, max_distance=inf</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/meshutils.html#refine_tree_xyz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.refine_tree_xyz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">refine_tree_xyz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">xyz</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'radial'</span></em>, <em class="sig-param"><span class="n">octree_levels</span><span class="o">=</span><span class="default_value">[1, 1, 1]</span></em>, <em class="sig-param"><span class="n">octree_levels_padding</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">finalize</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">min_level</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">max_distance</span><span class="o">=</span><span class="default_value">inf</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/meshutils.html#refine_tree_xyz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.refine_tree_xyz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Refine a TreeMesh based on xyz point locations</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>mesh</strong> (<a class="reference internal" href="discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><em>TreeMesh</em></a>) – The TreeMesh object to be refined</li>
-<li><strong>xyz</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – 2D array of points</li>
-<li><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – <p>Method used to refine the mesh based on xyz locations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<a class="reference internal" href="discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><em>TreeMesh</em></a>) – The TreeMesh object to be refined</p></li>
+<li><p><strong>xyz</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – 2D array of points</p></li>
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – <p>Method used to refine the mesh based on xyz locations</p>
 <ul>
-<li>”radial”: Based on radial distance xyz and cell centers</li>
-<li>”surface”: Along triangulated surface repeated vertically</li>
-<li>”box”: Inside limits defined by outer xyz locations</li>
+<li><p>”radial”: Based on radial distance xyz and cell centers</p></li>
+<li><p>”surface”: Along triangulated surface repeated vertically</p></li>
+<li><p>”box”: Inside limits defined by outer xyz locations</p></li>
 </ul>
-</li>
-<li><strong>octree_levels</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – Minimum number of cells around points in each k octree level
-[N(k), N(k-1), …]</li>
-<li><strong>octree_levels_padding</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – Padding cells added to the outer limits of the data each octree levels
-used for method= “surface” and “box” [N(k), N(k-1), …].</li>
-<li><strong>finalize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – True | [False]    Finalize the TreeMesh</li>
-<li><strong>max_distance</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Maximum refinement distance from xyz locations.
-Used for method=”surface” to reduce interpolation distance.</li>
+</p></li>
+<li><p><strong>octree_levels</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – Minimum number of cells around points in each k octree level
+[N(k), N(k-1), …]</p></li>
+<li><p><strong>octree_levels_padding</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – Padding cells added to the outer limits of the data each octree levels
+used for method= “surface” and “box” [N(k), N(k-1), …].</p></li>
+<li><p><strong>finalize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – True | [False]    Finalize the TreeMesh</p></li>
+<li><p><strong>max_distance</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Maximum refinement distance from xyz locations.
+Used for method=”surface” to reduce interpolation distance.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">mesh</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh">discretize.TreeMesh</a></p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>mesh</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh">discretize.TreeMesh</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <div class="section" id="examples-using-discretize-utils-refine-tree-xyz">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">discretize.utils.refine_tree_xyz</span></code><a class="headerlink" href="#examples-using-discretize-utils-refine-tree-xyz" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="Compared to tensor meshes, tree meshes are able to provide higher levels of discretization in c..."><div class="figure" id="id1">
+<div class="sphx-glr-thumbcontainer" tooltip="Compared to tensor meshes, tree meshes are able to provide higher levels of discretization in c..."><div class="figure align-default" id="id1">
 <img alt="Tree Meshes" src="../../_images/sphx_glr_4_tree_mesh_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/4_tree_mesh.html#sphx-glr-tutorials-mesh-generation-4-tree-mesh-py"><span class="std std-ref">Tree Meshes</span></a></span></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/4_tree_mesh.html#sphx-glr-tutorials-mesh-generation-4-tree-mesh-py"><span class="std std-ref">Tree Meshes</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div><div style='clear:both'></div></div>
 </div>

@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -32,12 +32,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -281,24 +281,24 @@
 </style>
 <div class="section" id="discretize-utils-faceinfo">
 <h1>discretize.utils.faceInfo<a class="headerlink" href="#discretize-utils-faceinfo" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="discretize.utils.faceInfo">
-<code class="descclassname">discretize.utils.</code><code class="descname">faceInfo</code><span class="sig-paren">(</span><em>xyz</em>, <em>A</em>, <em>B</em>, <em>C</em>, <em>D</em>, <em>average=True</em>, <em>normalizeNormals=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/curvutils.html#faceInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.faceInfo" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">faceInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xyz</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">B</span></em>, <em class="sig-param"><span class="n">C</span></em>, <em class="sig-param"><span class="n">D</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">normalizeNormals</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/curvutils.html#faceInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.faceInfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>function [N] = faceInfo(y,A,B,C,D)</p>
 <blockquote>
 <div><p>Returns the averaged normal, area, and edge lengths for a given set of faces.</p>
 <p>If average option is FALSE then N is a cell array {nA,nB,nC,nD}</p>
 </div></blockquote>
-<dl class="docutils">
-<dt>Input:</dt>
-<dd>xyz          - X,Y,Z vertex vector
-A,B,C,D      - vert index of the face (counter clockwize)</dd>
-<dt>Options:</dt>
-<dd>average      - [true]/false, toggles returning all normals or the average</dd>
-<dt>Output:</dt>
-<dd>N            - average face normal or {nA,nB,nC,nD} if average = false
+<dl class="simple">
+<dt>Input:</dt><dd><p>xyz          - X,Y,Z vertex vector
+A,B,C,D      - vert index of the face (counter clockwize)</p>
+</dd>
+<dt>Options:</dt><dd><p>average      - [true]/false, toggles returning all normals or the average</p>
+</dd>
+<dt>Output:</dt><dd><p>N            - average face normal or {nA,nB,nC,nD} if average = false
 area         - average face area
-edgeLengths  - exact edge Lengths, 4 column vector [AB, BC, CD, DA]</dd>
+edgeLengths  - exact edge Lengths, 4 column vector [AB, BC, CD, DA]</p>
+</dd>
 </dl>
 <p>see also testFaceNormal testFaceArea</p>
 <p>&#64;author Rowan Cockett</p>

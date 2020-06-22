@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -32,12 +32,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -307,43 +307,43 @@ visualizations that are possible leveraging the link between discretize, <a clas
 and <a class="reference external" href="http://pvgeo.org">PVGeo</a>:</p>
 <a class="reference external image-reference" href="http://pvgeo.org"><img alt="PVGeo Example Visualization" src="api/generated/../images/pyvista_laguna_del_maule.png" /></a>
 <div class="note admonition">
-<p class="first admonition-title">Laguna del Maule Bouguer Gravity</p>
-<blockquote class="last">
+<p class="admonition-title">Laguna del Maule Bouguer Gravity</p>
+<blockquote>
 <div><p>This data scene is was produced from the <a class="reference external" href="http://docs.simpeg.xyz/content/examples/20-published/plot_laguna_del_maule_inversion.html">Laguna del Maule Bouguer Gravity</a>
 example provided by Craig Miller (see Maule volcanic field, Chile. Refer to
 Miller et al 2016 EPSL for full details.)</p>
 <p>The rendering below shows several data sets and a model integrated together:</p>
 <ul class="simple">
-<li><cite>Point Data</cite>: the Bouguer gravity anomalies</li>
-<li>Topography Surface</li>
-<li><cite>Inverted Model</cite>: The model has been both sliced and thresholded for low values</li>
+<li><p><cite>Point Data</cite>: the Bouguer gravity anomalies</p></li>
+<li><p>Topography Surface</p></li>
+<li><p><cite>Inverted Model</cite>: The model has been both sliced and thresholded for low values</p></li>
 </ul>
 </div></blockquote>
 </div>
 <p class="rubric">Classes</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="discretize.mixins.vtkModule.InterfaceTensorread_vtk.html#discretize.mixins.vtkModule.InterfaceTensorread_vtk" title="discretize.mixins.vtkModule.InterfaceTensorread_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.mixins.vtkModule.InterfaceTensorread_vtk</span></code></a></td>
-<td>Provides a convienance method for reading VTK Rectilinear Grid files as <code class="docutils literal notranslate"><span class="pre">TensorMesh</span></code> objects.</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.mixins.vtkModule.InterfaceTensorread_vtk.html#discretize.mixins.vtkModule.InterfaceTensorread_vtk" title="discretize.mixins.vtkModule.InterfaceTensorread_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.mixins.vtkModule.InterfaceTensorread_vtk</span></code></a>()</p></td>
+<td><p>Provides a convienance method for reading VTK Rectilinear Grid files as <code class="docutils literal notranslate"><span class="pre">TensorMesh</span></code> objects.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="discretize.mixins.vtkModule.InterfaceVTK.html#discretize.mixins.vtkModule.InterfaceVTK" title="discretize.mixins.vtkModule.InterfaceVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.mixins.vtkModule.InterfaceVTK</span></code></a></td>
-<td>This class is full of methods that enable <code class="docutils literal notranslate"><span class="pre">discretize</span></code> meshes to be converted to VTK data objects (and back when possible).</td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.mixins.vtkModule.InterfaceVTK.html#discretize.mixins.vtkModule.InterfaceVTK" title="discretize.mixins.vtkModule.InterfaceVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.mixins.vtkModule.InterfaceVTK</span></code></a>()</p></td>
+<td><p>This class is full of methods that enable <code class="docutils literal notranslate"><span class="pre">discretize</span></code> meshes to be converted to VTK data objects (and back when possible).</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Functions</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="discretize.mixins.vtkModule.assign_cell_data.html#discretize.mixins.vtkModule.assign_cell_data" title="discretize.mixins.vtkModule.assign_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.mixins.vtkModule.assign_cell_data</span></code></a>(vtkDS)</td>
-<td>Assign the model(s) to the VTK dataset as CellData</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.mixins.vtkModule.assign_cell_data.html#discretize.mixins.vtkModule.assign_cell_data" title="discretize.mixins.vtkModule.assign_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.mixins.vtkModule.assign_cell_data</span></code></a>(vtkDS)</p></td>
+<td><p>Assign the model(s) to the VTK dataset as CellData</p></td>
 </tr>
 </tbody>
 </table>

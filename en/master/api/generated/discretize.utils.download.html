@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -32,12 +32,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -279,35 +279,31 @@
 </style>
 <div class="section" id="discretize-utils-download">
 <h1>discretize.utils.download<a class="headerlink" href="#discretize-utils-download" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="discretize.utils.download">
-<code class="descclassname">discretize.utils.</code><code class="descname">download</code><span class="sig-paren">(</span><em>url</em>, <em>folder='.'</em>, <em>overwrite=False</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/io_utils.html#download"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.download" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">download</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">folder</span><span class="o">=</span><span class="default_value">'.'</span></em>, <em class="sig-param"><span class="n">overwrite</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/io_utils.html#download"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.download" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function to download all files stored in a cloud directory</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – url or list of urls for the file(s) to be downloaded</li>
-<li><strong>folder</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – folder to where the directory is created and files downloaded (default is the current directory)</li>
-<li><strong>overwrite</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – overwrite if a file with the specified name already exists</li>
-<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – print out progress</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – url or list of urls for the file(s) to be downloaded</p></li>
+<li><p><strong>folder</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – folder to where the directory is created and files downloaded (default is the current directory)</p></li>
+<li><p><strong>overwrite</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – overwrite if a file with the specified name already exists</p></li>
+<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – print out progress</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <div class="section" id="examples-using-discretize-utils-download">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">discretize.utils.download</span></code><a class="headerlink" href="#examples-using-discretize-utils-download" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="The example demonstrates the how to use the VTK interface via the `pyvista library &lt;http://docs..."><div class="figure" id="id1">
+<div class="sphx-glr-thumbcontainer" tooltip="The example demonstrates the how to use the VTK interface via the `pyvista library &lt;http://docs..."><div class="figure align-default" id="id1">
 <img alt="3D Visualization with PyVista" src="../../_images/sphx_glr_plot_pyvista_laguna_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_pyvista_laguna.html#sphx-glr-examples-plot-pyvista-laguna-py"><span class="std std-ref">3D Visualization with PyVista</span></a></span></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_pyvista_laguna.html#sphx-glr-examples-plot-pyvista-laguna-py"><span class="std std-ref">3D Visualization with PyVista</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="The example demonstrates the plot_3d_slicer"><div class="figure" id="id2">
+</div><div class="sphx-glr-thumbcontainer" tooltip="The example demonstrates the plot_3d_slicer"><div class="figure align-default" id="id2">
 <img alt="Slicer demo" src="../../_images/sphx_glr_plot_slicer_demo_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_slicer_demo.html#sphx-glr-examples-plot-slicer-demo-py"><span class="std std-ref">Slicer demo</span></a></span></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_slicer_demo.html#sphx-glr-examples-plot-slicer-demo-py"><span class="std std-ref">Slicer demo</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div><div style='clear:both'></div></div>
 </div>

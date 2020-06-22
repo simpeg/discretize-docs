@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -32,12 +32,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -298,9 +298,9 @@
 </style>
 <div class="section" id="discretize-utils-inv2x2blockdiagonal">
 <h1>discretize.utils.inv2X2BlockDiagonal<a class="headerlink" href="#discretize-utils-inv2x2blockdiagonal" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="discretize.utils.inv2X2BlockDiagonal">
-<code class="descclassname">discretize.utils.</code><code class="descname">inv2X2BlockDiagonal</code><span class="sig-paren">(</span><em>a11</em>, <em>a12</em>, <em>a21</em>, <em>a22</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/matutils.html#inv2X2BlockDiagonal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.inv2X2BlockDiagonal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">inv2X2BlockDiagonal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a11</span></em>, <em class="sig-param"><span class="n">a12</span></em>, <em class="sig-param"><span class="n">a21</span></em>, <em class="sig-param"><span class="n">a22</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/matutils.html#inv2X2BlockDiagonal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.inv2X2BlockDiagonal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inverts a stack of 2x2 matrices by using the inversion formula</p>
 <p>inv(A) = (1/det(A)) * cof(A)^T</p>
 <p>Input:

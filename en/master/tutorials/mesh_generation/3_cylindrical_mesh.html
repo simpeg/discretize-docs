@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -32,12 +32,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -269,8 +269,8 @@
 }
 </style>
 <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-tutorials-mesh-generation-3-cylindrical-mesh-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-tutorials-mesh-generation-3-cylindrical-mesh-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="cylindrical-meshes">
 <span id="sphx-glr-tutorials-mesh-generation-3-cylindrical-mesh-py"></span><h1>Cylindrical meshes<a class="headerlink" href="#cylindrical-meshes" title="Permalink to this headline">¶</a></h1>
@@ -281,11 +281,11 @@ in solving differential equations that possess rotational symmetry. Here we
 demonstrate:</p>
 <blockquote>
 <div><ul class="simple">
-<li>How to create basic cylindrical meshes</li>
-<li>How to include padding cells</li>
-<li>How to plot cylindrical meshes</li>
-<li>How to extract properties from meshes</li>
-<li>How to create cylindrical meshes to solve PDEs with rotational symmetry</li>
+<li><p>How to create basic cylindrical meshes</p></li>
+<li><p>How to include padding cells</p></li>
+<li><p>How to plot cylindrical meshes</p></li>
+<li><p>How to extract properties from meshes</p></li>
+<li><p>How to create cylindrical meshes to solve PDEs with rotational symmetry</p></li>
 </ul>
 </div></blockquote>
 <div class="section" id="import-packages">
@@ -304,8 +304,8 @@ demonstrate:</p>
 for the bottom of the vertical axis of symmetry of the mesh. Note that</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li><em>phi</em> is in radians</li>
-<li>The sum of values in the numpy array for <em>phi</em> cannot exceed <span class="math notranslate nohighlight">\(2\pi\)</span></li>
+<li><p><em>phi</em> is in radians</p></li>
+<li><p>The sum of values in the numpy array for <em>phi</em> cannot exceed <span class="math notranslate nohighlight">\(2\pi\)</span></p></li>
 </ol>
 </div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ncr</span></a> <span class="o">=</span> <span class="mi">10</span>     <span class="c1"># number of mesh cells in r</span>
@@ -332,7 +332,7 @@ for the bottom of the vertical axis of symmetry of the mesh. Note that</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/travis/miniconda/envs/testing/lib/python3.7/site-packages/matplotlib/projections/polar.py:55: RuntimeWarning: invalid value encountered in greater_equal
   r = np.where(r &gt;= 0, r, np.nan)
 
-[&lt;matplotlib.axes._subplots.PolarAxesSubplot object at 0x7f536e7e4fd0&gt;, &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7f536e218890&gt;]
+[&lt;matplotlib.axes._subplots.PolarAxesSubplot object at 0x7f2d73d59710&gt;, &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7f2d73b0c250&gt;]
 </pre></div>
 </div>
 </div>
@@ -398,8 +398,8 @@ We then show some properties that can be extracted from cylindrical meshes.</p>
 rotational symmetry. More precisely when:</p>
 <blockquote>
 <div><ul class="simple">
-<li>field components in the <em>phi</em> direction are 0</li>
-<li>fluxes in <em>r</em> and <em>z</em> are 0</li>
+<li><p>field components in the <em>phi</em> direction are 0</p></li>
+<li><p>fluxes in <em>r</em> and <em>z</em> are 0</p></li>
 </ul>
 </div></blockquote>
 <p>In this case, the size of the forward problem can be significantly reduced.
@@ -449,12 +449,14 @@ direction.</p>
 </pre></div>
 </div>
 <p>Notice that we do not plot the discretization in phi as it is irrelevant.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.701 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.668 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-mesh-generation-3-cylindrical-mesh-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<a class="reference download internal" download="" href="../../_downloads/2309bd39803f453cc27fae264467368f/3_cylindrical_mesh.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">3_cylindrical_mesh.py</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/9a2f5e9984b26832847bddd0f208773a/3_cylindrical_mesh.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">3_cylindrical_mesh.py</span></code></a></p>
+</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<a class="reference download internal" download="" href="../../_downloads/9499567f0b51d942d911e442b01a8862/3_cylindrical_mesh.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">3_cylindrical_mesh.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/9e822f633b953481aa8cb8f96bdefd6b/3_cylindrical_mesh.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">3_cylindrical_mesh.ipynb</span></code></a></p>
+</div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>

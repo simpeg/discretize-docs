@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -32,12 +32,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -283,9 +283,9 @@
 </style>
 <div class="section" id="discretize-mixins-vtkmodule-interfacevtk">
 <h1>discretize.mixins.vtkModule.InterfaceVTK<a class="headerlink" href="#discretize-mixins-vtkmodule-interfacevtk" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="discretize.mixins.vtkModule.InterfaceVTK">
-<em class="property">class </em><code class="descclassname">discretize.mixins.vtkModule.</code><code class="descname">InterfaceVTK</code><a class="reference internal" href="../../_modules/discretize/mixins/vtkModule.html#InterfaceVTK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtkModule.InterfaceVTK" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">discretize.mixins.vtkModule.</code><code class="sig-name descname">InterfaceVTK</code><a class="reference internal" href="../../_modules/discretize/mixins/vtkModule.html#InterfaceVTK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtkModule.InterfaceVTK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This class is full of methods that enable <code class="docutils literal notranslate"><span class="pre">discretize</span></code> meshes to
 be converted to VTK data objects (and back when possible). This is
@@ -349,23 +349,23 @@ rotated from the traditional cartesian refence frame as specified by the
 </div>
 <img alt="../../_images/vtk-rotated-example.png" src="../../_images/vtk-rotated-example.png" />
 <p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#discretize.mixins.vtkModule.InterfaceVTK.toVTK" title="discretize.mixins.vtkModule.InterfaceVTK.toVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toVTK</span></code></a>(mesh[,&nbsp;models])</td>
-<td>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data object with the given model dictionary as the cell data of that dataset.</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.mixins.vtkModule.InterfaceVTK.toVTK" title="discretize.mixins.vtkModule.InterfaceVTK.toVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toVTK</span></code></a>(mesh[, models])</p></td>
+<td><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data object with the given model dictionary as the cell data of that dataset.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#discretize.mixins.vtkModule.InterfaceVTK.to_vtk" title="discretize.mixins.vtkModule.InterfaceVTK.to_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vtk</span></code></a>(mesh[,&nbsp;models])</td>
-<td>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data object with the given model dictionary as the cell data of that dataset.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.mixins.vtkModule.InterfaceVTK.to_vtk" title="discretize.mixins.vtkModule.InterfaceVTK.to_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vtk</span></code></a>(mesh[, models])</p></td>
+<td><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data object with the given model dictionary as the cell data of that dataset.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#discretize.mixins.vtkModule.InterfaceVTK.writeVTK" title="discretize.mixins.vtkModule.InterfaceVTK.writeVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeVTK</span></code></a>(mesh,&nbsp;filename[,&nbsp;models,&nbsp;directory])</td>
-<td>Makes and saves a VTK object from this mesh and given models</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.mixins.vtkModule.InterfaceVTK.writeVTK" title="discretize.mixins.vtkModule.InterfaceVTK.writeVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeVTK</span></code></a>(mesh, filename[, models, directory])</p></td>
+<td><p>Makes and saves a VTK object from this mesh and given models</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#discretize.mixins.vtkModule.InterfaceVTK.write_vtk" title="discretize.mixins.vtkModule.InterfaceVTK.write_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_vtk</span></code></a>(mesh,&nbsp;filename[,&nbsp;models,&nbsp;directory])</td>
-<td>Makes and saves a VTK object from this mesh and given models</td>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.mixins.vtkModule.InterfaceVTK.write_vtk" title="discretize.mixins.vtkModule.InterfaceVTK.write_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_vtk</span></code></a>(mesh, filename[, models, directory])</p></td>
+<td><p>Makes and saves a VTK object from this mesh and given models</p></td>
 </tr>
 </tbody>
 </table>
@@ -376,72 +376,58 @@ rotated from the traditional cartesian refence frame as specified by the
 </div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
-<dl class="method">
+<dl class="py method">
 <dt id="discretize.mixins.vtkModule.InterfaceVTK.toVTK">
-<code class="descclassname">InterfaceVTK.</code><code class="descname">toVTK</code><span class="sig-paren">(</span><em>mesh</em>, <em>models=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtkModule.html#InterfaceVTK.toVTK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtkModule.InterfaceVTK.toVTK" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">InterfaceVTK.</code><code class="sig-name descname">toVTK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtkModule.html#InterfaceVTK.toVTK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtkModule.InterfaceVTK.toVTK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data
 object with the given model dictionary as the cell data of that dataset.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="discretize.mixins.vtkModule.InterfaceVTK.to_vtk">
-<code class="descclassname">InterfaceVTK.</code><code class="descname">to_vtk</code><span class="sig-paren">(</span><em>mesh</em>, <em>models=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtkModule.html#InterfaceVTK.to_vtk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtkModule.InterfaceVTK.to_vtk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">InterfaceVTK.</code><code class="sig-name descname">to_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtkModule.html#InterfaceVTK.to_vtk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtkModule.InterfaceVTK.to_vtk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data
 object with the given model dictionary as the cell data of that dataset.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="discretize.mixins.vtkModule.InterfaceVTK.writeVTK">
-<code class="descclassname">InterfaceVTK.</code><code class="descname">writeVTK</code><span class="sig-paren">(</span><em>mesh</em>, <em>filename</em>, <em>models=None</em>, <em>directory=''</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtkModule.html#InterfaceVTK.writeVTK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtkModule.InterfaceVTK.writeVTK" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">InterfaceVTK.</code><code class="sig-name descname">writeVTK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtkModule.html#InterfaceVTK.writeVTK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtkModule.InterfaceVTK.writeVTK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes and saves a VTK object from this mesh and given models</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – path to the output vtk file or just its name if directory is specified</li>
-<li><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</li>
-<li><strong>directory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – directory where the UBC GIF file lives</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – path to the output vtk file or just its name if directory is specified</p></li>
+<li><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</p></li>
+<li><p><strong>directory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – directory where the UBC GIF file lives</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="discretize.mixins.vtkModule.InterfaceVTK.write_vtk">
-<code class="descclassname">InterfaceVTK.</code><code class="descname">write_vtk</code><span class="sig-paren">(</span><em>mesh</em>, <em>filename</em>, <em>models=None</em>, <em>directory=''</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtkModule.html#InterfaceVTK.write_vtk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtkModule.InterfaceVTK.write_vtk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">InterfaceVTK.</code><code class="sig-name descname">write_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtkModule.html#InterfaceVTK.write_vtk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtkModule.InterfaceVTK.write_vtk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes and saves a VTK object from this mesh and given models</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – path to the output vtk file or just its name if directory is specified</li>
-<li><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</li>
-<li><strong>directory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – directory where the UBC GIF file lives</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – path to the output vtk file or just its name if directory is specified</p></li>
+<li><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</p></li>
+<li><p><strong>directory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – directory where the UBC GIF file lives</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <div style='clear:both'></div></div>

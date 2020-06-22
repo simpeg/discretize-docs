@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -32,12 +32,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -275,36 +275,32 @@
 </style>
 <div class="section" id="discretize-tests-checkderivative">
 <h1>discretize.Tests.checkDerivative<a class="headerlink" href="#discretize-tests-checkderivative" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="discretize.Tests.checkDerivative">
-<code class="descclassname">discretize.Tests.</code><code class="descname">checkDerivative</code><span class="sig-paren">(</span><em>fctn</em>, <em>x0</em>, <em>num=7</em>, <em>plotIt=True</em>, <em>dx=None</em>, <em>expectedOrder=2</em>, <em>tolerance=0.85</em>, <em>eps=1e-10</em>, <em>ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/Tests.html#checkDerivative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.Tests.checkDerivative" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">discretize.Tests.</code><code class="sig-name descname">checkDerivative</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fctn</span></em>, <em class="sig-param"><span class="n">x0</span></em>, <em class="sig-param"><span class="n">num</span><span class="o">=</span><span class="default_value">7</span></em>, <em class="sig-param"><span class="n">plotIt</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">dx</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">expectedOrder</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">tolerance</span><span class="o">=</span><span class="default_value">0.85</span></em>, <em class="sig-param"><span class="n">eps</span><span class="o">=</span><span class="default_value">1e-10</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/Tests.html#checkDerivative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.Tests.checkDerivative" title="Permalink to this definition">¶</a></dt>
 <dd><p>Basic derivative check</p>
 <p>Compares error decay of 0th and 1st order Taylor approximation at point
 x0 for a randomized search direction.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>fctn</strong> (<em>callable</em>) – function handle</li>
-<li><strong>x0</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – point at which to check derivative</li>
-<li><strong>num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – number of times to reduce step length, h</li>
-<li><strong>plotIt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – if you would like to plot</li>
-<li><strong>dx</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – step direction</li>
-<li><strong>expectedOrder</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – The order that you expect the derivative to yield.</li>
-<li><strong>tolerance</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – The tolerance on the expected order.</li>
-<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – What is zero?</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fctn</strong> (<em>callable</em>) – function handle</p></li>
+<li><p><strong>x0</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – point at which to check derivative</p></li>
+<li><p><strong>num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – number of times to reduce step length, h</p></li>
+<li><p><strong>plotIt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – if you would like to plot</p></li>
+<li><p><strong>dx</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – step direction</p></li>
+<li><p><strong>expectedOrder</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – The order that you expect the derivative to yield.</p></li>
+<li><p><strong>tolerance</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – The tolerance on the expected order.</p></li>
+<li><p><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – What is zero?</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)">bool</a></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">did you pass the test?!</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)">bool</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>did you pass the test?!</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">Tests</span><span class="p">,</span> <span class="n">utils</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -314,7 +310,7 @@ x0 for a randomized search direction.</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../api/generated/discretize-Tests-checkDerivative-1.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-Tests-checkDerivative-1.png">png</a>, <a class="reference external" href="../../api/generated/discretize-Tests-checkDerivative-1.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-Tests-checkDerivative-1.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../../_images/discretize-Tests-checkDerivative-1.png" src="../../_images/discretize-Tests-checkDerivative-1.png" />
 </div>
 </dd></dl>

@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -32,12 +32,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -270,8 +270,8 @@
 }
 </style>
 <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-tutorials-inner-products-2-physical-properties-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-tutorials-inner-products-2-physical-properties-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="constitutive-relations">
 <span id="sphx-glr-tutorials-inner-products-2-physical-properties-py"></span><h1>Constitutive Relations<a class="headerlink" href="#constitutive-relations" title="Permalink to this headline">¶</a></h1>
@@ -280,9 +280,9 @@ contain constitutive relations; examples include Ohm’s law and Hooke’s law.
 For this class of inner products, you will learn how to:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Construct the inner-product matrix in the case of isotropic and anisotropic constitutive relations</li>
-<li>Construct the inverse of the inner-product matrix</li>
-<li>Work with constitutive relations defined by the reciprocal of a parameter</li>
+<li><p>Construct the inner-product matrix in the case of isotropic and anisotropic constitutive relations</p></li>
+<li><p>Construct the inverse of the inner-product matrix</p></li>
+<li><p>Work with constitutive relations defined by the reciprocal of a parameter</p></li>
 </ul>
 </div></blockquote>
 <p>Let <span class="math notranslate nohighlight">\(\vec{J}\)</span> and <span class="math notranslate nohighlight">\(\vec{E}\)</span> be two physically related
@@ -301,9 +301,9 @@ product numerically using an <em>inner-product matrix</em> such that:</p>
 <p>where the inner product matrix <span class="math notranslate nohighlight">\(\mathbf{M_\sigma}\)</span> now depends on:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>the dimensions and discretization of the mesh</li>
-<li>where <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> live</li>
-<li>the spatial distribution of the property <span class="math notranslate nohighlight">\(\sigma\)</span></li>
+<li><p>the dimensions and discretization of the mesh</p></li>
+<li><p>where <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> live</p></li>
+<li><p>the spatial distribution of the property <span class="math notranslate nohighlight">\(\sigma\)</span></p></li>
 </ol>
 </div></blockquote>
 <p>In the case of anisotropy, the constitutive relations are defined by a tensor
@@ -339,9 +339,9 @@ by:</p>
 constitutive relationship is:</p>
 <blockquote>
 <div><ul class="simple">
-<li><strong>isotropic:</strong> <span class="math notranslate nohighlight">\(\sigma_1 = \sigma_2 = \sigma_3 = \sigma\)</span> and <span class="math notranslate nohighlight">\(\sigma_4 = \sigma_5 = \sigma_6 = 0\)</span>; e.g. <span class="math notranslate nohighlight">\(\vec{J} = \sigma \vec{E}\)</span></li>
-<li><strong>diagonal anisotropic:</strong> independent parameters <span class="math notranslate nohighlight">\(\sigma_1, \sigma_2, \sigma_3\)</span> and <span class="math notranslate nohighlight">\(\sigma_4 = \sigma_5 = \sigma_6 = 0\)</span></li>
-<li><strong>fully anisotropic:</strong> independent parameters <span class="math notranslate nohighlight">\(\sigma_1, \sigma_2, \sigma_3, \sigma_4, \sigma_5, \sigma_6\)</span></li>
+<li><p><strong>isotropic:</strong> <span class="math notranslate nohighlight">\(\sigma_1 = \sigma_2 = \sigma_3 = \sigma\)</span> and <span class="math notranslate nohighlight">\(\sigma_4 = \sigma_5 = \sigma_6 = 0\)</span>; e.g. <span class="math notranslate nohighlight">\(\vec{J} = \sigma \vec{E}\)</span></p></li>
+<li><p><strong>diagonal anisotropic:</strong> independent parameters <span class="math notranslate nohighlight">\(\sigma_1, \sigma_2, \sigma_3\)</span> and <span class="math notranslate nohighlight">\(\sigma_4 = \sigma_5 = \sigma_6 = 0\)</span></p></li>
+<li><p><strong>fully anisotropic:</strong> independent parameters <span class="math notranslate nohighlight">\(\sigma_1, \sigma_2, \sigma_3, \sigma_4, \sigma_5, \sigma_6\)</span></p></li>
 </ul>
 </div></blockquote>
 <p>When approximating the inner product according to the finite volume approach,
@@ -611,12 +611,14 @@ this expression is given by:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Full Anisotropic (Edges)&#39;)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.234 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.175 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-inner-products-2-physical-properties-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<a class="reference download internal" download="" href="../../_downloads/1d500bb15b54cc5f1bfa2bab39aed7d8/2_physical_properties.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">2_physical_properties.py</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/acbd832bf87c7d8a4e27f82a417d637c/2_physical_properties.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">2_physical_properties.py</span></code></a></p>
+</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<a class="reference download internal" download="" href="../../_downloads/8c020ed8102065c418d377c8d36cd2b9/2_physical_properties.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">2_physical_properties.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/5fd5358d2c375147036283154733845b/2_physical_properties.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">2_physical_properties.ipynb</span></code></a></p>
+</div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>

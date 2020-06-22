@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -32,12 +32,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -267,8 +267,8 @@
 }
 </style>
 <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="overview-of-mesh-types">
 <span id="sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"></span><h1>Overview of Mesh Types<a class="headerlink" href="#overview-of-mesh-types" title="Permalink to this headline">¶</a></h1>
@@ -284,9 +284,9 @@ Separate tutorials have been provided for each mesh type.</p>
 <p>The three main types of meshes in discretize are</p>
 <blockquote>
 <div><ul class="simple">
-<li><strong>Tensor meshes</strong> (<a class="reference internal" href="../../api/generated/discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code></a>); which includes <strong>cylindrical meshes</strong> (<a class="reference internal" href="../../api/generated/discretize.CylMesh.html#discretize.CylMesh" title="discretize.CylMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.CylMesh</span></code></a>)</li>
-<li><strong>Tree meshes</strong> (<a class="reference internal" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code></a>): also referred to as QuadTree or OcTree meshes</li>
-<li><strong>Curvilinear meshes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.CurviMesh</span></code>): also referred to as logically rectangular non-orthogonal</li>
+<li><p><strong>Tensor meshes</strong> (<a class="reference internal" href="../../api/generated/discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code></a>); which includes <strong>cylindrical meshes</strong> (<a class="reference internal" href="../../api/generated/discretize.CylMesh.html#discretize.CylMesh" title="discretize.CylMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.CylMesh</span></code></a>)</p></li>
+<li><p><strong>Tree meshes</strong> (<a class="reference internal" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code></a>): also referred to as QuadTree or OcTree meshes</p></li>
+<li><p><strong>Curvilinear meshes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.CurviMesh</span></code>): also referred to as logically rectangular non-orthogonal</p></li>
 </ul>
 </div></blockquote>
 <p>Examples for each mesh type are shown below.</p>
@@ -336,10 +336,10 @@ Separate tutorials have been provided for each mesh type.</p>
 defined on:</p>
 <blockquote>
 <div><ul class="simple">
-<li>nodes</li>
-<li>cell centers</li>
-<li>cell faces</li>
-<li>cell edges</li>
+<li><p>nodes</p></li>
+<li><p>cell centers</p></li>
+<li><p>cell faces</p></li>
+<li><p>cell edges</p></li>
 </ul>
 </div></blockquote>
 <p>Below we show an example for a 2D tensor mesh.</p>
@@ -370,12 +370,14 @@ defined on:</p>
 <p>Note that we define X-edges as being edges that lie parallel to the x-axis.
 And we define X-faces as being faces whose normal lies parallel to the
 axis. In 3D, the difference between edges and faces is more obvious.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.495 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.467 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-mesh-generation-1-mesh-overview-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<a class="reference download internal" download="" href="../../_downloads/0776795e34e185790dc8118bde9f78ff/1_mesh_overview.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">1_mesh_overview.py</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/971e1aa1b96554c88c277abc918665a1/1_mesh_overview.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">1_mesh_overview.py</span></code></a></p>
+</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<a class="reference download internal" download="" href="../../_downloads/f89efcbf019925058f01ed2026ef9644/1_mesh_overview.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">1_mesh_overview.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/202d4c951ca226f5ff766eaef543f32a/1_mesh_overview.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">1_mesh_overview.ipynb</span></code></a></p>
+</div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>

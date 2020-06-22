@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -32,12 +32,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -270,8 +270,8 @@
 }
 </style>
 <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-tutorials-mesh-generation-4-tree-mesh-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-tutorials-mesh-generation-4-tree-mesh-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="tree-meshes">
 <span id="sphx-glr-tutorials-mesh-generation-4-tree-mesh-py"></span><h1>Tree Meshes<a class="headerlink" href="#tree-meshes" title="Permalink to this headline">¶</a></h1>
@@ -281,10 +281,10 @@ cells. Tree meshes belong to the class (<a class="reference internal" href="../.
 Tree meshes can be defined in 2 or 3 dimensions. Here we demonstrate:</p>
 <blockquote>
 <div><ul class="simple">
-<li>How to create basic tree meshes in 2D and 3D</li>
-<li>Strategies for local mesh refinement</li>
-<li>How to plot tree meshes</li>
-<li>How to extract properties from tree meshes</li>
+<li><p>How to create basic tree meshes in 2D and 3D</p></li>
+<li><p>Strategies for local mesh refinement</p></li>
+<li><p>How to plot tree meshes</p></li>
+<li><p>How to extract properties from tree meshes</p></li>
 </ul>
 </div></blockquote>
 <p>To create a tree mesh, we first define the base tensor mesh (a mesh
@@ -293,9 +293,9 @@ discretization around certain points or within certain regions. When
 creating tree meshes, we must remember certain rules:</p>
 <blockquote>
 <div><ul class="simple">
-<li>The number of base mesh cells in x, y and z must all be powers of 2</li>
-<li>We cannot refine the mesh to create cells smaller than those defining the base mesh</li>
-<li>The range of cell sizes in the tree mesh depends on the number of base mesh cells in x, y and z</li>
+<li><p>The number of base mesh cells in x, y and z must all be powers of 2</p></li>
+<li><p>We cannot refine the mesh to create cells smaller than those defining the base mesh</p></li>
+<li><p>The range of cell sizes in the tree mesh depends on the number of base mesh cells in x, y and z</p></li>
 </ul>
 </div></blockquote>
 <div class="section" id="import-packages">
@@ -342,7 +342,7 @@ rate of cell width increase outside the box.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/travis/build/simpeg/discretize/tutorials/mesh_generation/4_tree_mesh.py:70: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   mesh.plotGrid(showIt=True)
 
-&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7f536e75c0d0&gt;
+&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7f2d74056950&gt;
 </pre></div>
 </div>
 </div>
@@ -536,12 +536,14 @@ properties from a 3D tree mesh.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Cell Log-Volumes at Y = 0 m&#39;)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.171 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.143 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-mesh-generation-4-tree-mesh-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<a class="reference download internal" download="" href="../../_downloads/28fd38d7f2cec2302cc83c1c1761aea4/4_tree_mesh.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">4_tree_mesh.py</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/2f9effc854ffeade5861778143f56846/4_tree_mesh.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">4_tree_mesh.py</span></code></a></p>
+</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<a class="reference download internal" download="" href="../../_downloads/3ce7c681e2031a99c180cb3c6fbfb670/4_tree_mesh.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">4_tree_mesh.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/2294a1cb815e7d8c07dd1eda6ba39416/4_tree_mesh.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">4_tree_mesh.ipynb</span></code></a></p>
+</div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>
