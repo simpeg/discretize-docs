@@ -2,8 +2,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -13,6 +12,13 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
   
@@ -20,7 +26,9 @@
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -35,13 +43,6 @@
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="discretize.TreeMesh.TreeCell" href="discretize.TreeMesh.TreeCell.html" />
@@ -77,7 +78,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> discretize
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> discretize
           
 
           
@@ -104,6 +105,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
@@ -184,6 +186,7 @@
     
 
         </div>
+        
       </div>
     </nav>
 
@@ -224,7 +227,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../index.html">API Reference</a> &raquo;</li>
         
@@ -763,10 +766,7 @@
 <col width="43%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><strong>load</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>plotSlice</strong></td>
+<tr class="row-odd"><td><strong>plotSlice</strong></td>
 <td>&#160;</td>
 </tr>
 </tbody>
@@ -1679,7 +1679,7 @@ cells in order.</p>
 
 <dl class="method">
 <dt id="discretize.TreeMesh.copy">
-<code class="descclassname">TreeMesh.</code><code class="descname">copy</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.copy" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">TreeMesh.</code><code class="descname">copy</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a copy of the current mesh</p>
 </dd></dl>
 
@@ -1754,7 +1754,7 @@ dictionary of model arrays.</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M, the inner product matrix (nE, nE)</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.4.1)">scipy.sparse.csr_matrix</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.0)">scipy.sparse.csr_matrix</a></p>
 </td>
 </tr>
 </tbody>
@@ -1779,7 +1779,7 @@ dictionary of model arrays.</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dMdm, the derivative of the inner product matrix (nE, nC*nA)</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.4.1)">scipy.sparse.csr_matrix</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.0)">scipy.sparse.csr_matrix</a></p>
 </td>
 </tr>
 </tbody>
@@ -1805,7 +1805,7 @@ dictionary of model arrays.</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M, the inner product matrix (nF, nF)</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.4.1)">scipy.sparse.csr_matrix</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.0)">scipy.sparse.csr_matrix</a></p>
 </td>
 </tr>
 </tbody>
@@ -1830,7 +1830,7 @@ dictionary of model arrays.</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dMdmu(u), the derivative of the inner product matrix for a certain u</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.4.1)">scipy.sparse.csr_matrix</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.0)">scipy.sparse.csr_matrix</a></p>
 </td>
 </tr>
 </tbody>
@@ -1866,7 +1866,7 @@ dictionary of model arrays.</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M, the interpolation matrix</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.4.1)">scipy.sparse.csr_matrix</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.0)">scipy.sparse.csr_matrix</a></p>
 </td>
 </tr>
 </tbody>
@@ -2000,11 +2000,6 @@ assigned level(s).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="discretize.TreeMesh.load">
-<code class="descclassname">TreeMesh.</code><code class="descname">load</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.load" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
 <dt id="discretize.TreeMesh.number">
 <code class="descclassname">TreeMesh.</code><code class="descname">number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.number" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number the cells, nodes, faces, and edges of the TreeMesh</p>
@@ -2020,7 +2015,7 @@ Plots the mesh grid in either 2D or 3D of the TreeMesh</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.2.1)"><em>matplotlib.axes.Axes</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a><em>, </em><em>optional</em>) – The axes handle to plot on</li>
+<li><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.2.2)"><em>matplotlib.axes.Axes</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a><em>, </em><em>optional</em>) – The axes handle to plot on</li>
 <li><strong>nodes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the nodal points</li>
 <li><strong>faces</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the center points of the faces</li>
 <li><strong>centers</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the center points of the cells</li>
@@ -2038,7 +2033,7 @@ Plots the mesh grid in either 2D or 3D of the TreeMesh</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Axes handle for the plot</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.2.1)">matplotlib.axes.Axes</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.2.2)">matplotlib.axes.Axes</a></p>
 </td>
 </tr>
 </tbody>
@@ -2059,7 +2054,7 @@ If 3D, this function plots a default slice of the TreeMesh</p>
 <li><strong>vType</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><em>optional</em>) – type of value in <cite>v</cite> one of ‘CC’, ‘N’, ‘Fx’, ‘Fy’, ‘Fz’, ‘Ex’, ‘Ey’, or ‘Ez’</li>
 <li><strong>grid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – plot the grid lines</li>
 <li><strong>view</strong> (<em>[</em><em>'real'</em><em>, </em><em>'imag'</em><em>, </em><em>'abs'</em><em>]</em><em>, </em><em>optional</em>) – The values to plot from v</li>
-<li><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.2.1)"><em>matplotlib.axes.Axes</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a><em>, </em><em>optional</em>) – The axes handle</li>
+<li><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.2.2)"><em>matplotlib.axes.Axes</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a><em>, </em><em>optional</em>) – The axes handle</li>
 <li><strong>clim</strong> (<em>array_like of length 2</em><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a><em>, </em><em>optional</em>) – A pair of [min, max] for the Colorbar</li>
 <li><strong>pcolorOpts</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a>) – options to be passed on to pcolormesh</li>
 <li><strong>gridOpt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a>) – options for the plotting the grid</li>
@@ -2369,7 +2364,14 @@ octree mesh and model.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
 <div role="contentinfo">
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
         <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
@@ -2401,7 +2403,6 @@ Built with
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
