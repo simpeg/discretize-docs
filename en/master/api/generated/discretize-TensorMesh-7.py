@@ -2,4 +2,4 @@ import discretize
 import numpy as np
 M = discretize.TensorMesh([20, 20, 20])
 v = np.sin(M.gridCC[:, 0]*2*np.pi)*np.sin(M.gridCC[:, 1]*2*np.pi)*np.sin(M.gridCC[:, 2]*2*np.pi)
-M.plotImage(v, annotationColor='k', showIt=True)
+M.plotImage(v, annotation_color='k', show_it=True)

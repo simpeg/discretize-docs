@@ -10,4 +10,4 @@ q[[4, 4], [4, 4], [2, 6]]=[-1, 1]
 q = discretize.utils.mkvc(q)
 A = M.faceDiv * M.cellGrad
 b = Solver(A) * (q)
-M.plotSlice(M.cellGrad*b, 'F', view='vec', grid=True, showIt=True, pcolorOpts={'alpha':0.8})
+M.plotSlice(M.cellGrad*b, 'F', view='vec', grid=True, show_it=True, pcolor_opts={'alpha':0.8})

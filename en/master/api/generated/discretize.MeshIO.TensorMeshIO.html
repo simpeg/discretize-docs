@@ -290,7 +290,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.MeshIO.TensorMeshIO.readModelUBC" title="discretize.MeshIO.TensorMeshIO.readModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readModelUBC</span></code></a>(mesh, fileName[, directory])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.MeshIO.TensorMeshIO.readModelUBC" title="discretize.MeshIO.TensorMeshIO.readModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readModelUBC</span></code></a>(fileName[, directory])</p></td>
 <td><p>Read UBC 2D or 3D Tensor mesh model</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#discretize.MeshIO.TensorMeshIO.readUBC" title="discretize.MeshIO.TensorMeshIO.readUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readUBC</span></code></a>(fileName[, directory])</p></td>
@@ -305,10 +305,10 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#discretize.MeshIO.TensorMeshIO.vtk_to_tensor_mesh" title="discretize.MeshIO.TensorMeshIO.vtk_to_tensor_mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtk_to_tensor_mesh</span></code></a>(vtrGrid)</p></td>
 <td><p>Converts a <code class="docutils literal notranslate"><span class="pre">vtkRectilinearGrid</span></code> or <a class="reference external" href="https://docs.pyvista.org/core/grids.html#pyvista.RectilinearGrid" title="(in PyVista v0.25.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> to a <a class="reference internal" href="discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code></a> object.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#discretize.MeshIO.TensorMeshIO.writeModelUBC" title="discretize.MeshIO.TensorMeshIO.writeModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeModelUBC</span></code></a>(mesh, fileName, model[, directory])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.MeshIO.TensorMeshIO.writeModelUBC" title="discretize.MeshIO.TensorMeshIO.writeModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeModelUBC</span></code></a>(fileName, model[, directory])</p></td>
 <td><p>Writes a model associated with a TensorMesh to a UBC-GIF format model file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.MeshIO.TensorMeshIO.writeUBC" title="discretize.MeshIO.TensorMeshIO.writeUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeUBC</span></code></a>(mesh, fileName[, models, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.MeshIO.TensorMeshIO.writeUBC" title="discretize.MeshIO.TensorMeshIO.writeUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeUBC</span></code></a>(fileName[, models, directory, …])</p></td>
 <td><p>Writes a TensorMesh to a UBC-GIF format mesh file.</p></td>
 </tr>
 </tbody>
@@ -381,7 +381,7 @@
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <dl class="py method">
 <dt id="discretize.MeshIO.TensorMeshIO.readModelUBC">
-<code class="sig-prename descclassname">TensorMeshIO.</code><code class="sig-name descname">readModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/MeshIO.html#TensorMeshIO.readModelUBC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.MeshIO.TensorMeshIO.readModelUBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMeshIO.</code><code class="sig-name descname">readModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/MeshIO.html#TensorMeshIO.readModelUBC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.MeshIO.TensorMeshIO.readModelUBC" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Read UBC 2D or 3D Tensor mesh model</dt><dd><p>and generate Tensor mesh model</p>
 </dd>
@@ -456,7 +456,7 @@ to a <a class="reference internal" href="discretize.TensorMesh.html#discretize.T
 
 <dl class="py method">
 <dt id="discretize.MeshIO.TensorMeshIO.writeModelUBC">
-<code class="sig-prename descclassname">TensorMeshIO.</code><code class="sig-name descname">writeModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/MeshIO.html#TensorMeshIO.writeModelUBC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.MeshIO.TensorMeshIO.writeModelUBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMeshIO.</code><code class="sig-name descname">writeModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/MeshIO.html#TensorMeshIO.writeModelUBC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.MeshIO.TensorMeshIO.writeModelUBC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes a model associated with a TensorMesh
 to a UBC-GIF format model file.</p>
 <p>Input:
@@ -468,7 +468,7 @@ or just its name if directory is specified
 
 <dl class="py method">
 <dt id="discretize.MeshIO.TensorMeshIO.writeUBC">
-<code class="sig-prename descclassname">TensorMeshIO.</code><code class="sig-name descname">writeUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">comment_lines</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/MeshIO.html#TensorMeshIO.writeUBC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.MeshIO.TensorMeshIO.writeUBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMeshIO.</code><code class="sig-name descname">writeUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">comment_lines</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/MeshIO.html#TensorMeshIO.writeUBC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.MeshIO.TensorMeshIO.writeUBC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes a TensorMesh to a UBC-GIF format mesh file.</p>
 <p>Input:
 :param str fileName: File to write to

@@ -283,7 +283,7 @@
 <h1>discretize.View.Slicer<a class="headerlink" href="#discretize-view-slicer" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="discretize.View.Slicer">
-<em class="property">class </em><code class="sig-prename descclassname">discretize.View.</code><code class="sig-name descname">Slicer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">xslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">yslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">vType</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">view</span><span class="o">=</span><span class="default_value">'real'</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'xy'</span></em>, <em class="sig-param"><span class="n">transparent</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ylim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">aspect</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">[2, 2, 1]</span></em>, <em class="sig-param"><span class="n">pcolorOpts</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#Slicer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.Slicer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">discretize.View.</code><code class="sig-name descname">Slicer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">xslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">yslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">v_type</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">view</span><span class="o">=</span><span class="default_value">'real'</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'xy'</span></em>, <em class="sig-param"><span class="n">transparent</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ylim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">aspect</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">[2, 2, 1]</span></em>, <em class="sig-param"><span class="n">pcolor_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#Slicer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.Slicer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Plot slices of a 3D volume, interactively (scroll wheel).</p>
 <p>If called from a notebook, make sure to set</p>
@@ -310,7 +310,7 @@ figure, and afterwards connect it:</p>
 <dt>xslice, yslice, zslice<span class="classifier">floats, optional</span></dt><dd><p>Initial slice locations (in meter);
 defaults to the middle of the volume.</p>
 </dd>
-<dt>vType: str</dt><dd><p>Type of visualization. Default is ‘CC’.
+<dt>v_type: str</dt><dd><p>Type of visualization. Default is ‘CC’.
 One of [‘CC’, ‘Fx’, ‘Fy’, ‘Fz’, ‘Ex’, ‘Ey’, ‘Ez’].</p>
 </dd>
 <dt>view<span class="classifier">str</span></dt><dd><p>Which component to show. Defaults to ‘real’.
@@ -340,7 +340,7 @@ the vertical dimension exaggerated by a factor of 2.</p>
 </dd>
 <dt>grid<span class="classifier">list of 3 int</span></dt><dd><p>Number of cells occupied by x, y, and z dimension on plt.subplot2grid.</p>
 </dd>
-<dt>pcolorOpts<span class="classifier">dictionary</span></dt><dd><p>Passed to pcolormesh.</p>
+<dt>pcolor_opts<span class="classifier">dictionary</span></dt><dd><p>Passed to pcolormesh.</p>
 </dd>
 </dl>
 <p class="rubric">Methods</p>
@@ -350,16 +350,16 @@ the vertical dimension exaggerated by a factor of 2.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.View.Slicer.onscroll" title="discretize.View.Slicer.onscroll"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onscroll</span></code></a>(self, event)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.View.Slicer.onscroll" title="discretize.View.Slicer.onscroll"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onscroll</span></code></a>(event)</p></td>
 <td><p>Update index and data when scrolling.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#discretize.View.Slicer.update_xy" title="discretize.View.Slicer.update_xy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_xy</span></code></a>(self)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.View.Slicer.update_xy" title="discretize.View.Slicer.update_xy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_xy</span></code></a>()</p></td>
 <td><p>Update plot for change in Z-index.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.View.Slicer.update_xz" title="discretize.View.Slicer.update_xz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_xz</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.View.Slicer.update_xz" title="discretize.View.Slicer.update_xz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_xz</span></code></a>()</p></td>
 <td><p>Update plot for change in Y-index.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#discretize.View.Slicer.update_zy" title="discretize.View.Slicer.update_zy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_zy</span></code></a>(self)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.View.Slicer.update_zy" title="discretize.View.Slicer.update_zy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_zy</span></code></a>()</p></td>
 <td><p>Update plot for change in X-index.</p></td>
 </tr>
 </tbody>
@@ -380,25 +380,25 @@ the vertical dimension exaggerated by a factor of 2.</p>
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <dl class="py method">
 <dt id="discretize.View.Slicer.onscroll">
-<code class="sig-prename descclassname">Slicer.</code><code class="sig-name descname">onscroll</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">event</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#Slicer.onscroll"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.Slicer.onscroll" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Slicer.</code><code class="sig-name descname">onscroll</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#Slicer.onscroll"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.Slicer.onscroll" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update index and data when scrolling.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.View.Slicer.update_xy">
-<code class="sig-prename descclassname">Slicer.</code><code class="sig-name descname">update_xy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#Slicer.update_xy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.Slicer.update_xy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Slicer.</code><code class="sig-name descname">update_xy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#Slicer.update_xy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.Slicer.update_xy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update plot for change in Z-index.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.View.Slicer.update_xz">
-<code class="sig-prename descclassname">Slicer.</code><code class="sig-name descname">update_xz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#Slicer.update_xz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.Slicer.update_xz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Slicer.</code><code class="sig-name descname">update_xz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#Slicer.update_xz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.Slicer.update_xz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update plot for change in Y-index.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.View.Slicer.update_zy">
-<code class="sig-prename descclassname">Slicer.</code><code class="sig-name descname">update_zy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#Slicer.update_zy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.Slicer.update_zy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Slicer.</code><code class="sig-name descname">update_zy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/View.html#Slicer.update_zy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.View.Slicer.update_zy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update plot for change in X-index.</p>
 </dd></dl>
 

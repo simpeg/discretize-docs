@@ -290,12 +290,12 @@ functions defined on a 2D tensor mesh. We then plot the results.
     fig = plt.figure(figsize=(10, 5))
 
     ax1 = fig.add_subplot(121)
-    mesh.plotImage(u, ax=ax1, vType='N')
+    mesh.plotImage(u, ax=ax1, v_type='N')
     ax1.set_title('u at cell centers')
 
     ax2 = fig.add_subplot(122)
-    mesh.plotImage(grad_u, ax=ax2, vType='E', view='vec',
-                   streamOpts={'color': 'w', 'density': 1.0})
+    mesh.plotImage(grad_u, ax=ax2, v_type='E', view='vec',
+                   stream_opts={'color': 'w', 'density': 1.0})
     ax2.set_title('gradient of u on edges')
 
     fig.show()
@@ -304,8 +304,8 @@ functions defined on a 2D tensor mesh. We then plot the results.
     fig = plt.figure(figsize=(10, 5))
 
     ax1 = fig.add_subplot(121)
-    mesh.plotImage(v, ax=ax1, vType='F', view='vec',
-                   streamOpts={'color': 'w', 'density': 1.0})
+    mesh.plotImage(v, ax=ax1, v_type='F', view='vec',
+                   stream_opts={'color': 'w', 'density': 1.0})
     ax1.set_title('v at cell faces')
 
     ax2 = fig.add_subplot(122)
@@ -318,8 +318,8 @@ functions defined on a 2D tensor mesh. We then plot the results.
     fig = plt.figure(figsize=(10, 5))
 
     ax1 = fig.add_subplot(121)
-    mesh.plotImage(w, ax=ax1, vType='E', view='vec',
-                   streamOpts={'color': 'w', 'density': 1.0})
+    mesh.plotImage(w, ax=ax1, v_type='E', view='vec',
+                   stream_opts={'color': 'w', 'density': 1.0})
     ax1.set_title('w at cell edges')
 
     ax2 = fig.add_subplot(122)
@@ -505,7 +505,7 @@ entries; **e.g. each is just a matrix of zeros**.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.900 seconds)
+   **Total running time of the script:** ( 0 minutes  2.909 seconds)
 
 
 .. _sphx_glr_download_tutorials_operators_2_differential.py:

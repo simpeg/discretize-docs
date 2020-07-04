@@ -1207,7 +1207,7 @@ cell-centers).</p>
 <dd><p>Face Normals</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>normals, (sum(nF), dim)</p>
@@ -1260,7 +1260,7 @@ docs for the <a class="reference internal" href="discretize.mixins.vtkModule.Int
 <dd><p>Edge Tangents</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>normals, (sum(nE), dim)</p>
@@ -1310,7 +1310,7 @@ docs for the <a class="reference internal" href="discretize.mixins.vtkModule.Int
 <dd><p>Total number of cells in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>[nCx, nCy, nCz]</p>
@@ -1330,7 +1330,7 @@ docs for the <a class="reference internal" href="discretize.mixins.vtkModule.Int
 <p>import discretize
 import numpy as np
 M = discretize.TensorMesh([np.ones(n) for n in [2,3]])
-M.plotGrid(edges=True, showIt=True)</p>
+M.plotGrid(edges=True, show_it=True)</p>
 </li>
 </ul>
 </p>
@@ -1344,7 +1344,7 @@ M.plotGrid(edges=True, showIt=True)</p>
 <dd><p>Number of x-edges in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>vnEx</p>
@@ -1358,7 +1358,7 @@ M.plotGrid(edges=True, showIt=True)</p>
 <dd><p>Number of y-edges in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>vnEy or None if dim &lt; 2</p>
@@ -1372,7 +1372,7 @@ M.plotGrid(edges=True, showIt=True)</p>
 <dd><p>Number of z-edges in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>vnEz or None if dim &lt; 3</p>
@@ -1386,7 +1386,7 @@ M.plotGrid(edges=True, showIt=True)</p>
 <dd><p>Total number of faces in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>[nFx, nFy, nFz], (dim, )</p>
@@ -1395,7 +1395,7 @@ M.plotGrid(edges=True, showIt=True)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
-<span class="n">M</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">faces</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">faces</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../api/generated/discretize-TensorMesh-3.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-3.png">png</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-3.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-3.pdf">pdf</a>)</p>
@@ -1410,7 +1410,7 @@ M.plotGrid(edges=True, showIt=True)</p>
 <dd><p>Number of x-faces in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>vnFx</p>
@@ -1424,7 +1424,7 @@ M.plotGrid(edges=True, showIt=True)</p>
 <dd><p>Number of y-faces in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>vnFy or None if dim &lt; 2</p>
@@ -1438,7 +1438,7 @@ M.plotGrid(edges=True, showIt=True)</p>
 <dd><p>Number of z-faces in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>vnFz or None if dim &lt; 3</p>
@@ -1452,7 +1452,7 @@ M.plotGrid(edges=True, showIt=True)</p>
 <dd><p>Total number of nodes in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>[nNx, nNy, nNz]</p>
@@ -1482,7 +1482,7 @@ M.plotGrid(edges=True, showIt=True)</p>
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <dl class="py method">
 <dt id="discretize.TensorMesh.copy">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a copy of the current mesh</p>
 </dd></dl>
 
@@ -1516,7 +1516,7 @@ deserializers.</p></li>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.equal">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">equal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.equal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">equal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.equal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine if two <strong>HasProperties</strong> instances are equivalent</p>
 <p>Equivalence is determined by checking if all Property values on
 two instances are equal, using <code class="code docutils literal notranslate"><span class="pre">Property.equal</span></code>.</p>
@@ -1532,7 +1532,7 @@ dictionary of model arrays.</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.getBCProjWF">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getBCProjWF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">BC</span></em>, <em class="sig-param"><span class="n">discretization</span><span class="o">=</span><span class="default_value">'CC'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getBCProjWF" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getBCProjWF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">BC</span></em>, <em class="sig-param"><span class="n">discretization</span><span class="o">=</span><span class="default_value">'CC'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getBCProjWF" title="Permalink to this definition">¶</a></dt>
 <dd><p>The weak form boundary condition projection matrices.</p>
 <p class="rubric">Examples</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Neumann in all directions</span>
@@ -1549,19 +1549,19 @@ dictionary of model arrays.</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.getBCProjWF_simple">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getBCProjWF_simple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">discretization</span><span class="o">=</span><span class="default_value">'CC'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getBCProjWF_simple" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getBCProjWF_simple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">discretization</span><span class="o">=</span><span class="default_value">'CC'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getBCProjWF_simple" title="Permalink to this definition">¶</a></dt>
 <dd><p>The weak form boundary condition projection matrices
 when mixed boundary condition is used</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.getEdgeInnerProduct">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getEdgeInnerProduct</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">prop</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getEdgeInnerProduct" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getEdgeInnerProduct</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prop</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getEdgeInnerProduct" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the edge inner product matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
+<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
 <li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the material property</p></li>
 <li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the matrix</p></li>
 <li><p><strong>doFast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – do a faster implementation if available.</p></li>
@@ -1578,11 +1578,11 @@ when mixed boundary condition is used</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.getEdgeInnerProductDeriv">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getEdgeInnerProductDeriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">prop</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getEdgeInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getEdgeInnerProductDeriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prop</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getEdgeInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
+<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
 <li><p><strong>doFast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – do a faster implementation if available.</p></li>
 <li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the material property</p></li>
 <li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the matrix</p></li>
@@ -1599,12 +1599,12 @@ when mixed boundary condition is used</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.getFaceInnerProduct">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getFaceInnerProduct</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">prop</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getFaceInnerProduct" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getFaceInnerProduct</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prop</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getFaceInnerProduct" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the face inner product matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
+<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
 <li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the material property</p></li>
 <li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the matrix</p></li>
 <li><p><strong>doFast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – do a faster implementation if available.</p></li>
@@ -1621,11 +1621,11 @@ when mixed boundary condition is used</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.getFaceInnerProductDeriv">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getFaceInnerProductDeriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">prop</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getFaceInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getFaceInnerProductDeriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prop</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getFaceInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
+<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
 <li><p><strong>doFast</strong> – bool  do a faster implementation if available.</p></li>
 <li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the material property</p></li>
 <li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the matrix</p></li>
@@ -1642,12 +1642,12 @@ when mixed boundary condition is used</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.getInterpolationMat">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getInterpolationMat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">loc</span></em>, <em class="sig-param"><span class="n">locType</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">zerosOutside</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getInterpolationMat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getInterpolationMat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc</span></em>, <em class="sig-param"><span class="n">locType</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">zerosOutside</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getInterpolationMat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Produces interpolation matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>loc</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – Location of points to interpolate to</p></li>
+<li><p><strong>loc</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – Location of points to interpolate to</p></li>
 <li><p><strong>locType</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – <p>What to interpolate (see below)</p>
 <p>locType can be:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Ex&#39;</span>    <span class="o">-&gt;</span> <span class="n">x</span><span class="o">-</span><span class="n">component</span> <span class="n">of</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">edges</span>
@@ -1677,7 +1677,7 @@ when mixed boundary condition is used</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.getTensor">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getTensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getTensor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">getTensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.getTensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a tensor list.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1706,14 +1706,14 @@ when mixed boundary condition is used</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.isInside">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">isInside</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">pts</span></em>, <em class="sig-param"><span class="n">locType</span><span class="o">=</span><span class="default_value">'N'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.isInside" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">isInside</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pts</span></em>, <em class="sig-param"><span class="n">locType</span><span class="o">=</span><span class="default_value">'N'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.isInside" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines if a set of points are inside a mesh.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>pts</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – Location of points to test</p>
+<dd class="field-odd"><p><strong>pts</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – Location of points to test</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>inside, numpy array of booleans</p>
@@ -1723,7 +1723,7 @@ when mixed boundary condition is used</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.plotGrid">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">plotGrid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nodes</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">faces</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">centers</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">edges</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">lines</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">showIt</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.plotGrid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">plotGrid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nodes</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">faces</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">centers</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">edges</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">lines</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">show_it</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.plotGrid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the nodal, cell-centered and staggered grids for 1,2 and 3 dimensions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1733,7 +1733,7 @@ when mixed boundary condition is used</p>
 <li><p><strong>centers</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – plot centers</p></li>
 <li><p><strong>edges</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – plot edges</p></li>
 <li><p><strong>lines</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – plot lines connecting nodes</p></li>
-<li><p><strong>showIt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – call plt.show()</p></li>
+<li><p><strong>show_it</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – call plt.show()</p></li>
 </ul>
 </dd>
 </dl>
@@ -1742,7 +1742,7 @@ when mixed boundary condition is used</p>
 <span class="n">h1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">h2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">mesh</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">])</span>
-<span class="n">mesh</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">faces</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">faces</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../api/generated/discretize-TensorMesh-4.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-4.png">png</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-4.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-4.pdf">pdf</a>)</p>
@@ -1755,7 +1755,7 @@ when mixed boundary condition is used</p>
 <span class="n">h2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">h3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">mesh</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">,</span> <span class="n">h3</span><span class="p">])</span>
-<span class="n">mesh</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">faces</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">faces</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../api/generated/discretize-TensorMesh-5.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-5.png">png</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-5.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-5.pdf">pdf</a>)</p>
@@ -1771,16 +1771,16 @@ when mixed boundary condition is used</p>
 <p>Input:</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>v</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – vector</p>
+<dd class="field-odd"><p><strong>v</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – vector</p>
 </dd>
 </dl>
 <p>Optional Inputs:</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>vType</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – type of vector (‘CC’, ‘N’, ‘F’, ‘Fx’, ‘Fy’, ‘Fz’, ‘E’, ‘Ex’, ‘Ey’, ‘Ez’)</p></li>
+<li><p><strong>v_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – type of vector (‘CC’, ‘N’, ‘F’, ‘Fx’, ‘Fy’, ‘Fz’, ‘E’, ‘Ex’, ‘Ey’, ‘Ez’)</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.2.2)"><em>matplotlib.axes.Axes</em></a>) – axis to plot to</p></li>
-<li><p><strong>showIt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – call plt.show()</p></li>
+<li><p><strong>show_it</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – call plt.show()</p></li>
 </ul>
 </dd>
 </dl>
@@ -1789,7 +1789,7 @@ when mixed boundary condition is used</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>numbering</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – show numbering of slices, 3D only</p></li>
-<li><p><strong>annotationColor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – color of annotation, e.g. ‘w’, ‘k’, ‘b’</p></li>
+<li><p><strong>annotation_color</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – color of annotation, e.g. ‘w’, ‘k’, ‘b’</p></li>
 </ul>
 </dd>
 </dl>
@@ -1797,7 +1797,7 @@ when mixed boundary condition is used</p>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-<span class="n">M</span><span class="o">.</span><span class="n">plotImage</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">plotImage</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../api/generated/discretize-TensorMesh-6.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-6.png">png</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-6.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-6.pdf">pdf</a>)</p>
@@ -1808,7 +1808,7 @@ when mixed boundary condition is used</p>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-<span class="n">M</span><span class="o">.</span><span class="n">plotImage</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">annotationColor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">plotImage</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">annotation_color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../api/generated/discretize-TensorMesh-7.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-7.png">png</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-7.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-7.pdf">pdf</a>)</p>
@@ -1819,7 +1819,7 @@ when mixed boundary condition is used</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.plotSlice">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">plotSlice</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">vType</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">'Z'</span></em>, <em class="sig-param"><span class="n">ind</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">view</span><span class="o">=</span><span class="default_value">'real'</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">showIt</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">pcolorOpts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">streamOpts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">gridOpts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sample_grid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_threshold</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_thickness</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.plotSlice" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">plotSlice</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">v_type</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">'Z'</span></em>, <em class="sig-param"><span class="n">ind</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">view</span><span class="o">=</span><span class="default_value">'real'</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">show_it</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">pcolor_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">grid_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sample_grid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_threshold</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_thickness</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.plotSlice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots a slice of a 3D mesh.</p>
 <p>(<a class="reference external" href="../../api/generated/discretize-TensorMesh-8.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-8.png">png</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-8.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-8.pdf">pdf</a>)</p>
 <div class="figure align-default">
@@ -1829,7 +1829,7 @@ when mixed boundary condition is used</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.plot_3d_slicer">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">plot_3d_slicer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">xslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">yslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">vType</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">view</span><span class="o">=</span><span class="default_value">'real'</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'xy'</span></em>, <em class="sig-param"><span class="n">transparent</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ylim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">aspect</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">[2, 2, 1]</span></em>, <em class="sig-param"><span class="n">pcolorOpts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fig</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.plot_3d_slicer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">plot_3d_slicer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">xslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">yslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">v_type</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">view</span><span class="o">=</span><span class="default_value">'real'</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'xy'</span></em>, <em class="sig-param"><span class="n">transparent</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ylim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">aspect</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">[2, 2, 1]</span></em>, <em class="sig-param"><span class="n">pcolor_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fig</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.plot_3d_slicer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot slices of a 3D volume, interactively (scroll wheel).</p>
 <p>If called from a notebook, make sure to set</p>
 <blockquote>
@@ -1856,15 +1856,15 @@ first.</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.projectEdgeVector">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">projectEdgeVector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">eV</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.projectEdgeVector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">projectEdgeVector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eV</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.projectEdgeVector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a vector, eV, in cartesian coordinates, this will project
 it onto the mesh using the tangents</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>eV</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – edge vector with shape (nE, dim)</p>
+<dd class="field-odd"><p><strong>eV</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – edge vector with shape (nE, dim)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>projected edge vector, (nE, )</p>
@@ -1874,15 +1874,15 @@ it onto the mesh using the tangents</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.projectFaceVector">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">projectFaceVector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">fV</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.projectFaceVector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">projectFaceVector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fV</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.projectFaceVector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a vector, fV, in cartesian coordinates, this will project
 it onto the mesh using the normals</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>fV</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – face vector with shape (nF, dim)</p>
+<dd class="field-odd"><p><strong>fV</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – face vector with shape (nF, dim)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>projected face vector, (nF, )</p>
@@ -1892,7 +1892,7 @@ it onto the mesh using the normals</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.r">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">r</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">xType</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">outType</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">'V'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.r" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">r</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">xType</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">outType</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">'V'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.r" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>r</cite> is a quick reshape command that will do the best it
 can at giving you what you want.</p>
 <p>For example, you have a face variable, and you want the x
@@ -1934,7 +1934,7 @@ component of it reshaped to a 3D matrix.</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.readModelUBC">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">readModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.readModelUBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">readModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.readModelUBC" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Read UBC 2D or 3D Tensor mesh model</dt><dd><p>and generate Tensor mesh model</p>
 </dd>
@@ -2002,7 +2002,7 @@ or just its name if directory is specified
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.save">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">'mesh.json'</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.save" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">'mesh.json'</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save the mesh to json
 :param str file: filename for saving the casing properties
 :param str directory: working directory for saving the file</p>
@@ -2010,7 +2010,7 @@ or just its name if directory is specified
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.serialize">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">include_class</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">save_dynamic</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.serialize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">include_class</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">save_dynamic</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.serialize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Serializes a <strong>HasProperties</strong> instance to dictionary</p>
 <p>This uses the Property serializers to serialize all Property values
 to a JSON-compatible dictionary. Properties that are undefined are
@@ -2030,7 +2030,7 @@ serializers.</p></li>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.setCellGradBC">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">setCellGradBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">BC</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.setCellGradBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">setCellGradBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">BC</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.setCellGradBC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function that sets the boundary conditions for cell-centred derivative
 operators.</p>
 <p class="rubric">Examples</p>
@@ -2047,43 +2047,43 @@ BC = [[‘neumann’, ‘dirichlet’], ‘dirichlet’, ‘dirichlet’]</p>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.toVTK">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">toVTK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.toVTK" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">toVTK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.toVTK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data
 object with the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.to_omf">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">to_omf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.to_omf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">to_omf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.to_omf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert this mesh object to it’s proper <code class="docutils literal notranslate"><span class="pre">omf</span></code> data object with
 the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.to_vtk">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">to_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.to_vtk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">to_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.to_vtk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data
 object with the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.validate">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">validate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.validate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.validate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Call all registered class validator methods</p>
 <p>These are all methods decorated with <code class="code docutils literal notranslate"><span class="pre">&#64;properties.validator</span></code>.
 Validator methods are expected to raise a ValidationError if they
@@ -2099,7 +2099,7 @@ to a <a class="reference internal" href="#discretize.TensorMesh" title="discreti
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.writeModelUBC">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">writeModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.writeModelUBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">writeModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.writeModelUBC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes a model associated with a TensorMesh
 to a UBC-GIF format model file.</p>
 <p>Input:
@@ -2111,7 +2111,7 @@ or just its name if directory is specified
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.writeUBC">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">writeUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">comment_lines</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.writeUBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">writeUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">comment_lines</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.writeUBC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes a TensorMesh to a UBC-GIF format mesh file.</p>
 <p>Input:
 :param str fileName: File to write to
@@ -2122,7 +2122,7 @@ or just its name if directory is specified
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.writeVTK">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">writeVTK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.writeVTK" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">writeVTK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.writeVTK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes and saves a VTK object from this mesh and given models</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -2137,7 +2137,7 @@ or just its name if directory is specified
 
 <dl class="py method">
 <dt id="discretize.TensorMesh.write_vtk">
-<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">write_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.write_vtk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TensorMesh.</code><code class="sig-name descname">write_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TensorMesh.write_vtk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes and saves a VTK object from this mesh and given models</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

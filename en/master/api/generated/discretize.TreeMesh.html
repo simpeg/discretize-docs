@@ -1169,7 +1169,7 @@ less than <cite>levels</cite> or <cite>max_level</cite>.</p>
 <dd><p>Face Normals</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>normals, (sum(nF), dim)</p>
@@ -1294,7 +1294,7 @@ docs for the <a class="reference internal" href="discretize.mixins.vtkModule.Int
 <dd><p>Edge Tangents</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>normals, (sum(nE), dim)</p>
@@ -1350,7 +1350,7 @@ docs for the <a class="reference internal" href="discretize.mixins.vtkModule.Int
 <p>import discretize
 import numpy as np
 M = discretize.TensorMesh([np.ones(n) for n in [2,3]])
-M.plotGrid(edges=True, showIt=True)</p>
+M.plotGrid(edges=True, show_it=True)</p>
 </li>
 </ul>
 </p>
@@ -1364,7 +1364,7 @@ M.plotGrid(edges=True, showIt=True)</p>
 <dd><p>Total number of faces in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>[nFx, nFy, nFz], (dim, )</p>
@@ -1373,7 +1373,7 @@ M.plotGrid(edges=True, showIt=True)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
-<span class="n">M</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">faces</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">faces</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../api/generated/discretize-TreeMesh-1.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-TreeMesh-1.png">png</a>, <a class="reference external" href="../../api/generated/discretize-TreeMesh-1.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-TreeMesh-1.pdf">pdf</a>)</p>
@@ -1417,7 +1417,7 @@ cells in order.</p>
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <dl class="py method">
 <dt id="discretize.TreeMesh.cell_levels_by_index">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">cell_levels_by_index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">indices</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.cell_levels_by_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.cell_levels_by_index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">cell_levels_by_index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">indices</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.cell_levels_by_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.cell_levels_by_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fast function to return a list of levels for the given cell indices</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1434,7 +1434,7 @@ cells in order.</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.copy">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a copy of the current mesh</p>
 </dd></dl>
 
@@ -1468,7 +1468,7 @@ deserializers.</p></li>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.equal">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">equal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.equal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">equal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.equal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine if two <strong>HasProperties</strong> instances are equivalent</p>
 <p>Equivalence is determined by checking if all Property values on
 two instances are equal, using <code class="code docutils literal notranslate"><span class="pre">Property.equal</span></code>.</p>
@@ -1476,7 +1476,7 @@ two instances are equal, using <code class="code docutils literal notranslate"><
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.finalize">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.finalize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">finalize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.finalize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finalize the TreeMesh
 Called after finished cronstruction of the mesh. Can only be called once.
 After finalize is called, all other attributes and functions are valid.</p>
@@ -1492,12 +1492,12 @@ dictionary of model arrays.</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.getEdgeInnerProduct">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getEdgeInnerProduct</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">prop</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.getEdgeInnerProduct" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getEdgeInnerProduct</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prop</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.getEdgeInnerProduct" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the edge inner product matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
+<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
 <li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the material property</p></li>
 <li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the matrix</p></li>
 <li><p><strong>doFast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – do a faster implementation if available.</p></li>
@@ -1514,11 +1514,11 @@ dictionary of model arrays.</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.getEdgeInnerProductDeriv">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getEdgeInnerProductDeriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">prop</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.getEdgeInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getEdgeInnerProductDeriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prop</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.getEdgeInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
+<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
 <li><p><strong>doFast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – do a faster implementation if available.</p></li>
 <li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the material property</p></li>
 <li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the matrix</p></li>
@@ -1535,12 +1535,12 @@ dictionary of model arrays.</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.getFaceInnerProduct">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getFaceInnerProduct</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">prop</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.getFaceInnerProduct" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getFaceInnerProduct</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prop</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.getFaceInnerProduct" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the face inner product matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
+<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
 <li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the material property</p></li>
 <li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the matrix</p></li>
 <li><p><strong>doFast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – do a faster implementation if available.</p></li>
@@ -1557,11 +1557,11 @@ dictionary of model arrays.</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.getFaceInnerProductDeriv">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getFaceInnerProductDeriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">prop</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.getFaceInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getFaceInnerProductDeriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prop</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.getFaceInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
+<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
 <li><p><strong>doFast</strong> – bool  do a faster implementation if available.</p></li>
 <li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the material property</p></li>
 <li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the matrix</p></li>
@@ -1578,12 +1578,12 @@ dictionary of model arrays.</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.getInterpolationMat">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getInterpolationMat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">locs</span></em>, <em class="sig-param"><span class="n">locType</span></em>, <em class="sig-param"><span class="n">zerosOutside</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.getInterpolationMat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.getInterpolationMat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getInterpolationMat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locs</span></em>, <em class="sig-param"><span class="n">locType</span></em>, <em class="sig-param"><span class="n">zerosOutside</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.getInterpolationMat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.getInterpolationMat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Produces interpolation matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>loc</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – Location of points to interpolate to</p></li>
+<li><p><strong>loc</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – Location of points to interpolate to</p></li>
 <li><p><strong>locType</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – <p>What to interpolate</p>
 <p>locType can be:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Ex&#39;</span>    <span class="o">-&gt;</span> <span class="n">x</span><span class="o">-</span><span class="n">component</span> <span class="n">of</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">edges</span>
@@ -1610,7 +1610,7 @@ dictionary of model arrays.</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.getTensor">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getTensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.getTensor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getTensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.getTensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a tensor list.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1639,7 +1639,7 @@ dictionary of model arrays.</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.get_boundary_cells">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">get_boundary_cells</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.get_boundary_cells" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">get_boundary_cells</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">active_ind</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">direction</span><span class="o">=</span><span class="default_value">'zu'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.get_boundary_cells" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the indices of boundary cells in a given direction given an active index array.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1659,7 +1659,7 @@ dictionary of model arrays.</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.get_cells_along_line">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">get_cells_along_line</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.get_cells_along_line" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">get_cells_along_line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">x0</span></em>, <em class="sig-param"><span class="n">x1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.get_cells_along_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the cells along a line segment defined by two points</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1677,7 +1677,7 @@ points, ordered in the direction of the line.</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.insert_cells">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">insert_cells</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.insert_cells" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">insert_cells</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">points</span></em>, <em class="sig-param"><span class="n">levels</span></em>, <em class="sig-param"><span class="n">finalize</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.insert_cells" title="Permalink to this definition">¶</a></dt>
 <dd><p>Insert cells into the TreeMesh that contain given points</p>
 <p>Insert cell(s) into the TreeMesh that contain the given point(s) at the
 assigned level(s).</p>
@@ -1708,14 +1708,14 @@ assigned level(s).</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.isInside">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">isInside</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">pts</span></em>, <em class="sig-param"><span class="n">locType</span><span class="o">=</span><span class="default_value">'N'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.isInside" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">isInside</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pts</span></em>, <em class="sig-param"><span class="n">locType</span><span class="o">=</span><span class="default_value">'N'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.isInside" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines if a set of points are inside a mesh.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>pts</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – Location of points to test</p>
+<dd class="field-odd"><p><strong>pts</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – Location of points to test</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>inside, numpy array of booleans</p>
@@ -1725,13 +1725,13 @@ assigned level(s).</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.number">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.number" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">number</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.number" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number the cells, nodes, faces, and edges of the TreeMesh</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.plotGrid">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">plotGrid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.plotGrid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">plotGrid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nodes</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">faces</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">centers</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">edges</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">lines</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">cell_line</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">faces_x</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">faces_y</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">faces_z</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">edges_x</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">edges_y</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">edges_z</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">show_it</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.plotGrid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the nodel, cell-centered, and staggered grids for 2 and 3 dimensions
 Plots the mesh grid in either 2D or 3D of the TreeMesh</p>
 <dl class="field-list simple">
@@ -1746,7 +1746,7 @@ Plots the mesh grid in either 2D or 3D of the TreeMesh</p>
 <li><p><strong>cell_line</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the line through the cell centers in order</p></li>
 <li><p><strong>faces_y</strong><strong>, </strong><strong>faces_z</strong> (<em>faces_x</em><em>,</em>) – Plot the center points of the x, y, or z faces</p></li>
 <li><p><strong>edges_y</strong><strong>, </strong><strong>edges_z</strong> (<em>edges_x</em><em>,</em>) – Plot the center points of the x, y, or z edges</p></li>
-<li><p><strong>showIt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – whether to call plt.show() within the codes</p></li>
+<li><p><strong>show_it</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – whether to call plt.show() within the codes</p></li>
 <li><p><strong>color</strong> (<em>Color</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><em>optional</em>) – if lines=True, the color of the lines, defaults to first color.</p></li>
 <li><p><strong>linewidth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a><em>, </em><em>optional</em>) – if lines=True, the linewidth for the lines.</p></li>
 </ul>
@@ -1762,19 +1762,19 @@ Plots the mesh grid in either 2D or 3D of the TreeMesh</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.plotImage">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">plotImage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.plotImage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">plotImage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">v_type</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">view</span><span class="o">=</span><span class="default_value">'real'</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">show_it</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">pcolor_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">grid_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.plotImage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots an image of values defined on the TreeMesh
 If 3D, this function plots a default slice of the TreeMesh</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>v</strong> (<em>array_like</em>) – Array containing the values to plot</p></li>
-<li><p><strong>vType</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><em>optional</em>) – type of value in <cite>v</cite> one of ‘CC’, ‘N’, ‘Fx’, ‘Fy’, ‘Fz’, ‘Ex’, ‘Ey’, or ‘Ez’</p></li>
+<li><p><strong>v_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><em>optional</em>) – type of value in <cite>v</cite> one of ‘CC’, ‘N’, ‘Fx’, ‘Fy’, ‘Fz’, ‘Ex’, ‘Ey’, or ‘Ez’</p></li>
 <li><p><strong>grid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – plot the grid lines</p></li>
 <li><p><strong>view</strong> (<em>[</em><em>'real'</em><em>, </em><em>'imag'</em><em>, </em><em>'abs'</em><em>]</em><em>, </em><em>optional</em>) – The values to plot from v</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.2.2)"><em>matplotlib.axes.Axes</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a><em>, </em><em>optional</em>) – The axes handle</p></li>
 <li><p><strong>clim</strong> (<em>array_like of length 2</em><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a><em>, </em><em>optional</em>) – A pair of [min, max] for the Colorbar</p></li>
-<li><p><strong>pcolorOpts</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a>) – options to be passed on to pcolormesh</p></li>
+<li><p><strong>pcolor_opts</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a>) – options to be passed on to pcolormesh</p></li>
 <li><p><strong>gridOpt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a>) – options for the plotting the grid</p></li>
 <li><p><strong>range_y</strong> (<em>range_x</em><em>,</em>) – pairs of [min, max] values for the x and y ranges</p></li>
 </ul>
@@ -1784,12 +1784,12 @@ If 3D, this function plots a default slice of the TreeMesh</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.plotSlice">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">plotSlice</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">vType</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">'Z'</span></em>, <em class="sig-param"><span class="n">ind</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">view</span><span class="o">=</span><span class="default_value">'real'</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">showIt</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">pcolorOpts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">streamOpts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">gridOpts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.plotSlice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.plotSlice" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">plotSlice</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">v_type</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">'Z'</span></em>, <em class="sig-param"><span class="n">ind</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">view</span><span class="o">=</span><span class="default_value">'real'</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">show_it</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">pcolor_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">grid_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.plotSlice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.plotSlice" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.point2index">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">point2index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">locs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.point2index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.point2index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">point2index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.point2index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.point2index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds cells that contain the given points.
 Returns an array of index values of the cells that contain the given
 points</p>
@@ -1808,15 +1808,15 @@ points</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.projectEdgeVector">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">projectEdgeVector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">eV</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.projectEdgeVector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">projectEdgeVector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eV</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.projectEdgeVector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a vector, eV, in cartesian coordinates, this will project
 it onto the mesh using the tangents</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>eV</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – edge vector with shape (nE, dim)</p>
+<dd class="field-odd"><p><strong>eV</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – edge vector with shape (nE, dim)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>projected edge vector, (nE, )</p>
@@ -1826,15 +1826,15 @@ it onto the mesh using the tangents</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.projectFaceVector">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">projectFaceVector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">fV</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.projectFaceVector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">projectFaceVector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fV</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.projectFaceVector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a vector, fV, in cartesian coordinates, this will project
 it onto the mesh using the normals</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>fV</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a>) – face vector with shape (nF, dim)</p>
+<dd class="field-odd"><p><strong>fV</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – face vector with shape (nF, dim)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>projected face vector, (nF, )</p>
@@ -1844,7 +1844,7 @@ it onto the mesh using the normals</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.readModelUBC">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">readModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">fileName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.readModelUBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">readModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fileName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.readModelUBC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read UBC OcTree model and get vector
 :param string fileName: path to the UBC GIF model file to read
 :rtype: numpy.ndarray
@@ -1863,7 +1863,7 @@ Input:
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.refine">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">refine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.refine" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">refine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">function</span></em>, <em class="sig-param"><span class="n">finalize</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.refine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Refine a TreeMesh using a user supplied function.</p>
 <p>Refines the TreeMesh using a function that is recursively called on each
 cell of the mesh. It must accept an object of type <cite>discretize.TreeMesh.Cell</cite>
@@ -1907,7 +1907,7 @@ or an integer to refine all cells to at least that level.</p></li>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.save">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">'mesh.json'</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.save" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">'mesh.json'</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save the mesh to json
 :param str file: filename for saving the casing properties
 :param str directory: working directory for saving the file</p>
@@ -1915,7 +1915,7 @@ or an integer to refine all cells to at least that level.</p></li>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.serialize">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.serialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.serialize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.serialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.serialize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Serializes a <strong>HasProperties</strong> instance to dictionary</p>
 <p>This uses the Property serializers to serialize all Property values
 to a JSON-compatible dictionary. Properties that are undefined are
@@ -1935,43 +1935,43 @@ serializers.</p></li>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.toVTK">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">toVTK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.toVTK" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">toVTK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.toVTK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data
 object with the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.to_omf">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">to_omf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.to_omf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">to_omf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.to_omf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert this mesh object to it’s proper <code class="docutils literal notranslate"><span class="pre">omf</span></code> data object with
 the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.to_vtk">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">to_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.to_vtk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">to_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.to_vtk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data
 object with the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.validate">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">validate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.validate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.validate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Call all registered class validator methods</p>
 <p>These are all methods decorated with <code class="code docutils literal notranslate"><span class="pre">&#64;properties.validator</span></code>.
 Validator methods are expected to raise a ValidationError if they
@@ -1980,7 +1980,7 @@ fail.</p>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.writeModelUBC">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">writeModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.writeModelUBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">writeModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.writeModelUBC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes a model associated with a TreeMesh
 to a UBC-GIF format model file.</p>
 <p>Input:
@@ -1992,7 +1992,7 @@ or just its name if directory is specified
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.writeUBC">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">writeUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.writeUBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">writeUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.writeUBC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write UBC ocTree mesh and model files from a
 octree mesh and model.
 :param string fileName: File to write to
@@ -2002,7 +2002,7 @@ octree mesh and model.
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.writeVTK">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">writeVTK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.writeVTK" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">writeVTK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.writeVTK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes and saves a VTK object from this mesh and given models</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -2017,7 +2017,7 @@ octree mesh and model.
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.write_vtk">
-<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">write_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.write_vtk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">write_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.write_vtk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes and saves a VTK object from this mesh and given models</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

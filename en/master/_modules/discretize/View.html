@@ -257,7 +257,7 @@
     <span class="c1"># def components(self):</span>
 
     <span class="c1">#     plotAll = len(imageType) == 1</span>
-    <span class="c1">#     options = {&quot;direction&quot;:direction, &quot;numbering&quot;:numbering, &quot;annotationColor&quot;:annotationColor, &quot;showIt&quot;:False}</span>
+    <span class="c1">#     options = {&quot;direction&quot;:direction, &quot;numbering&quot;:numbering, &quot;annotation_color&quot;:annotation_color, &quot;show_it&quot;:False}</span>
     <span class="c1">#     fig = plt.figure(figNum)</span>
     <span class="c1">#     # Determine the subplot number: 131, 121</span>
     <span class="c1">#     numPlots = 130 if plotAll else len(imageType)//2*10+100</span>
@@ -275,18 +275,18 @@
     <span class="c1">#         ax_z = plt.subplot(numPlots+pltNum)</span>
     <span class="c1">#         self.plotImage(fxyz[2], imageType=&#39;Fz&#39;, ax=ax_z, **options)</span>
     <span class="c1">#         pltNum +=1</span>
-    <span class="c1">#     if showIt: plt.show()</span>
+    <span class="c1">#     if show_it: plt.show()</span>
 
 <div class="viewcode-block" id="TensorView.plotImage"><a class="viewcode-back" href="../../api/generated/discretize.View.TensorView.html#discretize.TensorView.plotImage">[docs]</a>    <span class="nd">@requires</span><span class="p">({</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">:</span> <span class="n">matplotlib</span><span class="p">})</span>
     <span class="k">def</span> <span class="nf">plotImage</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">vType</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">,</span>
-        <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">pcolorOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">streamOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">gridOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">numbering</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">annotationColor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">v_type</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">pcolor_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">stream_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">grid_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">numbering</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">annotation_color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span>
         <span class="n">range_x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">range_y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_grid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">stream_threshold</span><span class="o">=</span><span class="kc">None</span>
+        <span class="n">stream_threshold</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Mesh.plotImage(v)</span>
@@ -299,14 +299,14 @@
 
 <span class="sd">        Optional Inputs:</span>
 
-<span class="sd">        :param str vType: type of vector (&#39;CC&#39;, &#39;N&#39;, &#39;F&#39;, &#39;Fx&#39;, &#39;Fy&#39;, &#39;Fz&#39;, &#39;E&#39;, &#39;Ex&#39;, &#39;Ey&#39;, &#39;Ez&#39;)</span>
+<span class="sd">        :param str v_type: type of vector (&#39;CC&#39;, &#39;N&#39;, &#39;F&#39;, &#39;Fx&#39;, &#39;Fy&#39;, &#39;Fz&#39;, &#39;E&#39;, &#39;Ex&#39;, &#39;Ey&#39;, &#39;Ez&#39;)</span>
 <span class="sd">        :param matplotlib.axes.Axes ax: axis to plot to</span>
-<span class="sd">        :param bool showIt: call plt.show()</span>
+<span class="sd">        :param bool show_it: call plt.show()</span>
 
 <span class="sd">        3D Inputs:</span>
 
 <span class="sd">        :param bool numbering: show numbering of slices, 3D only</span>
-<span class="sd">        :param str annotationColor: color of annotation, e.g. &#39;w&#39;, &#39;k&#39;, &#39;b&#39;</span>
+<span class="sd">        :param str annotation_color: color of annotation, e.g. &#39;w&#39;, &#39;k&#39;, &#39;b&#39;</span>
 
 <span class="sd">        .. plot::</span>
 <span class="sd">            :include-source:</span>
@@ -315,7 +315,7 @@
 <span class="sd">            import numpy as np</span>
 <span class="sd">            M = discretize.TensorMesh([20, 20])</span>
 <span class="sd">            v = np.sin(M.gridCC[:, 0]*2*np.pi)*np.sin(M.gridCC[:, 1]*2*np.pi)</span>
-<span class="sd">            M.plotImage(v, showIt=True)</span>
+<span class="sd">            M.plotImage(v, show_it=True)</span>
 
 <span class="sd">        .. plot::</span>
 <span class="sd">            :include-source:</span>
@@ -324,15 +324,34 @@
 <span class="sd">            import numpy as np</span>
 <span class="sd">            M = discretize.TensorMesh([20, 20, 20])</span>
 <span class="sd">            v = np.sin(M.gridCC[:, 0]*2*np.pi)*np.sin(M.gridCC[:, 1]*2*np.pi)*np.sin(M.gridCC[:, 2]*2*np.pi)</span>
-<span class="sd">            M.plotImage(v, annotationColor=&#39;k&#39;, showIt=True)</span>
+<span class="sd">            M.plotImage(v, annotation_color=&#39;k&#39;, show_it=True)</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">pcolorOpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">pcolorOpts</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">if</span> <span class="n">streamOpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">streamOpts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">}</span>
-        <span class="k">if</span> <span class="n">gridOpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">gridOpts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">}</span>
+        <span class="k">if</span> <span class="s2">&quot;pcolorOpts&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">pcolor_opts</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;pcolorOpts&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;pcolorOpts has been deprecated, please use pcolor_opts&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;streamOpts&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">stream_opts</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;streamOpts&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;streamOpts has been deprecated, please use stream_opts&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;gridOpts&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">grid_opts</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;gridOpts&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;gridOpts has been deprecated, please use grid_opts&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;showIt&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">show_it</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;showIt&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;showIt has been deprecated, please use show_it&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;annotationColor&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">show_it</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;annotationColor&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;annotationColor has been deprecated, please use annotation_color&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;vType&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">show_it</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;vType&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;vType has been deprecated, please use v_type&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">pcolor_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">pcolor_opts</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">stream_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">stream_opts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">grid_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">grid_opts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">}</span>
 
         <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -343,11 +362,11 @@
             <span class="n">fig</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">vType</span> <span class="o">==</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">v_type</span> <span class="o">==</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
                 <span class="n">ph</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">vectorCCx</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span>
                 <span class="p">)</span>
-            <span class="k">elif</span> <span class="n">vType</span> <span class="o">==</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">v_type</span> <span class="o">==</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span>
                 <span class="n">ph</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">vectorNx</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span>
                 <span class="p">)</span>
@@ -355,26 +374,26 @@
             <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plotImage2D</span><span class="p">(</span>
-                <span class="n">v</span><span class="p">,</span> <span class="n">vType</span><span class="o">=</span><span class="n">vType</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="n">view</span><span class="p">,</span>
-                <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="n">showIt</span><span class="p">,</span>
-                <span class="n">pcolorOpts</span><span class="o">=</span><span class="n">pcolorOpts</span><span class="p">,</span> <span class="n">streamOpts</span><span class="o">=</span><span class="n">streamOpts</span><span class="p">,</span>
-                <span class="n">gridOpts</span><span class="o">=</span><span class="n">gridOpts</span><span class="p">,</span> <span class="n">range_x</span><span class="o">=</span><span class="n">range_x</span><span class="p">,</span> <span class="n">range_y</span><span class="o">=</span><span class="n">range_y</span><span class="p">,</span>
+                <span class="n">v</span><span class="p">,</span> <span class="n">v_type</span><span class="o">=</span><span class="n">v_type</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="n">view</span><span class="p">,</span>
+                <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="n">show_it</span><span class="p">,</span>
+                <span class="n">pcolor_opts</span><span class="o">=</span><span class="n">pcolor_opts</span><span class="p">,</span> <span class="n">stream_opts</span><span class="o">=</span><span class="n">stream_opts</span><span class="p">,</span>
+                <span class="n">grid_opts</span><span class="o">=</span><span class="n">grid_opts</span><span class="p">,</span> <span class="n">range_x</span><span class="o">=</span><span class="n">range_x</span><span class="p">,</span> <span class="n">range_y</span><span class="o">=</span><span class="n">range_y</span><span class="p">,</span>
                 <span class="n">sample_grid</span><span class="o">=</span><span class="n">sample_grid</span><span class="p">,</span> <span class="n">stream_threshold</span><span class="o">=</span><span class="n">stream_threshold</span>
             <span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
             <span class="c1"># get copy of image and average to cell-centers is necessary</span>
-            <span class="k">if</span> <span class="n">vType</span> <span class="o">==</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">v_type</span> <span class="o">==</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
                 <span class="n">vc</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vnC</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">vType</span> <span class="o">==</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">v_type</span> <span class="o">==</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span>
                 <span class="n">vc</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aveN2CC</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vnC</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">vType</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Fz&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">,</span> <span class="s1">&#39;Ez&#39;</span><span class="p">]:</span>
-                <span class="n">aveOp</span> <span class="o">=</span> <span class="s1">&#39;ave&#39;</span> <span class="o">+</span> <span class="n">vType</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;2CCV&#39;</span>
-                <span class="c1"># n = getattr(self, &#39;vn&#39;+vType[0])</span>
-                <span class="c1"># if &#39;x&#39; in vType: v = np.r_[v, np.zeros(n[1]), np.zeros(n[2])]</span>
-                <span class="c1"># if &#39;y&#39; in vType: v = np.r_[np.zeros(n[0]), v, np.zeros(n[2])]</span>
-                <span class="c1"># if &#39;z&#39; in vType: v = np.r_[np.zeros(n[0]), np.zeros(n[1]), v]</span>
+            <span class="k">elif</span> <span class="n">v_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Fz&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">,</span> <span class="s1">&#39;Ez&#39;</span><span class="p">]:</span>
+                <span class="n">aveOp</span> <span class="o">=</span> <span class="s1">&#39;ave&#39;</span> <span class="o">+</span> <span class="n">v_type</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;2CCV&#39;</span>
+                <span class="c1"># n = getattr(self, &#39;vn&#39;+v_type[0])</span>
+                <span class="c1"># if &#39;x&#39; in v_type: v = np.r_[v, np.zeros(n[1]), np.zeros(n[2])]</span>
+                <span class="c1"># if &#39;y&#39; in v_type: v = np.r_[np.zeros(n[0]), v, np.zeros(n[2])]</span>
+                <span class="c1"># if &#39;z&#39; in v_type: v = np.r_[np.zeros(n[0]), np.zeros(n[1]), v]</span>
                 <span class="n">v</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aveOp</span><span class="p">)</span><span class="o">*</span><span class="n">v</span> <span class="c1"># average to cell centers</span>
-                <span class="n">ind_xyz</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}[</span><span class="n">vType</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+                <span class="n">ind_xyz</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}[</span><span class="n">v_type</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
                 <span class="n">vc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">(</span>
                     <span class="n">v</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">),</span> <span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span>
                 <span class="p">)[</span><span class="n">ind_xyz</span><span class="p">]</span>
@@ -413,8 +432,8 @@
             <span class="n">gxY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">nX</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hy</span><span class="p">)</span><span class="o">*</span><span class="n">nY</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]))</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
             <span class="n">gyX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">nY</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hx</span><span class="p">)</span><span class="o">*</span><span class="n">nX</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]))</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
             <span class="n">gyY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">gy</span><span class="p">,</span> <span class="n">gy</span><span class="p">,</span> <span class="n">gy</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gxX</span><span class="p">,</span> <span class="n">gxY</span><span class="p">,</span> <span class="n">annotationColor</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gyX</span><span class="p">,</span> <span class="n">gyY</span><span class="p">,</span> <span class="n">annotationColor</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gxX</span><span class="p">,</span> <span class="n">gxY</span><span class="p">,</span> <span class="n">annotation_color</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gyX</span><span class="p">,</span> <span class="n">gyY</span><span class="p">,</span> <span class="n">annotation_color</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">numbering</span><span class="p">:</span>
@@ -424,26 +443,26 @@
                         <span class="n">iz</span> <span class="o">=</span> <span class="n">ix</span> <span class="o">+</span> <span class="n">iy</span><span class="o">*</span><span class="n">nX</span>
                         <span class="k">if</span> <span class="n">iz</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">nCz</span><span class="p">:</span>
                             <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">((</span><span class="n">ix</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorNx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="n">pad</span><span class="p">,</span> <span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorNy</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="n">pad</span><span class="p">,</span>
-                                     <span class="s1">&#39;#</span><span class="si">{0:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iz</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">annotationColor</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
+                                     <span class="s1">&#39;#</span><span class="si">{0:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iz</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">annotation_color</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
 
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">vType</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">showIt</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">v_type</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">show_it</span><span class="p">:</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">ph</span></div>
 
 <div class="viewcode-block" id="TensorView.plotSlice"><a class="viewcode-back" href="../../api/generated/discretize.View.TensorView.html#discretize.TensorView.plotSlice">[docs]</a>    <span class="nd">@requires</span><span class="p">({</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">:</span> <span class="n">matplotlib</span><span class="p">})</span>
     <span class="k">def</span> <span class="nf">plotSlice</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">vType</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">v_type</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span>
         <span class="n">normal</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">ind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">,</span>
-        <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">pcolorOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">streamOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">gridOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">pcolor_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">stream_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">grid_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">range_x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">range_y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">sample_grid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">stream_threshold</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">stream_thickness</span><span class="o">=</span><span class="kc">None</span>
+        <span class="n">stream_thickness</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">):</span>
 
         <span class="sd">&quot;&quot;&quot;</span>
@@ -463,42 +482,58 @@
 <span class="sd">            q = discretize.utils.mkvc(q)</span>
 <span class="sd">            A = M.faceDiv * M.cellGrad</span>
 <span class="sd">            b = Solver(A) * (q)</span>
-<span class="sd">            M.plotSlice(M.cellGrad*b, &#39;F&#39;, view=&#39;vec&#39;, grid=True, showIt=True, pcolorOpts={&#39;alpha&#39;:0.8})</span>
+<span class="sd">            M.plotSlice(M.cellGrad*b, &#39;F&#39;, view=&#39;vec&#39;, grid=True, show_it=True, pcolor_opts={&#39;alpha&#39;:0.8})</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">normal</span> <span class="o">=</span> <span class="n">normal</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">pcolorOpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">pcolorOpts</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">if</span> <span class="n">streamOpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">streamOpts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;k&#39;</span><span class="p">}</span>
-        <span class="k">if</span> <span class="n">gridOpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">gridOpts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">}</span>
-        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">vType</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="s2">&quot;pcolorOpts&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">pcolor_opts</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;pcolorOpts&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;pcolorOpts has been deprecated, please use pcolor_opts&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;streamOpts&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">stream_opts</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;streamOpts&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;streamOpts has been deprecated, please use stream_opts&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;gridOpts&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">grid_opts</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;gridOpts&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;gridOpts has been deprecated, please use grid_opts&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;showIt&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">show_it</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;showIt&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;showIt has been deprecated, please use show_it&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;vType&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">show_it</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;vType&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;vType has been deprecated, please use v_type&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">pcolor_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">pcolor_opts</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">stream_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">stream_opts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;k&#39;</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">grid_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">grid_opts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">}</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">v_type</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]:</span>
             <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
                     <span class="s2">&quot;cannot specify an axis to plot on with this function.&quot;</span>
                 <span class="p">)</span>
-            <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">vType</span><span class="p">))</span>
+            <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">v_type</span><span class="p">))</span>
             <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="n">vTypeI</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">vType</span><span class="p">,</span> <span class="n">axs</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">v_typeI</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">v_type</span><span class="p">,</span> <span class="n">axs</span><span class="p">):</span>
                 <span class="n">out</span> <span class="o">+=</span> <span class="p">[</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">plotSlice</span><span class="p">(</span>
-                        <span class="n">v</span><span class="p">,</span> <span class="n">vType</span><span class="o">=</span><span class="n">vTypeI</span><span class="p">,</span> <span class="n">normal</span><span class="o">=</span><span class="n">normal</span><span class="p">,</span> <span class="n">ind</span><span class="o">=</span><span class="n">ind</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span>
-                        <span class="n">view</span><span class="o">=</span><span class="n">view</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                        <span class="n">pcolorOpts</span><span class="o">=</span><span class="n">pcolorOpts</span><span class="p">,</span> <span class="n">streamOpts</span><span class="o">=</span><span class="n">streamOpts</span><span class="p">,</span>
-                        <span class="n">gridOpts</span><span class="o">=</span><span class="n">gridOpts</span><span class="p">,</span> <span class="n">stream_threshold</span><span class="o">=</span><span class="n">stream_threshold</span><span class="p">,</span>
+                        <span class="n">v</span><span class="p">,</span> <span class="n">v_type</span><span class="o">=</span><span class="n">v_typeI</span><span class="p">,</span> <span class="n">normal</span><span class="o">=</span><span class="n">normal</span><span class="p">,</span> <span class="n">ind</span><span class="o">=</span><span class="n">ind</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span>
+                        <span class="n">view</span><span class="o">=</span><span class="n">view</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="n">pcolor_opts</span><span class="o">=</span><span class="n">pcolor_opts</span><span class="p">,</span> <span class="n">stream_opts</span><span class="o">=</span><span class="n">stream_opts</span><span class="p">,</span>
+                        <span class="n">grid_opts</span><span class="o">=</span><span class="n">grid_opts</span><span class="p">,</span> <span class="n">stream_threshold</span><span class="o">=</span><span class="n">stream_threshold</span><span class="p">,</span>
                         <span class="n">stream_thickness</span><span class="o">=</span><span class="n">stream_thickness</span>
                     <span class="p">)</span>
                 <span class="p">]</span>
             <span class="k">return</span> <span class="n">out</span>
         <span class="n">viewOpts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;real&#39;</span><span class="p">,</span> <span class="s1">&#39;imag&#39;</span><span class="p">,</span> <span class="s1">&#39;abs&#39;</span><span class="p">,</span> <span class="s1">&#39;vec&#39;</span><span class="p">]</span>
         <span class="n">normalOpts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">]</span>
-        <span class="n">vTypeOpts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;CCv&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Fz&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">,</span> <span class="s1">&#39;Ez&#39;</span><span class="p">]</span>
+        <span class="n">v_typeOpts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;CCv&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Fz&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">,</span> <span class="s1">&#39;Ez&#39;</span><span class="p">]</span>
 
         <span class="c1"># Some user error checking</span>
-        <span class="k">if</span> <span class="n">vType</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vTypeOpts</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v_typeOpts</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
-                <span class="s2">&quot;vType must be in [&#39;</span><span class="si">{0!s}</span><span class="s2">&#39;]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vTypeOpts</span><span class="p">))</span>
+                <span class="s2">&quot;v_type must be in [&#39;</span><span class="si">{0!s}</span><span class="s2">&#39;]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">v_typeOpts</span><span class="p">))</span>
             <span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
@@ -534,19 +569,19 @@
             <span class="k">return</span> <span class="n">v</span>
 
         <span class="k">def</span> <span class="nf">doSlice</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">vType</span> <span class="o">==</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">v_type</span> <span class="o">==</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">getIndSlice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">))</span>
-            <span class="k">elif</span> <span class="n">vType</span> <span class="o">==</span> <span class="s1">&#39;CCv&#39;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">v_type</span> <span class="o">==</span> <span class="s1">&#39;CCv&#39;</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">view</span> <span class="o">!=</span> <span class="s1">&#39;vec&#39;</span><span class="p">:</span>
                     <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s1">&#39;Other types for CCv not supported&#39;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="c1"># Now just deal with &#39;F&#39; and &#39;E&#39; (x, y, z, maybe...)</span>
-                <span class="n">aveOp</span> <span class="o">=</span> <span class="s1">&#39;ave&#39;</span> <span class="o">+</span> <span class="n">vType</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;2CCV&#39;</span> <span class="k">if</span> <span class="n">view</span> <span class="o">==</span> <span class="s1">&#39;vec&#39;</span> <span class="k">else</span> <span class="s1">&#39;2CC&#39;</span><span class="p">)</span>
+                <span class="n">aveOp</span> <span class="o">=</span> <span class="s1">&#39;ave&#39;</span> <span class="o">+</span> <span class="n">v_type</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;2CCV&#39;</span> <span class="k">if</span> <span class="n">view</span> <span class="o">==</span> <span class="s1">&#39;vec&#39;</span> <span class="k">else</span> <span class="s1">&#39;2CC&#39;</span><span class="p">)</span>
                 <span class="n">Av</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aveOp</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">Av</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
                     <span class="n">v</span> <span class="o">=</span> <span class="n">Av</span> <span class="o">*</span> <span class="n">v</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">vType</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vType</span><span class="p">)</span> <span class="c1"># get specific component</span>
+                    <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v_type</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v_type</span><span class="p">)</span> <span class="c1"># get specific component</span>
                     <span class="n">v</span> <span class="o">=</span> <span class="n">Av</span> <span class="o">*</span> <span class="n">v</span>
                 <span class="c1"># we should now be averaged to cell centers (might be a vector)</span>
             <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">),</span> <span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span>
@@ -581,11 +616,11 @@
                 <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;ax must be an matplotlib.axes.Axes&quot;</span><span class="p">)</span>
 
         <span class="n">out</span> <span class="o">=</span> <span class="n">tM</span><span class="o">.</span><span class="n">_plotImage2D</span><span class="p">(</span>
-            <span class="n">v2d</span><span class="p">,</span> <span class="n">vType</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;CCv&#39;</span> <span class="k">if</span> <span class="n">view</span> <span class="o">==</span> <span class="s1">&#39;vec&#39;</span> <span class="k">else</span> <span class="s1">&#39;CC&#39;</span><span class="p">),</span>
+            <span class="n">v2d</span><span class="p">,</span> <span class="n">v_type</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;CCv&#39;</span> <span class="k">if</span> <span class="n">view</span> <span class="o">==</span> <span class="s1">&#39;vec&#39;</span> <span class="k">else</span> <span class="s1">&#39;CC&#39;</span><span class="p">),</span>
             <span class="n">grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="n">view</span><span class="p">,</span>
-            <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="n">showIt</span><span class="p">,</span>
-            <span class="n">pcolorOpts</span><span class="o">=</span><span class="n">pcolorOpts</span><span class="p">,</span> <span class="n">streamOpts</span><span class="o">=</span><span class="n">streamOpts</span><span class="p">,</span>
-            <span class="n">gridOpts</span><span class="o">=</span><span class="n">gridOpts</span><span class="p">,</span>
+            <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="n">show_it</span><span class="p">,</span>
+            <span class="n">pcolor_opts</span><span class="o">=</span><span class="n">pcolor_opts</span><span class="p">,</span> <span class="n">stream_opts</span><span class="o">=</span><span class="n">stream_opts</span><span class="p">,</span>
+            <span class="n">grid_opts</span><span class="o">=</span><span class="n">grid_opts</span><span class="p">,</span>
             <span class="n">range_x</span><span class="o">=</span><span class="n">range_x</span><span class="p">,</span>
             <span class="n">range_y</span><span class="o">=</span><span class="n">range_y</span><span class="p">,</span>
             <span class="n">sample_grid</span><span class="o">=</span><span class="n">sample_grid</span><span class="p">,</span>
@@ -601,11 +636,11 @@
 
     <span class="nd">@requires</span><span class="p">({</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">:</span> <span class="n">matplotlib</span><span class="p">})</span>
     <span class="k">def</span> <span class="nf">_plotImage2D</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">vType</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">,</span>
-        <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">pcolorOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">streamOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">gridOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">v_type</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">pcolor_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">stream_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">grid_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">range_x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">range_y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">sample_grid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -613,25 +648,25 @@
         <span class="n">stream_thickness</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
 
-        <span class="k">if</span> <span class="n">pcolorOpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">pcolorOpts</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">if</span> <span class="n">streamOpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">streamOpts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">}</span>
-        <span class="k">if</span> <span class="n">gridOpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">gridOpts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">}</span>
-        <span class="n">vTypeOptsCC</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">]</span>
-        <span class="n">vTypeOptsV</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CCv&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">]</span>
-        <span class="n">vTypeOpts</span> <span class="o">=</span> <span class="n">vTypeOptsCC</span> <span class="o">+</span> <span class="n">vTypeOptsV</span>
+        <span class="k">if</span> <span class="n">pcolor_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">pcolor_opts</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">stream_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">stream_opts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">grid_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">grid_opts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">}</span>
+        <span class="n">v_typeOptsCC</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">]</span>
+        <span class="n">v_typeOptsV</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CCv&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">]</span>
+        <span class="n">v_typeOpts</span> <span class="o">=</span> <span class="n">v_typeOptsCC</span> <span class="o">+</span> <span class="n">v_typeOptsV</span>
         <span class="k">if</span> <span class="n">view</span> <span class="o">==</span> <span class="s1">&#39;vec&#39;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">vType</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vTypeOptsV</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">v_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v_typeOptsV</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
-                    <span class="s2">&quot;vType must be in [&#39;</span><span class="si">{0!s}</span><span class="s2">&#39;] when view=&#39;vec&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vTypeOptsV</span><span class="p">)</span>
+                    <span class="s2">&quot;v_type must be in [&#39;</span><span class="si">{0!s}</span><span class="s2">&#39;] when view=&#39;vec&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">v_typeOptsV</span><span class="p">)</span>
                     <span class="p">)</span>
                 <span class="p">)</span>
-        <span class="k">if</span> <span class="n">vType</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vTypeOpts</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v_typeOpts</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
-                <span class="s2">&quot;vType must be in [&#39;</span><span class="si">{0!s}</span><span class="s2">&#39;]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vTypeOpts</span><span class="p">))</span>
+                <span class="s2">&quot;v_type must be in [&#39;</span><span class="si">{0!s}</span><span class="s2">&#39;]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">v_typeOpts</span><span class="p">))</span>
             <span class="p">)</span>
 
         <span class="n">viewOpts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;real&#39;</span><span class="p">,</span> <span class="s1">&#39;imag&#39;</span><span class="p">,</span> <span class="s1">&#39;abs&#39;</span><span class="p">,</span> <span class="s1">&#39;vec&#39;</span><span class="p">]</span>
@@ -650,18 +685,18 @@
                 <span class="p">)</span>
 
         <span class="c1"># Reshape to a cell centered variable</span>
-        <span class="k">if</span> <span class="n">vType</span> <span class="o">==</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v_type</span> <span class="o">==</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
             <span class="k">pass</span>
-        <span class="k">elif</span> <span class="n">vType</span> <span class="o">==</span> <span class="s1">&#39;CCv&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">v_type</span> <span class="o">==</span> <span class="s1">&#39;CCv&#39;</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">view</span> <span class="o">!=</span> <span class="s1">&#39;vec&#39;</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s1">&#39;Other types for CCv not supported&#39;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">vType</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">]:</span>
-            <span class="n">aveOp</span> <span class="o">=</span> <span class="s1">&#39;ave&#39;</span> <span class="o">+</span> <span class="n">vType</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;2CCV&#39;</span> <span class="k">if</span> <span class="n">view</span> <span class="o">==</span> <span class="s1">&#39;vec&#39;</span> <span class="k">else</span> <span class="s1">&#39;2CC&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">v_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">]:</span>
+            <span class="n">aveOp</span> <span class="o">=</span> <span class="s1">&#39;ave&#39;</span> <span class="o">+</span> <span class="n">v_type</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;2CCV&#39;</span> <span class="k">if</span> <span class="n">view</span> <span class="o">==</span> <span class="s1">&#39;vec&#39;</span> <span class="k">else</span> <span class="s1">&#39;2CC&#39;</span><span class="p">)</span>
             <span class="n">v</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aveOp</span><span class="p">)</span><span class="o">*</span><span class="n">v</span>  <span class="c1"># average to cell centers (might be a vector)</span>
-        <span class="k">elif</span> <span class="n">vType</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">]:</span>
-            <span class="n">aveOp</span> <span class="o">=</span> <span class="s1">&#39;ave&#39;</span> <span class="o">+</span> <span class="n">vType</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;2CCV&#39;</span>
+        <span class="k">elif</span> <span class="n">v_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">]:</span>
+            <span class="n">aveOp</span> <span class="o">=</span> <span class="s1">&#39;ave&#39;</span> <span class="o">+</span> <span class="n">v_type</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;2CCV&#39;</span>
             <span class="n">v</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aveOp</span><span class="p">)</span><span class="o">*</span><span class="n">v</span>  <span class="c1"># average to cell centers (might be a vector)</span>
-            <span class="n">xORy</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="mi">1</span> <span class="p">}[</span><span class="n">vType</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="n">xORy</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="mi">1</span> <span class="p">}[</span><span class="n">v_type</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
             <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)[:,</span> <span class="n">xORy</span><span class="p">]</span>
 
         <span class="n">out</span> <span class="o">=</span> <span class="p">()</span>
@@ -671,7 +706,7 @@
             <span class="k">if</span> <span class="n">clim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">clim</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">v</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
             <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">v</span><span class="p">)</span>
-            <span class="n">out</span> <span class="o">+=</span> <span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorNx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorNy</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">clim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vmax</span><span class="o">=</span><span class="n">clim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="n">pcolorOpts</span><span class="p">),</span> <span class="p">)</span>
+            <span class="n">out</span> <span class="o">+=</span> <span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorNx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorNy</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">clim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vmax</span><span class="o">=</span><span class="n">clim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="n">pcolor_opts</span><span class="p">),</span> <span class="p">)</span>
         <span class="k">elif</span> <span class="n">view</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;vec&#39;</span><span class="p">]:</span>
             <span class="c1"># Matplotlib seems to not support irregular</span>
             <span class="c1"># spaced vectors at the moment. So we will</span>
@@ -762,18 +797,18 @@
                 <span class="c1"># Scale by user defined thickness factor</span>
                 <span class="n">stream_thickness</span> <span class="o">=</span> <span class="n">scaleFact</span><span class="o">*</span><span class="n">norm_thickness</span>
 
-                <span class="c1"># Add linewidth to streamOpts</span>
-                <span class="n">streamOpts</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;linewidth&#39;</span><span class="p">:</span><span class="n">stream_thickness</span><span class="p">})</span>
+                <span class="c1"># Add linewidth to stream_opts</span>
+                <span class="n">stream_opts</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;linewidth&#39;</span><span class="p">:</span><span class="n">stream_thickness</span><span class="p">})</span>
 
 
             <span class="n">out</span> <span class="o">+=</span> <span class="p">(</span>
                 <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span>
                     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">U</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">V</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">clim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vmax</span><span class="o">=</span><span class="n">clim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                    <span class="o">**</span><span class="n">pcolorOpts</span><span class="p">),</span>
+                    <span class="o">**</span><span class="n">pcolor_opts</span><span class="p">),</span>
             <span class="p">)</span>
             <span class="n">out</span> <span class="o">+=</span> <span class="p">(</span>
                 <span class="n">ax</span><span class="o">.</span><span class="n">streamplot</span><span class="p">(</span>
-                    <span class="n">tMi</span><span class="o">.</span><span class="n">vectorCCx</span><span class="p">,</span> <span class="n">tMi</span><span class="o">.</span><span class="n">vectorCCy</span><span class="p">,</span> <span class="n">Ui</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Vi</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="o">**</span><span class="n">streamOpts</span>
+                    <span class="n">tMi</span><span class="o">.</span><span class="n">vectorCCx</span><span class="p">,</span> <span class="n">tMi</span><span class="o">.</span><span class="n">vectorCCy</span><span class="p">,</span> <span class="n">Ui</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Vi</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="o">**</span><span class="n">stream_opts</span>
                 <span class="p">),</span>
             <span class="p">)</span>
 
@@ -782,7 +817,7 @@
             <span class="n">xYGrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorNy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nNx</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorNy</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nNx</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nNx</span><span class="p">)]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
             <span class="n">yXGrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorNx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nNy</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorNx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nNy</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nNy</span><span class="p">)]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
             <span class="n">yYGrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorNy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorNy</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nNy</span><span class="p">)]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-            <span class="n">out</span> <span class="o">+=</span> <span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">xXGrid</span><span class="p">,</span> <span class="n">yXGrid</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">xYGrid</span><span class="p">,</span> <span class="n">yYGrid</span><span class="p">],</span> <span class="o">**</span><span class="n">gridOpts</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="p">)</span>
+            <span class="n">out</span> <span class="o">+=</span> <span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">xXGrid</span><span class="p">,</span> <span class="n">yXGrid</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">xYGrid</span><span class="p">,</span> <span class="n">yYGrid</span><span class="p">],</span> <span class="o">**</span><span class="n">grid_opts</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="p">)</span>
 
         <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
@@ -797,14 +832,14 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">vectorNy</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
 
-        <span class="k">if</span> <span class="n">showIt</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">show_it</span><span class="p">:</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">out</span>
 
 <div class="viewcode-block" id="TensorView.plotGrid"><a class="viewcode-back" href="../../api/generated/discretize.View.TensorView.html#discretize.TensorView.plotGrid">[docs]</a>    <span class="nd">@requires</span><span class="p">({</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">:</span> <span class="n">matplotlib</span><span class="p">})</span>
     <span class="k">def</span> <span class="nf">plotGrid</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">faces</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plot the nodal, cell-centered and staggered grids for 1,2 and 3 dimensions.</span>
 
@@ -813,7 +848,7 @@
 <span class="sd">        :param bool centers: plot centers</span>
 <span class="sd">        :param bool edges: plot edges</span>
 <span class="sd">        :param bool lines: plot lines connecting nodes</span>
-<span class="sd">        :param bool showIt: call plt.show()</span>
+<span class="sd">        :param bool show_it: call plt.show()</span>
 
 <span class="sd">        .. plot::</span>
 <span class="sd">           :include-source:</span>
@@ -823,7 +858,7 @@
 <span class="sd">           h1 = np.linspace(.1, .5, 3)</span>
 <span class="sd">           h2 = np.linspace(.1, .5, 5)</span>
 <span class="sd">           mesh = discretize.TensorMesh([h1, h2])</span>
-<span class="sd">           mesh.plotGrid(nodes=True, faces=True, centers=True, lines=True, showIt=True)</span>
+<span class="sd">           mesh.plotGrid(nodes=True, faces=True, centers=True, lines=True, show_it=True)</span>
 
 <span class="sd">        .. plot::</span>
 <span class="sd">           :include-source:</span>
@@ -834,9 +869,12 @@
 <span class="sd">           h2 = np.linspace(.1, .5, 5)</span>
 <span class="sd">           h3 = np.linspace(.1, .5, 3)</span>
 <span class="sd">           mesh = discretize.TensorMesh([h1, h2, h3])</span>
-<span class="sd">           mesh.plotGrid(nodes=True, faces=True, centers=True, lines=True, showIt=True)</span>
+<span class="sd">           mesh.plotGrid(nodes=True, faces=True, centers=True, lines=True, show_it=True)</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s2">&quot;showIt&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">show_it</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;showIt&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;showIt has been deprecated, please use show_it&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
 
         <span class="n">axOpts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="s1">&#39;3d&#39;</span><span class="p">}</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="p">{}</span>
         <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -968,7 +1006,7 @@
             <span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;x3&#39;</span><span class="p">)</span>
 
         <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">showIt</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">show_it</span><span class="p">:</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="n">ax</span></div>
@@ -976,10 +1014,10 @@
 
 <div class="viewcode-block" id="TensorView.plot_3d_slicer"><a class="viewcode-back" href="../../api/generated/discretize.View.TensorView.html#discretize.TensorView.plot_3d_slicer">[docs]</a>    <span class="nd">@requires</span><span class="p">({</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">:</span> <span class="n">matplotlib</span><span class="p">})</span>
     <span class="k">def</span> <span class="nf">plot_3d_slicer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">xslice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yslice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zslice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                       <span class="n">vType</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                       <span class="n">v_type</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                        <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                       <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">pcolorOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                       <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                       <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">pcolor_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                       <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plot slices of a 3D volume, interactively (scroll wheel).</span>
 
 <span class="sd">        If called from a notebook, make sure to set</span>
@@ -1012,10 +1050,14 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">fig</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
 
+        <span class="k">if</span> <span class="s2">&quot;pcolorOpts&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">pcolor_opts</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;pcolorOpts&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;pcolorOpts has been deprecated, please use pcolor_opts&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+
         <span class="c1"># Populate figure</span>
         <span class="n">tracker</span> <span class="o">=</span> <span class="n">Slicer</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">xslice</span><span class="p">,</span> <span class="n">yslice</span><span class="p">,</span> <span class="n">zslice</span><span class="p">,</span> <span class="n">vType</span><span class="p">,</span> <span class="n">view</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">transparent</span><span class="p">,</span>
-            <span class="n">clim</span><span class="p">,</span> <span class="n">xlim</span><span class="p">,</span> <span class="n">ylim</span><span class="p">,</span> <span class="n">zlim</span><span class="p">,</span> <span class="n">aspect</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">pcolorOpts</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">xslice</span><span class="p">,</span> <span class="n">yslice</span><span class="p">,</span> <span class="n">zslice</span><span class="p">,</span> <span class="n">v_type</span><span class="p">,</span> <span class="n">view</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">transparent</span><span class="p">,</span>
+            <span class="n">clim</span><span class="p">,</span> <span class="n">xlim</span><span class="p">,</span> <span class="n">ylim</span><span class="p">,</span> <span class="n">zlim</span><span class="p">,</span> <span class="n">aspect</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">pcolor_opts</span>
         <span class="p">)</span>
 
         <span class="c1"># Connect figure to scrolling</span>
@@ -1043,21 +1085,21 @@
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">val</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-        <span class="n">vType</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;vType&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">v_type</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;v_type&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="n">mirror</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;mirror&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="n">mirror_data</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;mirror_data&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">mirror_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">mirror</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">mirror</span> <span class="o">=</span> <span class="kc">True</span>
 
-        <span class="k">if</span> <span class="n">vType</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">vType</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;CCV&#39;</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">vType</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">v_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;CCV&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">v_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span>
                     <span class="n">val</span> <span class="o">=</span> <span class="n">mkvc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aveF2CCV</span> <span class="o">*</span> <span class="n">val</span><span class="p">)</span>
                     <span class="k">if</span> <span class="n">mirror_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                         <span class="n">mirror_data</span> <span class="o">=</span> <span class="n">mkvc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aveF2CCV</span> <span class="o">*</span> <span class="n">mirror_data</span><span class="p">)</span>
-                    <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;vType&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;CCv&#39;</span>  <span class="c1"># now the vector is cell centered</span>
-                <span class="k">if</span> <span class="n">vType</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span>
+                    <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;v_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;CCv&#39;</span>  <span class="c1"># now the vector is cell centered</span>
+                <span class="k">if</span> <span class="n">v_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span>
                     <span class="n">val</span> <span class="o">=</span> <span class="n">mkvc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aveE2CCV</span> <span class="o">*</span> <span class="n">val</span><span class="p">)</span>
                     <span class="k">if</span> <span class="n">mirror_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                         <span class="n">mirror_data</span> <span class="o">=</span> <span class="n">mkvc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aveE2CCV</span> <span class="o">*</span> <span class="n">mirror_data</span><span class="p">)</span>
@@ -1114,15 +1156,15 @@
             <span class="n">fig</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span>
 
         <span class="c1"># Don&#39;t show things in the TM.plotImage</span>
-        <span class="n">showIt</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;showIt&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-        <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;showIt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">show_it</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;show_it&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;show_it&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="n">out</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">plotType</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">showIt</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">show_it</span><span class="p">:</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="n">out</span>
@@ -1276,7 +1318,7 @@
 <div class="viewcode-block" id="CurviView.plotGrid"><a class="viewcode-back" href="../../api/generated/discretize.View.CurviView.html#discretize.CurviView.plotGrid">[docs]</a>    <span class="nd">@requires</span><span class="p">({</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">:</span> <span class="n">matplotlib</span><span class="p">})</span>
     <span class="k">def</span> <span class="nf">plotGrid</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">faces</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plot the nodal, cell-centered and staggered grids for 1, 2 and 3 dimensions.</span>
 
@@ -1287,13 +1329,16 @@
 <span class="sd">            import discretize</span>
 <span class="sd">            X, Y = discretize.utils.exampleLrmGrid([3, 3], &#39;rotate&#39;)</span>
 <span class="sd">            M = discretize.CurvilinearMesh([X, Y])</span>
-<span class="sd">            M.plotGrid(showIt=True)</span>
+<span class="sd">            M.plotGrid(show_it=True)</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">axOpts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="s1">&#39;3d&#39;</span><span class="p">}</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="p">{}</span>
         <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="o">**</span><span class="n">axOpts</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;showIt&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">show_it</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;showIt&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;showIt has been deprecated, please use show_it&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
 
         <span class="n">NN</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridN</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -1366,19 +1411,32 @@
         <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x1&#39;</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;x2&#39;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">showIt</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">show_it</span><span class="p">:</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="n">ax</span></div>
 
 <div class="viewcode-block" id="CurviView.plotImage"><a class="viewcode-back" href="../../api/generated/discretize.View.CurviView.html#discretize.CurviView.plotImage">[docs]</a>    <span class="nd">@requires</span><span class="p">({</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">:</span> <span class="n">matplotlib</span><span class="p">})</span>
     <span class="k">def</span> <span class="nf">plotImage</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">vType</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">,</span>
-        <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showIt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">pcolorOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">gridOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">range_x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">range_y</span><span class="o">=</span><span class="kc">None</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">v_type</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">pcolor_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">grid_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">range_x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">range_y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">):</span>
+        <span class="k">if</span> <span class="s2">&quot;pcolorOpts&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">pcolor_opts</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;pcolorOpts&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;pcolorOpts has been deprecated, please use pcolor_opts&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;gridOpts&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">grid_opts</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;gridOpts&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;gridOpts has been deprecated, please use grid_opts&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;showIt&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">show_it</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;showIt&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;showIt has been deprecated, please use show_it&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;vType&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">show_it</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;vType&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;vType has been deprecated, please use v_type&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;This is not yet done!&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">view</span> <span class="o">==</span> <span class="s1">&#39;vec&#39;</span><span class="p">:</span>
@@ -1387,49 +1445,49 @@
                 <span class="p">)</span>
         <span class="k">if</span> <span class="n">view</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;real&#39;</span><span class="p">,</span> <span class="s1">&#39;imag&#39;</span><span class="p">,</span> <span class="s1">&#39;abs&#39;</span><span class="p">]:</span>
             <span class="n">v</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">np</span><span class="p">,</span> <span class="n">view</span><span class="p">)(</span><span class="n">v</span><span class="p">)</span>  <span class="c1"># e.g. np.real(v)</span>
-        <span class="k">if</span> <span class="n">vType</span> <span class="o">==</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v_type</span> <span class="o">==</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
             <span class="n">I</span> <span class="o">=</span> <span class="n">v</span>
-        <span class="k">elif</span> <span class="n">vType</span> <span class="o">==</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">v_type</span> <span class="o">==</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span>
             <span class="n">I</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">aveN2CC</span><span class="o">*</span><span class="n">v</span>
-        <span class="k">elif</span> <span class="n">vType</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">]:</span>
-            <span class="n">aveOp</span> <span class="o">=</span> <span class="s1">&#39;ave&#39;</span> <span class="o">+</span> <span class="n">vType</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;2CCV&#39;</span>
-            <span class="n">ind_xy</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}[</span><span class="n">vType</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">elif</span> <span class="n">v_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">]:</span>
+            <span class="n">aveOp</span> <span class="o">=</span> <span class="s1">&#39;ave&#39;</span> <span class="o">+</span> <span class="n">v_type</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;2CCV&#39;</span>
+            <span class="n">ind_xy</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}[</span><span class="n">v_type</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
             <span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aveOp</span><span class="p">)</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nC</span><span class="p">)[</span><span class="n">ind_xy</span><span class="p">]</span>  <span class="c1"># average to cell centers</span>
 
         <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">pcolorOpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">pcolorOpts</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">if</span> <span class="s1">&#39;cmap&#39;</span> <span class="ow">in</span> <span class="n">pcolorOpts</span><span class="p">:</span>
-            <span class="n">cm</span> <span class="o">=</span> <span class="n">pcolorOpts</span><span class="p">[</span><span class="s1">&#39;cmap&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">pcolor_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">pcolor_opts</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="s1">&#39;cmap&#39;</span> <span class="ow">in</span> <span class="n">pcolor_opts</span><span class="p">:</span>
+            <span class="n">cm</span> <span class="o">=</span> <span class="n">pcolor_opts</span><span class="p">[</span><span class="s1">&#39;cmap&#39;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">cm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">()</span>
-        <span class="k">if</span> <span class="s1">&#39;vmin&#39;</span> <span class="ow">in</span> <span class="n">pcolorOpts</span><span class="p">:</span>
-            <span class="n">vmin</span> <span class="o">=</span> <span class="n">pcolorOpts</span><span class="p">[</span><span class="s1">&#39;vmin&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;vmin&#39;</span> <span class="ow">in</span> <span class="n">pcolor_opts</span><span class="p">:</span>
+            <span class="n">vmin</span> <span class="o">=</span> <span class="n">pcolor_opts</span><span class="p">[</span><span class="s1">&#39;vmin&#39;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">vmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="k">if</span> <span class="n">clim</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">clim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">if</span> <span class="s1">&#39;vmax&#39;</span> <span class="ow">in</span> <span class="n">pcolorOpts</span><span class="p">:</span>
-            <span class="n">vmax</span> <span class="o">=</span> <span class="n">pcolorOpts</span><span class="p">[</span><span class="s1">&#39;vmax&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;vmax&#39;</span> <span class="ow">in</span> <span class="n">pcolor_opts</span><span class="p">:</span>
+            <span class="n">vmax</span> <span class="o">=</span> <span class="n">pcolor_opts</span><span class="p">[</span><span class="s1">&#39;vmax&#39;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">vmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="k">if</span> <span class="n">clim</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">clim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">if</span> <span class="s1">&#39;alpha&#39;</span> <span class="ow">in</span> <span class="n">pcolorOpts</span><span class="p">:</span>
-            <span class="n">alpha</span> <span class="o">=</span> <span class="n">pcolorOpts</span><span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;alpha&#39;</span> <span class="ow">in</span> <span class="n">pcolor_opts</span><span class="p">:</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="n">pcolor_opts</span><span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span>
-        <span class="k">if</span> <span class="n">gridOpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">gridOpts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">}</span>
-        <span class="k">if</span> <span class="s1">&#39;color&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">gridOpts</span><span class="p">:</span>
-            <span class="n">gridOpts</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span>
+        <span class="k">if</span> <span class="n">grid_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">grid_opts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">}</span>
+        <span class="k">if</span> <span class="s1">&#39;color&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">grid_opts</span><span class="p">:</span>
+            <span class="n">grid_opts</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span>
 
         <span class="n">cNorm</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">)</span>
         <span class="n">scalarMap</span> <span class="o">=</span> <span class="n">cmx</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">norm</span><span class="o">=</span><span class="n">cNorm</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="s1">&#39;edge_color&#39;</span> <span class="ow">in</span> <span class="n">pcolorOpts</span><span class="p">:</span>
-            <span class="n">edge_color</span> <span class="o">=</span> <span class="n">pcolorOpts</span><span class="p">[</span><span class="s1">&#39;edge_color&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;edge_color&#39;</span> <span class="ow">in</span> <span class="n">pcolor_opts</span><span class="p">:</span>
+            <span class="n">edge_color</span> <span class="o">=</span> <span class="n">pcolor_opts</span><span class="p">[</span><span class="s1">&#39;edge_color&#39;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">edge_color</span> <span class="o">=</span> <span class="n">gridOpts</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">grid</span> <span class="k">else</span> <span class="s1">&#39;none&#39;</span>
-        <span class="k">if</span> <span class="s1">&#39;alpha&#39;</span> <span class="ow">in</span> <span class="n">gridOpts</span><span class="p">:</span>
-            <span class="n">edge_alpha</span> <span class="o">=</span> <span class="n">gridOpts</span><span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">]</span>
+            <span class="n">edge_color</span> <span class="o">=</span> <span class="n">grid_opts</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">grid</span> <span class="k">else</span> <span class="s1">&#39;none&#39;</span>
+        <span class="k">if</span> <span class="s1">&#39;alpha&#39;</span> <span class="ow">in</span> <span class="n">grid_opts</span><span class="p">:</span>
+            <span class="n">edge_alpha</span> <span class="o">=</span> <span class="n">grid_opts</span><span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">edge_alpha</span> <span class="o">=</span> <span class="mf">1.0</span>
         <span class="k">if</span> <span class="n">edge_color</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;none&#39;</span><span class="p">:</span>
@@ -1457,7 +1515,7 @@
         <span class="n">scalarMap</span><span class="o">.</span><span class="n">_A</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># http://stackoverflow.com/questions/8342549/matplotlib-add-colorbar-to-a-sequence-of-line-plots</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">showIt</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">show_it</span><span class="p">:</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">scalarMap</span><span class="p">]</span></div></div>
 
@@ -1494,7 +1552,7 @@
 <span class="sd">        Initial slice locations (in meter);</span>
 <span class="sd">        defaults to the middle of the volume.</span>
 
-<span class="sd">    vType: str</span>
+<span class="sd">    v_type: str</span>
 <span class="sd">        Type of visualization. Default is &#39;CC&#39;.</span>
 <span class="sd">        One of [&#39;CC&#39;, &#39;Fx&#39;, &#39;Fy&#39;, &#39;Fz&#39;, &#39;Ex&#39;, &#39;Ey&#39;, &#39;Ez&#39;].</span>
 
@@ -1532,18 +1590,21 @@
 <span class="sd">    grid : list of 3 int</span>
 <span class="sd">        Number of cells occupied by x, y, and z dimension on plt.subplot2grid.</span>
 
-<span class="sd">    pcolorOpts : dictionary</span>
+<span class="sd">    pcolor_opts : dictionary</span>
 <span class="sd">        Passed to pcolormesh.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mesh</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">xslice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yslice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zslice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">vType</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">v_type</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;real&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
-                 <span class="n">grid</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">pcolorOpts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                 <span class="n">grid</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">pcolor_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initialize interactive figure.&quot;&quot;&quot;</span>
 
         <span class="c1"># 0. Some checks, not very extensive</span>
+        <span class="k">if</span> <span class="s2">&quot;pcolorOpts&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">pcolor_opts</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;pcolorOpts&quot;</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;pcolorOpts has been deprecated, please use pcolor_opts&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
 
         <span class="c1"># (a) Mesh dimensionality</span>
         <span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">dim</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
@@ -1551,20 +1612,20 @@
             <span class="n">err</span> <span class="o">+=</span> <span class="s1">&#39; Mesh provided has </span><span class="si">{}</span><span class="s1"> dimension(s).&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 
-        <span class="c1"># (b) vType  # Not yet working for [&#39;CCv&#39;]</span>
-        <span class="n">vTypeOpts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Fz&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">,</span> <span class="s1">&#39;Ez&#39;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">vType</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vTypeOpts</span><span class="p">:</span>
-            <span class="n">err</span> <span class="o">=</span> <span class="s2">&quot;vType must be in [&#39;</span><span class="si">{0!s}</span><span class="s2">&#39;].&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vTypeOpts</span><span class="p">))</span>
-            <span class="n">err</span> <span class="o">+=</span> <span class="s2">&quot; vType provided: &#39;</span><span class="si">{0!s}</span><span class="s2">&#39;.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">vType</span><span class="p">)</span>
+        <span class="c1"># (b) v_type  # Not yet working for [&#39;CCv&#39;]</span>
+        <span class="n">v_typeOpts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;Fx&#39;</span><span class="p">,</span> <span class="s1">&#39;Fy&#39;</span><span class="p">,</span> <span class="s1">&#39;Fz&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ey&#39;</span><span class="p">,</span> <span class="s1">&#39;Ez&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">v_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v_typeOpts</span><span class="p">:</span>
+            <span class="n">err</span> <span class="o">=</span> <span class="s2">&quot;v_type must be in [&#39;</span><span class="si">{0!s}</span><span class="s2">&#39;].&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">v_typeOpts</span><span class="p">))</span>
+            <span class="n">err</span> <span class="o">+=</span> <span class="s2">&quot; v_type provided: &#39;</span><span class="si">{0!s}</span><span class="s2">&#39;.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v_type</span><span class="p">)</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">vType</span> <span class="o">!=</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
-            <span class="n">aveOp</span> <span class="o">=</span> <span class="s1">&#39;ave&#39;</span> <span class="o">+</span> <span class="n">vType</span> <span class="o">+</span> <span class="s1">&#39;2CC&#39;</span>
+        <span class="k">if</span> <span class="n">v_type</span> <span class="o">!=</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
+            <span class="n">aveOp</span> <span class="o">=</span> <span class="s1">&#39;ave&#39;</span> <span class="o">+</span> <span class="n">v_type</span> <span class="o">+</span> <span class="s1">&#39;2CC&#39;</span>
             <span class="n">Av</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">aveOp</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">Av</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
                 <span class="n">v</span> <span class="o">=</span> <span class="n">Av</span> <span class="o">*</span> <span class="n">v</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">v</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">vType</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vType</span><span class="p">)</span> <span class="c1"># get specific component</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v_type</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v_type</span><span class="p">)</span> <span class="c1"># get specific component</span>
                 <span class="n">v</span> <span class="o">=</span> <span class="n">Av</span> <span class="o">*</span> <span class="n">v</span>
 
         <span class="c1"># (c) vOpts  # Not yet working for &#39;vec&#39;</span>
@@ -1703,9 +1764,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">clpropsw</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;lw&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;zorder&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">clpropsk</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;lw&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;zorder&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">}</span>
 
-        <span class="c1"># Add pcolorOpts</span>
-        <span class="k">if</span> <span class="n">pcolorOpts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">pc_props</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">pcolorOpts</span><span class="p">)</span>
+        <span class="c1"># Add pcolor_opts</span>
+        <span class="k">if</span> <span class="n">pcolor_opts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pc_props</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">pcolor_opts</span><span class="p">)</span>
 
         <span class="c1"># Initial draw</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update_xy</span><span class="p">()</span>

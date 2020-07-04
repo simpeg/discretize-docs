@@ -257,17 +257,17 @@ transpose as an averaging operator. This is also true for staggered grids.
 
     # Apply cell centers to faces averaging
     ax2 = fig.add_subplot(222)
-    mesh.plotImage(A2*v, ax=ax2, vType='F')
+    mesh.plotImage(A2*v, ax=ax2, v_type='F')
     ax2.set_title('Cell centers to faces')
 
     # Use the transpose to go from cell centers to nodes
     ax3 = fig.add_subplot(223)
-    mesh.plotImage(A3.T*v, ax=ax3, vType='N')
+    mesh.plotImage(A3.T*v, ax=ax3, v_type='N')
     ax3.set_title('Cell centers to nodes using transpose')
 
     # Use the transpose to go from cell centers to faces
     ax4 = fig.add_subplot(224)
-    mesh.plotImage(A4.T*v, ax=ax4, vType='F')
+    mesh.plotImage(A4.T*v, ax=ax4, v_type='F')
     ax4.set_title('Cell centers to faces using transpose')
 
     fig.show()
@@ -294,7 +294,7 @@ transpose as an averaging operator. This is also true for staggered grids.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.591 seconds)
+   **Total running time of the script:** ( 0 minutes  0.573 seconds)
 
 
 .. _sphx_glr_download_tutorials_operators_1_averaging.py:

@@ -290,16 +290,16 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.MeshIO.TreeMeshIO.readModelUBC" title="discretize.MeshIO.TreeMeshIO.readModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readModelUBC</span></code></a>(mesh, fileName)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.MeshIO.TreeMeshIO.readModelUBC" title="discretize.MeshIO.TreeMeshIO.readModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readModelUBC</span></code></a>(fileName)</p></td>
 <td><p>Read UBC OcTree model and get vector :param string fileName: path to the UBC GIF model file to read :rtype: numpy.ndarray :return: OcTree model</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#discretize.MeshIO.TreeMeshIO.readUBC" title="discretize.MeshIO.TreeMeshIO.readUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readUBC</span></code></a>(meshFile)</p></td>
 <td><p>Read UBC 3D OcTree mesh file Input: :param str meshFile: path to the UBC GIF OcTree mesh file to read :rtype: discretize.TreeMesh :return: The octree mesh</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.MeshIO.TreeMeshIO.writeModelUBC" title="discretize.MeshIO.TreeMeshIO.writeModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeModelUBC</span></code></a>(mesh, fileName, model[, directory])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.MeshIO.TreeMeshIO.writeModelUBC" title="discretize.MeshIO.TreeMeshIO.writeModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeModelUBC</span></code></a>(fileName, model[, directory])</p></td>
 <td><p>Writes a model associated with a TreeMesh to a UBC-GIF format model file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#discretize.MeshIO.TreeMeshIO.writeUBC" title="discretize.MeshIO.TreeMeshIO.writeUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeUBC</span></code></a>(mesh, fileName[, models, directory])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.MeshIO.TreeMeshIO.writeUBC" title="discretize.MeshIO.TreeMeshIO.writeUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeUBC</span></code></a>(fileName[, models, directory])</p></td>
 <td><p>Write UBC ocTree mesh and model files from a octree mesh and model.</p></td>
 </tr>
 </tbody>
@@ -340,7 +340,7 @@
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <dl class="py method">
 <dt id="discretize.MeshIO.TreeMeshIO.readModelUBC">
-<code class="sig-prename descclassname">TreeMeshIO.</code><code class="sig-name descname">readModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">fileName</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/MeshIO.html#TreeMeshIO.readModelUBC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.MeshIO.TreeMeshIO.readModelUBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMeshIO.</code><code class="sig-name descname">readModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fileName</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/MeshIO.html#TreeMeshIO.readModelUBC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.MeshIO.TreeMeshIO.readModelUBC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read UBC OcTree model and get vector
 :param string fileName: path to the UBC GIF model file to read
 :rtype: numpy.ndarray
@@ -359,7 +359,7 @@ Input:
 
 <dl class="py method">
 <dt id="discretize.MeshIO.TreeMeshIO.writeModelUBC">
-<code class="sig-prename descclassname">TreeMeshIO.</code><code class="sig-name descname">writeModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/MeshIO.html#TreeMeshIO.writeModelUBC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.MeshIO.TreeMeshIO.writeModelUBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMeshIO.</code><code class="sig-name descname">writeModelUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/MeshIO.html#TreeMeshIO.writeModelUBC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.MeshIO.TreeMeshIO.writeModelUBC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes a model associated with a TreeMesh
 to a UBC-GIF format model file.</p>
 <p>Input:
@@ -371,7 +371,7 @@ or just its name if directory is specified
 
 <dl class="py method">
 <dt id="discretize.MeshIO.TreeMeshIO.writeUBC">
-<code class="sig-prename descclassname">TreeMeshIO.</code><code class="sig-name descname">writeUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/MeshIO.html#TreeMeshIO.writeUBC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.MeshIO.TreeMeshIO.writeUBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">TreeMeshIO.</code><code class="sig-name descname">writeUBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/MeshIO.html#TreeMeshIO.writeUBC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.MeshIO.TreeMeshIO.writeUBC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write UBC ocTree mesh and model files from a
 octree mesh and model.
 :param string fileName: File to write to

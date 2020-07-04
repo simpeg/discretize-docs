@@ -368,7 +368,7 @@
 <span class="sd">            import discretize</span>
 <span class="sd">            import numpy as np</span>
 <span class="sd">            mesh = discretize.TensorMesh([np.ones(n) for n in [2,3]])</span>
-<span class="sd">            mesh.plotGrid(centers=True, showIt=True)</span>
+<span class="sd">            mesh.plotGrid(centers=True, show_it=True)</span>
 
 <span class="sd">            print(mesh.nC)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -391,7 +391,7 @@
 <span class="sd">            import discretize</span>
 <span class="sd">            import numpy as np</span>
 <span class="sd">            mesh = discretize.TensorMesh([np.ones(n) for n in [2,3]])</span>
-<span class="sd">            mesh.plotGrid(nodes=True, showIt=True)</span>
+<span class="sd">            mesh.plotGrid(nodes=True, show_it=True)</span>
 
 <span class="sd">            print(mesh.nN)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -450,7 +450,7 @@
 <span class="sd">            import discretize</span>
 <span class="sd">            import numpy as np</span>
 <span class="sd">            M = discretize.TensorMesh([np.ones(n) for n in [2,3]])</span>
-<span class="sd">            M.plotGrid(edges=True, showIt=True)</span>
+<span class="sd">            M.plotGrid(edges=True, show_it=True)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
             <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">nEx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nEy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nEz</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">],</span>
@@ -512,7 +512,7 @@
 <span class="sd">            import discretize</span>
 <span class="sd">            import numpy as np</span>
 <span class="sd">            M = discretize.TensorMesh([np.ones(n) for n in [2,3]])</span>
-<span class="sd">            M.plotGrid(faces=True, showIt=True)</span>
+<span class="sd">            M.plotGrid(faces=True, show_it=True)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
             <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">nFx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFz</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">],</span>
