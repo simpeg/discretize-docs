@@ -274,8 +274,14 @@ be used to define transparent regions.
 
  .. code-block:: none
 
-    /home/travis/build/simpeg/discretize/examples/plot_slicer_demo.py:139: MatplotlibDeprecationWarning: default base may change from np.e to 10.  To suppress this warning specify the base keyword argument.
+    /home/travis/build/simpeg/discretize/examples/plot_slicer_demo.py:139: MatplotlibDeprecationWarning: default base will change from np.e to 10 in 3.4.  To suppress this warning specify the base keyword argument.
       Lpout, pcolor_opts={'norm': SymLogNorm(linthresh=0.01),'cmap': 'RdBu_r'}
+    /home/travis/build/simpeg/discretize/discretize/View.py:1654: MatplotlibDeprecationWarning: Passing parameters norm and vmin/vmax simultaneously is deprecated since 3.3 and will become an error two minor releases later. Please pass vmin/vmax directly to the norm when creating it.
+      self.xy_pc = self.ax1.pcolormesh(hor, ver, zdat, **self.pc_props)
+    /home/travis/build/simpeg/discretize/discretize/View.py:1681: MatplotlibDeprecationWarning: Passing parameters norm and vmin/vmax simultaneously is deprecated since 3.3 and will become an error two minor releases later. Please pass vmin/vmax directly to the norm when creating it.
+      self.xz_pc = self.ax2.pcolormesh(hor, ver, ydat, **self.pc_props)
+    /home/travis/build/simpeg/discretize/discretize/View.py:1708: MatplotlibDeprecationWarning: Passing parameters norm and vmin/vmax simultaneously is deprecated since 3.3 and will become an error two minor releases later. Please pass vmin/vmax directly to the norm when creating it.
+      self.zy_pc = self.ax3.pcolormesh(hor, ver, xdat, **self.pc_props)
 
 
 
@@ -384,7 +390,7 @@ This way you get the figure-handle, and can do further stuff with the figure.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.066 seconds)
+   **Total running time of the script:** ( 0 minutes  4.219 seconds)
 
 
 .. _sphx_glr_download_examples_plot_slicer_demo.py:
