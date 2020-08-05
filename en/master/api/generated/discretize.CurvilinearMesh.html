@@ -304,7 +304,7 @@
 <li><p><strong>axis_u</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of u-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: X</p></li>
 <li><p><strong>axis_v</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of v-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Y</p></li>
 <li><p><strong>axis_w</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of w-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Z</p></li>
-<li><p><strong>nodes</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *, *) or (*, *)) with length between 2 and 3</p></li>
+<li><p><strong>nodes</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *) or (*, *, *)) with length between 2 and 3</p></li>
 <li><p><strong>reference_system</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">String</span></code></a>): The type of coordinate reference frame. Can take on the values cartesian, cylindrical, or spherical. Abbreviations of these are allowed., a unicode string, Default: cartesian</p></li>
 <li><p><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</p></li>
 </ul>
@@ -423,7 +423,7 @@
 </dd>
 <dt><a class="reference internal" href="#discretize.CurvilinearMesh.nodalLaplacian" title="discretize.CurvilinearMesh.nodalLaplacian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodalLaplacian</span></code></a></dt><dd><p>Construct laplacian operator (nodes to edges).</p>
 </dd>
-<dt><a class="reference internal" href="#discretize.CurvilinearMesh.nodes" title="discretize.CurvilinearMesh.nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></a></dt><dd><p><strong>nodes</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *, *) or (*, *)) with length between 2 and 3</p>
+<dt><a class="reference internal" href="#discretize.CurvilinearMesh.nodes" title="discretize.CurvilinearMesh.nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></a></dt><dd><p><strong>nodes</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *) or (*, *, *)) with length between 2 and 3</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.CurvilinearMesh.normals" title="discretize.CurvilinearMesh.normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normals</span></code></a></dt><dd><p>Face normals: calling this will average the computed normals so that there is one per face.</p>
 </dd>
@@ -1016,7 +1016,7 @@ cell-centers).</p>
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.nodes">
 <code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">nodes</code><a class="headerlink" href="#discretize.CurvilinearMesh.nodes" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *, *) or (*, *)) with length between 2 and 3</p>
+<dd><p>List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *) or (*, *, *)) with length between 2 and 3</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><strong>nodes</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>)</p>
@@ -1355,7 +1355,7 @@ when mixed boundary condition is used</p>
 <dd class="field-even"><p>M, the inner product matrix (nE, nE)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.1)">scipy.sparse.csr_matrix</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.2)">scipy.sparse.csr_matrix</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1376,7 +1376,7 @@ when mixed boundary condition is used</p>
 <dd class="field-even"><p>dMdm, the derivative of the inner product matrix (nE, nC*nA)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.1)">scipy.sparse.csr_matrix</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.2)">scipy.sparse.csr_matrix</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1398,7 +1398,7 @@ when mixed boundary condition is used</p>
 <dd class="field-even"><p>M, the inner product matrix (nF, nF)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.1)">scipy.sparse.csr_matrix</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.2)">scipy.sparse.csr_matrix</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1419,7 +1419,7 @@ when mixed boundary condition is used</p>
 <dd class="field-even"><p>dMdmu(u), the derivative of the inner product matrix for a certain u</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.1)">scipy.sparse.csr_matrix</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.2)">scipy.sparse.csr_matrix</a></p>
 </dd>
 </dl>
 </dd></dl>
