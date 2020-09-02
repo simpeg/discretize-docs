@@ -744,43 +744,19 @@ each dimension separate.</p>
 <dl class="py attribute">
 <dt id="discretize.TreeMesh.axis_u">
 <code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">axis_u</code><a class="headerlink" href="#discretize.TreeMesh.axis_u" title="Permalink to this definition">¶</a></dt>
-<dd><p>X</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><strong>axis_u</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>)</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>Vector orientation of u-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default</p>
-</dd>
-</dl>
+<dd><p><strong>axis_u</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of u-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: X</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.TreeMesh.axis_v">
 <code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">axis_v</code><a class="headerlink" href="#discretize.TreeMesh.axis_v" title="Permalink to this definition">¶</a></dt>
-<dd><p>Y</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><strong>axis_v</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>)</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>Vector orientation of v-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default</p>
-</dd>
-</dl>
+<dd><p><strong>axis_v</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of v-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Y</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.TreeMesh.axis_w">
 <code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">axis_w</code><a class="headerlink" href="#discretize.TreeMesh.axis_w" title="Permalink to this definition">¶</a></dt>
-<dd><p>Z</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><strong>axis_w</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>)</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>Vector orientation of w-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default</p>
-</dd>
-</dl>
+<dd><p><strong>axis_w</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of w-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Z</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -829,10 +805,10 @@ Grad = sp.vstack((Gradx, Grady, Gradz))</p>
 <dd><p>The dimension of the mesh (1, 2, or 3).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>dimension of the mesh</p>
+<dd class="field-odd"><dl class="simple">
+<dt>int</dt><dd><p>dimension of the mesh</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -993,12 +969,7 @@ hanging nodes in order.</p>
 <dl class="py attribute">
 <dt id="discretize.TreeMesh.h">
 <code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">h</code><a class="headerlink" href="#discretize.TreeMesh.h" title="Permalink to this definition">¶</a></dt>
-<dd><p>h is a list containing the cell widths of the tensor mesh in each dimension., a list (each item is a list or numpy array of &lt;class ‘float’&gt; with shape (*)) with length between 0 and 3</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><strong>h</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>)</p>
-</dd>
-</dl>
+<dd><p><strong>h</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): h is a list containing the cell widths of the tensor mesh in each dimension., a list (each item is a list or numpy array of &lt;class ‘float’&gt; with shape (*)) with length between 0 and 3</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1259,15 +1230,7 @@ with vectors of <span class="math notranslate nohighlight">\((1,0,0)\)</span>, <
 <dl class="py attribute">
 <dt id="discretize.TreeMesh.reference_system">
 <code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">reference_system</code><a class="headerlink" href="#discretize.TreeMesh.reference_system" title="Permalink to this definition">¶</a></dt>
-<dd><p>cartesian</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><strong>reference_system</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">String</span></code></a>)</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>The type of coordinate reference frame. Can take on the values cartesian, cylindrical, or spherical. Abbreviations of these are allowed., a unicode string, Default</p>
-</dd>
-</dl>
+<dd><p><strong>reference_system</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">String</span></code></a>): The type of coordinate reference frame. Can take on the values cartesian, cylindrical, or spherical. Abbreviations of these are allowed., a unicode string, Default: cartesian</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1342,18 +1305,21 @@ docs for the <a class="reference internal" href="discretize.mixins.vtkModule.Int
 <dt id="discretize.TreeMesh.vnE">
 <code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">vnE</code><a class="headerlink" href="#discretize.TreeMesh.vnE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total number of edges in each direction</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><ul>
-<li><p><strong>vnE</strong> (<em>numpy.ndarray = [nEx, nEy, nEz], (dim, )</em>)</p></li>
-<li><p><em>.. plot::</em> – :include-source:</p>
-<p>import discretize
-import numpy as np
-M = discretize.TensorMesh([np.ones(n) for n in [2,3]])
-M.plotGrid(edges=True, show_it=True)</p>
-</li>
-</ul>
-</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>vnE</strong><span class="classifier">numpy.ndarray = [nEx, nEy, nEz], (dim, )</span></dt><dd></dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">M</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-TreeMesh-1.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-TreeMesh-1.png">png</a>, <a class="reference external" href="../../api/generated/discretize-TreeMesh-1.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/discretize-TreeMesh-1.png" src="../../_images/discretize-TreeMesh-1.png" />
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -1376,9 +1342,9 @@ M.plotGrid(edges=True, show_it=True)</p>
 <span class="n">M</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">faces</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../../api/generated/discretize-TreeMesh-1.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-TreeMesh-1.png">png</a>, <a class="reference external" href="../../api/generated/discretize-TreeMesh-1.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-TreeMesh-1.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href="../../api/generated/discretize-TreeMesh-2.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-TreeMesh-2.png">png</a>, <a class="reference external" href="../../api/generated/discretize-TreeMesh-2.pdf">pdf</a>)</p>
 <div class="figure align-default">
-<img alt="../../_images/discretize-TreeMesh-1.png" src="../../_images/discretize-TreeMesh-1.png" />
+<img alt="../../_images/discretize-TreeMesh-2.png" src="../../_images/discretize-TreeMesh-2.png" />
 </div>
 </dd></dl>
 
@@ -1404,12 +1370,7 @@ cells in order.</p>
 <dl class="py attribute">
 <dt id="discretize.TreeMesh.x0">
 <code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">x0</code><a class="headerlink" href="#discretize.TreeMesh.x0" title="Permalink to this definition">¶</a></dt>
-<dd><p>origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>)</p>
-</dd>
-</dl>
+<dd><p><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</p>
 </dd></dl>
 
 </div>
@@ -1421,13 +1382,16 @@ cells in order.</p>
 <dd><p>Fast function to return a list of levels for the given cell indices</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>index</strong> (<em>array_like of length</em><em> (</em><em>N</em><em>)</em>) – Cell indexes to query</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>index: array_like of length (N)</strong></dt><dd><p>Cell indexes to query</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Levels for the cells.</p>
+<dd class="field-even"><dl class="simple">
+<dt>numpy.array of length (N)</dt><dd><p>Levels for the cells.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>numpy.array of length (N)</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1496,18 +1460,22 @@ dictionary of model arrays.</p>
 <dd><p>Generate the edge inner product matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
-<li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the material property</p></li>
-<li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the matrix</p></li>
-<li><p><strong>doFast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – do a faster implementation if available.</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>prop</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p>
+</dd>
+<dt><strong>invProp</strong><span class="classifier">bool</span></dt><dd><p>inverts the material property</p>
+</dd>
+<dt><strong>invMat</strong><span class="classifier">bool</span></dt><dd><p>inverts the matrix</p>
+</dd>
+<dt><strong>doFast</strong><span class="classifier">bool</span></dt><dd><p>do a faster implementation if available.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>M, the inner product matrix (nE, nE)</p>
+<dd class="field-even"><dl class="simple">
+<dt>scipy.sparse.csr_matrix</dt><dd><p>M, the inner product matrix (nE, nE)</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.2)">scipy.sparse.csr_matrix</a></p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1517,18 +1485,22 @@ dictionary of model arrays.</p>
 <code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getEdgeInnerProductDeriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prop</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.getEdgeInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
-<li><p><strong>doFast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – do a faster implementation if available.</p></li>
-<li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the material property</p></li>
-<li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the matrix</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>prop</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p>
+</dd>
+<dt><strong>doFast</strong><span class="classifier">bool</span></dt><dd><p>do a faster implementation if available.</p>
+</dd>
+<dt><strong>invProp</strong><span class="classifier">bool</span></dt><dd><p>inverts the material property</p>
+</dd>
+<dt><strong>invMat</strong><span class="classifier">bool</span></dt><dd><p>inverts the matrix</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dMdm, the derivative of the inner product matrix (nE, nC*nA)</p>
+<dd class="field-even"><dl class="simple">
+<dt>scipy.sparse.csr_matrix</dt><dd><p>dMdm, the derivative of the inner product matrix (nE, nC*nA)</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.2)">scipy.sparse.csr_matrix</a></p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1539,18 +1511,22 @@ dictionary of model arrays.</p>
 <dd><p>Generate the face inner product matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
-<li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the material property</p></li>
-<li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the matrix</p></li>
-<li><p><strong>doFast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – do a faster implementation if available.</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>prop</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p>
+</dd>
+<dt><strong>invProp</strong><span class="classifier">bool</span></dt><dd><p>inverts the material property</p>
+</dd>
+<dt><strong>invMat</strong><span class="classifier">bool</span></dt><dd><p>inverts the matrix</p>
+</dd>
+<dt><strong>doFast</strong><span class="classifier">bool</span></dt><dd><p>do a faster implementation if available.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>M, the inner product matrix (nF, nF)</p>
+<dd class="field-even"><dl class="simple">
+<dt>scipy.sparse.csr_matrix</dt><dd><p>M, the inner product matrix (nF, nF)</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.2)">scipy.sparse.csr_matrix</a></p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1560,18 +1536,22 @@ dictionary of model arrays.</p>
 <code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getFaceInnerProductDeriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prop</span></em>, <em class="sig-param"><span class="n">doFast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">invProp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invMat</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.getFaceInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prop</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p></li>
-<li><p><strong>doFast</strong> – bool  do a faster implementation if available.</p></li>
-<li><p><strong>invProp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the material property</p></li>
-<li><p><strong>invMat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – inverts the matrix</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>prop</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>material property (tensor properties are possible) at each cell center (nC, (1, 3, or 6))</p>
+</dd>
+<dt><strong>doFast :</strong></dt><dd><p>bool  do a faster implementation if available.</p>
+</dd>
+<dt><strong>invProp</strong><span class="classifier">bool</span></dt><dd><p>inverts the material property</p>
+</dd>
+<dt><strong>invMat</strong><span class="classifier">bool</span></dt><dd><p>inverts the matrix</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dMdmu(u), the derivative of the inner product matrix for a certain u</p>
+<dd class="field-even"><dl class="simple">
+<dt>scipy.sparse.csr_matrix</dt><dd><p>dMdmu(u), the derivative of the inner product matrix for a certain u</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.2)">scipy.sparse.csr_matrix</a></p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1580,11 +1560,12 @@ dictionary of model arrays.</p>
 <dt id="discretize.TreeMesh.getInterpolationMat">
 <code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getInterpolationMat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locs</span></em>, <em class="sig-param"><span class="n">locType</span></em>, <em class="sig-param"><span class="n">zerosOutside</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/TreeMesh.html#TreeMesh.getInterpolationMat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.TreeMesh.getInterpolationMat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Produces interpolation matrix</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>loc</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – Location of points to interpolate to</p></li>
-<li><p><strong>locType</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – <p>What to interpolate</p>
+<dd class="field-odd"><dl>
+<dt><strong>loc</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>Location of points to interpolate to</p>
+</dd>
+<dt><strong>locType: str</strong></dt><dd><p>What to interpolate</p>
 <p>locType can be:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Ex&#39;</span>    <span class="o">-&gt;</span> <span class="n">x</span><span class="o">-</span><span class="n">component</span> <span class="n">of</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">edges</span>
 <span class="s1">&#39;Ey&#39;</span>    <span class="o">-&gt;</span> <span class="n">y</span><span class="o">-</span><span class="n">component</span> <span class="n">of</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">edges</span>
@@ -1596,14 +1577,14 @@ dictionary of model arrays.</p>
 <span class="s1">&#39;CC&#39;</span>    <span class="o">-&gt;</span> <span class="n">scalar</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">cell</span> <span class="n">centers</span>
 </pre></div>
 </div>
-</p></li>
-</ul>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>M, the interpolation matrix</p>
+<dd class="field-even"><dl class="simple">
+<dt>scipy.sparse.csr_matrix</dt><dd><p>M, the interpolation matrix</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.5.2)">scipy.sparse.csr_matrix</a></p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1612,9 +1593,10 @@ dictionary of model arrays.</p>
 <dt id="discretize.TreeMesh.getTensor">
 <code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">getTensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.getTensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a tensor list.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – <p>Which tensor (see below)</p>
+<dd class="field-odd"><dl>
+<dt><strong>key</strong><span class="classifier">str</span></dt><dd><p>Which tensor (see below)</p>
 <p>key can be:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;CC&#39;</span>    <span class="o">-&gt;</span> <span class="n">scalar</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">cell</span> <span class="n">centers</span>
 <span class="s1">&#39;N&#39;</span>     <span class="o">-&gt;</span> <span class="n">scalar</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">nodes</span>
@@ -1626,13 +1608,14 @@ dictionary of model arrays.</p>
 <span class="s1">&#39;Ez&#39;</span>    <span class="o">-&gt;</span> <span class="n">z</span><span class="o">-</span><span class="n">component</span> <span class="n">of</span> <span class="n">field</span> <span class="n">defined</span> <span class="n">on</span> <span class="n">edges</span>
 </pre></div>
 </div>
-</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list of the tensors that make up the mesh.</p>
+<dd class="field-even"><dl class="simple">
+<dt>list</dt><dd><p>list of the tensors that make up the mesh.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)">list</a></p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1643,16 +1626,18 @@ dictionary of model arrays.</p>
 <dd><p>Returns the indices of boundary cells in a given direction given an active index array.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>active_ind</strong> (<em>array_like of bool</em><em>, </em><em>optional</em>) – If not None, then this must show which cells are active</p></li>
-<li><p><strong>direction</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><em>optional</em>) – must be one of (‘zu’, ‘zd’, ‘xu’, ‘xd’, ‘yu’, ‘yd’)</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>active_ind</strong><span class="classifier">array_like of bool, optional</span></dt><dd><p>If not None, then this must show which cells are active</p>
+</dd>
+<dt><strong>direction: str, optional</strong></dt><dd><p>must be one of (‘zu’, ‘zd’, ‘xu’, ‘xd’, ‘yu’, ‘yd’)</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Array of indices for the boundary cells in the requested direction</p>
+<dd class="field-even"><dl class="simple">
+<dt>numpy.array</dt><dd><p>Array of indices for the boundary cells in the requested direction</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>numpy.array</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1663,20 +1648,25 @@ dictionary of model arrays.</p>
 <dd><p>Finds the cells along a line segment defined by two points</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x0</strong> (<em>array_like of length</em><em> (</em><em>dim</em><em>)</em>) – Begining and ending point of the line segment.</p></li>
-<li><p><strong>x1</strong> (<em>array_like of length</em><em> (</em><em>dim</em><em>)</em>) – Begining and ending point of the line segment.</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x0,x1</strong><span class="classifier">array_like of length (dim)</span></dt><dd><p>Begining and ending point of the line segment.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Indexes for cells that contain the a line defined by the two input
+<dd class="field-even"><dl class="simple">
+<dt>list of ints</dt><dd><p>Indexes for cells that contain the a line defined by the two input
 points, ordered in the direction of the line.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list of ints</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py method">
+<dt id="discretize.TreeMesh.get_overlapping_cells">
+<code class="sig-prename descclassname">TreeMesh.</code><code class="sig-name descname">get_overlapping_cells</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">rectangle</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.TreeMesh.get_overlapping_cells" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="discretize.TreeMesh.insert_cells">
@@ -1686,11 +1676,12 @@ points, ordered in the direction of the line.</p>
 assigned level(s).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>points</strong> (<em>array_like with shape</em><em> (</em><em>N</em><em>, </em><em>dim</em><em>)</em>) – </p></li>
-<li><p><strong>levels</strong> (<em>array_like of integers with shape</em><em> (</em><em>N</em><em>)</em>) – </p></li>
-<li><p><strong>finalize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to finalize after inserting point(s)</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>points</strong><span class="classifier">array_like with shape (N, dim)</span></dt><dd></dd>
+<dt><strong>levels</strong><span class="classifier">array_like of integers with shape (N)</span></dt><dd></dd>
+<dt><strong>finalize</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to finalize after inserting point(s)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -1739,30 +1730,38 @@ assigned level(s).</p>
 Plots the mesh grid in either 2D or 3D of the TreeMesh</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.3.1)"><em>matplotlib.axes.Axes</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a><em>, </em><em>optional</em>) – The axes handle to plot on</p></li>
-<li><p><strong>nodes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the nodal points</p></li>
-<li><p><strong>faces</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the center points of the faces</p></li>
-<li><p><strong>centers</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the center points of the cells</p></li>
-<li><p><strong>edges</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the center points of the edges</p></li>
-<li><p><strong>lines</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the lines connecting the nodes</p></li>
-<li><p><strong>cell_line</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the line through the cell centers in order</p></li>
-<li><p><strong>faces_x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the center points of the x, y, or z faces</p></li>
-<li><p><strong>faces_y</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the center points of the x, y, or z faces</p></li>
-<li><p><strong>faces_z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the center points of the x, y, or z faces</p></li>
-<li><p><strong>edges_x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the center points of the x, y, or z edges</p></li>
-<li><p><strong>edges_y</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the center points of the x, y, or z edges</p></li>
-<li><p><strong>edges_z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Plot the center points of the x, y, or z edges</p></li>
-<li><p><strong>show_it</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – whether to call plt.show() within the codes</p></li>
-<li><p><strong>color</strong> (<em>Color</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><em>optional</em>) – if lines=True, the color of the lines, defaults to first color.</p></li>
-<li><p><strong>linewidth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a><em>, </em><em>optional</em>) – if lines=True, the linewidth for the lines.</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ax</strong><span class="classifier">matplotlib.axes.Axes or None, optional</span></dt><dd><p>The axes handle to plot on</p>
+</dd>
+<dt><strong>nodes</strong><span class="classifier">bool, optional</span></dt><dd><p>Plot the nodal points</p>
+</dd>
+<dt><strong>faces</strong><span class="classifier">bool, optional</span></dt><dd><p>Plot the center points of the faces</p>
+</dd>
+<dt><strong>centers</strong><span class="classifier">bool, optional</span></dt><dd><p>Plot the center points of the cells</p>
+</dd>
+<dt><strong>edges</strong><span class="classifier">bool, optional</span></dt><dd><p>Plot the center points of the edges</p>
+</dd>
+<dt><strong>lines</strong><span class="classifier">bool, optional</span></dt><dd><p>Plot the lines connecting the nodes</p>
+</dd>
+<dt><strong>cell_line</strong><span class="classifier">bool, optional</span></dt><dd><p>Plot the line through the cell centers in order</p>
+</dd>
+<dt><strong>faces_x, faces_y, faces_z</strong><span class="classifier">bool, optional</span></dt><dd><p>Plot the center points of the x, y, or z faces</p>
+</dd>
+<dt><strong>edges_x, edges_y, edges_z</strong><span class="classifier">bool, optional</span></dt><dd><p>Plot the center points of the x, y, or z edges</p>
+</dd>
+<dt><strong>show_it</strong><span class="classifier">bool, optional</span></dt><dd><p>whether to call plt.show() within the codes</p>
+</dd>
+<dt><strong>color</strong><span class="classifier">Color or str, optional</span></dt><dd><p>if lines=True, the color of the lines, defaults to first color.</p>
+</dd>
+<dt><strong>linewidth</strong><span class="classifier">float, optional</span></dt><dd><p>if lines=True, the linewidth for the lines.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Axes handle for the plot</p>
+<dd class="field-even"><dl class="simple">
+<dt>matplotlib.axes.Axes</dt><dd><p>Axes handle for the plot</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.3.1)">matplotlib.axes.Axes</a></p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1774,18 +1773,26 @@ Plots the mesh grid in either 2D or 3D of the TreeMesh</p>
 If 3D, this function plots a default slice of the TreeMesh</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>v</strong> (<em>array_like</em>) – Array containing the values to plot</p></li>
-<li><p><strong>v_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><em>optional</em>) – type of value in <cite>v</cite> one of ‘CC’, ‘N’, ‘Fx’, ‘Fy’, ‘Fz’, ‘Ex’, ‘Ey’, or ‘Ez’</p></li>
-<li><p><strong>grid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – plot the grid lines</p></li>
-<li><p><strong>view</strong> (<em>[</em><em>'real'</em><em>, </em><em>'imag'</em><em>, </em><em>'abs'</em><em>]</em><em>, </em><em>optional</em>) – The values to plot from v</p></li>
-<li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.3.1)"><em>matplotlib.axes.Axes</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a><em>, </em><em>optional</em>) – The axes handle</p></li>
-<li><p><strong>clim</strong> (<em>array_like of length 2</em><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a><em>, </em><em>optional</em>) – A pair of [min, max] for the Colorbar</p></li>
-<li><p><strong>pcolor_opts</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a>) – options to be passed on to pcolormesh</p></li>
-<li><p><strong>gridOpt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><em>None</em></a>) – options for the plotting the grid</p></li>
-<li><p><strong>range_x</strong> (<em>array_like</em><em>, </em><em>optional</em>) – pairs of [min, max] values for the x and y ranges</p></li>
-<li><p><strong>range_y</strong> (<em>array_like</em><em>, </em><em>optional</em>) – pairs of [min, max] values for the x and y ranges</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>v</strong><span class="classifier">array_like</span></dt><dd><p>Array containing the values to plot</p>
+</dd>
+<dt><strong>v_type</strong><span class="classifier">str, optional</span></dt><dd><p>type of value in <cite>v</cite> one of ‘CC’, ‘N’, ‘Fx’, ‘Fy’, ‘Fz’, ‘Ex’, ‘Ey’, or ‘Ez’</p>
+</dd>
+<dt><strong>grid</strong><span class="classifier">bool, optional</span></dt><dd><p>plot the grid lines</p>
+</dd>
+<dt><strong>view</strong><span class="classifier">[‘real’, ‘imag’, ‘abs’], optional</span></dt><dd><p>The values to plot from v</p>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib.axes.Axes or None, optional</span></dt><dd><p>The axes handle</p>
+</dd>
+<dt><strong>clim</strong><span class="classifier">array_like of length 2, or None, optional</span></dt><dd><p>A pair of [min, max] for the Colorbar</p>
+</dd>
+<dt><strong>pcolor_opts</strong><span class="classifier">dict, or None</span></dt><dd><p>options to be passed on to pcolormesh</p>
+</dd>
+<dt><strong>gridOpt</strong><span class="classifier">dict, or None</span></dt><dd><p>options for the plotting the grid</p>
+</dd>
+<dt><strong>range_x, range_y: array_like, optional</strong></dt><dd><p>pairs of [min, max] values for the x and y ranges</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1803,13 +1810,16 @@ Returns an array of index values of the cells that contain the given
 points</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>locs</strong> (<em>array_like of shape</em><em> (</em><em>N</em><em>, </em><em>dim</em><em>)</em>) – points to search for the location of</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>locs: array_like of shape (N, dim)</strong></dt><dd><p>points to search for the location of</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Cell indices that contain the points</p>
+<dd class="field-even"><dl class="simple">
+<dt>numpy.array of integers of length(N)</dt><dd><p>Cell indices that contain the points</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>numpy.array of integers of length(N)</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1880,13 +1890,22 @@ The function can also simply be an integer, which will then cause all
 cells to be at least that level.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>function</strong> (<em>callable | int</em>) – a function describing the desired level,
-or an integer to refine all cells to at least that level.</p></li>
-<li><p><strong>finalize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to finalize the mesh</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>function</strong><span class="classifier">callable | int</span></dt><dd><p>a function describing the desired level,
+or an integer to refine all cells to at least that level.</p>
+</dd>
+<dt><strong>finalize</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to finalize the mesh</p>
 </dd>
 </dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="discretize.TreeMesh.TreeCell.html#discretize.TreeMesh.TreeCell" title="discretize.TreeMesh.TreeCell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.TreeMesh.TreeCell</span></code></a></dt><dd><p>a description of the TreeCell object</p>
+</dd>
+</dl>
+</div>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">TreeMesh</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">TreeMesh</span><span class="p">([</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">])</span>
@@ -1903,13 +1922,6 @@ or an integer to refine all cells to at least that level.</p></li>
 <span class="go">nC: 352</span>
 <span class="go">Fill: 34.38%</span>
 </pre></div>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><a class="reference internal" href="discretize.TreeMesh.TreeCell.html#discretize.TreeMesh.TreeCell" title="discretize.TreeMesh.TreeCell"><code class="xref py py-meth docutils literal notranslate"><span class="pre">discretize.TreeMesh.TreeCell()</span></code></a></dt><dd><p>a description of the TreeCell object</p>
-</dd>
-</dl>
 </div>
 </dd></dl>
 
@@ -1948,7 +1960,10 @@ serializers.</p></li>
 object with the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>models</strong><span class="classifier">dict(numpy.ndarray)</span></dt><dd><p>Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1960,7 +1975,10 @@ object with the given model dictionary as the cell data of that dataset.</p>
 the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>models</strong><span class="classifier">dict(numpy.ndarray)</span></dt><dd><p>Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1972,7 +1990,10 @@ the given model dictionary as the cell data of that dataset.</p>
 object with the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>models</strong><span class="classifier">dict(numpy.ndarray)</span></dt><dd><p>Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -2014,11 +2035,14 @@ octree mesh and model.
 <dd><p>Makes and saves a VTK object from this mesh and given models</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – path to the output vtk file or just its name if directory is specified</p></li>
-<li><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</p></li>
-<li><p><strong>directory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – directory where the UBC GIF file lives</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>path to the output vtk file or just its name if directory is specified</p>
+</dd>
+<dt><strong>models</strong><span class="classifier">dict</span></dt><dd><p>dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+<dt><strong>directory</strong><span class="classifier">str</span></dt><dd><p>directory where the UBC GIF file lives</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -2029,11 +2053,14 @@ octree mesh and model.
 <dd><p>Makes and saves a VTK object from this mesh and given models</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – path to the output vtk file or just its name if directory is specified</p></li>
-<li><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</p></li>
-<li><p><strong>directory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – directory where the UBC GIF file lives</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>path to the output vtk file or just its name if directory is specified</p>
+</dd>
+<dt><strong>models</strong><span class="classifier">dict</span></dt><dd><p>dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+<dt><strong>directory</strong><span class="classifier">str</span></dt><dd><p>directory where the UBC GIF file lives</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>

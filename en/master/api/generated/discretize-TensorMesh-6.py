@@ -1,5 +1,7 @@
 import discretize
 import numpy as np
-M = discretize.TensorMesh([20, 20])
-v = np.sin(M.gridCC[:, 0]*2*np.pi)*np.sin(M.gridCC[:, 1]*2*np.pi)
-M.plotImage(v, show_it=True)
+h1 = np.linspace(.1, .5, 3)
+h2 = np.linspace(.1, .5, 5)
+h3 = np.linspace(.1, .5, 3)
+mesh = discretize.TensorMesh([h1, h2, h3])
+mesh.plotGrid(nodes=True, faces=True, centers=True, lines=True, show_it=True)

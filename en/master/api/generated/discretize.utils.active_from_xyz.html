@@ -138,6 +138,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#testing">Testing</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#module-discretize.utils">Utilities</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../index.html#general-utilities">General Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#interpolation-operations">Interpolation Operations</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#mesh-utilities">Mesh Utilities</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.exampleLrmGrid.html">discretize.utils.exampleLrmGrid</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.meshTensor.html">discretize.utils.meshTensor</a></li>
@@ -303,18 +304,22 @@ in the mesh is below the interpolation surface.</p>
 <p>For the</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mesh</strong> (<a class="reference internal" href="discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><em>TensorMesh</em></a><em> or </em><a class="reference internal" href="discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><em>TreeMesh</em></a><em> or </em><a class="reference internal" href="discretize.CylMesh.html#discretize.CylMesh" title="discretize.CylMesh"><em>CylMesh</em></a>) – Mesh object, (if CylMesh: mesh must be symmetric).</p></li>
-<li><p><strong>xyz</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – Points coordinates shape (<a href="#id1"><span class="problematic" id="id2">*</span></a>, mesh.dim).</p></li>
-<li><p><strong>grid_reference</strong> (<em>{'CC'</em><em>, </em><em>'N'}</em>) – Use cell coordinates from cells-center ‘CC’ or nodes ‘N’.</p></li>
-<li><p><strong>method</strong> (<em>{'linear'</em><em>, </em><em>'nearest'}</em>) – Interpolation method for the xyz points.</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mesh</strong><span class="classifier">TensorMesh or TreeMesh or CylMesh</span></dt><dd><p>Mesh object, (if CylMesh: mesh must be symmetric).</p>
+</dd>
+<dt><strong>xyz</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>Points coordinates shape (<a href="#id1"><span class="problematic" id="id2">*</span></a>, mesh.dim).</p>
+</dd>
+<dt><strong>grid_reference</strong><span class="classifier">{‘CC’, ‘N’}</span></dt><dd><p>Use cell coordinates from cells-center ‘CC’ or nodes ‘N’.</p>
+</dd>
+<dt><strong>method</strong><span class="classifier">{‘linear’, ‘nearest’}</span></dt><dd><p>Interpolation method for the xyz points.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>active</strong> – 1D mask array of <cite>bool</cite> for the active cells below xyz.</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>active</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>1D mask array of <cite>bool</cite> for the active cells below xyz.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -344,7 +349,7 @@ in the mesh is below the interpolation surface.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../../api/generated/discretize-utils-active_from_xyz-1.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-utils-active_from_xyz-1.png">png</a>, <a class="reference external" href="../../api/generated/discretize-utils-active_from_xyz-1.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-utils-active_from_xyz-1.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href="../../api/generated/discretize-utils-active_from_xyz-1.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-utils-active_from_xyz-1.png">png</a>, <a class="reference external" href="../../api/generated/discretize-utils-active_from_xyz-1.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="../../_images/discretize-utils-active_from_xyz-1.png" src="../../_images/discretize-utils-active_from_xyz-1.png" />
 </div>

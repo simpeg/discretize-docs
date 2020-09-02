@@ -138,6 +138,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#testing">Testing</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#module-discretize.utils">Utilities</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../index.html#general-utilities">General Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#interpolation-operations">Interpolation Operations</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#mesh-utilities">Mesh Utilities</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.exampleLrmGrid.html">discretize.utils.exampleLrmGrid</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.meshTensor.html">discretize.utils.meshTensor</a></li>
@@ -293,19 +294,24 @@
 uniformly distributed model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>shape</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><em>tuple</em></a>) – shape of the model.</p></li>
-<li><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – pick which model to produce, prints the seed if you don’t choose.</p></li>
-<li><p><strong>anisotropy</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – this is the (3 x n) blurring kernel that is used.</p></li>
-<li><p><strong>its</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – number of smoothing iterations</p></li>
-<li><p><strong>bounds</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – bounds on the model, len(list) == 2</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>shape: tuple</strong></dt><dd><p>shape of the model.</p>
+</dd>
+<dt><strong>seed: int</strong></dt><dd><p>pick which model to produce, prints the seed if you don’t choose.</p>
+</dd>
+<dt><strong>anisotropy: numpy.ndarray</strong></dt><dd><p>this is the (3 x n) blurring kernel that is used.</p>
+</dd>
+<dt><strong>its: int</strong></dt><dd><p>number of smoothing iterations</p>
+</dd>
+<dt><strong>bounds: list</strong></dt><dd><p>bounds on the model, len(list) == 2</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>M, the model</p>
+<dd class="field-even"><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p>M, the model</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -316,7 +322,7 @@ uniformly distributed model.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../../api/generated/discretize-utils-random_model-1.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-utils-random_model-1.png">png</a>, <a class="reference external" href="../../api/generated/discretize-utils-random_model-1.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-utils-random_model-1.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href="../../api/generated/discretize-utils-random_model-1.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-utils-random_model-1.png">png</a>, <a class="reference external" href="../../api/generated/discretize-utils-random_model-1.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="../../_images/discretize-utils-random_model-1.png" src="../../_images/discretize-utils-random_model-1.png" />
 </div>

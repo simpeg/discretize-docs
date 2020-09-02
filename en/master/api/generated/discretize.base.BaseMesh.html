@@ -482,43 +482,19 @@ BaseMesh should be inherited by meshes with a regular structure.</p>
 <dl class="py attribute">
 <dt id="discretize.base.BaseMesh.axis_u">
 <code class="sig-prename descclassname">BaseMesh.</code><code class="sig-name descname">axis_u</code><a class="headerlink" href="#discretize.base.BaseMesh.axis_u" title="Permalink to this definition">¶</a></dt>
-<dd><p>X</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><strong>axis_u</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>)</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>Vector orientation of u-direction. For more details see the docs for the <a class="reference internal" href="#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default</p>
-</dd>
-</dl>
+<dd><p><strong>axis_u</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of u-direction. For more details see the docs for the <a class="reference internal" href="#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: X</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.base.BaseMesh.axis_v">
 <code class="sig-prename descclassname">BaseMesh.</code><code class="sig-name descname">axis_v</code><a class="headerlink" href="#discretize.base.BaseMesh.axis_v" title="Permalink to this definition">¶</a></dt>
-<dd><p>Y</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><strong>axis_v</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>)</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>Vector orientation of v-direction. For more details see the docs for the <a class="reference internal" href="#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default</p>
-</dd>
-</dl>
+<dd><p><strong>axis_v</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of v-direction. For more details see the docs for the <a class="reference internal" href="#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Y</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.base.BaseMesh.axis_w">
 <code class="sig-prename descclassname">BaseMesh.</code><code class="sig-name descname">axis_w</code><a class="headerlink" href="#discretize.base.BaseMesh.axis_w" title="Permalink to this definition">¶</a></dt>
-<dd><p>Z</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><strong>axis_w</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>)</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>Vector orientation of w-direction. For more details see the docs for the <a class="reference internal" href="#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default</p>
-</dd>
-</dl>
+<dd><p><strong>axis_w</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of w-direction. For more details see the docs for the <a class="reference internal" href="#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Z</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -527,10 +503,10 @@ BaseMesh should be inherited by meshes with a regular structure.</p>
 <dd><p>The dimension of the mesh (1, 2, or 3).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>dimension of the mesh</p>
+<dd class="field-odd"><dl class="simple">
+<dt>int</dt><dd><p>dimension of the mesh</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -541,10 +517,10 @@ BaseMesh should be inherited by meshes with a regular structure.</p>
 <dd><p>Total number of cells in the mesh.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>number of cells in the mesh</p>
+<dd class="field-odd"><dl class="simple">
+<dt>int</dt><dd><p>number of cells in the mesh</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -556,7 +532,7 @@ BaseMesh should be inherited by meshes with a regular structure.</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../../api/generated/discretize-base-BaseMesh-1.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-1.png">png</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-1.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-1.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href="../../api/generated/discretize-base-BaseMesh-1.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-1.png">png</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-1.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="../../_images/discretize-base-BaseMesh-1.png" src="../../_images/discretize-base-BaseMesh-1.png" />
 </div>
@@ -568,10 +544,9 @@ BaseMesh should be inherited by meshes with a regular structure.</p>
 <dd><p>Total number of edges.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>nE</strong></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>int = sum([nEx, nEy, nEz])</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>nE</strong><span class="classifier">int = sum([nEx, nEy, nEz])</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -582,10 +557,9 @@ BaseMesh should be inherited by meshes with a regular structure.</p>
 <dd><p>Number of x-edges</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>nEx</strong></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>nEx</strong><span class="classifier">int</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -596,10 +570,9 @@ BaseMesh should be inherited by meshes with a regular structure.</p>
 <dd><p>Number of y-edges</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>nEy</strong></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>nEy</strong><span class="classifier">int</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -610,10 +583,9 @@ BaseMesh should be inherited by meshes with a regular structure.</p>
 <dd><p>Number of z-edges</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>nEz</strong></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>nEz</strong><span class="classifier">int</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -680,10 +652,10 @@ BaseMesh should be inherited by meshes with a regular structure.</p>
 <dd><p>Total number of nodes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>number of nodes in the mesh</p>
+<dd class="field-odd"><dl class="simple">
+<dt>int</dt><dd><p>number of nodes in the mesh</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -695,7 +667,7 @@ BaseMesh should be inherited by meshes with a regular structure.</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">nN</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../../api/generated/discretize-base-BaseMesh-2.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-2.png">png</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-2.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-2.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href="../../api/generated/discretize-base-BaseMesh-2.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-2.png">png</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-2.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="../../_images/discretize-base-BaseMesh-2.png" src="../../_images/discretize-base-BaseMesh-2.png" />
 </div>
@@ -725,15 +697,7 @@ with vectors of <span class="math notranslate nohighlight">\((1,0,0)\)</span>, <
 <dl class="py attribute">
 <dt id="discretize.base.BaseMesh.reference_system">
 <code class="sig-prename descclassname">BaseMesh.</code><code class="sig-name descname">reference_system</code><a class="headerlink" href="#discretize.base.BaseMesh.reference_system" title="Permalink to this definition">¶</a></dt>
-<dd><p>cartesian</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><strong>reference_system</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">String</span></code></a>)</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>The type of coordinate reference frame. Can take on the values cartesian, cylindrical, or spherical. Abbreviations of these are allowed., a unicode string, Default</p>
-</dd>
-</dl>
+<dd><p><strong>reference_system</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">String</span></code></a>): The type of coordinate reference frame. Can take on the values cartesian, cylindrical, or spherical. Abbreviations of these are allowed., a unicode string, Default: cartesian</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -772,18 +736,21 @@ docs for the <a class="reference internal" href="discretize.mixins.vtkModule.Int
 <dt id="discretize.base.BaseMesh.vnE">
 <code class="sig-prename descclassname">BaseMesh.</code><code class="sig-name descname">vnE</code><a class="headerlink" href="#discretize.base.BaseMesh.vnE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total number of edges in each direction</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><ul>
-<li><p><strong>vnE</strong> (<em>numpy.ndarray = [nEx, nEy, nEz], (dim, )</em>)</p></li>
-<li><p><em>.. plot::</em> – :include-source:</p>
-<p>import discretize
-import numpy as np
-M = discretize.TensorMesh([np.ones(n) for n in [2,3]])
-M.plotGrid(edges=True, show_it=True)</p>
-</li>
-</ul>
-</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>vnE</strong><span class="classifier">numpy.ndarray = [nEx, nEy, nEz], (dim, )</span></dt><dd></dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">M</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-base-BaseMesh-3.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-3.png">png</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-3.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/discretize-base-BaseMesh-3.png" src="../../_images/discretize-base-BaseMesh-3.png" />
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -806,21 +773,16 @@ M.plotGrid(edges=True, show_it=True)</p>
 <span class="n">M</span><span class="o">.</span><span class="n">plotGrid</span><span class="p">(</span><span class="n">faces</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_it</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../../api/generated/discretize-base-BaseMesh-3.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-3.png">png</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-3.hires.png">hires.png</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-3.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href="../../api/generated/discretize-base-BaseMesh-4.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-4.png">png</a>, <a class="reference external" href="../../api/generated/discretize-base-BaseMesh-4.pdf">pdf</a>)</p>
 <div class="figure align-default">
-<img alt="../../_images/discretize-base-BaseMesh-3.png" src="../../_images/discretize-base-BaseMesh-3.png" />
+<img alt="../../_images/discretize-base-BaseMesh-4.png" src="../../_images/discretize-base-BaseMesh-4.png" />
 </div>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.base.BaseMesh.x0">
 <code class="sig-prename descclassname">BaseMesh.</code><code class="sig-name descname">x0</code><a class="headerlink" href="#discretize.base.BaseMesh.x0" title="Permalink to this definition">¶</a></dt>
-<dd><p>origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>)</p>
-</dd>
-</dl>
+<dd><p><strong>x0</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</p>
 </dd></dl>
 
 </div>
@@ -947,7 +909,10 @@ serializers.</p></li>
 object with the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>models</strong><span class="classifier">dict(numpy.ndarray)</span></dt><dd><p>Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -959,7 +924,10 @@ object with the given model dictionary as the cell data of that dataset.</p>
 the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>models</strong><span class="classifier">dict(numpy.ndarray)</span></dt><dd><p>Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -971,7 +939,10 @@ the given model dictionary as the cell data of that dataset.</p>
 object with the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>(</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a><em>)</em>) – Name(‘s) and array(‘s). Match number of cells</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>models</strong><span class="classifier">dict(numpy.ndarray)</span></dt><dd><p>Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -991,11 +962,14 @@ fail.</p>
 <dd><p>Makes and saves a VTK object from this mesh and given models</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – path to the output vtk file or just its name if directory is specified</p></li>
-<li><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</p></li>
-<li><p><strong>directory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – directory where the UBC GIF file lives</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>path to the output vtk file or just its name if directory is specified</p>
+</dd>
+<dt><strong>models</strong><span class="classifier">dict</span></dt><dd><p>dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+<dt><strong>directory</strong><span class="classifier">str</span></dt><dd><p>directory where the UBC GIF file lives</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1006,11 +980,14 @@ fail.</p>
 <dd><p>Makes and saves a VTK object from this mesh and given models</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – path to the output vtk file or just its name if directory is specified</p></li>
-<li><p><strong>models</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</p></li>
-<li><p><strong>directory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – directory where the UBC GIF file lives</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>path to the output vtk file or just its name if directory is specified</p>
+</dd>
+<dt><strong>models</strong><span class="classifier">dict</span></dt><dd><p>dictionary of numpy.array - Name(‘s) and array(‘s). Match number of cells</p>
+</dd>
+<dt><strong>directory</strong><span class="classifier">str</span></dt><dd><p>directory where the UBC GIF file lives</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>

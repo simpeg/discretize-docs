@@ -614,15 +614,14 @@ called after tearDown on test failure or success.</p>
 <dd><p>Add a type specific assertEqual style function to compare a type.</p>
 <p>This method is for use by TestCase subclasses that need to register
 their own type equality functions to provide nicer error messages.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>typeobj</strong> – The data type to call this function on when both values
-are of the same type in assertEqual().</p></li>
-<li><p><strong>function</strong> – The callable taking two arguments and an optional
-msg= argument that raises self.failureException with a
-useful error message when the two arguments are not equal.</p></li>
-</ul>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>typeobj: The data type to call this function on when both values</dt><dd><p>are of the same type in assertEqual().</p>
+</dd>
+<dt>function: The callable taking two arguments and an optional</dt><dd><p>msg= argument that raises self.failureException with a
+useful error message when the two arguments are not equal.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -763,14 +762,13 @@ default message.</p>
 <dt id="discretize.Tests.OrderTest.assertListEqual">
 <code class="sig-prename descclassname">OrderTest.</code><code class="sig-name descname">assertListEqual</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list1</span></em>, <em class="sig-param"><span class="n">list2</span></em>, <em class="sig-param"><span class="n">msg</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertListEqual" title="Permalink to this definition">¶</a></dt>
 <dd><p>A list-specific equality assertion.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>list1</strong> – The first list to compare.</p></li>
-<li><p><strong>list2</strong> – The second list to compare.</p></li>
-<li><p><strong>msg</strong> – Optional message to use on failure instead of a list of
-differences.</p></li>
-</ul>
+<dl>
+<dt>Args:</dt><dd><p>list1: The first list to compare.
+list2: The second list to compare.
+msg: Optional message to use on failure instead of a list of</p>
+<blockquote>
+<div><p>differences.</p>
+</div></blockquote>
 </dd>
 </dl>
 </dd></dl>
@@ -887,17 +885,18 @@ exception after the assertion:</p>
 <dt id="discretize.Tests.OrderTest.assertRaisesRegex">
 <code class="sig-prename descclassname">OrderTest.</code><code class="sig-name descname">assertRaisesRegex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expected_exception</span></em>, <em class="sig-param"><span class="n">expected_regex</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertRaisesRegex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Asserts that the message in a raised exception matches a regex.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>expected_exception</strong> – Exception class expected to be raised.</p></li>
-<li><p><strong>expected_regex</strong> – Regex (re.Pattern object or string) expected
-to be found in error message.</p></li>
-<li><p><strong>args</strong> – Function to be called and extra positional args.</p></li>
-<li><p><strong>kwargs</strong> – Extra kwargs.</p></li>
-<li><p><strong>msg</strong> – Optional message used in case of failure. Can only be used
-when assertRaisesRegex is used as a context manager.</p></li>
-</ul>
+<dl>
+<dt>Args:</dt><dd><p>expected_exception: Exception class expected to be raised.
+expected_regex: Regex (re.Pattern object or string) expected</p>
+<blockquote>
+<div><p>to be found in error message.</p>
+</div></blockquote>
+<p>args: Function to be called and extra positional args.
+kwargs: Extra kwargs.
+msg: Optional message used in case of failure. Can only be used</p>
+<blockquote>
+<div><p>when assertRaisesRegex is used as a context manager.</p>
+</div></blockquote>
 </dd>
 </dl>
 </dd></dl>
@@ -924,16 +923,17 @@ when assertRaisesRegex is used as a context manager.</p></li>
 <dd><p>An equality assertion for ordered sequences (like lists and tuples).</p>
 <p>For the purposes of this function, a valid ordered sequence type is one
 which can be indexed, has a length, and has an equality operator.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>seq1</strong> – The first sequence to compare.</p></li>
-<li><p><strong>seq2</strong> – The second sequence to compare.</p></li>
-<li><p><strong>seq_type</strong> – The expected datatype of the sequences, or None if no
-datatype should be enforced.</p></li>
-<li><p><strong>msg</strong> – Optional message to use on failure instead of a list of
-differences.</p></li>
-</ul>
+<dl>
+<dt>Args:</dt><dd><p>seq1: The first sequence to compare.
+seq2: The second sequence to compare.
+seq_type: The expected datatype of the sequences, or None if no</p>
+<blockquote>
+<div><p>datatype should be enforced.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>msg: Optional message to use on failure instead of a list of</dt><dd><p>differences.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -942,14 +942,13 @@ differences.</p></li>
 <dt id="discretize.Tests.OrderTest.assertSetEqual">
 <code class="sig-prename descclassname">OrderTest.</code><code class="sig-name descname">assertSetEqual</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">set1</span></em>, <em class="sig-param"><span class="n">set2</span></em>, <em class="sig-param"><span class="n">msg</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertSetEqual" title="Permalink to this definition">¶</a></dt>
 <dd><p>A set-specific equality assertion.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>set1</strong> – The first set to compare.</p></li>
-<li><p><strong>set2</strong> – The second set to compare.</p></li>
-<li><p><strong>msg</strong> – Optional message to use on failure instead of a list of
-differences.</p></li>
-</ul>
+<dl>
+<dt>Args:</dt><dd><p>set1: The first set to compare.
+set2: The second set to compare.
+msg: Optional message to use on failure instead of a list of</p>
+<blockquote>
+<div><p>differences.</p>
+</div></blockquote>
 </dd>
 </dl>
 <p>assertSetEqual uses ducktyping to support different types of sets, and
@@ -967,14 +966,13 @@ difference method).</p>
 <dt id="discretize.Tests.OrderTest.assertTupleEqual">
 <code class="sig-prename descclassname">OrderTest.</code><code class="sig-name descname">assertTupleEqual</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tuple1</span></em>, <em class="sig-param"><span class="n">tuple2</span></em>, <em class="sig-param"><span class="n">msg</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.Tests.OrderTest.assertTupleEqual" title="Permalink to this definition">¶</a></dt>
 <dd><p>A tuple-specific equality assertion.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tuple1</strong> – The first tuple to compare.</p></li>
-<li><p><strong>tuple2</strong> – The second tuple to compare.</p></li>
-<li><p><strong>msg</strong> – Optional message to use on failure instead of a list of
-differences.</p></li>
-</ul>
+<dl>
+<dt>Args:</dt><dd><p>tuple1: The first tuple to compare.
+tuple2: The second tuple to compare.
+msg: Optional message to use on failure instead of a list of</p>
+<blockquote>
+<div><p>differences.</p>
+</div></blockquote>
 </dd>
 </dl>
 </dd></dl>
@@ -1016,17 +1014,18 @@ This allows you to inspect the warning after the assertion:</p>
 Basic functioning is similar to assertWarns() with the addition
 that only warnings whose messages also match the regular expression
 are considered successful matches.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>expected_warning</strong> – Warning class expected to be triggered.</p></li>
-<li><p><strong>expected_regex</strong> – Regex (re.Pattern object or string) expected
-to be found in error message.</p></li>
-<li><p><strong>args</strong> – Function to be called and extra positional args.</p></li>
-<li><p><strong>kwargs</strong> – Extra kwargs.</p></li>
-<li><p><strong>msg</strong> – Optional message used in case of failure. Can only be used
-when assertWarnsRegex is used as a context manager.</p></li>
-</ul>
+<dl>
+<dt>Args:</dt><dd><p>expected_warning: Warning class expected to be triggered.
+expected_regex: Regex (re.Pattern object or string) expected</p>
+<blockquote>
+<div><p>to be found in error message.</p>
+</div></blockquote>
+<p>args: Function to be called and extra positional args.
+kwargs: Extra kwargs.
+msg: Optional message used in case of failure. Can only be used</p>
+<blockquote>
+<div><p>when assertWarnsRegex is used as a context manager.</p>
+</div></blockquote>
 </dd>
 </dl>
 </dd></dl>

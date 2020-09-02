@@ -1572,7 +1572,8 @@
 <span class="sd">        the shown range.</span>
 
 <span class="sd">    clim : None or list of [min, max]</span>
-<span class="sd">        For pcolormesh (vmin, vmax).</span>
+<span class="sd">        For `pcolormesh` (`vmin`, `vmax`). Note: if you use a `norm` (e.g.,</span>
+<span class="sd">        `LogNorm`) then `vmin`/`vmax` have to be provided in the norm.</span>
 
 <span class="sd">    xlim, ylim, zlim : None or list of [min, max]</span>
 <span class="sd">        Axis limits.</span>
@@ -1591,7 +1592,7 @@
 <span class="sd">        Number of cells occupied by x, y, and z dimension on plt.subplot2grid.</span>
 
 <span class="sd">    pcolor_opts : dictionary</span>
-<span class="sd">        Passed to pcolormesh.</span>
+<span class="sd">        Passed to `pcolormesh`.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -1605,6 +1606,9 @@
         <span class="k">if</span> <span class="s2">&quot;pcolorOpts&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
             <span class="n">pcolor_opts</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;pcolorOpts&quot;</span><span class="p">]</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;pcolorOpts has been deprecated, please use pcolor_opts&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+
+        <span class="c1"># Add pcolor_opts to self</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pc_props</span> <span class="o">=</span> <span class="n">pcolor_opts</span> <span class="k">if</span> <span class="n">pcolor_opts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}</span>
 
         <span class="c1"># (a) Mesh dimensionality</span>
         <span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">dim</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
@@ -1687,14 +1691,31 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">aspect3</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">aspect2</span>
 
-        <span class="c1"># Store min and max of all data</span>
+        <span class="c1"># Get color limits.</span>
+
+        <span class="c1"># Alternatively, look in pc_props.</span>
+        <span class="n">vmin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pc_props</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;vmin&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">vmax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pc_props</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;vmax&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="c1"># Check if there is a norm and if it has color limits.</span>
+        <span class="k">if</span> <span class="s1">&#39;norm&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pc_props</span><span class="p">:</span>
+            <span class="n">vmin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pc_props</span><span class="p">[</span><span class="s1">&#39;norm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">vmin</span>
+            <span class="n">vmax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pc_props</span><span class="p">[</span><span class="s1">&#39;norm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">vmax</span>
+
+        <span class="c1"># If nowhere defined, get it from the data.</span>
         <span class="k">if</span> <span class="n">clim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">clim</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">)]</span>
-        <span class="c1"># In the case of a homogeneous fullspace provide a small range to avoid</span>
-        <span class="c1"># problems with colorbar and the three subplots.</span>
-        <span class="k">if</span> <span class="n">clim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">clim</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
-            <span class="n">clim</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.99</span><span class="o">*</span><span class="n">clim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">1.01</span><span class="o">*</span><span class="n">clim</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pc_props</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;vmin&#39;</span><span class="p">:</span> <span class="n">clim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;vmax&#39;</span><span class="p">:</span> <span class="n">clim</span><span class="p">[</span><span class="mi">1</span><span class="p">]}</span>
+
+            <span class="n">clim</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">)</span> <span class="k">if</span> <span class="n">vmin</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">vmin</span><span class="p">,</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">)</span> <span class="k">if</span> <span class="n">vmax</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">vmax</span><span class="p">]</span>
+
+            <span class="c1"># In the case of a homogeneous fullspace provide a small range to</span>
+            <span class="c1"># avoid problems with colorbar and the three subplots.</span>
+            <span class="k">if</span> <span class="n">clim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">clim</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">clim</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.99</span><span class="o">*</span><span class="n">clim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">1.01</span><span class="o">*</span><span class="n">clim</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pc_props</span><span class="p">[</span><span class="s1">&#39;vmin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pc_props</span><span class="p">[</span><span class="s1">&#39;vmax&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
         <span class="c1"># 2. Start populating figure</span>
 
@@ -1763,10 +1784,6 @@
         <span class="c1"># spots.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">clpropsw</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;lw&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;zorder&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">clpropsk</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;lw&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;zorder&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">}</span>
-
-        <span class="c1"># Add pcolor_opts</span>
-        <span class="k">if</span> <span class="n">pcolor_opts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">pc_props</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">pcolor_opts</span><span class="p">)</span>
 
         <span class="c1"># Initial draw</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update_xy</span><span class="p">()</span>

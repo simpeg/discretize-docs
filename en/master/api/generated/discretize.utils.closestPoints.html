@@ -138,6 +138,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#testing">Testing</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#module-discretize.utils">Utilities</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../index.html#general-utilities">General Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#interpolation-operations">Interpolation Operations</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#mesh-utilities">Mesh Utilities</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.exampleLrmGrid.html">discretize.utils.exampleLrmGrid</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.meshTensor.html">discretize.utils.meshTensor</a></li>
@@ -292,17 +293,20 @@
 <dd><p>Move a list of points to the closest points on a grid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mesh</strong> (<a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh" title="discretize.base.BaseMesh"><em>BaseMesh</em></a>) – The mesh</p></li>
-<li><p><strong>pts</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – Points to move</p></li>
-<li><p><strong>gridLoc</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – [‘CC’, ‘N’, ‘Fx’, ‘Fy’, ‘Fz’, ‘Ex’, ‘Ex’, ‘Ey’, ‘Ez’]</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mesh: BaseMesh</strong></dt><dd><p>The mesh</p>
+</dd>
+<dt><strong>pts: numpy.ndarray</strong></dt><dd><p>Points to move</p>
+</dd>
+<dt><strong>gridLoc: str</strong></dt><dd><p>[‘CC’, ‘N’, ‘Fx’, ‘Fy’, ‘Fz’, ‘Ex’, ‘Ex’, ‘Ey’, ‘Ez’]</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>nodeInds</p>
+<dd class="field-even"><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p>nodeInds</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
