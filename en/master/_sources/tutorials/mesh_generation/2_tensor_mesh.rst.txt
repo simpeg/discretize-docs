@@ -115,7 +115,7 @@ Here we demonstrate how to create tensor meshes that have padding cells.
     exp_y = 1.25  # expansion rate of padding cells in y
 
     # Use a list of tuples to define cell widths in each direction. Each tuple
-    # contains the cell with, number of cells and the expansion factor. A
+    # contains the cell width, number of cells and the expansion factor. A
     # negative sign is used to indicate an interval where cells widths go
     # from largest to smallest.
     hx = [(dx, npad_x, -exp_x), (dx, ncx), (dx, npad_x, exp_x)]
@@ -286,7 +286,7 @@ properties from a 3D tensor mesh.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.573 seconds)
+   **Total running time of the script:** ( 0 minutes  0.539 seconds)
 
 
 .. _sphx_glr_download_tutorials_mesh_generation_2_tensor_mesh.py:
