@@ -32,11 +32,6 @@ In the notebook, you have to use :code:`%matplotlib notebook`.
     import tarfile
     import matplotlib.pyplot as plt
     from matplotlib.colors import SymLogNorm
-    import sys
-
-    if sys.version_info[0] < 3:
-        print("This example only runs on Python 3")
-        sys.exit(0)
 
 
 
@@ -76,9 +71,9 @@ get from running the laguna-del-maule inversion notebook.
 
  .. code-block:: none
 
-    file already exists, new file is called /home/travis/build/simpeg/discretize/examples/laguna_del_maule_slicer.tar.gz
+    file already exists, new file is called /home/travis/build/simpeg/discretize/examples/laguna_del_maule_slicer(1).gz
     Downloading https://storage.googleapis.com/simpeg/laguna_del_maule_slicer.tar.gz
-       saved to: /home/travis/build/simpeg/discretize/examples/laguna_del_maule_slicer.tar.gz
+       saved to: /home/travis/build/simpeg/discretize/examples/laguna_del_maule_slicer(1).gz
     Download completed!
 
 
@@ -265,7 +260,7 @@ be used to define transparent regions.
 
  .. code-block:: none
 
-    /home/travis/build/simpeg/discretize/examples/plot_slicer_demo.py:139: MatplotlibDeprecationWarning: default base will change from np.e to 10 in 3.4.  To suppress this warning specify the base keyword argument.
+    /home/travis/build/simpeg/discretize/examples/plot_slicer_demo.py:134: MatplotlibDeprecationWarning: default base will change from np.e to 10 in 3.4.  To suppress this warning specify the base keyword argument.
       Lpout, pcolor_opts={'norm': SymLogNorm(linthresh=0.01),'cmap': 'RdBu_r'}
 
 
@@ -354,7 +349,6 @@ This way you get the figure-handle, and can do further stuff with the figure.
 
 
 
-
 .. image:: /examples/images/sphx_glr_plot_slicer_demo_008.png
     :alt: 'discretize.View.Slicer' together with 'fig.canvas.mpl_connect'
     :class: sphx-glr-single-img
@@ -366,7 +360,7 @@ This way you get the figure-handle, and can do further stuff with the figure.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.020 seconds)
+   **Total running time of the script:** ( 0 minutes  3.941 seconds)
 
 
 .. _sphx_glr_download_examples_plot_slicer_demo.py:

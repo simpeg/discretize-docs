@@ -571,7 +571,7 @@
 
         <span class="n">loc</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">asArray_N_x_Dim</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">zerosOutside</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">zerosOutside</span><span class="p">:</span>
             <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">isInside</span><span class="p">(</span><span class="n">loc</span><span class="p">)),</span> <span class="s2">&quot;Points outside of mesh&quot;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">indZeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">isInside</span><span class="p">(</span><span class="n">loc</span><span class="p">))</span>

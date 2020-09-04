@@ -856,7 +856,7 @@
         <span class="n">tm_gridboost</span><span class="p">[:,</span> <span class="n">normalInd</span><span class="p">]</span> <span class="o">=</span> <span class="n">slice_loc</span>
 
         <span class="c1"># interpolate values to self.gridCC if not &#39;CC&#39;</span>
-        <span class="k">if</span> <span class="n">v_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v_type</span> <span class="o">!=</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
             <span class="n">aveOp</span> <span class="o">=</span> <span class="s1">&#39;ave&#39;</span> <span class="o">+</span> <span class="n">v_type</span> <span class="o">+</span> <span class="s1">&#39;2CC&#39;</span>
             <span class="n">Av</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aveOp</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">Av</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>

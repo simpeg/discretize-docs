@@ -349,7 +349,7 @@
 <span class="sd">        int</span>
 <span class="sd">            Number of nodes in the x-direction</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># if self.isSymmetric is True:</span>
+        <span class="c1"># if self.isSymmetric:</span>
         <span class="c1">#     return self.nCx</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ntNx</span>
 
@@ -361,7 +361,7 @@
 <span class="sd">        int</span>
 <span class="sd">            Number of total y nodes (prior to deflating)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
             <span class="k">return</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nCy</span> <span class="o">+</span> <span class="mi">1</span>
 
@@ -373,7 +373,7 @@
 <span class="sd">        int</span>
 <span class="sd">            Number of nodes in the y-direction</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
             <span class="k">return</span> <span class="mi">0</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nCy</span>
 
@@ -564,7 +564,7 @@
 <span class="sd">        int</span>
 <span class="sd">            Number of z-edges</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnEz</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">nNx</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nNy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nCz</span><span class="p">])</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">nCz</span>
 
@@ -576,14 +576,14 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">vectorCCy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Cell-centered grid vector (1D) in the y direction.&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hy</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hy</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">hy</span><span class="o">*</span><span class="mf">0.5</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">vectorNx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Nodal grid vector (1D) in the x direction.&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hx</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hx</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
 
@@ -599,7 +599,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">vectorNy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Nodal grid vector (1D) in the y direction.&quot;&quot;&quot;</span>
-        <span class="c1"># if self.isSymmetric is True:</span>
+        <span class="c1"># if self.isSymmetric:</span>
         <span class="c1">#     # There aren&#39;t really any nodes, but all the grids need</span>
         <span class="c1">#     # somewhere to live, why not zero?!</span>
         <span class="c1">#     return np.r_[0]</span>
@@ -706,7 +706,7 @@
 <span class="sd">        numpy.ndarray</span>
 <span class="sd">            vector of edge lengths :math:`(r, \\theta, z)`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">edgeEy</span>
             <span class="c1"># return 2*pi*self.gridN[:, 0]</span>
         <span class="k">else</span><span class="p">:</span>
@@ -764,7 +764,7 @@
 <span class="sd">            area of y-faces</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_areaFy&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
                     <span class="s1">&#39;There are no y-faces on the Cyl Symmetric mesh&#39;</span>
                 <span class="p">)</span>
@@ -831,7 +831,7 @@
 <span class="sd">            face areas</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># if getattr(self, &#39;_area&#39;, None) is None:</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">areaFx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">areaFz</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">areaFx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">areaFy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">areaFz</span><span class="p">]</span>
@@ -1252,7 +1252,7 @@
 <span class="sd">            grid locations of radial faces</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_gridFx&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
                 <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">CylMesh</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">gridFx</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_gridFx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gridFxFull</span><span class="p">[</span><span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">_ishangingFx</span><span class="p">,</span> <span class="p">:]</span>
@@ -1277,7 +1277,7 @@
 <span class="sd">            grid locations of azimuthal faces</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_gridEy&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gridEyFull</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_gridEy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gridEyFull</span><span class="p">[</span><span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">_ishangingEy</span><span class="p">,</span> <span class="p">:]</span>
@@ -1304,7 +1304,7 @@
 <span class="sd">            grid locations of radial faces</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_gridEz&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_gridEz</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_gridEz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gridEzFull</span><span class="p">[</span><span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">_ishangingEz</span><span class="p">,</span> <span class="p">:]</span>
@@ -1323,7 +1323,7 @@
             <span class="c1"># Compute faceDivergence operator on faces</span>
             <span class="n">D1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">faceDivx</span>
             <span class="n">D3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">faceDivz</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
                 <span class="n">D</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">D1</span><span class="p">,</span> <span class="n">D3</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">)</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">nCy</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">D2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">faceDivy</span>
@@ -1433,26 +1433,26 @@
 
     <span class="c1"># @property</span>
     <span class="c1"># def _nodalGradStencilx(self):</span>
-    <span class="c1">#     if self.isSymmetric is True:</span>
+    <span class="c1">#     if self.isSymmetric:</span>
     <span class="c1">#         return None</span>
     <span class="c1">#     return kron3(speye(self.nNz), speye(self.nNy), ddx(self.nCx))</span>
 
     <span class="c1"># @property</span>
     <span class="c1"># def _nodalGradStencily(self):</span>
-    <span class="c1">#     if self.isSymmetric is True:</span>
+    <span class="c1">#     if self.isSymmetric:</span>
     <span class="c1">#         None</span>
     <span class="c1">#         # return kron3(speye(self.nNz), ddx(self.nCy), speye(self.nNx)) * self._deflationMatrix(&#39;Ey&#39;)</span>
     <span class="c1">#     return kron3(speye(self.nNz), ddx(self.nCy), speye(self.nNx))</span>
 
     <span class="c1"># @property</span>
     <span class="c1"># def _nodalGradStencilz(self):</span>
-    <span class="c1">#     if self.isSymmetric is True:</span>
+    <span class="c1">#     if self.isSymmetric:</span>
     <span class="c1">#         return None</span>
     <span class="c1">#     return kron3(ddx(self.nCz), speye(self.nNy), speye(self.nNx))</span>
 
     <span class="c1"># @property</span>
     <span class="c1"># def _nodalGradStencil(self):</span>
-    <span class="c1">#     if self.isSymmetric is True:</span>
+    <span class="c1">#     if self.isSymmetric:</span>
     <span class="c1">#         return None</span>
     <span class="c1">#     else:</span>
     <span class="c1">#         G = self._deflationMatrix(&#39;E&#39;).T * sp.vstack((</span>
@@ -1465,7 +1465,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">nodalGrad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Construct gradient operator (nodes to edges).&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">None</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;nodalGrad not yet implemented&#39;</span><span class="p">)</span>
 
@@ -1488,7 +1488,7 @@
             <span class="n">A</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">area</span>
             <span class="n">E</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edge</span>
 
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
                 <span class="c1"># 1D Difference matricies</span>
                 <span class="n">dr</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">spdiags</span><span class="p">(</span>
                     <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">nCx</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
@@ -1586,7 +1586,7 @@
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_aveE2CC&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="c1"># The number of cell centers in each direction</span>
             <span class="c1"># n = self.vnC</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_aveE2CC</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">aveEy2CC</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_aveE2CC</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">*</span> <span class="n">sp</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span>
@@ -1605,7 +1605,7 @@
 <span class="sd">        scipy.sparse.csr_matrix</span>
 <span class="sd">            matrix that averages from edges to cell centered vectors</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aveE2CC</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_aveE2CCV&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1673,7 +1673,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_aveF2CC&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnC</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_aveF2CC</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span>
                     <span class="n">sp</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">aveFx2CC</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">aveFz2CC</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">)</span>
                 <span class="p">)</span>
@@ -1698,7 +1698,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_aveF2CCV&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="c1"># n = self.vnC</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isSymmetric</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_aveF2CCV</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">block_diag</span><span class="p">(</span>
                     <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aveFx2CC</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">aveFz2CC</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span>
                 <span class="p">)</span>
@@ -1751,7 +1751,7 @@
         <span class="n">values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">hang</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
         <span class="n">entries</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
 
-        <span class="k">if</span> <span class="n">asOnes</span> <span class="ow">is</span> <span class="kc">False</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">hang</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">asOnes</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">hang</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">repeats</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
             <span class="n">repeat_locs</span> <span class="o">=</span> <span class="p">[</span>
                 <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">values</span><span class="p">]</span> <span class="o">==</span> <span class="n">repeat</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>

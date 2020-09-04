@@ -306,11 +306,6 @@
 <span class="kn">import</span> <span class="nn">tarfile</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.colors.SymLogNorm.html#matplotlib.colors.SymLogNorm" title="matplotlib.colors.SymLogNorm" class="sphx-glr-backref-module-matplotlib-colors sphx-glr-backref-type-py-class"><span class="n">SymLogNorm</span></a>
-<span class="kn">import</span> <span class="nn">sys</span>
-
-<span class="k">if</span> <a href="https://docs.python.org/3/library/sys.html#sys.version_info" title="sys.version_info" class="sphx-glr-backref-module-sys sphx-glr-backref-type-py-data"><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This example only runs on Python 3&quot;</span><span class="p">)</span>
-    <a href="https://docs.python.org/3/library/sys.html#sys.exit" title="sys.exit" class="sphx-glr-backref-module-sys sphx-glr-backref-type-py-function"><span class="n">sys</span><span class="o">.</span><span class="n">exit</span></a><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="section" id="download-and-load-data">
@@ -330,9 +325,9 @@ get from running the laguna-del-maule inversion notebook.</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>file already exists, new file is called /home/travis/build/simpeg/discretize/examples/laguna_del_maule_slicer.tar.gz
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>file already exists, new file is called /home/travis/build/simpeg/discretize/examples/laguna_del_maule_slicer(1).gz
 Downloading https://storage.googleapis.com/simpeg/laguna_del_maule_slicer.tar.gz
-   saved to: /home/travis/build/simpeg/discretize/examples/laguna_del_maule_slicer.tar.gz
+   saved to: /home/travis/build/simpeg/discretize/examples/laguna_del_maule_slicer(1).gz
 Download completed!
 </pre></div>
 </div>
@@ -437,7 +432,7 @@ be used to define transparent regions.</p>
 </div>
 <img alt="mesh.plot_3d_slicer(Lpout, pcolor_opts={'norm': SymLogNorm(linthresh=0.01),'cmap': 'RdBu_r'})`" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_slicer_demo_005.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/travis/build/simpeg/discretize/examples/plot_slicer_demo.py:139: MatplotlibDeprecationWarning: default base will change from np.e to 10 in 3.4.  To suppress this warning specify the base keyword argument.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/travis/build/simpeg/discretize/examples/plot_slicer_demo.py:134: MatplotlibDeprecationWarning: default base will change from np.e to 10 in 3.4.  To suppress this warning specify the base keyword argument.
   Lpout, pcolor_opts={&#39;norm&#39;: SymLogNorm(linthresh=0.01),&#39;cmap&#39;: &#39;RdBu_r&#39;}
 </pre></div>
 </div>
@@ -490,7 +485,7 @@ to change which range of values of the data is visible.</p>
 </pre></div>
 </div>
 <img alt="'discretize.View.Slicer' together with 'fig.canvas.mpl_connect'" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_slicer_demo_008.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.020 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.941 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-slicer-demo-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/e0194b9f06ffe872bee81bf35c819c9d/plot_slicer_demo.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_slicer_demo.py</span></code></a></p>

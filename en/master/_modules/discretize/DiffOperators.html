@@ -925,7 +925,7 @@
 <span class="sd">            BC = [[&#39;neumann&#39;, &#39;dirichlet&#39;], &#39;dirichlet&#39;, &#39;dirichlet&#39;]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">discretization</span> <span class="ow">is</span> <span class="ow">not</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">discretization</span> <span class="o">!=</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
                 <span class="s1">&#39;Boundary conditions only implemented&#39;</span>
                 <span class="s1">&#39;for CC discretization.&#39;</span>
@@ -1025,7 +1025,7 @@
 <span class="sd">        when mixed boundary condition is used</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">discretization</span> <span class="ow">is</span> <span class="ow">not</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">discretization</span> <span class="o">!=</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Boundary conditions only implemented&#39;</span>
                                       <span class="s1">&#39;for CC discretization.&#39;</span><span class="p">)</span>
 
