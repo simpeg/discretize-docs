@@ -24,7 +24,9 @@ Attributes
 
 .. autoattribute:: BaseRectangularMesh.dim
 
-.. autoattribute:: BaseRectangularMesh.nC
+.. autoattribute:: BaseRectangularMesh.edge_tangents
+
+.. autoattribute:: BaseRectangularMesh.face_normals
 
 .. autoattribute:: BaseRectangularMesh.nCx
 
@@ -32,31 +34,39 @@ Attributes
 
 .. autoattribute:: BaseRectangularMesh.nCz
 
-.. autoattribute:: BaseRectangularMesh.nE
-
-.. autoattribute:: BaseRectangularMesh.nEx
-
-.. autoattribute:: BaseRectangularMesh.nEy
-
-.. autoattribute:: BaseRectangularMesh.nEz
-
-.. autoattribute:: BaseRectangularMesh.nF
-
-.. autoattribute:: BaseRectangularMesh.nFx
-
-.. autoattribute:: BaseRectangularMesh.nFy
-
-.. autoattribute:: BaseRectangularMesh.nFz
-
-.. autoattribute:: BaseRectangularMesh.nN
-
 .. autoattribute:: BaseRectangularMesh.nNx
 
 .. autoattribute:: BaseRectangularMesh.nNy
 
 .. autoattribute:: BaseRectangularMesh.nNz
 
+.. autoattribute:: BaseRectangularMesh.n_cells
+
+.. autoattribute:: BaseRectangularMesh.n_edges
+
+.. autoattribute:: BaseRectangularMesh.n_edges_per_direction
+
+.. autoattribute:: BaseRectangularMesh.n_edges_x
+
+.. autoattribute:: BaseRectangularMesh.n_edges_y
+
+.. autoattribute:: BaseRectangularMesh.n_edges_z
+
+.. autoattribute:: BaseRectangularMesh.n_faces
+
+.. autoattribute:: BaseRectangularMesh.n_faces_per_direction
+
+.. autoattribute:: BaseRectangularMesh.n_faces_x
+
+.. autoattribute:: BaseRectangularMesh.n_faces_y
+
+.. autoattribute:: BaseRectangularMesh.n_faces_z
+
+.. autoattribute:: BaseRectangularMesh.n_nodes
+
 .. autoattribute:: BaseRectangularMesh.normals
+
+.. autoattribute:: BaseRectangularMesh.origin
 
 .. autoattribute:: BaseRectangularMesh.reference_is_rotated
 
@@ -64,27 +74,23 @@ Attributes
 
 .. autoattribute:: BaseRectangularMesh.rotation_matrix
 
+.. autoattribute:: BaseRectangularMesh.shape_cells
+
+.. autoattribute:: BaseRectangularMesh.shape_edges_x
+
+.. autoattribute:: BaseRectangularMesh.shape_edges_y
+
+.. autoattribute:: BaseRectangularMesh.shape_edges_z
+
+.. autoattribute:: BaseRectangularMesh.shape_faces_x
+
+.. autoattribute:: BaseRectangularMesh.shape_faces_y
+
+.. autoattribute:: BaseRectangularMesh.shape_faces_z
+
+.. autoattribute:: BaseRectangularMesh.shape_nodes
+
 .. autoattribute:: BaseRectangularMesh.tangents
-
-.. autoattribute:: BaseRectangularMesh.vnC
-
-.. autoattribute:: BaseRectangularMesh.vnE
-
-.. autoattribute:: BaseRectangularMesh.vnEx
-
-.. autoattribute:: BaseRectangularMesh.vnEy
-
-.. autoattribute:: BaseRectangularMesh.vnEz
-
-.. autoattribute:: BaseRectangularMesh.vnF
-
-.. autoattribute:: BaseRectangularMesh.vnFx
-
-.. autoattribute:: BaseRectangularMesh.vnFy
-
-.. autoattribute:: BaseRectangularMesh.vnFz
-
-.. autoattribute:: BaseRectangularMesh.vnN
 
 .. autoattribute:: BaseRectangularMesh.x0
 
@@ -113,6 +119,34 @@ Methods
 
 
 
+.. automethod:: BaseRectangularMesh.plotGrid
+
+
+
+.. automethod:: BaseRectangularMesh.plotImage
+
+
+
+.. automethod:: BaseRectangularMesh.plotSlice
+
+
+
+.. automethod:: BaseRectangularMesh.plot_3d_slicer
+
+
+
+.. automethod:: BaseRectangularMesh.plot_grid
+
+
+
+.. automethod:: BaseRectangularMesh.plot_image
+
+
+
+.. automethod:: BaseRectangularMesh.plot_slice
+
+
+
 .. automethod:: BaseRectangularMesh.projectEdgeVector
 
 
@@ -121,7 +155,19 @@ Methods
 
 
 
+.. automethod:: BaseRectangularMesh.project_edge_vector
+
+
+
+.. automethod:: BaseRectangularMesh.project_face_vector
+
+
+
 .. automethod:: BaseRectangularMesh.r
+
+
+
+.. automethod:: BaseRectangularMesh.reshape
 
 
 

@@ -26,7 +26,7 @@ In the notebook, you have to use :code:`%matplotlib notebook`.
 
 
     # %matplotlib notebook
-    import shelve
+    import os
     import discretize
     import numpy as np
     import tarfile
@@ -51,15 +51,16 @@ get from running the laguna-del-maule inversion notebook.
 
 
     f = discretize.utils.download(
-        "https://storage.googleapis.com/simpeg/laguna_del_maule_slicer.tar.gz"
+        "https://storage.googleapis.com/simpeg/laguna_del_maule_slicer.tar.gz",
+        overwrite=True,
     )
     tar = tarfile.open(f, "r")
     tar.extractall()
     tar.close()
 
-    with shelve.open('./laguna_del_maule_slicer/laguna_del_maule-result') as db:
-        mesh = db['mesh']
-        Lpout = db['Lpout']
+    # Load the mesh and model
+    mesh = discretize.load_mesh(os.path.join("laguna_del_maule_slicer", "mesh.json"))
+    Lpout = np.load(os.path.join("laguna_del_maule_slicer", "Lpout.npy"))
 
 
 
@@ -71,9 +72,9 @@ get from running the laguna-del-maule inversion notebook.
 
  .. code-block:: none
 
-    file already exists, new file is called /home/travis/build/simpeg/discretize/examples/laguna_del_maule_slicer(1).gz
+    overwriting /home/vsts/work/1/s/examples/laguna_del_maule_slicer.tar.gz
     Downloading https://storage.googleapis.com/simpeg/laguna_del_maule_slicer.tar.gz
-       saved to: /home/travis/build/simpeg/discretize/examples/laguna_del_maule_slicer(1).gz
+       saved to: /home/vsts/work/1/s/examples/laguna_del_maule_slicer.tar.gz
     Download completed!
 
 
@@ -112,6 +113,7 @@ of the figure can be improved by getting its handle and adjust it.
 .. code-block:: default
 
 
+
     def beautify(title, fig=None):
         """Beautify the 3D Slicer result."""
 
@@ -123,7 +125,7 @@ of the figure can be improved by getting its handle and adjust it.
         axs = fig.get_children()
 
         # Set figure title
-        fig.suptitle(title, y=.95, va='center')
+        fig.suptitle(title, y=0.95, va="center")
 
         # Adjust the y-labels on the first subplot (XY)
         plt.setp(axs[1].yaxis.get_majorticklabels(), rotation=90)
@@ -131,23 +133,23 @@ of the figure can be improved by getting its handle and adjust it.
             label.set_visible(False)
         for label in axs[1].yaxis.get_ticklabels()[::3]:
             label.set_visible(True)
-        axs[1].set_ylabel('Northing (m)')
+        axs[1].set_ylabel("Northing (m)")
 
         # Adjust x- and y-labels on the second subplot (XZ)
         axs[2].set_xticks([357500, 362500, 367500])
-        axs[2].set_xlabel('Easting (m)')
+        axs[2].set_xlabel("Easting (m)")
 
         plt.setp(axs[2].yaxis.get_majorticklabels(), rotation=90)
         axs[2].set_yticks([2500, 0, -2500, -5000])
-        axs[2].set_yticklabels(['$2.5$', '0.0', '-2.5', '-5.0'])
-        axs[2].set_ylabel('Elevation (km)')
+        axs[2].set_yticklabels(["$2.5$", "0.0", "-2.5", "-5.0"])
+        axs[2].set_ylabel("Elevation (km)")
 
         # Adjust x-labels on the third subplot (ZY)
         axs[3].set_xticks([2500, 0, -2500, -5000])
-        axs[3].set_xticklabels(['', '0.0', '-2.5', '-5.0'])
+        axs[3].set_xticklabels(["", "0.0", "-2.5", "-5.0"])
 
         # Adjust colorbar
-        axs[4].set_ylabel('Density (g/cc$^3$)')
+        axs[4].set_ylabel("Density (g/cc$^3$)")
 
         # Ensure sufficient margins so nothing is clipped
         plt.subplots_adjust(bottom=0.1, top=0.9, left=0.1, right=0.9)
@@ -164,7 +166,7 @@ of the figure can be improved by getting its handle and adjust it.
 .. code-block:: default
 
     mesh.plot_3d_slicer(Lpout)
-    beautify('mesh.plot_3d_slicer(Lpout)')
+    beautify("mesh.plot_3d_slicer(Lpout)")
 
 
 
@@ -190,8 +192,8 @@ be used to define transparent regions.
 
     mesh.plot_3d_slicer(Lpout, 370000, 6002500, -2500, transparent=[[-0.02, 0.1]])
     beautify(
-        'mesh.plot_3d_slicer('
-        '\nLpout, 370000, 6002500, -2500, transparent=[[-0.02, 0.1]])'
+        "mesh.plot_3d_slicer("
+        "\nLpout, 370000, 6002500, -2500, transparent=[[-0.02, 0.1]])"
     )
 
 
@@ -206,14 +208,14 @@ be used to define transparent regions.
 
 
 1.4 Set `clim`, use `pcolor_opts` to show grid lines
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 .. code-block:: default
 
 
     mesh.plot_3d_slicer(
-        Lpout, clim=[-0.4, 0.2], pcolor_opts={'edgecolor': 'k', 'linewidth': 0.1}
+        Lpout, clim=[-0.4, 0.2], pcolor_opts={"edgecolor": "k", "linewidth": 0.1}
     )
     beautify(
         "mesh.plot_3d_slicer(\nLpout, clim=[-0.4, 0.2], "
@@ -232,14 +234,14 @@ be used to define transparent regions.
 
 
 1.5 Use `pcolor_opts` to set `SymLogNorm`, and another `cmap`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 .. code-block:: default
 
 
     mesh.plot_3d_slicer(
-        Lpout, pcolor_opts={'norm': SymLogNorm(linthresh=0.01),'cmap': 'RdBu_r'}
+        Lpout, pcolor_opts={"norm": SymLogNorm(linthresh=0.01), "cmap": "RdBu_r"}
     )
     beautify(
         "mesh.plot_3d_slicer(Lpout,"
@@ -260,8 +262,8 @@ be used to define transparent regions.
 
  .. code-block:: none
 
-    /home/travis/build/simpeg/discretize/examples/plot_slicer_demo.py:134: MatplotlibDeprecationWarning: default base will change from np.e to 10 in 3.4.  To suppress this warning specify the base keyword argument.
-      Lpout, pcolor_opts={'norm': SymLogNorm(linthresh=0.01),'cmap': 'RdBu_r'}
+    /home/vsts/work/1/s/examples/plot_slicer_demo.py:136: MatplotlibDeprecationWarning: default base will change from np.e to 10 in 3.4.  To suppress this warning specify the base keyword argument.
+      Lpout, pcolor_opts={"norm": SymLogNorm(linthresh=0.01), "cmap": "RdBu_r"}
 
 
 
@@ -283,7 +285,7 @@ then it won't help. Expect the unexpected.
 .. code-block:: default
 
 
-    mesh.plot_3d_slicer(Lpout, aspect=['equal', 1.5], grid=[4, 4, 3])
+    mesh.plot_3d_slicer(Lpout, aspect=["equal", 1.5], grid=[4, 4, 3])
     beautify("mesh.plot_3d_slicer(Lpout, aspect=['equal', 1.5], grid=[4, 4, 3])")
 
 
@@ -307,7 +309,7 @@ to change which range of values of the data is visible.
 .. code-block:: default
 
 
-    mesh.plot_3d_slicer(Lpout, transparent='slider')
+    mesh.plot_3d_slicer(Lpout, transparent="slider")
     beautify("mesh.plot_3d_slicer(Lpout, transparent='slider')")
 
 
@@ -335,22 +337,20 @@ This way you get the figure-handle, and can do further stuff with the figure.
     fig = plt.figure()
 
     # Then you have to get the tracker from the Slicer
-    tracker = discretize.View.Slicer(mesh, Lpout)
+    tracker = discretize.mixins.Slicer(mesh, Lpout)
 
     # Finally you have to connect the tracker to the figure
-    fig.canvas.mpl_connect('scroll_event', tracker.onscroll)
+    fig.canvas.mpl_connect("scroll_event", tracker.onscroll)
 
     # Run it through beautify
-    beautify(
-        "'discretize.View.Slicer' together with\n'fig.canvas.mpl_connect'", fig
-    )
+    beautify("'discretize.mixins.Slicer' together with\n'fig.canvas.mpl_connect'", fig)
 
     plt.show()
 
 
 
 .. image:: /examples/images/sphx_glr_plot_slicer_demo_008.png
-    :alt: 'discretize.View.Slicer' together with 'fig.canvas.mpl_connect'
+    :alt: 'discretize.mixins.Slicer' together with 'fig.canvas.mpl_connect'
     :class: sphx-glr-single-img
 
 
@@ -360,7 +360,7 @@ This way you get the figure-handle, and can do further stuff with the figure.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.815 seconds)
+   **Total running time of the script:** ( 0 minutes  2.408 seconds)
 
 
 .. _sphx_glr_download_examples_plot_slicer_demo.py:

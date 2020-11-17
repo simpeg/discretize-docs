@@ -1,0 +1,503 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>discretize.utils.interpolation_utils &mdash; discretize 0.6.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/logo-block.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+ 
+
+<meta name="description" content="Simulation and Parameter Estimation in Geophysics">
+<meta name="author" content="SimPEG Developers">
+<meta name="keywords" content="python, geophysics, inversion, electromagnetics, magnetotellurics, magnetics, gravity, DC, flow inverse problems, open source, finite volume">
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45185336-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> discretize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../content/big_picture.html">Why discretize?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../content/installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../content/additional_resources.html">Additional Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/mesh_generation/index.html">Mesh Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/operators/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/inner_products/index.html">Inner Products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/pde/index.html">Solving PDEs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">API Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../content/finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../content/inner_products.html">Inner Products</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Meta Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting connected
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://simpeg.xyz"><i class="fa fa-external-link-square fa-fw"></i> SimPEG</a></li>
+            
+                <li class="toctree-l1"><a href="http://slack.simpeg.xyz"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/simpeg/discretize"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">discretize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>discretize.utils.interpolation_utils</li>
+    
+    
+
+    <li class="wy-breadcrumbs-aside">
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for discretize.utils.interpolation_utils</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">discretize.utils.matrix_utils</span> <span class="kn">import</span> <span class="n">mkvc</span><span class="p">,</span> <span class="n">sub2ind</span>
+<span class="kn">from</span> <span class="nn">discretize.utils.code_utils</span> <span class="kn">import</span> <span class="n">deprecate_function</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">discretize._extensions</span> <span class="kn">import</span> <span class="n">interputils_cython</span> <span class="k">as</span> <span class="n">pyx</span>
+
+    <span class="n">_interp_point_1D</span> <span class="o">=</span> <span class="n">pyx</span><span class="o">.</span><span class="n">_interp_point_1D</span>
+    <span class="n">_interpmat1D</span> <span class="o">=</span> <span class="n">pyx</span><span class="o">.</span><span class="n">_interpmat1D</span>
+    <span class="n">_interpmat2D</span> <span class="o">=</span> <span class="n">pyx</span><span class="o">.</span><span class="n">_interpmat2D</span>
+    <span class="n">_interpmat3D</span> <span class="o">=</span> <span class="n">pyx</span><span class="o">.</span><span class="n">_interpmat3D</span>
+    <span class="n">_vol_interp</span> <span class="o">=</span> <span class="n">pyx</span><span class="o">.</span><span class="n">_tensor_volume_averaging</span>
+    <span class="n">_interpCython</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+
+    <span class="c1"># Check if being called from non-standard location (i.e. a git repository)</span>
+    <span class="c1"># is tree_ext.cpp here? will not be in the folder if installed to site-packages...</span>
+    <span class="n">file_test</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+        <span class="o">+</span> <span class="s2">&quot;/_extensions/interputils_cython.pyx&quot;</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">file_test</span><span class="p">):</span>
+        <span class="c1"># Then we are being run from a repository</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Unable to import interputils_cython.</span>
+
+<span class="sd">            It would appear that discretize is being imported from its repository.</span>
+<span class="sd">            If this is intentional, you need to run:</span>
+
+<span class="sd">            python setup.py build_ext --inplace</span>
+
+<span class="sd">            to build the cython code.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+        <span class="p">)</span>
+    <span class="n">_interpCython</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<div class="viewcode-block" id="interpolation_matrix"><a class="viewcode-back" href="../../../api/generated/discretize.utils.interpolation_matrix.html#discretize.utils.interpolation_matrix">[docs]</a><span class="k">def</span> <span class="nf">interpolation_matrix</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Local interpolation computed for each receiver point in turn</span>
+
+<span class="sd">    :param numpy.ndarray loc: Location of points to interpolate to</span>
+<span class="sd">    :param numpy.ndarray x: Tensor of 1st dimension of grid.</span>
+<span class="sd">    :param numpy.ndarray y: Tensor of 2nd dimension of grid. None by default.</span>
+<span class="sd">    :param numpy.ndarray z: Tensor of 3rd dimension of grid. None by default.</span>
+<span class="sd">    :rtype: scipy.sparse.csr_matrix</span>
+<span class="sd">    :return: Interpolation matrix</span>
+
+<span class="sd">    .. plot::</span>
+
+<span class="sd">        import discretize</span>
+<span class="sd">        import numpy as np</span>
+<span class="sd">        import matplotlib.pyplot as plt</span>
+<span class="sd">        locs = np.random.rand(50)*0.8+0.1</span>
+<span class="sd">        x = np.linspace(0, 1, 7)</span>
+<span class="sd">        dense = np.linspace(0, 1, 200)</span>
+<span class="sd">        fun = lambda x: np.cos(2*np.pi*x)</span>
+<span class="sd">        Q = discretize.utils.interpolation_matrix(locs, x)</span>
+<span class="sd">        plt.plot(x, fun(x), &#39;bs-&#39;)</span>
+<span class="sd">        plt.plot(dense, fun(dense), &#39;y:&#39;)</span>
+<span class="sd">        plt.plot(locs, Q*fun(x), &#39;mo&#39;)</span>
+<span class="sd">        plt.plot(locs, fun(locs), &#39;rx&#39;)</span>
+<span class="sd">        plt.show()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">npts</span> <span class="o">=</span> <span class="n">locs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">locs</span> <span class="o">=</span> <span class="n">locs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">z</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">]</span>
+        <span class="n">inds</span><span class="p">,</span> <span class="n">vals</span> <span class="o">=</span> <span class="n">_interpmat1D</span><span class="p">(</span><span class="n">mkvc</span><span class="p">(</span><span class="n">locs</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">z</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">]</span>
+        <span class="n">inds</span><span class="p">,</span> <span class="n">vals</span> <span class="o">=</span> <span class="n">_interpmat2D</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">z</span><span class="o">.</span><span class="n">size</span><span class="p">]</span>
+        <span class="n">inds</span><span class="p">,</span> <span class="n">vals</span> <span class="o">=</span> <span class="n">_interpmat3D</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+
+    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">npts</span><span class="p">),</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">))</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">sub2ind</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">inds</span><span class="p">)</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">((</span><span class="n">vals</span><span class="p">,</span> <span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">)),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">npts</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">shape</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">Q</span></div>
+
+
+<div class="viewcode-block" id="volume_average"><a class="viewcode-back" href="../../../api/generated/discretize.utils.volume_average.html#discretize.utils.volume_average">[docs]</a><span class="k">def</span> <span class="nf">volume_average</span><span class="p">(</span><span class="n">mesh_in</span><span class="p">,</span> <span class="n">mesh_out</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Volume averaging interpolation between meshes.</span>
+
+<span class="sd">    This volume averaging function looks for overlapping cells in each mesh,</span>
+<span class="sd">    and weights the output values by the partial volume ratio of the overlapping</span>
+<span class="sd">    input cells. The volume average operation should result in an output such that</span>
+<span class="sd">    ``np.sum(mesh_in.cell_volumes*values)`` = ``np.sum(mesh_out.cell_volumes*output)``, when the input</span>
+<span class="sd">    and output meshes have the exact same extent. When the output mesh extent goes</span>
+<span class="sd">    beyond the input mesh, it is assumed to have constant values in that direction.</span>
+<span class="sd">    When the output mesh extent is smaller than the input mesh, only the overlapping</span>
+<span class="sd">    extent of the input mesh contributes to the output.</span>
+
+<span class="sd">    This function operates in three different modes. If only ``mesh_in`` and</span>
+<span class="sd">    ``mesh_out`` are given, the returned value is a ``scipy.sparse.csr_matrix``</span>
+<span class="sd">    that represents this operation (so it could potentially be applied repeatedly).</span>
+<span class="sd">    If ``values`` is given, the volume averaging is performed right away (without</span>
+<span class="sd">    internally forming the matrix) and the returned value is the result of this.</span>
+<span class="sd">    If ``output`` is given as well, it will be filled with the values of the</span>
+<span class="sd">    operation and then returned (assuming it has the correct ``dtype``).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mesh_in : TensorMesh or TreeMesh</span>
+<span class="sd">        Input mesh (the mesh you are interpolating from)</span>
+<span class="sd">    mesh_out : TensorMesh or TreeMesh</span>
+<span class="sd">        Output mesh (the mesh you are interpolating to)</span>
+<span class="sd">    values : numpy.ndarray, optional</span>
+<span class="sd">        Array with values defined at the cells of ``mesh_in``</span>
+<span class="sd">    output : numpy.ndarray, optional</span>
+<span class="sd">        Output array to be overwritten of length ``mesh_out.nC`` and type ``np.float64``</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    scipy.sparse.csr_matrix or numpy.ndarray</span>
+<span class="sd">        If ``values`` is ``None``, the returned value is a matrix representing this operation,</span>
+<span class="sd">        otherwise it is a numpy.ndarray of the result of the operation.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Create two meshes with the same extent, but different divisions (the meshes</span>
+<span class="sd">    do not have to be the same extent).</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from discretize import TensorMesh</span>
+<span class="sd">    &gt;&gt;&gt; h1 = np.ones(32)</span>
+<span class="sd">    &gt;&gt;&gt; h2 = np.ones(16)*2</span>
+<span class="sd">    &gt;&gt;&gt; mesh_in = TensorMesh([h1, h1])</span>
+<span class="sd">    &gt;&gt;&gt; mesh_out = TensorMesh([h2, h2])</span>
+
+<span class="sd">    Create a random model defined on the input mesh, and use volume averaging to</span>
+<span class="sd">    interpolate it to the output mesh.</span>
+
+<span class="sd">    &gt;&gt;&gt; from discretize.utils import volume_average</span>
+<span class="sd">    &gt;&gt;&gt; model1 = np.random.rand(mesh_in.nC)</span>
+<span class="sd">    &gt;&gt;&gt; model2 = volume_average(mesh_in, mesh_out, model1)</span>
+
+<span class="sd">    Because these two meshes&#39; cells are perfectly aligned, but the output mesh</span>
+<span class="sd">    has 1 cell for each 4 of the input cells, this operation should effectively</span>
+<span class="sd">    look like averaging each of those cells values</span>
+
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; plt.figure()</span>
+<span class="sd">    &gt;&gt;&gt; ax1 = plt.subplot(121)</span>
+<span class="sd">    &gt;&gt;&gt; mesh_in.plot_image(model1, ax=ax1)</span>
+<span class="sd">    &gt;&gt;&gt; ax2 = plt.subplot(122)</span>
+<span class="sd">    &gt;&gt;&gt; mesh_out.plot_image(model2, ax=ax2)</span>
+<span class="sd">    &gt;&gt;&gt; plt.show()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">in_type</span> <span class="o">=</span> <span class="n">mesh_in</span><span class="o">.</span><span class="n">_meshType</span>
+        <span class="n">out_type</span> <span class="o">=</span> <span class="n">mesh_out</span><span class="o">.</span><span class="n">_meshType</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Both input and output mesh must be valid discetize meshes&quot;</span><span class="p">)</span>
+
+    <span class="n">valid_meshs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;TENSOR&quot;</span><span class="p">,</span> <span class="s2">&quot;TREE&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">in_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_meshs</span> <span class="ow">or</span> <span class="n">out_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_meshs</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Volume averaging is only implemented for TensorMesh and TreeMesh, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;not </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">mesh_in</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> and/or </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">mesh_out</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">mesh_in</span><span class="o">.</span><span class="n">dim</span> <span class="o">!=</span> <span class="n">mesh_out</span><span class="o">.</span><span class="n">dim</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Both meshes must have the same dimension&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">!=</span> <span class="n">mesh_in</span><span class="o">.</span><span class="n">nC</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Input array does not have the same length as the number of cells in input mesh&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">output</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="o">!=</span> <span class="n">mesh_out</span><span class="o">.</span><span class="n">nC</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Output array does not have the same length as the number of cells in output mesh&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">output</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">in_type</span> <span class="o">==</span> <span class="s2">&quot;TENSOR&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">out_type</span> <span class="o">==</span> <span class="s2">&quot;TENSOR&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_vol_interp</span><span class="p">(</span><span class="n">mesh_in</span><span class="p">,</span> <span class="n">mesh_out</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">out_type</span> <span class="o">==</span> <span class="s2">&quot;TREE&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mesh_out</span><span class="o">.</span><span class="n">_vol_avg_from_tens</span><span class="p">(</span><span class="n">mesh_in</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">in_type</span> <span class="o">==</span> <span class="s2">&quot;TREE&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">out_type</span> <span class="o">==</span> <span class="s2">&quot;TENSOR&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mesh_in</span><span class="o">.</span><span class="n">_vol_avg_to_tens</span><span class="p">(</span><span class="n">mesh_out</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">out_type</span> <span class="o">==</span> <span class="s2">&quot;TREE&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mesh_out</span><span class="o">.</span><span class="n">_vol_avg_from_tree</span><span class="p">(</span><span class="n">mesh_in</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Unsupported mesh types&quot;</span><span class="p">)</span></div>
+
+
+<span class="n">interpmat</span> <span class="o">=</span> <span class="n">deprecate_function</span><span class="p">(</span>
+    <span class="n">interpolation_matrix</span><span class="p">,</span> <span class="s2">&quot;interpmat&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>
+<span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<div role="contentinfo">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    2013-2020,
+    <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
+    Except where noted, this work is licensed under a <br />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons Attribution 4.0 International License
+    </a>
+</div>
+<br>
+<div>
+Built with
+    <a href="http://sphinx-doc.org/">Sphinx</a>
+    using a
+    <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+    provided by
+    <a href="https://readthedocs.org">Read the Docs</a>.
+ </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

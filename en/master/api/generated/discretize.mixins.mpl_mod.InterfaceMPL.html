@@ -1,0 +1,721 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>discretize.mixins.mpl_mod.InterfaceMPL &mdash; discretize 0.6.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="discretize.mixins.mpl_mod.Slicer" href="discretize.mixins.mpl_mod.Slicer.html" />
+    <link rel="prev" title="discretize.base.mesh_io.TreeMeshIO" href="discretize.base.mesh_io.TreeMeshIO.html" />
+ 
+
+<meta name="description" content="Simulation and Parameter Estimation in Geophysics">
+<meta name="author" content="SimPEG Developers">
+<meta name="keywords" content="python, geophysics, inversion, electromagnetics, magnetotellurics, magnetics, gravity, DC, flow inverse problems, open source, finite volume">
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45185336-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> discretize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/big_picture.html">Why discretize?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/additional_resources.html">Additional Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/mesh_generation/index.html">Mesh Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/operators/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/inner_products/index.html">Inner Products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/pde/index.html">Solving PDEs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#meshes">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.operators">Numerical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mesh-io">Mesh IO</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#visualization">Visualization</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">discretize.mixins.mpl_mod.InterfaceMPL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.mixins.mpl_mod.Slicer.html">discretize.mixins.mpl_mod.Slicer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.mixins.vtk_mod.InterfaceVTK.html">discretize.mixins.vtk_mod.InterfaceVTK</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.utils">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.base">Base Mesh</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/finite_volume.html">Finite Volume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/inner_products.html">Inner Products</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Meta Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release/index.html">Release Notes</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting connected
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://simpeg.xyz"><i class="fa fa-external-link-square fa-fw"></i> SimPEG</a></li>
+            
+                <li class="toctree-l1"><a href="http://slack.simpeg.xyz"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/simpeg/discretize"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">discretize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+        
+      <li>discretize.mixins.mpl_mod.InterfaceMPL</li>
+    
+    
+
+    <li class="wy-breadcrumbs-aside">
+        
+            
+                
+                
+                <a href="https://github.com/simpeg/discretize/issues/new?title=Suggested%20improvement%20for%20api/generated/discretize.mixins.mpl_mod.InterfaceMPL&body=Please%20describe%20what%20could%20be%20improved%20about%20this%20page%20or%20the%20typo/mistake%20that%20you%20found%3A"
+                   class="fa fa-github"> Edit this page</a>
+            
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="discretize-mixins-mpl-mod-interfacempl">
+<h1>discretize.mixins.mpl_mod.InterfaceMPL<a class="headerlink" href="#discretize-mixins-mpl-mod-interfacempl" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="discretize.mixins.mpl_mod.InterfaceMPL">
+<em class="property">class </em><code class="sig-prename descclassname">discretize.mixins.mpl_mod.</code><code class="sig-name descname">InterfaceMPL</code><a class="reference internal" href="../../_modules/discretize/mixins/mpl_mod.html#InterfaceMPL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.mpl_mod.InterfaceMPL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>This class is used for simple <code class="docutils literal notranslate"><span class="pre">discretize</span></code> mesh plotting using matplotlib.</p>
+<p>This interface adds three methods to the meshes. <code class="docutils literal notranslate"><span class="pre">plot_grid</span></code> will plot the
+grid points of each mesh in 2D and 3D. <code class="docutils literal notranslate"><span class="pre">plot_image</span></code> for 2D image ploting of
+models. and <code class="docutils literal notranslate"><span class="pre">plot_slice</span></code> for plotting a 2D slice through a 3D mesh.</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.mixins.mpl_mod.InterfaceMPL.plotGrid" title="discretize.mixins.mpl_mod.InterfaceMPL.plotGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotGrid</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>plotGrid</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.mixins.mpl_mod.InterfaceMPL.plotImage" title="discretize.mixins.mpl_mod.InterfaceMPL.plotImage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotImage</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>plotImage</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.mixins.mpl_mod.InterfaceMPL.plotSlice" title="discretize.mixins.mpl_mod.InterfaceMPL.plotSlice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotSlice</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>plotSlice</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.mixins.mpl_mod.InterfaceMPL.plot_3d_slicer" title="discretize.mixins.mpl_mod.InterfaceMPL.plot_3d_slicer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_3d_slicer</span></code></a>(v[, xslice, yslice, zslice, …])</p></td>
+<td><p>Plot slices of a 3D volume, interactively (scroll wheel).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.mixins.mpl_mod.InterfaceMPL.plot_grid" title="discretize.mixins.mpl_mod.InterfaceMPL.plot_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_grid</span></code></a>([ax, nodes, faces, centers, …])</p></td>
+<td><p>Plot the nodal, cell-centered and staggered grids.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.mixins.mpl_mod.InterfaceMPL.plot_image" title="discretize.mixins.mpl_mod.InterfaceMPL.plot_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_image</span></code></a>(v[, v_type, grid, view, ax, …])</p></td>
+<td><p>Plots fields on the given mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.mixins.mpl_mod.InterfaceMPL.plot_slice" title="discretize.mixins.mpl_mod.InterfaceMPL.plot_slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_slice</span></code></a>(v[, v_type, normal, ind, grid, …])</p></td>
+<td><p>Plots slice of fields on the given 3D mesh.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div style='clear:both'></div><div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt id="discretize.mixins.mpl_mod.InterfaceMPL.plotGrid">
+<code class="sig-prename descclassname">InterfaceMPL.</code><code class="sig-name descname">plotGrid</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.mixins.mpl_mod.InterfaceMPL.plotGrid" title="Permalink to this definition">¶</a></dt>
+<dd><p><cite>plotGrid</cite> has been deprecated. See <cite>plot_grid</cite> for documentation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discretize.mixins.mpl_mod.InterfaceMPL.plotImage">
+<code class="sig-prename descclassname">InterfaceMPL.</code><code class="sig-name descname">plotImage</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.mixins.mpl_mod.InterfaceMPL.plotImage" title="Permalink to this definition">¶</a></dt>
+<dd><p><cite>plotImage</cite> has been deprecated. See <cite>plot_image</cite> for documentation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discretize.mixins.mpl_mod.InterfaceMPL.plotSlice">
+<code class="sig-prename descclassname">InterfaceMPL.</code><code class="sig-name descname">plotSlice</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.mixins.mpl_mod.InterfaceMPL.plotSlice" title="Permalink to this definition">¶</a></dt>
+<dd><p><cite>plotSlice</cite> has been deprecated. See <cite>plot_slice</cite> for documentation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discretize.mixins.mpl_mod.InterfaceMPL.plot_3d_slicer">
+<code class="sig-prename descclassname">InterfaceMPL.</code><code class="sig-name descname">plot_3d_slicer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">xslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">yslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">v_type</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">view</span><span class="o">=</span><span class="default_value">'real'</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'xy'</span></em>, <em class="sig-param"><span class="n">transparent</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ylim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">aspect</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">[2, 2, 1]</span></em>, <em class="sig-param"><span class="n">pcolor_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fig</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/mpl_mod.html#InterfaceMPL.plot_3d_slicer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.mpl_mod.InterfaceMPL.plot_3d_slicer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot slices of a 3D volume, interactively (scroll wheel).</p>
+<p>If called from a notebook, make sure to set</p>
+<blockquote>
+<div><p>%matplotlib notebook</p>
+</div></blockquote>
+<p>See the class <cite>discretize.View.Slicer</cite> for more information.</p>
+<p>It returns nothing. However, if you need the different figure handles
+you can get it via</p>
+<blockquote>
+<div><p><cite>fig = plt.gcf()</cite></p>
+</div></blockquote>
+<p>and subsequently its children via</p>
+<blockquote>
+<div><p><cite>fig.get_children()</cite></p>
+</div></blockquote>
+<p>and recursively deeper, e.g.,</p>
+<blockquote>
+<div><p><cite>fig.get_children()[0].get_children()</cite>.</p>
+</div></blockquote>
+<p>One can also provide an existing figure instance, which can be useful
+for interactive widgets in Notebooks. The provided figure is cleared
+first.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discretize.mixins.mpl_mod.InterfaceMPL.plot_grid">
+<code class="sig-prename descclassname">InterfaceMPL.</code><code class="sig-name descname">plot_grid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nodes</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">faces</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">centers</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">edges</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">lines</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">show_it</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/mpl_mod.html#InterfaceMPL.plot_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.mpl_mod.InterfaceMPL.plot_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the nodal, cell-centered and staggered grids.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ax</strong><span class="classifier">matplotlib.axes.Axes or None, optional</span></dt><dd><p>The axes to draw on. None produces a new Axes.</p>
+</dd>
+<dt><strong>nodes, faces, centers, edges, lines</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to plot the corresponding item</p>
+</dd>
+<dt><strong>show_it</strong><span class="classifier">bool, optional</span></dt><dd><p>whether to call plt.show()</p>
+</dd>
+<dt><strong>color</strong><span class="classifier">Color or str, optional</span></dt><dd><p>If lines=True, the color of the lines, defaults to first color.</p>
+</dd>
+<dt><strong>linewidth</strong><span class="classifier">float, optional</span></dt><dd><p>If lines=True, the linewidth for the lines.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>matplotlib.axes.Axes</dt><dd><p>Axes handle for the plot</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Other Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>edges_x, edges_y, edges_z, faces_x, faces_y, faces_z</strong><span class="classifier">bool, optional</span></dt><dd><p>When plotting a <code class="docutils literal notranslate"><span class="pre">TreeMesh</span></code>, these are also options to plot the
+individual component items.</p>
+</dd>
+<dt><strong>cell_line</strong><span class="classifier">bool, optional</span></dt><dd><p>When plotting a <code class="docutils literal notranslate"><span class="pre">TreeMesh</span></code>, you can also plot a line through the
+cell centers in order.</p>
+</dd>
+<dt><strong>slice</strong><span class="classifier">{‘both’, ‘theta’, ‘z’}</span></dt><dd><p>When plotting a <code class="docutils literal notranslate"><span class="pre">CylindricalMesh</span></code>, which dimension to slice over.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Excess arguments are passed on to <cite>plot</cite></p>
+<p class="rubric">Examples</p>
+<p>Plotting a 2D TensorMesh grid</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">faces</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-1.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-1_00_00.png">png</a>, <a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-1_00_00.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-1_00_00.png" src="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-1_00_00.png" />
+</div>
+<p>Plotting a 3D TensorMesh grid</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">,</span> <span class="n">h3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">faces</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-1_01_00.png">png</a>, <a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-1_01_00.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-1_01_00.png" src="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-1_01_00.png" />
+</div>
+<p>Plotting a 2D CurvilinearMesh</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">exampleLrmGrid</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;rotate&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">CurvilinearMesh</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-1_02_00.png">png</a>, <a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-1_02_00.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-1_02_00.png" src="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-1_02_00.png" />
+</div>
+<p>Plotting a 3D CurvilinearMesh</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">exampleLrmGrid</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s1">&#39;rotate&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">CurvilinearMesh</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-1_03_00.png">png</a>, <a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-1_03_00.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-1_03_00.png" src="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-1_03_00.png" />
+</div>
+<p>Plotting a 2D TreeMesh</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TreeMesh</span><span class="p">([</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">insert_cells</span><span class="p">([[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]],</span> <span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-1_04_00.png">png</a>, <a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-1_04_00.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-1_04_00.png" src="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-1_04_00.png" />
+</div>
+<p>Plotting a 3D TreeMesh</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TreeMesh</span><span class="p">([</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">insert_cells</span><span class="p">([[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.22</span><span class="p">]],</span> <span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-1_05_00.png">png</a>, <a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-1_05_00.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-1_05_00.png" src="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-1_05_00.png" />
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discretize.mixins.mpl_mod.InterfaceMPL.plot_image">
+<code class="sig-prename descclassname">InterfaceMPL.</code><code class="sig-name descname">plot_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">v_type</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">view</span><span class="o">=</span><span class="default_value">'real'</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">show_it</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">pcolor_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">grid_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sample_grid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_thickness</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_threshold</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/mpl_mod.html#InterfaceMPL.plot_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.mpl_mod.InterfaceMPL.plot_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots fields on the given mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>v</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>values to plot</p>
+</dd>
+<dt><strong>v_type</strong><span class="classifier">{‘CC’,’CCV’, ‘N’, ‘F’, ‘Fx’, ‘Fy’, ‘Fz’, ‘E’, ‘Ex’, ‘Ey’, ‘Ez’}</span></dt><dd><p>Where the values of v are defined.</p>
+</dd>
+<dt><strong>view</strong><span class="classifier">{‘real’, ‘imag’, ‘abs’, ‘vec’}</span></dt><dd><p>How to view the array.</p>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib.axes.Axes, optional</span></dt><dd><p>The axes to draw on. None produces a new Axes.</p>
+</dd>
+<dt><strong>clim</strong><span class="classifier">tuple of float, optional</span></dt><dd><p>length 2 tuple of (vmin, vmax) for the color limits</p>
+</dd>
+<dt><strong>range_x, range_y</strong><span class="classifier">tuple of float, optional</span></dt><dd><p>length 2 tuple of (min, max) for the bounds of the plot axes.</p>
+</dd>
+<dt><strong>pcolor_opts</strong><span class="classifier">dict, optional</span></dt><dd><p>Arguments passed on to <code class="docutils literal notranslate"><span class="pre">pcolormesh</span></code></p>
+</dd>
+<dt><strong>grid</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to plot the edges of the mesh cells.</p>
+</dd>
+<dt><strong>grid_opts</strong><span class="classifier">dict, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">grid</span></code> is true, arguments passed on to <code class="docutils literal notranslate"><span class="pre">plot</span></code> for grid</p>
+</dd>
+<dt><strong>sample_grid</strong><span class="classifier">tuple of numpy.ndarray, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">view</span></code> == ‘vec’, mesh cell widths (hx, hy) to interpolate onto for vector plotting</p>
+</dd>
+<dt><strong>stream_opts</strong><span class="classifier">dict, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">view</span></code> == ‘vec’, arguments passed on to <code class="docutils literal notranslate"><span class="pre">streamplot</span></code></p>
+</dd>
+<dt><strong>stream_thickness</strong><span class="classifier">float, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">view</span></code> == ‘vec’, linewidth for <code class="docutils literal notranslate"><span class="pre">streamplot</span></code></p>
+</dd>
+<dt><strong>stream_threshold</strong><span class="classifier">float, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">view</span></code> == ‘vec’, only plots vectors with magnitude above this threshold</p>
+</dd>
+<dt><strong>show_it</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to call plt.show()</p>
+</dd>
+<dt><strong>numbering</strong><span class="classifier">bool, optional</span></dt><dd><p>For 3D TensorMesh only, show the numbering of the slices</p>
+</dd>
+<dt><strong>annotation_color</strong><span class="classifier">Color or str, optional</span></dt><dd><p>For 3D TensorMesh only, color of the annotation</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>2D <code class="docutils literal notranslate"><span class="pre">TensorMesh</span></code> plotting</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-2.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-2_00_00.png">png</a>, <a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-2_00_00.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-2_00_00.png" src="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-2_00_00.png" />
+</div>
+<p>3D <code class="docutils literal notranslate"><span class="pre">TensorMesh</span></code> plotting</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">gridCC</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">annotation_color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-2_01_00.png">png</a>, <a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-2_01_00.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-2_01_00.png" src="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-2_01_00.png" />
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discretize.mixins.mpl_mod.InterfaceMPL.plot_slice">
+<code class="sig-prename descclassname">InterfaceMPL.</code><code class="sig-name descname">plot_slice</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">v_type</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">'Z'</span></em>, <em class="sig-param"><span class="n">ind</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">view</span><span class="o">=</span><span class="default_value">'real'</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">show_it</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">pcolor_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">grid_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sample_grid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_threshold</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_thickness</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/mpl_mod.html#InterfaceMPL.plot_slice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.mpl_mod.InterfaceMPL.plot_slice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots slice of fields on the given 3D mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>v</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>values to plot</p>
+</dd>
+<dt><strong>v_type</strong><span class="classifier">{‘CC’,’CCV’, ‘N’, ‘F’, ‘Fx’, ‘Fy’, ‘Fz’, ‘E’, ‘Ex’, ‘Ey’, ‘Ez’}, or tuple of these options</span></dt><dd><p>Where the values of v are defined.</p>
+</dd>
+<dt><strong>normal</strong><span class="classifier">{‘Z’, ‘X’, ‘Y’}</span></dt><dd><p>Normal direction of slicing plane.</p>
+</dd>
+<dt><strong>ind</strong><span class="classifier">None, optional</span></dt><dd><p>index along dimension of slice. Defaults to the center index.</p>
+</dd>
+<dt><strong>view</strong><span class="classifier">{‘real’, ‘imag’, ‘abs’, ‘vec’}</span></dt><dd><p>How to view the array.</p>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib.axes.Axes, optional</span></dt><dd><p>The axes to draw on. None produces a new Axes. Must be None if <code class="docutils literal notranslate"><span class="pre">v_type</span></code> is a tuple.</p>
+</dd>
+<dt><strong>clim</strong><span class="classifier">tuple of float, optional</span></dt><dd><p>length 2 tuple of (vmin, vmax) for the color limits</p>
+</dd>
+<dt><strong>range_x, range_y</strong><span class="classifier">tuple of float, optional</span></dt><dd><p>length 2 tuple of (min, max) for the bounds of the plot axes.</p>
+</dd>
+<dt><strong>pcolor_opts</strong><span class="classifier">dict, optional</span></dt><dd><p>Arguments passed on to <code class="docutils literal notranslate"><span class="pre">pcolormesh</span></code></p>
+</dd>
+<dt><strong>grid</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to plot the edges of the mesh cells.</p>
+</dd>
+<dt><strong>grid_opts</strong><span class="classifier">dict, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">grid</span></code> is true, arguments passed on to <code class="docutils literal notranslate"><span class="pre">plot</span></code> for the edges</p>
+</dd>
+<dt><strong>sample_grid</strong><span class="classifier">tuple of numpy.ndarray, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">view</span></code> == ‘vec’, mesh cell widths (hx, hy) to interpolate onto for vector plotting</p>
+</dd>
+<dt><strong>stream_opts</strong><span class="classifier">dict, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">view</span></code> == ‘vec’, arguments passed on to <code class="docutils literal notranslate"><span class="pre">streamplot</span></code></p>
+</dd>
+<dt><strong>stream_thickness</strong><span class="classifier">float, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">view</span></code> == ‘vec’, linewidth for <code class="docutils literal notranslate"><span class="pre">streamplot</span></code></p>
+</dd>
+<dt><strong>stream_threshold</strong><span class="classifier">float, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">view</span></code> == ‘vec’, only plots vectors with magnitude above this threshold</p>
+</dd>
+<dt><strong>show_it</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to call plt.show()</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Plot a slice of a 3D <code class="docutils literal notranslate"><span class="pre">TensorMesh</span></code> solution to a Laplace’s equaiton.</p>
+<p>First build the mesh:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pymatsolver</span> <span class="kn">import</span> <span class="n">Solver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hx</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hy</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hz</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">,</span> <span class="n">hz</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>then build the necessary parts of the PDE:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">vnC</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">mkvc</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">face_divergence</span> <span class="o">*</span> <span class="n">M</span><span class="o">.</span><span class="n">cell_gradient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Solver</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and finaly, plot the vector values of the result, which are defined on faces</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">plot_slice</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">cell_gradient</span><span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;vec&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">pcolor_opts</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.8</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-3.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-3.png">png</a>, <a class="reference external" href="../../api/generated/discretize-mixins-mpl_mod-InterfaceMPL-3.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-3.png" src="../../_images/discretize-mixins-mpl_mod-InterfaceMPL-3.png" />
+</div>
+</dd></dl>
+
+<div style='clear:both'></div></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="discretize.mixins.mpl_mod.Slicer.html" class="btn btn-neutral float-right" title="discretize.mixins.mpl_mod.Slicer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="discretize.base.mesh_io.TreeMeshIO.html" class="btn btn-neutral float-left" title="discretize.base.mesh_io.TreeMeshIO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<div role="contentinfo">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    2013-2020,
+    <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
+    Except where noted, this work is licensed under a <br />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons Attribution 4.0 International License
+    </a>
+</div>
+<br>
+<div>
+Built with
+    <a href="http://sphinx-doc.org/">Sphinx</a>
+    using a
+    <a href="https://github.com/snide/sphinx_rtd_theme">theme</a>
+    provided by
+    <a href="https://readthedocs.org">Read the Docs</a>.
+ </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

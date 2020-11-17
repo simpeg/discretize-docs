@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>discretize.utils.cart2cyl &mdash; discretize 0.5.1 documentation</title>
+  <title>discretize.utils.cart2cyl &mdash; discretize 0.6.0 documentation</title>
   
 
   
@@ -45,7 +45,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="discretize.utils.isScalar" href="discretize.utils.isScalar.html" />
+    <link rel="next" title="discretize.utils.volume_tetrahedron" href="discretize.utils.volume_tetrahedron.html" />
     <link rel="prev" title="discretize.utils.cyl2cart" href="discretize.utils.cyl2cart.html" />
  
 
@@ -88,7 +88,7 @@
             
             
               <div class="version">
-                0.5.1
+                0.6.0
               </div>
             
           
@@ -132,7 +132,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#meshes">Meshes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.InnerProducts">Numerical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.operators">Numerical Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#mesh-io">Mesh IO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#visualization">Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#testing">Testing</a></li>
@@ -142,12 +142,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../index.html#mesh-utilities">Mesh Utilities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../index.html#matrix-utilities">Matrix Utilities</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#mathematical-operations">Mathematical Operations</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.rotatePointsFromNormals.html">discretize.utils.rotatePointsFromNormals</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.rotationMatrixFromNormals.html">discretize.utils.rotationMatrixFromNormals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.rotate_points_from_normals.html">discretize.utils.rotate_points_from_normals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.rotation_matrix_from_normals.html">discretize.utils.rotation_matrix_from_normals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.cylindrical_to_cartesian.html">discretize.utils.cylindrical_to_cartesian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.cartesian_to_cylindrical.html">discretize.utils.cartesian_to_cylindrical</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.is_scalar.html">discretize.utils.is_scalar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.as_array_n_by_dim.html">discretize.utils.as_array_n_by_dim</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.cyl2cart.html">discretize.utils.cyl2cart</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">discretize.utils.cart2cyl</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.isScalar.html">discretize.utils.isScalar</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.asArray_N_x_Dim.html">discretize.utils.asArray_N_x_Dim</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../index.html#curvilinear-mesh-utilities">Curvilinear Mesh Utilities</a></li>
@@ -287,9 +289,8 @@
 <h1>discretize.utils.cart2cyl<a class="headerlink" href="#discretize-utils-cart2cyl" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="discretize.utils.cart2cyl">
-<code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">cart2cyl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">grid</span></em>, <em class="sig-param"><span class="n">vec</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/coordutils.html#cart2cyl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.cart2cyl" title="Permalink to this definition">¶</a></dt>
-<dd><p>Take a grid defined in cartesian coordinates and transform it to cyl
-coordinates</p>
+<code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">cart2cyl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">grid</span></em>, <em class="sig-param"><span class="n">vec</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/coordinate_utils.html#cart2cyl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.cart2cyl" title="Permalink to this definition">¶</a></dt>
+<dd><p>An alias for cartesian_to_cylindrical</p>
 </dd></dl>
 
 <div style='clear:both'></div></div>
@@ -302,7 +303,7 @@ coordinates</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="discretize.utils.isScalar.html" class="btn btn-neutral float-right" title="discretize.utils.isScalar" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="discretize.utils.volume_tetrahedron.html" class="btn btn-neutral float-right" title="discretize.utils.volume_tetrahedron" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="discretize.utils.cyl2cart.html" class="btn btn-neutral float-left" title="discretize.utils.cyl2cart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -329,7 +330,7 @@ coordinates</p>
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
         <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
     </a>
-    2013-2019,
+    2013-2020,
     <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
     Except where noted, this work is licensed under a <br />
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">

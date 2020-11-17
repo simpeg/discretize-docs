@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Reference &mdash; discretize 0.5.1 documentation</title>
+  <title>API Reference &mdash; discretize 0.6.0 documentation</title>
   
 
   
@@ -88,7 +88,7 @@
             
             
               <div class="version">
-                0.5.1
+                0.6.0
               </div>
             
           
@@ -133,36 +133,34 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#meshes">Meshes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/discretize.TensorMesh.html">discretize.TensorMesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.CylMesh.html">discretize.CylMesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.TreeMesh.html">discretize.TreeMesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.TreeMesh.TreeCell.html">discretize.TreeMesh.TreeCell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/discretize.CylindricalMesh.html">discretize.CylindricalMesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/discretize.CurvilinearMesh.html">discretize.CurvilinearMesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/discretize.TreeMesh.html">discretize.TreeMesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/discretize.tree_mesh.TreeCell.html">discretize.tree_mesh.TreeCell</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-discretize.InnerProducts">Numerical Operators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.DiffOperators.DiffOperators.html">discretize.DiffOperators.DiffOperators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.InnerProducts.InnerProducts.html">discretize.InnerProducts.InnerProducts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-discretize.operators">Numerical Operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/discretize.operators.DiffOperators.html">discretize.operators.DiffOperators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/discretize.operators.InnerProducts.html">discretize.operators.InnerProducts</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#mesh-io">Mesh IO</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/discretize.load_mesh.html">discretize.load_mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.MeshIO.TensorMeshIO.html">discretize.MeshIO.TensorMeshIO</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.MeshIO.TreeMeshIO.html">discretize.MeshIO.TreeMeshIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/discretize.base.mesh_io.TensorMeshIO.html">discretize.base.mesh_io.TensorMeshIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/discretize.base.mesh_io.TreeMeshIO.html">discretize.base.mesh_io.TreeMeshIO</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#visualization">Visualization</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.View.TensorView.html">discretize.View.TensorView</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.View.CylView.html">discretize.View.CylView</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.View.CurviView.html">discretize.View.CurviView</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.View.Slicer.html">discretize.View.Slicer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.mixins.vtkModule.html"><code class="docutils literal notranslate"><span class="pre">discretize.mixins.vtkModule</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/discretize.mixins.mpl_mod.InterfaceMPL.html">discretize.mixins.mpl_mod.InterfaceMPL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/discretize.mixins.mpl_mod.Slicer.html">discretize.mixins.mpl_mod.Slicer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/discretize.mixins.vtk_mod.InterfaceVTK.html">discretize.mixins.vtk_mod.InterfaceVTK</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.Tests.OrderTest.html">discretize.Tests.OrderTest</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.Tests.checkDerivative.html">discretize.Tests.checkDerivative</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.Tests.getQuadratic.html">discretize.Tests.getQuadratic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.Tests.Rosenbrock.html">discretize.Tests.Rosenbrock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/discretize.tests.OrderTest.html">discretize.tests.OrderTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/discretize.tests.check_derivative.html">discretize.tests.check_derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/discretize.tests.get_quadratic.html">discretize.tests.get_quadratic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/discretize.tests.rosenbrock.html">discretize.tests.rosenbrock</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#module-discretize.utils">Utilities</a><ul>
@@ -171,15 +169,15 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#interpolation-operations">Interpolation Operations</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.interpmat.html">discretize.utils.interpmat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.interpolation_matrix.html">discretize.utils.interpolation_matrix</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.volume_average.html">discretize.utils.volume_average</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#mesh-utilities">Mesh Utilities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.exampleLrmGrid.html">discretize.utils.exampleLrmGrid</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.meshTensor.html">discretize.utils.meshTensor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.closestPoints.html">discretize.utils.closestPoints</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.ExtractCoreMesh.html">discretize.utils.ExtractCoreMesh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.example_curvilinear_grid.html">discretize.utils.example_curvilinear_grid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.unpack_widths.html">discretize.utils.unpack_widths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.closest_points_index.html">discretize.utils.closest_points_index</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.extract_core_mesh.html">discretize.utils.extract_core_mesh</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.random_model.html">discretize.utils.random_model</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.mesh_builder_xyz.html">discretize.utils.mesh_builder_xyz</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.refine_tree_xyz.html">discretize.utils.refine_tree_xyz</a></li>
@@ -189,7 +187,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#matrix-utilities">Matrix Utilities</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.mkvc.html">discretize.utils.mkvc</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.sdiag.html">discretize.utils.sdiag</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.sdInv.html">discretize.utils.sdInv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.sdinv.html">discretize.utils.sdinv</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.speye.html">discretize.utils.speye</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.kron3.html">discretize.utils.kron3</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.spzeros.html">discretize.utils.spzeros</a></li>
@@ -199,29 +197,31 @@
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.ndgrid.html">discretize.utils.ndgrid</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.ind2sub.html">discretize.utils.ind2sub</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.sub2ind.html">discretize.utils.sub2ind</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.getSubArray.html">discretize.utils.getSubArray</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.inv3X3BlockDiagonal.html">discretize.utils.inv3X3BlockDiagonal</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.inv2X2BlockDiagonal.html">discretize.utils.inv2X2BlockDiagonal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.get_subarray.html">discretize.utils.get_subarray</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.inverse_3x3_block_diagonal.html">discretize.utils.inverse_3x3_block_diagonal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.inverse_2x2_block_diagonal.html">discretize.utils.inverse_2x2_block_diagonal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.make_property_tensor.html">discretize.utils.make_property_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.inverse_property_tensor.html">discretize.utils.inverse_property_tensor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.TensorType.html">discretize.utils.TensorType</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.makePropertyTensor.html">discretize.utils.makePropertyTensor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.invPropertyTensor.html">discretize.utils.invPropertyTensor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.Zero.html">discretize.utils.Zero</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.Identity.html">discretize.utils.Identity</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#mathematical-operations">Mathematical Operations</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.rotatePointsFromNormals.html">discretize.utils.rotatePointsFromNormals</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.rotationMatrixFromNormals.html">discretize.utils.rotationMatrixFromNormals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.rotate_points_from_normals.html">discretize.utils.rotate_points_from_normals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.rotation_matrix_from_normals.html">discretize.utils.rotation_matrix_from_normals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.cylindrical_to_cartesian.html">discretize.utils.cylindrical_to_cartesian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.cartesian_to_cylindrical.html">discretize.utils.cartesian_to_cylindrical</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.is_scalar.html">discretize.utils.is_scalar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.as_array_n_by_dim.html">discretize.utils.as_array_n_by_dim</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.cyl2cart.html">discretize.utils.cyl2cart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.cart2cyl.html">discretize.utils.cart2cyl</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.isScalar.html">discretize.utils.isScalar</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.asArray_N_x_Dim.html">discretize.utils.asArray_N_x_Dim</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#curvilinear-mesh-utilities">Curvilinear Mesh Utilities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.volTetra.html">discretize.utils.volTetra</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.faceInfo.html">discretize.utils.faceInfo</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.indexCube.html">discretize.utils.indexCube</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.volume_tetrahedron.html">discretize.utils.volume_tetrahedron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.face_info.html">discretize.utils.face_info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/discretize.utils.index_cube.html">discretize.utils.index_cube</a></li>
 </ul>
 </li>
 </ul>
@@ -370,33 +370,33 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorMesh</span></code></a>(*args, **kwargs)</p></td>
 <td><p>TensorMesh is a mesh class that deals with tensor product meshes.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.CylMesh.html#discretize.CylMesh" title="discretize.CylMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CylMesh</span></code></a>(*args, **kwargs)</p></td>
-<td><p>CylMesh is a mesh class for cylindrical problems. It supports both</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TreeMesh</span></code></a>(*args, **kwargs)</p></td>
-<td><p>TreeMesh is a class for adaptive QuadTree (2D) and OcTree (3D) meshes.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.TreeMesh.TreeCell.html#discretize.TreeMesh.TreeCell" title="discretize.TreeMesh.TreeCell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TreeMesh.TreeCell</span></code></a></p></td>
-<td><p>A Cell of the <cite>TreeMesh</cite></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.CylindricalMesh.html#discretize.CylindricalMesh" title="discretize.CylindricalMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CylindricalMesh</span></code></a>(*args, **kwargs)</p></td>
+<td><p>CylindricalMesh is a mesh class for cylindrical problems. It supports both</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.CurvilinearMesh.html#discretize.CurvilinearMesh" title="discretize.CurvilinearMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CurvilinearMesh</span></code></a>(*args, **kwargs)</p></td>
 <td><p>CurvilinearMesh is a mesh class that deals with curvilinear meshes.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TreeMesh</span></code></a>(*args, **kwargs)</p></td>
+<td><p>TreeMesh is a class for adaptive QuadTree (2D) and OcTree (3D) meshes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.tree_mesh.TreeCell.html#discretize.tree_mesh.TreeCell" title="discretize.tree_mesh.TreeCell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_mesh.TreeCell</span></code></a></p></td>
+<td><p>A Cell of the <cite>TreeMesh</cite></p></td>
+</tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="module-discretize.InnerProducts">
-<span id="numerical-operators"></span><h2>Numerical Operators<a class="headerlink" href="#module-discretize.InnerProducts" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-discretize.operators">
+<span id="numerical-operators"></span><h2>Numerical Operators<a class="headerlink" href="#module-discretize.operators" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.DiffOperators.DiffOperators.html#discretize.DiffOperators.DiffOperators" title="discretize.DiffOperators.DiffOperators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiffOperators.DiffOperators</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.operators.DiffOperators.html#discretize.operators.DiffOperators" title="discretize.operators.DiffOperators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">operators.DiffOperators</span></code></a>()</p></td>
 <td><p>Class creates the differential operators that you need!</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.InnerProducts.InnerProducts.html#discretize.InnerProducts.InnerProducts" title="discretize.InnerProducts.InnerProducts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InnerProducts.InnerProducts</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.operators.InnerProducts.html#discretize.operators.InnerProducts" title="discretize.operators.InnerProducts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">operators.InnerProducts</span></code></a>()</p></td>
 <td><p>This is a base for the discretize mesh classes.</p></td>
 </tr>
 </tbody>
@@ -410,14 +410,14 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.load_mesh.html#discretize.load_mesh" title="discretize.load_mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_mesh</span></code></a>(filename)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.load_mesh.html#discretize.load_mesh" title="discretize.load_mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_mesh</span></code></a>(file_name)</p></td>
 <td><p>Open a json file and load the mesh into the target class</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.MeshIO.TensorMeshIO.html#discretize.MeshIO.TensorMeshIO" title="discretize.MeshIO.TensorMeshIO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MeshIO.TensorMeshIO</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.base.mesh_io.TensorMeshIO.html#discretize.base.mesh_io.TensorMeshIO" title="discretize.base.mesh_io.TensorMeshIO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">base.mesh_io.TensorMeshIO</span></code></a>()</p></td>
 <td><p><p class="rubric">Methods</p>
 </p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.MeshIO.TreeMeshIO.html#discretize.MeshIO.TreeMeshIO" title="discretize.MeshIO.TreeMeshIO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MeshIO.TreeMeshIO</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.base.mesh_io.TreeMeshIO.html#discretize.base.mesh_io.TreeMeshIO" title="discretize.base.mesh_io.TreeMeshIO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">base.mesh_io.TreeMeshIO</span></code></a>()</p></td>
 <td><p><p class="rubric">Methods</p>
 </p></td>
 </tr>
@@ -432,21 +432,14 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.View.TensorView.html#discretize.View.TensorView" title="discretize.View.TensorView"><code class="xref py py-obj docutils literal notranslate"><span class="pre">View.TensorView</span></code></a>()</p></td>
-<td><p>Provides viewing functions for TensorMesh</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.mixins.mpl_mod.InterfaceMPL.html#discretize.mixins.mpl_mod.InterfaceMPL" title="discretize.mixins.mpl_mod.InterfaceMPL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mixins.mpl_mod.InterfaceMPL</span></code></a>()</p></td>
+<td><p>This class is used for simple <code class="docutils literal notranslate"><span class="pre">discretize</span></code> mesh plotting using matplotlib.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.View.CylView.html#discretize.View.CylView" title="discretize.View.CylView"><code class="xref py py-obj docutils literal notranslate"><span class="pre">View.CylView</span></code></a>()</p></td>
-<td><p><p class="rubric">Methods</p>
-</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.View.CurviView.html#discretize.View.CurviView" title="discretize.View.CurviView"><code class="xref py py-obj docutils literal notranslate"><span class="pre">View.CurviView</span></code></a>()</p></td>
-<td><p>Provides viewing functions for CurvilinearMesh</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.View.Slicer.html#discretize.View.Slicer" title="discretize.View.Slicer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">View.Slicer</span></code></a>(mesh, v[, xslice, yslice, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.mixins.mpl_mod.Slicer.html#discretize.mixins.mpl_mod.Slicer" title="discretize.mixins.mpl_mod.Slicer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mixins.mpl_mod.Slicer</span></code></a>(mesh, v[, xslice, …])</p></td>
 <td><p>Plot slices of a 3D volume, interactively (scroll wheel).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.mixins.vtkModule.html#module-discretize.mixins.vtkModule" title="discretize.mixins.vtkModule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mixins.vtkModule</span></code></a></p></td>
-<td><p>This module provides a way for <code class="docutils literal notranslate"><span class="pre">discretize</span></code> meshes to be converted to VTK data objects (and back when possible) if the <a href="#id1"><span class="problematic" id="id2">`VTK Python package`_</span></a> is available.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.mixins.vtk_mod.InterfaceVTK.html#discretize.mixins.vtk_mod.InterfaceVTK" title="discretize.mixins.vtk_mod.InterfaceVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mixins.vtk_mod.InterfaceVTK</span></code></a>()</p></td>
+<td><p>This class is full of methods that enable <code class="docutils literal notranslate"><span class="pre">discretize</span></code> meshes to be converted to VTK data objects (and back when possible).</p></td>
 </tr>
 </tbody>
 </table>
@@ -459,16 +452,16 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.Tests.OrderTest.html#discretize.Tests.OrderTest" title="discretize.Tests.OrderTest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tests.OrderTest</span></code></a>([methodName])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.tests.OrderTest.html#discretize.tests.OrderTest" title="discretize.tests.OrderTest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tests.OrderTest</span></code></a>([methodName])</p></td>
 <td><p>OrderTest is a base class for testing convergence orders with respect to mesh sizes of integral/differential operators.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.Tests.checkDerivative.html#discretize.Tests.checkDerivative" title="discretize.Tests.checkDerivative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tests.checkDerivative</span></code></a>(fctn, x0[, num, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.tests.check_derivative.html#discretize.tests.check_derivative" title="discretize.tests.check_derivative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tests.check_derivative</span></code></a>(fctn, x0[, num, …])</p></td>
 <td><p>Basic derivative check</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.Tests.getQuadratic.html#discretize.Tests.getQuadratic" title="discretize.Tests.getQuadratic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tests.getQuadratic</span></code></a>(A, b[, c])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.tests.get_quadratic.html#discretize.tests.get_quadratic" title="discretize.tests.get_quadratic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tests.get_quadratic</span></code></a>(A, b[, c])</p></td>
 <td><p>Given A, b and c, this returns a quadratic, Q</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.Tests.Rosenbrock.html#discretize.Tests.Rosenbrock" title="discretize.Tests.Rosenbrock"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tests.Rosenbrock</span></code></a>(x[, return_g, return_H])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.tests.rosenbrock.html#discretize.tests.rosenbrock" title="discretize.tests.rosenbrock"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tests.rosenbrock</span></code></a>(x[, return_g, return_H])</p></td>
 <td><p>Rosenbrock function for testing GaussNewton scheme</p></td>
 </tr>
 </tbody>
@@ -498,7 +491,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.interpmat.html#discretize.utils.interpmat" title="discretize.utils.interpmat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.interpmat</span></code></a>(locs, x[, y, z])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.interpolation_matrix.html#discretize.utils.interpolation_matrix" title="discretize.utils.interpolation_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.interpolation_matrix</span></code></a>(locs, x[, y, z])</p></td>
 <td><p>Local interpolation computed for each receiver point in turn</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.volume_average.html#discretize.utils.volume_average" title="discretize.utils.volume_average"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.volume_average</span></code></a>(mesh_in, mesh_out[, …])</p></td>
@@ -515,16 +508,16 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.exampleLrmGrid.html#discretize.utils.exampleLrmGrid" title="discretize.utils.exampleLrmGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.exampleLrmGrid</span></code></a>(nC, exType)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.example_curvilinear_grid.html#discretize.utils.example_curvilinear_grid" title="discretize.utils.example_curvilinear_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.example_curvilinear_grid</span></code></a>(nC, exType)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.meshTensor.html#discretize.utils.meshTensor" title="discretize.utils.meshTensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.meshTensor</span></code></a>(value)</p></td>
-<td><p><strong>meshTensor</strong> takes a list of numbers and tuples that have the form.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.unpack_widths.html#discretize.utils.unpack_widths" title="discretize.utils.unpack_widths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.unpack_widths</span></code></a>(value)</p></td>
+<td><p><strong>unpack_widths</strong> takes a list of numbers and tuples that have the form.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.closestPoints.html#discretize.utils.closestPoints" title="discretize.utils.closestPoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.closestPoints</span></code></a>(mesh, pts[, gridLoc])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.closest_points_index.html#discretize.utils.closest_points_index" title="discretize.utils.closest_points_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.closest_points_index</span></code></a>(mesh, pts[, grid_loc])</p></td>
 <td><p>Move a list of points to the closest points on a grid.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.ExtractCoreMesh.html#discretize.utils.ExtractCoreMesh" title="discretize.utils.ExtractCoreMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.ExtractCoreMesh</span></code></a>(xyzlim, mesh[, mesh_type])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.extract_core_mesh.html#discretize.utils.extract_core_mesh" title="discretize.utils.extract_core_mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.extract_core_mesh</span></code></a>(xyzlim, mesh[, …])</p></td>
 <td><p>Extracts Core Mesh from Global mesh</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.random_model.html#discretize.utils.random_model" title="discretize.utils.random_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.random_model</span></code></a>(shape[, seed, …])</p></td>
@@ -550,13 +543,13 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.mkvc.html#discretize.utils.mkvc" title="discretize.utils.mkvc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.mkvc</span></code></a>(x[, numDims])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.mkvc.html#discretize.utils.mkvc" title="discretize.utils.mkvc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.mkvc</span></code></a>(x[, n_dims])</p></td>
 <td><p>Creates a vector with the number of dimension specified</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.sdiag.html#discretize.utils.sdiag" title="discretize.utils.sdiag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.sdiag</span></code></a>(h)</p></td>
 <td><p>Sparse diagonal matrix</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.sdInv.html#discretize.utils.sdInv" title="discretize.utils.sdInv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.sdInv</span></code></a>(M)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.sdinv.html#discretize.utils.sdinv" title="discretize.utils.sdinv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.sdinv</span></code></a>(M)</p></td>
 <td><p>Inverse of a sparse diagonal matrix</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.speye.html#discretize.utils.speye" title="discretize.utils.speye"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.speye</span></code></a>(n)</p></td>
@@ -586,22 +579,22 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.sub2ind.html#discretize.utils.sub2ind" title="discretize.utils.sub2ind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.sub2ind</span></code></a>(shape, subs)</p></td>
 <td><p>From the given shape, returns the index of the given subscript</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.getSubArray.html#discretize.utils.getSubArray" title="discretize.utils.getSubArray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.getSubArray</span></code></a>(A, ind)</p></td>
-<td><p>subArray</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.get_subarray.html#discretize.utils.get_subarray" title="discretize.utils.get_subarray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.get_subarray</span></code></a>(A, ind)</p></td>
+<td><p>subarray</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.inv3X3BlockDiagonal.html#discretize.utils.inv3X3BlockDiagonal" title="discretize.utils.inv3X3BlockDiagonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.inv3X3BlockDiagonal</span></code></a>(a11, a12, a13, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.inverse_3x3_block_diagonal.html#discretize.utils.inverse_3x3_block_diagonal" title="discretize.utils.inverse_3x3_block_diagonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.inverse_3x3_block_diagonal</span></code></a>(a11, a12, …)</p></td>
 <td><p>inverts a stack of 3x3 matrices</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.inv2X2BlockDiagonal.html#discretize.utils.inv2X2BlockDiagonal" title="discretize.utils.inv2X2BlockDiagonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.inv2X2BlockDiagonal</span></code></a>(a11, a12, a21, a22)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.inverse_2x2_block_diagonal.html#discretize.utils.inverse_2x2_block_diagonal" title="discretize.utils.inverse_2x2_block_diagonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.inverse_2x2_block_diagonal</span></code></a>(a11, a12, …)</p></td>
 <td><p>Inverts a stack of 2x2 matrices by using the inversion formula</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.make_property_tensor.html#discretize.utils.make_property_tensor" title="discretize.utils.make_property_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.make_property_tensor</span></code></a>(M, tensor)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.inverse_property_tensor.html#discretize.utils.inverse_property_tensor" title="discretize.utils.inverse_property_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.inverse_property_tensor</span></code></a>(M, tensor[, …])</p></td>
+<td><p></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.TensorType.html#discretize.utils.TensorType" title="discretize.utils.TensorType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.TensorType</span></code></a>(M, tensor)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.makePropertyTensor.html#discretize.utils.makePropertyTensor" title="discretize.utils.makePropertyTensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.makePropertyTensor</span></code></a>(M, tensor)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.invPropertyTensor.html#discretize.utils.invPropertyTensor" title="discretize.utils.invPropertyTensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.invPropertyTensor</span></code></a>(M, tensor[, …])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.Zero.html#discretize.utils.Zero" title="discretize.utils.Zero"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.Zero</span></code></a>()</p></td>
@@ -629,23 +622,29 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.rotatePointsFromNormals.html#discretize.utils.rotatePointsFromNormals" title="discretize.utils.rotatePointsFromNormals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.rotatePointsFromNormals</span></code></a>(XYZ, n0, n1[, x0])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.rotate_points_from_normals.html#discretize.utils.rotate_points_from_normals" title="discretize.utils.rotate_points_from_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.rotate_points_from_normals</span></code></a>(XYZ, n0, n1)</p></td>
 <td><p>rotates a grid so that the vector n0 is aligned with the vector n1</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.rotationMatrixFromNormals.html#discretize.utils.rotationMatrixFromNormals" title="discretize.utils.rotationMatrixFromNormals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.rotationMatrixFromNormals</span></code></a>(v0, v1[, tol])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.rotation_matrix_from_normals.html#discretize.utils.rotation_matrix_from_normals" title="discretize.utils.rotation_matrix_from_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.rotation_matrix_from_normals</span></code></a>(v0, v1[, tol])</p></td>
 <td><p>Performs the minimum number of rotations to define a rotation from the direction indicated by the vector n0 to the direction indicated by n1.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.cyl2cart.html#discretize.utils.cyl2cart" title="discretize.utils.cyl2cart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.cyl2cart</span></code></a>(grid[, vec])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.cylindrical_to_cartesian.html#discretize.utils.cylindrical_to_cartesian" title="discretize.utils.cylindrical_to_cartesian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.cylindrical_to_cartesian</span></code></a>(grid[, vec])</p></td>
 <td><p>Take a grid defined in cylindrical coordinates <span class="math notranslate nohighlight">\((r,   heta, z)\)</span> and transform it to cartesian coordinates.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.cart2cyl.html#discretize.utils.cart2cyl" title="discretize.utils.cart2cyl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.cart2cyl</span></code></a>(grid[, vec])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.cartesian_to_cylindrical.html#discretize.utils.cartesian_to_cylindrical" title="discretize.utils.cartesian_to_cylindrical"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.cartesian_to_cylindrical</span></code></a>(grid[, vec])</p></td>
 <td><p>Take a grid defined in cartesian coordinates and transform it to cyl coordinates</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.isScalar.html#discretize.utils.isScalar" title="discretize.utils.isScalar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.isScalar</span></code></a>(f)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.is_scalar.html#discretize.utils.is_scalar" title="discretize.utils.is_scalar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.is_scalar</span></code></a>(f)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.asArray_N_x_Dim.html#discretize.utils.asArray_N_x_Dim" title="discretize.utils.asArray_N_x_Dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.asArray_N_x_Dim</span></code></a>(pts, dim)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.as_array_n_by_dim.html#discretize.utils.as_array_n_by_dim" title="discretize.utils.as_array_n_by_dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.as_array_n_by_dim</span></code></a>(pts, dim)</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.cyl2cart.html#discretize.utils.cyl2cart" title="discretize.utils.cyl2cart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.cyl2cart</span></code></a>(grid[, vec])</p></td>
+<td><p>An alias for cylindrical_to_cartesian</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.cart2cyl.html#discretize.utils.cart2cyl" title="discretize.utils.cart2cyl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.cart2cyl</span></code></a>(grid[, vec])</p></td>
+<td><p>An alias for cartesian_to_cylindrical</p></td>
 </tr>
 </tbody>
 </table>
@@ -658,13 +657,13 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.volTetra.html#discretize.utils.volTetra" title="discretize.utils.volTetra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.volTetra</span></code></a>(xyz, A, B, C, D)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.volume_tetrahedron.html#discretize.utils.volume_tetrahedron" title="discretize.utils.volume_tetrahedron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.volume_tetrahedron</span></code></a>(xyz, A, B, C, D)</p></td>
 <td><p>Returns the volume for tetrahedras volume specified by the indexes A to D.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.faceInfo.html#discretize.utils.faceInfo" title="discretize.utils.faceInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.faceInfo</span></code></a>(xyz, A, B, C, D[, average, …])</p></td>
-<td><p>function [N] = faceInfo(y,A,B,C,D)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.utils.face_info.html#discretize.utils.face_info" title="discretize.utils.face_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.face_info</span></code></a>(xyz, A, B, C, D[, average, …])</p></td>
+<td><p>function [N] = face_info(y,A,B,C,D)</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.indexCube.html#discretize.utils.indexCube" title="discretize.utils.indexCube"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.indexCube</span></code></a>(nodes, gridSize[, n])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.utils.index_cube.html#discretize.utils.index_cube" title="discretize.utils.index_cube"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.index_cube</span></code></a>(nodes, grid_size[, n])</p></td>
 <td><p>Returns the index of nodes on the mesh.</p></td>
 </tr>
 </tbody>
@@ -728,7 +727,7 @@
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
         <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
     </a>
-    2013-2019,
+    2013-2020,
     <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
     Except where noted, this work is licensed under a <br />
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">

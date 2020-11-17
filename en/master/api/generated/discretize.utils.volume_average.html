@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>discretize.utils.volume_average &mdash; discretize 0.5.1 documentation</title>
+  <title>discretize.utils.volume_average &mdash; discretize 0.6.0 documentation</title>
   
 
   
@@ -45,8 +45,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="discretize.utils.exampleLrmGrid" href="discretize.utils.exampleLrmGrid.html" />
-    <link rel="prev" title="discretize.utils.interpmat" href="discretize.utils.interpmat.html" />
+    <link rel="next" title="discretize.utils.example_curvilinear_grid" href="discretize.utils.example_curvilinear_grid.html" />
+    <link rel="prev" title="discretize.utils.interpolation_matrix" href="discretize.utils.interpolation_matrix.html" />
  
 
 <meta name="description" content="Simulation and Parameter Estimation in Geophysics">
@@ -88,7 +88,7 @@
             
             
               <div class="version">
-                0.5.1
+                0.6.0
               </div>
             
           
@@ -132,14 +132,14 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#meshes">Meshes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.InnerProducts">Numerical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.operators">Numerical Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#mesh-io">Mesh IO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#visualization">Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#testing">Testing</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#module-discretize.utils">Utilities</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../index.html#general-utilities">General Utilities</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#interpolation-operations">Interpolation Operations</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.interpmat.html">discretize.utils.interpmat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.interpolation_matrix.html">discretize.utils.interpolation_matrix</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">discretize.utils.volume_average</a></li>
 </ul>
 </li>
@@ -283,12 +283,12 @@
 <h1>discretize.utils.volume_average<a class="headerlink" href="#discretize-utils-volume-average" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="discretize.utils.volume_average">
-<code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">volume_average</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh_in</span></em>, <em class="sig-param"><span class="n">mesh_out</span></em>, <em class="sig-param"><span class="n">values</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">output</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/interputils.html#volume_average"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.volume_average" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">volume_average</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh_in</span></em>, <em class="sig-param"><span class="n">mesh_out</span></em>, <em class="sig-param"><span class="n">values</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">output</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/interpolation_utils.html#volume_average"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.volume_average" title="Permalink to this definition">¶</a></dt>
 <dd><p>Volume averaging interpolation between meshes.</p>
 <p>This volume averaging function looks for overlapping cells in each mesh,
 and weights the output values by the partial volume ratio of the overlapping
 input cells. The volume average operation should result in an output such that
-<code class="docutils literal notranslate"><span class="pre">np.sum(mesh_in.vol*values)</span></code> = <code class="docutils literal notranslate"><span class="pre">np.sum(mesh_out.vol*output)</span></code>, when the input
+<code class="docutils literal notranslate"><span class="pre">np.sum(mesh_in.cell_volumes*values)</span></code> = <code class="docutils literal notranslate"><span class="pre">np.sum(mesh_out.cell_volumes*output)</span></code>, when the input
 and output meshes have the exact same extent. When the output mesh extent goes
 beyond the input mesh, it is assumed to have constant values in that direction.
 When the output mesh extent is smaller than the input mesh, only the overlapping
@@ -303,13 +303,13 @@ operation and then returned (assuming it has the correct <code class="docutils l
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>mesh_in: TensorMesh or TreeMesh</strong></dt><dd><p>Input mesh (the mesh you are interpolating from)</p>
+<dt><strong>mesh_in</strong><span class="classifier">TensorMesh or TreeMesh</span></dt><dd><p>Input mesh (the mesh you are interpolating from)</p>
 </dd>
-<dt><strong>mesh_out: TensorMesh or TreeMesh</strong></dt><dd><p>Output mesh (the mesh you are interpolating to)</p>
+<dt><strong>mesh_out</strong><span class="classifier">TensorMesh or TreeMesh</span></dt><dd><p>Output mesh (the mesh you are interpolating to)</p>
 </dd>
-<dt><strong>values: numpy.ndarray, optional</strong></dt><dd><p>Array with values defined at the cells of <code class="docutils literal notranslate"><span class="pre">mesh_in</span></code></p>
+<dt><strong>values</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>Array with values defined at the cells of <code class="docutils literal notranslate"><span class="pre">mesh_in</span></code></p>
 </dd>
-<dt><strong>output: numpy.ndarray, optional</strong></dt><dd><p>Output array to be overwritten of length <code class="docutils literal notranslate"><span class="pre">mesh_out.nC</span></code> and type <code class="docutils literal notranslate"><span class="pre">np.float64</span></code></p>
+<dt><strong>output</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>Output array to be overwritten of length <code class="docutils literal notranslate"><span class="pre">mesh_out.nC</span></code> and type <code class="docutils literal notranslate"><span class="pre">np.float64</span></code></p>
 </dd>
 </dl>
 </dd>
@@ -345,9 +345,9 @@ look like averaging each of those cells values</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh_in</span><span class="o">.</span><span class="n">plotImage</span><span class="p">(</span><span class="n">model1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh_in</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">model1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh_out</span><span class="o">.</span><span class="n">plotImage</span><span class="p">(</span><span class="n">model2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh_out</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">model2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -367,10 +367,10 @@ look like averaging each of those cells values</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="discretize.utils.exampleLrmGrid.html" class="btn btn-neutral float-right" title="discretize.utils.exampleLrmGrid" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="discretize.utils.example_curvilinear_grid.html" class="btn btn-neutral float-right" title="discretize.utils.example_curvilinear_grid" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="discretize.utils.interpmat.html" class="btn btn-neutral float-left" title="discretize.utils.interpmat" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="discretize.utils.interpolation_matrix.html" class="btn btn-neutral float-left" title="discretize.utils.interpolation_matrix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -394,7 +394,7 @@ look like averaging each of those cells values</p>
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
         <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
     </a>
-    2013-2019,
+    2013-2020,
     <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
     Except where noted, this work is licensed under a <br />
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">

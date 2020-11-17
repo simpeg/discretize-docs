@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>discretize.utils.Zero &mdash; discretize 0.5.1 documentation</title>
+  <title>discretize.utils.Zero &mdash; discretize 0.6.0 documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="discretize.utils.Identity" href="discretize.utils.Identity.html" />
-    <link rel="prev" title="discretize.utils.invPropertyTensor" href="discretize.utils.invPropertyTensor.html" />
+    <link rel="prev" title="discretize.utils.TensorType" href="discretize.utils.TensorType.html" />
  
 
 <meta name="description" content="Simulation and Parameter Estimation in Geophysics">
@@ -88,7 +88,7 @@
             
             
               <div class="version">
-                0.5.1
+                0.6.0
               </div>
             
           
@@ -132,7 +132,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#meshes">Meshes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.InnerProducts">Numerical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.operators">Numerical Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#mesh-io">Mesh IO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#visualization">Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#testing">Testing</a></li>
@@ -143,7 +143,7 @@
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#matrix-utilities">Matrix Utilities</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.mkvc.html">discretize.utils.mkvc</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.sdiag.html">discretize.utils.sdiag</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.sdInv.html">discretize.utils.sdInv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.sdinv.html">discretize.utils.sdinv</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.speye.html">discretize.utils.speye</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.kron3.html">discretize.utils.kron3</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.spzeros.html">discretize.utils.spzeros</a></li>
@@ -153,12 +153,12 @@
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.ndgrid.html">discretize.utils.ndgrid</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.ind2sub.html">discretize.utils.ind2sub</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.sub2ind.html">discretize.utils.sub2ind</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.getSubArray.html">discretize.utils.getSubArray</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.inv3X3BlockDiagonal.html">discretize.utils.inv3X3BlockDiagonal</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.inv2X2BlockDiagonal.html">discretize.utils.inv2X2BlockDiagonal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.get_subarray.html">discretize.utils.get_subarray</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.inverse_3x3_block_diagonal.html">discretize.utils.inverse_3x3_block_diagonal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.inverse_2x2_block_diagonal.html">discretize.utils.inverse_2x2_block_diagonal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.make_property_tensor.html">discretize.utils.make_property_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.inverse_property_tensor.html">discretize.utils.inverse_property_tensor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.TensorType.html">discretize.utils.TensorType</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.makePropertyTensor.html">discretize.utils.makePropertyTensor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.invPropertyTensor.html">discretize.utils.invPropertyTensor</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">discretize.utils.Zero</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.Identity.html">discretize.utils.Identity</a></li>
 </ul>
@@ -301,12 +301,14 @@
 <h1>discretize.utils.Zero<a class="headerlink" href="#discretize-utils-zero" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="discretize.utils.Zero">
-<em class="property">class </em><code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">Zero</code><a class="reference internal" href="../../_modules/discretize/utils/matutils.html#Zero"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.Zero" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">Zero</code><a class="reference internal" href="../../_modules/discretize/utils/matrix_utils.html#Zero"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.Zero" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>T</strong></dt><dd></dd>
+<dt><strong>ndim</strong></dt><dd></dd>
+<dt><strong>shape</strong></dt><dd></dd>
 </dl>
 </dd>
 </dl>
@@ -331,12 +333,22 @@
 <code class="sig-prename descclassname">Zero.</code><code class="sig-name descname">T</code><a class="headerlink" href="#discretize.utils.Zero.T" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt id="discretize.utils.Zero.ndim">
+<code class="sig-prename descclassname">Zero.</code><code class="sig-name descname">ndim</code><a class="headerlink" href="#discretize.utils.Zero.ndim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="discretize.utils.Zero.shape">
+<code class="sig-prename descclassname">Zero.</code><code class="sig-name descname">shape</code><a class="headerlink" href="#discretize.utils.Zero.shape" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <dl class="py method">
 <dt id="discretize.utils.Zero.transpose">
-<code class="sig-prename descclassname">Zero.</code><code class="sig-name descname">transpose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/matutils.html#Zero.transpose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.Zero.transpose" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Zero.</code><code class="sig-name descname">transpose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/matrix_utils.html#Zero.transpose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.Zero.transpose" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <div style='clear:both'></div></div>
@@ -353,7 +365,7 @@
         <a href="discretize.utils.Identity.html" class="btn btn-neutral float-right" title="discretize.utils.Identity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="discretize.utils.invPropertyTensor.html" class="btn btn-neutral float-left" title="discretize.utils.invPropertyTensor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="discretize.utils.TensorType.html" class="btn btn-neutral float-left" title="discretize.utils.TensorType" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -377,7 +389,7 @@
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
         <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
     </a>
-    2013-2019,
+    2013-2020,
     <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
     Except where noted, this work is licensed under a <br />
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>discretize.utils.random_model &mdash; discretize 0.5.1 documentation</title>
+  <title>discretize.utils.random_model &mdash; discretize 0.6.0 documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="discretize.utils.mesh_builder_xyz" href="discretize.utils.mesh_builder_xyz.html" />
-    <link rel="prev" title="discretize.utils.ExtractCoreMesh" href="discretize.utils.ExtractCoreMesh.html" />
+    <link rel="prev" title="discretize.utils.extract_core_mesh" href="discretize.utils.extract_core_mesh.html" />
  
 
 <meta name="description" content="Simulation and Parameter Estimation in Geophysics">
@@ -88,7 +88,7 @@
             
             
               <div class="version">
-                0.5.1
+                0.6.0
               </div>
             
           
@@ -132,7 +132,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#meshes">Meshes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.InnerProducts">Numerical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.operators">Numerical Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#mesh-io">Mesh IO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#visualization">Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#testing">Testing</a></li>
@@ -140,10 +140,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../index.html#general-utilities">General Utilities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../index.html#interpolation-operations">Interpolation Operations</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#mesh-utilities">Mesh Utilities</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.exampleLrmGrid.html">discretize.utils.exampleLrmGrid</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.meshTensor.html">discretize.utils.meshTensor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.closestPoints.html">discretize.utils.closestPoints</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.ExtractCoreMesh.html">discretize.utils.ExtractCoreMesh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.example_curvilinear_grid.html">discretize.utils.example_curvilinear_grid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.unpack_widths.html">discretize.utils.unpack_widths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.closest_points_index.html">discretize.utils.closest_points_index</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.extract_core_mesh.html">discretize.utils.extract_core_mesh</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">discretize.utils.random_model</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.mesh_builder_xyz.html">discretize.utils.mesh_builder_xyz</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.refine_tree_xyz.html">discretize.utils.refine_tree_xyz</a></li>
@@ -289,7 +289,7 @@
 <h1>discretize.utils.random_model<a class="headerlink" href="#discretize-utils-random-model" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="discretize.utils.random_model">
-<code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">random_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shape</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">anisotropy</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">its</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">bounds</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/meshutils.html#random_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.random_model" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">random_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shape</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">anisotropy</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">its</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">bounds</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/mesh_utils.html#random_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.random_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a random model by convolving a kernel with a
 uniformly distributed model.</p>
 <dl class="field-list simple">
@@ -348,7 +348,7 @@ uniformly distributed model.</p>
         <a href="discretize.utils.mesh_builder_xyz.html" class="btn btn-neutral float-right" title="discretize.utils.mesh_builder_xyz" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="discretize.utils.ExtractCoreMesh.html" class="btn btn-neutral float-left" title="discretize.utils.ExtractCoreMesh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="discretize.utils.extract_core_mesh.html" class="btn btn-neutral float-left" title="discretize.utils.extract_core_mesh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -372,7 +372,7 @@ uniformly distributed model.</p>
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
         <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
     </a>
-    2013-2019,
+    2013-2020,
     <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
     Except where noted, this work is licensed under a <br />
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">

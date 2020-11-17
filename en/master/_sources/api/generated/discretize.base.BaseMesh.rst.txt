@@ -24,27 +24,37 @@ Attributes
 
 .. autoattribute:: BaseMesh.dim
 
-.. autoattribute:: BaseMesh.nC
+.. autoattribute:: BaseMesh.edge_tangents
 
-.. autoattribute:: BaseMesh.nE
+.. autoattribute:: BaseMesh.face_normals
 
-.. autoattribute:: BaseMesh.nEx
+.. autoattribute:: BaseMesh.n_cells
 
-.. autoattribute:: BaseMesh.nEy
+.. autoattribute:: BaseMesh.n_edges
 
-.. autoattribute:: BaseMesh.nEz
+.. autoattribute:: BaseMesh.n_edges_per_direction
 
-.. autoattribute:: BaseMesh.nF
+.. autoattribute:: BaseMesh.n_edges_x
 
-.. autoattribute:: BaseMesh.nFx
+.. autoattribute:: BaseMesh.n_edges_y
 
-.. autoattribute:: BaseMesh.nFy
+.. autoattribute:: BaseMesh.n_edges_z
 
-.. autoattribute:: BaseMesh.nFz
+.. autoattribute:: BaseMesh.n_faces
 
-.. autoattribute:: BaseMesh.nN
+.. autoattribute:: BaseMesh.n_faces_per_direction
+
+.. autoattribute:: BaseMesh.n_faces_x
+
+.. autoattribute:: BaseMesh.n_faces_y
+
+.. autoattribute:: BaseMesh.n_faces_z
+
+.. autoattribute:: BaseMesh.n_nodes
 
 .. autoattribute:: BaseMesh.normals
+
+.. autoattribute:: BaseMesh.origin
 
 .. autoattribute:: BaseMesh.reference_is_rotated
 
@@ -53,10 +63,6 @@ Attributes
 .. autoattribute:: BaseMesh.rotation_matrix
 
 .. autoattribute:: BaseMesh.tangents
-
-.. autoattribute:: BaseMesh.vnE
-
-.. autoattribute:: BaseMesh.vnF
 
 .. autoattribute:: BaseMesh.x0
 
@@ -85,11 +91,47 @@ Methods
 
 
 
+.. automethod:: BaseMesh.plotGrid
+
+
+
+.. automethod:: BaseMesh.plotImage
+
+
+
+.. automethod:: BaseMesh.plotSlice
+
+
+
+.. automethod:: BaseMesh.plot_3d_slicer
+
+
+
+.. automethod:: BaseMesh.plot_grid
+
+
+
+.. automethod:: BaseMesh.plot_image
+
+
+
+.. automethod:: BaseMesh.plot_slice
+
+
+
 .. automethod:: BaseMesh.projectEdgeVector
 
 
 
 .. automethod:: BaseMesh.projectFaceVector
+
+
+
+.. automethod:: BaseMesh.project_edge_vector
+
+
+
+.. automethod:: BaseMesh.project_face_vector
 
 
 

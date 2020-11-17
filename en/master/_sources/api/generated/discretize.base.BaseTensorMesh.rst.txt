@@ -22,23 +22,31 @@ Attributes
 
 .. autoattribute:: BaseTensorMesh.axis_w
 
+.. autoattribute:: BaseTensorMesh.cell_centers
+
+.. autoattribute:: BaseTensorMesh.cell_centers_x
+
+.. autoattribute:: BaseTensorMesh.cell_centers_y
+
+.. autoattribute:: BaseTensorMesh.cell_centers_z
+
 .. autoattribute:: BaseTensorMesh.dim
 
-.. autoattribute:: BaseTensorMesh.gridCC
+.. autoattribute:: BaseTensorMesh.edge_tangents
 
-.. autoattribute:: BaseTensorMesh.gridEx
+.. autoattribute:: BaseTensorMesh.edges_x
 
-.. autoattribute:: BaseTensorMesh.gridEy
+.. autoattribute:: BaseTensorMesh.edges_y
 
-.. autoattribute:: BaseTensorMesh.gridEz
+.. autoattribute:: BaseTensorMesh.edges_z
 
-.. autoattribute:: BaseTensorMesh.gridFx
+.. autoattribute:: BaseTensorMesh.face_normals
 
-.. autoattribute:: BaseTensorMesh.gridFy
+.. autoattribute:: BaseTensorMesh.faces_x
 
-.. autoattribute:: BaseTensorMesh.gridFz
+.. autoattribute:: BaseTensorMesh.faces_y
 
-.. autoattribute:: BaseTensorMesh.gridN
+.. autoattribute:: BaseTensorMesh.faces_z
 
 .. autoattribute:: BaseTensorMesh.h
 
@@ -50,27 +58,41 @@ Attributes
 
 .. autoattribute:: BaseTensorMesh.hz
 
-.. autoattribute:: BaseTensorMesh.nC
+.. autoattribute:: BaseTensorMesh.n_cells
 
-.. autoattribute:: BaseTensorMesh.nE
+.. autoattribute:: BaseTensorMesh.n_edges
 
-.. autoattribute:: BaseTensorMesh.nEx
+.. autoattribute:: BaseTensorMesh.n_edges_per_direction
 
-.. autoattribute:: BaseTensorMesh.nEy
+.. autoattribute:: BaseTensorMesh.n_edges_x
 
-.. autoattribute:: BaseTensorMesh.nEz
+.. autoattribute:: BaseTensorMesh.n_edges_y
 
-.. autoattribute:: BaseTensorMesh.nF
+.. autoattribute:: BaseTensorMesh.n_edges_z
 
-.. autoattribute:: BaseTensorMesh.nFx
+.. autoattribute:: BaseTensorMesh.n_faces
 
-.. autoattribute:: BaseTensorMesh.nFy
+.. autoattribute:: BaseTensorMesh.n_faces_per_direction
 
-.. autoattribute:: BaseTensorMesh.nFz
+.. autoattribute:: BaseTensorMesh.n_faces_x
 
-.. autoattribute:: BaseTensorMesh.nN
+.. autoattribute:: BaseTensorMesh.n_faces_y
+
+.. autoattribute:: BaseTensorMesh.n_faces_z
+
+.. autoattribute:: BaseTensorMesh.n_nodes
+
+.. autoattribute:: BaseTensorMesh.nodes
+
+.. autoattribute:: BaseTensorMesh.nodes_x
+
+.. autoattribute:: BaseTensorMesh.nodes_y
+
+.. autoattribute:: BaseTensorMesh.nodes_z
 
 .. autoattribute:: BaseTensorMesh.normals
+
+.. autoattribute:: BaseTensorMesh.origin
 
 .. autoattribute:: BaseTensorMesh.reference_is_rotated
 
@@ -91,10 +113,6 @@ Attributes
 .. autoattribute:: BaseTensorMesh.vectorNy
 
 .. autoattribute:: BaseTensorMesh.vectorNz
-
-.. autoattribute:: BaseTensorMesh.vnE
-
-.. autoattribute:: BaseTensorMesh.vnF
 
 .. autoattribute:: BaseTensorMesh.x0
 
@@ -131,7 +149,47 @@ Methods
 
 
 
+.. automethod:: BaseTensorMesh.get_interpolation_matrix
+
+
+
+.. automethod:: BaseTensorMesh.get_tensor
+
+
+
 .. automethod:: BaseTensorMesh.isInside
+
+
+
+.. automethod:: BaseTensorMesh.is_inside
+
+
+
+.. automethod:: BaseTensorMesh.plotGrid
+
+
+
+.. automethod:: BaseTensorMesh.plotImage
+
+
+
+.. automethod:: BaseTensorMesh.plotSlice
+
+
+
+.. automethod:: BaseTensorMesh.plot_3d_slicer
+
+
+
+.. automethod:: BaseTensorMesh.plot_grid
+
+
+
+.. automethod:: BaseTensorMesh.plot_image
+
+
+
+.. automethod:: BaseTensorMesh.plot_slice
 
 
 
@@ -140,6 +198,14 @@ Methods
 
 
 .. automethod:: BaseTensorMesh.projectFaceVector
+
+
+
+.. automethod:: BaseTensorMesh.project_edge_vector
+
+
+
+.. automethod:: BaseTensorMesh.project_face_vector
 
 
 

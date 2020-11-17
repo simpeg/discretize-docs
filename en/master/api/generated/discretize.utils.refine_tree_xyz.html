@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>discretize.utils.refine_tree_xyz &mdash; discretize 0.5.1 documentation</title>
+  <title>discretize.utils.refine_tree_xyz &mdash; discretize 0.6.0 documentation</title>
   
 
   
@@ -88,7 +88,7 @@
             
             
               <div class="version">
-                0.5.1
+                0.6.0
               </div>
             
           
@@ -132,7 +132,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#meshes">Meshes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.InnerProducts">Numerical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#module-discretize.operators">Numerical Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#mesh-io">Mesh IO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#visualization">Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#testing">Testing</a></li>
@@ -140,10 +140,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../index.html#general-utilities">General Utilities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../index.html#interpolation-operations">Interpolation Operations</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#mesh-utilities">Mesh Utilities</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.exampleLrmGrid.html">discretize.utils.exampleLrmGrid</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.meshTensor.html">discretize.utils.meshTensor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.closestPoints.html">discretize.utils.closestPoints</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discretize.utils.ExtractCoreMesh.html">discretize.utils.ExtractCoreMesh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.example_curvilinear_grid.html">discretize.utils.example_curvilinear_grid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.unpack_widths.html">discretize.utils.unpack_widths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.closest_points_index.html">discretize.utils.closest_points_index</a></li>
+<li class="toctree-l4"><a class="reference internal" href="discretize.utils.extract_core_mesh.html">discretize.utils.extract_core_mesh</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.random_model.html">discretize.utils.random_model</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discretize.utils.mesh_builder_xyz.html">discretize.utils.mesh_builder_xyz</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">discretize.utils.refine_tree_xyz</a></li>
@@ -289,12 +289,12 @@
 <h1>discretize.utils.refine_tree_xyz<a class="headerlink" href="#discretize-utils-refine-tree-xyz" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="discretize.utils.refine_tree_xyz">
-<code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">refine_tree_xyz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">xyz</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'radial'</span></em>, <em class="sig-param"><span class="n">octree_levels</span><span class="o">=</span><span class="default_value">[1, 1, 1]</span></em>, <em class="sig-param"><span class="n">octree_levels_padding</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">finalize</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">min_level</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">max_distance</span><span class="o">=</span><span class="default_value">inf</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/meshutils.html#refine_tree_xyz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.refine_tree_xyz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">discretize.utils.</code><code class="sig-name descname">refine_tree_xyz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">xyz</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'radial'</span></em>, <em class="sig-param"><span class="n">octree_levels</span><span class="o">=</span><span class="default_value">[1, 1, 1]</span></em>, <em class="sig-param"><span class="n">octree_levels_padding</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">finalize</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">min_level</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">max_distance</span><span class="o">=</span><span class="default_value">inf</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/utils/mesh_utils.html#refine_tree_xyz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.utils.refine_tree_xyz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Refine a TreeMesh based on xyz point locations</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>mesh: TreeMesh</strong></dt><dd><p>The TreeMesh object to be refined</p>
+<dt><strong>mesh: discretize.TreeMesh</strong></dt><dd><p>The TreeMesh object to be refined</p>
 </dd>
 <dt><strong>xyz: numpy.ndarray</strong></dt><dd><p>2D array of points</p>
 </dd>
@@ -371,7 +371,7 @@ Used for method=”surface” to reduce interpolation distance.</p>
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" width="60px"; style="float:right;height:3em;line-height:3em;padding:10px 0 0 1em;">
         <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
     </a>
-    2013-2019,
+    2013-2020,
     <a href="http://simpeg.xyz">SimPEG Developers.</a><br />
     Except where noted, this work is licensed under a <br />
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
