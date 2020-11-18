@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>discretize.base.mesh_io &mdash; discretize 0.6.0 documentation</title>
+  <title>discretize.base.mesh_io &mdash; discretize 0.6.1 documentation</title>
   
 
   
@@ -86,7 +86,7 @@
             
             
               <div class="version">
-                0.6.0
+                0.6.1
               </div>
             
           
@@ -647,6 +647,7 @@
         <span class="n">indArr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span>
             <span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fileLines</span><span class="p">[</span><span class="mi">4</span><span class="p">::]),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span>
         <span class="p">)</span>
+        <span class="n">nCunderMesh</span> <span class="o">=</span> <span class="n">nCunderMesh</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">tswCorn</span><span class="p">)]</span>  <span class="c1"># remove information related to core</span>
 
         <span class="n">hs</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nr</span><span class="p">)</span> <span class="o">*</span> <span class="n">sz</span> <span class="k">for</span> <span class="n">nr</span><span class="p">,</span> <span class="n">sz</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">nCunderMesh</span><span class="p">,</span> <span class="n">smallCell</span><span class="p">)]</span>
         <span class="n">origin</span> <span class="o">=</span> <span class="n">tswCorn</span>

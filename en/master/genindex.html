@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; discretize 0.6.0 documentation</title>
+  <title>Index &mdash; discretize 0.6.1 documentation</title>
   
 
   
@@ -86,7 +86,7 @@
             
             
               <div class="version">
-                0.6.0
+                0.6.1
               </div>
             
           
@@ -407,6 +407,12 @@
       <li><a href="api/generated/discretize.TreeMesh.html#discretize.TreeMesh.average_cell_to_face_y">average_cell_to_face_y (discretize.TreeMesh attribute)</a>
 </li>
       <li><a href="api/generated/discretize.TreeMesh.html#discretize.TreeMesh.average_cell_to_face_z">average_cell_to_face_z (discretize.TreeMesh attribute)</a>
+</li>
+      <li><a href="api/generated/discretize.TreeMesh.html#discretize.TreeMesh.average_cell_to_total_face_x">average_cell_to_total_face_x() (discretize.TreeMesh method)</a>
+</li>
+      <li><a href="api/generated/discretize.TreeMesh.html#discretize.TreeMesh.average_cell_to_total_face_y">average_cell_to_total_face_y() (discretize.TreeMesh method)</a>
+</li>
+      <li><a href="api/generated/discretize.TreeMesh.html#discretize.TreeMesh.average_cell_to_total_face_z">average_cell_to_total_face_z() (discretize.TreeMesh method)</a>
 </li>
       <li><a href="api/generated/discretize.CurvilinearMesh.html#discretize.CurvilinearMesh.average_cell_vector_to_face">average_cell_vector_to_face (discretize.CurvilinearMesh attribute)</a>
 
@@ -740,8 +746,6 @@
         <li><a href="api/generated/discretize.TensorMesh.html#discretize.TensorMesh.cell_gradient_BC">(discretize.TensorMesh attribute)</a>
 </li>
       </ul></li>
-      <li><a href="api/generated/discretize.TreeMesh.html#discretize.TreeMesh.cell_gradient_stencil">cell_gradient_stencil (discretize.TreeMesh attribute)</a>
-</li>
       <li><a href="api/generated/discretize.CurvilinearMesh.html#discretize.CurvilinearMesh.cell_gradient_x">cell_gradient_x (discretize.CurvilinearMesh attribute)</a>
 
       <ul>
@@ -2679,8 +2683,6 @@
         <li><a href="api/generated/discretize.TensorMesh.html#discretize.TensorMesh.shape_edges_x">(discretize.TensorMesh attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/generated/discretize.base.BaseRectangularMesh.html#discretize.base.BaseRectangularMesh.shape_edges_y">shape_edges_y (discretize.base.BaseRectangularMesh attribute)</a>
 
       <ul>
@@ -2701,6 +2703,8 @@
         <li><a href="api/generated/discretize.TensorMesh.html#discretize.TensorMesh.shape_edges_z">(discretize.TensorMesh attribute)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/generated/discretize.base.BaseRectangularMesh.html#discretize.base.BaseRectangularMesh.shape_faces_x">shape_faces_x (discretize.base.BaseRectangularMesh attribute)</a>
 
       <ul>
@@ -2751,6 +2755,54 @@
 </li>
       <li><a href="api/generated/discretize.utils.spzeros.html#discretize.utils.spzeros">spzeros() (in module discretize.utils)</a>
 </li>
+      <li><a href="api/generated/discretize.CurvilinearMesh.html#discretize.CurvilinearMesh.stencil_cell_gradient">stencil_cell_gradient (discretize.CurvilinearMesh attribute)</a>
+
+      <ul>
+        <li><a href="api/generated/discretize.CylindricalMesh.html#discretize.CylindricalMesh.stencil_cell_gradient">(discretize.CylindricalMesh attribute)</a>
+</li>
+        <li><a href="api/generated/discretize.operators.DiffOperators.html#discretize.operators.DiffOperators.stencil_cell_gradient">(discretize.operators.DiffOperators attribute)</a>
+</li>
+        <li><a href="api/generated/discretize.TensorMesh.html#discretize.TensorMesh.stencil_cell_gradient">(discretize.TensorMesh attribute)</a>
+</li>
+        <li><a href="api/generated/discretize.TreeMesh.html#discretize.TreeMesh.stencil_cell_gradient">(discretize.TreeMesh attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/generated/discretize.CurvilinearMesh.html#discretize.CurvilinearMesh.stencil_cell_gradient_x">stencil_cell_gradient_x (discretize.CurvilinearMesh attribute)</a>
+
+      <ul>
+        <li><a href="api/generated/discretize.CylindricalMesh.html#discretize.CylindricalMesh.stencil_cell_gradient_x">(discretize.CylindricalMesh attribute)</a>
+</li>
+        <li><a href="api/generated/discretize.operators.DiffOperators.html#discretize.operators.DiffOperators.stencil_cell_gradient_x">(discretize.operators.DiffOperators attribute)</a>
+</li>
+        <li><a href="api/generated/discretize.TensorMesh.html#discretize.TensorMesh.stencil_cell_gradient_x">(discretize.TensorMesh attribute)</a>
+</li>
+        <li><a href="api/generated/discretize.TreeMesh.html#discretize.TreeMesh.stencil_cell_gradient_x">(discretize.TreeMesh attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/generated/discretize.CurvilinearMesh.html#discretize.CurvilinearMesh.stencil_cell_gradient_y">stencil_cell_gradient_y (discretize.CurvilinearMesh attribute)</a>
+
+      <ul>
+        <li><a href="api/generated/discretize.CylindricalMesh.html#discretize.CylindricalMesh.stencil_cell_gradient_y">(discretize.CylindricalMesh attribute)</a>
+</li>
+        <li><a href="api/generated/discretize.operators.DiffOperators.html#discretize.operators.DiffOperators.stencil_cell_gradient_y">(discretize.operators.DiffOperators attribute)</a>
+</li>
+        <li><a href="api/generated/discretize.TensorMesh.html#discretize.TensorMesh.stencil_cell_gradient_y">(discretize.TensorMesh attribute)</a>
+</li>
+        <li><a href="api/generated/discretize.TreeMesh.html#discretize.TreeMesh.stencil_cell_gradient_y">(discretize.TreeMesh attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/generated/discretize.CurvilinearMesh.html#discretize.CurvilinearMesh.stencil_cell_gradient_z">stencil_cell_gradient_z (discretize.CurvilinearMesh attribute)</a>
+
+      <ul>
+        <li><a href="api/generated/discretize.CylindricalMesh.html#discretize.CylindricalMesh.stencil_cell_gradient_z">(discretize.CylindricalMesh attribute)</a>
+</li>
+        <li><a href="api/generated/discretize.operators.DiffOperators.html#discretize.operators.DiffOperators.stencil_cell_gradient_z">(discretize.operators.DiffOperators attribute)</a>
+</li>
+        <li><a href="api/generated/discretize.TensorMesh.html#discretize.TensorMesh.stencil_cell_gradient_z">(discretize.TensorMesh attribute)</a>
+</li>
+        <li><a href="api/generated/discretize.TreeMesh.html#discretize.TreeMesh.stencil_cell_gradient_z">(discretize.TreeMesh attribute)</a>
+</li>
+      </ul></li>
       <li><a href="api/generated/discretize.utils.sub2ind.html#discretize.utils.sub2ind">sub2ind() (in module discretize.utils)</a>
 </li>
       <li><a href="api/generated/discretize.tests.OrderTest.html#discretize.tests.OrderTest.subTest">subTest() (discretize.tests.OrderTest method)</a>

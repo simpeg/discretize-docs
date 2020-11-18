@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>discretize.CurvilinearMesh &mdash; discretize 0.6.0 documentation</title>
+  <title>discretize.CurvilinearMesh &mdash; discretize 0.6.1 documentation</title>
   
 
   
@@ -88,7 +88,7 @@
             
             
               <div class="version">
-                0.6.0
+                0.6.1
               </div>
             
           
@@ -304,7 +304,7 @@
 <li><p><strong>axis_u</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of u-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: X</p></li>
 <li><p><strong>axis_v</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of v-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Y</p></li>
 <li><p><strong>axis_w</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of w-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Z</p></li>
-<li><p><strong>node_list</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *, *) or (*, *)) with length between 2 and 3</p></li>
+<li><p><strong>node_list</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *) or (*, *, *)) with length between 2 and 3</p></li>
 <li><p><strong>origin</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</p></li>
 <li><p><strong>reference_system</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">String</span></code></a>): The type of coordinate reference frame. Can take on the values cartesian, cylindrical, or spherical. Abbreviations of these are allowed., a unicode string, Default: cartesian</p></li>
 </ul>
@@ -459,7 +459,7 @@
 </dd>
 <dt><a class="reference internal" href="#discretize.CurvilinearMesh.nodal_laplacian" title="discretize.CurvilinearMesh.nodal_laplacian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodal_laplacian</span></code></a></dt><dd><p>Construct laplacian operator (nodes to edges).</p>
 </dd>
-<dt><a class="reference internal" href="#discretize.CurvilinearMesh.node_list" title="discretize.CurvilinearMesh.node_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">node_list</span></code></a></dt><dd><p><strong>node_list</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *, *) or (*, *)) with length between 2 and 3</p>
+<dt><a class="reference internal" href="#discretize.CurvilinearMesh.node_list" title="discretize.CurvilinearMesh.node_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">node_list</span></code></a></dt><dd><p><strong>node_list</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *) or (*, *, *)) with length between 2 and 3</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.CurvilinearMesh.nodes" title="discretize.CurvilinearMesh.nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></a></dt><dd><p>Nodal grid.</p>
 </dd>
@@ -489,6 +489,10 @@
 </dd>
 <dt><a class="reference internal" href="#discretize.CurvilinearMesh.shape_nodes" title="discretize.CurvilinearMesh.shape_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_nodes</span></code></a></dt><dd><p>Number of nodes in each direction</p>
 </dd>
+<dt><strong>stencil_cell_gradient</strong></dt><dd></dd>
+<dt><strong>stencil_cell_gradient_x</strong></dt><dd></dd>
+<dt><strong>stencil_cell_gradient_y</strong></dt><dd></dd>
+<dt><strong>stencil_cell_gradient_z</strong></dt><dd></dd>
 <dt><a class="reference internal" href="#discretize.CurvilinearMesh.tangents" title="discretize.CurvilinearMesh.tangents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tangents</span></code></a></dt><dd><p><cite>tangents</cite> has been deprecated. See <cite>edge_tangents</cite> for documentation</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.CurvilinearMesh.vol" title="discretize.CurvilinearMesh.vol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vol</span></code></a></dt><dd><p><cite>vol</cite> has been deprecated. See <cite>cell_volumes</cite> for documentation</p>
@@ -1252,7 +1256,7 @@ cell-centers).</p>
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.node_list">
 <code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">node_list</code><a class="headerlink" href="#discretize.CurvilinearMesh.node_list" title="Permalink to this definition">¶</a></dt>
-<dd><p><strong>node_list</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *, *) or (*, *)) with length between 2 and 3</p>
+<dd><p><strong>node_list</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *) or (*, *, *)) with length between 2 and 3</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1429,6 +1433,26 @@ docs for the <a class="reference internal" href="discretize.mixins.vtk_mod.Inter
 <p class="rubric">Notes</p>
 <p>Also accessible as <cite>vnN</cite>.</p>
 </dd></dl>
+
+<dl class="py attribute">
+<dt id="discretize.CurvilinearMesh.stencil_cell_gradient">
+<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">stencil_cell_gradient</code><a class="headerlink" href="#discretize.CurvilinearMesh.stencil_cell_gradient" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="discretize.CurvilinearMesh.stencil_cell_gradient_x">
+<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">stencil_cell_gradient_x</code><a class="headerlink" href="#discretize.CurvilinearMesh.stencil_cell_gradient_x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="discretize.CurvilinearMesh.stencil_cell_gradient_y">
+<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">stencil_cell_gradient_y</code><a class="headerlink" href="#discretize.CurvilinearMesh.stencil_cell_gradient_y" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="discretize.CurvilinearMesh.stencil_cell_gradient_z">
+<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">stencil_cell_gradient_z</code><a class="headerlink" href="#discretize.CurvilinearMesh.stencil_cell_gradient_z" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.tangents">
