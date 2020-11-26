@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>discretize.base.base_tensor_mesh &mdash; discretize 0.6.1 documentation</title>
+  <title>discretize.base.base_tensor_mesh &mdash; discretize 0.6.2 documentation</title>
   
 
   
@@ -86,7 +86,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.6.2
               </div>
             
           
@@ -542,7 +542,7 @@
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
                 <span class="s2">&quot;The locType keyword argument has been deprecated, please use location_type. &quot;</span>
                 <span class="s2">&quot;This will be removed in discretize 1.0.0&quot;</span><span class="p">,</span>
-                <span class="ne">FutureWarning</span><span class="p">,</span>
+                <span class="ne">DeprecationWarning</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="n">location_type</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;locType&quot;</span><span class="p">]</span>
         <span class="n">pts</span> <span class="o">=</span> <span class="n">as_array_n_by_dim</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
@@ -686,14 +686,14 @@
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
                 <span class="s2">&quot;The locType keyword argument has been deprecated, please use location_type. &quot;</span>
                 <span class="s2">&quot;This will be removed in discretize 1.0.0&quot;</span><span class="p">,</span>
-                <span class="ne">FutureWarning</span><span class="p">,</span>
+                <span class="ne">DeprecationWarning</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="n">location_type</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;locType&quot;</span><span class="p">]</span>
         <span class="k">if</span> <span class="s2">&quot;zerosOutside&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
                 <span class="s2">&quot;The zerosOutside keyword argument has been deprecated, please use zeros_outside. &quot;</span>
                 <span class="s2">&quot;This will be removed in discretize 1.0.0&quot;</span><span class="p">,</span>
-                <span class="ne">FutureWarning</span><span class="p">,</span>
+                <span class="ne">DeprecationWarning</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="n">zeros_outside</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;zerosOutside&quot;</span><span class="p">]</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getInterpolationMat</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">location_type</span><span class="p">,</span> <span class="n">zeros_outside</span><span class="p">)</span></div>
@@ -892,7 +892,7 @@
                         <span class="s2">&quot;Depreciation Warning: TensorMesh.innerProductDeriv.&quot;</span>
                         <span class="s2">&quot; You should be supplying a vector. &quot;</span>
                         <span class="s2">&quot;Use: sdiag(u)*dMdprop&quot;</span><span class="p">,</span>
-                        <span class="ne">FutureWarning</span><span class="p">,</span>
+                        <span class="ne">DeprecationWarning</span><span class="p">,</span>
                     <span class="p">)</span>
                     <span class="k">return</span> <span class="n">dMdprop</span>
                 <span class="k">return</span> <span class="n">sdiag</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">*</span> <span class="n">dMdprop</span>
@@ -915,7 +915,7 @@
 <span class="sd">          please use `mesh.h[0]`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-            <span class="s2">&quot;hx has been deprecated, please access as mesh.h[0]&quot;</span><span class="p">,</span> <span class="ne">FutureWarning</span>
+            <span class="s2">&quot;hx has been deprecated, please access as mesh.h[0]&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
@@ -932,7 +932,7 @@
 <span class="sd">          please use `mesh.h[1]`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-            <span class="s2">&quot;hy has been deprecated, please access as mesh.h[1]&quot;</span><span class="p">,</span> <span class="ne">FutureWarning</span>
+            <span class="s2">&quot;hy has been deprecated, please access as mesh.h[1]&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="kc">None</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
@@ -949,7 +949,7 @@
 <span class="sd">          please use `mesh.h[2]`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-            <span class="s2">&quot;hz has been deprecated, please access as mesh.h[2]&quot;</span><span class="p">,</span> <span class="ne">FutureWarning</span>
+            <span class="s2">&quot;hz has been deprecated, please access as mesh.h[2]&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="kc">None</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 
