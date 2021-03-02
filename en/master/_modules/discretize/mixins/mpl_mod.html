@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>discretize.mixins.mpl_mod &mdash; discretize 0.6.2 documentation</title>
+  <title>discretize.mixins.mpl_mod &mdash; discretize 0.6.3 documentation</title>
   
 
   
@@ -17,12 +17,16 @@
   <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
     <link rel="shortcut icon" href="../../../_static/logo-block.ico"/>
   
+
   
+  
+
   
 
   
@@ -35,10 +39,7 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -76,7 +77,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> discretize
+            <a href="../../../index.html" class="icon icon-home"> discretize
           
 
           
@@ -86,7 +87,7 @@
             
             
               <div class="version">
-                0.6.2
+                0.6.3
               </div>
             
           
@@ -200,6 +201,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -240,7 +243,7 @@
 <span class="kn">import</span> <span class="nn">discretize</span>
 
 
-<div class="viewcode-block" id="InterfaceMPL"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.InterfaceMPL.html#discretize.InterfaceMPL">[docs]</a><span class="k">class</span> <span class="nc">InterfaceMPL</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="InterfaceMPL"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.InterfaceMPL.html#discretize.mixins.mpl_mod.InterfaceMPL">[docs]</a><span class="k">class</span> <span class="nc">InterfaceMPL</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;This class is used for simple ``discretize`` mesh plotting using matplotlib.</span>
 
 <span class="sd">    This interface adds three methods to the meshes. ``plot_grid`` will plot the</span>
@@ -248,7 +251,7 @@
 <span class="sd">    models. and ``plot_slice`` for plotting a 2D slice through a 3D mesh.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="InterfaceMPL.plot_grid"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.InterfaceMPL.html#discretize.InterfaceMPL.plot_grid">[docs]</a>    <span class="k">def</span> <span class="nf">plot_grid</span><span class="p">(</span>
+<div class="viewcode-block" id="InterfaceMPL.plot_grid"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.InterfaceMPL.html#discretize.mixins.mpl_mod.InterfaceMPL.plot_grid">[docs]</a>    <span class="k">def</span> <span class="nf">plot_grid</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">nodes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -408,7 +411,7 @@
             <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">out</span></div>
 
-<div class="viewcode-block" id="InterfaceMPL.plot_image"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.InterfaceMPL.html#discretize.InterfaceMPL.plot_image">[docs]</a>    <span class="k">def</span> <span class="nf">plot_image</span><span class="p">(</span>
+<div class="viewcode-block" id="InterfaceMPL.plot_image"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.InterfaceMPL.html#discretize.mixins.mpl_mod.InterfaceMPL.plot_image">[docs]</a>    <span class="k">def</span> <span class="nf">plot_image</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">v</span><span class="p">,</span>
         <span class="n">v_type</span><span class="o">=</span><span class="s2">&quot;CC&quot;</span><span class="p">,</span>
@@ -592,12 +595,13 @@
             <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">out</span></div>
 
-<div class="viewcode-block" id="InterfaceMPL.plot_slice"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.InterfaceMPL.html#discretize.InterfaceMPL.plot_slice">[docs]</a>    <span class="k">def</span> <span class="nf">plot_slice</span><span class="p">(</span>
+<div class="viewcode-block" id="InterfaceMPL.plot_slice"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.InterfaceMPL.html#discretize.mixins.mpl_mod.InterfaceMPL.plot_slice">[docs]</a>    <span class="k">def</span> <span class="nf">plot_slice</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">v</span><span class="p">,</span>
         <span class="n">v_type</span><span class="o">=</span><span class="s2">&quot;CC&quot;</span><span class="p">,</span>
         <span class="n">normal</span><span class="o">=</span><span class="s2">&quot;Z&quot;</span><span class="p">,</span>
         <span class="n">ind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">slice_loc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">view</span><span class="o">=</span><span class="s2">&quot;real&quot;</span><span class="p">,</span>
         <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -625,6 +629,8 @@
 <span class="sd">            Normal direction of slicing plane.</span>
 <span class="sd">        ind : None, optional</span>
 <span class="sd">            index along dimension of slice. Defaults to the center index.</span>
+<span class="sd">        slice_loc : None, optional</span>
+<span class="sd">            Value along dimension of slice. Defaults to the center of the mesh.</span>
 <span class="sd">        view : {&#39;real&#39;, &#39;imag&#39;, &#39;abs&#39;, &#39;vec&#39;}</span>
 <span class="sd">            How to view the array.</span>
 <span class="sd">        ax : matplotlib.axes.Axes, optional</span>
@@ -652,14 +658,13 @@
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        Plot a slice of a 3D ``TensorMesh`` solution to a Laplace&#39;s equaiton.</span>
+<span class="sd">        Plot a slice of a 3D `TensorMesh` solution to a Laplace&#39;s equaiton.</span>
 
 <span class="sd">        First build the mesh:</span>
 
 <span class="sd">        &gt;&gt;&gt; from matplotlib import pyplot as plt</span>
 <span class="sd">        &gt;&gt;&gt; import discretize</span>
 <span class="sd">        &gt;&gt;&gt; from pymatsolver import Solver</span>
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
 <span class="sd">        &gt;&gt;&gt; hx = [(5, 2, -1.3), (2, 4), (5, 2, 1.3)]</span>
 <span class="sd">        &gt;&gt;&gt; hy = [(2, 2, -1.3), (2, 6), (2, 2, 1.3)]</span>
 <span class="sd">        &gt;&gt;&gt; hz = [(2, 2, -1.3), (2, 6), (2, 2, 1.3)]</span>
@@ -677,6 +682,45 @@
 
 <span class="sd">        &gt;&gt;&gt; M.plot_slice(M.cell_gradient*b, &#39;F&#39;, view=&#39;vec&#39;, grid=True, pcolor_opts={&#39;alpha&#39;:0.8})</span>
 <span class="sd">        &gt;&gt;&gt; plt.show()</span>
+
+<span class="sd">        We can use the `slice_loc kwarg to tell `plot_slice` where to slice the mesh.</span>
+<span class="sd">        Let&#39;s create a mesh with a random model and plot slice of it. The `slice_loc`</span>
+<span class="sd">        kwarg automatically determines the indices for slicing the mesh along a plane with</span>
+<span class="sd">        the given normal.</span>
+
+<span class="sd">        &gt;&gt;&gt; M = discretize.TensorMesh([32, 32, 32])</span>
+<span class="sd">        &gt;&gt;&gt; v = discretize.utils.random_model(M.vnC, seed=789).reshape(-1, order=&#39;F&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; x_slice, y_slice, z_slice = 0.75, 0.25, 0.9</span>
+<span class="sd">        &gt;&gt;&gt; plt.figure(figsize=(7.5, 3))</span>
+<span class="sd">        &gt;&gt;&gt; ax = plt.subplot(131)</span>
+<span class="sd">        &gt;&gt;&gt; M.plot_slice(v, normal=&#39;X&#39;, slice_loc=x_slice, ax=ax)</span>
+<span class="sd">        &gt;&gt;&gt; ax = plt.subplot(132)</span>
+<span class="sd">        &gt;&gt;&gt; M.plot_slice(v, normal=&#39;Y&#39;, slice_loc=y_slice, ax=ax)</span>
+<span class="sd">        &gt;&gt;&gt; ax = plt.subplot(133)</span>
+<span class="sd">        &gt;&gt;&gt; M.plot_slice(v, normal=&#39;Z&#39;, slice_loc=z_slice, ax=ax)</span>
+<span class="sd">        &gt;&gt;&gt; plt.tight_layout()</span>
+<span class="sd">        &gt;&gt;&gt; plt.show()</span>
+
+<span class="sd">        This also works for `TreeMesh`. We create a mesh here that is refined within three</span>
+<span class="sd">        boxes, along with a base level of refinement.</span>
+
+<span class="sd">        &gt;&gt;&gt; TM = discretize.TreeMesh([32, 32, 32])</span>
+<span class="sd">        &gt;&gt;&gt; TM.refine(3, finalize=False)</span>
+<span class="sd">        &gt;&gt;&gt; BSW = [[0.25, 0.25, 0.25], [0.15, 0.15, 0.15], [0.1, 0.1, 0.1]]</span>
+<span class="sd">        &gt;&gt;&gt; TNE = [[0.75, 0.75, 0.75], [0.85, 0.85, 0.85], [0.9, 0.9, 0.9]]</span>
+<span class="sd">        &gt;&gt;&gt; levels = [6, 5, 4]</span>
+<span class="sd">        &gt;&gt;&gt; TM.refine_box(BSW, TNE, levels)</span>
+<span class="sd">        &gt;&gt;&gt; v_TM = discretize.utils.volume_average(M, TM, v)</span>
+<span class="sd">        &gt;&gt;&gt; plt.figure(figsize=(7.5, 3))</span>
+<span class="sd">        &gt;&gt;&gt; ax = plt.subplot(131)</span>
+<span class="sd">        &gt;&gt;&gt; TM.plot_slice(v_TM, normal=&#39;X&#39;, slice_loc=x_slice, ax=ax)</span>
+<span class="sd">        &gt;&gt;&gt; ax = plt.subplot(132)</span>
+<span class="sd">        &gt;&gt;&gt; TM.plot_slice(v_TM, normal=&#39;Y&#39;, slice_loc=y_slice, ax=ax)</span>
+<span class="sd">        &gt;&gt;&gt; ax = plt.subplot(133)</span>
+<span class="sd">        &gt;&gt;&gt; TM.plot_slice(v_TM, normal=&#39;Z&#39;, slice_loc=z_slice, ax=ax)</span>
+<span class="sd">        &gt;&gt;&gt; plt.tight_layout()</span>
+<span class="sd">        &gt;&gt;&gt; plt.show()</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">mesh_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_meshType</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
         <span class="n">plotters</span> <span class="o">=</span> <span class="p">{</span>
@@ -743,6 +787,7 @@
                         <span class="n">v_type</span><span class="o">=</span><span class="n">v_typeI</span><span class="p">,</span>
                         <span class="n">normal</span><span class="o">=</span><span class="n">normal</span><span class="p">,</span>
                         <span class="n">ind</span><span class="o">=</span><span class="n">ind</span><span class="p">,</span>
+                        <span class="n">slice_loc</span><span class="o">=</span><span class="n">slice_loc</span><span class="p">,</span>
                         <span class="n">grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span>
                         <span class="n">view</span><span class="o">=</span><span class="n">view</span><span class="p">,</span>
                         <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
@@ -756,6 +801,7 @@
                     <span class="p">)</span>
                 <span class="p">]</span>
             <span class="k">return</span> <span class="n">out</span>
+
         <span class="n">viewOpts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;real&quot;</span><span class="p">,</span> <span class="s2">&quot;imag&quot;</span><span class="p">,</span> <span class="s2">&quot;abs&quot;</span><span class="p">,</span> <span class="s2">&quot;vec&quot;</span><span class="p">]</span>
         <span class="n">normalOpts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;Z&quot;</span><span class="p">]</span>
         <span class="n">v_typeOpts</span> <span class="o">=</span> <span class="p">[</span>
@@ -795,6 +841,18 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Must be a 3D mesh. Use plotImage.&quot;</span><span class="p">)</span>
 
+        <span class="c1"># slice_loc errors</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">ind</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">slice_loc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Warning</span><span class="p">(</span><span class="s2">&quot;Both ind and slice_loc are defined. Behavior undefined.&quot;</span><span class="p">)</span>
+        <span class="c1"># slice_loc implement</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">slice_loc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">normal</span> <span class="o">==</span> <span class="s2">&quot;X&quot;</span><span class="p">:</span>
+                <span class="n">ind</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_centers_x</span> <span class="o">-</span> <span class="n">slice_loc</span><span class="p">)))</span>
+            <span class="k">if</span> <span class="n">normal</span> <span class="o">==</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span>
+                <span class="n">ind</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_centers_y</span> <span class="o">-</span> <span class="n">slice_loc</span><span class="p">)))</span>
+            <span class="k">if</span> <span class="n">normal</span> <span class="o">==</span> <span class="s2">&quot;Z&quot;</span><span class="p">:</span>
+                <span class="n">ind</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_centers_z</span> <span class="o">-</span> <span class="n">slice_loc</span><span class="p">)))</span>
+
         <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
             <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
@@ -828,7 +886,7 @@
             <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">out</span></div>
 
-<div class="viewcode-block" id="InterfaceMPL.plot_3d_slicer"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.InterfaceMPL.html#discretize.InterfaceMPL.plot_3d_slicer">[docs]</a>    <span class="k">def</span> <span class="nf">plot_3d_slicer</span><span class="p">(</span>
+<div class="viewcode-block" id="InterfaceMPL.plot_3d_slicer"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.InterfaceMPL.html#discretize.mixins.mpl_mod.InterfaceMPL.plot_3d_slicer">[docs]</a>    <span class="k">def</span> <span class="nf">plot_3d_slicer</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">v</span><span class="p">,</span>
         <span class="n">xslice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -2179,7 +2237,7 @@
             <span class="n">minx</span><span class="p">,</span> <span class="n">maxx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
 
         <span class="k">if</span> <span class="n">range_y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">miny</span><span class="p">,</span> <span class="n">maxy</span> <span class="o">=</span> <span class="n">range_x</span>
+            <span class="n">miny</span><span class="p">,</span> <span class="n">maxy</span> <span class="o">=</span> <span class="n">range_y</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">miny</span><span class="p">,</span> <span class="n">maxy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes_y</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
 
@@ -2293,7 +2351,7 @@
     <span class="n">plotSlice</span> <span class="o">=</span> <span class="n">deprecate_method</span><span class="p">(</span><span class="s2">&quot;plot_slice&quot;</span><span class="p">,</span> <span class="s2">&quot;plotSlice&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Slicer"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.Slicer.html#discretize.Slicer">[docs]</a><span class="k">class</span> <span class="nc">Slicer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="Slicer"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.Slicer.html#discretize.mixins.mpl_mod.Slicer">[docs]</a><span class="k">class</span> <span class="nc">Slicer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Plot slices of a 3D volume, interactively (scroll wheel).</span>
 
 <span class="sd">    If called from a notebook, make sure to set</span>
@@ -2651,7 +2709,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">ax3</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;xlim_changed&quot;</span><span class="p">,</span> <span class="n">on_xlims_changed</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ax2</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;ylim_changed&quot;</span><span class="p">,</span> <span class="n">on_ylims_changed</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Slicer.onscroll"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.Slicer.html#discretize.Slicer.onscroll">[docs]</a>    <span class="k">def</span> <span class="nf">onscroll</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<div class="viewcode-block" id="Slicer.onscroll"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.Slicer.html#discretize.mixins.mpl_mod.Slicer.onscroll">[docs]</a>    <span class="k">def</span> <span class="nf">onscroll</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Update index and data when scrolling.&quot;&quot;&quot;</span>
 
         <span class="c1"># Get scroll direction</span>
@@ -2679,7 +2737,7 @@
 
         <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Slicer.update_xy"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.Slicer.html#discretize.Slicer.update_xy">[docs]</a>    <span class="k">def</span> <span class="nf">update_xy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Slicer.update_xy"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.Slicer.html#discretize.mixins.mpl_mod.Slicer.update_xy">[docs]</a>    <span class="k">def</span> <span class="nf">update_xy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Update plot for change in Z-index.&quot;&quot;&quot;</span>
 
         <span class="c1"># Clean up</span>
@@ -2704,7 +2762,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">zy_avw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ax3</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zc</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">zind</span><span class="p">],</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">clpropsw</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zy_avk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ax3</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zc</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">zind</span><span class="p">],</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">clpropsk</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Slicer.update_xz"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.Slicer.html#discretize.Slicer.update_xz">[docs]</a>    <span class="k">def</span> <span class="nf">update_xz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Slicer.update_xz"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.Slicer.html#discretize.mixins.mpl_mod.Slicer.update_xz">[docs]</a>    <span class="k">def</span> <span class="nf">update_xz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Update plot for change in Y-index.&quot;&quot;&quot;</span>
 
         <span class="c1"># Clean up</span>
@@ -2731,7 +2789,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">zy_ahw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ax3</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">clpropsw</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zy_ahk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ax3</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">clpropsk</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Slicer.update_zy"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.Slicer.html#discretize.Slicer.update_zy">[docs]</a>    <span class="k">def</span> <span class="nf">update_zy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Slicer.update_zy"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.mpl_mod.Slicer.html#discretize.mixins.mpl_mod.Slicer.update_zy">[docs]</a>    <span class="k">def</span> <span class="nf">update_zy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Update plot for change in X-index.&quot;&quot;&quot;</span>
 
         <span class="c1"># Clean up</span>
@@ -2769,7 +2827,6 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
@@ -2781,9 +2838,9 @@
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
 <div role="contentinfo">
@@ -2809,7 +2866,6 @@ Built with
 
 
 </footer>
-
         </div>
       </div>
 

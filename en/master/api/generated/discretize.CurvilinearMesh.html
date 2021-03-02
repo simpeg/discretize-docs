@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>discretize.CurvilinearMesh &mdash; discretize 0.6.2 documentation</title>
+  <title>discretize.CurvilinearMesh &mdash; discretize 0.6.3 documentation</title>
   
 
   
@@ -17,12 +17,16 @@
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
     <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
   
+
   
+  
+
   
 
   
@@ -35,7 +39,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
@@ -78,7 +81,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> discretize
+            <a href="../../index.html" class="icon icon-home"> discretize
           
 
           
@@ -88,7 +91,7 @@
             
             
               <div class="version">
-                0.6.2
+                0.6.3
               </div>
             
           
@@ -223,6 +226,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -283,7 +288,7 @@
 <h1>discretize.CurvilinearMesh<a class="headerlink" href="#discretize-curvilinearmesh" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="discretize.CurvilinearMesh">
-<em class="property">class </em><code class="sig-prename descclassname">discretize.</code><code class="sig-name descname">CurvilinearMesh</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/curvilinear_mesh.html#CurvilinearMesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.CurvilinearMesh" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">discretize.</span></code><code class="sig-name descname"><span class="pre">CurvilinearMesh</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/curvilinear_mesh.html#CurvilinearMesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.CurvilinearMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.base.base_mesh.BaseRectangularMesh</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.operators.differential_operators.DiffOperators</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.operators.inner_products.InnerProducts</span></code></p>
 <p>CurvilinearMesh is a mesh class that deals with curvilinear meshes.</p>
 <blockquote>
@@ -304,7 +309,7 @@
 <li><p><strong>axis_u</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of u-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: X</p></li>
 <li><p><strong>axis_v</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of v-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Y</p></li>
 <li><p><strong>axis_w</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of w-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Z</p></li>
-<li><p><strong>node_list</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *) or (*, *, *)) with length between 2 and 3</p></li>
+<li><p><strong>node_list</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *, *) or (*, *)) with length between 2 and 3</p></li>
 <li><p><strong>origin</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</p></li>
 <li><p><strong>reference_system</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">String</span></code></a>): The type of coordinate reference frame. Can take on the values cartesian, cylindrical, or spherical. Abbreviations of these are allowed., a unicode string, Default: cartesian</p></li>
 </ul>
@@ -459,7 +464,7 @@
 </dd>
 <dt><a class="reference internal" href="#discretize.CurvilinearMesh.nodal_laplacian" title="discretize.CurvilinearMesh.nodal_laplacian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodal_laplacian</span></code></a></dt><dd><p>Construct laplacian operator (nodes to edges).</p>
 </dd>
-<dt><a class="reference internal" href="#discretize.CurvilinearMesh.node_list" title="discretize.CurvilinearMesh.node_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">node_list</span></code></a></dt><dd><p><strong>node_list</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *) or (*, *, *)) with length between 2 and 3</p>
+<dt><a class="reference internal" href="#discretize.CurvilinearMesh.node_list" title="discretize.CurvilinearMesh.node_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">node_list</span></code></a></dt><dd><p><strong>node_list</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *, *) or (*, *)) with length between 2 and 3</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.CurvilinearMesh.nodes" title="discretize.CurvilinearMesh.nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></a></dt><dd><p>Nodal grid.</p>
 </dd>
@@ -582,7 +587,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#discretize.CurvilinearMesh.plot_image" title="discretize.CurvilinearMesh.plot_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_image</span></code></a>(v[, v_type, grid, view, ax, …])</p></td>
 <td><p>Plots fields on the given mesh.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.CurvilinearMesh.plot_slice" title="discretize.CurvilinearMesh.plot_slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_slice</span></code></a>(v[, v_type, normal, ind, grid, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.CurvilinearMesh.plot_slice" title="discretize.CurvilinearMesh.plot_slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_slice</span></code></a>(v[, v_type, normal, ind, …])</p></td>
 <td><p>Plots slice of fields on the given 3D mesh.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#discretize.CurvilinearMesh.projectEdgeVector" title="discretize.CurvilinearMesh.projectEdgeVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectEdgeVector</span></code></a>(*args, **kwargs)</p></td>
@@ -652,203 +657,203 @@
 <h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.area">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">area</code><a class="headerlink" href="#discretize.CurvilinearMesh.area" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">area</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.area" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>area</cite> has been deprecated. See <cite>face_areas</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.average_cell_to_face">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">average_cell_to_face</code><a class="headerlink" href="#discretize.CurvilinearMesh.average_cell_to_face" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">average_cell_to_face</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.average_cell_to_face" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell centers to faces.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.average_cell_vector_to_face">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">average_cell_vector_to_face</code><a class="headerlink" href="#discretize.CurvilinearMesh.average_cell_vector_to_face" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">average_cell_vector_to_face</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.average_cell_vector_to_face" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell centers to
 faces as a vector.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.average_edge_to_cell">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">average_edge_to_cell</code><a class="headerlink" href="#discretize.CurvilinearMesh.average_edge_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">average_edge_to_cell</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.average_edge_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell edges to cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.average_edge_to_cell_vector">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">average_edge_to_cell_vector</code><a class="headerlink" href="#discretize.CurvilinearMesh.average_edge_to_cell_vector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">average_edge_to_cell_vector</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.average_edge_to_cell_vector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell edges to cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.average_edge_x_to_cell">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">average_edge_x_to_cell</code><a class="headerlink" href="#discretize.CurvilinearMesh.average_edge_x_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">average_edge_x_to_cell</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.average_edge_x_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell edges in the x direction to
 cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.average_edge_y_to_cell">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">average_edge_y_to_cell</code><a class="headerlink" href="#discretize.CurvilinearMesh.average_edge_y_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">average_edge_y_to_cell</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.average_edge_y_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell edges in the y direction to
 cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.average_edge_z_to_cell">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">average_edge_z_to_cell</code><a class="headerlink" href="#discretize.CurvilinearMesh.average_edge_z_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">average_edge_z_to_cell</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.average_edge_z_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell edges in the z direction to
 cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.average_face_to_cell">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">average_face_to_cell</code><a class="headerlink" href="#discretize.CurvilinearMesh.average_face_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">average_face_to_cell</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.average_face_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell faces to cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.average_face_to_cell_vector">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">average_face_to_cell_vector</code><a class="headerlink" href="#discretize.CurvilinearMesh.average_face_to_cell_vector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">average_face_to_cell_vector</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.average_face_to_cell_vector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell faces to cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.average_face_x_to_cell">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">average_face_x_to_cell</code><a class="headerlink" href="#discretize.CurvilinearMesh.average_face_x_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">average_face_x_to_cell</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.average_face_x_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell faces in the x direction to
 cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.average_face_y_to_cell">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">average_face_y_to_cell</code><a class="headerlink" href="#discretize.CurvilinearMesh.average_face_y_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">average_face_y_to_cell</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.average_face_y_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell faces in the y direction to
 cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.average_face_z_to_cell">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">average_face_z_to_cell</code><a class="headerlink" href="#discretize.CurvilinearMesh.average_face_z_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">average_face_z_to_cell</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.average_face_z_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell faces in the z direction to
 cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.average_node_to_cell">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">average_node_to_cell</code><a class="headerlink" href="#discretize.CurvilinearMesh.average_node_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">average_node_to_cell</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.average_node_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell nodes to cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.average_node_to_edge">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">average_node_to_edge</code><a class="headerlink" href="#discretize.CurvilinearMesh.average_node_to_edge" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">average_node_to_edge</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.average_node_to_edge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell nodes to cell edges, keeping
 each dimension separate.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.average_node_to_face">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">average_node_to_face</code><a class="headerlink" href="#discretize.CurvilinearMesh.average_node_to_face" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">average_node_to_face</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.average_node_to_face" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell nodes to cell faces, keeping
 each dimension separate.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.axis_u">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">axis_u</code><a class="headerlink" href="#discretize.CurvilinearMesh.axis_u" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">axis_u</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.axis_u" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>axis_u</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of u-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: X</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.axis_v">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">axis_v</code><a class="headerlink" href="#discretize.CurvilinearMesh.axis_v" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">axis_v</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.axis_v" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>axis_v</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of v-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Y</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.axis_w">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">axis_w</code><a class="headerlink" href="#discretize.CurvilinearMesh.axis_w" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">axis_w</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.axis_w" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>axis_w</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Vector3" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector3</span></code></a>): Vector orientation of w-direction. For more details see the docs for the <a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh.rotation_matrix" title="discretize.base.BaseMesh.rotation_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a> property., a 3D Vector of &lt;class ‘float’&gt; with shape (3), Default: Z</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.cellGrad">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">cellGrad</code><a class="headerlink" href="#discretize.CurvilinearMesh.cellGrad" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">cellGrad</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.cellGrad" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>cellGrad</cite> has been deprecated. See <cite>cell_gradient</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.cellGradBC">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">cellGradBC</code><a class="headerlink" href="#discretize.CurvilinearMesh.cellGradBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">cellGradBC</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.cellGradBC" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>cellGradBC</cite> has been deprecated. See <cite>cell_gradient_BC</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.cellGradx">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">cellGradx</code><a class="headerlink" href="#discretize.CurvilinearMesh.cellGradx" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">cellGradx</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.cellGradx" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>cellGradx</cite> has been deprecated. See <cite>cell_gradient_x</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.cellGrady">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">cellGrady</code><a class="headerlink" href="#discretize.CurvilinearMesh.cellGrady" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">cellGrady</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.cellGrady" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>cellGrady</cite> has been deprecated. See <cite>cell_gradient_y</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.cellGradz">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">cellGradz</code><a class="headerlink" href="#discretize.CurvilinearMesh.cellGradz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">cellGradz</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.cellGradz" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>cellGradz</cite> has been deprecated. See <cite>cell_gradient_z</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.cell_centers">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">cell_centers</code><a class="headerlink" href="#discretize.CurvilinearMesh.cell_centers" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">cell_centers</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.cell_centers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cell-centered grid</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.cell_gradient">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">cell_gradient</code><a class="headerlink" href="#discretize.CurvilinearMesh.cell_gradient" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">cell_gradient</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.cell_gradient" title="Permalink to this definition">¶</a></dt>
 <dd><p>The cell centered Gradient, takes you to cell faces.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.cell_gradient_BC">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">cell_gradient_BC</code><a class="headerlink" href="#discretize.CurvilinearMesh.cell_gradient_BC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">cell_gradient_BC</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.cell_gradient_BC" title="Permalink to this definition">¶</a></dt>
 <dd><p>The cell centered Gradient boundary condition matrix</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.cell_gradient_x">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">cell_gradient_x</code><a class="headerlink" href="#discretize.CurvilinearMesh.cell_gradient_x" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">cell_gradient_x</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.cell_gradient_x" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cell centered Gradient in the x dimension. Has neumann boundary
 conditions.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.cell_gradient_y">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">cell_gradient_y</code><a class="headerlink" href="#discretize.CurvilinearMesh.cell_gradient_y" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">cell_gradient_y</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.cell_gradient_y" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.cell_gradient_z">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">cell_gradient_z</code><a class="headerlink" href="#discretize.CurvilinearMesh.cell_gradient_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">cell_gradient_z</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.cell_gradient_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cell centered Gradient in the x dimension. Has neumann boundary
 conditions.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.cell_volumes">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">cell_volumes</code><a class="headerlink" href="#discretize.CurvilinearMesh.cell_volumes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">cell_volumes</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.cell_volumes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct cell volumes of the 3D model as 1d array</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.dim">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">dim</code><a class="headerlink" href="#discretize.CurvilinearMesh.dim" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">dim</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.dim" title="Permalink to this definition">¶</a></dt>
 <dd><p>The dimension of the mesh (1, 2, or 3).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -862,91 +867,91 @@ conditions.</p>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.edge">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">edge</code><a class="headerlink" href="#discretize.CurvilinearMesh.edge" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">edge</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.edge" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>edge</cite> has been deprecated. See <cite>edge_lengths</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.edgeCurl">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">edgeCurl</code><a class="headerlink" href="#discretize.CurvilinearMesh.edgeCurl" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">edgeCurl</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.edgeCurl" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>edgeCurl</cite> has been deprecated. See <cite>edge_curl</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.edge_curl">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">edge_curl</code><a class="headerlink" href="#discretize.CurvilinearMesh.edge_curl" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">edge_curl</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.edge_curl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the 3D curl operator.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.edge_lengths">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">edge_lengths</code><a class="headerlink" href="#discretize.CurvilinearMesh.edge_lengths" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">edge_lengths</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.edge_lengths" title="Permalink to this definition">¶</a></dt>
 <dd><p>Edge lengths</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.edge_tangents">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">edge_tangents</code><a class="headerlink" href="#discretize.CurvilinearMesh.edge_tangents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">edge_tangents</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.edge_tangents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Edge tangents</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.edges_x">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">edges_x</code><a class="headerlink" href="#discretize.CurvilinearMesh.edges_x" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">edges_x</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.edges_x" title="Permalink to this definition">¶</a></dt>
 <dd><p>Edge staggered grid in the x direction.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.edges_y">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">edges_y</code><a class="headerlink" href="#discretize.CurvilinearMesh.edges_y" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">edges_y</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.edges_y" title="Permalink to this definition">¶</a></dt>
 <dd><p>Edge staggered grid in the y direction.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.edges_z">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">edges_z</code><a class="headerlink" href="#discretize.CurvilinearMesh.edges_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">edges_z</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.edges_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Edge staggered grid in the z direction.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.faceDiv">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">faceDiv</code><a class="headerlink" href="#discretize.CurvilinearMesh.faceDiv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">faceDiv</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.faceDiv" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>faceDiv</cite> has been deprecated. See <cite>face_divergence</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.faceDivx">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">faceDivx</code><a class="headerlink" href="#discretize.CurvilinearMesh.faceDivx" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">faceDivx</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.faceDivx" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>faceDivx</cite> has been deprecated. See <cite>face_x_divergence</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.faceDivy">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">faceDivy</code><a class="headerlink" href="#discretize.CurvilinearMesh.faceDivy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">faceDivy</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.faceDivy" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>faceDivy</cite> has been deprecated. See <cite>face_y_divergence</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.faceDivz">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">faceDivz</code><a class="headerlink" href="#discretize.CurvilinearMesh.faceDivz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">faceDivz</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.faceDivz" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>faceDivz</cite> has been deprecated. See <cite>face_z_divergence</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.face_areas">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">face_areas</code><a class="headerlink" href="#discretize.CurvilinearMesh.face_areas" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">face_areas</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.face_areas" title="Permalink to this definition">¶</a></dt>
 <dd><p>Area of the faces</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.face_divergence">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">face_divergence</code><a class="headerlink" href="#discretize.CurvilinearMesh.face_divergence" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">face_divergence</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.face_divergence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct divergence operator (face-stg to cell-centres).</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.face_normals">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">face_normals</code><a class="headerlink" href="#discretize.CurvilinearMesh.face_normals" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">face_normals</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.face_normals" title="Permalink to this definition">¶</a></dt>
 <dd><p>Face normals: calling this will average
 the computed normals so that there is one
 per face. This is especially relevant in
@@ -960,44 +965,44 @@ for each face that will be different.</p>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.face_x_divergence">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">face_x_divergence</code><a class="headerlink" href="#discretize.CurvilinearMesh.face_x_divergence" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">face_x_divergence</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.face_x_divergence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct divergence operator in the x component (face-stg to
 cell-centres).</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.face_y_divergence">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">face_y_divergence</code><a class="headerlink" href="#discretize.CurvilinearMesh.face_y_divergence" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">face_y_divergence</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.face_y_divergence" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.face_z_divergence">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">face_z_divergence</code><a class="headerlink" href="#discretize.CurvilinearMesh.face_z_divergence" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">face_z_divergence</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.face_z_divergence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct divergence operator in the z component (face-stg to
 cell-centers).</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.faces_x">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">faces_x</code><a class="headerlink" href="#discretize.CurvilinearMesh.faces_x" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">faces_x</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.faces_x" title="Permalink to this definition">¶</a></dt>
 <dd><p>Face staggered grid in the x direction.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.faces_y">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">faces_y</code><a class="headerlink" href="#discretize.CurvilinearMesh.faces_y" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">faces_y</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.faces_y" title="Permalink to this definition">¶</a></dt>
 <dd><p>Face staggered grid in the y direction.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.faces_z">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">faces_z</code><a class="headerlink" href="#discretize.CurvilinearMesh.faces_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">faces_z</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.faces_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Face staggered grid in the y direction.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.nCx">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">nCx</code><a class="headerlink" href="#discretize.CurvilinearMesh.nCx" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">nCx</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.nCx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of cells in the x direction</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -1014,7 +1019,7 @@ cell-centers).</p>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.nCy">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">nCy</code><a class="headerlink" href="#discretize.CurvilinearMesh.nCy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">nCy</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.nCy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of cells in the y direction</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -1032,7 +1037,7 @@ cell-centers).</p>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.nCz">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">nCz</code><a class="headerlink" href="#discretize.CurvilinearMesh.nCz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">nCz</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.nCz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of cells in the z direction</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -1050,7 +1055,7 @@ cell-centers).</p>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.nNx">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">nNx</code><a class="headerlink" href="#discretize.CurvilinearMesh.nNx" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">nNx</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.nNx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of nodes in the x-direction</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -1067,7 +1072,7 @@ cell-centers).</p>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.nNy">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">nNy</code><a class="headerlink" href="#discretize.CurvilinearMesh.nNy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">nNy</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.nNy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of nodes in the y-direction</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -1085,7 +1090,7 @@ cell-centers).</p>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.nNz">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">nNz</code><a class="headerlink" href="#discretize.CurvilinearMesh.nNz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">nNz</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.nNz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of nodes in the z-direction</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -1103,12 +1108,12 @@ cell-centers).</p>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.n_cells">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">n_cells</code><a class="headerlink" href="#discretize.CurvilinearMesh.n_cells" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">n_cells</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.n_cells" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.n_edges">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">n_edges</code><a class="headerlink" href="#discretize.CurvilinearMesh.n_edges" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">n_edges</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.n_edges" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total number of edges.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1124,7 +1129,7 @@ cell-centers).</p>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.n_edges_per_direction">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">n_edges_per_direction</code><a class="headerlink" href="#discretize.CurvilinearMesh.n_edges_per_direction" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">n_edges_per_direction</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.n_edges_per_direction" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of edges in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1152,22 +1157,22 @@ cell-centers).</p>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.n_edges_x">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">n_edges_x</code><a class="headerlink" href="#discretize.CurvilinearMesh.n_edges_x" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">n_edges_x</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.n_edges_x" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.n_edges_y">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">n_edges_y</code><a class="headerlink" href="#discretize.CurvilinearMesh.n_edges_y" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">n_edges_y</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.n_edges_y" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.n_edges_z">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">n_edges_z</code><a class="headerlink" href="#discretize.CurvilinearMesh.n_edges_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">n_edges_z</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.n_edges_z" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.n_faces">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">n_faces</code><a class="headerlink" href="#discretize.CurvilinearMesh.n_faces" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">n_faces</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.n_faces" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total number of faces.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1183,7 +1188,7 @@ cell-centers).</p>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.n_faces_per_direction">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">n_faces_per_direction</code><a class="headerlink" href="#discretize.CurvilinearMesh.n_faces_per_direction" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">n_faces_per_direction</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.n_faces_per_direction" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of faces in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1211,88 +1216,88 @@ cell-centers).</p>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.n_faces_x">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">n_faces_x</code><a class="headerlink" href="#discretize.CurvilinearMesh.n_faces_x" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">n_faces_x</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.n_faces_x" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.n_faces_y">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">n_faces_y</code><a class="headerlink" href="#discretize.CurvilinearMesh.n_faces_y" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">n_faces_y</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.n_faces_y" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.n_faces_z">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">n_faces_z</code><a class="headerlink" href="#discretize.CurvilinearMesh.n_faces_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">n_faces_z</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.n_faces_z" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.n_nodes">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">n_nodes</code><a class="headerlink" href="#discretize.CurvilinearMesh.n_nodes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">n_nodes</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.n_nodes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.nodalGrad">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">nodalGrad</code><a class="headerlink" href="#discretize.CurvilinearMesh.nodalGrad" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">nodalGrad</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.nodalGrad" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>nodalGrad</cite> has been deprecated. See <cite>nodal_gradient</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.nodalLaplacian">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">nodalLaplacian</code><a class="headerlink" href="#discretize.CurvilinearMesh.nodalLaplacian" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">nodalLaplacian</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.nodalLaplacian" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>nodalLaplacian</cite> has been deprecated. See <cite>nodal_laplacian</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.nodal_gradient">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">nodal_gradient</code><a class="headerlink" href="#discretize.CurvilinearMesh.nodal_gradient" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">nodal_gradient</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.nodal_gradient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct gradient operator (nodes to edges).</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.nodal_laplacian">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">nodal_laplacian</code><a class="headerlink" href="#discretize.CurvilinearMesh.nodal_laplacian" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">nodal_laplacian</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.nodal_laplacian" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct laplacian operator (nodes to edges).</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.node_list">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">node_list</code><a class="headerlink" href="#discretize.CurvilinearMesh.node_list" title="Permalink to this definition">¶</a></dt>
-<dd><p><strong>node_list</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *) or (*, *, *)) with length between 2 and 3</p>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">node_list</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.node_list" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>node_list</strong> (a list of <a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): List of arrays describing the node locations, a list (each item is a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*, *, *) or (*, *)) with length between 2 and 3</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.nodes">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">nodes</code><a class="headerlink" href="#discretize.CurvilinearMesh.nodes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">nodes</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.nodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Nodal grid.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.normals">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">normals</code><a class="headerlink" href="#discretize.CurvilinearMesh.normals" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">normals</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.normals" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>normals</cite> has been deprecated. See <cite>face_normals</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.origin">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">origin</code><a class="headerlink" href="#discretize.CurvilinearMesh.origin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">origin</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.origin" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>origin</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/math.html#properties.Array" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>): origin of the mesh (dim, ), a list or numpy array of &lt;class ‘float’&gt;, &lt;class ‘int’&gt; with shape (*)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.reference_is_rotated">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">reference_is_rotated</code><a class="headerlink" href="#discretize.CurvilinearMesh.reference_is_rotated" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">reference_is_rotated</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.reference_is_rotated" title="Permalink to this definition">¶</a></dt>
 <dd><p>True if the axes are rotated from the traditional &lt;X,Y,Z&gt; system
 with vectors of <span class="math notranslate nohighlight">\((1,0,0)\)</span>, <span class="math notranslate nohighlight">\((0,1,0)\)</span>, and <span class="math notranslate nohighlight">\((0,0,1)\)</span></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.reference_system">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">reference_system</code><a class="headerlink" href="#discretize.CurvilinearMesh.reference_system" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">reference_system</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.reference_system" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>reference_system</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.5.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">String</span></code></a>): The type of coordinate reference frame. Can take on the values cartesian, cylindrical, or spherical. Abbreviations of these are allowed., a unicode string, Default: cartesian</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.rotation_matrix">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">rotation_matrix</code><a class="headerlink" href="#discretize.CurvilinearMesh.rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">rotation_matrix</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.rotation_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Builds a rotation matrix to transform coordinates from their coordinate
 system into a conventional cartesian system. This is built off of the
 three <cite>axis_u</cite>, <cite>axis_v</cite>, and <cite>axis_w</cite> properties; these mapping
@@ -1310,7 +1315,7 @@ docs for the <a class="reference internal" href="discretize.mixins.vtk_mod.Inter
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.shape_cells">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">shape_cells</code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_cells" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">shape_cells</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_cells" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of cells in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1325,7 +1330,7 @@ docs for the <a class="reference internal" href="discretize.mixins.vtk_mod.Inter
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.shape_edges_x">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">shape_edges_x</code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_edges_x" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">shape_edges_x</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_edges_x" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of x-edges in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1341,7 +1346,7 @@ docs for the <a class="reference internal" href="discretize.mixins.vtk_mod.Inter
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.shape_edges_y">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">shape_edges_y</code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_edges_y" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">shape_edges_y</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_edges_y" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of y-edges in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1357,7 +1362,7 @@ docs for the <a class="reference internal" href="discretize.mixins.vtk_mod.Inter
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.shape_edges_z">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">shape_edges_z</code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_edges_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">shape_edges_z</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_edges_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of z-edges in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1373,7 +1378,7 @@ docs for the <a class="reference internal" href="discretize.mixins.vtk_mod.Inter
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.shape_faces_x">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">shape_faces_x</code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_faces_x" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">shape_faces_x</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_faces_x" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of x-faces in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1389,7 +1394,7 @@ docs for the <a class="reference internal" href="discretize.mixins.vtk_mod.Inter
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.shape_faces_y">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">shape_faces_y</code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_faces_y" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">shape_faces_y</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_faces_y" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of y-faces in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1405,7 +1410,7 @@ docs for the <a class="reference internal" href="discretize.mixins.vtk_mod.Inter
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.shape_faces_z">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">shape_faces_z</code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_faces_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">shape_faces_z</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_faces_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of z-faces in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1421,7 +1426,7 @@ docs for the <a class="reference internal" href="discretize.mixins.vtk_mod.Inter
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.shape_nodes">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">shape_nodes</code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_nodes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">shape_nodes</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.shape_nodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of nodes in each direction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1436,39 +1441,39 @@ docs for the <a class="reference internal" href="discretize.mixins.vtk_mod.Inter
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.stencil_cell_gradient">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">stencil_cell_gradient</code><a class="headerlink" href="#discretize.CurvilinearMesh.stencil_cell_gradient" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">stencil_cell_gradient</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.stencil_cell_gradient" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.stencil_cell_gradient_x">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">stencil_cell_gradient_x</code><a class="headerlink" href="#discretize.CurvilinearMesh.stencil_cell_gradient_x" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">stencil_cell_gradient_x</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.stencil_cell_gradient_x" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.stencil_cell_gradient_y">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">stencil_cell_gradient_y</code><a class="headerlink" href="#discretize.CurvilinearMesh.stencil_cell_gradient_y" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">stencil_cell_gradient_y</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.stencil_cell_gradient_y" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.stencil_cell_gradient_z">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">stencil_cell_gradient_z</code><a class="headerlink" href="#discretize.CurvilinearMesh.stencil_cell_gradient_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">stencil_cell_gradient_z</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.stencil_cell_gradient_z" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.tangents">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">tangents</code><a class="headerlink" href="#discretize.CurvilinearMesh.tangents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">tangents</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.tangents" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>tangents</cite> has been deprecated. See <cite>edge_tangents</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.vol">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">vol</code><a class="headerlink" href="#discretize.CurvilinearMesh.vol" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">vol</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.vol" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>vol</cite> has been deprecated. See <cite>cell_volumes</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.CurvilinearMesh.x0">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">x0</code><a class="headerlink" href="#discretize.CurvilinearMesh.x0" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">x0</span></code><a class="headerlink" href="#discretize.CurvilinearMesh.x0" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -1476,13 +1481,13 @@ docs for the <a class="reference internal" href="discretize.mixins.vtk_mod.Inter
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.copy">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a copy of the current mesh</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.deserialize">
-<em class="property">classmethod </em><code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/curvilinear_mesh.html#CurvilinearMesh.deserialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.CurvilinearMesh.deserialize" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">deserialize</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/curvilinear_mesh.html#CurvilinearMesh.deserialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.CurvilinearMesh.deserialize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates <strong>HasProperties</strong> instance from serialized dictionary</p>
 <p>This uses the Property deserializers to deserialize all
 JSON-compatible dictionary values into their corresponding Property
@@ -1510,7 +1515,7 @@ deserializers.</p></li>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.equal">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">equal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.equal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">equal</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.equal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine if two <strong>HasProperties</strong> instances are equivalent</p>
 <p>Equivalence is determined by checking if all Property values on
 two instances are equal, using <code class="code docutils literal notranslate"><span class="pre">Property.equal</span></code>.</p>
@@ -1518,7 +1523,7 @@ two instances are equal, using <code class="code docutils literal notranslate"><
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.from_omf">
-<em class="property">static </em><code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">from_omf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">element</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.from_omf" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">from_omf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.from_omf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert an OMF element to it’s proper <code class="docutils literal notranslate"><span class="pre">discretize</span></code> type.
 Automatically determines the output type. Returns both the mesh and a
 dictionary of model arrays.</p>
@@ -1526,43 +1531,43 @@ dictionary of model arrays.</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.getBCProjWF">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">getBCProjWF</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.getBCProjWF" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">getBCProjWF</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.getBCProjWF" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>getBCProjWF</cite> has been deprecated. See <cite>get_BC_projections</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.getBCProjWF_simple">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">getBCProjWF_simple</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.getBCProjWF_simple" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">getBCProjWF_simple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.getBCProjWF_simple" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>getBCProjWF_simple</cite> has been deprecated. See <cite>get_BC_projections_simple</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.getEdgeInnerProduct">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">getEdgeInnerProduct</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.getEdgeInnerProduct" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">getEdgeInnerProduct</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.getEdgeInnerProduct" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>getEdgeInnerProduct</cite> has been deprecated. See <cite>get_edge_inner_product</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.getEdgeInnerProductDeriv">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">getEdgeInnerProductDeriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.getEdgeInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">getEdgeInnerProductDeriv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.getEdgeInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>getEdgeInnerProductDeriv</cite> has been deprecated. See <cite>get_edge_inner_product_deriv</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.getFaceInnerProduct">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">getFaceInnerProduct</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.getFaceInnerProduct" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">getFaceInnerProduct</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.getFaceInnerProduct" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>getFaceInnerProduct</cite> has been deprecated. See <cite>get_face_inner_product</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.getFaceInnerProductDeriv">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">getFaceInnerProductDeriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.getFaceInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">getFaceInnerProductDeriv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.getFaceInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>getFaceInnerProductDeriv</cite> has been deprecated. See <cite>get_face_inner_product_deriv</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.get_BC_projections">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">get_BC_projections</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">BC</span></em>, <em class="sig-param"><span class="n">discretization</span><span class="o">=</span><span class="default_value">'CC'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.get_BC_projections" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">get_BC_projections</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">BC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discretization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CC'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.get_BC_projections" title="Permalink to this definition">¶</a></dt>
 <dd><p>The weak form boundary condition projection matrices.</p>
 <p class="rubric">Examples</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Neumann in all directions</span>
@@ -1579,14 +1584,14 @@ dictionary of model arrays.</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.get_BC_projections_simple">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">get_BC_projections_simple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">discretization</span><span class="o">=</span><span class="default_value">'CC'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.get_BC_projections_simple" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">get_BC_projections_simple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">discretization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CC'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.get_BC_projections_simple" title="Permalink to this definition">¶</a></dt>
 <dd><p>The weak form boundary condition projection matrices
 when mixed boundary condition is used</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.get_edge_inner_product">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">get_edge_inner_product</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">invert_model</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invert_matrix</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">do_fast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.get_edge_inner_product" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">get_edge_inner_product</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.get_edge_inner_product" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the edge inner product matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1612,7 +1617,7 @@ when mixed boundary condition is used</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.get_edge_inner_product_deriv">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">get_edge_inner_product_deriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">do_fast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">invert_model</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invert_matrix</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.get_edge_inner_product_deriv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">get_edge_inner_product_deriv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.get_edge_inner_product_deriv" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -1637,7 +1642,7 @@ when mixed boundary condition is used</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.get_face_inner_product">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">get_face_inner_product</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">invert_model</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invert_matrix</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">do_fast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.get_face_inner_product" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">get_face_inner_product</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.get_face_inner_product" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the face inner product matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1663,7 +1668,7 @@ when mixed boundary condition is used</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.get_face_inner_product_deriv">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">get_face_inner_product_deriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">do_fast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">invert_model</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invert_matrix</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.get_face_inner_product_deriv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">get_face_inner_product_deriv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.get_face_inner_product_deriv" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -1688,25 +1693,25 @@ when mixed boundary condition is used</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.plotGrid">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">plotGrid</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.plotGrid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">plotGrid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.plotGrid" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>plotGrid</cite> has been deprecated. See <cite>plot_grid</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.plotImage">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">plotImage</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.plotImage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">plotImage</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.plotImage" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>plotImage</cite> has been deprecated. See <cite>plot_image</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.plotSlice">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">plotSlice</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.plotSlice" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">plotSlice</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.plotSlice" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>plotSlice</cite> has been deprecated. See <cite>plot_slice</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.plot_3d_slicer">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">plot_3d_slicer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">xslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">yslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zslice</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">v_type</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">view</span><span class="o">=</span><span class="default_value">'real'</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'xy'</span></em>, <em class="sig-param"><span class="n">transparent</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ylim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">aspect</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">[2, 2, 1]</span></em>, <em class="sig-param"><span class="n">pcolor_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fig</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.plot_3d_slicer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">plot_3d_slicer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xslice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yslice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zslice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CC'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'real'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transparent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[2,</span> <span class="pre">2,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pcolor_opts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.plot_3d_slicer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot slices of a 3D volume, interactively (scroll wheel).</p>
 <p>If called from a notebook, make sure to set</p>
 <blockquote>
@@ -1733,7 +1738,7 @@ first.</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.plot_grid">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">plot_grid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nodes</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">faces</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">centers</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">edges</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">lines</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">show_it</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.plot_grid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">plot_grid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_it</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.plot_grid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the nodal, cell-centered and staggered grids.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1859,7 +1864,7 @@ cell centers in order.</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.plot_image">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">plot_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">v_type</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">view</span><span class="o">=</span><span class="default_value">'real'</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">show_it</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">pcolor_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">grid_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sample_grid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_thickness</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_threshold</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.plot_image" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">plot_image</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CC'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'real'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_it</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pcolor_opts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_opts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_opts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_thickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.plot_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots fields on the given mesh.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1931,7 +1936,7 @@ cell centers in order.</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.plot_slice">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">plot_slice</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">v_type</span><span class="o">=</span><span class="default_value">'CC'</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">'Z'</span></em>, <em class="sig-param"><span class="n">ind</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">view</span><span class="o">=</span><span class="default_value">'real'</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">show_it</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">pcolor_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">grid_opts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">range_y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sample_grid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_threshold</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stream_thickness</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.plot_slice" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">plot_slice</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CC'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Z'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slice_loc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'real'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_it</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pcolor_opts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_opts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_opts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_thickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.plot_slice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots slice of fields on the given 3D mesh.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1943,6 +1948,8 @@ cell centers in order.</p>
 <dt><strong>normal</strong><span class="classifier">{‘Z’, ‘X’, ‘Y’}</span></dt><dd><p>Normal direction of slicing plane.</p>
 </dd>
 <dt><strong>ind</strong><span class="classifier">None, optional</span></dt><dd><p>index along dimension of slice. Defaults to the center index.</p>
+</dd>
+<dt><strong>slice_loc</strong><span class="classifier">None, optional</span></dt><dd><p>Value along dimension of slice. Defaults to the center of the mesh.</p>
 </dd>
 <dt><strong>view</strong><span class="classifier">{‘real’, ‘imag’, ‘abs’, ‘vec’}</span></dt><dd><p>How to view the array.</p>
 </dd>
@@ -1972,12 +1979,11 @@ cell centers in order.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<p>Plot a slice of a 3D <code class="docutils literal notranslate"><span class="pre">TensorMesh</span></code> solution to a Laplace’s equaiton.</p>
+<p>Plot a slice of a 3D <cite>TensorMesh</cite> solution to a Laplace’s equaiton.</p>
 <p>First build the mesh:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">discretize</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pymatsolver</span> <span class="kn">import</span> <span class="n">Solver</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">hx</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">hy</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">hz</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)]</span>
@@ -1997,27 +2003,73 @@ cell centers in order.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../../api/generated/discretize-CurvilinearMesh-6.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-CurvilinearMesh-6.png">png</a>, <a class="reference external" href="../../api/generated/discretize-CurvilinearMesh-6.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href="../../api/generated/discretize-CurvilinearMesh-6.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-CurvilinearMesh-6_00_00.png">png</a>, <a class="reference external" href="../../api/generated/discretize-CurvilinearMesh-6_00_00.pdf">pdf</a>)</p>
 <div class="figure align-default">
-<img alt="../../_images/discretize-CurvilinearMesh-6.png" src="../../_images/discretize-CurvilinearMesh-6.png" />
+<img alt="../../_images/discretize-CurvilinearMesh-6_00_00.png" src="../../_images/discretize-CurvilinearMesh-6_00_00.png" />
+</div>
+<p>We can use the <cite>slice_loc kwarg to tell `plot_slice</cite> where to slice the mesh.
+Let’s create a mesh with a random model and plot slice of it. The <cite>slice_loc</cite>
+kwarg automatically determines the indices for slicing the mesh along a plane with
+the given normal.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">random_model</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">vnC</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">789</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_slice</span><span class="p">,</span> <span class="n">y_slice</span><span class="p">,</span> <span class="n">z_slice</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">plot_slice</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">normal</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">slice_loc</span><span class="o">=</span><span class="n">x_slice</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">plot_slice</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">normal</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">slice_loc</span><span class="o">=</span><span class="n">y_slice</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">plot_slice</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">normal</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">slice_loc</span><span class="o">=</span><span class="n">z_slice</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-CurvilinearMesh-6_01_00.png">png</a>, <a class="reference external" href="../../api/generated/discretize-CurvilinearMesh-6_01_00.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/discretize-CurvilinearMesh-6_01_00.png" src="../../_images/discretize-CurvilinearMesh-6_01_00.png" />
+</div>
+<p>This also works for <cite>TreeMesh</cite>. We create a mesh here that is refined within three
+boxes, along with a base level of refinement.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">TM</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TreeMesh</span><span class="p">([</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">TM</span><span class="o">.</span><span class="n">refine</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">finalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">BSW</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">TNE</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">TM</span><span class="o">.</span><span class="n">refine_box</span><span class="p">(</span><span class="n">BSW</span><span class="p">,</span> <span class="n">TNE</span><span class="p">,</span> <span class="n">levels</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v_TM</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">volume_average</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">TM</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">TM</span><span class="o">.</span><span class="n">plot_slice</span><span class="p">(</span><span class="n">v_TM</span><span class="p">,</span> <span class="n">normal</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">slice_loc</span><span class="o">=</span><span class="n">x_slice</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">TM</span><span class="o">.</span><span class="n">plot_slice</span><span class="p">(</span><span class="n">v_TM</span><span class="p">,</span> <span class="n">normal</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">slice_loc</span><span class="o">=</span><span class="n">y_slice</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">TM</span><span class="o">.</span><span class="n">plot_slice</span><span class="p">(</span><span class="n">v_TM</span><span class="p">,</span> <span class="n">normal</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">slice_loc</span><span class="o">=</span><span class="n">z_slice</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-CurvilinearMesh-6_02_00.png">png</a>, <a class="reference external" href="../../api/generated/discretize-CurvilinearMesh-6_02_00.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/discretize-CurvilinearMesh-6_02_00.png" src="../../_images/discretize-CurvilinearMesh-6_02_00.png" />
 </div>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.projectEdgeVector">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">projectEdgeVector</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.projectEdgeVector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">projectEdgeVector</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.projectEdgeVector" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>projectEdgeVector</cite> has been deprecated. See <cite>project_edge_vector</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.projectFaceVector">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">projectFaceVector</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.projectFaceVector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">projectFaceVector</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.projectFaceVector" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>projectFaceVector</cite> has been deprecated. See <cite>project_face_vector</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.project_edge_vector">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">project_edge_vector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">edge_vector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.project_edge_vector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">project_edge_vector</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edge_vector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.project_edge_vector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Project vectors onto the edges of the mesh</p>
 <p>Given a vector, edge_vector, in cartesian coordinates, this will project
 it onto the mesh using the tangents</p>
@@ -2039,7 +2091,7 @@ it onto the mesh using the tangents</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.project_face_vector">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">project_face_vector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">face_vector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.project_face_vector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">project_face_vector</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">face_vector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.project_face_vector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Project vectors onto the faces of the mesh.</p>
 <p>Given a vector, face_vector, in cartesian coordinates, this will project
 it onto the mesh using the normals</p>
@@ -2061,13 +2113,13 @@ it onto the mesh using the normals</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.r">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">r</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.r" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">r</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.r" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>r</cite> has been deprecated. See <cite>reshape</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.reshape">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">reshape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">x_type</span><span class="o">=</span><span class="default_value">'cell_centers'</span></em>, <em class="sig-param"><span class="n">out_type</span><span class="o">=</span><span class="default_value">'cell_centers'</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">'V'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.reshape" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">reshape</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cell_centers'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cell_centers'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'V'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.reshape" title="Permalink to this definition">¶</a></dt>
 <dd><p>A quick reshape command that will do the best it
 can at giving you what you want.</p>
 <p>For example, you have a face variable, and you want the x
@@ -2109,7 +2161,7 @@ component of it reshaped to a 3D matrix.</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.save">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span><span class="o">=</span><span class="default_value">'mesh.json'</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.save" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mesh.json'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save the mesh to json
 :param str file: file_name for saving the casing properties
 :param str directory: working directory for saving the file</p>
@@ -2117,7 +2169,7 @@ component of it reshaped to a 3D matrix.</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.serialize">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">include_class</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">save_dynamic</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.serialize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">serialize</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dynamic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.serialize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Serializes a <strong>HasProperties</strong> instance to dictionary</p>
 <p>This uses the Property serializers to serialize all Property values
 to a JSON-compatible dictionary. Properties that are undefined are
@@ -2137,13 +2189,13 @@ serializers.</p></li>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.setCellGradBC">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">setCellGradBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.setCellGradBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">setCellGradBC</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.setCellGradBC" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>setCellGradBC</cite> has been deprecated. See <cite>set_cell_gradient_BC</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.set_cell_gradient_BC">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">set_cell_gradient_BC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">BC</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.set_cell_gradient_BC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">set_cell_gradient_BC</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">BC</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.set_cell_gradient_BC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function that sets the boundary conditions for cell-centred derivative
 operators.</p>
 <p class="rubric">Examples</p>
@@ -2160,7 +2212,7 @@ BC = [[‘neumann’, ‘dirichlet’], ‘dirichlet’, ‘dirichlet’]</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.toVTK">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">toVTK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.toVTK" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">toVTK</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.toVTK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data
 object with the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
@@ -2175,7 +2227,7 @@ object with the given model dictionary as the cell data of that dataset.</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.to_omf">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">to_omf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.to_omf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">to_omf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.to_omf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert this mesh object to it’s proper <code class="docutils literal notranslate"><span class="pre">omf</span></code> data object with
 the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
@@ -2190,7 +2242,7 @@ the given model dictionary as the cell data of that dataset.</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.to_vtk">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">to_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.to_vtk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">to_vtk</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.to_vtk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data
 object with the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
@@ -2205,7 +2257,7 @@ object with the given model dictionary as the cell data of that dataset.</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.validate">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.validate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">validate</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.validate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Call all registered class validator methods</p>
 <p>These are all methods decorated with <code class="code docutils literal notranslate"><span class="pre">&#64;properties.validator</span></code>.
 Validator methods are expected to raise a ValidationError if they
@@ -2214,7 +2266,7 @@ fail.</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.writeVTK">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">writeVTK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.writeVTK" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">writeVTK</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.writeVTK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes and saves a VTK object from this mesh and given models</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -2232,7 +2284,7 @@ fail.</p>
 
 <dl class="py method">
 <dt id="discretize.CurvilinearMesh.write_vtk">
-<code class="sig-prename descclassname">CurvilinearMesh.</code><code class="sig-name descname">write_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.write_vtk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></code><code class="sig-name descname"><span class="pre">write_vtk</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.CurvilinearMesh.write_vtk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes and saves a VTK object from this mesh and given models</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -2256,16 +2308,10 @@ fail.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="discretize.TreeMesh.html" class="btn btn-neutral float-right" title="discretize.TreeMesh" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="discretize.CylindricalMesh.html" class="btn btn-neutral float-left" title="discretize.CylindricalMesh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="discretize.TreeMesh.html" class="btn btn-neutral float-right" title="discretize.TreeMesh" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="discretize.CylindricalMesh.html" class="btn btn-neutral float-left" title="discretize.CylindricalMesh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
@@ -2277,9 +2323,9 @@ fail.</p>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
 <div role="contentinfo">
@@ -2305,7 +2351,6 @@ Built with
 
 
 </footer>
-
         </div>
       </div>
 

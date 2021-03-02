@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>discretize.operators.DiffOperators &mdash; discretize 0.6.2 documentation</title>
+  <title>discretize.operators.DiffOperators &mdash; discretize 0.6.3 documentation</title>
   
 
   
@@ -17,12 +17,16 @@
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
     <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
   
+
   
+  
+
   
 
   
@@ -35,10 +39,7 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -78,7 +79,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> discretize
+            <a href="../../index.html" class="icon icon-home"> discretize
           
 
           
@@ -88,7 +89,7 @@
             
             
               <div class="version">
-                0.6.2
+                0.6.3
               </div>
             
           
@@ -220,6 +221,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -280,7 +283,7 @@
 <h1>discretize.operators.DiffOperators<a class="headerlink" href="#discretize-operators-diffoperators" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="discretize.operators.DiffOperators">
-<em class="property">class </em><code class="sig-prename descclassname">discretize.operators.</code><code class="sig-name descname">DiffOperators</code><a class="reference internal" href="../../_modules/discretize/operators/differential_operators.html#DiffOperators"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.operators.DiffOperators" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">discretize.operators.</span></code><code class="sig-name descname"><span class="pre">DiffOperators</span></code><a class="reference internal" href="../../_modules/discretize/operators/differential_operators.html#DiffOperators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.operators.DiffOperators" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Class creates the differential operators that you need!</p>
 <dl class="field-list simple">
@@ -469,267 +472,267 @@
 <h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_cell_to_face">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">average_cell_to_face</code><a class="headerlink" href="#discretize.operators.DiffOperators.average_cell_to_face" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_cell_to_face</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_cell_to_face" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell centers to faces.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_cell_vector_to_face">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">average_cell_vector_to_face</code><a class="headerlink" href="#discretize.operators.DiffOperators.average_cell_vector_to_face" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_cell_vector_to_face</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_cell_vector_to_face" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell centers to
 faces as a vector.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_edge_to_cell">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">average_edge_to_cell</code><a class="headerlink" href="#discretize.operators.DiffOperators.average_edge_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_edge_to_cell</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_edge_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell edges to cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_edge_to_cell_vector">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">average_edge_to_cell_vector</code><a class="headerlink" href="#discretize.operators.DiffOperators.average_edge_to_cell_vector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_edge_to_cell_vector</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_edge_to_cell_vector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell edges to cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_edge_x_to_cell">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">average_edge_x_to_cell</code><a class="headerlink" href="#discretize.operators.DiffOperators.average_edge_x_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_edge_x_to_cell</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_edge_x_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell edges in the x direction to
 cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_edge_y_to_cell">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">average_edge_y_to_cell</code><a class="headerlink" href="#discretize.operators.DiffOperators.average_edge_y_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_edge_y_to_cell</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_edge_y_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell edges in the y direction to
 cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_edge_z_to_cell">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">average_edge_z_to_cell</code><a class="headerlink" href="#discretize.operators.DiffOperators.average_edge_z_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_edge_z_to_cell</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_edge_z_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell edges in the z direction to
 cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_face_to_cell">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">average_face_to_cell</code><a class="headerlink" href="#discretize.operators.DiffOperators.average_face_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_face_to_cell</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_face_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell faces to cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_face_to_cell_vector">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">average_face_to_cell_vector</code><a class="headerlink" href="#discretize.operators.DiffOperators.average_face_to_cell_vector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_face_to_cell_vector</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_face_to_cell_vector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell faces to cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_face_x_to_cell">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">average_face_x_to_cell</code><a class="headerlink" href="#discretize.operators.DiffOperators.average_face_x_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_face_x_to_cell</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_face_x_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell faces in the x direction to
 cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_face_y_to_cell">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">average_face_y_to_cell</code><a class="headerlink" href="#discretize.operators.DiffOperators.average_face_y_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_face_y_to_cell</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_face_y_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell faces in the y direction to
 cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_face_z_to_cell">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">average_face_z_to_cell</code><a class="headerlink" href="#discretize.operators.DiffOperators.average_face_z_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_face_z_to_cell</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_face_z_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell faces in the z direction to
 cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_node_to_cell">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">average_node_to_cell</code><a class="headerlink" href="#discretize.operators.DiffOperators.average_node_to_cell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_node_to_cell</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_node_to_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell nodes to cell centers.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_node_to_edge">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">average_node_to_edge</code><a class="headerlink" href="#discretize.operators.DiffOperators.average_node_to_edge" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_node_to_edge</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_node_to_edge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell nodes to cell edges, keeping
 each dimension separate.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_node_to_face">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">average_node_to_face</code><a class="headerlink" href="#discretize.operators.DiffOperators.average_node_to_face" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_node_to_face</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_node_to_face" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell nodes to cell faces, keeping
 each dimension separate.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.cellGrad">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">cellGrad</code><a class="headerlink" href="#discretize.operators.DiffOperators.cellGrad" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">cellGrad</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.cellGrad" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>cellGrad</cite> has been deprecated. See <cite>cell_gradient</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.cellGradBC">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">cellGradBC</code><a class="headerlink" href="#discretize.operators.DiffOperators.cellGradBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">cellGradBC</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.cellGradBC" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>cellGradBC</cite> has been deprecated. See <cite>cell_gradient_BC</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.cellGradx">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">cellGradx</code><a class="headerlink" href="#discretize.operators.DiffOperators.cellGradx" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">cellGradx</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.cellGradx" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>cellGradx</cite> has been deprecated. See <cite>cell_gradient_x</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.cellGrady">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">cellGrady</code><a class="headerlink" href="#discretize.operators.DiffOperators.cellGrady" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">cellGrady</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.cellGrady" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>cellGrady</cite> has been deprecated. See <cite>cell_gradient_y</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.cellGradz">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">cellGradz</code><a class="headerlink" href="#discretize.operators.DiffOperators.cellGradz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">cellGradz</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.cellGradz" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>cellGradz</cite> has been deprecated. See <cite>cell_gradient_z</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.cell_gradient">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">cell_gradient</code><a class="headerlink" href="#discretize.operators.DiffOperators.cell_gradient" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">cell_gradient</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.cell_gradient" title="Permalink to this definition">¶</a></dt>
 <dd><p>The cell centered Gradient, takes you to cell faces.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.cell_gradient_BC">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">cell_gradient_BC</code><a class="headerlink" href="#discretize.operators.DiffOperators.cell_gradient_BC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">cell_gradient_BC</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.cell_gradient_BC" title="Permalink to this definition">¶</a></dt>
 <dd><p>The cell centered Gradient boundary condition matrix</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.cell_gradient_x">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">cell_gradient_x</code><a class="headerlink" href="#discretize.operators.DiffOperators.cell_gradient_x" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">cell_gradient_x</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.cell_gradient_x" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cell centered Gradient in the x dimension. Has neumann boundary
 conditions.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.cell_gradient_y">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">cell_gradient_y</code><a class="headerlink" href="#discretize.operators.DiffOperators.cell_gradient_y" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">cell_gradient_y</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.cell_gradient_y" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.cell_gradient_z">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">cell_gradient_z</code><a class="headerlink" href="#discretize.operators.DiffOperators.cell_gradient_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">cell_gradient_z</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.cell_gradient_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cell centered Gradient in the x dimension. Has neumann boundary
 conditions.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.edgeCurl">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">edgeCurl</code><a class="headerlink" href="#discretize.operators.DiffOperators.edgeCurl" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">edgeCurl</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.edgeCurl" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>edgeCurl</cite> has been deprecated. See <cite>edge_curl</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.edge_curl">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">edge_curl</code><a class="headerlink" href="#discretize.operators.DiffOperators.edge_curl" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">edge_curl</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.edge_curl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the 3D curl operator.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.faceDiv">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">faceDiv</code><a class="headerlink" href="#discretize.operators.DiffOperators.faceDiv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">faceDiv</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.faceDiv" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>faceDiv</cite> has been deprecated. See <cite>face_divergence</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.faceDivx">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">faceDivx</code><a class="headerlink" href="#discretize.operators.DiffOperators.faceDivx" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">faceDivx</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.faceDivx" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>faceDivx</cite> has been deprecated. See <cite>face_x_divergence</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.faceDivy">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">faceDivy</code><a class="headerlink" href="#discretize.operators.DiffOperators.faceDivy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">faceDivy</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.faceDivy" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>faceDivy</cite> has been deprecated. See <cite>face_y_divergence</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.faceDivz">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">faceDivz</code><a class="headerlink" href="#discretize.operators.DiffOperators.faceDivz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">faceDivz</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.faceDivz" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>faceDivz</cite> has been deprecated. See <cite>face_z_divergence</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.face_divergence">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">face_divergence</code><a class="headerlink" href="#discretize.operators.DiffOperators.face_divergence" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">face_divergence</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.face_divergence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct divergence operator (face-stg to cell-centres).</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.face_x_divergence">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">face_x_divergence</code><a class="headerlink" href="#discretize.operators.DiffOperators.face_x_divergence" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">face_x_divergence</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.face_x_divergence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct divergence operator in the x component (face-stg to
 cell-centres).</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.face_y_divergence">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">face_y_divergence</code><a class="headerlink" href="#discretize.operators.DiffOperators.face_y_divergence" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">face_y_divergence</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.face_y_divergence" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.face_z_divergence">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">face_z_divergence</code><a class="headerlink" href="#discretize.operators.DiffOperators.face_z_divergence" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">face_z_divergence</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.face_z_divergence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct divergence operator in the z component (face-stg to
 cell-centers).</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.nodalGrad">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">nodalGrad</code><a class="headerlink" href="#discretize.operators.DiffOperators.nodalGrad" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">nodalGrad</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.nodalGrad" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>nodalGrad</cite> has been deprecated. See <cite>nodal_gradient</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.nodalLaplacian">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">nodalLaplacian</code><a class="headerlink" href="#discretize.operators.DiffOperators.nodalLaplacian" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">nodalLaplacian</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.nodalLaplacian" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>nodalLaplacian</cite> has been deprecated. See <cite>nodal_laplacian</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.nodal_gradient">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">nodal_gradient</code><a class="headerlink" href="#discretize.operators.DiffOperators.nodal_gradient" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">nodal_gradient</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.nodal_gradient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct gradient operator (nodes to edges).</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.nodal_laplacian">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">nodal_laplacian</code><a class="headerlink" href="#discretize.operators.DiffOperators.nodal_laplacian" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">nodal_laplacian</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.nodal_laplacian" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct laplacian operator (nodes to edges).</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.stencil_cell_gradient">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">stencil_cell_gradient</code><a class="headerlink" href="#discretize.operators.DiffOperators.stencil_cell_gradient" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">stencil_cell_gradient</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.stencil_cell_gradient" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.stencil_cell_gradient_x">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">stencil_cell_gradient_x</code><a class="headerlink" href="#discretize.operators.DiffOperators.stencil_cell_gradient_x" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">stencil_cell_gradient_x</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.stencil_cell_gradient_x" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.stencil_cell_gradient_y">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">stencil_cell_gradient_y</code><a class="headerlink" href="#discretize.operators.DiffOperators.stencil_cell_gradient_y" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">stencil_cell_gradient_y</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.stencil_cell_gradient_y" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.stencil_cell_gradient_z">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">stencil_cell_gradient_z</code><a class="headerlink" href="#discretize.operators.DiffOperators.stencil_cell_gradient_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">stencil_cell_gradient_z</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.stencil_cell_gradient_z" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -737,19 +740,19 @@ cell-centers).</p>
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <dl class="py method">
 <dt id="discretize.operators.DiffOperators.getBCProjWF">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">getBCProjWF</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.operators.DiffOperators.getBCProjWF" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">getBCProjWF</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.operators.DiffOperators.getBCProjWF" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>getBCProjWF</cite> has been deprecated. See <cite>get_BC_projections</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.operators.DiffOperators.getBCProjWF_simple">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">getBCProjWF_simple</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.operators.DiffOperators.getBCProjWF_simple" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">getBCProjWF_simple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.operators.DiffOperators.getBCProjWF_simple" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>getBCProjWF_simple</cite> has been deprecated. See <cite>get_BC_projections_simple</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.operators.DiffOperators.get_BC_projections">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">get_BC_projections</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">BC</span></em>, <em class="sig-param"><span class="n">discretization</span><span class="o">=</span><span class="default_value">'CC'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/differential_operators.html#DiffOperators.get_BC_projections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.operators.DiffOperators.get_BC_projections" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">get_BC_projections</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">BC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discretization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CC'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/differential_operators.html#DiffOperators.get_BC_projections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.operators.DiffOperators.get_BC_projections" title="Permalink to this definition">¶</a></dt>
 <dd><p>The weak form boundary condition projection matrices.</p>
 <p class="rubric">Examples</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Neumann in all directions</span>
@@ -766,20 +769,20 @@ cell-centers).</p>
 
 <dl class="py method">
 <dt id="discretize.operators.DiffOperators.get_BC_projections_simple">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">get_BC_projections_simple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">discretization</span><span class="o">=</span><span class="default_value">'CC'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/differential_operators.html#DiffOperators.get_BC_projections_simple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.operators.DiffOperators.get_BC_projections_simple" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">get_BC_projections_simple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">discretization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CC'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/differential_operators.html#DiffOperators.get_BC_projections_simple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.operators.DiffOperators.get_BC_projections_simple" title="Permalink to this definition">¶</a></dt>
 <dd><p>The weak form boundary condition projection matrices
 when mixed boundary condition is used</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.operators.DiffOperators.setCellGradBC">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">setCellGradBC</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.operators.DiffOperators.setCellGradBC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">setCellGradBC</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.operators.DiffOperators.setCellGradBC" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>setCellGradBC</cite> has been deprecated. See <cite>set_cell_gradient_BC</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.operators.DiffOperators.set_cell_gradient_BC">
-<code class="sig-prename descclassname">DiffOperators.</code><code class="sig-name descname">set_cell_gradient_BC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">BC</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/differential_operators.html#DiffOperators.set_cell_gradient_BC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.operators.DiffOperators.set_cell_gradient_BC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">set_cell_gradient_BC</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">BC</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/differential_operators.html#DiffOperators.set_cell_gradient_BC"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.operators.DiffOperators.set_cell_gradient_BC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function that sets the boundary conditions for cell-centred derivative
 operators.</p>
 <p class="rubric">Examples</p>
@@ -802,16 +805,10 @@ BC = [[‘neumann’, ‘dirichlet’], ‘dirichlet’, ‘dirichlet’]</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="discretize.operators.InnerProducts.html" class="btn btn-neutral float-right" title="discretize.operators.InnerProducts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="discretize.tree_mesh.TreeCell.html" class="btn btn-neutral float-left" title="discretize.tree_mesh.TreeCell" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="discretize.operators.InnerProducts.html" class="btn btn-neutral float-right" title="discretize.operators.InnerProducts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="discretize.tree_mesh.TreeCell.html" class="btn btn-neutral float-left" title="discretize.tree_mesh.TreeCell" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
@@ -823,9 +820,9 @@ BC = [[‘neumann’, ‘dirichlet’], ‘dirichlet’, ‘dirichlet’]</p>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
 <div role="contentinfo">
@@ -851,7 +848,6 @@ Built with
 
 
 </footer>
-
         </div>
       </div>
 

@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>discretize.base.base_mesh &mdash; discretize 0.6.2 documentation</title>
+  <title>discretize.base.base_mesh &mdash; discretize 0.6.3 documentation</title>
   
 
   
@@ -17,12 +17,16 @@
   <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
     <link rel="shortcut icon" href="../../../_static/logo-block.ico"/>
   
+
   
+  
+
   
 
   
@@ -35,10 +39,7 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -76,7 +77,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> discretize
+            <a href="../../../index.html" class="icon icon-home"> discretize
           
 
           
@@ -86,7 +87,7 @@
             
             
               <div class="version">
-                0.6.2
+                0.6.3
               </div>
             
           
@@ -200,6 +201,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -241,7 +244,7 @@
 <span class="kn">import</span> <span class="nn">warnings</span>
 
 
-<div class="viewcode-block" id="BaseMesh"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseMesh.html#discretize.BaseMesh">[docs]</a><span class="k">class</span> <span class="nc">BaseMesh</span><span class="p">(</span><span class="n">properties</span><span class="o">.</span><span class="n">HasProperties</span><span class="p">,</span> <span class="n">InterfaceMixins</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseMesh"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseMesh.html#discretize.base.BaseMesh">[docs]</a><span class="k">class</span> <span class="nc">BaseMesh</span><span class="p">(</span><span class="n">properties</span><span class="o">.</span><span class="n">HasProperties</span><span class="p">,</span> <span class="n">InterfaceMixins</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    BaseMesh does all the counting you don&#39;t want to do.</span>
 <span class="sd">    BaseMesh should be inherited by meshes with a regular structure.</span>
@@ -310,7 +313,7 @@
     <span class="k">def</span> <span class="nf">x0</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="n">val</span>
 
-<div class="viewcode-block" id="BaseMesh.deserialize"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseMesh.html#discretize.BaseMesh.deserialize">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="BaseMesh.deserialize"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseMesh.html#discretize.base.BaseMesh.deserialize">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">deserialize</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="s2">&quot;x0&quot;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
             <span class="n">value</span><span class="p">[</span><span class="s2">&quot;origin&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;x0&quot;</span><span class="p">)</span>
@@ -671,7 +674,7 @@
             <span class="p">]</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">tX</span><span class="p">,</span> <span class="n">tY</span><span class="p">,</span> <span class="n">tZ</span><span class="p">]</span>
 
-<div class="viewcode-block" id="BaseMesh.project_face_vector"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseMesh.html#discretize.BaseMesh.project_face_vector">[docs]</a>    <span class="k">def</span> <span class="nf">project_face_vector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">face_vector</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseMesh.project_face_vector"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseMesh.html#discretize.base.BaseMesh.project_face_vector">[docs]</a>    <span class="k">def</span> <span class="nf">project_face_vector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">face_vector</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Project vectors onto the faces of the mesh.</span>
 
 <span class="sd">        Given a vector, face_vector, in cartesian coordinates, this will project</span>
@@ -698,7 +701,7 @@
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;face_vector must be an ndarray of shape (n_faces x dim)&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">face_vector</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">face_normals</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="BaseMesh.project_edge_vector"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseMesh.html#discretize.BaseMesh.project_edge_vector">[docs]</a>    <span class="k">def</span> <span class="nf">project_edge_vector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">edge_vector</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseMesh.project_edge_vector"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseMesh.html#discretize.base.BaseMesh.project_edge_vector">[docs]</a>    <span class="k">def</span> <span class="nf">project_edge_vector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">edge_vector</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Project vectors onto the edges of the mesh</span>
 
 <span class="sd">        Given a vector, edge_vector, in cartesian coordinates, this will project</span>
@@ -725,7 +728,7 @@
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;edge_vector must be an ndarray of shape (nE x dim)&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">edge_vector</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">edge_tangents</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="BaseMesh.save"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseMesh.html#discretize.BaseMesh.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;mesh.json&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseMesh.save"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseMesh.html#discretize.base.BaseMesh.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;mesh.json&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Save the mesh to json</span>
 <span class="sd">        :param str file: file_name for saving the casing properties</span>
@@ -748,7 +751,7 @@
 
         <span class="k">return</span> <span class="n">f</span></div>
 
-<div class="viewcode-block" id="BaseMesh.copy"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseMesh.html#discretize.BaseMesh.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseMesh.copy"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseMesh.html#discretize.base.BaseMesh.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Make a copy of the current mesh</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -876,7 +879,7 @@
     <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="BaseRectangularMesh"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseRectangularMesh.html#discretize.BaseRectangularMesh">[docs]</a><span class="k">class</span> <span class="nc">BaseRectangularMesh</span><span class="p">(</span><span class="n">BaseMesh</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseRectangularMesh"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseRectangularMesh.html#discretize.base.BaseRectangularMesh">[docs]</a><span class="k">class</span> <span class="nc">BaseRectangularMesh</span><span class="p">(</span><span class="n">BaseMesh</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    BaseRectangularMesh</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1073,7 +1076,7 @@
             <span class="k">return</span>
         <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_faces_z</span><span class="p">))</span>
 
-<div class="viewcode-block" id="BaseRectangularMesh.reshape"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseRectangularMesh.html#discretize.BaseRectangularMesh.reshape">[docs]</a>    <span class="k">def</span> <span class="nf">reshape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x_type</span><span class="o">=</span><span class="s2">&quot;cell_centers&quot;</span><span class="p">,</span> <span class="n">out_type</span><span class="o">=</span><span class="s2">&quot;cell_centers&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseRectangularMesh.reshape"><a class="viewcode-back" href="../../../api/generated/discretize.base.BaseRectangularMesh.html#discretize.base.BaseRectangularMesh.reshape">[docs]</a>    <span class="k">def</span> <span class="nf">reshape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x_type</span><span class="o">=</span><span class="s2">&quot;cell_centers&quot;</span><span class="p">,</span> <span class="n">out_type</span><span class="o">=</span><span class="s2">&quot;cell_centers&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;A quick reshape command that will do the best it</span>
 <span class="sd">        can at giving you what you want.</span>
 
@@ -1382,7 +1385,6 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
@@ -1394,9 +1396,9 @@
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
 <div role="contentinfo">
@@ -1422,7 +1424,6 @@ Built with
 
 
 </footer>
-
         </div>
       </div>
 

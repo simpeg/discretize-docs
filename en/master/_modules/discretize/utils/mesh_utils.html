@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>discretize.utils.mesh_utils &mdash; discretize 0.6.2 documentation</title>
+  <title>discretize.utils.mesh_utils &mdash; discretize 0.6.3 documentation</title>
   
 
   
@@ -17,12 +17,16 @@
   <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
     <link rel="shortcut icon" href="../../../_static/logo-block.ico"/>
   
+
   
+  
+
   
 
   
@@ -35,10 +39,7 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -76,7 +77,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> discretize
+            <a href="../../../index.html" class="icon icon-home"> discretize
           
 
           
@@ -86,7 +87,7 @@
             
             
               <div class="version">
-                0.6.2
+                0.6.3
               </div>
             
           
@@ -183,6 +184,8 @@
         <div class="rst-content">
         
           
+
+
 
 
 
@@ -786,41 +789,26 @@
 
     <span class="k">else</span><span class="p">:</span>
         <span class="n">octree_levels_padding</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">)</span>
-
-    <span class="c1"># Prime the refinement against large cells</span>
-    <span class="n">mesh</span><span class="o">.</span><span class="n">insert_cells</span><span class="p">(</span>
-        <span class="n">xyz</span><span class="p">,</span>
-        <span class="p">[</span><span class="n">mesh</span><span class="o">.</span><span class="n">max_level</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">*</span> <span class="n">xyz</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">finalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="p">)</span>
+    <span class="n">octree_levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">)</span>
+    <span class="n">octree_levels_padding</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">octree_levels_padding</span><span class="p">)</span>
 
     <span class="c1"># Trigger different refine methods</span>
     <span class="k">if</span> <span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;radial&quot;</span><span class="p">:</span>
 
-        <span class="c1"># Build a cKDTree for fast nearest lookup</span>
-        <span class="n">tree</span> <span class="o">=</span> <span class="n">cKDTree</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span>
-
         <span class="c1"># Compute the outer limits of each octree level</span>
         <span class="n">rMax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span>
             <span class="n">mesh</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-            <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">)</span>
+            <span class="o">*</span> <span class="n">octree_levels</span>
             <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">))</span>
         <span class="p">)</span>
-
-        <span class="c1"># Radial function</span>
-        <span class="k">def</span> <span class="nf">inBall</span><span class="p">(</span><span class="n">cell</span><span class="p">):</span>
-            <span class="n">xyz</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">center</span>
-            <span class="n">r</span><span class="p">,</span> <span class="n">ind</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span>
-
-            <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="n">nC</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">):</span>
-
-                <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">rMax</span><span class="p">[</span><span class="n">ii</span><span class="p">]:</span>
-
-                    <span class="k">return</span> <span class="n">mesh</span><span class="o">.</span><span class="n">max_level</span> <span class="o">-</span> <span class="n">ii</span>
-
-            <span class="k">return</span> <span class="n">min_level</span>
-
-        <span class="n">mesh</span><span class="o">.</span><span class="n">refine</span><span class="p">(</span><span class="n">inBall</span><span class="p">,</span> <span class="n">finalize</span><span class="o">=</span><span class="n">finalize</span><span class="p">)</span>
+        <span class="n">rs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">xyz</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">xyz</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="n">nC</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">):</span>
+            <span class="c1"># skip &quot;zero&quot; sized balls</span>
+            <span class="k">if</span> <span class="n">rMax</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">mesh</span><span class="o">.</span><span class="n">refine_ball</span><span class="p">(</span><span class="n">xyz</span><span class="p">,</span> <span class="n">rs</span><span class="o">*</span><span class="n">rMax</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">level</span><span class="o">*</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">max_level</span> <span class="o">-</span> <span class="n">ii</span><span class="p">),</span> <span class="n">finalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">finalize</span><span class="p">:</span>
+            <span class="n">mesh</span><span class="o">.</span><span class="n">finalize</span><span class="p">()</span>
 
     <span class="k">elif</span> <span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;surface&quot;</span><span class="p">:</span>
 
@@ -842,13 +830,13 @@
 
         <span class="c1"># Compute maximum depth of refinement</span>
         <span class="n">zmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span>
-            <span class="n">hz</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">))</span>
+            <span class="n">hz</span> <span class="o">*</span> <span class="n">octree_levels</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">))</span>
         <span class="p">)</span>
 
         <span class="c1"># Compute maximum horizontal padding offset</span>
         <span class="n">padWidth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span>
             <span class="n">mesh</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-            <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">octree_levels_padding</span><span class="p">)</span>
+            <span class="o">*</span> <span class="n">octree_levels_padding</span>
             <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">octree_levels_padding</span><span class="p">))</span>
         <span class="p">)</span>
 
@@ -936,90 +924,50 @@
             <span class="n">mesh</span><span class="o">.</span><span class="n">finalize</span><span class="p">()</span>
 
     <span class="k">elif</span> <span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;box&quot;</span><span class="p">:</span>
-
         <span class="c1"># Define the data extent [bottom SW, top NE]</span>
         <span class="n">bsw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">xyz</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">tne</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">xyz</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-        <span class="n">hx</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="n">hs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">h</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">mesh</span><span class="o">.</span><span class="n">h</span><span class="p">])</span>
+        <span class="n">hx</span> <span class="o">=</span> <span class="n">hs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">hz</span> <span class="o">=</span> <span class="n">hs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="n">hz</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">hz</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-
-        <span class="c1"># Pre-calculate max depth of each level</span>
-        <span class="n">zmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span>
-            <span class="n">hz</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">))</span>
+        <span class="c1"># Pre-calculate outer extent of each level</span>
+        <span class="c1"># x_pad</span>
+        <span class="n">padWidth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span>
+            <span class="n">hx</span>
+            <span class="o">*</span> <span class="n">octree_levels_padding</span>
+            <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">))</span>
         <span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="c1"># Pre-calculate outer extent of each level</span>
-            <span class="n">padWidth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span>
-                <span class="n">mesh</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-                <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">octree_levels_padding</span><span class="p">)</span>
-                <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">octree_levels_padding</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="c1"># y_pad</span>
+            <span class="n">hy</span> <span class="o">=</span> <span class="n">hs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">padWidth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span>
+                <span class="n">padWidth</span><span class="p">,</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span>
+                    <span class="n">hy</span>
+                    <span class="o">*</span> <span class="n">octree_levels_padding</span>
+                    <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">))</span>
+                <span class="p">)</span>
+            <span class="p">]</span>
+        <span class="c1"># Pre-calculate max depth of each level</span>
+        <span class="n">padWidth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span>
+            <span class="n">padWidth</span><span class="p">,</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span>
+                <span class="n">hz</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">octree_levels</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">))</span>
             <span class="p">)</span>
+        <span class="p">]</span>
 
-            <span class="c1"># Make a list of outer limits</span>
-            <span class="n">BSW</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">bsw</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">padWidth</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">zmax</span><span class="p">[</span><span class="n">ii</span><span class="p">]]</span>
-                <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="p">(</span><span class="n">octZ</span><span class="p">,</span> <span class="n">octXY</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
-                    <span class="nb">zip</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">,</span> <span class="n">octree_levels_padding</span><span class="p">)</span>
-                <span class="p">)</span>
-            <span class="p">]</span>
+        <span class="n">levels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">BSW</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">TNE</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="n">octZ</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">octZ</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">levels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">max_level</span> <span class="o">-</span> <span class="n">ii</span><span class="p">)</span>
+                <span class="n">BSW</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bsw</span> <span class="o">-</span> <span class="n">padWidth</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
+                <span class="n">TNE</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tne</span> <span class="o">+</span> <span class="n">padWidth</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
 
-            <span class="n">TNE</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">tne</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">padWidth</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">zmax</span><span class="p">[</span><span class="n">ii</span><span class="p">]]</span>
-                <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="p">(</span><span class="n">octZ</span><span class="p">,</span> <span class="n">octXY</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
-                    <span class="nb">zip</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">,</span> <span class="n">octree_levels_padding</span><span class="p">)</span>
-                <span class="p">)</span>
-            <span class="p">]</span>
-
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">hy</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-
-            <span class="c1"># Pre-calculate outer X extent of each level</span>
-            <span class="n">padWidth_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span>
-                <span class="n">hx</span>
-                <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">octree_levels_padding</span><span class="p">)</span>
-                <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">octree_levels_padding</span><span class="p">))</span>
-            <span class="p">)</span>
-
-            <span class="c1"># Pre-calculate outer Y extent of each level</span>
-            <span class="n">padWidth_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span>
-                <span class="n">hy</span>
-                <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">octree_levels_padding</span><span class="p">)</span>
-                <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">octree_levels_padding</span><span class="p">))</span>
-            <span class="p">)</span>
-
-            <span class="c1"># Make a list of outer limits</span>
-            <span class="n">BSW</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">bsw</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">padWidth_x</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">padWidth_y</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">zmax</span><span class="p">[</span><span class="n">ii</span><span class="p">]]</span>
-                <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="p">(</span><span class="n">octZ</span><span class="p">,</span> <span class="n">octXY</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
-                    <span class="nb">zip</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">,</span> <span class="n">octree_levels_padding</span><span class="p">)</span>
-                <span class="p">)</span>
-            <span class="p">]</span>
-
-            <span class="n">TNE</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">tne</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">padWidth_x</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">padWidth_y</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">zmax</span><span class="p">[</span><span class="n">ii</span><span class="p">]]</span>
-                <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="p">(</span><span class="n">octZ</span><span class="p">,</span> <span class="n">octXY</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
-                    <span class="nb">zip</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">,</span> <span class="n">octree_levels_padding</span><span class="p">)</span>
-                <span class="p">)</span>
-            <span class="p">]</span>
-
-        <span class="k">def</span> <span class="nf">inBox</span><span class="p">(</span><span class="n">cell</span><span class="p">):</span>
-
-            <span class="n">xyz</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">center</span>
-
-            <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="p">(</span><span class="n">nC</span><span class="p">,</span> <span class="n">bsw</span><span class="p">,</span> <span class="n">tne</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">octree_levels</span><span class="p">,</span> <span class="n">BSW</span><span class="p">,</span> <span class="n">TNE</span><span class="p">)):</span>
-
-                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">([</span><span class="n">xyz</span> <span class="o">&gt;</span> <span class="n">bsw</span><span class="p">,</span> <span class="n">xyz</span> <span class="o">&lt;</span> <span class="n">tne</span><span class="p">]):</span>
-                    <span class="k">return</span> <span class="n">mesh</span><span class="o">.</span><span class="n">max_level</span> <span class="o">-</span> <span class="n">ii</span>
-
-            <span class="k">return</span> <span class="n">cell</span><span class="o">.</span><span class="n">_level</span>
-
-        <span class="n">mesh</span><span class="o">.</span><span class="n">refine</span><span class="p">(</span><span class="n">inBox</span><span class="p">,</span> <span class="n">finalize</span><span class="o">=</span><span class="n">finalize</span><span class="p">)</span>
+        <span class="n">mesh</span><span class="o">.</span><span class="n">refine_box</span><span class="p">(</span><span class="n">BSW</span><span class="p">,</span> <span class="n">TNE</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">finalize</span><span class="o">=</span><span class="n">finalize</span><span class="p">)</span>
 
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
@@ -1226,7 +1174,6 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
@@ -1238,9 +1185,9 @@
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
 <div role="contentinfo">
@@ -1266,7 +1213,6 @@ Built with
 
 
 </footer>
-
         </div>
       </div>
 

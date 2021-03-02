@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>discretize.mixins.vtk_mod &mdash; discretize 0.6.2 documentation</title>
+  <title>discretize.mixins.vtk_mod &mdash; discretize 0.6.3 documentation</title>
   
 
   
@@ -17,12 +17,16 @@
   <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
     <link rel="shortcut icon" href="../../../_static/logo-block.ico"/>
   
+
   
+  
+
   
 
   
@@ -35,10 +39,7 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -76,7 +77,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> discretize
+            <a href="../../../index.html" class="icon icon-home"> discretize
           
 
           
@@ -86,7 +87,7 @@
             
             
               <div class="version">
-                0.6.2
+                0.6.3
               </div>
             
           
@@ -183,6 +184,8 @@
         <div class="rst-content">
         
           
+
+
 
 
 
@@ -325,7 +328,7 @@
     <span class="k">return</span> <span class="n">vtkDS</span>
 
 
-<div class="viewcode-block" id="InterfaceVTK"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.vtk_mod.InterfaceVTK.html#discretize.InterfaceVTK">[docs]</a><span class="k">class</span> <span class="nc">InterfaceVTK</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="InterfaceVTK"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.vtk_mod.InterfaceVTK.html#discretize.mixins.vtk_mod.InterfaceVTK">[docs]</a><span class="k">class</span> <span class="nc">InterfaceVTK</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;This class is full of methods that enable ``discretize`` meshes to</span>
 <span class="sd">    be converted to VTK data objects (and back when possible). This is</span>
 <span class="sd">    inherritted by the :class:`discretize.BaseMesh.BaseMesh` class so all these</span>
@@ -576,7 +579,7 @@
             <span class="s2">&quot;`CylindricalMesh`s are not currently supported for VTK conversion.&quot;</span>
         <span class="p">)</span>
 
-<div class="viewcode-block" id="InterfaceVTK.to_vtk"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.vtk_mod.InterfaceVTK.html#discretize.InterfaceVTK.to_vtk">[docs]</a>    <span class="k">def</span> <span class="nf">to_vtk</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">models</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="InterfaceVTK.to_vtk"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.vtk_mod.InterfaceVTK.html#discretize.mixins.vtk_mod.InterfaceVTK.to_vtk">[docs]</a>    <span class="k">def</span> <span class="nf">to_vtk</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">models</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Convert this mesh object to it&#39;s proper VTK or ``pyvista`` data</span>
 <span class="sd">        object with the given model dictionary as the cell data of that dataset.</span>
 
@@ -615,7 +618,7 @@
             <span class="p">)</span>
         <span class="k">return</span> <span class="n">cvtd</span></div>
 
-<div class="viewcode-block" id="InterfaceVTK.toVTK"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.vtk_mod.InterfaceVTK.html#discretize.InterfaceVTK.toVTK">[docs]</a>    <span class="k">def</span> <span class="nf">toVTK</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">models</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="InterfaceVTK.toVTK"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.vtk_mod.InterfaceVTK.html#discretize.mixins.vtk_mod.InterfaceVTK.toVTK">[docs]</a>    <span class="k">def</span> <span class="nf">toVTK</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">models</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Convert this mesh object to it&#39;s proper VTK or ``pyvista`` data</span>
 <span class="sd">        object with the given model dictionary as the cell data of that dataset.</span>
 
@@ -744,7 +747,7 @@
         <span class="n">vtrWriteFilter</span><span class="o">.</span><span class="n">SetFileName</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
         <span class="n">vtrWriteFilter</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 
-<div class="viewcode-block" id="InterfaceVTK.writeVTK"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.vtk_mod.InterfaceVTK.html#discretize.InterfaceVTK.writeVTK">[docs]</a>    <span class="k">def</span> <span class="nf">writeVTK</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">models</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="InterfaceVTK.writeVTK"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.vtk_mod.InterfaceVTK.html#discretize.mixins.vtk_mod.InterfaceVTK.writeVTK">[docs]</a>    <span class="k">def</span> <span class="nf">writeVTK</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">models</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Makes and saves a VTK object from this mesh and given models</span>
 
 <span class="sd">        Parameters</span>
@@ -774,7 +777,7 @@
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;VTK data type `</span><span class="si">%s</span><span class="s2">` is not currently supported.&quot;</span> <span class="o">%</span> <span class="n">key</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">write</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">vtkObj</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">directory</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="InterfaceVTK.write_vtk"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.vtk_mod.InterfaceVTK.html#discretize.InterfaceVTK.write_vtk">[docs]</a>    <span class="k">def</span> <span class="nf">write_vtk</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">models</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="InterfaceVTK.write_vtk"><a class="viewcode-back" href="../../../api/generated/discretize.mixins.vtk_mod.InterfaceVTK.html#discretize.mixins.vtk_mod.InterfaceVTK.write_vtk">[docs]</a>    <span class="k">def</span> <span class="nf">write_vtk</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">models</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Makes and saves a VTK object from this mesh and given models</span>
 
 <span class="sd">        Parameters</span>
@@ -896,7 +899,6 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
@@ -908,9 +910,9 @@
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
 <div role="contentinfo">
@@ -936,7 +938,6 @@ Built with
 
 
 </footer>
-
         </div>
       </div>
 

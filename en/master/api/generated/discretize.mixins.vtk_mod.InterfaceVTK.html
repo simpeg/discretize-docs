@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>discretize.mixins.vtk_mod.InterfaceVTK &mdash; discretize 0.6.2 documentation</title>
+  <title>discretize.mixins.vtk_mod.InterfaceVTK &mdash; discretize 0.6.3 documentation</title>
   
 
   
@@ -17,12 +17,16 @@
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
     <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
   
+
   
+  
+
   
 
   
@@ -35,7 +39,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
@@ -78,7 +81,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> discretize
+            <a href="../../index.html" class="icon icon-home"> discretize
           
 
           
@@ -88,7 +91,7 @@
             
             
               <div class="version">
-                0.6.2
+                0.6.3
               </div>
             
           
@@ -220,6 +223,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -280,7 +285,7 @@
 <h1>discretize.mixins.vtk_mod.InterfaceVTK<a class="headerlink" href="#discretize-mixins-vtk-mod-interfacevtk" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="discretize.mixins.vtk_mod.InterfaceVTK">
-<em class="property">class </em><code class="sig-prename descclassname">discretize.mixins.vtk_mod.</code><code class="sig-name descname">InterfaceVTK</code><a class="reference internal" href="../../_modules/discretize/mixins/vtk_mod.html#InterfaceVTK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtk_mod.InterfaceVTK" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">discretize.mixins.vtk_mod.</span></code><code class="sig-name descname"><span class="pre">InterfaceVTK</span></code><a class="reference internal" href="../../_modules/discretize/mixins/vtk_mod.html#InterfaceVTK"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.mixins.vtk_mod.InterfaceVTK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This class is full of methods that enable <code class="docutils literal notranslate"><span class="pre">discretize</span></code> meshes to
 be converted to VTK data objects (and back when possible). This is
@@ -308,9 +313,9 @@ VTK data objects or write VTK files.</p>
 traditional &lt;X,Y,Z&gt; system with vectors of <span class="math notranslate nohighlight">\((1,0,0)\)</span>, <span class="math notranslate nohighlight">\((0,1,0)\)</span>,
 and <span class="math notranslate nohighlight">\((0,0,1)\)</span>, then the mesh will be rotated to be on the traditional
 reference frame. The previous example snippet provides a
-<a class="reference external" href="https://docs.pyvista.org/core/grids.html#pyvista.RectilinearGrid" title="(in PyVista v0.27.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> object because that tensor mesh lies on the
+<a class="reference external" href="https://docs.pyvista.org/core/grids.html#pyvista.RectilinearGrid" title="(in PyVista v0.28.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> object because that tensor mesh lies on the
 traditional reference frame. If we alter the reference frame, then we yield
-a <a class="reference external" href="https://docs.pyvista.org/core/point-grids.html#pyvista.StructuredGrid" title="(in PyVista v0.27.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> that is the same mesh rotated in space.</p>
+a <a class="reference external" href="https://docs.pyvista.org/core/point-grids.html#pyvista.StructuredGrid" title="(in PyVista v0.28.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> that is the same mesh rotated in space.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Defined a rotated reference frame</span>
 <span class="n">mesh</span><span class="o">.</span><span class="n">axis_u</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">mesh</span><span class="o">.</span><span class="n">axis_v</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
@@ -325,8 +330,8 @@ a <a class="reference external" href="https://docs.pyvista.org/core/point-grids.
 <span class="n">mesh</span><span class="o">.</span><span class="n">writeVTK</span><span class="p">(</span><span class="s1">&#39;sample_rotated&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The two above code snippets produce a <a class="reference external" href="https://docs.pyvista.org/core/grids.html#pyvista.RectilinearGrid" title="(in PyVista v0.27.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> and a
-<a class="reference external" href="https://docs.pyvista.org/core/point-grids.html#pyvista.StructuredGrid" title="(in PyVista v0.27.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> respecitvely. To demonstarte the difference, we
+<p>The two above code snippets produce a <a class="reference external" href="https://docs.pyvista.org/core/grids.html#pyvista.RectilinearGrid" title="(in PyVista v0.28.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> and a
+<a class="reference external" href="https://docs.pyvista.org/core/point-grids.html#pyvista.StructuredGrid" title="(in PyVista v0.28.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> respecitvely. To demonstarte the difference, we
 have plotted the two datasets next to eachother where the first mesh is in
 green and its data axes are parrallel to the traditional cartesian reference
 frame. The second, rotated mesh is shown in red and its data axii are
@@ -373,7 +378,7 @@ rotated from the traditional cartesian refence frame as specified by the
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <dl class="py method">
 <dt id="discretize.mixins.vtk_mod.InterfaceVTK.toVTK">
-<code class="sig-prename descclassname">InterfaceVTK.</code><code class="sig-name descname">toVTK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtk_mod.html#InterfaceVTK.toVTK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtk_mod.InterfaceVTK.toVTK" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">InterfaceVTK.</span></code><code class="sig-name descname"><span class="pre">toVTK</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtk_mod.html#InterfaceVTK.toVTK"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.mixins.vtk_mod.InterfaceVTK.toVTK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data
 object with the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
@@ -388,7 +393,7 @@ object with the given model dictionary as the cell data of that dataset.</p>
 
 <dl class="py method">
 <dt id="discretize.mixins.vtk_mod.InterfaceVTK.to_vtk">
-<code class="sig-prename descclassname">InterfaceVTK.</code><code class="sig-name descname">to_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtk_mod.html#InterfaceVTK.to_vtk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtk_mod.InterfaceVTK.to_vtk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">InterfaceVTK.</span></code><code class="sig-name descname"><span class="pre">to_vtk</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtk_mod.html#InterfaceVTK.to_vtk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.mixins.vtk_mod.InterfaceVTK.to_vtk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert this mesh object to it’s proper VTK or <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> data
 object with the given model dictionary as the cell data of that dataset.</p>
 <dl class="field-list simple">
@@ -403,7 +408,7 @@ object with the given model dictionary as the cell data of that dataset.</p>
 
 <dl class="py method">
 <dt id="discretize.mixins.vtk_mod.InterfaceVTK.writeVTK">
-<code class="sig-prename descclassname">InterfaceVTK.</code><code class="sig-name descname">writeVTK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtk_mod.html#InterfaceVTK.writeVTK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtk_mod.InterfaceVTK.writeVTK" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">InterfaceVTK.</span></code><code class="sig-name descname"><span class="pre">writeVTK</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtk_mod.html#InterfaceVTK.writeVTK"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.mixins.vtk_mod.InterfaceVTK.writeVTK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes and saves a VTK object from this mesh and given models</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -421,7 +426,7 @@ object with the given model dictionary as the cell data of that dataset.</p>
 
 <dl class="py method">
 <dt id="discretize.mixins.vtk_mod.InterfaceVTK.write_vtk">
-<code class="sig-prename descclassname">InterfaceVTK.</code><code class="sig-name descname">write_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtk_mod.html#InterfaceVTK.write_vtk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.mixins.vtk_mod.InterfaceVTK.write_vtk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">InterfaceVTK.</span></code><code class="sig-name descname"><span class="pre">write_vtk</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/mixins/vtk_mod.html#InterfaceVTK.write_vtk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.mixins.vtk_mod.InterfaceVTK.write_vtk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes and saves a VTK object from this mesh and given models</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -445,16 +450,10 @@ object with the given model dictionary as the cell data of that dataset.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="discretize.tests.OrderTest.html" class="btn btn-neutral float-right" title="discretize.tests.OrderTest" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="discretize.mixins.mpl_mod.Slicer.html" class="btn btn-neutral float-left" title="discretize.mixins.mpl_mod.Slicer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="discretize.tests.OrderTest.html" class="btn btn-neutral float-right" title="discretize.tests.OrderTest" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="discretize.mixins.mpl_mod.Slicer.html" class="btn btn-neutral float-left" title="discretize.mixins.mpl_mod.Slicer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
@@ -466,9 +465,9 @@ object with the given model dictionary as the cell data of that dataset.</p>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
 <div role="contentinfo">
@@ -494,7 +493,6 @@ Built with
 
 
 </footer>
-
         </div>
       </div>
 

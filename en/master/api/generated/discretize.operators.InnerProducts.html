@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>discretize.operators.InnerProducts &mdash; discretize 0.6.2 documentation</title>
+  <title>discretize.operators.InnerProducts &mdash; discretize 0.6.3 documentation</title>
   
 
   
@@ -17,12 +17,16 @@
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
 
   
   
     <link rel="shortcut icon" href="../../_static/logo-block.ico"/>
   
+
   
+  
+
   
 
   
@@ -35,10 +39,7 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -78,7 +79,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> discretize
+            <a href="../../index.html" class="icon icon-home"> discretize
           
 
           
@@ -88,7 +89,7 @@
             
             
               <div class="version">
-                0.6.2
+                0.6.3
               </div>
             
           
@@ -220,6 +221,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -280,7 +283,7 @@
 <h1>discretize.operators.InnerProducts<a class="headerlink" href="#discretize-operators-innerproducts" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="discretize.operators.InnerProducts">
-<em class="property">class </em><code class="sig-prename descclassname">discretize.operators.</code><code class="sig-name descname">InnerProducts</code><a class="reference internal" href="../../_modules/discretize/operators/inner_products.html#InnerProducts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.operators.InnerProducts" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">discretize.operators.</span></code><code class="sig-name descname"><span class="pre">InnerProducts</span></code><a class="reference internal" href="../../_modules/discretize/operators/inner_products.html#InnerProducts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.operators.InnerProducts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This is a base for the discretize mesh classes.
 This mixIn creates the all the inner product matrices that you need!</p>
@@ -413,31 +416,31 @@ This mixIn creates the all the inner product matrices that you need!</p>
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <dl class="py method">
 <dt id="discretize.operators.InnerProducts.getEdgeInnerProduct">
-<code class="sig-prename descclassname">InnerProducts.</code><code class="sig-name descname">getEdgeInnerProduct</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.operators.InnerProducts.getEdgeInnerProduct" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">InnerProducts.</span></code><code class="sig-name descname"><span class="pre">getEdgeInnerProduct</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.operators.InnerProducts.getEdgeInnerProduct" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>getEdgeInnerProduct</cite> has been deprecated. See <cite>get_edge_inner_product</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.operators.InnerProducts.getEdgeInnerProductDeriv">
-<code class="sig-prename descclassname">InnerProducts.</code><code class="sig-name descname">getEdgeInnerProductDeriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.operators.InnerProducts.getEdgeInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">InnerProducts.</span></code><code class="sig-name descname"><span class="pre">getEdgeInnerProductDeriv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.operators.InnerProducts.getEdgeInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>getEdgeInnerProductDeriv</cite> has been deprecated. See <cite>get_edge_inner_product_deriv</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.operators.InnerProducts.getFaceInnerProduct">
-<code class="sig-prename descclassname">InnerProducts.</code><code class="sig-name descname">getFaceInnerProduct</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.operators.InnerProducts.getFaceInnerProduct" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">InnerProducts.</span></code><code class="sig-name descname"><span class="pre">getFaceInnerProduct</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.operators.InnerProducts.getFaceInnerProduct" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>getFaceInnerProduct</cite> has been deprecated. See <cite>get_face_inner_product</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.operators.InnerProducts.getFaceInnerProductDeriv">
-<code class="sig-prename descclassname">InnerProducts.</code><code class="sig-name descname">getFaceInnerProductDeriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.operators.InnerProducts.getFaceInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">InnerProducts.</span></code><code class="sig-name descname"><span class="pre">getFaceInnerProductDeriv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.operators.InnerProducts.getFaceInnerProductDeriv" title="Permalink to this definition">¶</a></dt>
 <dd><p><cite>getFaceInnerProductDeriv</cite> has been deprecated. See <cite>get_face_inner_product_deriv</cite> for documentation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discretize.operators.InnerProducts.get_edge_inner_product">
-<code class="sig-prename descclassname">InnerProducts.</code><code class="sig-name descname">get_edge_inner_product</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">invert_model</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invert_matrix</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">do_fast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/inner_products.html#InnerProducts.get_edge_inner_product"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.operators.InnerProducts.get_edge_inner_product" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">InnerProducts.</span></code><code class="sig-name descname"><span class="pre">get_edge_inner_product</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/inner_products.html#InnerProducts.get_edge_inner_product"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.operators.InnerProducts.get_edge_inner_product" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the edge inner product matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -463,7 +466,7 @@ This mixIn creates the all the inner product matrices that you need!</p>
 
 <dl class="py method">
 <dt id="discretize.operators.InnerProducts.get_edge_inner_product_deriv">
-<code class="sig-prename descclassname">InnerProducts.</code><code class="sig-name descname">get_edge_inner_product_deriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">do_fast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">invert_model</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invert_matrix</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/inner_products.html#InnerProducts.get_edge_inner_product_deriv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.operators.InnerProducts.get_edge_inner_product_deriv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">InnerProducts.</span></code><code class="sig-name descname"><span class="pre">get_edge_inner_product_deriv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/inner_products.html#InnerProducts.get_edge_inner_product_deriv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.operators.InnerProducts.get_edge_inner_product_deriv" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -488,7 +491,7 @@ This mixIn creates the all the inner product matrices that you need!</p>
 
 <dl class="py method">
 <dt id="discretize.operators.InnerProducts.get_face_inner_product">
-<code class="sig-prename descclassname">InnerProducts.</code><code class="sig-name descname">get_face_inner_product</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">invert_model</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invert_matrix</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">do_fast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/inner_products.html#InnerProducts.get_face_inner_product"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.operators.InnerProducts.get_face_inner_product" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">InnerProducts.</span></code><code class="sig-name descname"><span class="pre">get_face_inner_product</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/inner_products.html#InnerProducts.get_face_inner_product"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.operators.InnerProducts.get_face_inner_product" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the face inner product matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -514,7 +517,7 @@ This mixIn creates the all the inner product matrices that you need!</p>
 
 <dl class="py method">
 <dt id="discretize.operators.InnerProducts.get_face_inner_product_deriv">
-<code class="sig-prename descclassname">InnerProducts.</code><code class="sig-name descname">get_face_inner_product_deriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">do_fast</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">invert_model</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">invert_matrix</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/inner_products.html#InnerProducts.get_face_inner_product_deriv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#discretize.operators.InnerProducts.get_face_inner_product_deriv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">InnerProducts.</span></code><code class="sig-name descname"><span class="pre">get_face_inner_product_deriv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/inner_products.html#InnerProducts.get_face_inner_product_deriv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.operators.InnerProducts.get_face_inner_product_deriv" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -545,16 +548,10 @@ This mixIn creates the all the inner product matrices that you need!</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="discretize.load_mesh.html" class="btn btn-neutral float-right" title="discretize.load_mesh" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="discretize.operators.DiffOperators.html" class="btn btn-neutral float-left" title="discretize.operators.DiffOperators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="discretize.load_mesh.html" class="btn btn-neutral float-right" title="discretize.load_mesh" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="discretize.operators.DiffOperators.html" class="btn btn-neutral float-left" title="discretize.operators.DiffOperators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
@@ -566,9 +563,9 @@ This mixIn creates the all the inner product matrices that you need!</p>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
 <div role="contentinfo">
@@ -594,7 +591,6 @@ Built with
 
 
 </footer>
-
         </div>
       </div>
 
