@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>discretize.operators.DiffOperators &mdash; discretize 0.6.3 documentation</title>
+  <title>discretize.operators.DiffOperators &mdash; discretize 0.7.0 documentation</title>
   
 
   
@@ -40,6 +40,8 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -89,7 +91,7 @@
             
             
               <div class="version">
-                0.6.3
+                0.7.0
               </div>
             
           
@@ -283,12 +285,13 @@
 <h1>discretize.operators.DiffOperators<a class="headerlink" href="#discretize-operators-diffoperators" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="discretize.operators.DiffOperators">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">discretize.operators.</span></code><code class="sig-name descname"><span class="pre">DiffOperators</span></code><a class="reference internal" href="../../_modules/discretize/operators/differential_operators.html#DiffOperators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.operators.DiffOperators" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">discretize.operators.</span></code><code class="sig-name descname"><span class="pre">DiffOperators</span></code><a class="headerlink" href="#discretize.operators.DiffOperators" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Class creates the differential operators that you need!</p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
+<dt><strong>average_cell_to_edge</strong></dt><dd></dd>
 <dt><a class="reference internal" href="#discretize.operators.DiffOperators.average_cell_to_face" title="discretize.operators.DiffOperators.average_cell_to_face"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_cell_to_face</span></code></a></dt><dd><p>Construct the averaging operator on cell centers to faces.</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.operators.DiffOperators.average_cell_vector_to_face" title="discretize.operators.DiffOperators.average_cell_vector_to_face"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_cell_vector_to_face</span></code></a></dt><dd><p>Construct the averaging operator on cell centers to faces as a vector.</p>
@@ -297,6 +300,7 @@
 </dd>
 <dt><a class="reference internal" href="#discretize.operators.DiffOperators.average_edge_to_cell_vector" title="discretize.operators.DiffOperators.average_edge_to_cell_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_edge_to_cell_vector</span></code></a></dt><dd><p>Construct the averaging operator on cell edges to cell centers.</p>
 </dd>
+<dt><strong>average_edge_to_face_vector</strong></dt><dd></dd>
 <dt><a class="reference internal" href="#discretize.operators.DiffOperators.average_edge_x_to_cell" title="discretize.operators.DiffOperators.average_edge_x_to_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_edge_x_to_cell</span></code></a></dt><dd><p>Construct the averaging operator on cell edges in the x direction to cell centers.</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.operators.DiffOperators.average_edge_y_to_cell" title="discretize.operators.DiffOperators.average_edge_y_to_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_edge_y_to_cell</span></code></a></dt><dd><p>Construct the averaging operator on cell edges in the y direction to cell centers.</p>
@@ -318,6 +322,12 @@
 <dt><a class="reference internal" href="#discretize.operators.DiffOperators.average_node_to_edge" title="discretize.operators.DiffOperators.average_node_to_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_node_to_edge</span></code></a></dt><dd><p>Construct the averaging operator on cell nodes to cell edges, keeping each dimension separate.</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.operators.DiffOperators.average_node_to_face" title="discretize.operators.DiffOperators.average_node_to_face"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_node_to_face</span></code></a></dt><dd><p>Construct the averaging operator on cell nodes to cell faces, keeping each dimension separate.</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.operators.DiffOperators.boundary_edge_vector_integral" title="discretize.operators.DiffOperators.boundary_edge_vector_integral"><code class="xref py py-obj docutils literal notranslate"><span class="pre">boundary_edge_vector_integral</span></code></a></dt><dd><p>Represents the operation of integrating a vector function on the boundary</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.operators.DiffOperators.boundary_face_scalar_integral" title="discretize.operators.DiffOperators.boundary_face_scalar_integral"><code class="xref py py-obj docutils literal notranslate"><span class="pre">boundary_face_scalar_integral</span></code></a></dt><dd><p>Represents the operation of integrating a scalar function on the boundary</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.operators.DiffOperators.boundary_node_vector_integral" title="discretize.operators.DiffOperators.boundary_node_vector_integral"><code class="xref py py-obj docutils literal notranslate"><span class="pre">boundary_node_vector_integral</span></code></a></dt><dd><p>Represents the operation of integrating a vector function dotted with the boundary normal</p>
 </dd>
 <dt><a class="reference internal" href="#discretize.operators.DiffOperators.cellGrad" title="discretize.operators.DiffOperators.cellGrad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cellGrad</span></code></a></dt><dd><p><cite>cellGrad</cite> has been deprecated. See <cite>cell_gradient</cite> for documentation</p>
 </dd>
@@ -365,6 +375,12 @@
 </dd>
 <dt><a class="reference internal" href="#discretize.operators.DiffOperators.nodal_laplacian" title="discretize.operators.DiffOperators.nodal_laplacian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodal_laplacian</span></code></a></dt><dd><p>Construct laplacian operator (nodes to edges).</p>
 </dd>
+<dt><a class="reference internal" href="#discretize.operators.DiffOperators.project_edge_to_boundary_edge" title="discretize.operators.DiffOperators.project_edge_to_boundary_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_edge_to_boundary_edge</span></code></a></dt><dd><p>Projects values defined on all edges to the boundary edges</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.operators.DiffOperators.project_face_to_boundary_face" title="discretize.operators.DiffOperators.project_face_to_boundary_face"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_face_to_boundary_face</span></code></a></dt><dd><p>Projects values defined on all faces to the boundary faces</p>
+</dd>
+<dt><a class="reference internal" href="#discretize.operators.DiffOperators.project_node_to_boundary_node" title="discretize.operators.DiffOperators.project_node_to_boundary_node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_node_to_boundary_node</span></code></a></dt><dd><p>Projects values defined on all edges to the boundary edges</p>
+</dd>
 <dt><strong>stencil_cell_gradient</strong></dt><dd></dd>
 <dt><strong>stencil_cell_gradient_x</strong></dt><dd></dd>
 <dt><strong>stencil_cell_gradient_y</strong></dt><dd></dd>
@@ -379,6 +395,12 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#discretize.operators.DiffOperators.cell_gradient_weak_form_robin" title="discretize.operators.DiffOperators.cell_gradient_weak_form_robin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_weak_form_robin</span></code></a>([alpha, beta, …])</p></td>
+<td><p>Robin boundary condition for the weak formulation of the cell gradient</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#discretize.operators.DiffOperators.edge_divergence_weak_form_robin" title="discretize.operators.DiffOperators.edge_divergence_weak_form_robin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_divergence_weak_form_robin</span></code></a>([alpha, …])</p></td>
+<td><p>Robin boundary condition for the weak formulation of the edge divergence</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#discretize.operators.DiffOperators.getBCProjWF" title="discretize.operators.DiffOperators.getBCProjWF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getBCProjWF</span></code></a>(*args, **kwargs)</p></td>
 <td><p><cite>getBCProjWF</cite> has been deprecated.</p></td>
 </tr>
@@ -419,57 +441,74 @@
 <img alt="Basic: PlotImage" src="../../_images/sphx_glr_plot_image_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_image.html#sphx-glr-examples-plot-image-py"><span class="std std-ref">Basic: PlotImage</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="A simple example to vary streamline thickness based on the vector amplitudes"><div class="figure align-default" id="id5">
+</div><div class="sphx-glr-thumbcontainer" tooltip="For a tree mesh, there needs to be special attention taken for the hanging faces to achieve sec..."><div class="figure align-default" id="id5">
+<img alt="QuadTree: FaceDiv" src="../../_images/sphx_glr_plot_quadtree_divergence_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_quadtree_divergence.html#sphx-glr-examples-plot-quadtree-divergence-py"><span class="std std-ref">QuadTree: FaceDiv</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="You can give the refine method a function, which is evaluated on every cell of the TreeMesh."><div class="figure align-default" id="id6">
+<img alt="QuadTree: Hanging Nodes" src="../../_images/sphx_glr_plot_quadtree_hanging_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_quadtree_hanging.html#sphx-glr-examples-plot-quadtree-hanging-py"><span class="std std-ref">QuadTree: Hanging Nodes</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A simple example to vary streamline thickness based on the vector amplitudes"><div class="figure align-default" id="id7">
 <img alt="Plotting: Streamline thickness" src="../../_images/sphx_glr_plot_streamThickness_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_streamThickness.html#sphx-glr-examples-plot-streamthickness-py"><span class="std std-ref">Plotting: Streamline thickness</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_streamThickness.html#sphx-glr-examples-plot-streamthickness-py"><span class="std std-ref">Plotting: Streamline thickness</span></a></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Here we provide an overview of mesh types and define some terminology. Separate tutorials have ..."><div class="figure align-default" id="id6">
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we provide an overview of mesh types and define some terminology. Separate tutorials have ..."><div class="figure align-default" id="id8">
 <img alt="Overview of Mesh Types" src="../../_images/sphx_glr_1_mesh_overview_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/1_mesh_overview.html#sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">Overview of Mesh Types</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/1_mesh_overview.html#sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">Overview of Mesh Types</span></a></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Tensor meshes are the most basic class of meshes that can be created with discretize. They belo..."><div class="figure align-default" id="id7">
+</div><div class="sphx-glr-thumbcontainer" tooltip="Tensor meshes are the most basic class of meshes that can be created with discretize. They belo..."><div class="figure align-default" id="id9">
 <img alt="Tensor meshes" src="../../_images/sphx_glr_2_tensor_mesh_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/2_tensor_mesh.html#sphx-glr-tutorials-mesh-generation-2-tensor-mesh-py"><span class="std std-ref">Tensor meshes</span></a></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/2_tensor_mesh.html#sphx-glr-tutorials-mesh-generation-2-tensor-mesh-py"><span class="std std-ref">Tensor meshes</span></a></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Cylindrical meshes (:class:`~discretize.CylMesh`) are defined in terms of *r* (radial position)..."><div class="figure align-default" id="id8">
+</div><div class="sphx-glr-thumbcontainer" tooltip="Cylindrical meshes (:class:`~discretize.CylMesh`) are defined in terms of *r* (radial position)..."><div class="figure align-default" id="id10">
 <img alt="Cylindrical meshes" src="../../_images/sphx_glr_3_cylindrical_mesh_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/3_cylindrical_mesh.html#sphx-glr-tutorials-mesh-generation-3-cylindrical-mesh-py"><span class="std std-ref">Cylindrical meshes</span></a></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/3_cylindrical_mesh.html#sphx-glr-tutorials-mesh-generation-3-cylindrical-mesh-py"><span class="std std-ref">Cylindrical meshes</span></a></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Averaging matricies are used when a discrete variable living on some part of the mesh (e.g. nod..."><div class="figure align-default" id="id9">
+</div><div class="sphx-glr-thumbcontainer" tooltip="Compared to tensor meshes, tree meshes are able to provide higher levels of discretization in c..."><div class="figure align-default" id="id11">
+<img alt="Tree Meshes" src="../../_images/sphx_glr_4_tree_mesh_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/4_tree_mesh.html#sphx-glr-tutorials-mesh-generation-4-tree-mesh-py"><span class="std std-ref">Tree Meshes</span></a></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Averaging matricies are used when a discrete variable living on some part of the mesh (e.g. nod..."><div class="figure align-default" id="id12">
 <img alt="Averaging Matricies" src="../../_images/sphx_glr_1_averaging_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/operators/1_averaging.html#sphx-glr-tutorials-operators-1-averaging-py"><span class="std std-ref">Averaging Matricies</span></a></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/operators/1_averaging.html#sphx-glr-tutorials-operators-1-averaging-py"><span class="std std-ref">Averaging Matricies</span></a></span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="For discretized quantities living on a mesh, sparse matricies can be used to approximate the fo..."><div class="figure align-default" id="id10">
+</div><div class="sphx-glr-thumbcontainer" tooltip="For discretized quantities living on a mesh, sparse matricies can be used to approximate the fo..."><div class="figure align-default" id="id13">
 <img alt="Differential Operators" src="../../_images/sphx_glr_2_differential_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/operators/2_differential.html#sphx-glr-tutorials-operators-2-differential-py"><span class="std std-ref">Differential Operators</span></a></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/operators/2_differential.html#sphx-glr-tutorials-operators-2-differential-py"><span class="std std-ref">Differential Operators</span></a></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Inner products between two scalar or vector quantities represents the most basic class of inner..."><div class="figure align-default" id="id11">
+</div><div class="sphx-glr-thumbcontainer" tooltip="Inner products between two scalar or vector quantities represents the most basic class of inner..."><div class="figure align-default" id="id14">
 <img alt="Basic Inner Products" src="../../_images/sphx_glr_1_basic_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/1_basic.html#sphx-glr-tutorials-inner-products-1-basic-py"><span class="std std-ref">Basic Inner Products</span></a></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/1_basic.html#sphx-glr-tutorials-inner-products-1-basic-py"><span class="std std-ref">Basic Inner Products</span></a></span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain constitutive rel..."><div class="figure align-default" id="id12">
+</div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain constitutive rel..."><div class="figure align-default" id="id15">
 <img alt="Constitutive Relations" src="../../_images/sphx_glr_2_physical_properties_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/2_physical_properties.html#sphx-glr-tutorials-inner-products-2-physical-properties-py"><span class="std std-ref">Constitutive Relations</span></a></span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/2_physical_properties.html#sphx-glr-tutorials-inner-products-2-physical-properties-py"><span class="std std-ref">Constitutive Relations</span></a></span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain differential ope..."><div class="figure align-default" id="id13">
+</div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain differential ope..."><div class="figure align-default" id="id16">
 <img alt="Differential Operators" src="../../_images/sphx_glr_3_calculus_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/3_calculus.html#sphx-glr-tutorials-inner-products-3-calculus-py"><span class="std std-ref">Differential Operators</span></a></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/3_calculus.html#sphx-glr-tutorials-inner-products-3-calculus-py"><span class="std std-ref">Differential Operators</span></a></span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="In this section, we demonstrate how to go from the inner product to the discrete approximation ..."><div class="figure align-default" id="id14">
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this section, we demonstrate how to go from the inner product to the discrete approximation ..."><div class="figure align-default" id="id17">
 <img alt="Advanced Examples" src="../../_images/sphx_glr_4_advanced_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/4_advanced.html#sphx-glr-tutorials-inner-products-4-advanced-py"><span class="std std-ref">Advanced Examples</span></a></span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/4_advanced.html#sphx-glr-tutorials-inner-products-4-advanced-py"><span class="std std-ref">Advanced Examples</span></a></span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to solve for the electric potential (:math:`\phi`) and elect..."><div class="figure align-default" id="id15">
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to solve for the electric potential (:math:`\phi`) and elect..."><div class="figure align-default" id="id18">
 <img alt="Gauss' Law of Electrostatics" src="../../_images/sphx_glr_1_poisson_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/pde/1_poisson.html#sphx-glr-tutorials-pde-1-poisson-py"><span class="std std-ref">Gauss’ Law of Electrostatics</span></a></span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/pde/1_poisson.html#sphx-glr-tutorials-pde-1-poisson-py"><span class="std std-ref">Gauss’ Law of Electrostatics</span></a></span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to model the advection-diffusion equation. The goal of this ..."><div class="figure align-default" id="id16">
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to model the advection-diffusion equation. The goal of this ..."><div class="figure align-default" id="id19">
 <img alt="Advection-Diffusion Equation" src="../../_images/sphx_glr_2_advection_diffusion_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/pde/2_advection_diffusion.html#sphx-glr-tutorials-pde-2-advection-diffusion-py"><span class="std std-ref">Advection-Diffusion Equation</span></a></span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/pde/2_advection_diffusion.html#sphx-glr-tutorials-pde-2-advection-diffusion-py"><span class="std std-ref">Advection-Diffusion Equation</span></a></span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
 </div>
 </div><div style='clear:both'></div></div>
 <div class="section" id="attributes">
 <h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="py attribute">
+<dt id="discretize.operators.DiffOperators.average_cell_to_edge">
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_cell_to_edge</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_cell_to_edge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_cell_to_face">
 <code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_cell_to_face</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_cell_to_face" title="Permalink to this definition">¶</a></dt>
@@ -494,6 +533,11 @@ faces as a vector.</p>
 <code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_edge_to_cell_vector</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_edge_to_cell_vector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell edges to cell centers.</p>
 </dd></dl>
+
+<dl class="py attribute">
+<dt id="discretize.operators.DiffOperators.average_edge_to_face_vector">
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_edge_to_face_vector</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_edge_to_face_vector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.average_edge_x_to_cell">
@@ -567,6 +611,87 @@ each dimension separate.</p>
 <code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">average_node_to_face</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.average_node_to_face" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the averaging operator on cell nodes to cell faces, keeping
 each dimension separate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="discretize.operators.DiffOperators.boundary_edge_vector_integral">
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">boundary_edge_vector_integral</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.boundary_edge_vector_integral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the operation of integrating a vector function on the boundary</p>
+<p>This matrix represents the boundary surface integral of a vector function
+multiplied with a finite volume test function on the mesh.</p>
+<p>In 1D and 2D, the operation assumes that the right array contains only a single
+component of the vector <code class="docutils literal notranslate"><span class="pre">u</span></code>. In 3D, however, we must assume that <code class="docutils literal notranslate"><span class="pre">u</span></code> will
+contain each of the three vector components, and it must be ordered as,
+<code class="docutils literal notranslate"><span class="pre">[edges_1_x,</span> <span class="pre">...</span> <span class="pre">,edge_N_x,</span> <span class="pre">edge_1_y,</span> <span class="pre">...,</span> <span class="pre">edge_N_y,</span> <span class="pre">edge_1_z,</span> <span class="pre">...,</span> <span class="pre">edge_N_z]</span></code>
+, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the number of boundary edges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>scipy.sparse.csr_matrix</dt><dd><p>Sparse matrix of shape (n_edges, n_boundary_edges) for 1D or 2D mesh,
+(n_edges, 3*n_boundary_edges) for a 3D mesh.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The integral we are representing on the boundary of the mesh is</p>
+<div class="math notranslate nohighlight">
+\[\int_{\Omega} \vec{w} \cdot (\vec{u} \times \hat{n}) \partial \Omega\]</div>
+<p>In discrete form this is:</p>
+<div class="math notranslate nohighlight">
+\[w^T * P * u_b\]</div>
+<p>where <cite>w</cite> is defined on all edges, and <cite>u_b</cite> is all three components defined on
+boundary edges.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="discretize.operators.DiffOperators.boundary_face_scalar_integral">
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">boundary_face_scalar_integral</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.boundary_face_scalar_integral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the operation of integrating a scalar function on the boundary</p>
+<p>This matrix represents the boundary surface integral of a scalar function
+multiplied with a finite volume test function on the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>scipy.sparse.csr_matrix</dt><dd><p>Sparse matrix of shape (n_faces, n_boundary_faces)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The integral we are representing on the boundary of the mesh is</p>
+<div class="math notranslate nohighlight">
+\[\int_{\Omega} u\vec{w} \cdot \hat{n} \partial \Omega\]</div>
+<p>In discrete form this is:</p>
+<div class="math notranslate nohighlight">
+\[w^T * P * u_b\]</div>
+<p>where <cite>w</cite> is defined on all faces, and <cite>u_b</cite> is defined on boundary faces.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="discretize.operators.DiffOperators.boundary_node_vector_integral">
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">boundary_node_vector_integral</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.boundary_node_vector_integral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the operation of integrating a vector function dotted with the boundary normal</p>
+<p>This matrix represents the boundary surface integral of a vector function
+dotted with the boundary normal and multiplied with a scalar finite volume
+test function on the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>scipy.sparse.csr_matrix</dt><dd><p>Sparse matrix of shape (n_nodes, ndim * n_boundary_nodes).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The integral we are representing on the boundary of the mesh is</p>
+<div class="math notranslate nohighlight">
+\[\int_{\Omega} (w \vec{u}) \cdot \hat{n} \partial \Omega\]</div>
+<p>In discrete form this is:</p>
+<div class="math notranslate nohighlight">
+\[w^T * P * u_b\]</div>
+<p>where <cite>w</cite> is defined on all nodes, and <cite>u_b</cite> is all three components defined on
+boundary nodes.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -716,6 +841,48 @@ cell-centers).</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt id="discretize.operators.DiffOperators.project_edge_to_boundary_edge">
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">project_edge_to_boundary_edge</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.project_edge_to_boundary_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Projects values defined on all edges to the boundary edges</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>scipy.sparse.csr_matrix</dt><dd><p>Projection matrix with shape (n_boundary_edges, n_edges)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="discretize.operators.DiffOperators.project_face_to_boundary_face">
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">project_face_to_boundary_face</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.project_face_to_boundary_face" title="Permalink to this definition">¶</a></dt>
+<dd><p>Projects values defined on all faces to the boundary faces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>scipy.sparse.csr_matrix</dt><dd><p>Projection matrix with shape (n_boundary_faces, n_faces)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="discretize.operators.DiffOperators.project_node_to_boundary_node">
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">project_node_to_boundary_node</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.project_node_to_boundary_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Projects values defined on all edges to the boundary edges</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>scipy.sparse.csr_matrix</dt><dd><p>Projection matrix with shape (n_boundary_nodes, n_nodes)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt id="discretize.operators.DiffOperators.stencil_cell_gradient">
 <code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">stencil_cell_gradient</span></code><a class="headerlink" href="#discretize.operators.DiffOperators.stencil_cell_gradient" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -738,6 +905,139 @@ cell-centers).</p>
 </div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt id="discretize.operators.DiffOperators.cell_gradient_weak_form_robin">
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">cell_gradient_weak_form_robin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/differential_operators.html#DiffOperators.cell_gradient_weak_form_robin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.operators.DiffOperators.cell_gradient_weak_form_robin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Robin boundary condition for the weak formulation of the cell gradient</p>
+<p>This function returns the necessary parts for the weak form of the cell gradient
+operator to represent the Robin boundary conditions.</p>
+<p>The implementation assumes a ghost cell that mirrors the boundary cells across the boundary faces, with a
+piecewise linear approximation to the values at the ghost cell centers.</p>
+<p>The parameters can either be defined as a constant applied to the entire boundary,
+or as arrays that represent those values on the <a class="reference internal" href="discretize.base.BaseTensorMesh.html#discretize.base.BaseTensorMesh.boundary_faces" title="discretize.base.BaseTensorMesh.boundary_faces"><code class="xref py py-meth docutils literal notranslate"><span class="pre">discretize.base.BaseTensorMesh.boundary_faces()</span></code></a>.</p>
+<p>The returned arrays represent the proper boundary conditions on a solution <code class="docutils literal notranslate"><span class="pre">u</span></code>
+such that the inner product of the gradient of <code class="docutils literal notranslate"><span class="pre">u</span></code> with a test function y would
+be &lt;<code class="docutils literal notranslate"><span class="pre">y,</span> <span class="pre">gradient*u</span></code>&gt; <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">y.dot((-face_divergence.T*cell_volumes</span> <span class="pre">+</span> <span class="pre">A)*u</span> <span class="pre">+</span> <span class="pre">y.dot(b)</span></code>.</p>
+<p>The default values will produce a zero-dirichlet boundary condition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>alpha, beta</strong><span class="classifier">scalar or array_like</span></dt><dd><p>Parameters for the Robin boundary condition. array_like must be defined on
+each boundary face.</p>
+</dd>
+<dt><strong>gamma: scalar or array_like</strong></dt><dd><p>right hand side boundary conditions. If this parameter is array like, it can
+be fed either a (n_boundary_faces,) shape array or an (n_boundary_faces, n_rhs)
+shape array if multiple systems have the same alpha and beta parameters.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>A</strong><span class="classifier">scipy.sparse.csr_matrix</span></dt><dd><p>Matrix to add to (-face_divergence.T * cell_volumes)</p>
+</dd>
+<dt><strong>b</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>Array to add to the result of the (-face_divergence.T * cell_volumes + A) &#64; u.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The weak form is obtained by multiplying the gradient by a (piecewise-constant)
+test function, and integrating over the cell, i.e.</p>
+<div class="math notranslate nohighlight" id="equation-weak-form">
+<span class="eqno">(1)<a class="headerlink" href="#equation-weak-form" title="Permalink to this equation">¶</a></span>\[\int_V \vec{y} \cdot \nabla u \partial V\]</div>
+<p>This equation can be transformed to reduce the differentiability requirement on <cite>u</cite>
+to be,</p>
+<div class="math notranslate nohighlight" id="equation-transformed">
+<span class="eqno">(2)<a class="headerlink" href="#equation-transformed" title="Permalink to this equation">¶</a></span>\[-\int_V u (\nabla \cdot \vec{y}) \partial V + \int_{dV} u \vec{y} \partial V.\]</div>
+<p>The first term in equation :eq:transformed is constructed using the matrix
+operators defined on this mesh as <code class="docutils literal notranslate"><span class="pre">D</span></code> = <a class="reference internal" href="#discretize.operators.DiffOperators.face_divergence" title="discretize.operators.DiffOperators.face_divergence"><code class="xref py py-meth docutils literal notranslate"><span class="pre">discretize.operators.DiffOperators.face_divergence()</span></code></a> and
+<code class="docutils literal notranslate"><span class="pre">V</span></code>, a diagonal matrix of <code class="xref py py-meth docutils literal notranslate"><span class="pre">discretize.base.BaseMesh.cell_volumes()</span></code>, as</p>
+<div class="math notranslate nohighlight">
+\[-(D*y)^T*V*u.\]</div>
+<p>This function returns the necessary matrices to complete the transformation of
+equation :eq:transformed. The second part of equation :eq:transformed becomes,</p>
+<div class="math notranslate nohighlight" id="equation-boundary-conditions">
+<span class="eqno">(3)<a class="headerlink" href="#equation-boundary-conditions" title="Permalink to this equation">¶</a></span>\[\int_V \nabla \cdot (\phi u) \partial V = \int_{\partial\Omega} \phi\vec{u}\cdot\hat{n} \partial a\]</div>
+<p>which is then approximated with the matrices returned here such that the full
+form of the weak formulation in a discrete form would be.</p>
+<div class="math notranslate nohighlight">
+\[y^T(-D^T V + B)u + y^Tb\]</div>
+<p class="rubric">Examples</p>
+<p>We first create a very simple 2D tensor mesh on the [0, 1] boundary:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">discretize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">([</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Define the <cite>alpha</cite>, <cite>beta</cite>, and <cite>gamma</cite> parameters for a zero - Dirichlet
+condition on the boundary, this corresponds to setting:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">beta</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cell_gradient_weak_form_robin</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can then represent the operation of taking the weak form of the gradient of a
+function defined on cell centers with appropriate robin boundary conditions as:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">V</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">cell_volumes</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">face_divergence</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cell_centers</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cell_centers</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">phi_grad</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">D</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">V</span> <span class="o">+</span> <span class="n">A</span><span class="p">)</span> <span class="o">@</span> <span class="n">phi</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../api/generated/discretize-operators-DiffOperators-1.py">Source code</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discretize.operators.DiffOperators.edge_divergence_weak_form_robin">
+<code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">edge_divergence_weak_form_robin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/discretize/operators/differential_operators.html#DiffOperators.edge_divergence_weak_form_robin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.operators.DiffOperators.edge_divergence_weak_form_robin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Robin boundary condition for the weak formulation of the edge divergence</p>
+<p>This function returns the necessary parts to form the full weak form of the
+edge divergence using the nodal gradient with appropriate boundary conditions.</p>
+<p>The <cite>alpha</cite>, <cite>beta</cite>, and <cite>gamma</cite> parameters can be scalars, or arrays. If they
+are arrays, they can either be the same length as the number of boundary faces,
+or boundary nodes. If multiple parameters are arrays, they must all be the same
+length.</p>
+<p><cite>beta</cite> can not be 0.</p>
+<p>It is assumed here that quantity that is approximated on the boundary is the
+gradient of another quantity. See the Notes section for explicit details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>alpha, beta</strong><span class="classifier">scalar or array_like</span></dt><dd><p>Parameters for the Robin boundary condition. array_like must be defined on
+either boundary faces or boundary nodes.</p>
+</dd>
+<dt><strong>gamma: scalar or array_like</strong></dt><dd><p>right hand side boundary conditions. If this parameter is array like, it can
+be fed either a (n_boundary_XXX,) shape array or an (n_boundary_XXX, n_rhs)
+shape array if multiple systems have the same alpha and beta parameters.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>For these returned operators, it is assumed that the quantity on the boundary is
+related to the gradient of some other quantity.</p>
+<p>The weak form is obtained by multiplying the divergence by a (piecewise-constant)
+test function, and integrating over the cell, i.e.</p>
+<div class="math notranslate nohighlight" id="equation-weak-form">
+<span class="eqno">(4)<a class="headerlink" href="#equation-weak-form" title="Permalink to this equation">¶</a></span>\[\int_V y \nabla \cdot \vec{u} \partial V\]</div>
+<p>This equation can be transformed to reduce the differentiability requirement on
+<span class="math notranslate nohighlight">\(\vec{u}\)</span> to be,</p>
+<div class="math notranslate nohighlight" id="equation-transformed">
+<span class="eqno">(5)<a class="headerlink" href="#equation-transformed" title="Permalink to this equation">¶</a></span>\[-\int_V \vec{u} \cdot (\nabla y) \partial V + \int_{dV} y \vec{u} \cdot \hat{n} \partial S.\]</div>
+<p>Furthermore, when applying these types of transformations, the unknown vector
+<span class="math notranslate nohighlight">\(\vec{u}\)</span> is usually related to some scalar potential as:</p>
+<div class="math notranslate nohighlight" id="equation-gradient-of-potential">
+<span class="eqno">(6)<a class="headerlink" href="#equation-gradient-of-potential" title="Permalink to this equation">¶</a></span>\[\vec{u} = \nabla \phi\]</div>
+<p>Thus the robin conditions returned by these matrices apply to the quantity of
+<span class="math notranslate nohighlight">\(\phi\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\alpha \phi + \beta \nabla \phi \cdot \hat{n} = \gamma\\\alpha \phi + \beta \vec{u} \cdot \hat{n} = \gamma\end{aligned}\end{align} \]</div>
+<p>The returned operators cannot be used to impose a Dirichlet condition on
+<span class="math notranslate nohighlight">\(\phi\)</span>.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt id="discretize.operators.DiffOperators.getBCProjWF">
 <code class="sig-prename descclassname"><span class="pre">DiffOperators.</span></code><code class="sig-name descname"><span class="pre">getBCProjWF</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#discretize.operators.DiffOperators.getBCProjWF" title="Permalink to this definition">¶</a></dt>

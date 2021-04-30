@@ -16,6 +16,8 @@ Attributes
 ^^^^^^^^^^
 
 
+.. autoattribute:: DiffOperators.average_cell_to_edge
+
 .. autoattribute:: DiffOperators.average_cell_to_face
 
 .. autoattribute:: DiffOperators.average_cell_vector_to_face
@@ -23,6 +25,8 @@ Attributes
 .. autoattribute:: DiffOperators.average_edge_to_cell
 
 .. autoattribute:: DiffOperators.average_edge_to_cell_vector
+
+.. autoattribute:: DiffOperators.average_edge_to_face_vector
 
 .. autoattribute:: DiffOperators.average_edge_x_to_cell
 
@@ -45,6 +49,12 @@ Attributes
 .. autoattribute:: DiffOperators.average_node_to_edge
 
 .. autoattribute:: DiffOperators.average_node_to_face
+
+.. autoattribute:: DiffOperators.boundary_edge_vector_integral
+
+.. autoattribute:: DiffOperators.boundary_face_scalar_integral
+
+.. autoattribute:: DiffOperators.boundary_node_vector_integral
 
 .. autoattribute:: DiffOperators.cellGrad
 
@@ -94,6 +104,12 @@ Attributes
 
 .. autoattribute:: DiffOperators.nodal_laplacian
 
+.. autoattribute:: DiffOperators.project_edge_to_boundary_edge
+
+.. autoattribute:: DiffOperators.project_face_to_boundary_face
+
+.. autoattribute:: DiffOperators.project_node_to_boundary_node
+
 .. autoattribute:: DiffOperators.stencil_cell_gradient
 
 .. autoattribute:: DiffOperators.stencil_cell_gradient_x
@@ -108,6 +124,14 @@ Methods
 ^^^^^^^
 
 
+
+
+
+.. automethod:: DiffOperators.cell_gradient_weak_form_robin
+
+
+
+.. automethod:: DiffOperators.edge_divergence_weak_form_robin
 
 
 

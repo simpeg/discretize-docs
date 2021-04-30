@@ -1,27 +1,62 @@
-# We create a simple mesh and refine the TreeMesh such that all cells that
-# intersect the spherical balls are at the given levels.
+# Plot a slice of a 3D `TensorMesh` solution to a Laplace's equaiton.
 
+# First build the mesh:
+
+from matplotlib import pyplot as plt
 import discretize
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
-tree_mesh = discretize.TreeMesh([32, 32])
-tree_mesh.max_level
-# 5
+from pymatsolver import Solver
+hx = [(5, 2, -1.3), (2, 4), (5, 2, 1.3)]
+hy = [(2, 2, -1.3), (2, 6), (2, 2, 1.3)]
+hz = [(2, 2, -1.3), (2, 6), (2, 2, 1.3)]
+M = discretize.TensorMesh([hx, hy, hz])
 
-# Next we define the center and radius of the two spheres, as well as the level
-# we want to refine them to, and refine the mesh.
+# then build the necessary parts of the PDE:
 
-centers = [[0.1, 0.3], [0.6, 0.8]]
-radii = [0.2, 0.3]
-levels = [4, 5]
-tree_mesh.refine_ball(centers, radii, levels)
+q = np.zeros(M.vnC)
+q[[4, 4], [4, 4], [2, 6]]=[-1, 1]
+q = discretize.utils.mkvc(q)
+A = M.face_divergence * M.cell_gradient
+b = Solver(A) * (q)
 
-# Now lets look at the mesh, and overlay the balls on it to ensure it refined
-# where we wanted it to.
+# and finaly, plot the vector values of the result, which are defined on faces
 
-ax = tree_mesh.plot_grid()
-circ = patches.Circle(centers[0], radii[0], facecolor='none', edgecolor='r', linewidth=3)
-ax.add_patch(circ)
-circ = patches.Circle(centers[1], radii[1], facecolor='none', edgecolor='k', linewidth=3)
-ax.add_patch(circ)
+M.plot_slice(M.cell_gradient*b, 'F', view='vec', grid=True, pcolor_opts={'alpha':0.8})
+plt.show()
+
+# We can use the `slice_loc kwarg to tell `plot_slice` where to slice the mesh.
+# Let's create a mesh with a random model and plot slice of it. The `slice_loc`
+# kwarg automatically determines the indices for slicing the mesh along a plane with
+# the given normal.
+
+M = discretize.TensorMesh([32, 32, 32])
+v = discretize.utils.random_model(M.vnC, seed=789).reshape(-1, order='F')
+x_slice, y_slice, z_slice = 0.75, 0.25, 0.9
+plt.figure(figsize=(7.5, 3))
+ax = plt.subplot(131)
+M.plot_slice(v, normal='X', slice_loc=x_slice, ax=ax)
+ax = plt.subplot(132)
+M.plot_slice(v, normal='Y', slice_loc=y_slice, ax=ax)
+ax = plt.subplot(133)
+M.plot_slice(v, normal='Z', slice_loc=z_slice, ax=ax)
+plt.tight_layout()
+plt.show()
+
+# This also works for `TreeMesh`. We create a mesh here that is refined within three
+# boxes, along with a base level of refinement.
+
+TM = discretize.TreeMesh([32, 32, 32])
+TM.refine(3, finalize=False)
+BSW = [[0.25, 0.25, 0.25], [0.15, 0.15, 0.15], [0.1, 0.1, 0.1]]
+TNE = [[0.75, 0.75, 0.75], [0.85, 0.85, 0.85], [0.9, 0.9, 0.9]]
+levels = [6, 5, 4]
+TM.refine_box(BSW, TNE, levels)
+v_TM = discretize.utils.volume_average(M, TM, v)
+plt.figure(figsize=(7.5, 3))
+ax = plt.subplot(131)
+TM.plot_slice(v_TM, normal='X', slice_loc=x_slice, ax=ax)
+ax = plt.subplot(132)
+TM.plot_slice(v_TM, normal='Y', slice_loc=y_slice, ax=ax)
+ax = plt.subplot(133)
+TM.plot_slice(v_TM, normal='Z', slice_loc=z_slice, ax=ax)
+plt.tight_layout()
 plt.show()

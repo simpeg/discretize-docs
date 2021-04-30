@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>discretize.mixins.vtk_mod &mdash; discretize 0.6.3 documentation</title>
+  <title>discretize.mixins.vtk_mod &mdash; discretize 0.7.0 documentation</title>
   
 
   
@@ -87,7 +87,7 @@
             
             
               <div class="version">
-                0.6.3
+                0.7.0
               </div>
             
           
@@ -366,11 +366,14 @@
 <span class="sd">    .. code-block:: python</span>
 
 <span class="sd">       # Defined a rotated reference frame</span>
-<span class="sd">       mesh.axis_u = (1,-1,0)</span>
-<span class="sd">       mesh.axis_v = (-1,-1,0)</span>
-<span class="sd">       mesh.axis_w = (0,0,1)</span>
-<span class="sd">       # Check that the referenc fram is valid</span>
-<span class="sd">       mesh._validate_orientation()</span>
+<span class="sd">       axis_u = (1,-1,0)</span>
+<span class="sd">       axis_v = (-1,-1,0)</span>
+<span class="sd">       axis_w = (0,0,1)</span>
+<span class="sd">       mesh.orientation = np.array([</span>
+<span class="sd">           axis_u,</span>
+<span class="sd">           axis_v,</span>
+<span class="sd">           axis_w</span>
+<span class="sd">       ])</span>
 
 <span class="sd">       # Yield the rotated vtkStructuredGrid</span>
 <span class="sd">       dataset_r = mesh.to_vtk()</span>
@@ -498,7 +501,6 @@
         <span class="k">if</span> <span class="n">nodes</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">nN</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Nodes of the grid are improperly defined.&quot;</span><span class="p">)</span>
         <span class="c1"># Rotate the points based on the axis orientations</span>
-        <span class="n">mesh</span><span class="o">.</span><span class="n">_validate_orientation</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">rotation_matrix</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__tensor_mesh_to_vtk</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">models</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -590,7 +592,6 @@
 <span class="sd">            Name(&#39;s) and array(&#39;s). Match number of cells</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO: mesh.validate()</span>
         <span class="n">converters</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;tree&quot;</span><span class="p">:</span> <span class="n">InterfaceVTK</span><span class="o">.</span><span class="n">__tree_mesh_to_vtk</span><span class="p">,</span>
             <span class="s2">&quot;tensor&quot;</span><span class="p">:</span> <span class="n">InterfaceVTK</span><span class="o">.</span><span class="n">__tensor_mesh_to_vtk</span><span class="p">,</span>
@@ -794,7 +795,9 @@
 
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">InterfaceVTK</span><span class="o">.</span><span class="n">writeVTK</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">models</span><span class="o">=</span><span class="n">models</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">directory</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">InterfaceVTK</span><span class="o">.</span><span class="n">writeVTK</span><span class="p">(</span>
+            <span class="n">mesh</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">models</span><span class="o">=</span><span class="n">models</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">directory</span>
+        <span class="p">)</span></div></div>
 
 
 <span class="k">class</span> <span class="nc">InterfaceTensorread_vtk</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>

@@ -24,6 +24,8 @@ Attributes
 
 .. autoattribute:: CylindricalMesh.areaFz
 
+.. autoattribute:: CylindricalMesh.average_cell_to_edge
+
 .. autoattribute:: CylindricalMesh.average_cell_to_face
 
 .. autoattribute:: CylindricalMesh.average_cell_vector_to_face
@@ -31,6 +33,8 @@ Attributes
 .. autoattribute:: CylindricalMesh.average_edge_to_cell
 
 .. autoattribute:: CylindricalMesh.average_edge_to_cell_vector
+
+.. autoattribute:: CylindricalMesh.average_edge_to_face_vector
 
 .. autoattribute:: CylindricalMesh.average_edge_x_to_cell
 
@@ -59,6 +63,20 @@ Attributes
 .. autoattribute:: CylindricalMesh.axis_v
 
 .. autoattribute:: CylindricalMesh.axis_w
+
+.. autoattribute:: CylindricalMesh.boundary_edge_vector_integral
+
+.. autoattribute:: CylindricalMesh.boundary_edges
+
+.. autoattribute:: CylindricalMesh.boundary_face_outward_normals
+
+.. autoattribute:: CylindricalMesh.boundary_face_scalar_integral
+
+.. autoattribute:: CylindricalMesh.boundary_faces
+
+.. autoattribute:: CylindricalMesh.boundary_node_vector_integral
+
+.. autoattribute:: CylindricalMesh.boundary_nodes
 
 .. autoattribute:: CylindricalMesh.cartesianOrigin
 
@@ -118,6 +136,8 @@ Attributes
 
 .. autoattribute:: CylindricalMesh.edge_z_lengths
 
+.. autoattribute:: CylindricalMesh.edges
+
 .. autoattribute:: CylindricalMesh.edges_x
 
 .. autoattribute:: CylindricalMesh.edges_y
@@ -149,6 +169,8 @@ Attributes
 .. autoattribute:: CylindricalMesh.face_z_areas
 
 .. autoattribute:: CylindricalMesh.face_z_divergence
+
+.. autoattribute:: CylindricalMesh.faces
 
 .. autoattribute:: CylindricalMesh.faces_x
 
@@ -224,7 +246,15 @@ Attributes
 
 .. autoattribute:: CylindricalMesh.normals
 
+.. autoattribute:: CylindricalMesh.orientation
+
 .. autoattribute:: CylindricalMesh.origin
+
+.. autoattribute:: CylindricalMesh.project_edge_to_boundary_edge
+
+.. autoattribute:: CylindricalMesh.project_face_to_boundary_face
+
+.. autoattribute:: CylindricalMesh.project_node_to_boundary_node
 
 .. autoattribute:: CylindricalMesh.reference_is_rotated
 
@@ -291,7 +321,7 @@ Methods
 
 
 
-.. automethod:: CylindricalMesh.check_cartesian_origin_shape
+.. automethod:: CylindricalMesh.cell_gradient_weak_form_robin
 
 
 
@@ -303,7 +333,11 @@ Methods
 
 
 
-.. automethod:: CylindricalMesh.equal
+.. automethod:: CylindricalMesh.edge_divergence_weak_form_robin
+
+
+
+.. automethod:: CylindricalMesh.equals
 
 
 
@@ -460,6 +494,10 @@ Methods
 
 
 .. automethod:: CylindricalMesh.toVTK
+
+
+
+.. automethod:: CylindricalMesh.to_dict
 
 
 

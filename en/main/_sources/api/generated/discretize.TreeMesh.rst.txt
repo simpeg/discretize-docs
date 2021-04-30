@@ -24,6 +24,8 @@ Attributes
 
 .. autoattribute:: TreeMesh.areaFz
 
+.. autoattribute:: TreeMesh.average_cell_to_edge
+
 .. autoattribute:: TreeMesh.average_cell_to_face
 
 .. autoattribute:: TreeMesh.average_cell_to_face_x
@@ -37,6 +39,8 @@ Attributes
 .. autoattribute:: TreeMesh.average_edge_to_cell
 
 .. autoattribute:: TreeMesh.average_edge_to_cell_vector
+
+.. autoattribute:: TreeMesh.average_edge_to_face_vector
 
 .. autoattribute:: TreeMesh.average_edge_x_to_cell
 
@@ -78,9 +82,25 @@ Attributes
 
 .. autoattribute:: TreeMesh.axis_w
 
+.. autoattribute:: TreeMesh.boundary_edge_vector_integral
+
+.. autoattribute:: TreeMesh.boundary_edges
+
+.. autoattribute:: TreeMesh.boundary_face_outward_normals
+
+.. autoattribute:: TreeMesh.boundary_face_scalar_integral
+
+.. autoattribute:: TreeMesh.boundary_faces
+
+.. autoattribute:: TreeMesh.boundary_node_vector_integral
+
+.. autoattribute:: TreeMesh.boundary_nodes
+
 .. autoattribute:: TreeMesh.cellBoundaryInd
 
 .. autoattribute:: TreeMesh.cellGrad
+
+.. autoattribute:: TreeMesh.cellGradBC
 
 .. autoattribute:: TreeMesh.cellGradStencil
 
@@ -102,6 +122,8 @@ Attributes
 
 .. autoattribute:: TreeMesh.cell_gradient
 
+.. autoattribute:: TreeMesh.cell_gradient_BC
+
 .. autoattribute:: TreeMesh.cell_gradient_x
 
 .. autoattribute:: TreeMesh.cell_gradient_y
@@ -109,6 +131,8 @@ Attributes
 .. autoattribute:: TreeMesh.cell_gradient_z
 
 .. autoattribute:: TreeMesh.cell_nodes
+
+.. autoattribute:: TreeMesh.cell_state
 
 .. autoattribute:: TreeMesh.cell_volumes
 
@@ -131,6 +155,8 @@ Attributes
 .. autoattribute:: TreeMesh.edge_nodes
 
 .. autoattribute:: TreeMesh.edge_tangents
+
+.. autoattribute:: TreeMesh.edges
 
 .. autoattribute:: TreeMesh.edges_x
 
@@ -162,6 +188,8 @@ Attributes
 
 .. autoattribute:: TreeMesh.face_z_divergence
 
+.. autoattribute:: TreeMesh.faces
+
 .. autoattribute:: TreeMesh.faces_x
 
 .. autoattribute:: TreeMesh.faces_y
@@ -169,6 +197,8 @@ Attributes
 .. autoattribute:: TreeMesh.faces_z
 
 .. autoattribute:: TreeMesh.fill
+
+.. autoattribute:: TreeMesh.finalized
 
 .. autoattribute:: TreeMesh.h
 
@@ -278,6 +308,8 @@ Attributes
 
 .. autoattribute:: TreeMesh.normals
 
+.. autoattribute:: TreeMesh.orientation
+
 .. autoattribute:: TreeMesh.origin
 
 .. autoattribute:: TreeMesh.permuteCC
@@ -292,11 +324,19 @@ Attributes
 
 .. autoattribute:: TreeMesh.permute_faces
 
+.. autoattribute:: TreeMesh.project_edge_to_boundary_edge
+
+.. autoattribute:: TreeMesh.project_face_to_boundary_face
+
+.. autoattribute:: TreeMesh.project_node_to_boundary_node
+
 .. autoattribute:: TreeMesh.reference_is_rotated
 
 .. autoattribute:: TreeMesh.reference_system
 
 .. autoattribute:: TreeMesh.rotation_matrix
+
+.. autoattribute:: TreeMesh.shape_cells
 
 .. autoattribute:: TreeMesh.stencil_cell_gradient
 
@@ -349,6 +389,10 @@ Methods
 
 
 
+.. automethod:: TreeMesh.cell_gradient_weak_form_robin
+
+
+
 .. automethod:: TreeMesh.cell_levels_by_index
 
 
@@ -361,7 +405,11 @@ Methods
 
 
 
-.. automethod:: TreeMesh.equal
+.. automethod:: TreeMesh.edge_divergence_weak_form_robin
+
+
+
+.. automethod:: TreeMesh.equals
 
 
 
@@ -370,6 +418,14 @@ Methods
 
 
 .. automethod:: TreeMesh.from_omf
+
+
+
+.. automethod:: TreeMesh.getBCProjWF
+
+
+
+.. automethod:: TreeMesh.getBCProjWF_simple
 
 
 
@@ -394,6 +450,14 @@ Methods
 
 
 .. automethod:: TreeMesh.getTensor
+
+
+
+.. automethod:: TreeMesh.get_BC_projections
+
+
+
+.. automethod:: TreeMesh.get_BC_projections_simple
 
 
 
@@ -533,7 +597,19 @@ Methods
 
 
 
+.. automethod:: TreeMesh.setCellGradBC
+
+
+
+.. automethod:: TreeMesh.set_cell_gradient_BC
+
+
+
 .. automethod:: TreeMesh.toVTK
+
+
+
+.. automethod:: TreeMesh.to_dict
 
 
 

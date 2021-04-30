@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>discretize.utils.io_utils &mdash; discretize 0.6.3 documentation</title>
+  <title>discretize.utils.io_utils &mdash; discretize 0.7.0 documentation</title>
   
 
   
@@ -87,7 +87,7 @@
             
             
               <div class="version">
-                0.6.3
+                0.7.0
               </div>
             
           
@@ -231,9 +231,37 @@
   <h1>Source code for discretize.utils.io_utils</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">import</span> <span class="nn">json</span>
 
 
-<div class="viewcode-block" id="download"><a class="viewcode-back" href="../../../api/generated/discretize.utils.download.html#discretize.utils.download">[docs]</a><span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="load_mesh"><a class="viewcode-back" href="../../../api/generated/discretize.load_mesh.html#discretize.load_mesh">[docs]</a><span class="k">def</span> <span class="nf">load_mesh</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Open a json file and load the mesh into the target class</span>
+
+<span class="sd">    As long as there are no namespace conflicts, the target __class__</span>
+<span class="sd">    will be stored on the properties.HasProperties registry and may be</span>
+<span class="sd">    fetched from there.</span>
+
+<span class="sd">    :param str file_name: name of file to read in</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+        <span class="n">jsondict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+        <span class="n">module_name</span> <span class="o">=</span> <span class="n">jsondict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
+            <span class="s2">&quot;__module__&quot;</span><span class="p">,</span> <span class="s2">&quot;discretize&quot;</span>
+        <span class="p">)</span>  <span class="c1"># default to loading from discretize</span>
+        <span class="n">class_name</span> <span class="o">=</span> <span class="n">jsondict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;__class__&quot;</span><span class="p">)</span>
+        <span class="n">mod</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+        <span class="bp">cls</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">class_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;_n&quot;</span> <span class="ow">in</span> <span class="n">jsondict</span><span class="p">:</span>
+            <span class="n">jsondict</span><span class="p">[</span><span class="s2">&quot;shape_cells&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">jsondict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
+                <span class="s2">&quot;_n&quot;</span>
+            <span class="p">)</span>  <span class="c1"># need to catch this old _n property here</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">jsondict</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="download"><a class="viewcode-back" href="../../../api/generated/discretize.utils.download.html#discretize.download">[docs]</a><span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to download all files stored in a cloud directory</span>
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>discretize.tree_mesh &mdash; discretize 0.6.3 documentation</title>
+  <title>discretize.tree_mesh &mdash; discretize 0.7.0 documentation</title>
   
 
   
@@ -87,7 +87,7 @@
             
             
               <div class="version">
-                0.6.3
+                0.7.0
               </div>
             
           
@@ -316,11 +316,9 @@
 <span class="c1">#      |___________|         |___&gt; x</span>
 <span class="c1">#      0    e3     1</span>
 
-<span class="kn">import</span> <span class="nn">properties</span>
-
 <span class="kn">from</span> <span class="nn">discretize.base</span> <span class="kn">import</span> <span class="n">BaseTensorMesh</span>
 <span class="kn">from</span> <span class="nn">discretize.operators</span> <span class="kn">import</span> <span class="n">InnerProducts</span><span class="p">,</span> <span class="n">DiffOperators</span>
-<span class="kn">from</span> <span class="nn">discretize.base.mesh_io</span> <span class="kn">import</span> <span class="n">TreeMeshIO</span>
+<span class="kn">from</span> <span class="nn">discretize.mixins</span> <span class="kn">import</span> <span class="n">InterfaceMixins</span><span class="p">,</span> <span class="n">TreeMeshIO</span>
 <span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="n">as_array_n_by_dim</span>
 <span class="kn">from</span> <span class="nn">discretize._extensions.tree_ext</span> <span class="kn">import</span> <span class="n">_TreeMesh</span><span class="p">,</span> <span class="n">TreeCell</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -329,7 +327,9 @@
 <span class="kn">from</span> <span class="nn">discretize.utils.code_utils</span> <span class="kn">import</span> <span class="n">deprecate_property</span>
 
 
-<div class="viewcode-block" id="TreeMesh"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh">[docs]</a><span class="k">class</span> <span class="nc">TreeMesh</span><span class="p">(</span><span class="n">_TreeMesh</span><span class="p">,</span> <span class="n">BaseTensorMesh</span><span class="p">,</span> <span class="n">InnerProducts</span><span class="p">,</span> <span class="n">TreeMeshIO</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">TreeMesh</span><span class="p">(</span>
+    <span class="n">_TreeMesh</span><span class="p">,</span> <span class="n">BaseTensorMesh</span><span class="p">,</span> <span class="n">InnerProducts</span><span class="p">,</span> <span class="n">DiffOperators</span><span class="p">,</span> <span class="n">TreeMeshIO</span><span class="p">,</span> <span class="n">InterfaceMixins</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    TreeMesh is a class for adaptive QuadTree (2D) and OcTree (3D) meshes.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -366,31 +366,26 @@
             <span class="s2">&quot;gridhEz&quot;</span><span class="p">:</span> <span class="s2">&quot;hanging_edges_z&quot;</span><span class="p">,</span>
         <span class="p">},</span>
     <span class="p">}</span>
+    <span class="n">_items</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;origin&quot;</span><span class="p">,</span> <span class="s2">&quot;cell_state&quot;</span><span class="p">}</span>
 
     <span class="c1"># inheriting stuff from BaseTensorMesh that isn&#39;t defined in _QuadTree</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="s2">&quot;x0&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
             <span class="n">origin</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;x0&quot;</span><span class="p">)</span>
-        <span class="n">BaseTensorMesh</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">origin</span>
-        <span class="p">)</span>  <span class="c1"># TODO:, **kwargs) # pass the kwargs for copy/paste</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">)</span>
 
-        <span class="n">nx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">ny</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">nz</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="mi">2</span>
-
-        <span class="k">def</span> <span class="nf">is_pow2</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
-            <span class="k">return</span> <span class="p">((</span><span class="n">num</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">num</span> <span class="o">!=</span> <span class="mi">0</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">is_pow2</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_pow2</span><span class="p">(</span><span class="n">ny</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_pow2</span><span class="p">(</span><span class="n">nz</span><span class="p">)):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;length of cell width vectors must be a power of 2&quot;</span><span class="p">)</span>
-        <span class="c1"># Now can initialize cpp tree parent</span>
-        <span class="n">_TreeMesh</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="s2">&quot;cell_levels&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="s2">&quot;cell_indexes&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="n">inds</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;cell_indexes&quot;</span><span class="p">)</span>
-            <span class="n">levels</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;cell_levels&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__setstate__</span><span class="p">((</span><span class="n">inds</span><span class="p">,</span> <span class="n">levels</span><span class="p">))</span>
+        <span class="n">cell_state</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;cell_state&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">cell_indexes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;cell_indexes&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">cell_levels</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;cell_levels&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cell_state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cell_indexes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">cell_levels</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">cell_state</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">cell_state</span><span class="p">[</span><span class="s2">&quot;indexes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cell_indexes</span>
+                <span class="n">cell_state</span><span class="p">[</span><span class="s2">&quot;levels&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cell_levels</span>
+        <span class="k">if</span> <span class="n">cell_state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">indexes</span> <span class="o">=</span> <span class="n">cell_state</span><span class="p">[</span><span class="s2">&quot;indexes&quot;</span><span class="p">]</span>
+            <span class="n">levels</span> <span class="o">=</span> <span class="n">cell_state</span><span class="p">[</span><span class="s2">&quot;levels&quot;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__setstate__</span><span class="p">((</span><span class="n">indexes</span><span class="p">,</span> <span class="n">levels</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plain text representation.&quot;&quot;&quot;</span>
@@ -518,9 +513,12 @@
 
         <span class="k">return</span> <span class="n">full_tbl</span>
 
-    <span class="nd">@properties</span><span class="o">.</span><span class="n">validator</span><span class="p">(</span><span class="s2">&quot;origin&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">_origin_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">change</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_set_origin</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">])</span>
+    <span class="nd">@BaseTensorMesh</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">origin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="c1"># first use the BaseTensorMesh to set the origin to handle &quot;0, C, N&quot;</span>
+        <span class="n">BaseTensorMesh</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">fset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="c1"># then update the TreeMesh with the hidden value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_origin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_origin</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">vntF</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -672,7 +670,9 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">face_y_divergence</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_face_y_divergence&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_face_y_divergence</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">face_divergence</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFx</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFx</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFy</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_face_y_divergence</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">face_divergence</span><span class="p">[</span>
+                <span class="p">:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFx</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFx</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">nFy</span>
+            <span class="p">]</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_y_divergence</span>
 
     <span class="nd">@property</span>
@@ -762,7 +762,9 @@
             <span class="n">zeros_outside</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;zerosOutside&quot;</span><span class="p">]</span>
         <span class="n">locs</span> <span class="o">=</span> <span class="n">as_array_n_by_dim</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">location_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;CC&quot;</span><span class="p">,</span> <span class="s2">&quot;Ex&quot;</span><span class="p">,</span> <span class="s2">&quot;Ey&quot;</span><span class="p">,</span> <span class="s2">&quot;Ez&quot;</span><span class="p">,</span> <span class="s2">&quot;Fx&quot;</span><span class="p">,</span> <span class="s2">&quot;Fy&quot;</span><span class="p">,</span> <span class="s2">&quot;Fz&quot;</span><span class="p">]:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;location_type must be one of N, CC, Ex, Ey, Ez, Fx, Fy, or Fz&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="s2">&quot;location_type must be one of N, CC, Ex, Ey, Ez, Fx, Fy, or Fz&quot;</span>
+            <span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">location_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Ez&quot;</span><span class="p">,</span> <span class="s2">&quot;Fz&quot;</span><span class="p">]:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Unable to interpolate from Z edges/face in 2D&quot;</span><span class="p">)</span>
@@ -812,17 +814,21 @@
             <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">Px</span><span class="p">,</span> <span class="n">Py</span><span class="p">,</span> <span class="n">Pz</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nE</span><span class="p">)</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()[</span><span class="n">P</span><span class="p">]</span>
 
-<div class="viewcode-block" id="TreeMesh.serialize"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh.serialize">[docs]</a>    <span class="k">def</span> <span class="nf">serialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">serial</span> <span class="o">=</span> <span class="n">BaseTensorMesh</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">inds</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getstate__</span><span class="p">()</span>
-        <span class="n">serial</span><span class="p">[</span><span class="s2">&quot;cell_indexes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inds</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-        <span class="n">serial</span><span class="p">[</span><span class="s2">&quot;cell_levels&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">levels</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">serial</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cell_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">indexes</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getstate__</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;indexes&quot;</span><span class="p">:</span> <span class="n">indexes</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s2">&quot;levels&quot;</span><span class="p">:</span> <span class="n">levels</span><span class="o">.</span><span class="n">tolist</span><span class="p">()}</span>
 
-<div class="viewcode-block" id="TreeMesh.deserialize"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh.deserialize">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">deserialize</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">serial</span><span class="p">):</span>
-        <span class="n">mesh</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">serial</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">mesh</span></div>
+<div class="viewcode-block" id="TreeMesh.validate"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">finalized</span></div>
+
+<div class="viewcode-block" id="TreeMesh.equals"><a class="viewcode-back" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh.equals">[docs]</a>    <span class="k">def</span> <span class="nf">equals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">finalized</span> <span class="ow">and</span> <span class="n">other</span><span class="o">.</span><span class="n">finalized</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
 
     <span class="k">def</span> <span class="nf">__reduce__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">TreeMesh</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getstate__</span><span class="p">()</span>
@@ -887,10 +893,21 @@
     <span class="n">_aveCC2FzStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span>
         <span class="s2">&quot;average_cell_to_total_face_z&quot;</span><span class="p">,</span> <span class="s2">&quot;_aveCC2FzStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>
     <span class="p">)</span>
-    <span class="n">_cellGradStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span><span class="s2">&quot;stencil_cell_gradient&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span>
-    <span class="n">_cellGradxStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span><span class="s2">&quot;stencil_cell_gradient_x&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradxStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span>
-    <span class="n">_cellGradyStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span><span class="s2">&quot;stencil_cell_gradient_y&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradyStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span>
-    <span class="n">_cellGradzStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span><span class="s2">&quot;stencil_cell_gradient_z&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradzStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span></div>
+    <span class="n">_cellGradStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span>
+        <span class="s2">&quot;stencil_cell_gradient&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>
+    <span class="p">)</span>
+    <span class="n">_cellGradxStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span>
+        <span class="s2">&quot;stencil_cell_gradient_x&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradxStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>
+    <span class="p">)</span>
+    <span class="n">_cellGradyStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span>
+        <span class="s2">&quot;stencil_cell_gradient_y&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradyStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>
+    <span class="p">)</span>
+    <span class="n">_cellGradzStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span>
+        <span class="s2">&quot;stencil_cell_gradient_z&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradzStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="n">TreeMesh</span><span class="o">.</span><span class="vm">__module__</span> <span class="o">=</span> <span class="s2">&quot;discretize&quot;</span>
 </pre></div>
 
            </div>

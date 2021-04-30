@@ -22,6 +22,14 @@ Attributes
 
 .. autoattribute:: BaseTensorMesh.axis_w
 
+.. autoattribute:: BaseTensorMesh.boundary_edges
+
+.. autoattribute:: BaseTensorMesh.boundary_face_outward_normals
+
+.. autoattribute:: BaseTensorMesh.boundary_faces
+
+.. autoattribute:: BaseTensorMesh.boundary_nodes
+
 .. autoattribute:: BaseTensorMesh.cell_centers
 
 .. autoattribute:: BaseTensorMesh.cell_centers_x
@@ -34,6 +42,8 @@ Attributes
 
 .. autoattribute:: BaseTensorMesh.edge_tangents
 
+.. autoattribute:: BaseTensorMesh.edges
+
 .. autoattribute:: BaseTensorMesh.edges_x
 
 .. autoattribute:: BaseTensorMesh.edges_y
@@ -41,6 +51,8 @@ Attributes
 .. autoattribute:: BaseTensorMesh.edges_z
 
 .. autoattribute:: BaseTensorMesh.face_normals
+
+.. autoattribute:: BaseTensorMesh.faces
 
 .. autoattribute:: BaseTensorMesh.faces_x
 
@@ -92,6 +104,8 @@ Attributes
 
 .. autoattribute:: BaseTensorMesh.normals
 
+.. autoattribute:: BaseTensorMesh.orientation
+
 .. autoattribute:: BaseTensorMesh.origin
 
 .. autoattribute:: BaseTensorMesh.reference_is_rotated
@@ -99,6 +113,8 @@ Attributes
 .. autoattribute:: BaseTensorMesh.reference_system
 
 .. autoattribute:: BaseTensorMesh.rotation_matrix
+
+.. autoattribute:: BaseTensorMesh.shape_cells
 
 .. autoattribute:: BaseTensorMesh.tangents
 
@@ -133,11 +149,7 @@ Methods
 
 
 
-.. automethod:: BaseTensorMesh.equal
-
-
-
-.. automethod:: BaseTensorMesh.from_omf
+.. automethod:: BaseTensorMesh.equals
 
 
 
@@ -165,34 +177,6 @@ Methods
 
 
 
-.. automethod:: BaseTensorMesh.plotGrid
-
-
-
-.. automethod:: BaseTensorMesh.plotImage
-
-
-
-.. automethod:: BaseTensorMesh.plotSlice
-
-
-
-.. automethod:: BaseTensorMesh.plot_3d_slicer
-
-
-
-.. automethod:: BaseTensorMesh.plot_grid
-
-
-
-.. automethod:: BaseTensorMesh.plot_image
-
-
-
-.. automethod:: BaseTensorMesh.plot_slice
-
-
-
 .. automethod:: BaseTensorMesh.projectEdgeVector
 
 
@@ -217,27 +201,11 @@ Methods
 
 
 
-.. automethod:: BaseTensorMesh.toVTK
-
-
-
-.. automethod:: BaseTensorMesh.to_omf
-
-
-
-.. automethod:: BaseTensorMesh.to_vtk
+.. automethod:: BaseTensorMesh.to_dict
 
 
 
 .. automethod:: BaseTensorMesh.validate
-
-
-
-.. automethod:: BaseTensorMesh.writeVTK
-
-
-
-.. automethod:: BaseTensorMesh.write_vtk
 
 
 

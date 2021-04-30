@@ -1,58 +1,22 @@
-# Plotting a 2D TensorMesh grid
+# We first create a very simple 2D tensor mesh on the [0, 1] boundary:
 
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
+import scipy.sparse as sp
 import discretize
-import numpy as np
-h1 = np.linspace(.1, .5, 3)
-h2 = np.linspace(.1, .5, 5)
-mesh = discretize.TensorMesh([h1, h2])
-mesh.plot_grid(nodes=True, faces=True, centers=True, lines=True)
-plt.show()
+mesh = discretize.TensorMesh([32, 32])
 
-# Plotting a 3D TensorMesh grid
+# Define the `alpha`, `beta`, and `gamma` parameters for a zero - Dirichlet
+# condition on the boundary, this corresponds to setting:
 
-from matplotlib import pyplot as plt
-import discretize
-import numpy as np
-h1 = np.linspace(.1, .5, 3)
-h2 = np.linspace(.1, .5, 5)
-h3 = np.linspace(.1, .5, 3)
-mesh = discretize.TensorMesh([h1, h2, h3])
-mesh.plot_grid(nodes=True, faces=True, centers=True, lines=True)
-plt.show()
+alpha = 1.0
+beta = 0.0
+gamma = 0.0
+A, b = mesh.cell_gradient_weak_form_robin(alpha, beta, gamma)
 
-# Plotting a 2D CurvilinearMesh
+# We can then represent the operation of taking the weak form of the gradient of a
+# function defined on cell centers with appropriate robin boundary conditions as:
 
-from matplotlib import pyplot as plt
-import discretize
-X, Y = discretize.utils.exampleLrmGrid([10, 10], 'rotate')
-M = discretize.CurvilinearMesh([X, Y])
-M.plot_grid()
-plt.show()
-
-# Plotting a 3D CurvilinearMesh
-
-from matplotlib import pyplot as plt
-import discretize
-X, Y, Z = discretize.utils.exampleLrmGrid([5, 5, 5], 'rotate')
-M = discretize.CurvilinearMesh([X, Y, Z])
-M.plot_grid()
-plt.show()
-
-# Plotting a 2D TreeMesh
-
-from matplotlib import pyplot as plt
-import discretize
-M = discretize.TreeMesh([32, 32])
-M.insert_cells([[0.25, 0.25]], [4])
-M.plot_grid()
-plt.show()
-
-# Plotting a 3D TreeMesh
-
-from matplotlib import pyplot as plt
-import discretize
-M = discretize.TreeMesh([32, 32, 32])
-M.insert_cells([[0.3, 0.75, 0.22]], [4])
-M.plot_grid()
-plt.show()
+V = sp.diags(mesh.cell_volumes)
+D = mesh.face_divergence
+phi = np.sin(np.pi * mesh.cell_centers[:, 0]) * np.sin(np.pi * mesh.cell_centers[:, 1])
+phi_grad = (-D.T @ V + A) @ phi + b

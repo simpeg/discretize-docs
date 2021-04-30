@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>API Reference &mdash; discretize 0.6.3 documentation</title>
+  <title>API Reference &mdash; discretize 0.7.0 documentation</title>
   
 
   
@@ -91,7 +91,7 @@
             
             
               <div class="version">
-                0.6.3
+                0.7.0
               </div>
             
           
@@ -149,8 +149,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#mesh-io">Mesh IO</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/discretize.load_mesh.html">discretize.load_mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.base.mesh_io.TensorMeshIO.html">discretize.base.mesh_io.TensorMeshIO</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/discretize.base.mesh_io.TreeMeshIO.html">discretize.base.mesh_io.TreeMeshIO</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#visualization">Visualization</a><ul>
@@ -323,7 +321,7 @@
     <li class="wy-breadcrumbs-aside">
         
             
-                <a href="https://github.com/simpeg/discretize/edit/main/doc/api/index.rst"
+                <a href="https://github.com/simpeg/discretize/edit/master/doc/api/index.rst"
                    class="fa fa-github"> Edit this page</a>
             
         
@@ -372,16 +370,16 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorMesh</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorMesh</span></code></a>(h[, origin])</p></td>
 <td><p>TensorMesh is a mesh class that deals with tensor product meshes.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.CylindricalMesh.html#discretize.CylindricalMesh" title="discretize.CylindricalMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CylindricalMesh</span></code></a>(*args, **kwargs)</p></td>
-<td><p>CylindricalMesh is a mesh class for cylindrical problems. It supports both</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.CylindricalMesh.html#discretize.CylindricalMesh" title="discretize.CylindricalMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CylindricalMesh</span></code></a>(h[, origin, cartesian_origin])</p></td>
+<td><p>CylindricalMesh is a mesh class for cylindrical problems.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.CurvilinearMesh.html#discretize.CurvilinearMesh" title="discretize.CurvilinearMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CurvilinearMesh</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.CurvilinearMesh.html#discretize.CurvilinearMesh" title="discretize.CurvilinearMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CurvilinearMesh</span></code></a>(node_list, **kwargs)</p></td>
 <td><p>CurvilinearMesh is a mesh class that deals with curvilinear meshes.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TreeMesh</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TreeMesh</span></code></a>([h, origin])</p></td>
 <td><p>TreeMesh is a class for adaptive QuadTree (2D) and OcTree (3D) meshes.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.tree_mesh.TreeCell.html#discretize.tree_mesh.TreeCell" title="discretize.tree_mesh.TreeCell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_mesh.TreeCell</span></code></a></p></td>
@@ -417,14 +415,6 @@
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.load_mesh.html#discretize.load_mesh" title="discretize.load_mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_mesh</span></code></a>(file_name)</p></td>
 <td><p>Open a json file and load the mesh into the target class</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.base.mesh_io.TensorMeshIO.html#discretize.base.mesh_io.TensorMeshIO" title="discretize.base.mesh_io.TensorMeshIO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">base.mesh_io.TensorMeshIO</span></code></a>()</p></td>
-<td><p><p class="rubric">Methods</p>
-</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.base.mesh_io.TreeMeshIO.html#discretize.base.mesh_io.TreeMeshIO" title="discretize.base.mesh_io.TreeMeshIO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">base.mesh_io.TreeMeshIO</span></code></a>()</p></td>
-<td><p><p class="rubric">Methods</p>
-</p></td>
 </tr>
 </tbody>
 </table>
@@ -683,13 +673,17 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.base.BaseMesh.html#discretize.base.BaseMesh" title="discretize.base.BaseMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">base.BaseMesh</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.base.BaseMesh.html#discretize.base.BaseMesh" title="discretize.base.BaseMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">base.BaseMesh</span></code></a>(shape_cells[, origin, …])</p></td>
 <td><p>BaseMesh does all the counting you don’t want to do.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.base.BaseRectangularMesh.html#discretize.base.BaseRectangularMesh" title="discretize.base.BaseRectangularMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">base.BaseRectangularMesh</span></code></a>(*args, **kwargs)</p></td>
-<td><p>BaseRectangularMesh</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/discretize.base.BaseRectangularMesh.html#discretize.base.BaseRectangularMesh" title="discretize.base.BaseRectangularMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">base.BaseRectangularMesh</span></code></a>(shape_cells[, …])</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.base.BaseTensorMesh.html#discretize.base.BaseTensorMesh" title="discretize.base.BaseTensorMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">base.BaseTensorMesh</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/discretize.base.BaseTensorMesh.html#discretize.base.BaseTensorMesh" title="discretize.base.BaseTensorMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">base.BaseTensorMesh</span></code></a>(h[, origin])</p></td>
 <td><p>Base class for tensor-product style meshes</p></td>
 </tr>
 </tbody>

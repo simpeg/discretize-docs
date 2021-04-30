@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>discretize.cylindrical_mesh &mdash; discretize 0.6.3 documentation</title>
+  <title>discretize.cylindrical_mesh &mdash; discretize 0.7.0 documentation</title>
   
 
   
@@ -87,7 +87,7 @@
             
             
               <div class="version">
-                0.6.3
+                0.7.0
               </div>
             
           
@@ -230,7 +230,6 @@
             
   <h1>Source code for discretize.cylindrical_mesh</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">properties</span>
 <span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="kn">from</span> <span class="nn">scipy.constants</span> <span class="kn">import</span> <span class="n">pi</span>
 
@@ -247,6 +246,7 @@
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">discretize.base</span> <span class="kn">import</span> <span class="n">BaseTensorMesh</span><span class="p">,</span> <span class="n">BaseRectangularMesh</span>
 <span class="kn">from</span> <span class="nn">discretize.operators</span> <span class="kn">import</span> <span class="n">DiffOperators</span><span class="p">,</span> <span class="n">InnerProducts</span>
+<span class="kn">from</span> <span class="nn">discretize.mixins</span> <span class="kn">import</span> <span class="n">InterfaceMixins</span>
 <span class="kn">from</span> <span class="nn">discretize.utils.code_utils</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">deprecate_class</span><span class="p">,</span>
     <span class="n">deprecate_property</span><span class="p">,</span>
@@ -255,8 +255,8 @@
 <span class="kn">import</span> <span class="nn">warnings</span>
 
 
-<div class="viewcode-block" id="CylindricalMesh"><a class="viewcode-back" href="../../api/generated/discretize.CylindricalMesh.html#discretize.CylindricalMesh">[docs]</a><span class="k">class</span> <span class="nc">CylindricalMesh</span><span class="p">(</span>
-    <span class="n">BaseTensorMesh</span><span class="p">,</span> <span class="n">BaseRectangularMesh</span><span class="p">,</span> <span class="n">InnerProducts</span><span class="p">,</span> <span class="n">DiffOperators</span>
+<span class="k">class</span> <span class="nc">CylindricalMesh</span><span class="p">(</span>
+    <span class="n">BaseTensorMesh</span><span class="p">,</span> <span class="n">BaseRectangularMesh</span><span class="p">,</span> <span class="n">InnerProducts</span><span class="p">,</span> <span class="n">DiffOperators</span><span class="p">,</span> <span class="n">InterfaceMixins</span>
 <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    CylindricalMesh is a mesh class for cylindrical problems. It supports both</span>
@@ -303,13 +303,13 @@
         <span class="o">**</span><span class="n">BaseTensorMesh</span><span class="o">.</span><span class="n">_aliases</span><span class="p">,</span>
     <span class="p">}</span>
 
-    <span class="n">cartesian_origin</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span>
-        <span class="s2">&quot;Cartesian origin of the mesh&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,)</span>
-    <span class="p">)</span>
+    <span class="n">_items</span> <span class="o">=</span> <span class="n">BaseTensorMesh</span><span class="o">.</span><span class="n">_items</span> <span class="o">|</span> <span class="p">{</span><span class="s2">&quot;cartesian_origin&quot;</span><span class="p">}</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">reference_system</span> <span class="o">=</span> <span class="s2">&quot;cylindrical&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cartesian_origin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;reference_system&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># reference system must be cylindrical</span>
+        <span class="k">if</span> <span class="s2">&quot;cartesianOrigin&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">cartesian_origin</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;cartesianOrigin&quot;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span> <span class="n">reference_system</span><span class="o">=</span><span class="s2">&quot;cylindrical&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;The 2nd dimension must sum to 2*pi&quot;</span><span class="p">)</span>
@@ -317,23 +317,25 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning, a disk mesh has not been tested thoroughly.&quot;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="s2">&quot;cartesian_origin&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cartesian_origin</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;cartesian_origin&quot;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="s2">&quot;cartesianOrigin&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cartesian_origin</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;cartesianOrigin&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cartesian_origin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cartesian_origin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">cartesian_origin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cartesian_origin</span> <span class="o">=</span> <span class="n">cartesian_origin</span>
 
-<div class="viewcode-block" id="CylindricalMesh.check_cartesian_origin_shape"><a class="viewcode-back" href="../../api/generated/discretize.CylindricalMesh.html#discretize.CylindricalMesh.check_cartesian_origin_shape">[docs]</a>    <span class="nd">@properties</span><span class="o">.</span><span class="n">validator</span><span class="p">(</span><span class="s2">&quot;cartesian_origin&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">check_cartesian_origin_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">change</span><span class="p">):</span>
-        <span class="n">change</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">])</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
-                <span class="s2">&quot;Dimension mismatch. The mesh dimension is </span><span class="si">{}</span><span class="s2">, and the &quot;</span>
-                <span class="s2">&quot;cartesian_origin provided has length </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">])</span>
-                <span class="p">)</span>
-            <span class="p">)</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cartesian_origin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Cartesian origin of the mesh&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cartesian_origin</span>
+
+    <span class="nd">@cartesian_origin</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cartesian_origin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="c1"># ensure the value is a numpy array</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;cartesian origin and shape must be the same length, got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cartesian_origin</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">is_symmetric</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -596,7 +598,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_symmetric</span><span class="p">:</span>
             <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_shape_total_nodes</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_shape_total_nodes</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">)</span>
+        <span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">edge_y_lengths</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -613,7 +617,9 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_symmetric</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_edge_lengths_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_y_lengths_full</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_edge_lengths_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_y_lengths_full</span><span class="p">[</span><span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">_ishanging_edges_y</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_edge_lengths_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_y_lengths_full</span><span class="p">[</span>
+                    <span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">_ishanging_edges_y</span>
+                <span class="p">]</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_lengths_y</span>
 
     <span class="nd">@property</span>
@@ -648,7 +654,11 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_symmetric</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_edge_x_lengths_full</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_y_lengths_full</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_z_lengths_full</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_edge_x_lengths_full</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_edge_y_lengths_full</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_edge_z_lengths_full</span><span class="p">,</span>
+            <span class="p">]</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">edge_lengths</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -700,7 +710,9 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Area of y-faces (Azimuthal faces), prior to deflation.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_shape_total_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_shape_total_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">face_y_areas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -765,7 +777,9 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Area of all faces (prior to delflation)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_face_x_areas_full</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_y_areas_full</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_z_areas_full</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_face_x_areas_full</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_y_areas_full</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_z_areas_full</span>
+        <span class="p">]</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">face_areas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -798,17 +812,14 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_cell_volumes&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_symmetric</span><span class="p">:</span>
-                <span class="n">az</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">**</span> <span class="mi">2</span>
-                <span class="p">)</span>
+                <span class="n">az</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_cell_volumes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">az</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_cell_volumes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
                     <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                        <span class="mf">0.5</span>
-                        <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">),</span>
+                        <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">),</span>
                     <span class="p">),</span>
                 <span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cell_volumes</span>
@@ -875,7 +886,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_hanging_faces_x_dict&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_hanging_faces_x_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-                <span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ishanging_faces_x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_hanging_faces_x</span><span class="p">)</span>
+                <span class="nb">zip</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ishanging_faces_x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                    <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_hanging_faces_x</span><span class="p">,</span>
+                <span class="p">)</span>
             <span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hanging_faces_x_dict</span>
 
@@ -1021,7 +1035,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_ishanging_edges_z_bool&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_symmetric</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_ishanging_edges_z_bool</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_total_edges_z</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_ishanging_edges_z_bool</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_n_total_edges_z</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span>
+                <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shape_total_nodes</span>
                 <span class="n">hang_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
@@ -1039,7 +1055,9 @@
                     <span class="p">),</span>
                 <span class="p">)</span>
 
-                <span class="bp">self</span><span class="o">.</span><span class="n">_ishanging_edges_z_bool</span> <span class="o">=</span> <span class="n">hangingEz</span> <span class="o">&amp;</span> <span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">_axis_of_symmetry_edges_z</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_ishanging_edges_z_bool</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">hangingEz</span> <span class="o">&amp;</span> <span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">_axis_of_symmetry_edges_z</span>
+                <span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ishanging_edges_z_bool</span>
 
@@ -1164,9 +1182,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Full Fx grid (including hanging faces)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">ndgrid</span><span class="p">(</span>
-            <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_centers_y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_centers_z</span><span class="p">]</span>
-        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">ndgrid</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_centers_y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_centers_z</span><span class="p">])</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">faces_x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1276,7 +1292,8 @@
 
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_symmetric</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_face_x_divergence</span> <span class="o">=</span> <span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_face_x_divergence</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deflation_matrix</span><span class="p">(</span><span class="s2">&quot;Fx&quot;</span><span class="p">,</span> <span class="n">as_ones</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_face_x_divergence</span>
+                    <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deflation_matrix</span><span class="p">(</span><span class="s2">&quot;Fx&quot;</span><span class="p">,</span> <span class="n">as_ones</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
                 <span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_x_divergence</span>
@@ -1651,7 +1668,18 @@
 <span class="sd">        from the operators</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">location</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_location_type</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">location</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;nodes&quot;</span><span class="p">,</span> <span class="s2">&quot;faces&quot;</span><span class="p">,</span> <span class="s2">&quot;faces_x&quot;</span><span class="p">,</span> <span class="s2">&quot;faces_y&quot;</span><span class="p">,</span> <span class="s2">&quot;faces_z&quot;</span><span class="p">,</span> <span class="s2">&quot;edges&quot;</span><span class="p">,</span> <span class="s2">&quot;edges_x&quot;</span><span class="p">,</span> <span class="s2">&quot;edges_y&quot;</span><span class="p">,</span> <span class="s2">&quot;edges_z&quot;</span><span class="p">,</span> <span class="s2">&quot;cell_centers&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">location</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+            <span class="s2">&quot;nodes&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;faces&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;faces_x&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;faces_y&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;faces_z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;edges&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;edges_x&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;edges_y&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;edges_z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cell_centers&quot;</span><span class="p">,</span>
+        <span class="p">]:</span>
             <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
                 <span class="s2">&quot;Location must be a grid location, not </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
             <span class="p">)</span>
@@ -1865,7 +1893,6 @@
             <span class="n">location_type_to</span> <span class="o">=</span> <span class="n">location_type</span>
         <span class="n">location_type_to</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_location_type</span><span class="p">(</span><span class="n">location_type_to</span><span class="p">)</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="n">location_type</span><span class="p">,</span> <span class="n">location_type_to</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">location_type</span> <span class="o">==</span> <span class="s2">&quot;faces&quot;</span><span class="p">:</span>
             <span class="c1"># do this three times for each component</span>
             <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_interpolation_matrix_cartesian_mesh</span><span class="p">(</span>
@@ -1908,12 +1935,12 @@
             <span class="n">G</span><span class="p">,</span> <span class="n">proj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">grid</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]],</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">dotMe</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">&quot;faces_x&quot;</span><span class="p">:</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">face_normals</span><span class="p">[:</span><span class="n">Mrect</span><span class="o">.</span><span class="n">nFx</span><span class="p">,</span> <span class="p">:],</span>
-                <span class="s2">&quot;faces_y&quot;</span><span class="p">:</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">face_normals</span><span class="p">[</span><span class="n">Mrect</span><span class="o">.</span><span class="n">nFx</span><span class="p">:(</span><span class="n">Mrect</span><span class="o">.</span><span class="n">nFx</span> <span class="o">+</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">nFy</span><span class="p">),</span> <span class="p">:],</span>
-                <span class="s2">&quot;faces_z&quot;</span><span class="p">:</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">face_normals</span><span class="p">[</span><span class="o">-</span><span class="n">Mrect</span><span class="o">.</span><span class="n">nFz</span><span class="p">:,</span> <span class="p">:],</span>
+                <span class="s2">&quot;faces_x&quot;</span><span class="p">:</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">face_normals</span><span class="p">[:</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">nFx</span><span class="p">,</span> <span class="p">:],</span>
+                <span class="s2">&quot;faces_y&quot;</span><span class="p">:</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">face_normals</span><span class="p">[</span><span class="n">Mrect</span><span class="o">.</span><span class="n">nFx</span> <span class="p">:</span> <span class="p">(</span><span class="n">Mrect</span><span class="o">.</span><span class="n">nFx</span> <span class="o">+</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">nFy</span><span class="p">),</span> <span class="p">:],</span>
+                <span class="s2">&quot;faces_z&quot;</span><span class="p">:</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">face_normals</span><span class="p">[</span><span class="o">-</span><span class="n">Mrect</span><span class="o">.</span><span class="n">nFz</span> <span class="p">:,</span> <span class="p">:],</span>
                 <span class="s2">&quot;edges_x&quot;</span><span class="p">:</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">edge_tangents</span><span class="p">[:</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">nEx</span><span class="p">,</span> <span class="p">:],</span>
-                <span class="s2">&quot;edges_y&quot;</span><span class="p">:</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">edge_tangents</span><span class="p">[</span><span class="n">Mrect</span><span class="o">.</span><span class="n">nEx</span><span class="p">:</span> <span class="p">(</span><span class="n">Mrect</span><span class="o">.</span><span class="n">nEx</span> <span class="o">+</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">nEy</span><span class="p">),</span> <span class="p">:],</span>
-                <span class="s2">&quot;edges_z&quot;</span><span class="p">:</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">edge_tangents</span><span class="p">[</span><span class="o">-</span><span class="n">Mrect</span><span class="o">.</span><span class="n">nEz</span><span class="p">:,</span> <span class="p">:],</span>
+                <span class="s2">&quot;edges_y&quot;</span><span class="p">:</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">edge_tangents</span><span class="p">[</span><span class="n">Mrect</span><span class="o">.</span><span class="n">nEx</span> <span class="p">:</span> <span class="p">(</span><span class="n">Mrect</span><span class="o">.</span><span class="n">nEx</span> <span class="o">+</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">nEy</span><span class="p">),</span> <span class="p">:],</span>
+                <span class="s2">&quot;edges_z&quot;</span><span class="p">:</span> <span class="n">Mrect</span><span class="o">.</span><span class="n">edge_tangents</span><span class="p">[</span><span class="o">-</span><span class="n">Mrect</span><span class="o">.</span><span class="n">nEz</span> <span class="p">:,</span> <span class="p">:],</span>
             <span class="p">}[</span><span class="n">location_type_to</span><span class="p">]</span>
             <span class="k">if</span> <span class="s2">&quot;faces&quot;</span> <span class="ow">in</span> <span class="n">location_type</span><span class="p">:</span>
                 <span class="n">normals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">theta</span><span class="o">.</span><span class="n">size</span><span class="p">)]</span>
@@ -1956,7 +1983,10 @@
     <span class="p">)</span>
     <span class="n">cartesianGrid</span> <span class="o">=</span> <span class="n">deprecate_method</span><span class="p">(</span>
         <span class="s2">&quot;cartesian_grid&quot;</span><span class="p">,</span> <span class="s2">&quot;cartesianGrid&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>
-    <span class="p">)</span></div>
+    <span class="p">)</span>
+
+
+<span class="n">CylindricalMesh</span><span class="o">.</span><span class="vm">__module__</span> <span class="o">=</span> <span class="s2">&quot;discretize&quot;</span>
 
 
 <span class="nd">@deprecate_class</span><span class="p">(</span><span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span>

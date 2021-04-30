@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>discretize.operators.differential_operators &mdash; discretize 0.6.3 documentation</title>
+  <title>discretize.operators.differential_operators &mdash; discretize 0.7.0 documentation</title>
   
 
   
@@ -87,7 +87,7 @@
             
             
               <div class="version">
-                0.6.3
+                0.7.0
               </div>
             
           
@@ -232,7 +232,16 @@
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">sparse</span> <span class="k">as</span> <span class="n">sp</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="n">sdiag</span><span class="p">,</span> <span class="n">speye</span><span class="p">,</span> <span class="n">kron3</span><span class="p">,</span> <span class="n">spzeros</span><span class="p">,</span> <span class="n">ddx</span><span class="p">,</span> <span class="n">av</span><span class="p">,</span> <span class="n">av_extrap</span>
+<span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">sdiag</span><span class="p">,</span>
+    <span class="n">speye</span><span class="p">,</span>
+    <span class="n">kron3</span><span class="p">,</span>
+    <span class="n">spzeros</span><span class="p">,</span>
+    <span class="n">ddx</span><span class="p">,</span>
+    <span class="n">av</span><span class="p">,</span>
+    <span class="n">av_extrap</span><span class="p">,</span>
+    <span class="n">make_boundary_bool</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">discretize.utils.code_utils</span> <span class="kn">import</span> <span class="n">deprecate_method</span><span class="p">,</span> <span class="n">deprecate_property</span>
 
 
@@ -353,7 +362,7 @@
     <span class="k">return</span> <span class="n">D</span>
 
 
-<div class="viewcode-block" id="DiffOperators"><a class="viewcode-back" href="../../../api/generated/discretize.operators.DiffOperators.html#discretize.operators.DiffOperators">[docs]</a><span class="k">class</span> <span class="nc">DiffOperators</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">DiffOperators</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class creates the differential operators that you need!</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -375,13 +384,6 @@
         <span class="s2">&quot;aveN2E&quot;</span><span class="p">:</span> <span class="s2">&quot;average_node_to_edge&quot;</span><span class="p">,</span>
         <span class="s2">&quot;aveN2F&quot;</span><span class="p">:</span> <span class="s2">&quot;average_node_to_face&quot;</span><span class="p">,</span>
     <span class="p">}</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
-            <span class="s2">&quot;DiffOperators is a base class providing differential&quot;</span>
-            <span class="s2">&quot;operators on meshes and cannot run on its own.&quot;</span>
-            <span class="s2">&quot;Inherit to your favorite Mesh class.&quot;</span>
-        <span class="p">)</span>
 
     <span class="c1">###########################################################################</span>
     <span class="c1">#                                                                         #</span>
@@ -443,10 +445,17 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">D</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_x_divergence_stencil</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="n">D</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_face_x_divergence_stencil</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_y_divergence_stencil</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">)</span>
+            <span class="n">D</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span>
+                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_face_x_divergence_stencil</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_y_divergence_stencil</span><span class="p">),</span>
+                <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
             <span class="n">D</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span>
-                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_face_x_divergence_stencil</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_y_divergence_stencil</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face_z_divergence_stencil</span><span class="p">),</span>
+                <span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_face_x_divergence_stencil</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_face_y_divergence_stencil</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_face_z_divergence_stencil</span><span class="p">,</span>
+                <span class="p">),</span>
                 <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">return</span> <span class="n">D</span>
@@ -563,7 +572,8 @@
             <span class="n">G</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodal_gradient_x_stencil</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="n">G</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
-                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nodal_gradient_x_stencil</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodal_gradient_y_stencil</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span>
+                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nodal_gradient_x_stencil</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodal_gradient_y_stencil</span><span class="p">),</span>
+                <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
             <span class="n">G</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
@@ -666,7 +676,9 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_nodal_laplacian</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodal_laplacian_x</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_nodal_laplacian</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodal_laplacian_x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodal_laplacian_y</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_nodal_laplacian</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_nodal_laplacian_x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodal_laplacian_y</span>
+                <span class="p">)</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_nodal_laplacian</span> <span class="o">=</span> <span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_nodal_laplacian_x</span>
@@ -674,6 +686,125 @@
                     <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodal_laplacian_z</span>
                 <span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodal_laplacian</span>
+
+<div class="viewcode-block" id="DiffOperators.edge_divergence_weak_form_robin"><a class="viewcode-back" href="../../../api/generated/discretize.operators.DiffOperators.html#discretize.operators.DiffOperators.edge_divergence_weak_form_robin">[docs]</a>    <span class="k">def</span> <span class="nf">edge_divergence_weak_form_robin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Robin boundary condition for the weak formulation of the edge divergence</span>
+
+<span class="sd">        This function returns the necessary parts to form the full weak form of the</span>
+<span class="sd">        edge divergence using the nodal gradient with appropriate boundary conditions.</span>
+
+<span class="sd">        The `alpha`, `beta`, and `gamma` parameters can be scalars, or arrays. If they</span>
+<span class="sd">        are arrays, they can either be the same length as the number of boundary faces,</span>
+<span class="sd">        or boundary nodes. If multiple parameters are arrays, they must all be the same</span>
+<span class="sd">        length.</span>
+
+<span class="sd">        `beta` can not be 0.</span>
+
+<span class="sd">        It is assumed here that quantity that is approximated on the boundary is the</span>
+<span class="sd">        gradient of another quantity. See the Notes section for explicit details.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        alpha, beta : scalar or array_like</span>
+<span class="sd">            Parameters for the Robin boundary condition. array_like must be defined on</span>
+<span class="sd">            either boundary faces or boundary nodes.</span>
+<span class="sd">        gamma: scalar or array_like</span>
+<span class="sd">            right hand side boundary conditions. If this parameter is array like, it can</span>
+<span class="sd">            be fed either a (n_boundary_XXX,) shape array or an (n_boundary_XXX, n_rhs)</span>
+<span class="sd">            shape array if multiple systems have the same alpha and beta parameters.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        For these returned operators, it is assumed that the quantity on the boundary is</span>
+<span class="sd">        related to the gradient of some other quantity.</span>
+
+<span class="sd">        The weak form is obtained by multiplying the divergence by a (piecewise-constant)</span>
+<span class="sd">        test function, and integrating over the cell, i.e.</span>
+
+<span class="sd">        .. math:: \int_V y \nabla \cdot \vec{u} \partial V</span>
+<span class="sd">            :label: weak_form</span>
+
+<span class="sd">        This equation can be transformed to reduce the differentiability requirement on</span>
+<span class="sd">        :math:`\vec{u}` to be,</span>
+
+<span class="sd">        .. math:: -\int_V \vec{u} \cdot (\nabla y) \partial V + \int_{dV} y \vec{u} \cdot \hat{n} \partial S.</span>
+<span class="sd">            :label: transformed</span>
+
+<span class="sd">        Furthermore, when applying these types of transformations, the unknown vector</span>
+<span class="sd">        :math:`\vec{u}` is usually related to some scalar potential as:</span>
+
+<span class="sd">        .. math:: \vec{u} = \nabla \phi</span>
+<span class="sd">            :label: gradient of potential</span>
+
+<span class="sd">        Thus the robin conditions returned by these matrices apply to the quantity of</span>
+<span class="sd">        :math:`\phi`.</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            \alpha \phi + \beta \nabla \phi \cdot \hat{n} = \gamma</span>
+
+<span class="sd">            \alpha \phi + \beta \vec{u} \cdot \hat{n} = \gamma</span>
+
+<span class="sd">        The returned operators cannot be used to impose a Dirichlet condition on</span>
+<span class="sd">        :math:`\phi`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+        <span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+        <span class="n">gamma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">gamma</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">beta</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;beta cannot have a zero value&quot;</span><span class="p">)</span>
+
+        <span class="n">Pbn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">project_node_to_boundary_node</span>
+        <span class="n">Pbf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">project_face_to_boundary_face</span>
+
+        <span class="n">n_boundary_faces</span> <span class="o">=</span> <span class="n">Pbf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">n_boundary_nodes</span> <span class="o">=</span> <span class="n">Pbn</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">),</span> <span class="n">alpha</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">gamma</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gamma</span><span class="p">),</span> <span class="n">alpha</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">n_boundary_faces</span><span class="p">,</span> <span class="n">alpha</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span> <span class="n">beta</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">gamma</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">gamma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span> <span class="n">gamma</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gamma</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;alpha, beta, and gamma must have the same length&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="n">n_boundary_faces</span><span class="p">,</span> <span class="n">n_boundary_nodes</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;The arrays must be of length n_boundary_faces or n_boundary_nodes&quot;</span>
+            <span class="p">)</span>
+
+        <span class="n">AveN2F</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">average_node_to_face</span>
+        <span class="n">boundary_areas</span> <span class="o">=</span> <span class="n">Pbf</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">face_areas</span>
+        <span class="n">AveBN2Bf</span> <span class="o">=</span> <span class="n">Pbf</span> <span class="o">@</span> <span class="n">AveN2F</span> <span class="o">@</span> <span class="n">Pbn</span><span class="o">.</span><span class="n">T</span>
+
+        <span class="c1"># at the boundary, we have that u dot n = (gamma - alpha * phi)/beta</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">==</span> <span class="n">n_boundary_faces</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">gamma</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">Pbn</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span>
+                    <span class="n">AveBN2Bf</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">gamma</span> <span class="o">/</span> <span class="n">beta</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">boundary_areas</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">])</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">Pbn</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">AveBN2Bf</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">gamma</span> <span class="o">/</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">boundary_areas</span><span class="p">))</span>
+            <span class="n">B</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">Pbn</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">AveBN2Bf</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="o">-</span><span class="n">alpha</span> <span class="o">/</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">boundary_areas</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">gamma</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">Pbn</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span>
+                    <span class="n">gamma</span> <span class="o">/</span> <span class="n">beta</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">AveBN2Bf</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">boundary_areas</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">Pbn</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">gamma</span> <span class="o">/</span> <span class="n">beta</span> <span class="o">*</span> <span class="p">(</span><span class="n">AveBN2Bf</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">boundary_areas</span><span class="p">))</span>
+            <span class="n">B</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">Pbn</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="o">-</span><span class="n">alpha</span> <span class="o">/</span> <span class="n">beta</span> <span class="o">*</span> <span class="p">(</span><span class="n">AveBN2Bf</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">boundary_areas</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">B</span><span class="p">,</span> <span class="n">b</span></div>
 
     <span class="c1">###########################################################################</span>
     <span class="c1">#                                                                         #</span>
@@ -803,6 +934,126 @@
             <span class="p">)</span>  <span class="c1"># Average volume between adjacent cells</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_cell_gradient</span> <span class="o">=</span> <span class="n">sdiag</span><span class="p">(</span><span class="n">S</span> <span class="o">/</span> <span class="n">V</span><span class="p">)</span> <span class="o">*</span> <span class="n">G</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cell_gradient</span>
+
+<div class="viewcode-block" id="DiffOperators.cell_gradient_weak_form_robin"><a class="viewcode-back" href="../../../api/generated/discretize.operators.DiffOperators.html#discretize.operators.DiffOperators.cell_gradient_weak_form_robin">[docs]</a>    <span class="k">def</span> <span class="nf">cell_gradient_weak_form_robin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Robin boundary condition for the weak formulation of the cell gradient</span>
+
+<span class="sd">        This function returns the necessary parts for the weak form of the cell gradient</span>
+<span class="sd">        operator to represent the Robin boundary conditions.</span>
+
+<span class="sd">        The implementation assumes a ghost cell that mirrors the boundary cells across the boundary faces, with a</span>
+<span class="sd">        piecewise linear approximation to the values at the ghost cell centers.</span>
+
+<span class="sd">        The parameters can either be defined as a constant applied to the entire boundary,</span>
+<span class="sd">        or as arrays that represent those values on the :meth:`discretize.base.BaseTensorMesh.boundary_faces`.</span>
+
+<span class="sd">        The returned arrays represent the proper boundary conditions on a solution ``u``</span>
+<span class="sd">        such that the inner product of the gradient of ``u`` with a test function y would</span>
+<span class="sd">        be &lt;``y, gradient*u``&gt; ``= y.dot((-face_divergence.T*cell_volumes + A)*u + y.dot(b)``.</span>
+
+<span class="sd">        The default values will produce a zero-dirichlet boundary condition.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        alpha, beta : scalar or array_like</span>
+<span class="sd">            Parameters for the Robin boundary condition. array_like must be defined on</span>
+<span class="sd">            each boundary face.</span>
+<span class="sd">        gamma: scalar or array_like</span>
+<span class="sd">            right hand side boundary conditions. If this parameter is array like, it can</span>
+<span class="sd">            be fed either a (n_boundary_faces,) shape array or an (n_boundary_faces, n_rhs)</span>
+<span class="sd">            shape array if multiple systems have the same alpha and beta parameters.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        A : scipy.sparse.csr_matrix</span>
+<span class="sd">            Matrix to add to (-face_divergence.T * cell_volumes)</span>
+<span class="sd">        b : numpy.ndarray</span>
+<span class="sd">            Array to add to the result of the (-face_divergence.T * cell_volumes + A) @ u.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        We first create a very simple 2D tensor mesh on the [0, 1] boundary:</span>
+
+<span class="sd">        &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">        &gt;&gt;&gt; import scipy.sparse as sp</span>
+<span class="sd">        &gt;&gt;&gt; import discretize</span>
+<span class="sd">        &gt;&gt;&gt; mesh = discretize.TensorMesh([32, 32])</span>
+
+<span class="sd">        Define the `alpha`, `beta`, and `gamma` parameters for a zero - Dirichlet</span>
+<span class="sd">        condition on the boundary, this corresponds to setting:</span>
+
+<span class="sd">        &gt;&gt;&gt; alpha = 1.0</span>
+<span class="sd">        &gt;&gt;&gt; beta = 0.0</span>
+<span class="sd">        &gt;&gt;&gt; gamma = 0.0</span>
+<span class="sd">        &gt;&gt;&gt; A, b = mesh.cell_gradient_weak_form_robin(alpha, beta, gamma)</span>
+
+<span class="sd">        We can then represent the operation of taking the weak form of the gradient of a</span>
+<span class="sd">        function defined on cell centers with appropriate robin boundary conditions as:</span>
+
+<span class="sd">        &gt;&gt;&gt; V = sp.diags(mesh.cell_volumes)</span>
+<span class="sd">        &gt;&gt;&gt; D = mesh.face_divergence</span>
+<span class="sd">        &gt;&gt;&gt; phi = np.sin(np.pi * mesh.cell_centers[:, 0]) * np.sin(np.pi * mesh.cell_centers[:, 1])</span>
+<span class="sd">        &gt;&gt;&gt; phi_grad = (-D.T @ V + A) @ phi + b</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The weak form is obtained by multiplying the gradient by a (piecewise-constant)</span>
+<span class="sd">        test function, and integrating over the cell, i.e.</span>
+
+<span class="sd">        .. math:: \int_V \vec{y} \cdot \nabla u \partial V</span>
+<span class="sd">            :label: weak_form</span>
+
+<span class="sd">        This equation can be transformed to reduce the differentiability requirement on `u`</span>
+<span class="sd">        to be,</span>
+
+<span class="sd">        .. math:: -\int_V u (\nabla \cdot \vec{y}) \partial V + \int_{dV} u \vec{y} \partial V.</span>
+<span class="sd">            :label: transformed</span>
+
+<span class="sd">        The first term in equation :eq:transformed is constructed using the matrix</span>
+<span class="sd">        operators defined on this mesh as ``D`` = :meth:`discretize.operators.DiffOperators.face_divergence` and</span>
+<span class="sd">        ``V``, a diagonal matrix of :meth:`discretize.base.BaseMesh.cell_volumes`, as</span>
+
+<span class="sd">        .. math:: -(D*y)^T*V*u.</span>
+
+<span class="sd">        This function returns the necessary matrices to complete the transformation of</span>
+<span class="sd">        equation :eq:transformed. The second part of equation :eq:transformed becomes,</span>
+
+<span class="sd">        .. math:: \int_V \nabla \cdot (\phi u) \partial V = \int_{\partial\Omega} \phi\vec{u}\cdot\hat{n} \partial a</span>
+<span class="sd">            :label: boundary_conditions</span>
+
+<span class="sd">        which is then approximated with the matrices returned here such that the full</span>
+<span class="sd">        form of the weak formulation in a discrete form would be.</span>
+
+<span class="sd">        .. math:: y^T(-D^T V + B)u + y^Tb</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># get length between boundary cell_centers and boundary_faces</span>
+        <span class="n">Pf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">project_face_to_boundary_face</span>
+        <span class="n">aveC2BF</span> <span class="o">=</span> <span class="n">Pf</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">average_cell_to_face</span>
+        <span class="c1"># distance from cell centers to ghost point on boundary faces</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boundary_faces</span> <span class="o">-</span> <span class="n">aveC2BF</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_centers</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">boundary_faces</span> <span class="o">-</span> <span class="n">aveC2BF</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_centers</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+            <span class="p">)</span>
+
+        <span class="c1"># for the ghost point u_k = a*u_i + b where</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">beta</span> <span class="o">/</span> <span class="n">h</span> <span class="o">/</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">/</span> <span class="n">h</span><span class="p">)</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">@</span> <span class="n">aveC2BF</span>
+
+        <span class="n">gamma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">gamma</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">gamma</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">gamma</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">/</span> <span class="n">h</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">gamma</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">/</span> <span class="n">h</span><span class="p">)</span>
+
+        <span class="c1"># value at boundary = A*cells + b</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">boundary_face_scalar_integral</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">M</span> <span class="o">@</span> <span class="n">A</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">M</span> <span class="o">@</span> <span class="n">b</span>
+
+        <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">b</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">cell_gradient_BC</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -973,6 +1224,140 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">_edge_curl</span> <span class="o">=</span> <span class="n">sdiag</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">S</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_edge_curl_stencil</span> <span class="o">*</span> <span class="n">sdiag</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_curl</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">boundary_face_scalar_integral</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Represents the operation of integrating a scalar function on the boundary</span>
+
+<span class="sd">        This matrix represents the boundary surface integral of a scalar function</span>
+<span class="sd">        multiplied with a finite volume test function on the mesh.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scipy.sparse.csr_matrix</span>
+<span class="sd">            Sparse matrix of shape (n_faces, n_boundary_faces)</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The integral we are representing on the boundary of the mesh is</span>
+
+<span class="sd">        .. math:: \int_{\Omega} u\vec{w} \cdot \hat{n} \partial \Omega</span>
+
+<span class="sd">        In discrete form this is:</span>
+
+<span class="sd">        .. math:: w^T * P * u_b</span>
+
+<span class="sd">        where `w` is defined on all faces, and `u_b` is defined on boundary faces.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">(</span>
+                <span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_faces_x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_faces_x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="n">P</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">project_face_to_boundary_face</span>
+
+        <span class="n">w_h_dot_normal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">P</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">face_normals</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">boundary_face_outward_normals</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span>
+        <span class="p">)</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">face_areas</span><span class="p">)</span> <span class="o">@</span> <span class="n">P</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">w_h_dot_normal</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">A</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">boundary_edge_vector_integral</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Represents the operation of integrating a vector function on the boundary</span>
+
+<span class="sd">        This matrix represents the boundary surface integral of a vector function</span>
+<span class="sd">        multiplied with a finite volume test function on the mesh.</span>
+
+<span class="sd">        In 1D and 2D, the operation assumes that the right array contains only a single</span>
+<span class="sd">        component of the vector ``u``. In 3D, however, we must assume that ``u`` will</span>
+<span class="sd">        contain each of the three vector components, and it must be ordered as,</span>
+<span class="sd">        ``[edges_1_x, ... ,edge_N_x, edge_1_y, ..., edge_N_y, edge_1_z, ..., edge_N_z]``</span>
+<span class="sd">        , where ``N`` is the number of boundary edges.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scipy.sparse.csr_matrix</span>
+<span class="sd">            Sparse matrix of shape (n_edges, n_boundary_edges) for 1D or 2D mesh,</span>
+<span class="sd">            (n_edges, 3*n_boundary_edges) for a 3D mesh.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The integral we are representing on the boundary of the mesh is</span>
+
+<span class="sd">        .. math:: \int_{\Omega} \vec{w} \cdot (\vec{u} \times \hat{n}) \partial \Omega</span>
+
+<span class="sd">        In discrete form this is:</span>
+
+<span class="sd">        .. math:: w^T * P * u_b</span>
+
+<span class="sd">        where `w` is defined on all edges, and `u_b` is all three components defined on</span>
+<span class="sd">        boundary edges.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Pe</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">project_edge_to_boundary_edge</span>
+        <span class="n">Pf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">project_face_to_boundary_face</span>
+        <span class="n">dA</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">boundary_face_outward_normals</span> <span class="o">*</span> <span class="p">(</span><span class="n">Pf</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">face_areas</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">Pe</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">edge_tangents</span>
+
+        <span class="n">n_boundary_edges</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+        <span class="n">Av</span> <span class="o">=</span> <span class="n">Pf</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">average_edge_to_face_vector</span> <span class="o">@</span> <span class="n">Pe</span><span class="o">.</span><span class="n">T</span>
+
+        <span class="n">w_cross_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="o">-</span><span class="n">w</span><span class="p">,</span> <span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">dA</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Pe</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">w_cross_n</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Pe</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span>
+            <span class="n">w_cross_n</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+            <span class="n">n_boundary_edges</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+            <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_boundary_edges</span><span class="p">,</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">n_boundary_edges</span><span class="p">),</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">boundary_node_vector_integral</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Represents the operation of integrating a vector function dotted with the boundary normal</span>
+
+<span class="sd">        This matrix represents the boundary surface integral of a vector function</span>
+<span class="sd">        dotted with the boundary normal and multiplied with a scalar finite volume</span>
+<span class="sd">        test function on the mesh.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scipy.sparse.csr_matrix</span>
+<span class="sd">            Sparse matrix of shape (n_nodes, ndim * n_boundary_nodes).</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The integral we are representing on the boundary of the mesh is</span>
+
+<span class="sd">        .. math:: \int_{\Omega} (w \vec{u}) \cdot \hat{n} \partial \Omega</span>
+
+<span class="sd">        In discrete form this is:</span>
+
+<span class="sd">        .. math:: w^T * P * u_b</span>
+
+<span class="sd">        where `w` is defined on all nodes, and `u_b` is all three components defined on</span>
+<span class="sd">        boundary nodes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">(</span>
+                <span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape_nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])),</span>
+                <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="n">Pn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">project_node_to_boundary_node</span>
+        <span class="n">Pf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">project_face_to_boundary_face</span>
+        <span class="n">n_boundary_nodes</span> <span class="o">=</span> <span class="n">Pn</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">dA</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">boundary_face_outward_normals</span> <span class="o">*</span> <span class="p">(</span><span class="n">Pf</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">face_areas</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span>
+
+        <span class="n">Av</span> <span class="o">=</span> <span class="n">Pf</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">average_node_to_face</span> <span class="o">@</span> <span class="n">Pn</span><span class="o">.</span><span class="n">T</span>
+
+        <span class="n">u_dot_ds</span> <span class="o">=</span> <span class="n">Av</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">dA</span>
+        <span class="n">diags</span> <span class="o">=</span> <span class="n">u_dot_ds</span><span class="o">.</span><span class="n">T</span>
+        <span class="n">offsets</span> <span class="o">=</span> <span class="n">n_boundary_nodes</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Pn</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span>
+            <span class="n">diags</span><span class="p">,</span> <span class="n">offsets</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_boundary_nodes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">*</span> <span class="n">n_boundary_nodes</span><span class="p">)</span>
+        <span class="p">)</span>
 
 <div class="viewcode-block" id="DiffOperators.get_BC_projections"><a class="viewcode-back" href="../../../api/generated/discretize.operators.DiffOperators.html#discretize.operators.DiffOperators.get_BC_projections">[docs]</a>    <span class="k">def</span> <span class="nf">get_BC_projections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">BC</span><span class="p">,</span> <span class="n">discretization</span><span class="o">=</span><span class="s2">&quot;CC&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1291,7 +1676,9 @@
                 <span class="n">aveCC2VFy</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span>
                     <span class="n">av_extrap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_cells</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">speye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
                 <span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_average_cell_vector_to_face</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">block_diag</span><span class="p">((</span><span class="n">aveCCV2Fx</span><span class="p">,</span> <span class="n">aveCC2VFy</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_average_cell_vector_to_face</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">block_diag</span><span class="p">(</span>
+                    <span class="p">(</span><span class="n">aveCCV2Fx</span><span class="p">,</span> <span class="n">aveCC2VFy</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span>
+                <span class="p">)</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
                 <span class="n">aveCCV2Fx</span> <span class="o">=</span> <span class="n">kron3</span><span class="p">(</span>
                     <span class="n">speye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_cells</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
@@ -1312,6 +1699,32 @@
                     <span class="p">(</span><span class="n">aveCCV2Fx</span><span class="p">,</span> <span class="n">aveCC2VFy</span><span class="p">,</span> <span class="n">aveCC2BFz</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span>
                 <span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average_cell_vector_to_face</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">average_cell_to_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_average_cell_to_edge&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape_cells</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">avg</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">avg</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+                    <span class="p">(</span>
+                        <span class="n">sp</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">av_extrap</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">speye</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span>
+                        <span class="n">sp</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">speye</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">av_extrap</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span>
+                    <span class="p">),</span>
+                    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">avg</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+                    <span class="p">(</span>
+                        <span class="n">kron3</span><span class="p">(</span><span class="n">av_extrap</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="n">av_extrap</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">speye</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span>
+                        <span class="n">kron3</span><span class="p">(</span><span class="n">av_extrap</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="n">speye</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">av_extrap</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span>
+                        <span class="n">kron3</span><span class="p">(</span><span class="n">speye</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="n">av_extrap</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">av_extrap</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span>
+                    <span class="p">),</span>
+                    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_average_cell_to_edge</span> <span class="o">=</span> <span class="n">avg</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average_cell_to_edge</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">average_edge_to_cell</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1395,6 +1808,36 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average_edge_z_to_cell</span>
 
     <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">average_edge_to_face_vector</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">average_cell_to_face</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span>
+                <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="p">[</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">n_faces_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_faces_y</span><span class="p">],</span>
+                <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_faces</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_edges</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="n">n3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape_cells</span>
+        <span class="n">ex_to_fy</span> <span class="o">=</span> <span class="n">kron3</span><span class="p">(</span><span class="n">av</span><span class="p">(</span><span class="n">n3</span><span class="p">),</span> <span class="n">speye</span><span class="p">(</span><span class="n">n2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">speye</span><span class="p">(</span><span class="n">n1</span><span class="p">))</span>
+        <span class="n">ex_to_fz</span> <span class="o">=</span> <span class="n">kron3</span><span class="p">(</span><span class="n">speye</span><span class="p">(</span><span class="n">n3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">av</span><span class="p">(</span><span class="n">n2</span><span class="p">),</span> <span class="n">speye</span><span class="p">(</span><span class="n">n1</span><span class="p">))</span>
+
+        <span class="n">ey_to_fx</span> <span class="o">=</span> <span class="n">kron3</span><span class="p">(</span><span class="n">av</span><span class="p">(</span><span class="n">n3</span><span class="p">),</span> <span class="n">speye</span><span class="p">(</span><span class="n">n2</span><span class="p">),</span> <span class="n">speye</span><span class="p">(</span><span class="n">n1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">ey_to_fz</span> <span class="o">=</span> <span class="n">kron3</span><span class="p">(</span><span class="n">speye</span><span class="p">(</span><span class="n">n3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">speye</span><span class="p">(</span><span class="n">n2</span><span class="p">),</span> <span class="n">av</span><span class="p">(</span><span class="n">n1</span><span class="p">))</span>
+
+        <span class="n">ez_to_fx</span> <span class="o">=</span> <span class="n">kron3</span><span class="p">(</span><span class="n">speye</span><span class="p">(</span><span class="n">n3</span><span class="p">),</span> <span class="n">av</span><span class="p">(</span><span class="n">n2</span><span class="p">),</span> <span class="n">speye</span><span class="p">(</span><span class="n">n1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">ez_to_fy</span> <span class="o">=</span> <span class="n">kron3</span><span class="p">(</span><span class="n">speye</span><span class="p">(</span><span class="n">n3</span><span class="p">),</span> <span class="n">speye</span><span class="p">(</span><span class="n">n2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">av</span><span class="p">(</span><span class="n">n1</span><span class="p">))</span>
+
+        <span class="n">e_to_f</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">bmat</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">ey_to_fx</span><span class="p">,</span> <span class="n">ez_to_fx</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">ex_to_fy</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ez_to_fy</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">ex_to_fz</span><span class="p">,</span> <span class="n">ey_to_fz</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+            <span class="p">],</span>
+            <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">e_to_f</span>
+
+    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">average_node_to_cell</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="s2">&quot;Construct the averaging operator on cell nodes to cell centers.&quot;</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_average_node_to_cell&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1470,17 +1913,25 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge_x</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge_y</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+                    <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge_y</span><span class="p">),</span>
+                    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
-                    <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge_y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge_z</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span>
+                    <span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge_x</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge_y</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge_z</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_edge</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_average_node_to_face_x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">aveN2Fx</span> <span class="o">=</span> <span class="n">av</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">aveN2Fx</span> <span class="o">=</span> <span class="n">speye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="n">aveN2Fx</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">av</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_cells</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">speye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
@@ -1528,12 +1979,84 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face_x</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face_y</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+                    <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face_y</span><span class="p">),</span>
+                    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
-                    <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face_y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face_z</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span>
+                    <span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face_x</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face_y</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face_z</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average_node_to_face</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">project_face_to_boundary_face</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Projects values defined on all faces to the boundary faces</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scipy.sparse.csr_matrix</span>
+<span class="sd">            Projection matrix with shape (n_boundary_faces, n_faces)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Simple matrix which projects the values of the faces onto the boundary faces</span>
+        <span class="c1"># Can also be used to &quot;select&quot; the boundary faces</span>
+
+        <span class="c1"># Create a matrix that projects all faces onto boundary faces</span>
+        <span class="c1"># The below should work for a regular structured mesh</span>
+        <span class="n">is_b</span> <span class="o">=</span> <span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_faces_x</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">is_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">is_b</span><span class="p">,</span> <span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_faces_y</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">is_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">is_b</span><span class="p">,</span> <span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_faces_z</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_faces</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">)[</span><span class="n">is_b</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">project_edge_to_boundary_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Projects values defined on all edges to the boundary edges</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scipy.sparse.csr_matrix</span>
+<span class="sd">            Projection matrix with shape (n_boundary_edges, n_edges)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Simple matrix which projects the values of the faces onto the boundary faces</span>
+        <span class="c1"># Can also be used to &quot;select&quot; the boundary faces</span>
+
+        <span class="c1"># Create a matrix that projects all edges onto boundary edges</span>
+        <span class="c1"># The below should work for a regular structured mesh</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># No edges are on the boundary in 1D</span>
+
+        <span class="n">is_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span>
+            <span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_edges_x</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;yz&quot;</span><span class="p">),</span>
+            <span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_edges_y</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;xz&quot;</span><span class="p">),</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">is_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">is_b</span><span class="p">,</span> <span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_edges_z</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_edges</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">)[</span><span class="n">is_b</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">project_node_to_boundary_node</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Projects values defined on all edges to the boundary edges</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scipy.sparse.csr_matrix</span>
+<span class="sd">            Projection matrix with shape (n_boundary_nodes, n_nodes)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Simple matrix which projects the values of the nodes onto the boundary nodes</span>
+        <span class="c1"># Can also be used to &quot;select&quot; the boundary nodes</span>
+
+        <span class="c1"># Create a matrix that projects all nodes onto boundary nodes</span>
+        <span class="c1"># The below should work for a regular structured mesh</span>
+
+        <span class="n">is_b</span> <span class="o">=</span> <span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_nodes</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_nodes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">)[</span><span class="n">is_b</span><span class="p">]</span>
 
     <span class="c1"># DEPRECATED</span>
     <span class="n">cellGrad</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span><span class="s2">&quot;cell_gradient&quot;</span><span class="p">,</span> <span class="s2">&quot;cellGrad&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span>
@@ -1566,10 +2089,18 @@
         <span class="s2">&quot;face_z_divergence&quot;</span><span class="p">,</span> <span class="s2">&quot;faceDivz&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>
     <span class="p">)</span>
     <span class="n">edgeCurl</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span><span class="s2">&quot;edge_curl&quot;</span><span class="p">,</span> <span class="s2">&quot;edgeCurl&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span>
-    <span class="n">_cellGradStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span><span class="s2">&quot;stencil_cell_gradient&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span>
-    <span class="n">_cellGradxStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span><span class="s2">&quot;stencil_cell_gradient_x&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradxStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span>
-    <span class="n">_cellGradyStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span><span class="s2">&quot;stencil_cell_gradient_y&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradyStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span>
-    <span class="n">_cellGradzStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span><span class="s2">&quot;stencil_cell_gradient_z&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradzStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span>
+    <span class="n">_cellGradStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span>
+        <span class="s2">&quot;stencil_cell_gradient&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>
+    <span class="p">)</span>
+    <span class="n">_cellGradxStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span>
+        <span class="s2">&quot;stencil_cell_gradient_x&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradxStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>
+    <span class="p">)</span>
+    <span class="n">_cellGradyStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span>
+        <span class="s2">&quot;stencil_cell_gradient_y&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradyStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>
+    <span class="p">)</span>
+    <span class="n">_cellGradzStencil</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span>
+        <span class="s2">&quot;stencil_cell_gradient_z&quot;</span><span class="p">,</span> <span class="s2">&quot;_cellGradzStencil&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>
+    <span class="p">)</span>
 
     <span class="n">setCellGradBC</span> <span class="o">=</span> <span class="n">deprecate_method</span><span class="p">(</span>
         <span class="s2">&quot;set_cell_gradient_BC&quot;</span><span class="p">,</span> <span class="s2">&quot;setCellGradBC&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>
@@ -1579,7 +2110,10 @@
     <span class="p">)</span>
     <span class="n">getBCProjWF_simple</span> <span class="o">=</span> <span class="n">deprecate_method</span><span class="p">(</span>
         <span class="s2">&quot;get_BC_projections_simple&quot;</span><span class="p">,</span> <span class="s2">&quot;getBCProjWF_simple&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>
-    <span class="p">)</span></div>
+    <span class="p">)</span>
+
+
+<span class="n">DiffOperators</span><span class="o">.</span><span class="vm">__module__</span> <span class="o">=</span> <span class="s2">&quot;discretize.operators&quot;</span>
 </pre></div>
 
            </div>

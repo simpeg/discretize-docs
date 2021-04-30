@@ -18,6 +18,8 @@ Attributes
 
 .. autoattribute:: CurvilinearMesh.area
 
+.. autoattribute:: CurvilinearMesh.average_cell_to_edge
+
 .. autoattribute:: CurvilinearMesh.average_cell_to_face
 
 .. autoattribute:: CurvilinearMesh.average_cell_vector_to_face
@@ -25,6 +27,8 @@ Attributes
 .. autoattribute:: CurvilinearMesh.average_edge_to_cell
 
 .. autoattribute:: CurvilinearMesh.average_edge_to_cell_vector
+
+.. autoattribute:: CurvilinearMesh.average_edge_to_face_vector
 
 .. autoattribute:: CurvilinearMesh.average_edge_x_to_cell
 
@@ -53,6 +57,20 @@ Attributes
 .. autoattribute:: CurvilinearMesh.axis_v
 
 .. autoattribute:: CurvilinearMesh.axis_w
+
+.. autoattribute:: CurvilinearMesh.boundary_edge_vector_integral
+
+.. autoattribute:: CurvilinearMesh.boundary_edges
+
+.. autoattribute:: CurvilinearMesh.boundary_face_outward_normals
+
+.. autoattribute:: CurvilinearMesh.boundary_face_scalar_integral
+
+.. autoattribute:: CurvilinearMesh.boundary_faces
+
+.. autoattribute:: CurvilinearMesh.boundary_node_vector_integral
+
+.. autoattribute:: CurvilinearMesh.boundary_nodes
 
 .. autoattribute:: CurvilinearMesh.cellGrad
 
@@ -90,6 +108,8 @@ Attributes
 
 .. autoattribute:: CurvilinearMesh.edge_tangents
 
+.. autoattribute:: CurvilinearMesh.edges
+
 .. autoattribute:: CurvilinearMesh.edges_x
 
 .. autoattribute:: CurvilinearMesh.edges_y
@@ -115,6 +135,8 @@ Attributes
 .. autoattribute:: CurvilinearMesh.face_y_divergence
 
 .. autoattribute:: CurvilinearMesh.face_z_divergence
+
+.. autoattribute:: CurvilinearMesh.faces
 
 .. autoattribute:: CurvilinearMesh.faces_x
 
@@ -172,7 +194,15 @@ Attributes
 
 .. autoattribute:: CurvilinearMesh.normals
 
+.. autoattribute:: CurvilinearMesh.orientation
+
 .. autoattribute:: CurvilinearMesh.origin
+
+.. autoattribute:: CurvilinearMesh.project_edge_to_boundary_edge
+
+.. autoattribute:: CurvilinearMesh.project_face_to_boundary_face
+
+.. autoattribute:: CurvilinearMesh.project_node_to_boundary_node
 
 .. autoattribute:: CurvilinearMesh.reference_is_rotated
 
@@ -219,6 +249,10 @@ Methods
 
 
 
+.. automethod:: CurvilinearMesh.cell_gradient_weak_form_robin
+
+
+
 .. automethod:: CurvilinearMesh.copy
 
 
@@ -227,7 +261,11 @@ Methods
 
 
 
-.. automethod:: CurvilinearMesh.equal
+.. automethod:: CurvilinearMesh.edge_divergence_weak_form_robin
+
+
+
+.. automethod:: CurvilinearMesh.equals
 
 
 
@@ -352,6 +390,10 @@ Methods
 
 
 .. automethod:: CurvilinearMesh.toVTK
+
+
+
+.. automethod:: CurvilinearMesh.to_dict
 
 
 

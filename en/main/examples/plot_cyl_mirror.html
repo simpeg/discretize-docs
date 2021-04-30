@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Plot Mirrored Cylindrically Symmetric Model &mdash; discretize 0.6.3 documentation</title>
+  <title>Plot Mirrored Cylindrically Symmetric Model &mdash; discretize 0.7.0 documentation</title>
   
 
   
@@ -89,7 +89,7 @@
             
             
               <div class="version">
-                0.6.3
+                0.7.0
               </div>
             
           
@@ -236,7 +236,7 @@
                 
                     
                 
-                <a href="https://github.com/simpeg/discretize/edit/main/doc/../examples/plot_cyl_mirror.py"
+                <a href="https://github.com/simpeg/discretize/edit/master/doc/../examples/plot_cyl_mirror.py"
                    class="fa fa-github"> Edit this page</a>
             
         
@@ -304,7 +304,7 @@ symmetric mesh with the plotting symmetric about x=0.</p>
     <span class="n">nc</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">ceil</span></a><span class="p">(</span><span class="mf">2.5</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">sphere_z</span> <span class="o">-</span> <span class="n">sphere_radius</span><span class="p">))</span> <span class="o">/</span> <span class="n">cs</span><span class="p">)</span>
 
     <span class="c1"># define a mesh</span>
-    <span class="n">mesh</span> <span class="o">=</span> <a href="https://propertiespy.readthedocs.io/en/latest/content/hasproperties.html#properties.HasProperties" title="properties.HasProperties" class="sphx-glr-backref-module-properties sphx-glr-backref-type-py-class"><span class="n">discretize</span><span class="o">.</span><span class="n">CylMesh</span></a><span class="p">([[(</span><span class="n">cs</span><span class="p">,</span> <span class="n">nc</span><span class="p">)],</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[(</span><span class="n">cs</span><span class="p">,</span> <span class="n">nc</span><span class="p">)]],</span> <span class="n">x0</span><span class="o">=</span><span class="s2">&quot;00C&quot;</span><span class="p">)</span>
+    <span class="n">mesh</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">CylMesh</span><span class="p">([[(</span><span class="n">cs</span><span class="p">,</span> <span class="n">nc</span><span class="p">)],</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[(</span><span class="n">cs</span><span class="p">,</span> <span class="n">nc</span><span class="p">)]],</span> <span class="n">x0</span><span class="o">=</span><span class="s2">&quot;00C&quot;</span><span class="p">)</span>
 
     <span class="c1"># Put the model on the mesh</span>
     <span class="n">sigma</span> <span class="o">=</span> <span class="n">sig_air</span> <span class="o">*</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ones.html#numpy.ones" title="numpy.ones" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">ones</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span>  <span class="c1"># start with air cells</span>
@@ -341,7 +341,7 @@ symmetric mesh with the plotting symmetric about x=0.</p>
     <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.342 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.369 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-cyl-mirror-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/265faa1681b2106851e26408c711d92c/plot_cyl_mirror.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_cyl_mirror.py</span></code></a></p>

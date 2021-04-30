@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>discretize.curvilinear_mesh &mdash; discretize 0.6.3 documentation</title>
+  <title>discretize.curvilinear_mesh &mdash; discretize 0.7.0 documentation</title>
   
 
   
@@ -87,7 +87,7 @@
             
             
               <div class="version">
-                0.6.3
+                0.7.0
               </div>
             
           
@@ -230,13 +230,18 @@
             
   <h1>Source code for discretize.curvilinear_mesh</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">properties</span>
 
-<span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="n">mkvc</span><span class="p">,</span> <span class="n">index_cube</span><span class="p">,</span> <span class="n">face_info</span><span class="p">,</span> <span class="n">volume_tetrahedron</span>
+<span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">mkvc</span><span class="p">,</span>
+    <span class="n">index_cube</span><span class="p">,</span>
+    <span class="n">face_info</span><span class="p">,</span>
+    <span class="n">volume_tetrahedron</span><span class="p">,</span>
+    <span class="n">make_boundary_bool</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">discretize.base</span> <span class="kn">import</span> <span class="n">BaseRectangularMesh</span>
 <span class="kn">from</span> <span class="nn">discretize.operators</span> <span class="kn">import</span> <span class="n">DiffOperators</span><span class="p">,</span> <span class="n">InnerProducts</span>
+<span class="kn">from</span> <span class="nn">discretize.mixins</span> <span class="kn">import</span> <span class="n">InterfaceMixins</span>
 <span class="kn">from</span> <span class="nn">discretize.utils.code_utils</span> <span class="kn">import</span> <span class="n">deprecate_property</span>
-
 
 <span class="c1"># Some helper functions.</span>
 <span class="k">def</span> <span class="nf">_length2D</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -255,7 +260,9 @@
     <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">mkvc</span><span class="p">(</span><span class="n">_length3D</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
 
 
-<div class="viewcode-block" id="CurvilinearMesh"><a class="viewcode-back" href="../../api/generated/discretize.CurvilinearMesh.html#discretize.CurvilinearMesh">[docs]</a><span class="k">class</span> <span class="nc">CurvilinearMesh</span><span class="p">(</span><span class="n">BaseRectangularMesh</span><span class="p">,</span> <span class="n">DiffOperators</span><span class="p">,</span> <span class="n">InnerProducts</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">CurvilinearMesh</span><span class="p">(</span>
+    <span class="n">BaseRectangularMesh</span><span class="p">,</span> <span class="n">DiffOperators</span><span class="p">,</span> <span class="n">InnerProducts</span><span class="p">,</span> <span class="n">InterfaceMixins</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;CurvilinearMesh is a mesh class that deals with curvilinear meshes.</span>
 
 <span class="sd">    Example of a curvilinear mesh:</span>
@@ -284,56 +291,44 @@
             <span class="s2">&quot;gridEz&quot;</span><span class="p">:</span> <span class="s2">&quot;edges_z&quot;</span><span class="p">,</span>
         <span class="p">},</span>
     <span class="p">}</span>
+    <span class="n">_items</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;node_list&quot;</span><span class="p">}</span>
 
-    <span class="n">node_list</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">List</span><span class="p">(</span>
-        <span class="s2">&quot;List of arrays describing the node locations&quot;</span><span class="p">,</span>
-        <span class="n">prop</span><span class="o">=</span><span class="n">properties</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span>
-            <span class="s2">&quot;node locations in an n-dimensional array&quot;</span><span class="p">,</span>
-            <span class="n">shape</span><span class="o">=</span><span class="p">{(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">)},</span>
-        <span class="p">),</span>
-        <span class="n">min_length</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-        <span class="n">max_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-    <span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_list</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s2">&quot;nodes&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">node_list</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;nodes&quot;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="s1">&#39;nodes&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-            <span class="n">node_list</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;nodes&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">node_list</span> <span class="o">=</span> <span class="n">node_list</span>
-
-        <span class="k">if</span> <span class="s2">&quot;_n&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="n">n</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;_n&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">n</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">node_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">node_list</span><span class="p">)</span>
+        <span class="c1"># check shapes of each node array match</span>
+        <span class="n">dim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">node_list</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Only supports 2 and 3 dimensional meshes, saw a node_list of length </span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">nodes</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">node_list</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="n">dim</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="s2">&quot;Unexpected n-values. </span><span class="si">{}</span><span class="s2"> was provided, </span><span class="si">{}</span><span class="s2"> was expected&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">n</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-                    <span class="p">)</span>
+                    <span class="sa">f</span><span class="s2">&quot;Unexpected shape of item in node list, expect array with </span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2"> dimensions, got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
                 <span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-
-        <span class="n">BaseRectangularMesh</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">node_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;The shape of nodes are not consistent, saw </span><span class="si">{</span><span class="n">node_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">nodes</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_node_list</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">node_list</span><span class="p">)</span>
 
         <span class="c1"># Save nodes to private variable _nodes as vectors</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">))</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_nodes</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mkvc</span><span class="p">(</span><span class="n">node_i</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">dim</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">nodes</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nodes</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mkvc</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
 
-    <span class="nd">@properties</span><span class="o">.</span><span class="n">validator</span><span class="p">(</span><span class="s2">&quot;node_list&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">_check_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">change</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;len(node) must be greater than 1&quot;</span><span class="p">)</span>
+        <span class="n">shape_cells</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]):</span>
-            <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="s2">&quot;change[&#39;value&#39;][</span><span class="si">{0:d}</span><span class="s2">] is not the same shape as &quot;</span>
-                    <span class="s2">&quot;change[&#39;value&#39;][0]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-                <span class="p">)</span>
+        <span class="c1"># absorb the rest of kwargs, and do not pass to super</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">shape_cells</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dimension mismatch&quot;</span><span class="p">)</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">node_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_node_list</span>
 
 <div class="viewcode-block" id="CurvilinearMesh.deserialize"><a class="viewcode-back" href="../../api/generated/discretize.CurvilinearMesh.html#discretize.CurvilinearMesh.deserialize">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">deserialize</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -434,6 +429,14 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_faces_z</span>
 
     <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">faces</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Face grid&quot;</span>
+        <span class="n">faces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">faces_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">faces_y</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">faces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">faces</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">faces_z</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">faces</span>
+
+    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">edges_x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Edge staggered grid in the x direction.</span>
@@ -473,6 +476,94 @@
             <span class="n">XYZ</span> <span class="o">=</span> <span class="p">[</span><span class="n">mkvc</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">n</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">:]))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_edges_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">XYZ</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">XYZ</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">XYZ</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edges_z</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">edges</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Edge grid&quot;</span>
+        <span class="n">edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">edges_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges_y</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">edges</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges_z</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">edges</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">boundary_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Boundary node locations</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray of float</span>
+<span class="sd">            location array of shape (mesh.n_boundary_nodes, dim)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_nodes</span><span class="p">)]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">boundary_edges</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Boundary edge locations</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray of float</span>
+<span class="sd">            location array of shape (mesh.n_boundary_edges, dim)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">ex</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges_x</span><span class="p">[</span><span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_edges_x</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)]</span>
+            <span class="n">ey</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges_y</span><span class="p">[</span><span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_edges_y</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)]</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">ex</span><span class="p">,</span> <span class="n">ey</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">ex</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges_x</span><span class="p">[</span><span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_edges_x</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;yz&quot;</span><span class="p">)]</span>
+            <span class="n">ey</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges_y</span><span class="p">[</span><span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_edges_y</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;xz&quot;</span><span class="p">)]</span>
+            <span class="n">ez</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges_z</span><span class="p">[</span><span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_edges_z</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">)]</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">ex</span><span class="p">,</span> <span class="n">ey</span><span class="p">,</span> <span class="n">ez</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">boundary_faces</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Boundary face locations</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray of float</span>
+<span class="sd">            location array of shape (mesh.n_boundary_faces, dim)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">faces_x</span><span class="p">[</span><span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_faces_x</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)]</span>
+        <span class="n">fy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">faces_y</span><span class="p">[</span><span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_faces_y</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">fx</span><span class="p">,</span> <span class="n">fy</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">fz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">faces_z</span><span class="p">[</span><span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_faces_z</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">)]</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">fx</span><span class="p">,</span> <span class="n">fy</span><span class="p">,</span> <span class="n">fz</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">boundary_face_outward_normals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Outward directed normal vectors for the boundary faces</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray of float</span>
+<span class="sd">            Array of vectors of shape (mesh.n_boundary_faces, dim)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">is_bxm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_faces_x</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+        <span class="n">is_bxm</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">is_bxm</span> <span class="o">=</span> <span class="n">is_bxm</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
+
+        <span class="n">is_bym</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_faces_y</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+        <span class="n">is_bym</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">is_bym</span> <span class="o">=</span> <span class="n">is_bym</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
+
+        <span class="n">is_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span>
+            <span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_faces_x</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">),</span>
+            <span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_faces_y</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">),</span>
+        <span class="p">]</span>
+        <span class="n">switch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">is_bxm</span><span class="p">,</span> <span class="n">is_bym</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">is_bzm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_faces_z</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+            <span class="n">is_bzm</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">is_bzm</span> <span class="o">=</span> <span class="n">is_bzm</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
+
+            <span class="n">is_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">is_b</span><span class="p">,</span> <span class="n">make_boundary_bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_faces_z</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">)]</span>
+            <span class="n">switch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">switch</span><span class="p">,</span> <span class="n">is_bzm</span><span class="p">]</span>
+        <span class="n">face_normals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">face_normals</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">face_normals</span><span class="p">[</span><span class="n">switch</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="n">face_normals</span><span class="p">[</span><span class="n">is_b</span><span class="p">]</span>
 
     <span class="c1"># --------------- Geometries ---------------------</span>
     <span class="c1">#</span>
@@ -640,8 +731,12 @@
                 <span class="n">edge1</span> <span class="o">=</span> <span class="n">xy</span><span class="p">[</span><span class="n">D</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">xy</span><span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="p">:]</span>
                 <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">index_cube</span><span class="p">(</span><span class="s2">&quot;AB&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnN</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnEy</span><span class="p">)</span>
                 <span class="n">edge2</span> <span class="o">=</span> <span class="n">xy</span><span class="p">[</span><span class="n">B</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">xy</span><span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="p">:]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_edge_lengths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">mkvc</span><span class="p">(</span><span class="n">_length2D</span><span class="p">(</span><span class="n">edge1</span><span class="p">)),</span> <span class="n">mkvc</span><span class="p">(</span><span class="n">_length2D</span><span class="p">(</span><span class="n">edge2</span><span class="p">))]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_edge_tangents</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">edge1</span><span class="p">,</span> <span class="n">edge2</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_edge_lengths</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_lengths</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_edge_lengths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span>
+                    <span class="n">mkvc</span><span class="p">(</span><span class="n">_length2D</span><span class="p">(</span><span class="n">edge1</span><span class="p">)),</span> <span class="n">mkvc</span><span class="p">(</span><span class="n">_length2D</span><span class="p">(</span><span class="n">edge2</span><span class="p">))</span>
+                <span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_edge_tangents</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">edge1</span><span class="p">,</span> <span class="n">edge2</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_edge_lengths</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_lengths</span><span class="p">]</span>
+                <span class="p">)</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
                 <span class="n">xyz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gridN</span>
                 <span class="n">A</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">index_cube</span><span class="p">(</span><span class="s2">&quot;AD&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnN</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vnEx</span><span class="p">)</span>
@@ -671,9 +766,12 @@
     <span class="c1"># DEPRECATIONS</span>
     <span class="n">vol</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span><span class="s2">&quot;cell_volumes&quot;</span><span class="p">,</span> <span class="s2">&quot;vol&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span>
     <span class="n">area</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span><span class="s2">&quot;face_areas&quot;</span><span class="p">,</span> <span class="s2">&quot;area&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span>
-    <span class="n">edge</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span><span class="s2">&quot;edge_lengths&quot;</span><span class="p">,</span> <span class="s2">&quot;edge&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span></div>
+    <span class="n">edge</span> <span class="o">=</span> <span class="n">deprecate_property</span><span class="p">(</span><span class="s2">&quot;edge_lengths&quot;</span><span class="p">,</span> <span class="s2">&quot;edge&quot;</span><span class="p">,</span> <span class="n">removal_version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)</span>
     <span class="c1"># tangent already deprecated in BaseMesh</span>
     <span class="c1"># normals already deprecated in BaseMesh</span>
+
+
+<span class="n">CurvilinearMesh</span><span class="o">.</span><span class="vm">__module__</span> <span class="o">=</span> <span class="s2">&quot;discretize&quot;</span>
 </pre></div>
 
            </div>

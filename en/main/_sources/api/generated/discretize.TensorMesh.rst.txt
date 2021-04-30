@@ -24,6 +24,8 @@ Attributes
 
 .. autoattribute:: TensorMesh.areaFz
 
+.. autoattribute:: TensorMesh.average_cell_to_edge
+
 .. autoattribute:: TensorMesh.average_cell_to_face
 
 .. autoattribute:: TensorMesh.average_cell_vector_to_face
@@ -31,6 +33,8 @@ Attributes
 .. autoattribute:: TensorMesh.average_edge_to_cell
 
 .. autoattribute:: TensorMesh.average_edge_to_cell_vector
+
+.. autoattribute:: TensorMesh.average_edge_to_face_vector
 
 .. autoattribute:: TensorMesh.average_edge_x_to_cell
 
@@ -59,6 +63,20 @@ Attributes
 .. autoattribute:: TensorMesh.axis_v
 
 .. autoattribute:: TensorMesh.axis_w
+
+.. autoattribute:: TensorMesh.boundary_edge_vector_integral
+
+.. autoattribute:: TensorMesh.boundary_edges
+
+.. autoattribute:: TensorMesh.boundary_face_outward_normals
+
+.. autoattribute:: TensorMesh.boundary_face_scalar_integral
+
+.. autoattribute:: TensorMesh.boundary_faces
+
+.. autoattribute:: TensorMesh.boundary_node_vector_integral
+
+.. autoattribute:: TensorMesh.boundary_nodes
 
 .. autoattribute:: TensorMesh.cellBoundaryInd
 
@@ -118,6 +136,8 @@ Attributes
 
 .. autoattribute:: TensorMesh.edge_z_lengths
 
+.. autoattribute:: TensorMesh.edges
+
 .. autoattribute:: TensorMesh.edges_x
 
 .. autoattribute:: TensorMesh.edges_y
@@ -153,6 +173,8 @@ Attributes
 .. autoattribute:: TensorMesh.face_z_areas
 
 .. autoattribute:: TensorMesh.face_z_divergence
+
+.. autoattribute:: TensorMesh.faces
 
 .. autoattribute:: TensorMesh.faces_x
 
@@ -224,7 +246,15 @@ Attributes
 
 .. autoattribute:: TensorMesh.normals
 
+.. autoattribute:: TensorMesh.orientation
+
 .. autoattribute:: TensorMesh.origin
+
+.. autoattribute:: TensorMesh.project_edge_to_boundary_edge
+
+.. autoattribute:: TensorMesh.project_face_to_boundary_face
+
+.. autoattribute:: TensorMesh.project_node_to_boundary_node
 
 .. autoattribute:: TensorMesh.reference_is_rotated
 
@@ -283,6 +313,10 @@ Methods
 
 
 
+.. automethod:: TensorMesh.cell_gradient_weak_form_robin
+
+
+
 .. automethod:: TensorMesh.copy
 
 
@@ -291,7 +325,11 @@ Methods
 
 
 
-.. automethod:: TensorMesh.equal
+.. automethod:: TensorMesh.edge_divergence_weak_form_robin
+
+
+
+.. automethod:: TensorMesh.equals
 
 
 
@@ -464,6 +502,10 @@ Methods
 
 
 .. automethod:: TensorMesh.toVTK
+
+
+
+.. automethod:: TensorMesh.to_dict
 
 
 
