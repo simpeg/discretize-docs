@@ -6454,7 +6454,7 @@
 <dt class="sig sig-object py" id="discretize.utils.make_property_tensor">
 <span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">make_property_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/matrix_utils.py#L997-L1148"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.make_property_tensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the physical property tensor.</p>
-<p>For a given <em>mesh</em>, the input parameter <em>tensor</em> is a <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>
+<p>For a given <em>mesh</em>, the input parameter <em>tensor</em> is a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>
 defining the constitutive relationship (e.g. Ohm’s law) between two
 discrete vector quantities <span class="math notranslate nohighlight">\(\boldsymbol{j}\)</span> and
 <span class="math notranslate nohighlight">\(\boldsymbol{e}\)</span> living at cell centers. The function
@@ -6474,7 +6474,7 @@ are organized according to:</p>
 <dd class="field-odd"><dl>
 <dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh" title="discretize.base.BaseMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.base.BaseMesh</span></code></a></span></dt><dd><p>A mesh</p>
 </dd>
-<dt><strong>tensor</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> <code class="xref py py-class docutils literal notranslate"><span class="pre">python:float</span></code></span></dt><dd><ul class="simple">
+<dt><strong>tensor</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><ul class="simple">
 <li><p><em>Scalar:</em> A float is entered.</p></li>
 <li><p><em>Isotropic:</em> A 1D numpy.ndarray with a property value for every cell.</p></li>
 <li><p><em>Anisotropic:</em> A (<em>nCell</em>, <em>dim</em>) numpy.ndarray where each row
@@ -6489,7 +6489,7 @@ meshes and <em>nParam</em> = 6 for 3D meshes.</p></li>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code> * <code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code> * <code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code>) <code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.coo_matrix</span></code></dt><dd><p>The property tensor.</p>
+<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code> * <code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code> * <code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code>) <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.html#scipy.sparse.coo_matrix" title="(in SciPy v1.7.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.coo_matrix</span></code></a></dt><dd><p>The property tensor.</p>
 </dd>
 </dl>
 </dd>

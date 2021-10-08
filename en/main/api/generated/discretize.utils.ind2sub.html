@@ -6454,7 +6454,7 @@
 <dt class="sig sig-object py" id="discretize.utils.ind2sub">
 <span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">ind2sub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inds</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/matrix_utils.py#L456-L485"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.ind2sub" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return subscripts of tensor grid elements from indices.</p>
-<p>This function is a wrapper for <code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.unravel_index()</span></code> with a hard-coded Fortran
+<p>This function is a wrapper for <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.unravel_index.html#numpy.unravel_index" title="(in NumPy v1.21)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.unravel_index()</span></code></a> with a hard-coded Fortran
 order.</p>
 <p>Consider the <span class="math notranslate nohighlight">\(n^{th}\)</span> element of a tensor grid with <em>N</em> elements.
 The position of this element in the tensor grid can also be defined by
@@ -6463,15 +6463,15 @@ tensor elements, this function returns the corresponding subscripts.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>shape</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code>) <code class="xref py py-class docutils literal notranslate"><span class="pre">python:tuple</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <code class="xref py py-class docutils literal notranslate"><span class="pre">python:int</span></code></span></dt><dd><p>Defines the shape of the tensor (1D, 2D or 3D).</p>
+<dt><strong>shape</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code>) <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Defines the shape of the tensor (1D, 2D or 3D).</p>
 </dd>
-<dt><strong>inds</strong><span class="classifier"><span class="xref std std-term">numpy:array_like</span> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <code class="xref py py-class docutils literal notranslate"><span class="pre">python:int</span></code></span></dt><dd><p>The indices of the tensor elements whose subscripts you want returned.</p>
+<dt><strong>inds</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.21)"><span>array_like</span></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The indices of the tensor elements whose subscripts you want returned.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code>) <code class="xref py py-class docutils literal notranslate"><span class="pre">python:tuple</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></dt><dd><p>Corresponding subscipts for the indices provided. The output is a
+<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code>) <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p>Corresponding subscipts for the indices provided. The output is a
 tuple containing 1D integer arrays for the i, j and k subscripts, respectively.
 The output array will match the shape of the <strong>inds</strong> input.</p>
 </dd>
@@ -6481,7 +6481,7 @@ The output array will match the shape of the <strong>inds</strong> input.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.unravel_index</span></code></dt><dd></dd>
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.unravel_index.html#numpy.unravel_index" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.unravel_index</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>

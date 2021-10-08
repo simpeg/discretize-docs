@@ -6457,7 +6457,7 @@
 <dt class="sig sig-object py" id="discretize.utils.TensorType">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">TensorType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/matrix_utils.py#L890-L994"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.TensorType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for determining property tensor type.</p>
-<p>For a given <em>mesh</em>, the <strong>TensorType</strong> class examines the <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>
+<p>For a given <em>mesh</em>, the <strong>TensorType</strong> class examines the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>
 <em>tensor</em> to determine whether <em>tensor</em> defines a scalar, isotropic,
 diagonal anisotropic or full tensor anisotropic constitutive relationship
 for each cell on the mesh. The general theory behind this functionality
@@ -6468,7 +6468,7 @@ is explained below.</p>
 <dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="discretize.base.BaseTensorMesh.html#discretize.base.BaseTensorMesh" title="discretize.base.BaseTensorMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.base.BaseTensorMesh</span></code></a></span></dt><dd><p>An instance of any of the mesh classes support in discretize; i.e. <em>TensorMesh</em>,
 <em>CylindricalMesh</em>, <em>TreeMesh</em> or <em>CurvilinearMesh</em>.</p>
 </dd>
-<dt><strong>tensor</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> <code class="xref py py-class docutils literal notranslate"><span class="pre">python:float</span></code></span></dt><dd><p>The shape of the input argument <em>tensor</em> must fall into one of these
+<dt><strong>tensor</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>The shape of the input argument <em>tensor</em> must fall into one of these
 classifications:</p>
 <ul class="simple">
 <li><p><em>Scalar:</em> A float is entered.</p></li>
@@ -6509,11 +6509,11 @@ spatially. Thus the input argument <em>tensor</em> is a 1D array that provides a
 <span class="math notranslate nohighlight">\(\sigma\)</span> value for every cell in the mesh.</p></li>
 <li><p><strong>Anisotropic:</strong> <span class="math notranslate nohighlight">\(\vec{j} = \Sigma \vec{e}\)</span>, where the off-diagonal elements
 are zero. That is, <span class="math notranslate nohighlight">\(\Sigma\)</span> is diagonal. In this case, the input argument
-<em>tensor</em> defining the physical properties in each cell is a <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>
+<em>tensor</em> defining the physical properties in each cell is a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>
 of shape (<em>nCells</em>, <em>dim</em>).</p></li>
 <li><p><strong>Tensor:</strong> <span class="math notranslate nohighlight">\(\vec{j} = \Sigma \vec{e}\)</span>, where off-diagonal elements are
 non-zero and <span class="math notranslate nohighlight">\(\Sigma\)</span> is a full tensor. In this case, the input argument
-<em>tensor</em> defining the physical properties in each cell is a <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>
+<em>tensor</em> defining the physical properties in each cell is a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>
 of shape (<em>nCells</em>, <em>nParam</em>). In 2D, <em>nParam</em> = 3 and in 3D, <em>nParam</em> = 6.</p></li>
 </ul>
 </dd></dl>

@@ -6494,7 +6494,7 @@ the cells will have a width of <em>4h</em> . Etc…</p>
 <dd class="field-odd"><dl>
 <dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code></a></span></dt><dd><p>The tree mesh object to be refined</p>
 </dd>
-<dt><strong>xyz</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></span></dt><dd><p>2D array of points (n, dim)</p>
+<dt><strong>xyz</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>2D array of points (n, dim)</p>
 </dd>
 <dt><strong>method</strong><span class="classifier">{‘radial’, ‘surface’, ‘box’}</span></dt><dd><p>Method used to refine the mesh based on xyz locations.</p>
 <ul class="simple">
@@ -6503,20 +6503,20 @@ the cells will have a width of <em>4h</em> . Etc…</p>
 <li><p><em>box:</em> Inside limits defined by outer xy[z] locations</p></li>
 </ul>
 </dd>
-<dt><strong>octree_levels</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">python:list</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <code class="xref py py-class docutils literal notranslate"><span class="pre">python:int</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Minimum number of cells around points in each <em>k</em> octree level
+<dt><strong>octree_levels</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Minimum number of cells around points in each <em>k</em> octree level
 starting from the smallest cells size; i.e. <em>[nc(k), nc(k-1), …]</em> .
 Note that you <em>can</em> set entries to 0; e.g. you don’t want to discretize
 using the smallest cell size.</p>
 </dd>
-<dt><strong>octree_levels_padding</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">python:list</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <code class="xref py py-class docutils literal notranslate"><span class="pre">python:int</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Padding cells added to extend the region of refinement at each level.
+<dt><strong>octree_levels_padding</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Padding cells added to extend the region of refinement at each level.
 Used for <em>method = surface</em> and <em>box</em>. Has the form <em>[nc(k), nc(k-1), …]</em></p>
 </dd>
-<dt><strong>finalize</strong><span class="classifier"><span class="xref std std-ref">bool</span>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Finalize the tree mesh.</p>
+<dt><strong>finalize</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.10)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Finalize the tree mesh.</p>
 </dd>
-<dt><strong>min_level</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">python:int</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Sets the largest cell size allowed in the mesh. The default (<em>0</em>),
+<dt><strong>min_level</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Sets the largest cell size allowed in the mesh. The default (<em>0</em>),
 allows the largest cell size to be used.</p>
 </dd>
-<dt><strong>max_distance</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">python:float</span></code></span></dt><dd><p>Maximum refinement distance from xy[z] locations.
+<dt><strong>max_distance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>Maximum refinement distance from xy[z] locations.
 Used if <em>method</em> = “surface” to reduce interpolation distance</p>
 </dd>
 </dl>

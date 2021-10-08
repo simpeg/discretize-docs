@@ -6470,34 +6470,34 @@ isotropic and full tensor physical properties; see notes.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>model</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></span></dt><dd><p>Parameters defining the material properties for every cell in the mesh.
+<dt><strong>model</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Parameters defining the material properties for every cell in the mesh.
 Inner product matrices can be constructed for the following cases:</p>
 <ul class="simple">
-<li><p><em>(n_cells)</em> <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> : Isotropic case. <em>model</em> contains a
+<li><p><em>(n_cells)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> : Isotropic case. <em>model</em> contains a
 scalar physical property value for each cell.</p></li>
-<li><p><em>(n_cells, dim)</em> <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> : Diagonal anisotropic case.
+<li><p><em>(n_cells, dim)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> : Diagonal anisotropic case.
 Columns are ordered <code class="docutils literal notranslate"><span class="pre">np.c_[σ_xx,</span> <span class="pre">σ_yy,</span> <span class="pre">σ_zz]</span></code>. This can also a be a 1D
 array with the same number of total elements in column major order.</p></li>
-<li><p><em>(n_cells, 3)</em> <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> (<code class="docutils literal notranslate"><span class="pre">dim</span></code> is 2) or
-<em>(n_cells, 6)</em> <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> (<code class="docutils literal notranslate"><span class="pre">dim</span></code> is 3) : Full tensor properties case. Columns
+<li><p><em>(n_cells, 3)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> (<code class="docutils literal notranslate"><span class="pre">dim</span></code> is 2) or
+<em>(n_cells, 6)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> (<code class="docutils literal notranslate"><span class="pre">dim</span></code> is 3) : Full tensor properties case. Columns
 are ordered <code class="docutils literal notranslate"><span class="pre">np.c_[σ_xx,</span> <span class="pre">σ_yy,</span> <span class="pre">σ_zz,</span> <span class="pre">σ_xy,</span> <span class="pre">σ_xz,</span> <span class="pre">σ_yz]</span></code> This can also be
 a 1D array with the same number of total elements in column major order.</p></li>
 </ul>
 </dd>
-<dt><strong>invert_model</strong><span class="classifier"><span class="xref std std-ref">bool</span>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The inverse of <em>model</em> is used as the physical property.</p>
+<dt><strong>invert_model</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.10)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The inverse of <em>model</em> is used as the physical property.</p>
 </dd>
-<dt><strong>invert_matrix</strong><span class="classifier"><span class="xref std std-ref">bool</span>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Returns the inverse of the inner product matrix.
+<dt><strong>invert_matrix</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.10)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Returns the inverse of the inner product matrix.
 The inverse not implemented for full tensor properties.</p>
 </dd>
-<dt><strong>do_fast</strong><span class="classifier"><span class="xref std std-ref">bool</span>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Do a faster implementation (if available).</p>
+<dt><strong>do_fast</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.10)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Do a faster implementation (if available).</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">function</span></code></dt><dd><p>The function handle <span class="math notranslate nohighlight">\(\mathbf{F}(\mathbf{u})\)</span> which accepts a
-(<code class="docutils literal notranslate"><span class="pre">n_faces</span></code>) <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>. The function
-returns a (<code class="docutils literal notranslate"><span class="pre">n_faces</span></code>, <code class="docutils literal notranslate"><span class="pre">n_params</span></code>) <code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code>.</p>
+(<code class="docutils literal notranslate"><span class="pre">n_faces</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>. The function
+returns a (<code class="docutils literal notranslate"><span class="pre">n_faces</span></code>, <code class="docutils literal notranslate"><span class="pre">n_params</span></code>) <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.7.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
@@ -6513,7 +6513,7 @@ creates a function handle for computing the following:</p>
 for some <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> depends on the constitutive relation defined for each cell.
 These cases are summarized below.</p>
 <p><strong>Isotropic Case:</strong> The physical property for each cell is defined by a scalar value.
-Therefore <span class="math notranslate nohighlight">\(\mathbf{m}\)</span> is a (<code class="docutils literal notranslate"><span class="pre">n_cells</span></code>) <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>. The sparse matrix
+Therefore <span class="math notranslate nohighlight">\(\mathbf{m}\)</span> is a (<code class="docutils literal notranslate"><span class="pre">n_cells</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>. The sparse matrix
 output by computing <span class="math notranslate nohighlight">\(\mathbf{F}(\mathbf{u})\)</span> has shape (<code class="docutils literal notranslate"><span class="pre">n_faces</span></code>, <code class="docutils literal notranslate"><span class="pre">n_cells</span></code>).</p>
 <p><strong>Diagonal Anisotropic Case:</strong> In this case, the physical properties for each cell are
 defined by a diagonal tensor</p>
@@ -6524,7 +6524,7 @@ defined by a diagonal tensor</p>
 0 &amp; 0 &amp; \sigma_{zz}
 \end{bmatrix}\end{split}\]</div>
 <p>Thus there are <code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">*</span> <span class="pre">n_cells</span></code> physical property parameters and <span class="math notranslate nohighlight">\(\mathbf{m}\)</span> is
-a (<code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">*</span> <span class="pre">n_cells</span></code>) <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>.  The sparse matrix
+a (<code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">*</span> <span class="pre">n_cells</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.  The sparse matrix
 output by computing <span class="math notranslate nohighlight">\(\mathbf{F}(\mathbf{u})\)</span> has shape (<code class="docutils literal notranslate"><span class="pre">n_faces</span></code>, <code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">*</span> <span class="pre">n_cells</span></code>).</p>
 <p><strong>Full Tensor Case:</strong> In this case, the physical properties for each cell are
 defined by a full tensor</p>
@@ -6536,7 +6536,7 @@ defined by a full tensor</p>
 \end{bmatrix}\end{split}\]</div>
 <p>Thus there are <code class="docutils literal notranslate"><span class="pre">6</span> <span class="pre">*</span> <span class="pre">n_cells</span></code> physical property parameters in 3 dimensions, or
 <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">n_cells</span></code> physical property parameters in 2 dimensions, and
-<span class="math notranslate nohighlight">\(\mathbf{m}\)</span> is a (<code class="docutils literal notranslate"><span class="pre">n_params</span></code>) <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>.
+<span class="math notranslate nohighlight">\(\mathbf{m}\)</span> is a (<code class="docutils literal notranslate"><span class="pre">n_params</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.
 The sparse matrix output by computing <span class="math notranslate nohighlight">\(\mathbf{F}(\mathbf{u})\)</span>
 has shape (<code class="docutils literal notranslate"><span class="pre">n_faces</span></code>, <code class="docutils literal notranslate"><span class="pre">n_params</span></code>).</p>
 <p class="rubric">Examples</p>

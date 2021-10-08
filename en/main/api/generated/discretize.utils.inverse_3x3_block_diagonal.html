@@ -6457,10 +6457,10 @@
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>a11, a12, …, a33</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_blocks</span></code>) <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></span></dt><dd><p>Vectors which contain the
+<dt><strong>a11, a12, …, a33</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_blocks</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Vectors which contain the
 corresponding element for all 3x3 matricies</p>
 </dd>
-<dt><strong>return_matrix</strong><span class="classifier"><span class="xref std std-ref">bool</span>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><ul class="simple">
+<dt><strong>return_matrix</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.10)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><ul class="simple">
 <li><p><strong>True</strong>: Returns the sparse block 3x3 matrix <em>M</em> (default).</p></li>
 <li><p><strong>False:</strong> Returns the vectors containing the elements of each matrix’ inverse.</p></li>
 </ul>
@@ -6469,7 +6469,7 @@ corresponding element for all 3x3 matricies</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>(3 * <code class="xref py py-obj docutils literal notranslate"><span class="pre">n_blocks</span></code>, 3 * <code class="xref py py-obj docutils literal notranslate"><span class="pre">n_blocks</span></code>) <code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.coo_matrix</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">python:list</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_blocks</span></code>)</dt><dd><p>numpy.ndarray. If <em>return_matrix = False</em>, the function will return vectors
+<dt>(3 * <code class="xref py py-obj docutils literal notranslate"><span class="pre">n_blocks</span></code>, 3 * <code class="xref py py-obj docutils literal notranslate"><span class="pre">n_blocks</span></code>) <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.html#scipy.sparse.coo_matrix" title="(in SciPy v1.7.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.coo_matrix</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_blocks</span></code>)</dt><dd><p>numpy.ndarray. If <em>return_matrix = False</em>, the function will return vectors
 <em>b11, b12, b13, b21, b22, b23, b31, b32, b33</em>. If <em>return_matrix = True</em>, the
 function will return the block matrix <em>M</em>.</p>
 </dd>

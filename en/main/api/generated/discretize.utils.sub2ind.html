@@ -6452,7 +6452,7 @@
 <dt class="sig sig-object py" id="discretize.utils.sub2ind">
 <span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">sub2ind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/matrix_utils.py#L488-L536"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.sub2ind" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return indices of tensor grid elements from subscripts.</p>
-<p>This function is a wrapper for <code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.ravel_multi_index()</span></code> with a hard-coded
+<p>This function is a wrapper for <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ravel_multi_index.html#numpy.ravel_multi_index" title="(in NumPy v1.21)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.ravel_multi_index()</span></code></a> with a hard-coded
 Fortran order, and a column order for the <code class="docutils literal notranslate"><span class="pre">multi_index</span></code></p>
 <p>Consider elements of a tensors grid whose positions are given by the
 subscripts (i,j,k). This function will return the corresponding indices
@@ -6461,16 +6461,16 @@ ijk for a particular tensor element.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>shape</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code>) <code class="xref py py-class docutils literal notranslate"><span class="pre">python:tuple</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <code class="xref py py-class docutils literal notranslate"><span class="pre">python:int</span></code></span></dt><dd><p>Defines the shape of the tensor (1D, 2D or 3D).</p>
+<dt><strong>shape</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code>) <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Defines the shape of the tensor (1D, 2D or 3D).</p>
 </dd>
-<dt><strong>subs</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code>) <span class="xref std std-term">numpy:array_like</span> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <code class="xref py py-class docutils literal notranslate"><span class="pre">python:int</span></code></span></dt><dd><p>The subscripts of the tensor grid elements. Each rows defines the position
+<dt><strong>subs</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.21)"><span>array_like</span></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The subscripts of the tensor grid elements. Each rows defines the position
 of a particular tensor element. The shape of of the array is (N, ndim).</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <code class="xref py py-class docutils literal notranslate"><span class="pre">python:int</span></code></dt><dd><p>The indices of the tensor grid elements defined by <em>subs</em>.</p>
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></dt><dd><p>The indices of the tensor grid elements defined by <em>subs</em>.</p>
 </dd>
 </dl>
 </dd>
@@ -6478,11 +6478,11 @@ of a particular tensor element. The shape of of the array is (N, ndim).</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ravel_multi_index</span></code></dt><dd></dd>
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ravel_multi_index.html#numpy.ravel_multi_index" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ravel_multi_index</span></code></a></dt><dd></dd>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p>He we recreate the examples from <code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.ravel_multi_index()</span></code> to illustrate the
+<p>He we recreate the examples from <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ravel_multi_index.html#numpy.ravel_multi_index" title="(in NumPy v1.21)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.ravel_multi_index()</span></code></a> to illustrate the
 differences. The indices corresponding to each dimension are now columns in the
 array (instead of rows), and it assumed to use a Fortran order.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>

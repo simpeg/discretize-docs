@@ -6454,7 +6454,7 @@
 <dt class="sig sig-object py" id="discretize.utils.inverse_property_tensor">
 <span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">inverse_property_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/matrix_utils.py#L1151-L1345"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.inverse_property_tensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the inverse of the physical property tensor.</p>
-<p>For a given <em>mesh</em>, the input parameter <em>tensor</em> is a <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>
+<p>For a given <em>mesh</em>, the input parameter <em>tensor</em> is a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>
 defining the constitutive relationship (e.g. Ohm’s law) between two
 discrete vector quantities <span class="math notranslate nohighlight">\(\boldsymbol{j}\)</span> and
 <span class="math notranslate nohighlight">\(\boldsymbol{e}\)</span> living at cell centers. Where <span class="math notranslate nohighlight">\(\boldsymbol{M}\)</span>
@@ -6475,7 +6475,7 @@ organized according to:</p>
 <dd class="field-odd"><dl>
 <dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh" title="discretize.base.BaseMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.base.BaseMesh</span></code></a></span></dt><dd><p>A mesh</p>
 </dd>
-<dt><strong>tensor</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">python:float</span></code></span></dt><dd><ul class="simple">
+<dt><strong>tensor</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><ul class="simple">
 <li><p><em>Scalar:</em> A float is entered.</p></li>
 <li><p><em>Isotropic:</em> A 1D numpy.ndarray with a property value for every cell.</p></li>
 <li><p><em>Anisotropic:</em> A (<em>nCell</em>, <em>dim</em>) numpy.ndarray where each row
@@ -6486,7 +6486,7 @@ the full anisotropic property parameters for each cell. <em>nParam</em> = 3 for 
 meshes and <em>nParam</em> = 6 for 3D meshes.</p></li>
 </ul>
 </dd>
-<dt><strong>return_matrix</strong><span class="classifier"><span class="xref std std-ref">bool</span>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><ul class="simple">
+<dt><strong>return_matrix</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.10)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><ul class="simple">
 <li><p><em>True:</em> the function returns the inverse of the property tensor.</p></li>
 <li><p><em>False:</em> the function returns the non-zero elements of the inverse of the
 property tensor in a numpy.ndarray in the same order as the input argument
@@ -6497,7 +6497,7 @@ property tensor in a numpy.ndarray in the same order as the input argument
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.coo_matrix</span></code></dt><dd><ul class="simple">
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.html#scipy.sparse.coo_matrix" title="(in SciPy v1.7.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.coo_matrix</span></code></a></dt><dd><ul class="simple">
 <li><p>If <em>return_matrix</em> = <em>False</em>, the function outputs the parameters defining the
 inverse of the property tensor in a numpy.ndarray with the same dimensions as
 the input argument <em>tensor</em></p></li>

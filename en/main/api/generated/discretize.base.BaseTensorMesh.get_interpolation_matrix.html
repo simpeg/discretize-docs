@@ -6457,9 +6457,9 @@
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>loc</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_pts</span></code>, <a class="reference internal" href="discretize.base.BaseTensorMesh.dim.html#discretize.base.BaseTensorMesh.dim" title="discretize.base.BaseTensorMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></span></dt><dd><p>Location of points being to interpolate to. Must have same dimensions as the mesh.</p>
+<dt><strong>loc</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_pts</span></code>, <a class="reference internal" href="discretize.base.BaseTensorMesh.dim.html#discretize.base.BaseTensorMesh.dim" title="discretize.base.BaseTensorMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Location of points being to interpolate to. Must have same dimensions as the mesh.</p>
 </dd>
-<dt><strong>location_type</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">python:str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Tensor locations on the mesh being interpolated from. <em>location_type</em> must be one of:</p>
+<dt><strong>location_type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Tensor locations on the mesh being interpolated from. <em>location_type</em> must be one of:</p>
 <ul class="simple">
 <li><p>‘Ex’, ‘edges_x’           -&gt; x-component of field defined on x edges</p></li>
 <li><p>‘Ey’, ‘edges_y’           -&gt; y-component of field defined on y edges</p></li>
@@ -6474,7 +6474,7 @@
 <li><p>‘CCVz’, ‘cell_centers_z’  -&gt; z-component of vector field defined on cell centers</p></li>
 </ul>
 </dd>
-<dt><strong>zeros_outside</strong><span class="classifier"><span class="xref std std-ref">bool</span>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>If <em>False</em>, nearest neighbour is used to compute the interpolate value
+<dt><strong>zeros_outside</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.10)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>If <em>False</em>, nearest neighbour is used to compute the interpolate value
 at locations outside the mesh. If <em>True</em> , values at locations outside
 the mesh will be zero.</p>
 </dd>
@@ -6482,7 +6482,7 @@ the mesh will be zero.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_pts</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">n_loc_type</span></code>) <code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code></dt><dd><p>A sparse matrix which interpolates the specified tensor quantity on mesh to
+<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_pts</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">n_loc_type</span></code>) <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.7.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code></a></dt><dd><p>A sparse matrix which interpolates the specified tensor quantity on mesh to
 the set of specified locations.</p>
 </dd>
 </dl>
