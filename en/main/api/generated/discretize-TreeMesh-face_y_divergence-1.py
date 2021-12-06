@@ -2,35 +2,35 @@
 # and 2) the mapping of the face-y divergence operator and its sparsity.
 # Our example is carried out on a 2D mesh but it can
 # be done equivalently for a 3D mesh.
-
+#
 # We start by importing the necessary packages and modules.
-
+#
 from discretize import TensorMesh
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
-
+#
 # For a discrete scalar quantity :math:`\boldsymbol{\phi}` defined on the
 # y-faces, we take the y-derivative by constructing the face-y divergence
 # operator and multiplying as a matrix-vector product.
-
+#
 h = np.ones(40)
 mesh = TensorMesh([h, h], "CC")
-
+#
 # Create a discrete quantity on x-faces
-
+#
 faces_y = mesh.faces_y
 phi = np.exp(-(faces_y[:, 1] ** 2) / 8** 2)
-
+#
 # Construct the y-divergence operator and apply to vector
-
+#
 Dy = mesh.face_y_divergence
 dphi_dy = Dy @ phi
-
+#
 # Plot original function and the y-divergence
-
+#
 # .. collapse:: Expand to show scripting for plot
-
+#
 fig = plt.figure(figsize=(13, 6))
 ax1 = fig.add_subplot(121)
 w = np.r_[np.ones(mesh.nFx), phi]  # Need vector on all faces for image plot
@@ -42,16 +42,16 @@ ax2.set_yticks([])
 ax2.set_ylabel("")
 ax2.set_title("Y-derivative at cell center", fontsize=14)
 plt.show()
-
+#
 # The discrete y-face divergence operator is a sparse matrix that maps
 # from y-faces to cell centers. To demonstrate this, we construct
 # a small 2D mesh. We then show the ordering of the elements in
 # the original discrete quantity :math:`\boldsymbol{\phi}` and its
 # y-derivative :math:`\partial \boldsymbol{\phi}/ \partial y` as well as a
 # spy plot.
-
+#
 # .. collapse:: Expand to show scripting for plot
-
+#
 mesh = TensorMesh([[(1, 6)], [(1, 3)]])
 fig = plt.figure(figsize=(10, 10))
 ax1 = fig.add_subplot(211)
@@ -66,7 +66,7 @@ ax1.plot(
 )
 for ii, loc in zip(range(mesh.nC), mesh.cell_centers):
     ax1.text(loc[0]+0.05, loc[1]+0.02, "{0:d}".format(ii), color="r")
-
+#
 ax1.set_xticks([])
 ax1.set_yticks([])
 ax1.spines['bottom'].set_color('white')

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>discretize.utils.refine_tree_xyz &#8212; discretize 0.7.1 documentation</title>
+    <title>discretize.utils.refine_tree_xyz &#8212; discretize 0.7.2 documentation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -927,6 +927,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="discretize.TensorMesh.cell_gradient_weak_form_robin.html">
        discretize.TensorMesh.cell_gradient_weak_form_robin
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.TensorMesh.closest_points_index.html">
+       discretize.TensorMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -1967,6 +1972,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="discretize.CylindricalMesh.closest_points_index.html">
+       discretize.CylindricalMesh.closest_points_index
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="discretize.CylindricalMesh.copy.html">
        discretize.CylindricalMesh.copy
       </a>
@@ -2786,6 +2796,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient_weak_form_robin.html">
        discretize.CurvilinearMesh.cell_gradient_weak_form_robin
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.CurvilinearMesh.closest_points_index.html">
+       discretize.CurvilinearMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -3911,6 +3926,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="discretize.TreeMesh.closest_points_index.html">
+       discretize.TreeMesh.closest_points_index
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="discretize.TreeMesh.copy.html">
        discretize.TreeMesh.copy
       </a>
@@ -4455,6 +4475,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="discretize.base.BaseMesh.closest_points_index.html">
+       discretize.base.BaseMesh.closest_points_index
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="discretize.base.BaseMesh.copy.html">
        discretize.base.BaseMesh.copy
       </a>
@@ -4719,6 +4744,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="discretize.base.BaseRectangularMesh.x0.html">
        discretize.base.BaseRectangularMesh.x0
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.base.BaseRectangularMesh.closest_points_index.html">
+       discretize.base.BaseRectangularMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -5086,6 +5116,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="discretize.base.BaseTensorMesh.x0.html">
        discretize.base.BaseTensorMesh.x0
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.base.BaseTensorMesh.closest_points_index.html">
+       discretize.base.BaseTensorMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -6465,7 +6500,7 @@
 <h1>discretize.utils.refine_tree_xyz<a class="headerlink" href="#discretize-utils-refine-tree-xyz" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="discretize.utils.refine_tree_xyz">
-<span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">refine_tree_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xyz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'radial'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">octree_levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">octree_levels_padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/mesh_utils.py#L563-L881"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.refine_tree_xyz" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">refine_tree_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xyz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'radial'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">octree_levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">octree_levels_padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/mesh_utils.py#L556-L874"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.refine_tree_xyz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Refine region within a <a class="reference internal" href="discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeMesh</span></code></a></p>
 <p>This function refines the specified region of a tree mesh using
 one of several methods. These are summarized below:</p>

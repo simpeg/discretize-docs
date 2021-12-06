@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>discretize.CurvilinearMesh.reshape &#8212; discretize 0.7.1 documentation</title>
+    <title>discretize.CurvilinearMesh.reshape &#8212; discretize 0.7.2 documentation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -927,6 +927,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="discretize.TensorMesh.cell_gradient_weak_form_robin.html">
        discretize.TensorMesh.cell_gradient_weak_form_robin
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.TensorMesh.closest_points_index.html">
+       discretize.TensorMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -1967,6 +1972,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="discretize.CylindricalMesh.closest_points_index.html">
+       discretize.CylindricalMesh.closest_points_index
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="discretize.CylindricalMesh.copy.html">
        discretize.CylindricalMesh.copy
       </a>
@@ -2786,6 +2796,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient_weak_form_robin.html">
        discretize.CurvilinearMesh.cell_gradient_weak_form_robin
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.CurvilinearMesh.closest_points_index.html">
+       discretize.CurvilinearMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -3911,6 +3926,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="discretize.TreeMesh.closest_points_index.html">
+       discretize.TreeMesh.closest_points_index
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="discretize.TreeMesh.copy.html">
        discretize.TreeMesh.copy
       </a>
@@ -4455,6 +4475,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="discretize.base.BaseMesh.closest_points_index.html">
+       discretize.base.BaseMesh.closest_points_index
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="discretize.base.BaseMesh.copy.html">
        discretize.base.BaseMesh.copy
       </a>
@@ -4719,6 +4744,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="discretize.base.BaseRectangularMesh.x0.html">
        discretize.base.BaseRectangularMesh.x0
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.base.BaseRectangularMesh.closest_points_index.html">
+       discretize.base.BaseRectangularMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -5086,6 +5116,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="discretize.base.BaseTensorMesh.x0.html">
        discretize.base.BaseTensorMesh.x0
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.base.BaseTensorMesh.closest_points_index.html">
+       discretize.base.BaseTensorMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -6450,7 +6485,7 @@
 <h1>discretize.CurvilinearMesh.reshape<a class="headerlink" href="#discretize-curvilinearmesh-reshape" title="Permalink to this headline">¶</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="discretize.CurvilinearMesh.reshape">
-<span class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></span><span class="sig-name descname"><span class="pre">reshape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cell_centers'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cell_centers'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'V'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/base/base_mesh.py#L1174-L1349"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.CurvilinearMesh.reshape" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">CurvilinearMesh.</span></span><span class="sig-name descname"><span class="pre">reshape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cell_centers'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cell_centers'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'V'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/base/base_mesh.py#L1241-L1416"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.CurvilinearMesh.reshape" title="Permalink to this definition">¶</a></dt>
 <dd><p>General reshape method for tensor quantities</p>
 <p><strong>Reshape</strong> is a quick command that will do its best to reshape discrete
 quantities living on meshes than inherit the <code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.base_mesh.RectangularMesh</span></code>

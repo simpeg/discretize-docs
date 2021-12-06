@@ -2,7 +2,7 @@
 # for a 3D tensor mesh. We choose a the index for a single face,
 # and illustrate which edges are used to compute the curl on that
 # face.
-
+#
 from discretize import TensorMesh
 from discretize.utils import mkvc
 import matplotlib.pyplot as plt
@@ -10,25 +10,25 @@ import numpy as np
 import matplotlib as mpl
 import mpl_toolkits.mplot3d as mp3d
 mpl.rcParams.update({'font.size': 14})
-
+#
 # Create a simple tensor mesh, and grab the **edge_curl** operator:
-
+#
 mesh = TensorMesh([[(1, 2)], [(1, 2)], [(1, 2)]])
 Ce = mesh.edge_curl
-
+#
 # Then we choose a *face* for illustration purposes:
-
+#
 face_ind = 2  # Index of a face in the mesh (could be x, y or z)
 edge_ind = np.where(
     np.sum((mesh.edges-mesh.faces[face_ind, :])**2, axis=1) <= 0.5 + 1e-6
 )[0]
-
+#
 face = mesh.faces[face_ind, :]
 face_norm = mesh.face_normals[face_ind, :]
 edges = mesh.edges[edge_ind, :]
 edge_tan = mesh.edge_tangents[edge_ind, :]
 node = np.min(edges, axis=0)
-
+#
 min_edges = np.min(edges, axis=0)
 max_edges = np.max(edges, axis=0)
 if face_norm[0] == 1:
@@ -44,11 +44,11 @@ elif face_norm[2] == 1:
     poly = node + np.c_[np.r_[0, 1, 1, 0], np.r_[0, 0, 1, 1], np.r_[0, 0, 0, 0]]
     ds = [0.07, -0.09, -0.07]
 edge_tan[k, :] *= -1
-
+#
 # Plot the curve and its mapping for a single face.
-
+#
 # .. collapse:: Expand to show scripting for plot
-
+#
 fig = plt.figure(figsize=(10, 15))
 ax1 = fig.add_axes([0, 0.35, 1, 0.6], projection='3d', elev=25, azim=-60)
 mesh.plot_grid(ax=ax1)
@@ -76,9 +76,9 @@ ax1.legend(
     ['Mesh', '$\\mathbf{u}$ (edges)', '$\\mathbf{w}$ (face)'],
     loc='upper right', fontsize=14
 )
-
-# Manually make axis properties invisible
-
+#
+#     Manually make axis properties invisible
+#
 ax1.set_xticks([])
 ax1.set_yticks([])
 ax1.set_zticks([])
@@ -92,7 +92,7 @@ ax1.set_xlabel('X', labelpad=-15, fontsize=16)
 ax1.set_ylabel('Y', labelpad=-20, fontsize=16)
 ax1.set_zlabel('Z', labelpad=-20, fontsize=16)
 ax1.set_title("Mapping for a Single Face", fontsize=16, pad=-15)
-
+#
 ax2 = fig.add_axes([0.05, 0.05, 0.9, 0.3])
 ax2.spy(Ce)
 ax2.set_title("Spy Plot", fontsize=16, pad=5)

@@ -5,7 +5,7 @@
 # **get_face_inner_product_deriv** to construct the function handle
 # :math:`\mathbf{F}(\mathbf{u})` and plot the evaluation
 # of this function on a spy plot.
-
+#
 from discretize import TensorMesh
 import matplotlib.pyplot as plt
 import numpy as np
@@ -13,21 +13,21 @@ import matplotlib as mpl
 mpl.rcParams.update({'font.size': 14})
 np.random.seed(45)
 mesh = TensorMesh([[(1, 4)], [(1, 4)]])
-
+#
 # Define a model, and a random vector to multiply the derivative with,
 # then we grab the respective derivative function and calculate the
 # sparse matrix,
-
+#
 m = np.random.rand(mesh.nC)  # physical property parameters
 u = np.random.rand(mesh.nF)  # vector of shape (n_faces)
 Mf = mesh.get_face_inner_product(m)
 F = mesh.get_face_inner_product_deriv(m)  # Function handle
 dFdm_u = F(u)
-
+#
 # Spy plot for the inner product matrix and its derivative
-
+#
 # .. collapse:: Expand to show scripting for plot
-
+#
 fig = plt.figure(figsize=(15, 5))
 ax1 = fig.add_axes([0.05, 0.05, 0.3, 0.85])
 ax1.spy(Mf, ms=6)
@@ -43,7 +43,7 @@ ax2.set_title(
 ax2.set_xlabel("Parameter Index", fontsize=12)
 ax2.set_ylabel("Face Index", fontsize=12)
 plt.show()
-
+#
 # For our second example, the physical properties on the mesh are fully
 # anisotropic; that is, the physical properties of each cell are defined
 # by a tensor with parameters :math:`\sigma_1`, :math:`\sigma_2` and :math:`\sigma_3`.
@@ -51,17 +51,17 @@ plt.show()
 # spy plot. We then use **get_face_inner_product_deriv** to construct the
 # function handle :math:`\mathbf{F}(\mathbf{u})` and plot the evaluation
 # of this function on a spy plot.
-
+#
 m = np.random.rand(mesh.nC, 3)  # anisotropic physical property parameters
 u = np.random.rand(mesh.nF)     # vector of shape (n_faces)
 Mf = mesh.get_face_inner_product(m)
 F = mesh.get_face_inner_product_deriv(m)  # Function handle
 dFdm_u = F(u)
-
+#
 # Plot the anisotropic inner product matrix and its derivative matrix,
-
+#
 # .. collapse:: Expand to show scripting for plot
-
+#
 fig = plt.figure(figsize=(15, 5))
 ax1 = fig.add_axes([0.05, 0.05, 0.3, 0.8])
 ax1.spy(Mf, ms=6)

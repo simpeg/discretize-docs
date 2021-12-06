@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>discretize.TensorMesh.cell_gradient_weak_form_robin &#8212; discretize 0.7.1 documentation</title>
+    <title>discretize.TensorMesh.cell_gradient_weak_form_robin &#8212; discretize 0.7.2 documentation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -44,7 +44,7 @@
     <link rel="shortcut icon" href="../../_static/discretize-block.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="discretize.TensorMesh.copy" href="discretize.TensorMesh.copy.html" />
+    <link rel="next" title="discretize.TensorMesh.closest_points_index" href="discretize.TensorMesh.closest_points_index.html" />
     <link rel="prev" title="discretize.TensorMesh.x0" href="discretize.TensorMesh.x0.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -929,6 +929,11 @@
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
        discretize.TensorMesh.cell_gradient_weak_form_robin
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.TensorMesh.closest_points_index.html">
+       discretize.TensorMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -1969,6 +1974,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="discretize.CylindricalMesh.closest_points_index.html">
+       discretize.CylindricalMesh.closest_points_index
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="discretize.CylindricalMesh.copy.html">
        discretize.CylindricalMesh.copy
       </a>
@@ -2788,6 +2798,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient_weak_form_robin.html">
        discretize.CurvilinearMesh.cell_gradient_weak_form_robin
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.CurvilinearMesh.closest_points_index.html">
+       discretize.CurvilinearMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -3913,6 +3928,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="discretize.TreeMesh.closest_points_index.html">
+       discretize.TreeMesh.closest_points_index
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="discretize.TreeMesh.copy.html">
        discretize.TreeMesh.copy
       </a>
@@ -4457,6 +4477,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="discretize.base.BaseMesh.closest_points_index.html">
+       discretize.base.BaseMesh.closest_points_index
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="discretize.base.BaseMesh.copy.html">
        discretize.base.BaseMesh.copy
       </a>
@@ -4721,6 +4746,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="discretize.base.BaseRectangularMesh.x0.html">
        discretize.base.BaseRectangularMesh.x0
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.base.BaseRectangularMesh.closest_points_index.html">
+       discretize.base.BaseRectangularMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -5088,6 +5118,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="discretize.base.BaseTensorMesh.x0.html">
        discretize.base.BaseTensorMesh.x0
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.base.BaseTensorMesh.closest_points_index.html">
+       discretize.base.BaseTensorMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -6486,7 +6521,7 @@ if multiple systems have the same <em>alpha</em> and <em>beta</em> parameters.</
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl>
-<dt><strong>B</strong><span class="classifier">(<a class="reference internal" href="discretize.TensorMesh.n_faces.html#discretize.TensorMesh.n_faces" title="discretize.TensorMesh.n_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces</span></code></a>, <a class="reference internal" href="discretize.TensorMesh.n_cells.html#discretize.TensorMesh.n_cells" title="discretize.TensorMesh.n_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code></a>) <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.7.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code></a></span></dt><dd><p>A sparse matrix dependent on the values of <em>alpha</em>, <em>beta</em> and <em>gamma</em> supplied</p>
+<dt><strong>B</strong><span class="classifier">(<a class="reference internal" href="discretize.TensorMesh.n_faces.html#discretize.TensorMesh.n_faces" title="discretize.TensorMesh.n_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces</span></code></a>, <a class="reference internal" href="discretize.TensorMesh.n_cells.html#discretize.TensorMesh.n_cells" title="discretize.TensorMesh.n_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code></a>) <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.7.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code></a></span></dt><dd><p>A sparse matrix dependent on the values of <em>alpha</em>, <em>beta</em> and <em>gamma</em> supplied</p>
 </dd>
 <dt><strong>b</strong><span class="classifier">(<a class="reference internal" href="discretize.TensorMesh.n_faces.html#discretize.TensorMesh.n_faces" title="discretize.TensorMesh.n_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces</span></code></a>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">or</span></code> (<a class="reference internal" href="discretize.TensorMesh.n_faces.html#discretize.TensorMesh.n_faces" title="discretize.TensorMesh.n_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">n_rhs</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>A vector dependent on the values of <em>alpha</em>, <em>beta</em> and <em>gamma</em> supplied</p>
 </dd>
@@ -6568,10 +6603,10 @@ to create a function which computes the discrete inner product for any
             <p class="prev-next-title">discretize.TensorMesh.x0</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="discretize.TensorMesh.copy.html" title="next page">
+    <a class='right-next' id="next-link" href="discretize.TensorMesh.closest_points_index.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">discretize.TensorMesh.copy</p>
+        <p class="prev-next-title">discretize.TensorMesh.closest_points_index</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

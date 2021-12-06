@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>discretize.mixins.TreeMeshIO &#8212; discretize 0.7.1 documentation</title>
+    <title>discretize.mixins.TreeMeshIO &#8212; discretize 0.7.2 documentation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -927,6 +927,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="discretize.TensorMesh.cell_gradient_weak_form_robin.html">
        discretize.TensorMesh.cell_gradient_weak_form_robin
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.TensorMesh.closest_points_index.html">
+       discretize.TensorMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -1967,6 +1972,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="discretize.CylindricalMesh.closest_points_index.html">
+       discretize.CylindricalMesh.closest_points_index
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="discretize.CylindricalMesh.copy.html">
        discretize.CylindricalMesh.copy
       </a>
@@ -2786,6 +2796,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient_weak_form_robin.html">
        discretize.CurvilinearMesh.cell_gradient_weak_form_robin
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.CurvilinearMesh.closest_points_index.html">
+       discretize.CurvilinearMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -3911,6 +3926,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="discretize.TreeMesh.closest_points_index.html">
+       discretize.TreeMesh.closest_points_index
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="discretize.TreeMesh.copy.html">
        discretize.TreeMesh.copy
       </a>
@@ -4455,6 +4475,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="discretize.base.BaseMesh.closest_points_index.html">
+       discretize.base.BaseMesh.closest_points_index
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="discretize.base.BaseMesh.copy.html">
        discretize.base.BaseMesh.copy
       </a>
@@ -4719,6 +4744,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="discretize.base.BaseRectangularMesh.x0.html">
        discretize.base.BaseRectangularMesh.x0
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.base.BaseRectangularMesh.closest_points_index.html">
+       discretize.base.BaseRectangularMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -5086,6 +5116,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="discretize.base.BaseTensorMesh.x0.html">
        discretize.base.BaseTensorMesh.x0
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="discretize.base.BaseTensorMesh.closest_points_index.html">
+       discretize.base.BaseTensorMesh.closest_points_index
       </a>
      </li>
      <li class="toctree-l3">
@@ -6463,9 +6498,9 @@
                 
   <div class="section" id="discretize-mixins-treemeshio">
 <h1>discretize.mixins.TreeMeshIO<a class="headerlink" href="#discretize-mixins-treemeshio" title="Permalink to this headline">¶</a></h1>
-<div class="graphviz"><img src="../../_images/inheritance-796ea9b57ccb54ba07166d7c0d232708bc57def2.png" alt="Inheritance diagram of TreeMeshIO" usemap="#inheritance5d145ef45e" class="inheritance graphviz" /></div>
+<div class="graphviz"><img src="../../_images/inheritance-20788b12cc23fcf3aa99436dcb0263da67548818.png" alt="Inheritance diagram of TreeMeshIO" usemap="#inheritance5d145ef45e" class="inheritance graphviz" /></div>
 <map id="inheritance5d145ef45e" name="inheritance5d145ef45e">
-<area shape="rect" id="node1" href="#discretize.mixins.TreeMeshIO" target="_top" title="Class for managing the input/output of tree meshes and models." alt="" coords="5,5,101,31"/>
+<area shape="rect" id="node1" href="#discretize.mixins.TreeMeshIO" target="_top" title="Class for managing the input/output of tree meshes and models." alt="" coords="5,5,104,31"/>
 </map><dl class="py class">
 <dt class="sig sig-object py" id="discretize.mixins.TreeMeshIO">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">discretize.mixins.</span></span><span class="sig-name descname"><span class="pre">TreeMeshIO</span></span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/mixins/mesh_io.py#L425-L607"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.mixins.TreeMeshIO" title="Permalink to this definition">¶</a></dt>
@@ -6515,17 +6550,29 @@ for the <a class="reference internal" href="discretize.TreeMesh.html#discretize.
 
 <div class="section" id="galleries-and-tutorials-using-discretize-mixins-treemeshio">
 <h2>Galleries and Tutorials using <code class="docutils literal notranslate"><span class="pre">discretize.mixins.TreeMeshIO</span></code><a class="headerlink" href="#galleries-and-tutorials-using-discretize-mixins-treemeshio" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="Here we provide an overview of mesh types and define some terminology. Separate tutorials have ..."><div class="figure align-default" id="id1">
+<div class="sphx-glr-thumbcontainer" tooltip="You can use M.PlotImage to plot images on all of the Meshes."><div class="figure align-default" id="id1">
+<img alt="Basic: PlotImage" src="../../_images/sphx_glr_plot_image_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_image.html#sphx-glr-examples-plot-image-py"><span class="std std-ref">Basic: PlotImage</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="For a tree mesh, there needs to be special attention taken for the hanging faces to achieve sec..."><div class="figure align-default" id="id2">
+<img alt="QuadTree: FaceDiv" src="../../_images/sphx_glr_plot_quadtree_divergence_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_quadtree_divergence.html#sphx-glr-examples-plot-quadtree-divergence-py"><span class="std std-ref">QuadTree: FaceDiv</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="You can give the refine method a function, which is evaluated on every cell of the TreeMesh."><div class="figure align-default" id="id3">
+<img alt="QuadTree: Hanging Nodes" src="../../_images/sphx_glr_plot_quadtree_hanging_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_quadtree_hanging.html#sphx-glr-examples-plot-quadtree-hanging-py"><span class="std std-ref">QuadTree: Hanging Nodes</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we provide an overview of mesh types and define some terminology. Separate tutorials have ..."><div class="figure align-default" id="id4">
 <img alt="Overview of Mesh Types" src="../../_images/sphx_glr_1_mesh_overview_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/1_mesh_overview.html#sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">Overview of Mesh Types</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/1_mesh_overview.html#sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">Overview of Mesh Types</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Compared to tensor meshes, tree meshes are able to provide higher levels of discretization in c..."><div class="figure align-default" id="id2">
+</div><div class="sphx-glr-thumbcontainer" tooltip="Compared to tensor meshes, tree meshes are able to provide higher levels of discretization in c..."><div class="figure align-default" id="id5">
 <img alt="Tree Meshes" src="../../_images/sphx_glr_4_tree_mesh_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/4_tree_mesh.html#sphx-glr-tutorials-mesh-generation-4-tree-mesh-py"><span class="std std-ref">Tree Meshes</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/4_tree_mesh.html#sphx-glr-tutorials-mesh-generation-4-tree-mesh-py"><span class="std std-ref">Tree Meshes</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="For discretized quantities living on a mesh, sparse matricies can be used to approximate the fo..."><div class="figure align-default" id="id3">
+</div><div class="sphx-glr-thumbcontainer" tooltip="For discretized quantities living on a mesh, sparse matricies can be used to approximate the fo..."><div class="figure align-default" id="id6">
 <img alt="Differential Operators" src="../../_images/sphx_glr_2_differential_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/operators/2_differential.html#sphx-glr-tutorials-operators-2-differential-py"><span class="std std-ref">Differential Operators</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/operators/2_differential.html#sphx-glr-tutorials-operators-2-differential-py"><span class="std std-ref">Differential Operators</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="sphx-glr-clear"></div></div>
 </div>

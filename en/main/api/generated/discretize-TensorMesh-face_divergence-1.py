@@ -2,21 +2,21 @@
 # a discrete vector and 2) the mapping of the face divergence operator and
 # its sparsity. Our example is carried out on a 2D mesh but it can
 # be done equivalently for a 3D mesh.
-
+#
 # We start by importing the necessary packages and modules.
-
+#
 from discretize import TensorMesh
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
-
+#
 # Define a 2D mesh
-
+#
 h = np.ones(20)
 mesh = TensorMesh([h, h], "CC")
-
+#
 # Create a discrete vector on mesh faces
-
+#
 faces_x = mesh.faces_x
 faces_y = mesh.faces_y
 ux = (faces_x[:, 0] / np.sqrt(np.sum(faces_x ** 2, axis=1))) * np.exp(
@@ -26,16 +26,16 @@ uy = (faces_y[:, 1] / np.sqrt(np.sum(faces_y ** 2, axis=1))) * np.exp(
     -(faces_y[:, 0] ** 2 + faces_y[:, 1] ** 2) / 6 ** 2
 )
 u = np.r_[ux, uy]
-
+#
 # Construct the divergence operator and apply to face-vector
-
+#
 Df = mesh.face_divergence
 div_u = Df @ u
-
+#
 # Plot the original face-vector and its divergence
-
+#
 # .. collapse:: Expand to show scripting for plot
-
+#
 fig = plt.figure(figsize=(13, 6))
 ax1 = fig.add_subplot(121)
 mesh.plot_image(
@@ -48,16 +48,16 @@ ax2.set_yticks([])
 ax2.set_ylabel("")
 ax2.set_title("Divergence at cell centers", fontsize=14)
 plt.show()
-
+#
 # The discrete divergence operator is a sparse matrix that maps
 # from faces to cell centers. To demonstrate this, we construct
 # a small 2D mesh. We then show the ordering of the elements in
 # the original discrete quantity :math:`\mathbf{u}` and its
 # discrete divergence :math:`\boldsymbol{\phi}` as well as a
 # spy plot.
-
+#
 # .. collapse:: Expand to show scripting for plot
-
+#
 mesh = TensorMesh([[(1, 6)], [(1, 3)]])
 fig = plt.figure(figsize=(10, 10))
 ax1 = fig.add_subplot(211)
@@ -77,7 +77,7 @@ ax1.plot(
 )
 for ii, loc in zip(range(mesh.nFy), mesh.faces_y):
     ax1.text(loc[0] + 0.05, loc[1] + 0.1, "{0:d}".format((ii + mesh.nFx)), color="g")
-
+#
 ax1.set_xticks([])
 ax1.set_yticks([])
 ax1.spines['bottom'].set_color('white')

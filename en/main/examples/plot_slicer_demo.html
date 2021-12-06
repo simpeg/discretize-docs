@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slicer demo &#8212; discretize 0.7.1 documentation</title>
+    <title>Slicer demo &#8212; discretize 0.7.2 documentation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -482,7 +482,8 @@
                 
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-examples-plot-slicer-demo-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-plot-slicer-demo-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="slicer-demo">
 <span id="sphx-glr-examples-plot-slicer-demo-py"></span><h1>Slicer demo<a class="headerlink" href="#slicer-demo" title="Permalink to this headline">¶</a></h1>
@@ -520,9 +521,9 @@ get from running the laguna-del-maule inversion notebook.</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>overwriting /Users/josephcapriotti/codes/discretize/examples/laguna_del_maule_slicer.tar.gz
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>overwriting /home/vsts/work/1/s/examples/laguna_del_maule_slicer.tar.gz
 Downloading https://storage.googleapis.com/simpeg/laguna_del_maule_slicer.tar.gz
-   saved to: /Users/josephcapriotti/codes/discretize/examples/laguna_del_maule_slicer.tar.gz
+   saved to: /home/vsts/work/1/s/examples/laguna_del_maule_slicer.tar.gz
 Download completed!
 </pre></div>
 </div>
@@ -534,8 +535,7 @@ Download completed!
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">plot_3d_slicer</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Lpout</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="plot slicer demo" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_slicer_demo_001.png" />
-</div>
+<img src="../_images/sphx_glr_plot_slicer_demo_001.png" srcset="../_images/sphx_glr_plot_slicer_demo_001.png" alt="plot slicer demo" class = "sphx-glr-single-img"/></div>
 <div class="section" id="create-a-function-to-improve-plots-labeling-after-creation">
 <h3>1.2 Create a function to improve plots, labeling after creation<a class="headerlink" href="#create-a-function-to-improve-plots-labeling-after-creation" title="Permalink to this headline">¶</a></h3>
 <p>Depending on your data the default option might look a bit odd. The look
@@ -585,8 +585,7 @@ of the figure can be improved by getting its handle and adjust it.</p>
 <span class="n">beautify</span><span class="p">(</span><span class="s2">&quot;mesh.plot_3d_slicer(Lpout)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="mesh.plot_3d_slicer(Lpout)" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_slicer_demo_002.png" />
-</div>
+<img src="../_images/sphx_glr_plot_slicer_demo_002.png" srcset="../_images/sphx_glr_plot_slicer_demo_002.png" alt="mesh.plot_3d_slicer(Lpout)" class = "sphx-glr-single-img"/></div>
 <div class="section" id="set-xslice-yslice-and-zslice-transparent-region">
 <h3>1.3 Set <cite>xslice</cite>, <cite>yslice</cite>, and <cite>zslice</cite>; transparent region<a class="headerlink" href="#set-xslice-yslice-and-zslice-transparent-region" title="Permalink to this headline">¶</a></h3>
 <p>The 2nd-4th input arguments are the initial x-, y-, and z-slice location
@@ -599,8 +598,7 @@ be used to define transparent regions.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="mesh.plot_3d_slicer( Lpout, 370000, 6002500, -2500, transparent=[[-0.02, 0.1]])" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_slicer_demo_003.png" />
-</div>
+<img src="../_images/sphx_glr_plot_slicer_demo_003.png" srcset="../_images/sphx_glr_plot_slicer_demo_003.png" alt="mesh.plot_3d_slicer( Lpout, 370000, 6002500, -2500, transparent=[[-0.02, 0.1]])" class = "sphx-glr-single-img"/></div>
 <div class="section" id="set-clim-use-pcolor-opts-to-show-grid-lines">
 <h3>1.4 Set <cite>clim</cite>, use <cite>pcolor_opts</cite> to show grid lines<a class="headerlink" href="#set-clim-use-pcolor-opts-to-show-grid-lines" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">plot_3d_slicer</span><span class="p">(</span>
@@ -612,8 +610,7 @@ be used to define transparent regions.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="mesh.plot_3d_slicer( Lpout, clim=[-0.4, 0.2], pcolor_opts={'edgecolor': 'k', 'linewidth': 0.1})" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_slicer_demo_004.png" />
-</div>
+<img src="../_images/sphx_glr_plot_slicer_demo_004.png" srcset="../_images/sphx_glr_plot_slicer_demo_004.png" alt="mesh.plot_3d_slicer( Lpout, clim=[-0.4, 0.2], pcolor_opts={'edgecolor': 'k', 'linewidth': 0.1})" class = "sphx-glr-single-img"/></div>
 <div class="section" id="use-pcolor-opts-to-set-symlognorm-and-another-cmap">
 <h3>1.5 Use <cite>pcolor_opts</cite> to set <cite>SymLogNorm</cite>, and another <cite>cmap</cite><a class="headerlink" href="#use-pcolor-opts-to-set-symlognorm-and-another-cmap" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">plot_3d_slicer</span><span class="p">(</span>
@@ -625,13 +622,7 @@ be used to define transparent regions.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="mesh.plot_3d_slicer(Lpout, pcolor_opts={'norm': SymLogNorm(linthresh=0.01),'cmap': 'RdBu_r'})`" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_slicer_demo_005.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/Users/josephcapriotti/codes/discretize/examples/plot_slicer_demo.py:136: MatplotlibDeprecationWarning: default base will change from np.e to 10 in 3.4.  To suppress this warning specify the base keyword argument.
-  Lpout, pcolor_opts={&quot;norm&quot;: SymLogNorm(linthresh=0.01), &quot;cmap&quot;: &quot;RdBu_r&quot;}
-</pre></div>
-</div>
-</div>
+<img src="../_images/sphx_glr_plot_slicer_demo_005.png" srcset="../_images/sphx_glr_plot_slicer_demo_005.png" alt="mesh.plot_3d_slicer(Lpout, pcolor_opts={'norm': SymLogNorm(linthresh=0.01),'cmap': 'RdBu_r'})`" class = "sphx-glr-single-img"/></div>
 <div class="section" id="use-aspect-and-grid">
 <h3>1.6 Use <code class="code docutils literal notranslate"><span class="pre">aspect</span></code> and <code class="code docutils literal notranslate"><span class="pre">grid</span></code><a class="headerlink" href="#use-aspect-and-grid" title="Permalink to this headline">¶</a></h3>
 <p>By default, <code class="code docutils literal notranslate"><span class="pre">aspect='auto'</span></code> and <code class="code docutils literal notranslate"><span class="pre">grid=[2,</span> <span class="pre">2,</span> <span class="pre">1]</span></code>. This means that
@@ -646,8 +637,7 @@ then it won’t help. Expect the unexpected.</p>
 <span class="n">beautify</span><span class="p">(</span><span class="s2">&quot;mesh.plot_3d_slicer(Lpout, aspect=[&#39;equal&#39;, 1.5], grid=[4, 4, 3])&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="mesh.plot_3d_slicer(Lpout, aspect=['equal', 1.5], grid=[4, 4, 3])" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_slicer_demo_006.png" />
-</div>
+<img src="../_images/sphx_glr_plot_slicer_demo_006.png" srcset="../_images/sphx_glr_plot_slicer_demo_006.png" alt="mesh.plot_3d_slicer(Lpout, aspect=['equal', 1.5], grid=[4, 4, 3])" class = "sphx-glr-single-img"/></div>
 <div class="section" id="transparency-slider">
 <h3>1.7 Transparency-slider<a class="headerlink" href="#transparency-slider" title="Permalink to this headline">¶</a></h3>
 <p>Setting the transparent-parameter to ‘slider’ will create interactive sliders
@@ -656,8 +646,7 @@ to change which range of values of the data is visible.</p>
 <span class="n">beautify</span><span class="p">(</span><span class="s2">&quot;mesh.plot_3d_slicer(Lpout, transparent=&#39;slider&#39;)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="mesh.plot_3d_slicer(Lpout, transparent='slider')" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_slicer_demo_007.png" />
-</div>
+<img src="../_images/sphx_glr_plot_slicer_demo_007.png" srcset="../_images/sphx_glr_plot_slicer_demo_007.png" alt="mesh.plot_3d_slicer(Lpout, transparent='slider')" class = "sphx-glr-single-img"/></div>
 </div>
 <div class="section" id="case-2-just-using-the-slicer-class">
 <h2>Case 2: Just using the Slicer class<a class="headerlink" href="#case-2-just-using-the-slicer-class" title="Permalink to this headline">¶</a></h2>
@@ -677,8 +666,7 @@ to change which range of values of the data is visible.</p>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="'discretize.mixins.Slicer' together with 'fig.canvas.mpl_connect'" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_slicer_demo_008.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.861 seconds)</p>
+<img src="../_images/sphx_glr_plot_slicer_demo_008.png" srcset="../_images/sphx_glr_plot_slicer_demo_008.png" alt="'discretize.mixins.Slicer' together with 'fig.canvas.mpl_connect'" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.005 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-slicer-demo-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/e0194b9f06ffe872bee81bf35c819c9d/plot_slicer_demo.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_slicer_demo.py</span></code></a></p>

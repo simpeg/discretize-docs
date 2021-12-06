@@ -1,35 +1,35 @@
 # Below, we demonstrate 2) how to apply the face-z divergence operator,
 # and 2) the mapping of the face-z divergence operator and its sparsity.
 # Our example is carried out on a 3D mesh.
-
+#
 # We start by importing the necessary packages and modules.
-
+#
 from discretize import TensorMesh
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
-
+#
 # For a discrete scalar quantity :math:`\boldsymbol{\phi}` defined on the
 # z-faces, we take the z-derivative by constructing the face-z divergence
 # operator and multiplying as a matrix-vector product.
-
+#
 h = np.ones(40)
 mesh = TensorMesh([h, h, h], "CCC")
-
+#
 # Create a discrete quantity on z-faces
-
+#
 faces_z = mesh.faces_z
 phi = np.exp(-(faces_z[:, 2] ** 2) / 8** 2)
-
+#
 # Construct the z-divergence operator and apply to vector
-
+#
 Dz = mesh.face_z_divergence
 dphi_dz = Dz @ phi
-
+#
 # Plot the original function and the z-divergence
-
+#
 # .. collapse:: Expand to show scripting for plot
-
+#
 fig = plt.figure(figsize=(13, 6))
 ax1 = fig.add_subplot(121)
 w = np.r_[np.ones(mesh.nFx+mesh.nFz), phi]  # Need vector on all faces for image plot
@@ -41,16 +41,16 @@ ax2.set_yticks([])
 ax2.set_ylabel("")
 ax2.set_title("Z-derivative at cell center (y-slice)", fontsize=14)
 plt.show()
-
+#
 # The discrete z-face divergence operator is a sparse matrix that maps
 # from z-faces to cell centers. To demonstrate this, we construct
 # a small 3D mesh. We then show the ordering of the elements in
 # the original discrete quantity :math:`\boldsymbol{\phi}` and its
 # z-derivative :math:`\partial \boldsymbol{\phi}/ \partial z` as well as a
 # spy plot.
-
+#
 # .. collapse:: Expand to show scripting for plot
-
+#
 mesh = TensorMesh([[(1, 3)], [(1, 2)], [(1, 2)]])
 fig = plt.figure(figsize=(9, 12))
 ax1 = fig.add_axes([0, 0.35, 1, 0.6], projection='3d', elev=10, azim=-82)
@@ -60,7 +60,7 @@ ax1.plot(
 )
 for ii, loc in zip(range(mesh.nFz), mesh.faces_z):
     ax1.text(loc[0] + 0.05, loc[1] + 0.05, loc[2], "{0:d}".format(ii), color="g")
-
+#
 ax1.plot(
    mesh.cell_centers[:, 0], mesh.cell_centers[:, 1], mesh.cell_centers[:, 2],
    "ro", markersize=10
@@ -71,9 +71,9 @@ ax1.legend(
     ['Mesh','$\mathbf{\phi}$ (z-faces)','$\partial \mathbf{\phi}/\partial z$ (centers)'],
     loc='upper right', fontsize=14
 )
-
-# Manually make axis properties invisible
-
+#
+#     Manually make axis properties invisible
+#
 ax1.set_xticks([])
 ax1.set_yticks([])
 ax1.set_zticks([])
@@ -87,9 +87,9 @@ ax1.set_xlabel('X', labelpad=-15, fontsize=16)
 ax1.set_ylabel('Y', labelpad=-20, fontsize=16)
 ax1.set_zlabel('Z', labelpad=-20, fontsize=16)
 ax1.set_title("Mapping of Face-Z Divergence", fontsize=16, pad=-15)
-
-# Spy plot the operator,
-
+#
+#     Spy plot the operator,
+#
 ax2 = fig.add_axes([0.05, 0.05, 0.9, 0.3])
 ax2.spy(mesh.face_z_divergence)
 ax2.set_title("Spy Plot", fontsize=16, pad=5)
