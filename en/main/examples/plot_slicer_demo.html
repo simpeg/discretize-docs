@@ -5,25 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slicer demo &#8212; discretize 0.7.3 documentation</title>
+    <title>Slicer demo &#8212; discretize 0.7.4 documentation</title>
     
-    <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -51,7 +48,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -353,7 +350,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -480,7 +477,7 @@
 to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="slicer-demo">
-<span id="sphx-glr-examples-plot-slicer-demo-py"></span><h1>Slicer demo<a class="headerlink" href="#slicer-demo" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-examples-plot-slicer-demo-py"></span><h1>Slicer demo<a class="headerlink" href="#slicer-demo" title="Permalink to this headline">#</a></h1>
 <p>The example demonstrates the <cite>plot_3d_slicer</cite></p>
 <ul class="simple">
 <li><p>contributed by <a class="reference external" href="https://github.com/prisae">&#64;prisae</a></p></li>
@@ -498,7 +495,7 @@ to download the full example code</p>
 </pre></div>
 </div>
 <div class="section" id="download-and-load-data">
-<h2>Download and load data<a class="headerlink" href="#download-and-load-data" title="Permalink to this headline">¶</a></h2>
+<h2>Download and load data<a class="headerlink" href="#download-and-load-data" title="Permalink to this headline">#</a></h2>
 <p>In the following we load the <code class="code docutils literal notranslate"><span class="pre">mesh</span></code> and <code class="code docutils literal notranslate"><span class="pre">Lpout</span></code> that you would
 get from running the laguna-del-maule inversion notebook.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">f</span></a> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">download</span><span class="p">(</span>
@@ -523,15 +520,15 @@ Download completed!
 </div>
 </div>
 <div class="section" id="case-1-using-the-intrinsinc-functionality">
-<h2>Case 1: Using the intrinsinc functionality<a class="headerlink" href="#case-1-using-the-intrinsinc-functionality" title="Permalink to this headline">¶</a></h2>
+<h2>Case 1: Using the intrinsinc functionality<a class="headerlink" href="#case-1-using-the-intrinsinc-functionality" title="Permalink to this headline">#</a></h2>
 <div class="section" id="default-options">
-<h3>1.1 Default options<a class="headerlink" href="#default-options" title="Permalink to this headline">¶</a></h3>
+<h3>1.1 Default options<a class="headerlink" href="#default-options" title="Permalink to this headline">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">plot_3d_slicer</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Lpout</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../_images/sphx_glr_plot_slicer_demo_001.png" srcset="../_images/sphx_glr_plot_slicer_demo_001.png" alt="plot slicer demo" class = "sphx-glr-single-img"/></div>
 <div class="section" id="create-a-function-to-improve-plots-labeling-after-creation">
-<h3>1.2 Create a function to improve plots, labeling after creation<a class="headerlink" href="#create-a-function-to-improve-plots-labeling-after-creation" title="Permalink to this headline">¶</a></h3>
+<h3>1.2 Create a function to improve plots, labeling after creation<a class="headerlink" href="#create-a-function-to-improve-plots-labeling-after-creation" title="Permalink to this headline">#</a></h3>
 <p>Depending on your data the default option might look a bit odd. The look
 of the figure can be improved by getting its handle and adjust it.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">beautify</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <a href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="matplotlib.figure.Figure" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fig</span></a><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -581,7 +578,7 @@ of the figure can be improved by getting its handle and adjust it.</p>
 </div>
 <img src="../_images/sphx_glr_plot_slicer_demo_002.png" srcset="../_images/sphx_glr_plot_slicer_demo_002.png" alt="mesh.plot_3d_slicer(Lpout)" class = "sphx-glr-single-img"/></div>
 <div class="section" id="set-xslice-yslice-and-zslice-transparent-region">
-<h3>1.3 Set <cite>xslice</cite>, <cite>yslice</cite>, and <cite>zslice</cite>; transparent region<a class="headerlink" href="#set-xslice-yslice-and-zslice-transparent-region" title="Permalink to this headline">¶</a></h3>
+<h3>1.3 Set <cite>xslice</cite>, <cite>yslice</cite>, and <cite>zslice</cite>; transparent region<a class="headerlink" href="#set-xslice-yslice-and-zslice-transparent-region" title="Permalink to this headline">#</a></h3>
 <p>The 2nd-4th input arguments are the initial x-, y-, and z-slice location
 (they default to the middle of the volume). The transparency-parameter can
 be used to define transparent regions.</p>
@@ -594,7 +591,7 @@ be used to define transparent regions.</p>
 </div>
 <img src="../_images/sphx_glr_plot_slicer_demo_003.png" srcset="../_images/sphx_glr_plot_slicer_demo_003.png" alt="mesh.plot_3d_slicer( Lpout, 370000, 6002500, -2500, transparent=[[-0.02, 0.1]])" class = "sphx-glr-single-img"/></div>
 <div class="section" id="set-clim-use-pcolor-opts-to-show-grid-lines">
-<h3>1.4 Set <cite>clim</cite>, use <cite>pcolor_opts</cite> to show grid lines<a class="headerlink" href="#set-clim-use-pcolor-opts-to-show-grid-lines" title="Permalink to this headline">¶</a></h3>
+<h3>1.4 Set <cite>clim</cite>, use <cite>pcolor_opts</cite> to show grid lines<a class="headerlink" href="#set-clim-use-pcolor-opts-to-show-grid-lines" title="Permalink to this headline">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">plot_3d_slicer</span><span class="p">(</span>
     <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Lpout</span></a><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span> <span class="n">pcolor_opts</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;edgecolor&quot;</span><span class="p">:</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;linewidth&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">}</span>
 <span class="p">)</span>
@@ -606,7 +603,7 @@ be used to define transparent regions.</p>
 </div>
 <img src="../_images/sphx_glr_plot_slicer_demo_004.png" srcset="../_images/sphx_glr_plot_slicer_demo_004.png" alt="mesh.plot_3d_slicer( Lpout, clim=[-0.4, 0.2], pcolor_opts={'edgecolor': 'k', 'linewidth': 0.1})" class = "sphx-glr-single-img"/></div>
 <div class="section" id="use-pcolor-opts-to-set-symlognorm-and-another-cmap">
-<h3>1.5 Use <cite>pcolor_opts</cite> to set <cite>SymLogNorm</cite>, and another <cite>cmap</cite><a class="headerlink" href="#use-pcolor-opts-to-set-symlognorm-and-another-cmap" title="Permalink to this headline">¶</a></h3>
+<h3>1.5 Use <cite>pcolor_opts</cite> to set <cite>SymLogNorm</cite>, and another <cite>cmap</cite><a class="headerlink" href="#use-pcolor-opts-to-set-symlognorm-and-another-cmap" title="Permalink to this headline">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">plot_3d_slicer</span><span class="p">(</span>
     <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Lpout</span></a><span class="p">,</span> <span class="n">pcolor_opts</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;norm&quot;</span><span class="p">:</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.SymLogNorm.html#matplotlib.colors.SymLogNorm" title="matplotlib.colors.SymLogNorm" class="sphx-glr-backref-module-matplotlib-colors sphx-glr-backref-type-py-class"><span class="n">SymLogNorm</span></a><span class="p">(</span><span class="n">linthresh</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span> <span class="s2">&quot;cmap&quot;</span><span class="p">:</span> <span class="s2">&quot;RdBu_r&quot;</span><span class="p">}</span>
 <span class="p">)</span>
@@ -618,7 +615,7 @@ be used to define transparent regions.</p>
 </div>
 <img src="../_images/sphx_glr_plot_slicer_demo_005.png" srcset="../_images/sphx_glr_plot_slicer_demo_005.png" alt="mesh.plot_3d_slicer(Lpout, pcolor_opts={'norm': SymLogNorm(linthresh=0.01),'cmap': 'RdBu_r'})`" class = "sphx-glr-single-img"/></div>
 <div class="section" id="use-aspect-and-grid">
-<h3>1.6 Use <code class="code docutils literal notranslate"><span class="pre">aspect</span></code> and <code class="code docutils literal notranslate"><span class="pre">grid</span></code><a class="headerlink" href="#use-aspect-and-grid" title="Permalink to this headline">¶</a></h3>
+<h3>1.6 Use <code class="code docutils literal notranslate"><span class="pre">aspect</span></code> and <code class="code docutils literal notranslate"><span class="pre">grid</span></code><a class="headerlink" href="#use-aspect-and-grid" title="Permalink to this headline">#</a></h3>
 <p>By default, <code class="code docutils literal notranslate"><span class="pre">aspect='auto'</span></code> and <code class="code docutils literal notranslate"><span class="pre">grid=[2,</span> <span class="pre">2,</span> <span class="pre">1]</span></code>. This means that
 the figure is on a 3x3 grid, where the <cite>xy</cite>-slice occupies 2x2 cells of the
 subplot-grid, <cite>xz</cite>-slice 2x1, and the <cite>zy</cite>-silce 1x2. So the
@@ -633,7 +630,7 @@ then it won’t help. Expect the unexpected.</p>
 </div>
 <img src="../_images/sphx_glr_plot_slicer_demo_006.png" srcset="../_images/sphx_glr_plot_slicer_demo_006.png" alt="mesh.plot_3d_slicer(Lpout, aspect=['equal', 1.5], grid=[4, 4, 3])" class = "sphx-glr-single-img"/></div>
 <div class="section" id="transparency-slider">
-<h3>1.7 Transparency-slider<a class="headerlink" href="#transparency-slider" title="Permalink to this headline">¶</a></h3>
+<h3>1.7 Transparency-slider<a class="headerlink" href="#transparency-slider" title="Permalink to this headline">#</a></h3>
 <p>Setting the transparent-parameter to ‘slider’ will create interactive sliders
 to change which range of values of the data is visible.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">plot_3d_slicer</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Lpout</span></a><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="s2">&quot;slider&quot;</span><span class="p">)</span>
@@ -643,7 +640,7 @@ to change which range of values of the data is visible.</p>
 <img src="../_images/sphx_glr_plot_slicer_demo_007.png" srcset="../_images/sphx_glr_plot_slicer_demo_007.png" alt="mesh.plot_3d_slicer(Lpout, transparent='slider')" class = "sphx-glr-single-img"/></div>
 </div>
 <div class="section" id="case-2-just-using-the-slicer-class">
-<h2>Case 2: Just using the Slicer class<a class="headerlink" href="#case-2-just-using-the-slicer-class" title="Permalink to this headline">¶</a></h2>
+<h2>Case 2: Just using the Slicer class<a class="headerlink" href="#case-2-just-using-the-slicer-class" title="Permalink to this headline">#</a></h2>
 <p>This way you get the figure-handle, and can do further stuff with the figure.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You have to initialize a figure</span>
 <a href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="matplotlib.figure.Figure" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fig</span></a> <span class="o">=</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">()</span>
@@ -660,7 +657,7 @@ to change which range of values of the data is visible.</p>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_plot_slicer_demo_008.png" srcset="../_images/sphx_glr_plot_slicer_demo_008.png" alt="'discretize.mixins.Slicer' together with 'fig.canvas.mpl_connect'" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.352 seconds)</p>
+<img src="../_images/sphx_glr_plot_slicer_demo_008.png" srcset="../_images/sphx_glr_plot_slicer_demo_008.png" alt="'discretize.mixins.Slicer' together with 'fig.canvas.mpl_connect'" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.004 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-slicer-demo-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/e0194b9f06ffe872bee81bf35c819c9d/plot_slicer_demo.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_slicer_demo.py</span></code></a></p>
@@ -701,8 +698,9 @@ to change which range of values of the data is visible.</p>
       </div>
     </div>
   
-    <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -713,7 +711,7 @@ to change which range of values of the data is visible.</p>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     

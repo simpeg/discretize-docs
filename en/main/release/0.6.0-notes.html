@@ -5,25 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>discretize 0.6.0 Release Notes &#8212; discretize 0.7.3 documentation</title>
+    <title>discretize 0.6.0 Release Notes &#8212; discretize 0.7.4 documentation</title>
     
-    <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -51,7 +48,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -170,6 +167,16 @@
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="0.7.4-notes.html">
+   0.7.4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="0.7.3-notes.html">
+   0.7.3
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="0.7.2-notes.html">
    0.7.2
   </a>
@@ -251,7 +258,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -323,7 +330,7 @@
               <div>
                 
   <div class="section" id="discretize-0-6-0-release-notes">
-<span id="notes"></span><h1><code class="docutils literal notranslate"><span class="pre">discretize</span></code> 0.6.0 Release Notes<a class="headerlink" href="#discretize-0-6-0-release-notes" title="Permalink to this headline">¶</a></h1>
+<span id="notes"></span><h1><code class="docutils literal notranslate"><span class="pre">discretize</span></code> 0.6.0 Release Notes<a class="headerlink" href="#discretize-0-6-0-release-notes" title="Permalink to this headline">#</a></h1>
 <p>This minor release is intended to bring consistent pep8 style naming across all
 of discretize’s classes and functions.</p>
 <p>There are two major types of renaming, aliases and deprecations. We have chosen
@@ -356,10 +363,10 @@ to clean up and drop python 2 compatibility.</p>
 <p>Testing now uses Azure CI. The new hub can be found at <a class="reference external" href="https://dev.azure.com/simpeg/">https://dev.azure.com/simpeg/</a></p>
 </div>
 <div class="section" id="changes">
-<h2>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h2>
+<h2>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">#</a></h2>
 <p>This is a full list of the aliases and deprecations for this <code class="docutils literal notranslate"><span class="pre">discretize</span></code> release.</p>
 <div class="section" id="aliases">
-<h3>Aliases<a class="headerlink" href="#aliases" title="Permalink to this headline">¶</a></h3>
+<h3>Aliases<a class="headerlink" href="#aliases" title="Permalink to this headline">#</a></h3>
 <p>On <code class="docutils literal notranslate"><span class="pre">discretize.base.BaseMesh</span></code>:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">origin=x0</span></code></p></li>
@@ -404,11 +411,11 @@ to clean up and drop python 2 compatibility.</p>
 and <code class="docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code>.</p>
 </div>
 <div class="section" id="deprecations">
-<h3>Deprecations<a class="headerlink" href="#deprecations" title="Permalink to this headline">¶</a></h3>
+<h3>Deprecations<a class="headerlink" href="#deprecations" title="Permalink to this headline">#</a></h3>
 <p>These deprecations will give <code class="docutils literal notranslate"><span class="pre">FutureWarning</span></code> when called indicating that they
 will be removed in version 1.0.0 of <code class="docutils literal notranslate"><span class="pre">discretize</span></code>.</p>
 <div class="section" id="base-classes">
-<h4>Base Classes<a class="headerlink" href="#base-classes" title="Permalink to this headline">¶</a></h4>
+<h4>Base Classes<a class="headerlink" href="#base-classes" title="Permalink to this headline">#</a></h4>
 <p>On <code class="docutils literal notranslate"><span class="pre">discretize.base.BaseMesh</span></code>:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">normals</span></code> → <code class="docutils literal notranslate"><span class="pre">face_normals</span></code></p></li>
@@ -461,7 +468,7 @@ will be removed in version 1.0.0 of <code class="docutils literal notranslate"><
 </ul>
 </div>
 <div class="section" id="main-meshes">
-<h4>Main Meshes<a class="headerlink" href="#main-meshes" title="Permalink to this headline">¶</a></h4>
+<h4>Main Meshes<a class="headerlink" href="#main-meshes" title="Permalink to this headline">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">CylMesh</span></code> → <code class="docutils literal notranslate"><span class="pre">CylindricalMesh</span></code></p>
 <p>On <code class="docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code>, <code class="docutils literal notranslate"><span class="pre">discretize.CylindricalMesh</span></code>, <code class="docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code>, <code class="docutils literal notranslate"><span class="pre">discretize.CurvilinearMesh</span></code>:</p>
 <ul class="simple">
@@ -503,7 +510,7 @@ will be removed in version 1.0.0 of <code class="docutils literal notranslate"><
 </ul>
 </div>
 <div class="section" id="utilities-deprecations">
-<h4>Utilities deprecations<a class="headerlink" href="#utilities-deprecations" title="Permalink to this headline">¶</a></h4>
+<h4>Utilities deprecations<a class="headerlink" href="#utilities-deprecations" title="Permalink to this headline">#</a></h4>
 <p>Deprecations inside <code class="docutils literal notranslate"><span class="pre">discretize.utils</span></code>:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">isScalar</span></code> → <code class="docutils literal notranslate"><span class="pre">is_scalar</span></code></p></li>
@@ -529,7 +536,7 @@ will be removed in version 1.0.0 of <code class="docutils literal notranslate"><
 </div>
 </div>
 <div class="section" id="contributors">
-<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>&#64;jcapriot</p></li>
 </ul>
@@ -541,7 +548,7 @@ will be removed in version 1.0.0 of <code class="docutils literal notranslate"><
 <p>Also, input on function names were given by many of the <code class="docutils literal notranslate"><span class="pre">discretize</span></code> developers.</p>
 </div>
 <div class="section" id="pull-requests">
-<h2>Pull requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">¶</a></h2>
+<h2>Pull requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/simpeg/discretize/pull/227">#227</a>: Restructure.</p></li>
 </ul>
@@ -576,8 +583,9 @@ will be removed in version 1.0.0 of <code class="docutils literal notranslate"><
       </div>
     </div>
   
-    <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -588,7 +596,7 @@ will be removed in version 1.0.0 of <code class="docutils literal notranslate"><
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     

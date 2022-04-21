@@ -5,25 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Constitutive Relations &#8212; discretize 0.7.3 documentation</title>
+    <title>Constitutive Relations &#8212; discretize 0.7.4 documentation</title>
     
-    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -53,7 +50,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -355,7 +352,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -413,7 +410,7 @@
 to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="constitutive-relations">
-<span id="sphx-glr-tutorials-inner-products-2-physical-properties-py"></span><h1>Constitutive Relations<a class="headerlink" href="#constitutive-relations" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-tutorials-inner-products-2-physical-properties-py"></span><h1>Constitutive Relations<a class="headerlink" href="#constitutive-relations" title="Permalink to this headline">#</a></h1>
 <p>When solving PDEs using the finite volume approach, inner products may
 contain constitutive relations; examples include Ohm’s law and Hooke’s law.
 For this class of inner products, you will learn how to:</p>
@@ -462,7 +459,7 @@ by:</p>
 <div class="math notranslate nohighlight">
 \[(\vec{v}, \Sigma \vec{E} ) \approx \mathbf{v^T M_\Sigma e}\]</div>
 <div class="section" id="import-packages">
-<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">¶</a></h2>
+<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">#</a></h2>
 <p>Here we import the packages required for this tutorial</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">TensorMesh</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -473,7 +470,7 @@ by:</p>
 </div>
 </div>
 <div class="section" id="inner-product-for-a-single-cell">
-<h2>Inner Product for a Single Cell<a class="headerlink" href="#inner-product-for-a-single-cell" title="Permalink to this headline">¶</a></h2>
+<h2>Inner Product for a Single Cell<a class="headerlink" href="#inner-product-for-a-single-cell" title="Permalink to this headline">#</a></h2>
 <p>Here we compare the inner product matricies for a single cell when the
 constitutive relationship is:</p>
 <blockquote>
@@ -563,7 +560,7 @@ entries.</p>
 </div>
 </div>
 <div class="section" id="spatially-variant-parameters">
-<h2>Spatially Variant Parameters<a class="headerlink" href="#spatially-variant-parameters" title="Permalink to this headline">¶</a></h2>
+<h2>Spatially Variant Parameters<a class="headerlink" href="#spatially-variant-parameters" title="Permalink to this headline">#</a></h2>
 <p>In practice, the parameter <span class="math notranslate nohighlight">\(\sigma\)</span> or tensor <span class="math notranslate nohighlight">\(\Sigma\)</span> will
 vary spatially. In this case, we define the parameter
 <span class="math notranslate nohighlight">\(\sigma\)</span> (or parameters <span class="math notranslate nohighlight">\(\Sigma\)</span>) for each cell. When
@@ -624,7 +621,7 @@ inner product matricies are discussed.</p>
 </div>
 </div>
 <div class="section" id="inverse">
-<h2>Inverse<a class="headerlink" href="#inverse" title="Permalink to this headline">¶</a></h2>
+<h2>Inverse<a class="headerlink" href="#inverse" title="Permalink to this headline">#</a></h2>
 <p>The final discretized system using the finite volume method may contain
 the inverse of the inner-product matrix. Here we show how to call this
 using the <em>invMat</em> keyword argument.</p>
@@ -658,7 +655,7 @@ matrix and do a numerical solve.</p>
 </div>
 </div>
 <div class="section" id="reciprocal-properties">
-<h2>Reciprocal Properties<a class="headerlink" href="#reciprocal-properties" title="Permalink to this headline">¶</a></h2>
+<h2>Reciprocal Properties<a class="headerlink" href="#reciprocal-properties" title="Permalink to this headline">#</a></h2>
 <p>At times, the constitutive relation may be defined by the reciprocal of
 a parameter (<span class="math notranslate nohighlight">\(\rho\)</span>). Here we demonstrate how inner product matricies
 can be formed using the keyword argument <em>invProp</em>. We will do this for a
@@ -755,7 +752,7 @@ this expression is given by:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Full Anisotropic (Edges)&#39;)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.838 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.811 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-inner-products-2-physical-properties-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/acbd832bf87c7d8a4e27f82a417d637c/2_physical_properties.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">2_physical_properties.py</span></code></a></p>
@@ -796,8 +793,9 @@ this expression is given by:</p>
       </div>
     </div>
   
-    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -808,7 +806,7 @@ this expression is given by:</p>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     

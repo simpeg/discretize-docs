@@ -5,25 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Differential Operators &#8212; discretize 0.7.3 documentation</title>
+    <title>Differential Operators &#8212; discretize 0.7.4 documentation</title>
     
-    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -53,7 +50,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -355,7 +352,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -418,7 +415,7 @@
 to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="differential-operators">
-<span id="sphx-glr-tutorials-operators-2-differential-py"></span><h1>Differential Operators<a class="headerlink" href="#differential-operators" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-tutorials-operators-2-differential-py"></span><h1>Differential Operators<a class="headerlink" href="#differential-operators" title="Permalink to this headline">#</a></h1>
 <p>For discretized quantities living on a mesh, sparse matricies can be used to
 approximate the following differential operators:</p>
 <blockquote>
@@ -441,7 +438,7 @@ differential operators are properties that are only constructed when called.</p>
 </ul>
 </div></blockquote>
 <div class="section" id="import-packages">
-<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">¶</a></h2>
+<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">#</a></h2>
 <p>Here we import the packages required for this tutorial.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">TensorMesh</span><span class="p">,</span> <span class="n">TreeMesh</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -452,7 +449,7 @@ differential operators are properties that are only constructed when called.</p>
 </div>
 </div>
 <div class="section" id="d-example">
-<h2>1D Example<a class="headerlink" href="#d-example" title="Permalink to this headline">¶</a></h2>
+<h2>1D Example<a class="headerlink" href="#d-example" title="Permalink to this headline">#</a></h2>
 <p>Here we compute a scalar function on cell nodes and differentiate with
 respect to x. We then compute the analytic derivative of function to validate
 the numerical differentiation.</p>
@@ -488,7 +485,7 @@ the numerical differentiation.</p>
 </div>
 <img src="../../_images/sphx_glr_2_differential_001.png" srcset="../../_images/sphx_glr_2_differential_001.png" alt="Sparse representation of G, Comparison plot" class = "sphx-glr-single-img"/></div>
 <div class="section" id="mapping-and-dimensions">
-<h2>Mapping and Dimensions<a class="headerlink" href="#mapping-and-dimensions" title="Permalink to this headline">¶</a></h2>
+<h2>Mapping and Dimensions<a class="headerlink" href="#mapping-and-dimensions" title="Permalink to this headline">#</a></h2>
 <p>When discretizing and solving differential equations, it is
 natural for certain quantities to be defined at particular locations on the
 mesh; e.g.:</p>
@@ -572,7 +569,7 @@ Curl:
 </div>
 </div>
 <div class="section" id="id1">
-<h2>2D Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>2D Example<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>Here we apply the gradient, divergence and curl operators to a set of
 functions defined on a 2D tensor mesh. We then plot the results.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a uniform grid</span>
@@ -672,7 +669,7 @@ functions defined on a 2D tensor mesh. We then plot the results.</p>
 </ul>
 </div>
 <div class="section" id="tree-mesh-divergence">
-<h2>Tree Mesh Divergence<a class="headerlink" href="#tree-mesh-divergence" title="Permalink to this headline">¶</a></h2>
+<h2>Tree Mesh Divergence<a class="headerlink" href="#tree-mesh-divergence" title="Permalink to this headline">#</a></h2>
 <p>For a tree mesh, there needs to be special attention taken for the hanging
 faces to achieve second order convergence for the divergence operator.
 Although the divergence cannot be constructed through Kronecker product
@@ -718,7 +715,7 @@ when hanging faces are included.</p>
 </div>
 </div>
 <div class="section" id="vector-calculus-identities">
-<h2>Vector Calculus Identities<a class="headerlink" href="#vector-calculus-identities" title="Permalink to this headline">¶</a></h2>
+<h2>Vector Calculus Identities<a class="headerlink" href="#vector-calculus-identities" title="Permalink to this headline">#</a></h2>
 <p>Here we show that vector calculus identities hold for the discrete
 differential operators. Namely that for a scalar quantity <span class="math notranslate nohighlight">\(\phi\)</span> and
 a vector quantity <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>:</p>
@@ -755,7 +752,7 @@ entries; <strong>e.g. each is just a matrix of zeros</strong>.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;DIV*CURL&#39;)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.112 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.064 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-operators-2-differential-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/d0941cef2a9bb37000a483b179750e82/2_differential.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">2_differential.py</span></code></a></p>
@@ -796,8 +793,9 @@ entries; <strong>e.g. each is just a matrix of zeros</strong>.</p>
       </div>
     </div>
   
-    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -808,7 +806,7 @@ entries; <strong>e.g. each is just a matrix of zeros</strong>.</p>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     

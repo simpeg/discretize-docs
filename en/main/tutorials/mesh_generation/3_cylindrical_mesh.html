@@ -5,25 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cylindrical meshes &#8212; discretize 0.7.3 documentation</title>
+    <title>Cylindrical meshes &#8212; discretize 0.7.4 documentation</title>
     
-    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -53,7 +50,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -355,7 +352,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -408,7 +405,7 @@
 to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="cylindrical-meshes">
-<span id="sphx-glr-tutorials-mesh-generation-3-cylindrical-mesh-py"></span><h1>Cylindrical meshes<a class="headerlink" href="#cylindrical-meshes" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-tutorials-mesh-generation-3-cylindrical-mesh-py"></span><h1>Cylindrical meshes<a class="headerlink" href="#cylindrical-meshes" title="Permalink to this headline">#</a></h1>
 <p>Cylindrical meshes (<code class="xref py py-class docutils literal notranslate"><span class="pre">CylMesh</span></code>) are defined in terms of <em>r</em>
 (radial position), <em>z</em> (vertical position) and <em>phi</em> (azimuthal position).
 They are a child class of the tensor mesh class. Cylindrical meshes are useful
@@ -424,7 +421,7 @@ demonstrate:</p>
 </ul>
 </div></blockquote>
 <div class="section" id="import-packages">
-<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">¶</a></h2>
+<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">#</a></h2>
 <p>Here we import the packages required for this tutorial.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">CylMesh</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -433,7 +430,7 @@ demonstrate:</p>
 </div>
 </div>
 <div class="section" id="basic-example">
-<h2>Basic Example<a class="headerlink" href="#basic-example" title="Permalink to this headline">¶</a></h2>
+<h2>Basic Example<a class="headerlink" href="#basic-example" title="Permalink to this headline">#</a></h2>
 <p>The easiest way to define a cylindrical mesh is to define the cell widths in
 <em>r</em>, <em>phi</em> and <em>z</em> as 1D numpy arrays. And to provide a Cartesian position
 for the bottom of the vertical axis of symmetry of the mesh. Note that</p>
@@ -468,7 +465,7 @@ for the bottom of the vertical axis of symmetry of the mesh. Note that</p>
 </div>
 </div>
 <div class="section" id="padding-cells-and-extracting-properties">
-<h2>Padding Cells and Extracting Properties<a class="headerlink" href="#padding-cells-and-extracting-properties" title="Permalink to this headline">¶</a></h2>
+<h2>Padding Cells and Extracting Properties<a class="headerlink" href="#padding-cells-and-extracting-properties" title="Permalink to this headline">#</a></h2>
 <p>For practical purposes, the user may want to define a region where the cell
 widths are increasing/decreasing in size. For example, padding is often used
 to define a large domain while reducing the total number of mesh cells.
@@ -518,7 +515,7 @@ We then show some properties that can be extracted from cylindrical meshes.</p>
 </div>
 <img src="../../_images/sphx_glr_3_cylindrical_mesh_002.png" srcset="../../_images/sphx_glr_3_cylindrical_mesh_002.png" alt="Discretization in phi, Discretization in r and z" class = "sphx-glr-single-img"/></div>
 <div class="section" id="cylindrical-mesh-for-rotational-symmetry">
-<h2>Cylindrical Mesh for Rotational Symmetry<a class="headerlink" href="#cylindrical-mesh-for-rotational-symmetry" title="Permalink to this headline">¶</a></h2>
+<h2>Cylindrical Mesh for Rotational Symmetry<a class="headerlink" href="#cylindrical-mesh-for-rotational-symmetry" title="Permalink to this headline">#</a></h2>
 <p>Cylindrical mesh are most useful when solving problems with perfect
 rotational symmetry. More precisely when:</p>
 <blockquote>
@@ -573,7 +570,7 @@ direction.</p>
 </pre></div>
 </div>
 <p>Notice that we do not plot the discretization in phi as it is irrelevant.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.667 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.655 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-mesh-generation-3-cylindrical-mesh-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/9a2f5e9984b26832847bddd0f208773a/3_cylindrical_mesh.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">3_cylindrical_mesh.py</span></code></a></p>
@@ -614,8 +611,9 @@ direction.</p>
       </div>
     </div>
   
-    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -626,7 +624,7 @@ direction.</p>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     

@@ -5,25 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>discretize 0.7.1 Release Notes &#8212; discretize 0.7.3 documentation</title>
+    <title>discretize 0.7.1 Release Notes &#8212; discretize 0.7.4 documentation</title>
     
-    <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -51,7 +48,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -170,6 +167,16 @@
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="0.7.4-notes.html">
+   0.7.4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="0.7.3-notes.html">
+   0.7.3
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="0.7.2-notes.html">
    0.7.2
   </a>
@@ -251,7 +258,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -301,25 +308,25 @@
               <div>
                 
   <div class="section" id="discretize-0-7-1-release-notes">
-<span id="notes"></span><h1><code class="docutils literal notranslate"><span class="pre">discretize</span></code> 0.7.1 Release Notes<a class="headerlink" href="#discretize-0-7-1-release-notes" title="Permalink to this headline">¶</a></h1>
+<span id="notes"></span><h1><code class="docutils literal notranslate"><span class="pre">discretize</span></code> 0.7.1 Release Notes<a class="headerlink" href="#discretize-0-7-1-release-notes" title="Permalink to this headline">#</a></h1>
 <p>This patch release is a big step, but with minimal functional changes. There are a few
 small bug fixes, but the largest news is the updated documentation!</p>
 <div class="section" id="new-documentation">
-<h2>New Documentation<a class="headerlink" href="#new-documentation" title="Permalink to this headline">¶</a></h2>
+<h2>New Documentation<a class="headerlink" href="#new-documentation" title="Permalink to this headline">#</a></h2>
 <p>The documentation for every module, class, function, etc. has all been unified to
 numpy styled documentation. Many functions and methods now have small examples
 within their docstrings that show simple usage. We have also update the layout of the
 documentation to match the new <code class="docutils literal notranslate"><span class="pre">pydata</span></code> community layout.</p>
 </div>
 <div class="section" id="bug-fixes">
-<h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">#</a></h2>
 <p>We previously re-intoduced a small bug in the <code class="docutils literal notranslate"><span class="pre">mixins.mpl.plot_3d_slicer</span></code>
 functionality that would caused the colorscales to not match for a homogenous model.
 This has be re-fixed.</p>
 <p>We also now additionally return the quiver plot object when vector plotting using the
 <code class="docutils literal notranslate"><span class="pre">`plot_slice</span></code> on a <code class="docutils literal notranslate"><span class="pre">TreeMesh</span></code></p>
 <div class="section" id="contributors">
-<h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>&#64;jcapriot</p></li>
 <li><p>&#64;dcowan</p></li>
@@ -328,7 +335,7 @@ This has be re-fixed.</p>
 </ul>
 </div>
 <div class="section" id="pull-requests">
-<h3>Pull requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">¶</a></h3>
+<h3>Pull requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/simpeg/discretize/pull/253">#253</a>: Numpy docstrings api</p></li>
 <li><p><a class="reference external" href="https://github.com/simpeg/discretize/pull/256">#256</a>: Update mpl_mod.py</p></li>
@@ -368,8 +375,9 @@ This has be re-fixed.</p>
       </div>
     </div>
   
-    <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -380,7 +388,7 @@ This has be re-fixed.</p>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     

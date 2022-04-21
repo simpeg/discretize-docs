@@ -5,25 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>discretize.mixins.InterfaceVTK &#8212; discretize 0.7.3 documentation</title>
+    <title>discretize.mixins.InterfaceVTK &#8212; discretize 0.7.4 documentation</title>
     
-    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -53,7 +50,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -6460,7 +6457,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -6498,13 +6495,13 @@
               <div>
                 
   <div class="section" id="discretize-mixins-interfacevtk">
-<h1>discretize.mixins.InterfaceVTK<a class="headerlink" href="#discretize-mixins-interfacevtk" title="Permalink to this headline">¶</a></h1>
+<h1>discretize.mixins.InterfaceVTK<a class="headerlink" href="#discretize-mixins-interfacevtk" title="Permalink to this headline">#</a></h1>
 <div class="graphviz"><img src="../../_images/inheritance-c1949304d352d4da9ce3c6d1faaacc11fecc22cf.png" alt="Inheritance diagram of InterfaceVTK" usemap="#inheritancec8d00a5aad" class="inheritance graphviz" /></div>
 <map id="inheritancec8d00a5aad" name="inheritancec8d00a5aad">
 <area shape="rect" id="node1" href="#discretize.mixins.InterfaceVTK" target="_top" title="Class enabling straight forward conversion between ``discretize``" alt="" coords="5,5,112,31"/>
 </map><dl class="py class">
 <dt class="sig sig-object py" id="discretize.mixins.InterfaceVTK">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.mixins.</span></span><span class="sig-name descname"><span class="pre">InterfaceVTK</span></span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/mixins/vtk_mod.py#L100-L557"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.mixins.InterfaceVTK" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.mixins.</span></span><span class="sig-name descname"><span class="pre">InterfaceVTK</span></span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/mixins/vtk_mod.py#L100-L557"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.mixins.InterfaceVTK" title="Permalink to this definition">#</a></dt>
 <dd><p>Class enabling straight forward conversion between <code class="docutils literal notranslate"><span class="pre">discretize</span></code>
 meshes and their corresponding <a class="reference external" href="https://vtk.org/doc/nightly/html/index.html">VTK</a> or
 <a class="reference external" href="https://docs.pyvista.org/">PyVista</a> data objects. Since <code class="docutils literal notranslate"><span class="pre">InterfaceVTK</span></code>
@@ -6522,7 +6519,7 @@ on the traditional reference frame; see examples below.</p>
 discretize meshes to VTK data objects and write to VTK formatted files.
 In the first example example, a tensor mesh whose axes lie on the
 traditional reference frame is converted to a
-<a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.RectilinearGrid.html#pyvista.RectilinearGrid" title="(in PyVista v0.33.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> object.</p>
+<a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.RectilinearGrid.html#pyvista.RectilinearGrid" title="(in PyVista v0.34.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> object.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">discretize</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">.1</span><span class="p">,</span> <span class="mf">.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -6540,7 +6537,7 @@ traditional reference frame is converted to a
 </pre></div>
 </div>
 <p>Here, the reference frame of the mesh is rotated. In this case, conversion
-to VTK produces a <a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.StructuredGrid.html#pyvista.StructuredGrid" title="(in PyVista v0.33.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> object.</p>
+to VTK produces a <a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.StructuredGrid.html#pyvista.StructuredGrid" title="(in PyVista v0.34.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> object.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">axis_u</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">axis_v</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">axis_w</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -6559,8 +6556,8 @@ to VTK produces a <a class="reference external" href="https://docs.pyvista.org/a
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">writeVTK</span><span class="p">(</span><span class="s1">&#39;sample_rotated&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The two above code snippets produced a <a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.RectilinearGrid.html#pyvista.RectilinearGrid" title="(in PyVista v0.33.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> and a
-<a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.StructuredGrid.html#pyvista.StructuredGrid" title="(in PyVista v0.33.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> respecitvely. To demonstarte the difference, we
+<p>The two above code snippets produced a <a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.RectilinearGrid.html#pyvista.RectilinearGrid" title="(in PyVista v0.34.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> and a
+<a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.StructuredGrid.html#pyvista.StructuredGrid" title="(in PyVista v0.34.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> respecitvely. To demonstarte the difference, we
 have plotted the two datasets next to each other where the first mesh is in
 green and its data axes are parrallel to the traditional cartesian reference
 frame. The second, rotated mesh is shown in red and its data axes are
@@ -6579,7 +6576,7 @@ rotated from the traditional Cartesian reference frame as specified by the
 </div>
 <img alt="../../_images/vtk-rotated-example.png" src="../../_images/vtk-rotated-example.png" />
 <p class="rubric">Methods</p>
-<table class="longtable table autosummary">
+<table class="autosummary longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -6602,82 +6599,82 @@ rotated from the traditional Cartesian reference frame as specified by the
 </dd></dl>
 
 <div class="section" id="galleries-and-tutorials-using-discretize-mixins-interfacevtk">
-<h2>Galleries and Tutorials using <code class="docutils literal notranslate"><span class="pre">discretize.mixins.InterfaceVTK</span></code><a class="headerlink" href="#galleries-and-tutorials-using-discretize-mixins-interfacevtk" title="Permalink to this headline">¶</a></h2>
+<h2>Galleries and Tutorials using <code class="docutils literal notranslate"><span class="pre">discretize.mixins.InterfaceVTK</span></code><a class="headerlink" href="#galleries-and-tutorials-using-discretize-mixins-interfacevtk" title="Permalink to this headline">#</a></h2>
 <div class="sphx-glr-thumbcontainer" tooltip="This example is based on the example in the FiPy_ library. Please see their documentation for m..."><div class="figure align-default" id="id1">
 <img alt="Operators: Cahn Hilliard" src="../../_images/sphx_glr_plot_cahn_hilliard_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_cahn_hilliard.html#sphx-glr-examples-plot-cahn-hilliard-py"><span class="std std-ref">Operators: Cahn Hilliard</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_cahn_hilliard.html#sphx-glr-examples-plot-cahn-hilliard-py"><span class="std std-ref">Operators: Cahn Hilliard</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Here, we demonstrate plotting a model on a cylindrically symmetric mesh with the plotting symme..."><div class="figure align-default" id="id2">
 <img alt="Plot Mirrored Cylindrically Symmetric Model" src="../../_images/sphx_glr_plot_cyl_mirror_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_cyl_mirror.html#sphx-glr-examples-plot-cyl-mirror-py"><span class="std std-ref">Plot Mirrored Cylindrically Symmetric Model</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_cyl_mirror.html#sphx-glr-examples-plot-cyl-mirror-py"><span class="std std-ref">Plot Mirrored Cylindrically Symmetric Model</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="2D DC forward modeling example with Tensor and Curvilinear Meshes"><div class="figure align-default" id="id3">
 <img alt="Basic Forward 2D DC Resistivity" src="../../_images/sphx_glr_plot_dc_resistivity_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_dc_resistivity.html#sphx-glr-examples-plot-dc-resistivity-py"><span class="std std-ref">Basic Forward 2D DC Resistivity</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_dc_resistivity.html#sphx-glr-examples-plot-dc-resistivity-py"><span class="std std-ref">Basic Forward 2D DC Resistivity</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="You can use M.PlotImage to plot images on all of the Meshes."><div class="figure align-default" id="id4">
 <img alt="Basic: PlotImage" src="../../_images/sphx_glr_plot_image_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_image.html#sphx-glr-examples-plot-image-py"><span class="std std-ref">Basic: PlotImage</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_image.html#sphx-glr-examples-plot-image-py"><span class="std std-ref">Basic: PlotImage</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="For a tree mesh, there needs to be special attention taken for the hanging faces to achieve sec..."><div class="figure align-default" id="id5">
 <img alt="QuadTree: FaceDiv" src="../../_images/sphx_glr_plot_quadtree_divergence_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_quadtree_divergence.html#sphx-glr-examples-plot-quadtree-divergence-py"><span class="std std-ref">QuadTree: FaceDiv</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_quadtree_divergence.html#sphx-glr-examples-plot-quadtree-divergence-py"><span class="std std-ref">QuadTree: FaceDiv</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="You can give the refine method a function, which is evaluated on every cell of the TreeMesh."><div class="figure align-default" id="id6">
 <img alt="QuadTree: Hanging Nodes" src="../../_images/sphx_glr_plot_quadtree_hanging_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_quadtree_hanging.html#sphx-glr-examples-plot-quadtree-hanging-py"><span class="std std-ref">QuadTree: Hanging Nodes</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_quadtree_hanging.html#sphx-glr-examples-plot-quadtree-hanging-py"><span class="std std-ref">QuadTree: Hanging Nodes</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="A simple example to vary streamline thickness based on the vector amplitudes"><div class="figure align-default" id="id7">
 <img alt="Plotting: Streamline thickness" src="../../_images/sphx_glr_plot_streamThickness_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_streamThickness.html#sphx-glr-examples-plot-streamthickness-py"><span class="std std-ref">Plotting: Streamline thickness</span></a></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_streamThickness.html#sphx-glr-examples-plot-streamthickness-py"><span class="std std-ref">Plotting: Streamline thickness</span></a></span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Here we provide an overview of mesh types and define some terminology. Separate tutorials have ..."><div class="figure align-default" id="id8">
 <img alt="Overview of Mesh Types" src="../../_images/sphx_glr_1_mesh_overview_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/1_mesh_overview.html#sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">Overview of Mesh Types</span></a></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/1_mesh_overview.html#sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">Overview of Mesh Types</span></a></span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Tensor meshes are the most basic class of meshes that can be created with discretize. They belo..."><div class="figure align-default" id="id9">
 <img alt="Tensor meshes" src="../../_images/sphx_glr_2_tensor_mesh_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/2_tensor_mesh.html#sphx-glr-tutorials-mesh-generation-2-tensor-mesh-py"><span class="std std-ref">Tensor meshes</span></a></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/2_tensor_mesh.html#sphx-glr-tutorials-mesh-generation-2-tensor-mesh-py"><span class="std std-ref">Tensor meshes</span></a></span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Cylindrical meshes (:class:`~discretize.CylMesh`) are defined in terms of *r* (radial position)..."><div class="figure align-default" id="id10">
 <img alt="Cylindrical meshes" src="../../_images/sphx_glr_3_cylindrical_mesh_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/3_cylindrical_mesh.html#sphx-glr-tutorials-mesh-generation-3-cylindrical-mesh-py"><span class="std std-ref">Cylindrical meshes</span></a></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/3_cylindrical_mesh.html#sphx-glr-tutorials-mesh-generation-3-cylindrical-mesh-py"><span class="std std-ref">Cylindrical meshes</span></a></span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Compared to tensor meshes, tree meshes are able to provide higher levels of discretization in c..."><div class="figure align-default" id="id11">
 <img alt="Tree Meshes" src="../../_images/sphx_glr_4_tree_mesh_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/4_tree_mesh.html#sphx-glr-tutorials-mesh-generation-4-tree-mesh-py"><span class="std std-ref">Tree Meshes</span></a></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/4_tree_mesh.html#sphx-glr-tutorials-mesh-generation-4-tree-mesh-py"><span class="std std-ref">Tree Meshes</span></a></span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Averaging matricies are used when a discrete variable living on some part of the mesh (e.g. nod..."><div class="figure align-default" id="id12">
 <img alt="Averaging Matricies" src="../../_images/sphx_glr_1_averaging_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/operators/1_averaging.html#sphx-glr-tutorials-operators-1-averaging-py"><span class="std std-ref">Averaging Matricies</span></a></span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/operators/1_averaging.html#sphx-glr-tutorials-operators-1-averaging-py"><span class="std std-ref">Averaging Matricies</span></a></span><a class="headerlink" href="#id12" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="For discretized quantities living on a mesh, sparse matricies can be used to approximate the fo..."><div class="figure align-default" id="id13">
 <img alt="Differential Operators" src="../../_images/sphx_glr_2_differential_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/operators/2_differential.html#sphx-glr-tutorials-operators-2-differential-py"><span class="std std-ref">Differential Operators</span></a></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/operators/2_differential.html#sphx-glr-tutorials-operators-2-differential-py"><span class="std std-ref">Differential Operators</span></a></span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Inner products between two scalar or vector quantities represents the most basic class of inner..."><div class="figure align-default" id="id14">
 <img alt="Basic Inner Products" src="../../_images/sphx_glr_1_basic_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/1_basic.html#sphx-glr-tutorials-inner-products-1-basic-py"><span class="std std-ref">Basic Inner Products</span></a></span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/1_basic.html#sphx-glr-tutorials-inner-products-1-basic-py"><span class="std std-ref">Basic Inner Products</span></a></span><a class="headerlink" href="#id14" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain constitutive rel..."><div class="figure align-default" id="id15">
 <img alt="Constitutive Relations" src="../../_images/sphx_glr_2_physical_properties_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/2_physical_properties.html#sphx-glr-tutorials-inner-products-2-physical-properties-py"><span class="std std-ref">Constitutive Relations</span></a></span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/2_physical_properties.html#sphx-glr-tutorials-inner-products-2-physical-properties-py"><span class="std std-ref">Constitutive Relations</span></a></span><a class="headerlink" href="#id15" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain differential ope..."><div class="figure align-default" id="id16">
 <img alt="Differential Operators" src="../../_images/sphx_glr_3_calculus_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/3_calculus.html#sphx-glr-tutorials-inner-products-3-calculus-py"><span class="std std-ref">Differential Operators</span></a></span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/3_calculus.html#sphx-glr-tutorials-inner-products-3-calculus-py"><span class="std std-ref">Differential Operators</span></a></span><a class="headerlink" href="#id16" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="In this section, we demonstrate how to go from the inner product to the discrete approximation ..."><div class="figure align-default" id="id17">
 <img alt="Advanced Examples" src="../../_images/sphx_glr_4_advanced_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/4_advanced.html#sphx-glr-tutorials-inner-products-4-advanced-py"><span class="std std-ref">Advanced Examples</span></a></span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/inner_products/4_advanced.html#sphx-glr-tutorials-inner-products-4-advanced-py"><span class="std std-ref">Advanced Examples</span></a></span><a class="headerlink" href="#id17" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to solve for the electric potential (:math:`\phi`) and elect..."><div class="figure align-default" id="id18">
 <img alt="Gauss' Law of Electrostatics" src="../../_images/sphx_glr_1_poisson_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/pde/1_poisson.html#sphx-glr-tutorials-pde-1-poisson-py"><span class="std std-ref">Gauss’ Law of Electrostatics</span></a></span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/pde/1_poisson.html#sphx-glr-tutorials-pde-1-poisson-py"><span class="std std-ref">Gauss’ Law of Electrostatics</span></a></span><a class="headerlink" href="#id18" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to model the advection-diffusion equation. The goal of this ..."><div class="figure align-default" id="id19">
 <img alt="Advection-Diffusion Equation" src="../../_images/sphx_glr_2_advection_diffusion_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/pde/2_advection_diffusion.html#sphx-glr-tutorials-pde-2-advection-diffusion-py"><span class="std std-ref">Advection-Diffusion Equation</span></a></span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/pde/2_advection_diffusion.html#sphx-glr-tutorials-pde-2-advection-diffusion-py"><span class="std std-ref">Advection-Diffusion Equation</span></a></span><a class="headerlink" href="#id19" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-clear"></div></div>
 </div>
@@ -6710,8 +6707,9 @@ rotated from the traditional Cartesian reference frame as specified by the
       </div>
     </div>
   
-    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -6722,7 +6720,7 @@ rotated from the traditional Cartesian reference frame as specified by the
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     

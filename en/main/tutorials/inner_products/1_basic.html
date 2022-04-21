@@ -5,25 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Basic Inner Products &#8212; discretize 0.7.3 documentation</title>
+    <title>Basic Inner Products &#8212; discretize 0.7.4 documentation</title>
     
-    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -53,7 +50,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -355,7 +352,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -408,7 +405,7 @@
 to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="basic-inner-products">
-<span id="sphx-glr-tutorials-inner-products-1-basic-py"></span><h1>Basic Inner Products<a class="headerlink" href="#basic-inner-products" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-tutorials-inner-products-1-basic-py"></span><h1>Basic Inner Products<a class="headerlink" href="#basic-inner-products" title="Permalink to this headline">#</a></h1>
 <p>Inner products between two scalar or vector quantities represents the most
 basic class of inner products. For this class of inner products, we demonstrate:</p>
 <blockquote>
@@ -452,7 +449,7 @@ discrete quantities living on various parts of the mesh have the form:</p>
 matricies that map quantities from one part of the cell (nodes, faces, edges)
 to cell centers.</p>
 <div class="section" id="import-packages">
-<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">¶</a></h2>
+<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">#</a></h2>
 <p>Here we import the packages required for this tutorial</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="n">sdiag</span>
 <span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">TensorMesh</span>
@@ -464,7 +461,7 @@ to cell centers.</p>
 </div>
 </div>
 <div class="section" id="scalars">
-<h2>Scalars<a class="headerlink" href="#scalars" title="Permalink to this headline">¶</a></h2>
+<h2>Scalars<a class="headerlink" href="#scalars" title="Permalink to this headline">#</a></h2>
 <p>It is natural for scalar quantities to live at cell centers or nodes. Here
 we will define a scalar function (a Gaussian distribution in this case):</p>
 <div class="math notranslate nohighlight">
@@ -523,7 +520,7 @@ Cell-centered approx.: 0.18806274170655465
 </div>
 </div>
 <div class="section" id="vectors">
-<h2>Vectors<a class="headerlink" href="#vectors" title="Permalink to this headline">¶</a></h2>
+<h2>Vectors<a class="headerlink" href="#vectors" title="Permalink to this headline">#</a></h2>
 <p>To preserve the natural boundary conditions for each cell, it is standard
 practice to define fields on cell edges and fluxes on cell faces. Here we
 will define a 2D vector quantity:</p>
@@ -604,7 +601,7 @@ Face variable approx.: 7.079491591932532
 </div>
 </div>
 <div class="section" id="inverse-of-inner-product-matricies">
-<h2>Inverse of Inner Product Matricies<a class="headerlink" href="#inverse-of-inner-product-matricies" title="Permalink to this headline">¶</a></h2>
+<h2>Inverse of Inner Product Matricies<a class="headerlink" href="#inverse-of-inner-product-matricies" title="Permalink to this headline">#</a></h2>
 <p>The final discretized system using the finite volume method may contain
 the inverse of an inner-product matrix. Here we show how the inverse of
 the inner product matrix can be explicitly constructed. We validate its
@@ -659,7 +656,7 @@ Norm for edges:   0.0
 Norm for faces:   0.0
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.459 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.451 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-inner-products-1-basic-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/e735ce6a86aafcf09de871c40c506c64/1_basic.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">1_basic.py</span></code></a></p>
@@ -700,8 +697,9 @@ Norm for faces:   0.0
       </div>
     </div>
   
-    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -712,7 +710,7 @@ Norm for faces:   0.0
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     

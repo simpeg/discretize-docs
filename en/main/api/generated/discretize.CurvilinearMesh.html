@@ -5,25 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>discretize.CurvilinearMesh &#8212; discretize 0.7.3 documentation</title>
+    <title>discretize.CurvilinearMesh &#8212; discretize 0.7.4 documentation</title>
     
-    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -51,7 +48,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -6458,7 +6455,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -6496,7 +6493,7 @@
               <div>
                 
   <div class="section" id="discretize-curvilinearmesh">
-<h1>discretize.CurvilinearMesh<a class="headerlink" href="#discretize-curvilinearmesh" title="Permalink to this headline">¶</a></h1>
+<h1>discretize.CurvilinearMesh<a class="headerlink" href="#discretize-curvilinearmesh" title="Permalink to this headline">#</a></h1>
 <div class="graphviz"><img src="../../_images/inheritance-6e3d2200039ce11cec8292277e3baa0b1d990846.png" alt="Inheritance diagram of CurvilinearMesh" usemap="#inheritance9c8b01e00d" class="inheritance graphviz" /></div>
 <map id="inheritance9c8b01e00d" name="inheritance9c8b01e00d">
 <area shape="rect" id="node1" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh" target="_top" title="Base mesh class for the ``discretize`` package" alt="" coords="16,5,105,31"/>
@@ -6509,7 +6506,7 @@
 <area shape="rect" id="node9" href="discretize.mixins.InterfaceOMF.html#discretize.mixins.InterfaceOMF" target="_top" title="The ``InterfaceOMF`` class was designed for easy conversion between" alt="" coords="5,203,116,228"/>
 </map><dl class="py class">
 <dt class="sig sig-object py" id="discretize.CurvilinearMesh">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.</span></span><span class="sig-name descname"><span class="pre">CurvilinearMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_list</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/curvilinear_mesh.py#L32-L980"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.CurvilinearMesh" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.</span></span><span class="sig-name descname"><span class="pre">CurvilinearMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_list</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/curvilinear_mesh.py#L32-L980"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.CurvilinearMesh" title="Permalink to this definition">#</a></dt>
 <dd><p>Curvilinear mesh class.</p>
 <p>Curvilinear meshes are numerical grids whose cells are general quadrilaterals (2D)
 or cuboid (3D); unlike tensor meshes (see <a class="reference internal" href="discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorMesh</span></code></a>) whose
@@ -6560,7 +6557,7 @@ we provide an example of a curvilinear mesh.</p>
 <img alt="../../_images/discretize-CurvilinearMesh-1.png" class="plot-directive" src="../../_images/discretize-CurvilinearMesh-1.png" />
 </div>
 <p class="rubric">Attributes</p>
-<table class="longtable table autosummary">
+<table class="autosummary longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -6914,7 +6911,7 @@ we provide an example of a curvilinear mesh.</p>
 </tbody>
 </table>
 <p class="rubric">Methods</p>
-<table class="longtable table autosummary">
+<table class="autosummary longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -7054,14 +7051,14 @@ we provide an example of a curvilinear mesh.</p>
 </dd></dl>
 
 <div class="section" id="galleries-and-tutorials-using-discretize-curvilinearmesh">
-<h2>Galleries and Tutorials using <code class="docutils literal notranslate"><span class="pre">discretize.CurvilinearMesh</span></code><a class="headerlink" href="#galleries-and-tutorials-using-discretize-curvilinearmesh" title="Permalink to this headline">¶</a></h2>
+<h2>Galleries and Tutorials using <code class="docutils literal notranslate"><span class="pre">discretize.CurvilinearMesh</span></code><a class="headerlink" href="#galleries-and-tutorials-using-discretize-curvilinearmesh" title="Permalink to this headline">#</a></h2>
 <div class="sphx-glr-thumbcontainer" tooltip="2D DC forward modeling example with Tensor and Curvilinear Meshes"><div class="figure align-default" id="id1">
 <img alt="Basic Forward 2D DC Resistivity" src="../../_images/sphx_glr_plot_dc_resistivity_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_dc_resistivity.html#sphx-glr-examples-plot-dc-resistivity-py"><span class="std std-ref">Basic Forward 2D DC Resistivity</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_dc_resistivity.html#sphx-glr-examples-plot-dc-resistivity-py"><span class="std std-ref">Basic Forward 2D DC Resistivity</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Here we provide an overview of mesh types and define some terminology. Separate tutorials have ..."><div class="figure align-default" id="id2">
 <img alt="Overview of Mesh Types" src="../../_images/sphx_glr_1_mesh_overview_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/1_mesh_overview.html#sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">Overview of Mesh Types</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/1_mesh_overview.html#sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">Overview of Mesh Types</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-clear"></div></div>
 </div>
@@ -7094,8 +7091,9 @@ we provide an example of a curvilinear mesh.</p>
       </div>
     </div>
   
-    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -7106,7 +7104,7 @@ we provide an example of a curvilinear mesh.</p>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     

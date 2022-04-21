@@ -5,25 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Overview of Mesh Types &#8212; discretize 0.7.3 documentation</title>
+    <title>Overview of Mesh Types &#8212; discretize 0.7.4 documentation</title>
     
-    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -51,7 +48,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -353,7 +350,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -396,7 +393,7 @@
 to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="overview-of-mesh-types">
-<span id="sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"></span><h1>Overview of Mesh Types<a class="headerlink" href="#overview-of-mesh-types" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"></span><h1>Overview of Mesh Types<a class="headerlink" href="#overview-of-mesh-types" title="Permalink to this headline">#</a></h1>
 <p>Here we provide an overview of mesh types and define some terminology.
 Separate tutorials have been provided for each mesh type.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -405,7 +402,7 @@ Separate tutorials have been provided for each mesh type.</p>
 </pre></div>
 </div>
 <div class="section" id="general-categories-of-meshes">
-<h2>General Categories of Meshes<a class="headerlink" href="#general-categories-of-meshes" title="Permalink to this headline">¶</a></h2>
+<h2>General Categories of Meshes<a class="headerlink" href="#general-categories-of-meshes" title="Permalink to this headline">#</a></h2>
 <p>The three main types of meshes in discretize are</p>
 <blockquote>
 <div><ul class="simple">
@@ -456,7 +453,7 @@ Separate tutorials have been provided for each mesh type.</p>
 </div>
 </div>
 <div class="section" id="variable-locations-and-terminology">
-<h2>Variable Locations and Terminology<a class="headerlink" href="#variable-locations-and-terminology" title="Permalink to this headline">¶</a></h2>
+<h2>Variable Locations and Terminology<a class="headerlink" href="#variable-locations-and-terminology" title="Permalink to this headline">#</a></h2>
 <p>When solving differential equations on a numerical grid, variables can be
 defined on:</p>
 <blockquote>
@@ -494,7 +491,7 @@ defined on:</p>
 <p>Note that we define X-edges as being edges that lie parallel to the x-axis.
 And we define X-faces as being faces whose normal lies parallel to the
 axis. In 3D, the difference between edges and faces is more obvious.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.364 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.357 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-mesh-generation-1-mesh-overview-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/971e1aa1b96554c88c277abc918665a1/1_mesh_overview.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">1_mesh_overview.py</span></code></a></p>
@@ -535,8 +532,9 @@ axis. In 3D, the difference between edges and faces is more obvious.</p>
       </div>
     </div>
   
-    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -547,7 +545,7 @@ axis. In 3D, the difference between edges and faces is more obvious.</p>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     

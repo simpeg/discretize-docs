@@ -5,25 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>discretize.utils.refine_tree_xyz &#8212; discretize 0.7.3 documentation</title>
+    <title>discretize.utils.refine_tree_xyz &#8212; discretize 0.7.4 documentation</title>
     
-    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -51,7 +48,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -6458,7 +6455,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -6496,10 +6493,10 @@
               <div>
                 
   <div class="section" id="discretize-utils-refine-tree-xyz">
-<h1>discretize.utils.refine_tree_xyz<a class="headerlink" href="#discretize-utils-refine-tree-xyz" title="Permalink to this headline">¶</a></h1>
+<h1>discretize.utils.refine_tree_xyz<a class="headerlink" href="#discretize-utils-refine-tree-xyz" title="Permalink to this headline">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="discretize.utils.refine_tree_xyz">
-<span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">refine_tree_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xyz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'radial'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">octree_levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">octree_levels_padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/mesh_utils.py#L556-L874"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.refine_tree_xyz" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">refine_tree_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xyz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'radial'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">octree_levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">octree_levels_padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/mesh_utils.py#L556-L874"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.refine_tree_xyz" title="Permalink to this definition">#</a></dt>
 <dd><p>Refine region within a <a class="reference internal" href="discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeMesh</span></code></a></p>
 <p>This function refines the specified region of a tree mesh using
 one of several methods. These are summarized below:</p>
@@ -6623,10 +6620,10 @@ based on topography as well as a cluster of points.</p>
 </dd></dl>
 
 <div class="section" id="galleries-and-tutorials-using-discretize-utils-refine-tree-xyz">
-<h2>Galleries and Tutorials using <code class="docutils literal notranslate"><span class="pre">discretize.utils.refine_tree_xyz</span></code><a class="headerlink" href="#galleries-and-tutorials-using-discretize-utils-refine-tree-xyz" title="Permalink to this headline">¶</a></h2>
+<h2>Galleries and Tutorials using <code class="docutils literal notranslate"><span class="pre">discretize.utils.refine_tree_xyz</span></code><a class="headerlink" href="#galleries-and-tutorials-using-discretize-utils-refine-tree-xyz" title="Permalink to this headline">#</a></h2>
 <div class="sphx-glr-thumbcontainer" tooltip="Compared to tensor meshes, tree meshes are able to provide higher levels of discretization in c..."><div class="figure align-default" id="id1">
 <img alt="Tree Meshes" src="../../_images/sphx_glr_4_tree_mesh_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/4_tree_mesh.html#sphx-glr-tutorials-mesh-generation-4-tree-mesh-py"><span class="std std-ref">Tree Meshes</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/4_tree_mesh.html#sphx-glr-tutorials-mesh-generation-4-tree-mesh-py"><span class="std std-ref">Tree Meshes</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-clear"></div></div>
 </div>
@@ -6659,8 +6656,9 @@ based on topography as well as a cluster of points.</p>
       </div>
     </div>
   
-    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -6671,7 +6669,7 @@ based on topography as well as a cluster of points.</p>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     

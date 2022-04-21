@@ -5,25 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tree Meshes &#8212; discretize 0.7.3 documentation</title>
+    <title>Tree Meshes &#8212; discretize 0.7.4 documentation</title>
     
-    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -51,7 +48,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -353,7 +350,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -411,7 +408,7 @@
 to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="tree-meshes">
-<span id="sphx-glr-tutorials-mesh-generation-4-tree-mesh-py"></span><h1>Tree Meshes<a class="headerlink" href="#tree-meshes" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-tutorials-mesh-generation-4-tree-mesh-py"></span><h1>Tree Meshes<a class="headerlink" href="#tree-meshes" title="Permalink to this headline">#</a></h1>
 <p>Compared to tensor meshes, tree meshes are able to provide higher levels
 of discretization in certain regions while reducing the total number of
 cells. Tree meshes belong to the class (<a class="reference internal" href="../../api/generated/discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeMesh</span></code></a>).
@@ -436,7 +433,7 @@ creating tree meshes, we must remember certain rules:</p>
 </ul>
 </div></blockquote>
 <div class="section" id="import-packages">
-<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">¶</a></h2>
+<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">#</a></h2>
 <p>Here we import the packages required for this tutorial.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">TreeMesh</span>
 <span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="n">mkvc</span><span class="p">,</span> <span class="n">refine_tree_xyz</span>
@@ -448,7 +445,7 @@ creating tree meshes, we must remember certain rules:</p>
 </div>
 </div>
 <div class="section" id="basic-example">
-<h2>Basic Example<a class="headerlink" href="#basic-example" title="Permalink to this headline">¶</a></h2>
+<h2>Basic Example<a class="headerlink" href="#basic-example" title="Permalink to this headline">#</a></h2>
 <p>Here we demonstrate the basic two step process for creating a 2D tree mesh
 (QuadTree mesh). The region of highest discretization if defined within a
 rectangular box. We use the keyword argument <em>octree_levels</em> to define the
@@ -478,7 +475,7 @@ rate of cell width increase outside the box.</p>
 </div>
 </div>
 <div class="section" id="intermediate-example-and-plotting">
-<h2>Intermediate Example and Plotting<a class="headerlink" href="#intermediate-example-and-plotting" title="Permalink to this headline">¶</a></h2>
+<h2>Intermediate Example and Plotting<a class="headerlink" href="#intermediate-example-and-plotting" title="Permalink to this headline">#</a></h2>
 <p>The widths of the base mesh cells do not need to be the same in x and y.
 However the number of base mesh cells in x and y each needs to be a power of 2.</p>
 <p>Here we show topography-based mesh refinement and refinement about a
@@ -532,7 +529,7 @@ refining.</p>
 </div>
 </div>
 <div class="section" id="extracting-mesh-properties">
-<h2>Extracting Mesh Properties<a class="headerlink" href="#extracting-mesh-properties" title="Permalink to this headline">¶</a></h2>
+<h2>Extracting Mesh Properties<a class="headerlink" href="#extracting-mesh-properties" title="Permalink to this headline">#</a></h2>
 <p>Once the mesh is created, you may want to extract certain properties. Here,
 we show some properties that can be extracted from a QuadTree mesh.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dx</span></a> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># minimum cell width (base mesh cell width) in x</span>
@@ -595,7 +592,7 @@ we show some properties that can be extracted from a QuadTree mesh.</p>
 </div>
 </div>
 <div class="section" id="d-example">
-<h2>3D Example<a class="headerlink" href="#d-example" title="Permalink to this headline">¶</a></h2>
+<h2>3D Example<a class="headerlink" href="#d-example" title="Permalink to this headline">#</a></h2>
 <p>Here we show how the same approach can be used to create and extract
 properties from a 3D tree mesh.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dx</span></a> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># minimum cell width (base mesh cell width) in x</span>
@@ -658,7 +655,7 @@ properties from a 3D tree mesh.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Cell Log-Volumes at Y = 0 m&#39;)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.624 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.575 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-mesh-generation-4-tree-mesh-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/2f9effc854ffeade5861778143f56846/4_tree_mesh.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">4_tree_mesh.py</span></code></a></p>
@@ -699,8 +696,9 @@ properties from a 3D tree mesh.</p>
       </div>
     </div>
   
-    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -711,7 +709,7 @@ properties from a 3D tree mesh.</p>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     

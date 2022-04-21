@@ -5,25 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>discretize.CylindricalMesh &#8212; discretize 0.7.3 documentation</title>
+    <title>discretize.CylindricalMesh &#8212; discretize 0.7.4 documentation</title>
     
-    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -53,7 +50,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -6460,7 +6457,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -6498,7 +6495,7 @@
               <div>
                 
   <div class="section" id="discretize-cylindricalmesh">
-<h1>discretize.CylindricalMesh<a class="headerlink" href="#discretize-cylindricalmesh" title="Permalink to this headline">¶</a></h1>
+<h1>discretize.CylindricalMesh<a class="headerlink" href="#discretize-cylindricalmesh" title="Permalink to this headline">#</a></h1>
 <div class="graphviz"><img src="../../_images/inheritance-8628909b88383bf6eff2f8554a54a08ade62bf5b.png" alt="Inheritance diagram of CylindricalMesh" usemap="#inheritanceb283d5fa24" class="inheritance graphviz" /></div>
 <map id="inheritanceb283d5fa24" name="inheritanceb283d5fa24">
 <area shape="rect" id="node1" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh" target="_top" title="Base mesh class for the ``discretize`` package" alt="" coords="16,31,105,56"/>
@@ -6512,7 +6509,7 @@
 <area shape="rect" id="node10" href="discretize.mixins.InterfaceOMF.html#discretize.mixins.InterfaceOMF" target="_top" title="The ``InterfaceOMF`` class was designed for easy conversion between" alt="" coords="5,252,116,277"/>
 </map><dl class="py class">
 <dt class="sig sig-object py" id="discretize.CylindricalMesh">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.</span></span><span class="sig-name descname"><span class="pre">CylindricalMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cartesian_origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/cylindrical_mesh.py#L27-L1895"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.CylindricalMesh" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.</span></span><span class="sig-name descname"><span class="pre">CylindricalMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cartesian_origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/cylindrical_mesh.py#L27-L1895"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.CylindricalMesh" title="Permalink to this definition">#</a></dt>
 <dd><p>Class for cylindrical meshes.</p>
 <p><code class="docutils literal notranslate"><span class="pre">CylindricalMesh</span></code> is a mesh class for problems with rotational symmetry.
 It supports both cylindrically symmetric and 3D cylindrical meshes where the azimuthal
@@ -6614,7 +6611,7 @@ azimuthal direction is 0. For example:</p>
 <img alt="../../_images/discretize-CylindricalMesh-1_01_00.png" class="plot-directive" src="../../_images/discretize-CylindricalMesh-1_01_00.png" />
 </div>
 <p class="rubric">Attributes</p>
-<table class="longtable table autosummary">
+<table class="autosummary longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -7064,7 +7061,7 @@ azimuthal direction is 0. For example:</p>
 </tbody>
 </table>
 <p class="rubric">Methods</p>
-<table class="longtable table autosummary">
+<table class="autosummary longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -7234,14 +7231,14 @@ azimuthal direction is 0. For example:</p>
 </dd></dl>
 
 <div class="section" id="galleries-and-tutorials-using-discretize-cylindricalmesh">
-<h2>Galleries and Tutorials using <code class="docutils literal notranslate"><span class="pre">discretize.CylindricalMesh</span></code><a class="headerlink" href="#galleries-and-tutorials-using-discretize-cylindricalmesh" title="Permalink to this headline">¶</a></h2>
+<h2>Galleries and Tutorials using <code class="docutils literal notranslate"><span class="pre">discretize.CylindricalMesh</span></code><a class="headerlink" href="#galleries-and-tutorials-using-discretize-cylindricalmesh" title="Permalink to this headline">#</a></h2>
 <div class="sphx-glr-thumbcontainer" tooltip="Here, we demonstrate plotting a model on a cylindrically symmetric mesh with the plotting symme..."><div class="figure align-default" id="id1">
 <img alt="Plot Mirrored Cylindrically Symmetric Model" src="../../_images/sphx_glr_plot_cyl_mirror_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_cyl_mirror.html#sphx-glr-examples-plot-cyl-mirror-py"><span class="std std-ref">Plot Mirrored Cylindrically Symmetric Model</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../examples/plot_cyl_mirror.html#sphx-glr-examples-plot-cyl-mirror-py"><span class="std std-ref">Plot Mirrored Cylindrically Symmetric Model</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Cylindrical meshes (:class:`~discretize.CylMesh`) are defined in terms of *r* (radial position)..."><div class="figure align-default" id="id2">
 <img alt="Cylindrical meshes" src="../../_images/sphx_glr_3_cylindrical_mesh_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/3_cylindrical_mesh.html#sphx-glr-tutorials-mesh-generation-3-cylindrical-mesh-py"><span class="std std-ref">Cylindrical meshes</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../tutorials/mesh_generation/3_cylindrical_mesh.html#sphx-glr-tutorials-mesh-generation-3-cylindrical-mesh-py"><span class="std std-ref">Cylindrical meshes</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </div>
 </div><div class="sphx-glr-clear"></div></div>
 </div>
@@ -7274,8 +7271,9 @@ azimuthal direction is 0. For example:</p>
       </div>
     </div>
   
-    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -7286,7 +7284,7 @@ azimuthal direction is 0. For example:</p>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     

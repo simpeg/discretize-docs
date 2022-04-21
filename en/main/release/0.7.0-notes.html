@@ -5,25 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>discretize 0.7.0 Release Notes &#8212; discretize 0.7.3 documentation</title>
+    <title>discretize 0.7.0 Release Notes &#8212; discretize 0.7.4 documentation</title>
     
-    <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -53,7 +50,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -172,6 +169,16 @@
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="0.7.4-notes.html">
+   0.7.4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="0.7.3-notes.html">
+   0.7.3
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="0.7.2-notes.html">
    0.7.2
   </a>
@@ -253,7 +260,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -313,12 +320,12 @@
               <div>
                 
   <div class="section" id="discretize-0-7-0-release-notes">
-<span id="notes"></span><h1><code class="docutils literal notranslate"><span class="pre">discretize</span></code> 0.7.0 Release Notes<a class="headerlink" href="#discretize-0-7-0-release-notes" title="Permalink to this headline">¶</a></h1>
+<span id="notes"></span><h1><code class="docutils literal notranslate"><span class="pre">discretize</span></code> 0.7.0 Release Notes<a class="headerlink" href="#discretize-0-7-0-release-notes" title="Permalink to this headline">#</a></h1>
 <p>This Minor release has several new features, including support for boundary conditions,
 quiver vector plotting for <a class="reference internal" href="../api/generated/discretize.TreeMesh.plot_slice.html#discretize.TreeMesh.plot_slice" title="discretize.TreeMesh.plot_slice"><code class="xref py py-func docutils literal notranslate"><span class="pre">TreeMesh.plot_slice()</span></code></a>, and a rather large change in
 removing the <code class="docutils literal notranslate"><span class="pre">properties</span></code> requirement from <code class="docutils literal notranslate"><span class="pre">discretize</span></code>.</p>
 <div class="section" id="removal-of-properties">
-<h2>Removal of <code class="docutils literal notranslate"><span class="pre">properties</span></code><a class="headerlink" href="#removal-of-properties" title="Permalink to this headline">¶</a></h2>
+<h2>Removal of <code class="docutils literal notranslate"><span class="pre">properties</span></code><a class="headerlink" href="#removal-of-properties" title="Permalink to this headline">#</a></h2>
 <p>Starting with the largest change, we have made the decision to remove the properties
 backend of <cite>discretize</cite>. Our main motivation for this was to give ourselves more control
 over the documentation of classes. Our goal was to recreate the functionality without
@@ -328,7 +335,7 @@ github page if you run into any unexpected issues.</p>
 <p>The next step here is to finalize the documentation..</p>
 </div>
 <div class="section" id="boundary-conditions">
-<h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h2>
+<h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">#</a></h2>
 <p>We have added an improved support for implementing boundary conditions for the finite
 volume formulation that underlies <code class="docutils literal notranslate"><span class="pre">discretize</span></code> on <a class="reference internal" href="../api/generated/discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeMesh</span></code></a>, <a class="reference internal" href="../api/generated/discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorMesh</span></code></a>
 , and <a class="reference internal" href="../api/generated/discretize.CurvilinearMesh.html#discretize.CurvilinearMesh" title="discretize.CurvilinearMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurvilinearMesh</span></code></a>.</p>
@@ -375,7 +382,7 @@ the discrete value’s locations.</p>
 <li><p><a class="reference internal" href="../api/generated/discretize.operators.DiffOperators.edge_divergence_weak_form_robin.html#discretize.operators.DiffOperators.edge_divergence_weak_form_robin" title="discretize.operators.DiffOperators.edge_divergence_weak_form_robin"><code class="xref py py-func docutils literal notranslate"><span class="pre">operators.DiffOperators.edge_divergence_weak_form_robin()</span></code></a></p></li>
 </ul>
 <div class="section" id="future-work">
-<h3>Future Work<a class="headerlink" href="#future-work" title="Permalink to this headline">¶</a></h3>
+<h3>Future Work<a class="headerlink" href="#future-work" title="Permalink to this headline">#</a></h3>
 <p>With the removal of <code class="docutils literal notranslate"><span class="pre">properties</span></code> we will be updating the documentation to be more
 explicit, but in the meantime this will make some items look less clear.
 We will also be pushing out some tutorials on how to use the boundary conditions
@@ -383,7 +390,7 @@ to solve the boundary value PDE’s. In the meantime though, you can look at the
 condition test codes where we form a few PDE’s for convergence tests.</p>
 </div>
 <div class="section" id="contributors">
-<h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>&#64;jcapriot</p></li>
 </ul>
@@ -395,7 +402,7 @@ condition test codes where we form a few PDE’s for convergence tests.</p>
 </ul>
 </div>
 <div class="section" id="pull-requests">
-<h3>Pull requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">¶</a></h3>
+<h3>Pull requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/simpeg/discretize/pull/232">#232</a>: Exorcise Properties</p></li>
 <li><p><a class="reference external" href="https://github.com/simpeg/discretize/pull/234">#234</a>: Boundary conditions</p></li>
@@ -434,8 +441,9 @@ condition test codes where we form a few PDE’s for convergence tests.</p>
       </div>
     </div>
   
-    <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -446,7 +454,7 @@ condition test codes where we form a few PDE’s for convergence tests.</p>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     
