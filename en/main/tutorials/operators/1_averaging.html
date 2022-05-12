@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Averaging Matricies &#8212; discretize 0.7.4 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Averaging Matricies &#8212; discretize 0.8.0 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -402,7 +403,7 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-tutorials-operators-1-averaging-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="averaging-matricies">
+<section class="sphx-glr-example-title" id="averaging-matricies">
 <span id="sphx-glr-tutorials-operators-1-averaging-py"></span><h1>Averaging Matricies<a class="headerlink" href="#averaging-matricies" title="Permalink to this headline">#</a></h1>
 <p>Averaging matricies are used when a discrete variable living on some part of
 the mesh (e.g. nodes, centers, edges or faces) must be approximated at other
@@ -419,7 +420,7 @@ only constructed when called.</p>
 <li><p>The transpose of an averaging matrix</p></li>
 </ul>
 </div></blockquote>
-<div class="section" id="import-packages">
+<section id="import-packages">
 <h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">#</a></h2>
 <p>Here we import the packages required for this tutorial.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">TensorMesh</span>
@@ -429,8 +430,8 @@ only constructed when called.</p>
 <span class="c1"># sphinx_gallery_thumbnail_number = 3</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="d-example">
+</section>
+<section id="d-example">
 <h2>1D Example<a class="headerlink" href="#d-example" title="Permalink to this headline">#</a></h2>
 <p>Here we compute a scalar function on cell nodes and average to cell centers.
 We then compute the scalar function at cell centers to validate the
@@ -481,8 +482,8 @@ averaging operator.</p>
 <a href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.show" title="matplotlib.figure.Figure.show" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-method"><span class="n">fig</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_1_averaging_001.png" srcset="../../_images/sphx_glr_1_averaging_001.png" alt="Sparse representation of A, Comparison plot" class = "sphx-glr-single-img"/></div>
-<div class="section" id="d-2d-and-3d-averaging">
+<img src="../../_images/sphx_glr_1_averaging_001.png" srcset="../../_images/sphx_glr_1_averaging_001.png" alt="Sparse representation of A, Comparison plot" class = "sphx-glr-single-img"/></section>
+<section id="d-2d-and-3d-averaging">
 <h2>1D, 2D and 3D Averaging<a class="headerlink" href="#d-2d-and-3d-averaging" title="Permalink to this headline">#</a></h2>
 <p>Here we discuss averaging operators in 1D, 2D and 3D. In 1D we can
 average between nodes and cell centers. In higher dimensions, we may need to
@@ -555,8 +556,8 @@ For 3D mesh:
 - Number of non-zero elements: 6000
 </pre></div>
 </div>
-</div>
-<div class="section" id="discontinuous-functions-and-the-transpose">
+</section>
+<section id="discontinuous-functions-and-the-transpose">
 <h2>Discontinuous Functions and the Transpose<a class="headerlink" href="#discontinuous-functions-and-the-transpose" title="Permalink to this headline">#</a></h2>
 <p>Here we show the effects of applying averaging operators to discontinuous
 functions. We will see that averaging smears the function at
@@ -603,7 +604,7 @@ transpose as an averaging operator. This is also true for staggered grids.</p>
 <a href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.show" title="matplotlib.figure.Figure.show" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-method"><span class="n">fig</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_1_averaging_003.png" srcset="../../_images/sphx_glr_1_averaging_003.png" alt="Variable at cell centers, Cell centers to faces, Cell centers to nodes using transpose, Cell centers to faces using transpose" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.478 seconds)</p>
+<img src="../../_images/sphx_glr_1_averaging_003.png" srcset="../../_images/sphx_glr_1_averaging_003.png" alt="Variable at cell centers, Cell centers to faces, Cell centers to nodes using transpose, Cell centers to faces using transpose" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.484 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-operators-1-averaging-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/5c9cad7b0839b38b217734449d6542af/1_averaging.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">1_averaging.py</span></code></a></p>
@@ -613,8 +614,8 @@ transpose as an averaging operator. This is also true for staggered grids.</p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
               </div>

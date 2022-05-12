@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>discretize 0.6.0 Release Notes &#8212; discretize 0.7.4 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>discretize 0.6.0 Release Notes &#8212; discretize 0.8.0 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -166,6 +167,11 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0.8.0-notes.html">
+   0.8.0
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="0.7.4-notes.html">
    0.7.4
@@ -329,7 +335,7 @@
               
               <div>
                 
-  <div class="section" id="discretize-0-6-0-release-notes">
+  <section id="discretize-0-6-0-release-notes">
 <span id="notes"></span><h1><code class="docutils literal notranslate"><span class="pre">discretize</span></code> 0.6.0 Release Notes<a class="headerlink" href="#discretize-0-6-0-release-notes" title="Permalink to this headline">#</a></h1>
 <p>This minor release is intended to bring consistent pep8 style naming across all
 of discretize’s classes and functions.</p>
@@ -362,10 +368,10 @@ to clean up and drop python 2 compatibility.</p>
 <p class="admonition-title">Note</p>
 <p>Testing now uses Azure CI. The new hub can be found at <a class="reference external" href="https://dev.azure.com/simpeg/">https://dev.azure.com/simpeg/</a></p>
 </div>
-<div class="section" id="changes">
+<section id="changes">
 <h2>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">#</a></h2>
 <p>This is a full list of the aliases and deprecations for this <code class="docutils literal notranslate"><span class="pre">discretize</span></code> release.</p>
-<div class="section" id="aliases">
+<section id="aliases">
 <h3>Aliases<a class="headerlink" href="#aliases" title="Permalink to this headline">#</a></h3>
 <p>On <code class="docutils literal notranslate"><span class="pre">discretize.base.BaseMesh</span></code>:</p>
 <ul class="simple">
@@ -409,12 +415,12 @@ to clean up and drop python 2 compatibility.</p>
 <p>These aliases are consistent across all meshes that inherit from these classes:
 <code class="docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code>, <code class="docutils literal notranslate"><span class="pre">discretize.CurvilinearMesh</span></code>, <code class="docutils literal notranslate"><span class="pre">discretize.CylindricalMesh</span></code>,
 and <code class="docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code>.</p>
-</div>
-<div class="section" id="deprecations">
+</section>
+<section id="deprecations">
 <h3>Deprecations<a class="headerlink" href="#deprecations" title="Permalink to this headline">#</a></h3>
 <p>These deprecations will give <code class="docutils literal notranslate"><span class="pre">FutureWarning</span></code> when called indicating that they
 will be removed in version 1.0.0 of <code class="docutils literal notranslate"><span class="pre">discretize</span></code>.</p>
-<div class="section" id="base-classes">
+<section id="base-classes">
 <h4>Base Classes<a class="headerlink" href="#base-classes" title="Permalink to this headline">#</a></h4>
 <p>On <code class="docutils literal notranslate"><span class="pre">discretize.base.BaseMesh</span></code>:</p>
 <ul class="simple">
@@ -466,8 +472,8 @@ will be removed in version 1.0.0 of <code class="docutils literal notranslate"><
 <li><p><code class="docutils literal notranslate"><span class="pre">getFaceInnerProductDeriv</span></code> → <code class="docutils literal notranslate"><span class="pre">get_face_inner_product_deriv</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">getEdgeInnerProductDeriv</span></code> → <code class="docutils literal notranslate"><span class="pre">get_edge_inner_product_deriv</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="main-meshes">
+</section>
+<section id="main-meshes">
 <h4>Main Meshes<a class="headerlink" href="#main-meshes" title="Permalink to this headline">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">CylMesh</span></code> → <code class="docutils literal notranslate"><span class="pre">CylindricalMesh</span></code></p>
 <p>On <code class="docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code>, <code class="docutils literal notranslate"><span class="pre">discretize.CylindricalMesh</span></code>, <code class="docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code>, <code class="docutils literal notranslate"><span class="pre">discretize.CurvilinearMesh</span></code>:</p>
@@ -508,8 +514,8 @@ will be removed in version 1.0.0 of <code class="docutils literal notranslate"><
 <li><p><code class="docutils literal notranslate"><span class="pre">plotImage</span></code> → <code class="docutils literal notranslate"><span class="pre">plot_image</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">plotSlice</span></code> → <code class="docutils literal notranslate"><span class="pre">plot_slice</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="utilities-deprecations">
+</section>
+<section id="utilities-deprecations">
 <h4>Utilities deprecations<a class="headerlink" href="#utilities-deprecations" title="Permalink to this headline">#</a></h4>
 <p>Deprecations inside <code class="docutils literal notranslate"><span class="pre">discretize.utils</span></code>:</p>
 <ul class="simple">
@@ -532,10 +538,10 @@ will be removed in version 1.0.0 of <code class="docutils literal notranslate"><
 <li><p><code class="docutils literal notranslate"><span class="pre">rotationMatrixFromNormals</span></code> → <code class="docutils literal notranslate"><span class="pre">rotate_points_from_normals</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rotatePointsFromNormals</span></code> → <code class="docutils literal notranslate"><span class="pre">rotation_matrix_from_normals</span></code></p></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="section" id="contributors">
+</section>
+</section>
+</section>
+<section id="contributors">
 <h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>&#64;jcapriot</p></li>
@@ -546,14 +552,14 @@ will be removed in version 1.0.0 of <code class="docutils literal notranslate"><
 <li><p>&#64;lheagy</p></li>
 </ul>
 <p>Also, input on function names were given by many of the <code class="docutils literal notranslate"><span class="pre">discretize</span></code> developers.</p>
-</div>
-<div class="section" id="pull-requests">
+</section>
+<section id="pull-requests">
 <h2>Pull requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/simpeg/discretize/pull/227">#227</a>: Restructure.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
               </div>

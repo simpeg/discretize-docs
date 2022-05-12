@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>discretize 0.7.0 Release Notes &#8212; discretize 0.7.4 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>discretize 0.7.0 Release Notes &#8212; discretize 0.8.0 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -169,6 +170,11 @@
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="0.8.0-notes.html">
+   0.8.0
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="0.7.4-notes.html">
    0.7.4
   </a>
@@ -319,12 +325,12 @@
               
               <div>
                 
-  <div class="section" id="discretize-0-7-0-release-notes">
+  <section id="discretize-0-7-0-release-notes">
 <span id="notes"></span><h1><code class="docutils literal notranslate"><span class="pre">discretize</span></code> 0.7.0 Release Notes<a class="headerlink" href="#discretize-0-7-0-release-notes" title="Permalink to this headline">#</a></h1>
 <p>This Minor release has several new features, including support for boundary conditions,
 quiver vector plotting for <a class="reference internal" href="../api/generated/discretize.TreeMesh.plot_slice.html#discretize.TreeMesh.plot_slice" title="discretize.TreeMesh.plot_slice"><code class="xref py py-func docutils literal notranslate"><span class="pre">TreeMesh.plot_slice()</span></code></a>, and a rather large change in
 removing the <code class="docutils literal notranslate"><span class="pre">properties</span></code> requirement from <code class="docutils literal notranslate"><span class="pre">discretize</span></code>.</p>
-<div class="section" id="removal-of-properties">
+<section id="removal-of-properties">
 <h2>Removal of <code class="docutils literal notranslate"><span class="pre">properties</span></code><a class="headerlink" href="#removal-of-properties" title="Permalink to this headline">#</a></h2>
 <p>Starting with the largest change, we have made the decision to remove the properties
 backend of <cite>discretize</cite>. Our main motivation for this was to give ourselves more control
@@ -333,8 +339,8 @@ any adverse effects to our users, and have taken many steps to hopefully address
 possible issues with the conversion. That being said, please raise an issue on the
 github page if you run into any unexpected issues.</p>
 <p>The next step here is to finalize the documentation..</p>
-</div>
-<div class="section" id="boundary-conditions">
+</section>
+<section id="boundary-conditions">
 <h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">#</a></h2>
 <p>We have added an improved support for implementing boundary conditions for the finite
 volume formulation that underlies <code class="docutils literal notranslate"><span class="pre">discretize</span></code> on <a class="reference internal" href="../api/generated/discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeMesh</span></code></a>, <a class="reference internal" href="../api/generated/discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorMesh</span></code></a>
@@ -381,15 +387,15 @@ the discrete value’s locations.</p>
 <li><p><a class="reference internal" href="../api/generated/discretize.operators.DiffOperators.cell_gradient_weak_form_robin.html#discretize.operators.DiffOperators.cell_gradient_weak_form_robin" title="discretize.operators.DiffOperators.cell_gradient_weak_form_robin"><code class="xref py py-func docutils literal notranslate"><span class="pre">operators.DiffOperators.cell_gradient_weak_form_robin()</span></code></a></p></li>
 <li><p><a class="reference internal" href="../api/generated/discretize.operators.DiffOperators.edge_divergence_weak_form_robin.html#discretize.operators.DiffOperators.edge_divergence_weak_form_robin" title="discretize.operators.DiffOperators.edge_divergence_weak_form_robin"><code class="xref py py-func docutils literal notranslate"><span class="pre">operators.DiffOperators.edge_divergence_weak_form_robin()</span></code></a></p></li>
 </ul>
-<div class="section" id="future-work">
+<section id="future-work">
 <h3>Future Work<a class="headerlink" href="#future-work" title="Permalink to this headline">#</a></h3>
 <p>With the removal of <code class="docutils literal notranslate"><span class="pre">properties</span></code> we will be updating the documentation to be more
 explicit, but in the meantime this will make some items look less clear.
 We will also be pushing out some tutorials on how to use the boundary conditions
 to solve the boundary value PDE’s. In the meantime though, you can look at the boundary
 condition test codes where we form a few PDE’s for convergence tests.</p>
-</div>
-<div class="section" id="contributors">
+</section>
+<section id="contributors">
 <h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>&#64;jcapriot</p></li>
@@ -400,8 +406,8 @@ condition test codes where we form a few PDE’s for convergence tests.</p>
 <li><p>&#64;domfournier/&#64;fourndo</p></li>
 <li><p>&#64;lheagy</p></li>
 </ul>
-</div>
-<div class="section" id="pull-requests">
+</section>
+<section id="pull-requests">
 <h3>Pull requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/simpeg/discretize/pull/232">#232</a>: Exorcise Properties</p></li>
@@ -409,9 +415,9 @@ condition test codes where we form a few PDE’s for convergence tests.</p>
 <li><p><a class="reference external" href="https://github.com/simpeg/discretize/pull/240">#240</a>: Tree quiver plot</p></li>
 <li><p><a class="reference external" href="https://github.com/simpeg/discretize/pull/241">#241</a>: Update azure-pipelines.yml</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
               </div>

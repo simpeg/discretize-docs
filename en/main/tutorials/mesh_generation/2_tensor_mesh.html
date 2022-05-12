@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tensor meshes &#8212; discretize 0.7.4 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Tensor meshes &#8212; discretize 0.8.0 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -407,7 +408,7 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-tutorials-mesh-generation-2-tensor-mesh-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="tensor-meshes">
+<section class="sphx-glr-example-title" id="tensor-meshes">
 <span id="sphx-glr-tutorials-mesh-generation-2-tensor-mesh-py"></span><h1>Tensor meshes<a class="headerlink" href="#tensor-meshes" title="Permalink to this headline">#</a></h1>
 <p>Tensor meshes are the most basic class of meshes that can be created with
 discretize. They belong to the class (<a class="reference internal" href="../../api/generated/discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorMesh</span></code></a>).
@@ -420,7 +421,7 @@ Tensor meshes can be defined in 1, 2 or 3 dimensions. Here we demonstrate:</p>
 <li><p>How to extract properties from meshes</p></li>
 </ul>
 </div></blockquote>
-<div class="section" id="import-packages">
+<section id="import-packages">
 <h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">#</a></h2>
 <p>Here we import the packages required for this tutorial.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">TensorMesh</span>
@@ -430,8 +431,8 @@ Tensor meshes can be defined in 1, 2 or 3 dimensions. Here we demonstrate:</p>
 <span class="c1"># sphinx_gallery_thumbnail_number = 3</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="basic-example">
+</section>
+<section id="basic-example">
 <h2>Basic Example<a class="headerlink" href="#basic-example" title="Permalink to this headline">#</a></h2>
 <p>The easiest way to define a tensor mesh is to define the cell widths in
 x, y and z as 1D numpy arrays. And to provide the position of the bottom
@@ -456,8 +457,8 @@ we do not need to consider the z-dimension).</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;x1&#39;, ylabel=&#39;x2&#39;&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="padding-cells-and-plotting">
+</section>
+<section id="padding-cells-and-plotting">
 <h2>Padding Cells and Plotting<a class="headerlink" href="#padding-cells-and-plotting" title="Permalink to this headline">#</a></h2>
 <p>For practical purposes, the user may want to define a region where the cell
 widths are increasing/decreasing in size. For example, padding is often used
@@ -496,8 +497,8 @@ Here we demonstrate how to create tensor meshes that have padding cells.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Tensor Mesh&#39;)
 </pre></div>
 </div>
-</div>
-<div class="section" id="extracting-mesh-properties">
+</section>
+<section id="extracting-mesh-properties">
 <h2>Extracting Mesh Properties<a class="headerlink" href="#extracting-mesh-properties" title="Permalink to this headline">#</a></h2>
 <p>Once the mesh is created, you may want to extract certain properties. Here,
 we show some properties that can be extracted from 2D meshes.</p>
@@ -542,8 +543,8 @@ we show some properties that can be extracted from 2D meshes.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Cell Areas&#39;)
 </pre></div>
 </div>
-</div>
-<div class="section" id="d-example">
+</section>
+<section id="d-example">
 <h2>3D Example<a class="headerlink" href="#d-example" title="Permalink to this headline">#</a></h2>
 <p>Here we show how the same approach can be used to create and extract
 properties from a 3D tensor mesh.</p>
@@ -587,7 +588,7 @@ properties from a 3D tensor mesh.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Cell Log-Volumes #2&#39;)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.319 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.320 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-mesh-generation-2-tensor-mesh-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/55604c38fe0d12c9fd5e9bd969f00a4a/2_tensor_mesh.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">2_tensor_mesh.py</span></code></a></p>
@@ -597,8 +598,8 @@ properties from a 3D tensor mesh.</p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
               </div>

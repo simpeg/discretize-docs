@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advection-Diffusion Equation &#8212; discretize 0.7.4 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Advection-Diffusion Equation &#8212; discretize 0.8.0 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -399,7 +400,7 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-tutorials-pde-2-advection-diffusion-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="advection-diffusion-equation">
+<section class="sphx-glr-example-title" id="advection-diffusion-equation">
 <span id="sphx-glr-tutorials-pde-2-advection-diffusion-py"></span><h1>Advection-Diffusion Equation<a class="headerlink" href="#advection-diffusion-equation" title="Permalink to this headline">#</a></h1>
 <p>Here we use the discretize package to model the advection-diffusion
 equation. The goal of this tutorial is to demonstrate:</p>
@@ -410,7 +411,7 @@ equation. The goal of this tutorial is to demonstrate:</p>
 <li><p>Strategies for applying finite volume to 2nd order PDEs</p></li>
 </ul>
 </div></blockquote>
-<div class="section" id="derivation">
+<section id="derivation">
 <h2>Derivation<a class="headerlink" href="#derivation" title="Permalink to this headline">#</a></h2>
 <p>If we assume the fluid is incompressible (<span class="math notranslate nohighlight">\(\nabla \cdot \mathbf{u} = 0\)</span>),
 the advection-diffusion equation with Neumann boundary conditions is given by:</p>
@@ -509,8 +510,8 @@ Where <span class="math notranslate nohighlight">\(\Delta t\)</span> is the step
 <div class="math notranslate nohighlight">
 \[\big [ \mathbf{I} + \Delta t \, \mathbf{M} \big ] \mathbf{p}^{k+1} =
 \mathbf{p}^k + \Delta t \, \mathbf{s}\]</div>
-</div>
-<div class="section" id="import-packages">
+</section>
+<section id="import-packages">
 <h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">#</a></h2>
 <p>Here we import the packages required for this tutorial.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">TensorMesh</span>
@@ -521,8 +522,8 @@ Where <span class="math notranslate nohighlight">\(\Delta t\)</span> is the step
 <span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="n">sdiag</span><span class="p">,</span> <span class="n">mkvc</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="solving-the-problem">
+</section>
+<section id="solving-the-problem">
 <h2>Solving the Problem<a class="headerlink" href="#solving-the-problem" title="Permalink to this headline">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a tensor mesh</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">h</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ones.html#numpy.ones" title="numpy.ones" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">ones</span></a><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
@@ -611,7 +612,7 @@ Where <span class="math notranslate nohighlight">\(\Delta t\)</span> is the step
         <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n</span></a> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_2_advection_diffusion_001.png" srcset="../../_images/sphx_glr_2_advection_diffusion_001.png" alt="Divergence free vector field, p at t = 0.02 s, p at t = 0.5 s, p at t = 1.0 s, p at t = 2.0 s, p at t = 4.0 s, p at t = 6.0 s" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.983 seconds)</p>
+<img src="../../_images/sphx_glr_2_advection_diffusion_001.png" srcset="../../_images/sphx_glr_2_advection_diffusion_001.png" alt="Divergence free vector field, p at t = 0.02 s, p at t = 0.5 s, p at t = 1.0 s, p at t = 2.0 s, p at t = 4.0 s, p at t = 6.0 s" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.998 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-pde-2-advection-diffusion-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/fa8c06869e1187914112eef37d2a718e/2_advection_diffusion.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">2_advection_diffusion.py</span></code></a></p>
@@ -621,8 +622,8 @@ Where <span class="math notranslate nohighlight">\(\Delta t\)</span> is the step
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
               </div>

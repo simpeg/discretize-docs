@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Differential Operators &#8212; discretize 0.7.4 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Differential Operators &#8212; discretize 0.8.0 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -409,7 +410,7 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-tutorials-inner-products-3-calculus-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="differential-operators">
+<section class="sphx-glr-example-title" id="differential-operators">
 <span id="sphx-glr-tutorials-inner-products-3-calculus-py"></span><h1>Differential Operators<a class="headerlink" href="#differential-operators" title="Permalink to this headline">#</a></h1>
 <p>When solving PDEs using the finite volume approach, inner products may
 contain differential operators. Where <span class="math notranslate nohighlight">\(\psi\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span> are
@@ -428,7 +429,7 @@ inner products:</p>
 discrete approximation for each case. In doing so, we must construct
 discrete differential operators, inner product matricies and consider
 boundary conditions.</p>
-<div class="section" id="import-packages">
+<section id="import-packages">
 <h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">#</a></h2>
 <p>Here we import the packages required for this tutorial</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="n">sdiag</span>
@@ -437,8 +438,8 @@ boundary conditions.</p>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="gradient">
+</section>
+<section id="gradient">
 <h2>Gradient<a class="headerlink" href="#gradient" title="Permalink to this headline">#</a></h2>
 <p>Where <span class="math notranslate nohighlight">\(\phi\)</span> is a scalar quantity and <span class="math notranslate nohighlight">\(\vec{u}\)</span> is a vector
 quantity, we would like to evaluate the following inner product:</p>
@@ -493,8 +494,8 @@ for quantities living on cell faces, e.g.:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0513468013468013, &#39;Mf*Gc&#39;)
 </pre></div>
 </div>
-</div>
-<div class="section" id="divergence">
+</section>
+<section id="divergence">
 <h2>Divergence<a class="headerlink" href="#divergence" title="Permalink to this headline">#</a></h2>
 <p>Where <span class="math notranslate nohighlight">\(\psi\)</span> is a scalar quantity and <span class="math notranslate nohighlight">\(\vec{v}\)</span> is a vector
 quantity, we would like to evaluate the following inner product:</p>
@@ -528,8 +529,8 @@ inner product is ultimately computed using an inner product matrix
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Mc*D&#39;)
 </pre></div>
 </div>
-</div>
-<div class="section" id="curl">
+</section>
+<section id="curl">
 <h2>Curl<a class="headerlink" href="#curl" title="Permalink to this headline">#</a></h2>
 <p>Where <span class="math notranslate nohighlight">\(\vec{u}\)</span> and <span class="math notranslate nohighlight">\(\vec{v}\)</span> are vector quantities, we would
 like to evaluate the following inner product:</p>
@@ -584,8 +585,8 @@ If done successfully:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.068020708880924, &#39;Me*Cf&#39;)
 </pre></div>
 </div>
-</div>
-<div class="section" id="scalar-laplacian">
+</section>
+<section id="scalar-laplacian">
 <h2>Scalar Laplacian<a class="headerlink" href="#scalar-laplacian" title="Permalink to this headline">#</a></h2>
 <p>Where <span class="math notranslate nohighlight">\(\psi\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span> are scalar quantities, and the scalar
 Laplacian <span class="math notranslate nohighlight">\(\Delta^2 = \nabla \cdot \nabla\)</span>, we would like to
@@ -643,7 +644,7 @@ matrix (<span class="math notranslate nohighlight">\(\mathbf{M_f}\)</span>) for 
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0770202020202022, &#39;Gc.T*Mf*Gc&#39;)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.477 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.488 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-inner-products-3-calculus-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/260f7c93340207605ff1068fa0eab55f/3_calculus.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">3_calculus.py</span></code></a></p>
@@ -653,8 +654,8 @@ matrix (<span class="math notranslate nohighlight">\(\mathbf{M_f}\)</span>) for 
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
               </div>

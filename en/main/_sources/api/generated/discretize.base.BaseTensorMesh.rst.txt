@@ -18,12 +18,21 @@
          BaseTensorMesh.copy
          BaseTensorMesh.deserialize
          BaseTensorMesh.equals
+         BaseTensorMesh.getEdgeInnerProduct
+         BaseTensorMesh.getEdgeInnerProductDeriv
+         BaseTensorMesh.getFaceInnerProduct
+         BaseTensorMesh.getFaceInnerProductDeriv
          BaseTensorMesh.getInterpolationMat
          BaseTensorMesh.getTensor
+         BaseTensorMesh.get_edge_inner_product
+         BaseTensorMesh.get_edge_inner_product_deriv
+         BaseTensorMesh.get_face_inner_product
+         BaseTensorMesh.get_face_inner_product_deriv
          BaseTensorMesh.get_interpolation_matrix
          BaseTensorMesh.get_tensor
          BaseTensorMesh.isInside
          BaseTensorMesh.is_inside
+         BaseTensorMesh.point2index
          BaseTensorMesh.projectEdgeVector
          BaseTensorMesh.projectFaceVector
          BaseTensorMesh.project_edge_vector
@@ -42,23 +51,46 @@
       .. autosummary::
          :toctree:
       
+         BaseTensorMesh.area
+         BaseTensorMesh.average_cell_to_edge
+         BaseTensorMesh.average_cell_to_face
+         BaseTensorMesh.average_cell_vector_to_face
+         BaseTensorMesh.average_edge_to_cell
+         BaseTensorMesh.average_edge_to_cell_vector
+         BaseTensorMesh.average_edge_to_face_vector
+         BaseTensorMesh.average_face_to_cell
+         BaseTensorMesh.average_face_to_cell_vector
+         BaseTensorMesh.average_node_to_cell
+         BaseTensorMesh.average_node_to_edge
+         BaseTensorMesh.average_node_to_face
          BaseTensorMesh.axis_u
          BaseTensorMesh.axis_v
          BaseTensorMesh.axis_w
+         BaseTensorMesh.boundary_edge_vector_integral
          BaseTensorMesh.boundary_edges
          BaseTensorMesh.boundary_face_outward_normals
+         BaseTensorMesh.boundary_face_scalar_integral
          BaseTensorMesh.boundary_faces
+         BaseTensorMesh.boundary_node_vector_integral
          BaseTensorMesh.boundary_nodes
          BaseTensorMesh.cell_centers
          BaseTensorMesh.cell_centers_x
          BaseTensorMesh.cell_centers_y
          BaseTensorMesh.cell_centers_z
+         BaseTensorMesh.cell_volumes
          BaseTensorMesh.dim
+         BaseTensorMesh.edge
+         BaseTensorMesh.edgeCurl
+         BaseTensorMesh.edge_curl
+         BaseTensorMesh.edge_lengths
          BaseTensorMesh.edge_tangents
          BaseTensorMesh.edges
          BaseTensorMesh.edges_x
          BaseTensorMesh.edges_y
          BaseTensorMesh.edges_z
+         BaseTensorMesh.faceDiv
+         BaseTensorMesh.face_areas
+         BaseTensorMesh.face_divergence
          BaseTensorMesh.face_normals
          BaseTensorMesh.faces
          BaseTensorMesh.faces_x
@@ -81,6 +113,10 @@
          BaseTensorMesh.n_faces_y
          BaseTensorMesh.n_faces_z
          BaseTensorMesh.n_nodes
+         BaseTensorMesh.nodalGrad
+         BaseTensorMesh.nodalLaplacian
+         BaseTensorMesh.nodal_gradient
+         BaseTensorMesh.nodal_laplacian
          BaseTensorMesh.nodes
          BaseTensorMesh.nodes_x
          BaseTensorMesh.nodes_y
@@ -88,10 +124,14 @@
          BaseTensorMesh.normals
          BaseTensorMesh.orientation
          BaseTensorMesh.origin
+         BaseTensorMesh.project_edge_to_boundary_edge
+         BaseTensorMesh.project_face_to_boundary_face
+         BaseTensorMesh.project_node_to_boundary_node
          BaseTensorMesh.reference_is_rotated
          BaseTensorMesh.reference_system
          BaseTensorMesh.rotation_matrix
          BaseTensorMesh.shape_cells
+         BaseTensorMesh.stencil_cell_gradient
          BaseTensorMesh.tangents
          BaseTensorMesh.vectorCCx
          BaseTensorMesh.vectorCCy
@@ -99,6 +139,7 @@
          BaseTensorMesh.vectorNx
          BaseTensorMesh.vectorNy
          BaseTensorMesh.vectorNz
+         BaseTensorMesh.vol
          BaseTensorMesh.x0
   
   

@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cylindrical meshes &#8212; discretize 0.7.4 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Cylindrical meshes &#8212; discretize 0.8.0 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -404,7 +405,7 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-tutorials-mesh-generation-3-cylindrical-mesh-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="cylindrical-meshes">
+<section class="sphx-glr-example-title" id="cylindrical-meshes">
 <span id="sphx-glr-tutorials-mesh-generation-3-cylindrical-mesh-py"></span><h1>Cylindrical meshes<a class="headerlink" href="#cylindrical-meshes" title="Permalink to this headline">#</a></h1>
 <p>Cylindrical meshes (<code class="xref py py-class docutils literal notranslate"><span class="pre">CylMesh</span></code>) are defined in terms of <em>r</em>
 (radial position), <em>z</em> (vertical position) and <em>phi</em> (azimuthal position).
@@ -420,7 +421,7 @@ demonstrate:</p>
 <li><p>How to create cylindrical meshes to solve PDEs with rotational symmetry</p></li>
 </ul>
 </div></blockquote>
-<div class="section" id="import-packages">
+<section id="import-packages">
 <h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">#</a></h2>
 <p>Here we import the packages required for this tutorial.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">CylMesh</span>
@@ -428,8 +429,8 @@ demonstrate:</p>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="basic-example">
+</section>
+<section id="basic-example">
 <h2>Basic Example<a class="headerlink" href="#basic-example" title="Permalink to this headline">#</a></h2>
 <p>The easiest way to define a cylindrical mesh is to define the cell widths in
 <em>r</em>, <em>phi</em> and <em>z</em> as 1D numpy arrays. And to provide a Cartesian position
@@ -463,8 +464,8 @@ for the bottom of the vertical axis of symmetry of the mesh. Note that</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;PolarAxesSubplot:&gt;, &lt;AxesSubplot:xlabel=&#39;x&#39;, ylabel=&#39;z&#39;&gt;]
 </pre></div>
 </div>
-</div>
-<div class="section" id="padding-cells-and-extracting-properties">
+</section>
+<section id="padding-cells-and-extracting-properties">
 <h2>Padding Cells and Extracting Properties<a class="headerlink" href="#padding-cells-and-extracting-properties" title="Permalink to this headline">#</a></h2>
 <p>For practical purposes, the user may want to define a region where the cell
 widths are increasing/decreasing in size. For example, padding is often used
@@ -513,8 +514,8 @@ We then show some properties that can be extracted from cylindrical meshes.</p>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">v</span></a> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vol</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_3_cylindrical_mesh_002.png" srcset="../../_images/sphx_glr_3_cylindrical_mesh_002.png" alt="Discretization in phi, Discretization in r and z" class = "sphx-glr-single-img"/></div>
-<div class="section" id="cylindrical-mesh-for-rotational-symmetry">
+<img src="../../_images/sphx_glr_3_cylindrical_mesh_002.png" srcset="../../_images/sphx_glr_3_cylindrical_mesh_002.png" alt="Discretization in phi, Discretization in r and z" class = "sphx-glr-single-img"/></section>
+<section id="cylindrical-mesh-for-rotational-symmetry">
 <h2>Cylindrical Mesh for Rotational Symmetry<a class="headerlink" href="#cylindrical-mesh-for-rotational-symmetry" title="Permalink to this headline">#</a></h2>
 <p>Cylindrical mesh are most useful when solving problems with perfect
 rotational symmetry. More precisely when:</p>
@@ -570,7 +571,7 @@ direction.</p>
 </pre></div>
 </div>
 <p>Notice that we do not plot the discretization in phi as it is irrelevant.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.655 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.661 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-mesh-generation-3-cylindrical-mesh-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/9a2f5e9984b26832847bddd0f208773a/3_cylindrical_mesh.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">3_cylindrical_mesh.py</span></code></a></p>
@@ -580,8 +581,8 @@ direction.</p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
               </div>

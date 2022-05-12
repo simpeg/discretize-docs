@@ -18,6 +18,17 @@
          BaseMesh.copy
          BaseMesh.deserialize
          BaseMesh.equals
+         BaseMesh.getEdgeInnerProduct
+         BaseMesh.getEdgeInnerProductDeriv
+         BaseMesh.getFaceInnerProduct
+         BaseMesh.getFaceInnerProductDeriv
+         BaseMesh.getInterpolationMat
+         BaseMesh.get_edge_inner_product
+         BaseMesh.get_edge_inner_product_deriv
+         BaseMesh.get_face_inner_product
+         BaseMesh.get_face_inner_product_deriv
+         BaseMesh.get_interpolation_matrix
+         BaseMesh.point2index
          BaseMesh.projectEdgeVector
          BaseMesh.projectFaceVector
          BaseMesh.project_edge_vector
@@ -35,33 +46,55 @@
       .. autosummary::
          :toctree:
       
-         BaseMesh.axis_u
-         BaseMesh.axis_v
-         BaseMesh.axis_w
+         BaseMesh.area
+         BaseMesh.average_cell_to_edge
+         BaseMesh.average_cell_to_face
+         BaseMesh.average_cell_vector_to_face
+         BaseMesh.average_edge_to_cell
+         BaseMesh.average_edge_to_cell_vector
+         BaseMesh.average_edge_to_face_vector
+         BaseMesh.average_face_to_cell
+         BaseMesh.average_face_to_cell_vector
+         BaseMesh.average_node_to_cell
+         BaseMesh.average_node_to_edge
+         BaseMesh.average_node_to_face
+         BaseMesh.boundary_edge_vector_integral
+         BaseMesh.boundary_edges
+         BaseMesh.boundary_face_outward_normals
+         BaseMesh.boundary_face_scalar_integral
+         BaseMesh.boundary_faces
+         BaseMesh.boundary_node_vector_integral
+         BaseMesh.boundary_nodes
+         BaseMesh.cell_centers
+         BaseMesh.cell_volumes
          BaseMesh.dim
+         BaseMesh.edge
+         BaseMesh.edgeCurl
+         BaseMesh.edge_curl
+         BaseMesh.edge_lengths
          BaseMesh.edge_tangents
+         BaseMesh.edges
+         BaseMesh.faceDiv
+         BaseMesh.face_areas
+         BaseMesh.face_divergence
          BaseMesh.face_normals
+         BaseMesh.faces
          BaseMesh.n_cells
          BaseMesh.n_edges
-         BaseMesh.n_edges_per_direction
-         BaseMesh.n_edges_x
-         BaseMesh.n_edges_y
-         BaseMesh.n_edges_z
          BaseMesh.n_faces
-         BaseMesh.n_faces_per_direction
-         BaseMesh.n_faces_x
-         BaseMesh.n_faces_y
-         BaseMesh.n_faces_z
          BaseMesh.n_nodes
+         BaseMesh.nodalGrad
+         BaseMesh.nodalLaplacian
+         BaseMesh.nodal_gradient
+         BaseMesh.nodal_laplacian
+         BaseMesh.nodes
          BaseMesh.normals
-         BaseMesh.orientation
-         BaseMesh.origin
-         BaseMesh.reference_is_rotated
-         BaseMesh.reference_system
-         BaseMesh.rotation_matrix
-         BaseMesh.shape_cells
+         BaseMesh.project_edge_to_boundary_edge
+         BaseMesh.project_face_to_boundary_face
+         BaseMesh.project_node_to_boundary_node
+         BaseMesh.stencil_cell_gradient
          BaseMesh.tangents
-         BaseMesh.x0
+         BaseMesh.vol
   
   
 
