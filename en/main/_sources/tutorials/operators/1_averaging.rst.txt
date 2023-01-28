@@ -34,9 +34,8 @@ Here we discuss:
     - Averaging matricies in 1D, 2D and 3D
     - Averaging discontinuous functions
     - The transpose of an averaging matrix
-    
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-28
+.. GENERATED FROM PYTHON SOURCE LINES 22-27
 
 Import Packages
 ---------------
@@ -44,7 +43,7 @@ Import Packages
 Here we import the packages required for this tutorial.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-37
+.. GENERATED FROM PYTHON SOURCE LINES 28-36
 
 .. code-block:: default
 
@@ -63,7 +62,7 @@ Here we import the packages required for this tutorial.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-45
+.. GENERATED FROM PYTHON SOURCE LINES 37-44
 
 1D Example
 ----------
@@ -73,7 +72,7 @@ We then compute the scalar function at cell centers to validate the
 averaging operator.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-91
+.. GENERATED FROM PYTHON SOURCE LINES 44-90
 
 .. code-block:: default
 
@@ -89,7 +88,7 @@ averaging operator.
 
     # Define a continuous function
     def fun(x):
-        return np.exp(-(x ** 2) / 50 ** 2)
+        return np.exp(-(x**2) / 50**2)
 
 
     # Compute function on nodes and cell centers
@@ -135,7 +134,7 @@ averaging operator.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-100
+.. GENERATED FROM PYTHON SOURCE LINES 91-99
 
 1D, 2D and 3D Averaging
 -----------------------
@@ -146,7 +145,7 @@ average between nodes, cell centers, faces and edges. For this example we
 describe the averaging operator from faces to cell centers in 1D, 2D and 3D.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 100-148
+.. GENERATED FROM PYTHON SOURCE LINES 99-147
 
 .. code-block:: default
 
@@ -233,7 +232,7 @@ describe the averaging operator from faces to cell centers in 1D, 2D and 3D.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 149-162
+.. GENERATED FROM PYTHON SOURCE LINES 148-161
 
 Discontinuous Functions and the Transpose
 -----------------------------------------
@@ -249,7 +248,7 @@ Note that values on the boundaries are not accurate when applying the
 transpose as an averaging operator. This is also true for staggered grids.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 162-198
+.. GENERATED FROM PYTHON SOURCE LINES 161-197
 
 .. code-block:: default
 
@@ -304,7 +303,7 @@ transpose as an averaging operator. This is also true for staggered grids.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.478 seconds)
+   **Total running time of the script:** ( 0 minutes  0.800 seconds)
 
 
 .. _sphx_glr_download_tutorials_operators_1_averaging.py:

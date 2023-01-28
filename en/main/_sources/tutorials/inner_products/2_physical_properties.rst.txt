@@ -63,10 +63,8 @@ In the case of anisotropy, the constitutive relations are defined by a tensor
 where
 
 .. math::
-    \Sigma = \begin{bmatrix} \sigma_{1} & \sigma_{4} & \sigma_{5} 
-
-    \sigma_{4} & \sigma_{2} & \sigma_{6} 
-
+    \Sigma = \begin{bmatrix} \sigma_{1} & \sigma_{4} & \sigma_{5} \\
+    \sigma_{4} & \sigma_{2} & \sigma_{6} \\
     \sigma_{5} & \sigma_{6} & \sigma_{3} \end{bmatrix}
 
 Is symmetric and defined by 6 independent parameters. The inner product between
@@ -81,9 +79,8 @@ Once again we would like to approximate the inner product numerically using an
 
 .. math::
     (\vec{v}, \Sigma \vec{E} ) \approx \mathbf{v^T M_\Sigma e}
-    
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-74
+.. GENERATED FROM PYTHON SOURCE LINES 67-72
 
 Import Packages
 ---------------
@@ -91,7 +88,7 @@ Import Packages
 Here we import the packages required for this tutorial
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-82
+.. GENERATED FROM PYTHON SOURCE LINES 73-80
 
 .. code-block:: default
 
@@ -109,7 +106,7 @@ Here we import the packages required for this tutorial
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-100
+.. GENERATED FROM PYTHON SOURCE LINES 81-98
 
 Inner Product for a Single Cell
 -------------------------------
@@ -129,7 +126,7 @@ where the inner product matrix contains a significant number of non-diagonal
 entries.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 100-169
+.. GENERATED FROM PYTHON SOURCE LINES 98-167
 
 .. code-block:: default
 
@@ -220,7 +217,7 @@ entries.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 170-180
+.. GENERATED FROM PYTHON SOURCE LINES 168-178
 
 Spatially Variant Parameters
 ----------------------------
@@ -233,7 +230,7 @@ a numpy array. This is demonstrated below. Properties of the resulting
 inner product matricies are discussed.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 180-216
+.. GENERATED FROM PYTHON SOURCE LINES 178-214
 
 .. code-block:: default
 
@@ -301,7 +298,7 @@ inner product matricies are discussed.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 217-234
+.. GENERATED FROM PYTHON SOURCE LINES 215-232
 
 Inverse
 -------
@@ -321,7 +318,7 @@ operator. For the full anisotropic case, we must form the inner product
 matrix and do a numerical solve.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 234-255
+.. GENERATED FROM PYTHON SOURCE LINES 232-253
 
 .. code-block:: default
 
@@ -353,7 +350,7 @@ matrix and do a numerical solve.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 256-310
+.. GENERATED FROM PYTHON SOURCE LINES 254-308
 
 Reciprocal Properties
 ---------------------
@@ -369,7 +366,7 @@ In this case, the constitutive relation is given by:
 .. math::
     \vec{J} = \frac{1}{\rho} \vec{E}
 
-The inner product between a vector :math:`\\vec{v}` and the right-hand side
+The inner product between a vector :math:`\vec{v}` and the right-hand side
 of the expression is given by:
 
 .. math::
@@ -410,7 +407,7 @@ Here we demonstrate how to form the inner-product matricies
 :math:`\mathbf{M_{\rho^{-1}}}` and :math:`\mathbf{M_P}`.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 310-366
+.. GENERATED FROM PYTHON SOURCE LINES 308-364
 
 .. code-block:: default
 
@@ -491,7 +488,7 @@ Here we demonstrate how to form the inner-product matricies
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.806 seconds)
+   **Total running time of the script:** ( 0 minutes  1.456 seconds)
 
 
 .. _sphx_glr_download_tutorials_inner_products_2_physical_properties.py:

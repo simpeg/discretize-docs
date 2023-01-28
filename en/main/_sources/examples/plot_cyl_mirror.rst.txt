@@ -24,7 +24,7 @@ Plot Mirrored Cylindrically Symmetric Model
 Here, we demonstrate plotting a model on a cylindrically
 symmetric mesh with the plotting symmetric about x=0.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-62
+.. GENERATED FROM PYTHON SOURCE LINES 8-61
 
 
 
@@ -45,7 +45,6 @@ symmetric mesh with the plotting symmetric about x=0.
 
 
     def run(plotIt=True):
-
         sig_halfspace = 1e-6
         sig_sphere = 1e0
         sig_air = 1e-8
@@ -67,7 +66,7 @@ symmetric mesh with the plotting symmetric about x=0.
         # indices of the sphere
         sphere_ind = (
             mesh.gridCC[:, 0] ** 2 + (mesh.gridCC[:, 2] - sphere_z) ** 2
-        ) <= sphere_radius ** 2
+        ) <= sphere_radius**2
         sigma[sphere_ind] = sig_sphere  # sphere
 
         if not plotIt:
@@ -97,7 +96,7 @@ symmetric mesh with the plotting symmetric about x=0.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.220 seconds)
+   **Total running time of the script:** ( 0 minutes  0.365 seconds)
 
 
 .. _sphx_glr_download_examples_plot_cyl_mirror.py:

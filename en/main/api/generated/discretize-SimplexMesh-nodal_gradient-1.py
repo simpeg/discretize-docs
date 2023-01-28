@@ -81,7 +81,7 @@ ax1.spines['right'].set_color('white')
 ax1.set_xlabel('X', fontsize=16, labelpad=-5)
 ax1.set_ylabel('Y', fontsize=16, labelpad=-15)
 ax1.legend(
-    ['Mesh', '$\mathbf{\phi}$ (nodes)', '$\mathbf{u}$ (edges)'],
+    ['Mesh', r'$\mathbf{\phi}$ (nodes)', r'$\mathbf{u}$ (edges)'],
     loc='upper right', fontsize=14
 )
 ax2 = fig.add_subplot(122)

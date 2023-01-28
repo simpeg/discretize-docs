@@ -13,15 +13,40 @@
       .. autosummary::
          :toctree:
       
+         DiffOperators.__len__
          DiffOperators.cell_gradient_weak_form_robin
+         DiffOperators.closest_points_index
+         DiffOperators.copy
+         DiffOperators.deserialize
          DiffOperators.edge_divergence_weak_form_robin
+         DiffOperators.equals
          DiffOperators.getBCProjWF
          DiffOperators.getBCProjWF_simple
+         DiffOperators.getEdgeInnerProduct
+         DiffOperators.getEdgeInnerProductDeriv
+         DiffOperators.getFaceInnerProduct
+         DiffOperators.getFaceInnerProductDeriv
+         DiffOperators.getInterpolationMat
          DiffOperators.get_BC_projections
          DiffOperators.get_BC_projections_simple
+         DiffOperators.get_edge_inner_product
+         DiffOperators.get_edge_inner_product_deriv
+         DiffOperators.get_face_inner_product
+         DiffOperators.get_face_inner_product_deriv
+         DiffOperators.get_interpolation_matrix
+         DiffOperators.point2index
+         DiffOperators.projectEdgeVector
+         DiffOperators.projectFaceVector
+         DiffOperators.project_edge_vector
+         DiffOperators.project_face_vector
+         DiffOperators.save
+         DiffOperators.serialize
          DiffOperators.setCellGradBC
          DiffOperators.set_cell_gradient_BC
+         DiffOperators.to_dict
+         DiffOperators.validate
       
+         DiffOperators.__len__
   
 
   
@@ -30,6 +55,7 @@
       .. autosummary::
          :toctree:
       
+         DiffOperators.area
          DiffOperators.average_cell_to_edge
          DiffOperators.average_cell_to_face
          DiffOperators.average_cell_vector_to_face
@@ -48,28 +74,52 @@
          DiffOperators.average_node_to_edge
          DiffOperators.average_node_to_face
          DiffOperators.boundary_edge_vector_integral
+         DiffOperators.boundary_edges
+         DiffOperators.boundary_face_outward_normals
          DiffOperators.boundary_face_scalar_integral
+         DiffOperators.boundary_faces
          DiffOperators.boundary_node_vector_integral
+         DiffOperators.boundary_nodes
          DiffOperators.cellGrad
          DiffOperators.cellGradBC
          DiffOperators.cellGradx
          DiffOperators.cellGrady
          DiffOperators.cellGradz
+         DiffOperators.cell_centers
          DiffOperators.cell_gradient
          DiffOperators.cell_gradient_BC
          DiffOperators.cell_gradient_x
          DiffOperators.cell_gradient_y
          DiffOperators.cell_gradient_z
+         DiffOperators.cell_volumes
+         DiffOperators.dim
+         DiffOperators.edge
+         DiffOperators.edgeCurl
          DiffOperators.edge_curl
+         DiffOperators.edge_lengths
+         DiffOperators.edge_tangents
+         DiffOperators.edges
+         DiffOperators.faceDiv
          DiffOperators.faceDivx
          DiffOperators.faceDivy
          DiffOperators.faceDivz
+         DiffOperators.face_areas
          DiffOperators.face_divergence
+         DiffOperators.face_normals
          DiffOperators.face_x_divergence
          DiffOperators.face_y_divergence
          DiffOperators.face_z_divergence
+         DiffOperators.faces
+         DiffOperators.n_cells
+         DiffOperators.n_edges
+         DiffOperators.n_faces
+         DiffOperators.n_nodes
+         DiffOperators.nodalGrad
+         DiffOperators.nodalLaplacian
          DiffOperators.nodal_gradient
          DiffOperators.nodal_laplacian
+         DiffOperators.nodes
+         DiffOperators.normals
          DiffOperators.project_edge_to_boundary_edge
          DiffOperators.project_face_to_boundary_face
          DiffOperators.project_node_to_boundary_node
@@ -77,6 +127,8 @@
          DiffOperators.stencil_cell_gradient_x
          DiffOperators.stencil_cell_gradient_y
          DiffOperators.stencil_cell_gradient_z
+         DiffOperators.tangents
+         DiffOperators.vol
   
   
 

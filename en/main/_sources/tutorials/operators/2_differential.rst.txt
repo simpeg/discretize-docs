@@ -90,8 +90,8 @@ the numerical differentiation.
     x_centers = mesh.vectorCCx
 
     # Compute function on nodes and derivative at cell centers
-    v = np.exp(-(x_nodes ** 2) / 4 ** 2)
-    dvdx = -(2 * x_centers / 4 ** 2) * np.exp(-(x_centers ** 2) / 4 ** 2)
+    v = np.exp(-(x_nodes**2) / 4**2)
+    dvdx = -(2 * x_centers / 4**2) * np.exp(-(x_centers**2) / 4**2)
 
     # Derivative in x (gradient in 1D) from nodes to cell centers
     G = mesh.nodalGrad
@@ -255,19 +255,19 @@ functions defined on a 2D tensor mesh. We then plot the results.
 
     # Evaluate gradient of a scalar function
     nodes = mesh.gridN
-    u = np.exp(-(nodes[:, 0] ** 2 + nodes[:, 1] ** 2) / 4 ** 2)
+    u = np.exp(-(nodes[:, 0] ** 2 + nodes[:, 1] ** 2) / 4**2)
     grad_u = GRAD * u
 
     # Evaluate divergence of a vector function in x and y
     faces_x = mesh.gridFx
     faces_y = mesh.gridFy
 
-    vx = (faces_x[:, 0] / np.sqrt(np.sum(faces_x ** 2, axis=1))) * np.exp(
-        -(faces_x[:, 0] ** 2 + faces_x[:, 1] ** 2) / 6 ** 2
+    vx = (faces_x[:, 0] / np.sqrt(np.sum(faces_x**2, axis=1))) * np.exp(
+        -(faces_x[:, 0] ** 2 + faces_x[:, 1] ** 2) / 6**2
     )
 
-    vy = (faces_y[:, 1] / np.sqrt(np.sum(faces_y ** 2, axis=1))) * np.exp(
-        -(faces_y[:, 0] ** 2 + faces_y[:, 1] ** 2) / 6 ** 2
+    vy = (faces_y[:, 1] / np.sqrt(np.sum(faces_y**2, axis=1))) * np.exp(
+        -(faces_y[:, 0] ** 2 + faces_y[:, 1] ** 2) / 6**2
     )
 
     v = np.r_[vx, vy]
@@ -277,12 +277,12 @@ functions defined on a 2D tensor mesh. We then plot the results.
     edges_x = mesh.gridEx
     edges_y = mesh.gridEy
 
-    wx = (-edges_x[:, 1] / np.sqrt(np.sum(edges_x ** 2, axis=1))) * np.exp(
-        -(edges_x[:, 0] ** 2 + edges_x[:, 1] ** 2) / 6 ** 2
+    wx = (-edges_x[:, 1] / np.sqrt(np.sum(edges_x**2, axis=1))) * np.exp(
+        -(edges_x[:, 0] ** 2 + edges_x[:, 1] ** 2) / 6**2
     )
 
-    wy = (edges_y[:, 0] / np.sqrt(np.sum(edges_y ** 2, axis=1))) * np.exp(
-        -(edges_y[:, 0] ** 2 + edges_y[:, 1] ** 2) / 6 ** 2
+    wy = (edges_y[:, 0] / np.sqrt(np.sum(edges_y**2, axis=1))) * np.exp(
+        -(edges_y[:, 0] ** 2 + edges_y[:, 1] ** 2) / 6**2
     )
 
     w = np.r_[wx, wy]
@@ -499,7 +499,7 @@ entries; **e.g. each is just a matrix of zeros**.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.964 seconds)
+   **Total running time of the script:** ( 0 minutes  3.335 seconds)
 
 
 .. _sphx_glr_download_tutorials_operators_2_differential.py:

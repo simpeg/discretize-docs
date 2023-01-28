@@ -29,7 +29,7 @@ stencil, volumes, and areas. This yields a divergence defined for every
 cell in the mesh using all faces. There is, however, redundant information
 when hanging faces are included.
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-55
+.. GENERATED FROM PYTHON SOURCE LINES 13-54
 
 
 
@@ -50,7 +50,6 @@ when hanging faces are included.
 
 
     def run(plotIt=True, n=60):
-
         M = discretize.TreeMesh([[(1, 16)], [(1, 16)]], levels=4)
         M.insert_cells(np.array([5.0, 5.0]), np.array([3]))
         M.number()
@@ -90,7 +89,7 @@ when hanging faces are included.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.162 seconds)
+   **Total running time of the script:** ( 0 minutes  0.251 seconds)
 
 
 .. _sphx_glr_download_examples_plot_quadtree_divergence.py:

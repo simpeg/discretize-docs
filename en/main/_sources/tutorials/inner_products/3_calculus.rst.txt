@@ -36,9 +36,8 @@ In this section, we demonstrate how to go from the inner product to the
 discrete approximation for each case. In doing so, we must construct
 discrete differential operators, inner product matricies and consider
 boundary conditions.
-    
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-32
+.. GENERATED FROM PYTHON SOURCE LINES 23-28
 
 Import Packages
 ---------------
@@ -46,7 +45,7 @@ Import Packages
 Here we import the packages required for this tutorial
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-40
+.. GENERATED FROM PYTHON SOURCE LINES 29-36
 
 .. code-block:: default
 
@@ -64,7 +63,7 @@ Here we import the packages required for this tutorial
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-76
+.. GENERATED FROM PYTHON SOURCE LINES 37-72
 
 Gradient
 --------
@@ -102,7 +101,7 @@ for quantities living on cell faces, e.g.:
    (\vec{u} , \nabla \phi) \approx \mathbf{u^T M_f G_c \phi}
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-101
+.. GENERATED FROM PYTHON SOURCE LINES 72-97
 
 .. code-block:: default
 
@@ -149,7 +148,7 @@ for quantities living on cell faces, e.g.:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 102-121
+.. GENERATED FROM PYTHON SOURCE LINES 98-117
 
 Divergence
 ----------
@@ -171,7 +170,7 @@ inner product is ultimately computed using an inner product matrix
    (\psi , \nabla \cdot \vec{v}) \approx \mathbf{\psi^T} \textrm{diag} (\mathbf{vol} ) \mathbf{D v}
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 121-137
+.. GENERATED FROM PYTHON SOURCE LINES 117-133
 
 .. code-block:: default
 
@@ -209,7 +208,7 @@ inner product is ultimately computed using an inner product matrix
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 138-174
+.. GENERATED FROM PYTHON SOURCE LINES 134-170
 
 Curl
 ----
@@ -248,7 +247,7 @@ If done successfully:
     (\vec{u} , \nabla \times \vec{v}) \approx \mathbf{u^T M_e C_f v}
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 174-199
+.. GENERATED FROM PYTHON SOURCE LINES 170-195
 
 .. code-block:: default
 
@@ -295,7 +294,7 @@ If done successfully:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 200-242
+.. GENERATED FROM PYTHON SOURCE LINES 196-238
 
 Scalar Laplacian
 ----------------
@@ -340,7 +339,7 @@ matrix (:math:`\mathbf{M_f}`) for quantities living on cell faces, e.g.:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 242-266
+.. GENERATED FROM PYTHON SOURCE LINES 238-262
 
 .. code-block:: default
 
@@ -389,7 +388,7 @@ matrix (:math:`\mathbf{M_f}`) for quantities living on cell faces, e.g.:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.473 seconds)
+   **Total running time of the script:** ( 0 minutes  0.847 seconds)
 
 
 .. _sphx_glr_download_tutorials_inner_products_3_calculus.py:

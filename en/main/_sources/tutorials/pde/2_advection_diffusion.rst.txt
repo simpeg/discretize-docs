@@ -37,8 +37,7 @@ the advection-diffusion equation with Neumann boundary conditions is given by:
 
 .. math::
     p_t = \nabla \cdot \alpha \nabla p
-    - \mathbf{u} \cdot \nabla p + s 
-
+    - \mathbf{u} \cdot \nabla p + s \\
     \textrm{s.t.} \;\;\; \frac{\partial p}{\partial n} \Bigg |_{\partial \Omega} = 0
 
 where :math:`p` is the unknown variable, :math:`\alpha` defines the
@@ -53,10 +52,8 @@ where :math:`s_0` is a constant. To solve this problem numerically, we
 re-express the advection-diffusion equation as a set of first order PDEs:
 
 .. math::
-    \; \; p_t = \nabla \cdot \mathbf{j} - \mathbf{u} \cdot \mathbf{w} + s \;\;\; (1)
-
-    \; \; \mathbf{w} = \nabla p \;\;\; (2) 
-
+    \; \; p_t = \nabla \cdot \mathbf{j} - \mathbf{u} \cdot \mathbf{w} + s \;\;\; (1)\\
+    \; \; \mathbf{w} = \nabla p \;\;\; (2) \\
     \; \; \alpha^{-1} \mathbf{j} = \mathbf{w} \;\;\; (3)
 
 
@@ -207,7 +204,7 @@ Solving the Problem
 -------------------
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-264
+.. GENERATED FROM PYTHON SOURCE LINES 178-263
 
 .. code-block:: default
 
@@ -220,8 +217,8 @@ Solving the Problem
     faces_x = mesh.gridFx
     faces_y = mesh.gridFy
 
-    r_x = np.sqrt(np.sum(faces_x ** 2, axis=1))
-    r_y = np.sqrt(np.sum(faces_y ** 2, axis=1))
+    r_x = np.sqrt(np.sum(faces_x**2, axis=1))
+    r_y = np.sqrt(np.sum(faces_y**2, axis=1))
 
     ux = 0.5 * (-faces_x[:, 1] / r_x) * (1 + np.tanh(0.15 * (28.0 - r_x)))
     uy = 0.5 * (faces_y[:, 0] / r_y) * (1 + np.tanh(0.15 * (28.0 - r_y)))
@@ -288,7 +285,6 @@ Solving the Problem
     n = 3
 
     for ii in range(300):
-
         p = Binv * (p + s)
 
         if ii + 1 in (1, 25, 50, 100, 200, 300):
@@ -312,7 +308,7 @@ Solving the Problem
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.957 seconds)
+   **Total running time of the script:** ( 0 minutes  1.582 seconds)
 
 
 .. _sphx_glr_download_tutorials_pde_2_advection_diffusion.py:

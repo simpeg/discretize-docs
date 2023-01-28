@@ -2,7 +2,6 @@
 # of the x and y-boundary cells.
 #
 from discretize import TreeMesh
-from discretize.utils import refine_tree_xyz
 import numpy as np
 import matplotlib.pyplot as plt
 #

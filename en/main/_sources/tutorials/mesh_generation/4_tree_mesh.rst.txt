@@ -39,7 +39,6 @@ creating tree meshes, we must remember certain rules:
     - The number of base mesh cells in x, y and z must all be powers of 2
     - We cannot refine the mesh to create cells smaller than those defining the base mesh
     - The range of cell sizes in the tree mesh depends on the number of base mesh cells in x, y and z
-    
 
 .. GENERATED FROM PYTHON SOURCE LINES 28-33
 
@@ -55,7 +54,7 @@ Here we import the packages required for this tutorial.
 
 
     from discretize import TreeMesh
-    from discretize.utils import mkvc, refine_tree_xyz
+    from discretize.utils import mkvc
     import matplotlib.pyplot as plt
     import numpy as np
 
@@ -95,10 +94,10 @@ rate of cell width increase outside the box.
     xp, yp = np.meshgrid([120.0, 240.0], [80.0, 160.0])
     xy = np.c_[mkvc(xp), mkvc(yp)]  # mkvc creates vectors
 
-    # Discretize to finest cell size within rectangular box
-    mesh = refine_tree_xyz(mesh, xy, octree_levels=[2, 2], method="box", finalize=False)
-
-    mesh.finalize()  # Must finalize tree mesh before use
+    # Discretize to finest cell size within rectangular box, with padding in the z direction
+    # at the finest and second finest levels.
+    padding = [[0, 2], [0, 2]]
+    mesh.refine_bounding_box(xy, level=-1, padding_cells_by_level=padding)
 
     mesh.plotGrid(show_it=True)
 
@@ -117,7 +116,7 @@ rate of cell width increase outside the box.
  .. code-block:: none
 
 
-    <AxesSubplot:xlabel='x1', ylabel='x2'>
+    <AxesSubplot: xlabel='x1', ylabel='x2'>
 
 
 
@@ -136,7 +135,7 @@ relative to our surface and the set of discrete points about which we are
 refining.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-124
+.. GENERATED FROM PYTHON SOURCE LINES 84-123
 
 .. code-block:: default
 
@@ -158,17 +157,16 @@ refining.
 
     # Refine surface topography
     xx = mesh.vectorNx
-    yy = -3 * np.exp((xx ** 2) / 100 ** 2) + 50.0
+    yy = -3 * np.exp((xx**2) / 100**2) + 50.0
     pts = np.c_[mkvc(xx), mkvc(yy)]
-    mesh = refine_tree_xyz(
-        mesh, pts, octree_levels=[2, 2], method="surface", finalize=False
-    )
+    padding = [[0, 2], [0, 2]]
+    mesh.refine_surface(pts, padding_cells_by_level=padding, finalize=False)
 
     # Refine mesh near points
     xx = np.array([0.0, 10.0, 0.0, -10.0])
     yy = np.array([-20.0, -10.0, 0.0, -10])
     pts = np.c_[mkvc(xx), mkvc(yy)]
-    mesh = refine_tree_xyz(mesh, pts, octree_levels=[2, 2], method="radial", finalize=False)
+    mesh.refine_points(pts, padding_cells_by_level=[2, 2], finalize=False)
 
     mesh.finalize()
 
@@ -198,7 +196,7 @@ refining.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 125-131
+.. GENERATED FROM PYTHON SOURCE LINES 124-130
 
 Extracting Mesh Properties
 --------------------------
@@ -207,7 +205,7 @@ Once the mesh is created, you may want to extract certain properties. Here,
 we show some properties that can be extracted from a QuadTree mesh.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-185
+.. GENERATED FROM PYTHON SOURCE LINES 130-183
 
 .. code-block:: default
 
@@ -229,17 +227,16 @@ we show some properties that can be extracted from a QuadTree mesh.
 
     # Refine surface topography
     xx = mesh.vectorNx
-    yy = -3 * np.exp((xx ** 2) / 100 ** 2) + 50.0
+    yy = -3 * np.exp((xx**2) / 100**2) + 50.0
     pts = np.c_[mkvc(xx), mkvc(yy)]
-    mesh = refine_tree_xyz(
-        mesh, pts, octree_levels=[2, 2], method="surface", finalize=False
-    )
+    padding = [[0, 2], [0, 2]]
+    mesh.refine_surface(pts, padding_cells_by_level=padding, finalize=False)
 
     # Refine near points
     xx = np.array([0.0, 10.0, 0.0, -10.0])
     yy = np.array([-20.0, -10.0, 0.0, -10])
     pts = np.c_[mkvc(xx), mkvc(yy)]
-    mesh = refine_tree_xyz(mesh, pts, octree_levels=[2, 2], method="radial", finalize=False)
+    mesh.refine_points(pts, padding_cells_by_level=[2, 2], finalize=False)
 
     mesh.finalize()
 
@@ -283,7 +280,7 @@ we show some properties that can be extracted from a QuadTree mesh.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 186-192
+.. GENERATED FROM PYTHON SOURCE LINES 184-190
 
 3D Example
 ----------
@@ -292,7 +289,7 @@ Here we show how the same approach can be used to create and extract
 properties from a 3D tree mesh.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 192-247
+.. GENERATED FROM PYTHON SOURCE LINES 190-242
 
 .. code-block:: default
 
@@ -318,18 +315,15 @@ properties from a 3D tree mesh.
 
     # Refine surface topography
     [xx, yy] = np.meshgrid(mesh.vectorNx, mesh.vectorNy)
-    zz = -3 * np.exp((xx ** 2 + yy ** 2) / 100 ** 2) + 50.0
+    zz = -3 * np.exp((xx**2 + yy**2) / 100**2) + 50.0
     pts = np.c_[mkvc(xx), mkvc(yy), mkvc(zz)]
-    mesh = refine_tree_xyz(
-        mesh, pts, octree_levels=[2, 2], method="surface", finalize=False
-    )
+    padding = [[0, 0, 2], [0, 0, 2]]
+    mesh.refine_surface(pts, padding_cells_by_level=padding, finalize=False)
 
     # Refine box
     xp, yp, zp = np.meshgrid([-40.0, 40.0], [-40.0, 40.0], [-60.0, 0.0])
     xyz = np.c_[mkvc(xp), mkvc(yp), mkvc(zp)]
-
-    mesh = refine_tree_xyz(mesh, xyz, octree_levels=[2, 2], method="box", finalize=False)
-
+    mesh.refine_bounding_box(xyz, padding_cells_by_level=padding, finalize=False)
     mesh.finalize()
 
     # The bottom west corner
@@ -372,7 +366,7 @@ properties from a 3D tree mesh.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.596 seconds)
+   **Total running time of the script:** ( 0 minutes  0.855 seconds)
 
 
 .. _sphx_glr_download_tutorials_mesh_generation_4_tree_mesh.py:

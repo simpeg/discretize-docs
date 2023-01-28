@@ -73,7 +73,7 @@ ax1.text(face[0]+ds[0], face[1]+ds[1], face[2]+ds[2], "{0:d}".format(face_ind), 
 for ii, loc in zip(range(len(edge_ind)), edges):
     ax1.text(loc[0]+ds[0], loc[1]+ds[1], loc[2]+ds[2], "{0:d}".format(edge_ind[ii]), color="g")
 ax1.legend(
-    ['Mesh', '$\\mathbf{u}$ (edges)', '$\\mathbf{w}$ (face)'],
+    ['Mesh', r'$\mathbf{u}$ (edges)', r'$\mathbf{w}$ (face)'],
     loc='upper right', fontsize=14
 )
 #
