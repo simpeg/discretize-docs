@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_tutorials_operators_1_averaging.py>`
+        :ref:`Go to the end <sphx_glr_download_tutorials_operators_1_averaging.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -82,8 +82,8 @@ averaging operator.
     mesh = TensorMesh([h], "C")
 
     # Get node and cell center locations
-    x_nodes = mesh.vectorNx
-    x_centers = mesh.vectorCCx
+    x_nodes = mesh.nodes_x
+    x_centers = mesh.cell_centers_x
 
 
     # Define a continuous function
@@ -269,22 +269,22 @@ transpose as an averaging operator. This is also true for staggered grids.
 
     fig = plt.figure(figsize=(10, 10))
     ax1 = fig.add_subplot(221)
-    mesh.plotImage(v, ax=ax1)
+    mesh.plot_image(v, ax=ax1)
     ax1.set_title("Variable at cell centers")
 
     # Apply cell centers to faces averaging
     ax2 = fig.add_subplot(222)
-    mesh.plotImage(A2 * v, ax=ax2, v_type="F")
+    mesh.plot_image(A2 * v, ax=ax2, v_type="F")
     ax2.set_title("Cell centers to faces")
 
     # Use the transpose to go from cell centers to nodes
     ax3 = fig.add_subplot(223)
-    mesh.plotImage(A3.T * v, ax=ax3, v_type="N")
+    mesh.plot_image(A3.T * v, ax=ax3, v_type="N")
     ax3.set_title("Cell centers to nodes using transpose")
 
     # Use the transpose to go from cell centers to faces
     ax4 = fig.add_subplot(224)
-    mesh.plotImage(A4.T * v, ax=ax4, v_type="F")
+    mesh.plot_image(A4.T * v, ax=ax4, v_type="F")
     ax4.set_title("Cell centers to faces using transpose")
 
     fig.show()
@@ -303,7 +303,7 @@ transpose as an averaging operator. This is also true for staggered grids.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.800 seconds)
+   **Total running time of the script:** ( 0 minutes  0.619 seconds)
 
 
 .. _sphx_glr_download_tutorials_operators_1_averaging.py:
@@ -311,6 +311,8 @@ transpose as an averaging operator. This is also true for staggered grids.
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+
 
 
     .. container:: sphx-glr-download sphx-glr-download-python

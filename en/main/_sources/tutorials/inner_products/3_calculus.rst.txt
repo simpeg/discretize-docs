@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_tutorials_inner_products_3_calculus.py>`
+        :ref:`Go to the end <sphx_glr_download_tutorials_inner_products_3_calculus.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -101,7 +101,7 @@ for quantities living on cell faces, e.g.:
    (\vec{u} , \nabla \phi) \approx \mathbf{u^T M_f G_c \phi}
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-97
+.. GENERATED FROM PYTHON SOURCE LINES 72-99
 
 .. code-block:: default
 
@@ -111,13 +111,15 @@ for quantities living on cell faces, e.g.:
     mesh = TensorMesh([h, h, h])
 
     # Items required to perform u.T*(Me*Gn*phi)
-    Me = mesh.getEdgeInnerProduct()  # Basic inner product matrix (edges)
-    Gn = mesh.nodalGrad  # Nodes to edges gradient
+    Me = mesh.get_edge_inner_product()  # Basic inner product matrix (edges)
+    Gn = mesh.nodal_gradient  # Nodes to edges gradient
 
     # Items required to perform u.T*(Mf*Gc*phi)
-    Mf = mesh.getFaceInnerProduct()  # Basic inner product matrix (faces)
-    mesh.setCellGradBC(["neumann", "dirichlet", "neumann"])  # Set boundary conditions
-    Gc = mesh.cellGrad  # Cells to faces gradient
+    Mf = mesh.get_face_inner_product()  # Basic inner product matrix (faces)
+    mesh.set_cell_gradient_BC(
+        ["neumann", "dirichlet", "neumann"]
+    )  # Set boundary conditions
+    Gc = mesh.cell_gradient  # Cells to faces gradient
 
     # Plot Sparse Representation
     fig = plt.figure(figsize=(5, 6))
@@ -148,7 +150,7 @@ for quantities living on cell faces, e.g.:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-117
+.. GENERATED FROM PYTHON SOURCE LINES 100-119
 
 Divergence
 ----------
@@ -170,7 +172,7 @@ inner product is ultimately computed using an inner product matrix
    (\psi , \nabla \cdot \vec{v}) \approx \mathbf{\psi^T} \textrm{diag} (\mathbf{vol} ) \mathbf{D v}
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 117-133
+.. GENERATED FROM PYTHON SOURCE LINES 119-135
 
 .. code-block:: default
 
@@ -180,8 +182,8 @@ inner product is ultimately computed using an inner product matrix
     mesh = TensorMesh([h, h, h])
 
     # Items required to perform psi.T*(Mc*D*v)
-    Mc = sdiag(mesh.vol)  # Basic inner product matrix (centers)
-    D = mesh.faceDiv  # Faces to centers divergence
+    Mc = sdiag(mesh.cell_volumes)  # Basic inner product matrix (centers)
+    D = mesh.face_divergence  # Faces to centers divergence
 
     # Plot sparse representation
     fig = plt.figure(figsize=(8, 5))
@@ -208,7 +210,7 @@ inner product is ultimately computed using an inner product matrix
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-170
+.. GENERATED FROM PYTHON SOURCE LINES 136-172
 
 Curl
 ----
@@ -247,7 +249,7 @@ If done successfully:
     (\vec{u} , \nabla \times \vec{v}) \approx \mathbf{u^T M_e C_f v}
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 170-195
+.. GENERATED FROM PYTHON SOURCE LINES 172-197
 
 .. code-block:: default
 
@@ -257,12 +259,12 @@ If done successfully:
     mesh = TensorMesh([h, h, h])
 
     # Items required to perform u.T*(Mf*Ce*v)
-    Mf = mesh.getFaceInnerProduct()  # Basic inner product matrix (faces)
-    Ce = mesh.edgeCurl  # Edges to faces curl
+    Mf = mesh.get_face_inner_product()  # Basic inner product matrix (faces)
+    Ce = mesh.edge_curl  # Edges to faces curl
 
     # Items required to perform u.T*(Me*Cf*v)
-    Me = mesh.getEdgeInnerProduct()  # Basic inner product matrix (edges)
-    Cf = mesh.edgeCurl.T  # Faces to edges curl (assumes Dirichlet)
+    Me = mesh.get_edge_inner_product()  # Basic inner product matrix (edges)
+    Cf = mesh.edge_curl.T  # Faces to edges curl (assumes Dirichlet)
 
     # Plot Sparse Representation
     fig = plt.figure(figsize=(9, 5))
@@ -294,7 +296,7 @@ If done successfully:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 196-238
+.. GENERATED FROM PYTHON SOURCE LINES 198-240
 
 Scalar Laplacian
 ----------------
@@ -339,7 +341,7 @@ matrix (:math:`\mathbf{M_f}`) for quantities living on cell faces, e.g.:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 238-262
+.. GENERATED FROM PYTHON SOURCE LINES 240-264
 
 .. code-block:: default
 
@@ -349,13 +351,13 @@ matrix (:math:`\mathbf{M_f}`) for quantities living on cell faces, e.g.:
     mesh = TensorMesh([h, h, h])
 
     # Items required to perform psi.T*(Gn.T*Me*Gn*phi)
-    Me = mesh.getEdgeInnerProduct()  # Basic inner product matrix (edges)
-    Gn = mesh.nodalGrad  # Nodes to edges gradient
+    Me = mesh.get_edge_inner_product()  # Basic inner product matrix (edges)
+    Gn = mesh.nodal_gradient  # Nodes to edges gradient
 
     # Items required to perform psi.T*(Gc.T*Mf*Gc*phi)
-    Mf = mesh.getFaceInnerProduct()  # Basic inner product matrix (faces)
-    mesh.setCellGradBC(["dirichlet", "dirichlet", "dirichlet"])
-    Gc = mesh.cellGrad  # Centers to faces gradient
+    Mf = mesh.get_face_inner_product()  # Basic inner product matrix (faces)
+    mesh.set_cell_gradient_BC(["dirichlet", "dirichlet", "dirichlet"])
+    Gc = mesh.cell_gradient  # Centers to faces gradient
 
     # Plot Sparse Representation
     fig = plt.figure(figsize=(9, 4))
@@ -388,7 +390,7 @@ matrix (:math:`\mathbf{M_f}`) for quantities living on cell faces, e.g.:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.847 seconds)
+   **Total running time of the script:** ( 0 minutes  0.615 seconds)
 
 
 .. _sphx_glr_download_tutorials_inner_products_3_calculus.py:
@@ -396,6 +398,8 @@ matrix (:math:`\mathbf{M_f}`) for quantities living on cell faces, e.g.:
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+
 
 
     .. container:: sphx-glr-download sphx-glr-download-python

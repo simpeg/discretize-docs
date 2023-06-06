@@ -1,12 +1,14 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.TensorMesh &#8212; discretize 0.8.3 documentation</title>
+    <title>discretize.TensorMesh &#8212; discretize 0.9.0 documentation</title>
   
   
   
@@ -16,15 +18,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-<link href="../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -36,92 +38,105 @@
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.TensorMesh';</script>
-    <link rel="shortcut icon" href="../../_static/discretize-block.ico"/>
+    <link rel="icon" href="../../_static/discretize-block.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="discretize.TensorMesh.area" href="discretize.TensorMesh.area.html" />
     <link rel="prev" title="Discretize Meshes (discretize)" href="../discretize.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="docsearch:language" content="None">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
-
   
-  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
   <label class="overlay overlay-primary" for="__primary"></label>
-
   
-  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
   <label class="overlay overlay-secondary" for="__secondary"></label>
-
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
-      
-<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-    </div>
+</form></div>
   </div>
-
   
-  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
   <label class="sidebar-toggle primary-toggle" for="__primary">
-      <span class="fa-solid fa-bars"></span>
+    <span class="fa-solid fa-bars"></span>
   </label>
-  <div id="navbar-start">
-    
-    
   
-
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
 
 <a class="navbar-brand logo" href="../../index.html">
-
   
   
   
   
+    
+    
+      
+    
+    
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
-  
-
-  
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="Logo image">
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="Logo image">
-  
-  
-</a>
+</a></div>
     
   </div>
-
+  
   
   <div class="col-lg-9 navbar-header-items">
-    <div id="navbar-center" class="mr-auto">
+    
+    <div class="me-auto navbar-header-items__center">
       
-      <div class="navbar-center-item">
-        <nav class="navbar-nav">
-    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
-        Site Navigation
-    </p>
-    <ul id="navbar-main-elements" class="navbar-nav">
-        
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../../content/getting_started.html">
                         Getting Started
@@ -157,7 +172,7 @@
                     </li>
                 
             <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     More
                 </button>
                 <div class="dropdown-menu">
@@ -178,32 +193,39 @@
                 </div>
             </div>
             
-    </ul>
-</nav>
-      </div>
+  </ul>
+</nav></div>
       
     </div>
-
-    <div id="navbar-end">
+    
+    
+    <div class="navbar-header-items__end">
       
-        <div class="navbar-end-item navbar-persistent--container">
+        <div class="navbar-item navbar-persistent--container">
           
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
-  <i class="fa-solid fa-magnifying-glass"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
         </div>
       
       
-      <div class="navbar-end-item">
-        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
     <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
     <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-</button>
-      </div>
+  </button>
+`);
+</script></div>
       
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
         <li class="nav-item">
           
           
@@ -212,7 +234,8 @@
           
           
           
-          <a href="https://github.com/simpeg/discretize" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fab fa-github"></i></span>
+          
+          <a href="https://github.com/simpeg/discretize" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
@@ -223,7 +246,8 @@
           
           
           
-          <a href="http://slack.simpeg.xyz/" title="Slack" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fab fa-slack"></i></span>
+          
+          <a href="http://slack.simpeg.xyz/" title="Slack" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
             <label class="sr-only">Slack</label></a>
         </li>
         <li class="nav-item">
@@ -234,7 +258,8 @@
           
           
           
-          <a href="https://simpeg.discourse.group/" title="Discourse" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fab fa-discourse"></i></span>
+          
+          <a href="https://simpeg.discourse.group/" title="Discourse" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-discourse"></i></span>
             <label class="sr-only">Discourse</label></a>
         </li>
         <li class="nav-item">
@@ -245,7 +270,8 @@
           
           
           
-          <a href="https://www.youtube.com/c/geoscixyz" title="Youtube" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fab fa-youtube"></i></span>
+          
+          <a href="https://www.youtube.com/c/geoscixyz" title="Youtube" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-youtube"></i></span>
             <label class="sr-only">Youtube</label></a>
         </li>
         <li class="nav-item">
@@ -256,53 +282,58 @@
           
           
           
-          <a href="https://twitter.com/simpegpy" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fab fa-twitter"></i></span>
+          
+          <a href="https://twitter.com/simpegpy" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
-      </ul>
-      </div>
+</ul></div>
       
     </div>
+    
   </div>
-
-
   
   
     <div class="navbar-persistent--mobile">
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
-  <i class="fa-solid fa-magnifying-glass"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
     </div>
   
 
   
-  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
       <span class="fa-solid fa-outdent"></span>
-  </label>
+    </label>
   
-
 </div>
-  </nav>
-  
 
+    </nav>
+  
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
       <div class="bd-sidebar-primary bd-sidebar">
         
+
   
   <div class="sidebar-header-items sidebar-primary__section">
     
     
       <div class="sidebar-header-items__center">
-      
-      <div class="navbar-center-item">
-        <nav class="navbar-nav">
-    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
-        Site Navigation
-    </p>
-    <ul id="navbar-main-elements" class="navbar-nav">
         
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../../content/getting_started.html">
                         Getting Started
@@ -338,7 +369,7 @@
                     </li>
                 
             <div class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     More
                 </button>
                 <div class="dropdown-menu">
@@ -359,27 +390,28 @@
                 </div>
             </div>
             
-    </ul>
-</nav>
+  </ul>
+</nav></div>
+        
       </div>
-      
-      </div>
-    
-
     
     
-    <div class="sidebar-header-items__end">
-      
-      <div class="navbar-end-item">
-        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
     <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
     <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-</button>
-      </div>
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
         <li class="nav-item">
           
           
@@ -388,7 +420,8 @@
           
           
           
-          <a href="https://github.com/simpeg/discretize" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fab fa-github"></i></span>
+          
+          <a href="https://github.com/simpeg/discretize" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
@@ -399,7 +432,8 @@
           
           
           
-          <a href="http://slack.simpeg.xyz/" title="Slack" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fab fa-slack"></i></span>
+          
+          <a href="http://slack.simpeg.xyz/" title="Slack" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
             <label class="sr-only">Slack</label></a>
         </li>
         <li class="nav-item">
@@ -410,7 +444,8 @@
           
           
           
-          <a href="https://simpeg.discourse.group/" title="Discourse" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fab fa-discourse"></i></span>
+          
+          <a href="https://simpeg.discourse.group/" title="Discourse" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-discourse"></i></span>
             <label class="sr-only">Discourse</label></a>
         </li>
         <li class="nav-item">
@@ -421,7 +456,8 @@
           
           
           
-          <a href="https://www.youtube.com/c/geoscixyz" title="Youtube" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fab fa-youtube"></i></span>
+          
+          <a href="https://www.youtube.com/c/geoscixyz" title="Youtube" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-youtube"></i></span>
             <label class="sr-only">Youtube</label></a>
         </li>
         <li class="nav-item">
@@ -432,24 +468,21 @@
           
           
           
-          <a href="https://twitter.com/simpegpy" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fab fa-twitter"></i></span>
+          
+          <a href="https://twitter.com/simpegpy" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
-      </ul>
+</ul></div>
+        
       </div>
-      
-    </div>
     
   </div>
-
   
-  <div class="sidebar-start-items sidebar-primary__section">
-    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">
-    Section Navigation
-  </p>
-  <div class="bd-toc-item navbar-nav">
-    <ul class="current nav bd-sidenav">
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../discretize.html">Discretize Meshes (<code class="xref py py-mod docutils literal notranslate"><span class="pre">discretize</span></code>)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">discretize.TensorMesh</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.area.html">discretize.TensorMesh.area</a></li>
@@ -461,7 +494,7 @@
 <li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.average_cell_vector_to_face.html">discretize.TensorMesh.average_cell_vector_to_face</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.average_edge_to_cell.html">discretize.TensorMesh.average_edge_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.average_edge_to_cell_vector.html">discretize.TensorMesh.average_edge_to_cell_vector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.average_edge_to_face_vector.html">discretize.TensorMesh.average_edge_to_face_vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.average_edge_to_face.html">discretize.TensorMesh.average_edge_to_face</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.average_edge_x_to_cell.html">discretize.TensorMesh.average_edge_x_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.average_edge_y_to_cell.html">discretize.TensorMesh.average_edge_y_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.average_edge_z_to_cell.html">discretize.TensorMesh.average_edge_z_to_cell</a></li>
@@ -669,7 +702,7 @@
 <li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.average_cell_vector_to_face.html">discretize.CylindricalMesh.average_cell_vector_to_face</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.average_edge_to_cell.html">discretize.CylindricalMesh.average_edge_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.average_edge_to_cell_vector.html">discretize.CylindricalMesh.average_edge_to_cell_vector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.average_edge_to_face_vector.html">discretize.CylindricalMesh.average_edge_to_face_vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.average_edge_to_face.html">discretize.CylindricalMesh.average_edge_to_face</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.average_edge_x_to_cell.html">discretize.CylindricalMesh.average_edge_x_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.average_edge_y_to_cell.html">discretize.CylindricalMesh.average_edge_y_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.average_edge_z_to_cell.html">discretize.CylindricalMesh.average_edge_z_to_cell</a></li>
@@ -746,8 +779,10 @@
 <li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.hx.html">discretize.CylindricalMesh.hx</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.hy.html">discretize.CylindricalMesh.hy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.hz.html">discretize.CylindricalMesh.hz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.includes_zero.html">discretize.CylindricalMesh.includes_zero</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.isSymmetric.html">discretize.CylindricalMesh.isSymmetric</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.is_symmetric.html">discretize.CylindricalMesh.is_symmetric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.is_wrapped.html">discretize.CylindricalMesh.is_wrapped</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.nCx.html">discretize.CylindricalMesh.nCx</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.nCy.html">discretize.CylindricalMesh.nCy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CylindricalMesh.nCz.html">discretize.CylindricalMesh.nCz</a></li>
@@ -867,7 +902,7 @@
 <li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_cell_vector_to_face.html">discretize.CurvilinearMesh.average_cell_vector_to_face</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_to_cell.html">discretize.CurvilinearMesh.average_edge_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_to_cell_vector.html">discretize.CurvilinearMesh.average_edge_to_cell_vector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_to_face_vector.html">discretize.CurvilinearMesh.average_edge_to_face_vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_to_face.html">discretize.CurvilinearMesh.average_edge_to_face</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_x_to_cell.html">discretize.CurvilinearMesh.average_edge_x_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_y_to_cell.html">discretize.CurvilinearMesh.average_edge_y_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_z_to_cell.html">discretize.CurvilinearMesh.average_edge_z_to_cell</a></li>
@@ -1034,7 +1069,7 @@
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.average_cell_vector_to_face.html">discretize.TreeMesh.average_cell_vector_to_face</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.average_edge_to_cell.html">discretize.TreeMesh.average_edge_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.average_edge_to_cell_vector.html">discretize.TreeMesh.average_edge_to_cell_vector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.average_edge_to_face_vector.html">discretize.TreeMesh.average_edge_to_face_vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.average_edge_to_face.html">discretize.TreeMesh.average_edge_to_face</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.average_edge_x_to_cell.html">discretize.TreeMesh.average_edge_x_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.average_edge_y_to_cell.html">discretize.TreeMesh.average_edge_y_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.average_edge_z_to_cell.html">discretize.TreeMesh.average_edge_z_to_cell</a></li>
@@ -1188,6 +1223,7 @@
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.stencil_cell_gradient_y.html">discretize.TreeMesh.stencil_cell_gradient_y</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.stencil_cell_gradient_z.html">discretize.TreeMesh.stencil_cell_gradient_z</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.tangents.html">discretize.TreeMesh.tangents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.total_nodes.html">discretize.TreeMesh.total_nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.vectorCCx.html">discretize.TreeMesh.vectorCCx</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.vectorCCy.html">discretize.TreeMesh.vectorCCy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.vectorCCz.html">discretize.TreeMesh.vectorCCz</a></li>
@@ -1284,7 +1320,7 @@
 <li class="toctree-l3"><a class="reference internal" href="discretize.SimplexMesh.average_cell_vector_to_face.html">discretize.SimplexMesh.average_cell_vector_to_face</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.SimplexMesh.average_edge_to_cell.html">discretize.SimplexMesh.average_edge_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.SimplexMesh.average_edge_to_cell_vector.html">discretize.SimplexMesh.average_edge_to_cell_vector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="discretize.SimplexMesh.average_edge_to_face_vector.html">discretize.SimplexMesh.average_edge_to_face_vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.SimplexMesh.average_edge_to_face.html">discretize.SimplexMesh.average_edge_to_face</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.SimplexMesh.average_face_to_cell.html">discretize.SimplexMesh.average_face_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.SimplexMesh.average_face_to_cell_vector.html">discretize.SimplexMesh.average_face_to_cell_vector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.SimplexMesh.average_node_to_cell.html">discretize.SimplexMesh.average_node_to_cell</a></li>
@@ -1397,7 +1433,7 @@
 <li class="toctree-l3"><a class="reference internal" href="discretize.base.BaseMesh.average_cell_vector_to_face.html">discretize.base.BaseMesh.average_cell_vector_to_face</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.base.BaseMesh.average_edge_to_cell.html">discretize.base.BaseMesh.average_edge_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.base.BaseMesh.average_edge_to_cell_vector.html">discretize.base.BaseMesh.average_edge_to_cell_vector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="discretize.base.BaseMesh.average_edge_to_face_vector.html">discretize.base.BaseMesh.average_edge_to_face_vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.base.BaseMesh.average_edge_to_face.html">discretize.base.BaseMesh.average_edge_to_face</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.base.BaseMesh.average_face_to_cell.html">discretize.base.BaseMesh.average_face_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.base.BaseMesh.average_face_to_cell_vector.html">discretize.base.BaseMesh.average_face_to_cell_vector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.base.BaseMesh.average_node_to_cell.html">discretize.base.BaseMesh.average_node_to_cell</a></li>
@@ -1568,7 +1604,7 @@
 <li class="toctree-l3"><a class="reference internal" href="discretize.operators.DiffOperators.average_cell_vector_to_face.html">discretize.operators.DiffOperators.average_cell_vector_to_face</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.operators.DiffOperators.average_edge_to_cell.html">discretize.operators.DiffOperators.average_edge_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.operators.DiffOperators.average_edge_to_cell_vector.html">discretize.operators.DiffOperators.average_edge_to_cell_vector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="discretize.operators.DiffOperators.average_edge_to_face_vector.html">discretize.operators.DiffOperators.average_edge_to_face_vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.operators.DiffOperators.average_edge_to_face.html">discretize.operators.DiffOperators.average_edge_to_face</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.operators.DiffOperators.average_edge_x_to_cell.html">discretize.operators.DiffOperators.average_edge_x_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.operators.DiffOperators.average_edge_y_to_cell.html">discretize.operators.DiffOperators.average_edge_y_to_cell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.operators.DiffOperators.average_edge_z_to_cell.html">discretize.operators.DiffOperators.average_edge_z_to_cell</a></li>
@@ -1760,51 +1796,80 @@
 </ul>
 </li>
 </ul>
-
-  </div>
-</nav>
+</div>
+</nav></div>
     </div>
-  </div>
   
-
   
-  <div class="sidebar-end-items sidebar-primary__section">
-    <div class="sidebar-end-items__item">
-    </div>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-
   
   <div id="rtd-footer-container"></div>
 
+
       </div>
+      
       <main id="main-content" class="bd-main">
         
         
-        <div class="bd-content">
-          <div class="bd-article-container">
-            
-            <div class="bd-header-article">
-                
-            </div>
-            
-            
-            <article class="bd-article" role="main">
+          <div class="bd-content">
+            <div class="bd-article-container">
               
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../discretize.html" class="nav-link">Discretize Meshes (<code class="xref py py-mod docutils literal notranslate"><span class="pre">discretize</span></code>)</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">discretize.TensorMesh</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section id="discretize-tensormesh">
-<h1>discretize.TensorMesh<a class="headerlink" href="#discretize-tensormesh" title="Permalink to this headline">#</a></h1>
+<h1>discretize.TensorMesh<a class="headerlink" href="#discretize-tensormesh" title="Permalink to this heading">#</a></h1>
 <div class="graphviz"><img src="../../_images/inheritance-697628a40af969848824215cc1f35d1baa61a015.png" alt="Inheritance diagram of TensorMesh" usemap="#inheritance6568f8482e" class="inheritance graphviz" /></div>
 <map id="inheritance6568f8482e" name="inheritance6568f8482e">
-<area shape="rect" id="node1" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh" target="_top" title="Base mesh class for the ``discretize`` package." alt="" coords="5,79,95,104"/>
-<area shape="rect" id="node3" href="discretize.base.BaseRegularMesh.html#discretize.base.BaseRegularMesh" target="_top" title="Base Regular mesh class for the ``discretize`` package." alt="" coords="163,28,301,53"/>
-<area shape="rect" id="node5" href="discretize.operators.DiffOperators.html#discretize.operators.DiffOperators" target="_top" title="Class used for creating differential and averaging operators." alt="" coords="398,104,507,129"/>
-<area shape="rect" id="node6" href="discretize.operators.InnerProducts.html#discretize.operators.InnerProducts" target="_top" title="Class for constructing inner product matrices." alt="" coords="397,153,508,179"/>
-<area shape="rect" id="node2" href="discretize.base.BaseRectangularMesh.html#discretize.base.BaseRectangularMesh" target="_top" title="Base rectangular mesh class for the ``discretize`` package." alt="" coords="369,5,536,31"/>
-<area shape="rect" id="node12" href="#discretize.TensorMesh" target="_top" title="Tensor mesh class." alt="" coords="584,129,683,155"/>
-<area shape="rect" id="node4" href="discretize.base.BaseTensorMesh.html#discretize.base.BaseTensorMesh" target="_top" title="Base class for tensor&#45;product style meshes." alt="" coords="387,55,518,80"/>
-<area shape="rect" id="node7" href="discretize.mixins.InterfaceMPL.html#discretize.mixins.InterfaceMPL" target="_top" title="Class for plotting ``discretize`` meshes with matplotlib." alt="" coords="179,180,285,205"/>
-<area shape="rect" id="node9" href="discretize.mixins.InterfaceVTK.html#discretize.mixins.InterfaceVTK" target="_top" title="VTK interface for ``discretize`` meshes." alt="" coords="179,229,285,255"/>
-<area shape="rect" id="node10" href="discretize.mixins.InterfaceOMF.html#discretize.mixins.InterfaceOMF" target="_top" title="Convert between ``omf`` and ``discretize`` objects." alt="" coords="177,279,287,304"/>
-<area shape="rect" id="node13" href="discretize.mixins.TensorMeshIO.html#discretize.mixins.TensorMeshIO" target="_top" title="Class for managing the input/output of tensor meshes and models." alt="" coords="396,289,509,315"/>
+<area shape="rect" id="node1" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh" target="_top" title="Base mesh class for the ``discretize`` package." alt="" coords="5,96,94,124"/>
+<area shape="rect" id="node3" href="discretize.base.BaseRegularMesh.html#discretize.base.BaseRegularMesh" target="_top" title="Base Regular mesh class for the ``discretize`` package." alt="" coords="162,45,300,73"/>
+<area shape="rect" id="node5" href="discretize.operators.DiffOperators.html#discretize.operators.DiffOperators" target="_top" title="Class used for creating differential and averaging operators." alt="" coords="397,109,505,137"/>
+<area shape="rect" id="node6" href="discretize.operators.InnerProducts.html#discretize.operators.InnerProducts" target="_top" title="Class for constructing inner product matrices." alt="" coords="396,161,506,189"/>
+<area shape="rect" id="node2" href="discretize.base.BaseRectangularMesh.html#discretize.base.BaseRectangularMesh" target="_top" title="Base rectangular mesh class for the ``discretize`` package." alt="" coords="368,5,534,33"/>
+<area shape="rect" id="node12" href="#discretize.TensorMesh" target="_top" title="Tensor mesh class." alt="" coords="582,136,681,164"/>
+<area shape="rect" id="node4" href="discretize.base.BaseTensorMesh.html#discretize.base.BaseTensorMesh" target="_top" title="Base class for tensor&#45;product style meshes." alt="" coords="386,57,516,85"/>
+<area shape="rect" id="node7" href="discretize.mixins.InterfaceMPL.html#discretize.mixins.InterfaceMPL" target="_top" title="Class for plotting ``discretize`` meshes with matplotlib." alt="" coords="178,197,284,225"/>
+<area shape="rect" id="node9" href="discretize.mixins.InterfaceVTK.html#discretize.mixins.InterfaceVTK" target="_top" title="VTK interface for ``discretize`` meshes." alt="" coords="178,249,284,277"/>
+<area shape="rect" id="node10" href="discretize.mixins.InterfaceOMF.html#discretize.mixins.InterfaceOMF" target="_top" title="Convert between ``omf`` and ``discretize`` objects." alt="" coords="176,301,286,329"/>
+<area shape="rect" id="node13" href="discretize.mixins.TensorMeshIO.html#discretize.mixins.TensorMeshIO" target="_top" title="Class for managing the input/output of tensor meshes and models." alt="" coords="395,315,507,342"/>
 </map><dl class="py class">
 <dt class="sig sig-object py" id="discretize.TensorMesh">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.</span></span><span class="sig-name descname"><span class="pre">TensorMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tensor_mesh.py#L11-L602"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.TensorMesh" title="Permalink to this definition">#</a></dt>
@@ -1814,7 +1879,7 @@ volumes, etc… can be directly expressed as tensor products. The axes defining
 coordinates of the mesh are orthogonal. And cell properties along one axis do
 not vary with respect to the position along any other axis.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>h</strong><span class="classifier">(<a class="reference internal" href="discretize.TensorMesh.dim.html#discretize.TensorMesh.dim" title="discretize.TensorMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://docs.python.org/3/glossary.html#term-iterable" title="(in Python v3.11)"><span>iterable</span></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">or</span></code> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a></span></dt><dd><p>Defines the cell widths along each axis. The length of the iterable object is
 equal to the dimension of the mesh (1, 2 or 3). For a 3D mesh, the list would
@@ -1877,16 +1942,12 @@ x-axis about x = 0 and set the top of the mesh to y = 0.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../../api/generated/discretize-TensorMesh-1.py">Source code</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-1.png">png</a>, <a class="reference external" href="../../api/generated/discretize-TensorMesh-1.pdf">pdf</a>)</p>
+<p>(<a class="reference download internal" download="" href="../../_downloads/1886e30b9f41695ce0311f88db8fce7c/discretize-TensorMesh-1.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="../../_downloads/e85171b1984f0ea725d3dd184a34acbe/discretize-TensorMesh-1.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../../_downloads/6c69b80d037622225f251fc872f7f196/discretize-TensorMesh-1.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-default">
 <img alt="../../_images/discretize-TensorMesh-1.png" class="plot-directive" src="../../_images/discretize-TensorMesh-1.png" />
 </figure>
 <p class="rubric">Attributes</p>
 <table class="autosummary longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.area.html#discretize.TensorMesh.area" title="discretize.TensorMesh.area"><code class="xref py py-obj docutils literal notranslate"><span class="pre">area</span></code></a></p></td>
 <td><p><cite>area</cite> has been deprecated.</p></td>
@@ -1915,8 +1976,8 @@ x-axis about x = 0 and set the top of the mesh to y = 0.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.average_edge_to_cell_vector.html#discretize.TensorMesh.average_edge_to_cell_vector" title="discretize.TensorMesh.average_edge_to_cell_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_edge_to_cell_vector</span></code></a></p></td>
 <td><p>Averaging operator from edges to cell centers (vector quantities).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.average_edge_to_face_vector.html#discretize.TensorMesh.average_edge_to_face_vector" title="discretize.TensorMesh.average_edge_to_face_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_edge_to_face_vector</span></code></a></p></td>
-<td><p>Averaging operator from edges to faces (vector quantities).</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.average_edge_to_face.html#discretize.TensorMesh.average_edge_to_face" title="discretize.TensorMesh.average_edge_to_face"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_edge_to_face</span></code></a></p></td>
+<td><p>Averaging operator from edges to faces.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.average_edge_x_to_cell.html#discretize.TensorMesh.average_edge_x_to_cell" title="discretize.TensorMesh.average_edge_x_to_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_edge_x_to_cell</span></code></a></p></td>
 <td><p>Averaging operator from x-edges to cell centers (scalar quantities).</p></td>
@@ -2324,10 +2385,6 @@ x-axis about x = 0 and set the top of the mesh to y = 0.</p>
 </table>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_gradient_weak_form_robin.html#discretize.TensorMesh.cell_gradient_weak_form_robin" title="discretize.TensorMesh.cell_gradient_weak_form_robin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_weak_form_robin</span></code></a>([alpha, beta, ...])</p></td>
 <td><p>Create Robin conditions pieces for weak form of the cell gradient operator (cell centers to faces).</p></td>
@@ -2351,28 +2408,28 @@ x-axis about x = 0 and set the top of the mesh to y = 0.</p>
 <td><p>Convert an <code class="docutils literal notranslate"><span class="pre">omf</span></code> object to a <code class="docutils literal notranslate"><span class="pre">discretize</span></code> mesh.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.getBCProjWF.html#discretize.TensorMesh.getBCProjWF" title="discretize.TensorMesh.getBCProjWF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getBCProjWF</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>getBCProjWF</cite> has been deprecated.</p></td>
+<td><p><cite>getBCProjWF</cite> has been removed.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.getBCProjWF_simple.html#discretize.TensorMesh.getBCProjWF_simple" title="discretize.TensorMesh.getBCProjWF_simple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getBCProjWF_simple</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>getBCProjWF_simple</cite> has been deprecated.</p></td>
+<td><p><cite>getBCProjWF_simple</cite> has been removed.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.getEdgeInnerProduct.html#discretize.TensorMesh.getEdgeInnerProduct" title="discretize.TensorMesh.getEdgeInnerProduct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEdgeInnerProduct</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>getEdgeInnerProduct</cite> has been deprecated.</p></td>
+<td><p><cite>getEdgeInnerProduct</cite> has been removed.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.getEdgeInnerProductDeriv.html#discretize.TensorMesh.getEdgeInnerProductDeriv" title="discretize.TensorMesh.getEdgeInnerProductDeriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEdgeInnerProductDeriv</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>getEdgeInnerProductDeriv</cite> has been deprecated.</p></td>
+<td><p><cite>getEdgeInnerProductDeriv</cite> has been removed.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.getFaceInnerProduct.html#discretize.TensorMesh.getFaceInnerProduct" title="discretize.TensorMesh.getFaceInnerProduct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFaceInnerProduct</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>getFaceInnerProduct</cite> has been deprecated.</p></td>
+<td><p><cite>getFaceInnerProduct</cite> has been removed.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.getFaceInnerProductDeriv.html#discretize.TensorMesh.getFaceInnerProductDeriv" title="discretize.TensorMesh.getFaceInnerProductDeriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFaceInnerProductDeriv</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>getFaceInnerProductDeriv</cite> has been deprecated.</p></td>
+<td><p><cite>getFaceInnerProductDeriv</cite> has been removed.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.getInterpolationMat.html#discretize.TensorMesh.getInterpolationMat" title="discretize.TensorMesh.getInterpolationMat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterpolationMat</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>getInterpolationMat</cite> has been deprecated.</p></td>
+<td><p><cite>getInterpolationMat</cite> has been removed.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.getTensor.html#discretize.TensorMesh.getTensor" title="discretize.TensorMesh.getTensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getTensor</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>getTensor</cite> has been deprecated.</p></td>
+<td><p><cite>getTensor</cite> has been removed.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.get_BC_projections.html#discretize.TensorMesh.get_BC_projections" title="discretize.TensorMesh.get_BC_projections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_BC_projections</span></code></a>(BC[, discretization])</p></td>
 <td><p>Create the weak form boundary condition projection matrices.</p></td>
@@ -2399,7 +2456,7 @@ x-axis about x = 0 and set the top of the mesh to y = 0.</p>
 <td><p>Return the base 1D arrays for a specified mesh tensor.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.isInside.html#discretize.TensorMesh.isInside" title="discretize.TensorMesh.isInside"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isInside</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>isInside</cite> has been deprecated.</p></td>
+<td><p><cite>isInside</cite> has been removed.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.is_inside.html#discretize.TensorMesh.is_inside" title="discretize.TensorMesh.is_inside"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_inside</span></code></a>(pts[, location_type])</p></td>
 <td><p>Determine which points lie within the mesh.</p></td>
@@ -2429,10 +2486,10 @@ x-axis about x = 0 and set the top of the mesh to y = 0.</p>
 <td><p>Find cells that contain the given points.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.projectEdgeVector.html#discretize.TensorMesh.projectEdgeVector" title="discretize.TensorMesh.projectEdgeVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectEdgeVector</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>projectEdgeVector</cite> has been deprecated.</p></td>
+<td><p><cite>projectEdgeVector</cite> has been removed.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.projectFaceVector.html#discretize.TensorMesh.projectFaceVector" title="discretize.TensorMesh.projectFaceVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectFaceVector</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>projectFaceVector</cite> has been deprecated.</p></td>
+<td><p><cite>projectFaceVector</cite> has been removed.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.project_edge_vector.html#discretize.TensorMesh.project_edge_vector" title="discretize.TensorMesh.project_edge_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_edge_vector</span></code></a>(edge_vectors)</p></td>
 <td><p>Project vectors to the edges of the mesh.</p></td>
@@ -2441,10 +2498,10 @@ x-axis about x = 0 and set the top of the mesh to y = 0.</p>
 <td><p>Project vectors onto the faces of the mesh.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.r.html#discretize.TensorMesh.r" title="discretize.TensorMesh.r"><code class="xref py py-obj docutils literal notranslate"><span class="pre">r</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>r</cite> has been deprecated.</p></td>
+<td><p><cite>r</cite> has been removed.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.readModelUBC.html#discretize.TensorMesh.readModelUBC" title="discretize.TensorMesh.readModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readModelUBC</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>readModelUBC</cite> has been deprecated.</p></td>
+<td><p><cite>readModelUBC</cite> has been removed.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.readUBC.html#discretize.TensorMesh.readUBC" title="discretize.TensorMesh.readUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readUBC</span></code></a>(file_name[, directory])</p></td>
 <td><p>Read 2D or 3D tensor mesh from UBC-GIF formatted file.</p></td>
@@ -2471,7 +2528,7 @@ x-axis about x = 0 and set the top of the mesh to y = 0.</p>
 <td><p>Represent the mesh's attributes as a dictionary.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.setCellGradBC.html#discretize.TensorMesh.setCellGradBC" title="discretize.TensorMesh.setCellGradBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCellGradBC</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>setCellGradBC</cite> has been deprecated.</p></td>
+<td><p><cite>setCellGradBC</cite> has been removed.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.set_cell_gradient_BC.html#discretize.TensorMesh.set_cell_gradient_BC" title="discretize.TensorMesh.set_cell_gradient_BC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cell_gradient_BC</span></code></a>(BC)</p></td>
 <td><p>Set boundary conditions for derivative operators acting on cell-centered quantities.</p></td>
@@ -2495,10 +2552,10 @@ x-axis about x = 0 and set the top of the mesh to y = 0.</p>
 <td><p>Convert vtk object to a TensorMesh.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.writeModelUBC.html#discretize.TensorMesh.writeModelUBC" title="discretize.TensorMesh.writeModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeModelUBC</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>writeModelUBC</cite> has been deprecated.</p></td>
+<td><p><cite>writeModelUBC</cite> has been removed.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.writeUBC.html#discretize.TensorMesh.writeUBC" title="discretize.TensorMesh.writeUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeUBC</span></code></a>(*args, **kwargs)</p></td>
-<td><p><cite>writeUBC</cite> has been deprecated.</p></td>
+<td><p><cite>writeUBC</cite> has been removed.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.writeVTK.html#discretize.TensorMesh.writeVTK" title="discretize.TensorMesh.writeVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeVTK</span></code></a>(file_name[, models, directory])</p></td>
 <td><p>Convert mesh (and models) to corresponding VTK or PyVista data object then writes to file.</p></td>
@@ -2517,175 +2574,162 @@ x-axis about x = 0 and set the top of the mesh to y = 0.</p>
 </dd></dl>
 
 <section id="galleries-and-tutorials-using-discretize-tensormesh">
-<h2>Galleries and Tutorials using <code class="docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code><a class="headerlink" href="#galleries-and-tutorials-using-discretize-tensormesh" title="Permalink to this headline">#</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="This example is based on the example in the FiPy_ library. Please see their documentation for m..."><img alt="Operators: Cahn Hilliard" src="../../_images/sphx_glr_plot_cahn_hilliard_thumb.png" />
+<h2>Galleries and Tutorials using <code class="docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code><a class="headerlink" href="#galleries-and-tutorials-using-discretize-tensormesh" title="Permalink to this heading">#</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="This example is based on the example in the FiPy_ library. Please see their documentation for m..."><img alt="" src="../../_images/sphx_glr_plot_cahn_hilliard_thumb.png" />
 <p><a class="reference internal" href="../../examples/plot_cahn_hilliard.html#sphx-glr-examples-plot-cahn-hilliard-py"><span class="std std-ref">Operators: Cahn Hilliard</span></a></p>
   <div class="sphx-glr-thumbnail-title">Operators: Cahn Hilliard</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="2D DC forward modeling example with Tensor and Curvilinear Meshes"><img alt="Basic Forward 2D DC Resistivity" src="../../_images/sphx_glr_plot_dc_resistivity_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="2D DC forward modeling example with Tensor and Curvilinear Meshes"><img alt="" src="../../_images/sphx_glr_plot_dc_resistivity_thumb.png" />
 <p><a class="reference internal" href="../../examples/plot_dc_resistivity.html#sphx-glr-examples-plot-dc-resistivity-py"><span class="std std-ref">Basic Forward 2D DC Resistivity</span></a></p>
   <div class="sphx-glr-thumbnail-title">Basic Forward 2D DC Resistivity</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="You can use M.PlotImage to plot images on all of the Meshes."><img alt="Basic: PlotImage" src="../../_images/sphx_glr_plot_image_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="You can use M.PlotImage to plot images on all of the Meshes."><img alt="" src="../../_images/sphx_glr_plot_image_thumb.png" />
 <p><a class="reference internal" href="../../examples/plot_image.html#sphx-glr-examples-plot-image-py"><span class="std std-ref">Basic: PlotImage</span></a></p>
   <div class="sphx-glr-thumbnail-title">Basic: PlotImage</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="The example demonstrates the how to use the VTK interface via the `pyvista library &lt;http://docs..."><img alt="3D Visualization with PyVista" src="../../_images/sphx_glr_plot_pyvista_laguna_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="The example demonstrates the how to use the VTK interface via the pyvista library . To run this..."><img alt="" src="../../_images/sphx_glr_plot_pyvista_laguna_thumb.png" />
 <p><a class="reference internal" href="../../examples/plot_pyvista_laguna.html#sphx-glr-examples-plot-pyvista-laguna-py"><span class="std std-ref">3D Visualization with PyVista</span></a></p>
   <div class="sphx-glr-thumbnail-title">3D Visualization with PyVista</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="The example demonstrates the plot_3d_slicer"><img alt="Slicer demo" src="../../_images/sphx_glr_plot_slicer_demo_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="The example demonstrates the plot_3d_slicer"><img alt="" src="../../_images/sphx_glr_plot_slicer_demo_thumb.png" />
 <p><a class="reference internal" href="../../examples/plot_slicer_demo.html#sphx-glr-examples-plot-slicer-demo-py"><span class="std std-ref">Slicer demo</span></a></p>
   <div class="sphx-glr-thumbnail-title">Slicer demo</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="A simple example to vary streamline thickness based on the vector amplitudes"><img alt="Plotting: Streamline thickness" src="../../_images/sphx_glr_plot_streamThickness_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="A simple example to vary streamline thickness based on the vector amplitudes"><img alt="" src="../../_images/sphx_glr_plot_streamThickness_thumb.png" />
 <p><a class="reference internal" href="../../examples/plot_streamThickness.html#sphx-glr-examples-plot-streamthickness-py"><span class="std std-ref">Plotting: Streamline thickness</span></a></p>
   <div class="sphx-glr-thumbnail-title">Plotting: Streamline thickness</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Here we provide an overview of mesh types and define some terminology. Separate tutorials have ..."><img alt="Overview of Mesh Types" src="../../_images/sphx_glr_1_mesh_overview_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we provide an overview of mesh types and define some terminology. Separate tutorials have ..."><img alt="" src="../../_images/sphx_glr_1_mesh_overview_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/mesh_generation/1_mesh_overview.html#sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">Overview of Mesh Types</span></a></p>
   <div class="sphx-glr-thumbnail-title">Overview of Mesh Types</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Tensor meshes are the most basic class of meshes that can be created with discretize. They belo..."><img alt="Tensor meshes" src="../../_images/sphx_glr_2_tensor_mesh_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Tensor meshes are the most basic class of meshes that can be created with discretize. They belo..."><img alt="" src="../../_images/sphx_glr_2_tensor_mesh_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/mesh_generation/2_tensor_mesh.html#sphx-glr-tutorials-mesh-generation-2-tensor-mesh-py"><span class="std std-ref">Tensor meshes</span></a></p>
   <div class="sphx-glr-thumbnail-title">Tensor meshes</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Averaging matricies are used when a discrete variable living on some part of the mesh (e.g. nod..."><img alt="Averaging Matricies" src="../../_images/sphx_glr_1_averaging_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Averaging matricies are used when a discrete variable living on some part of the mesh (e.g. nod..."><img alt="" src="../../_images/sphx_glr_1_averaging_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/operators/1_averaging.html#sphx-glr-tutorials-operators-1-averaging-py"><span class="std std-ref">Averaging Matricies</span></a></p>
   <div class="sphx-glr-thumbnail-title">Averaging Matricies</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="For discretized quantities living on a mesh, sparse matricies can be used to approximate the fo..."><img alt="Differential Operators" src="../../_images/sphx_glr_2_differential_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="For discretized quantities living on a mesh, sparse matricies can be used to approximate the fo..."><img alt="" src="../../_images/sphx_glr_2_differential_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/operators/2_differential.html#sphx-glr-tutorials-operators-2-differential-py"><span class="std std-ref">Differential Operators</span></a></p>
   <div class="sphx-glr-thumbnail-title">Differential Operators</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Inner products between two scalar or vector quantities represents the most basic class of inner..."><img alt="Basic Inner Products" src="../../_images/sphx_glr_1_basic_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Inner products between two scalar or vector quantities represents the most basic class of inner..."><img alt="" src="../../_images/sphx_glr_1_basic_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/inner_products/1_basic.html#sphx-glr-tutorials-inner-products-1-basic-py"><span class="std std-ref">Basic Inner Products</span></a></p>
   <div class="sphx-glr-thumbnail-title">Basic Inner Products</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain constitutive rel..."><img alt="Constitutive Relations" src="../../_images/sphx_glr_2_physical_properties_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain constitutive rel..."><img alt="" src="../../_images/sphx_glr_2_physical_properties_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/inner_products/2_physical_properties.html#sphx-glr-tutorials-inner-products-2-physical-properties-py"><span class="std std-ref">Constitutive Relations</span></a></p>
   <div class="sphx-glr-thumbnail-title">Constitutive Relations</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain differential ope..."><img alt="Differential Operators" src="../../_images/sphx_glr_3_calculus_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain differential ope..."><img alt="" src="../../_images/sphx_glr_3_calculus_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/inner_products/3_calculus.html#sphx-glr-tutorials-inner-products-3-calculus-py"><span class="std std-ref">Differential Operators</span></a></p>
   <div class="sphx-glr-thumbnail-title">Differential Operators</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="In this section, we demonstrate how to go from the inner product to the discrete approximation ..."><img alt="Advanced Examples" src="../../_images/sphx_glr_4_advanced_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this section, we demonstrate how to go from the inner product to the discrete approximation ..."><img alt="" src="../../_images/sphx_glr_4_advanced_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/inner_products/4_advanced.html#sphx-glr-tutorials-inner-products-4-advanced-py"><span class="std std-ref">Advanced Examples</span></a></p>
   <div class="sphx-glr-thumbnail-title">Advanced Examples</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to solve for the electric potential (:math:`\phi`) and elect..."><img alt="Gauss' Law of Electrostatics" src="../../_images/sphx_glr_1_poisson_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to solve for the electric potential (\phi) and electric fiel..."><img alt="" src="../../_images/sphx_glr_1_poisson_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/pde/1_poisson.html#sphx-glr-tutorials-pde-1-poisson-py"><span class="std std-ref">Gauss’ Law of Electrostatics</span></a></p>
   <div class="sphx-glr-thumbnail-title">Gauss' Law of Electrostatics</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to model the advection-diffusion equation. The goal of this ..."><img alt="Advection-Diffusion Equation" src="../../_images/sphx_glr_2_advection_diffusion_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to model the advection-diffusion equation. The goal of this ..."><img alt="" src="../../_images/sphx_glr_2_advection_diffusion_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/pde/2_advection_diffusion.html#sphx-glr-tutorials-pde-2-advection-diffusion-py"><span class="std std-ref">Advection-Diffusion Equation</span></a></p>
   <div class="sphx-glr-thumbnail-title">Advection-Diffusion Equation</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Solve a nodal Poisson&#x27;s equation with Dirichlet boundary conditions ---------------------------..."><img alt="" src="../../_images/sphx_glr_3_nodal_dirichlet_poisson_thumb.png" />
+<p><a class="reference internal" href="../../tutorials/pde/3_nodal_dirichlet_poisson.html#sphx-glr-tutorials-pde-3-nodal-dirichlet-poisson-py"><span class="std std-ref">Nodal Dirichlet Poisson solution</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Nodal Dirichlet Poisson solution</div>
 </div></div></section>
 </section>
 
 
-            </article>
-            
-            
-            
-            <footer class="bd-footer-article">
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="../discretize.html" title="previous page">
+                </article>
+              
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../discretize.html"
+       title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-          <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Discretize Meshes (<code class="xref py py-mod docutils literal notranslate"><span class="pre">discretize</span></code>)</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Discretize Meshes (<code class="xref py py-mod docutils literal notranslate"><span class="pre">discretize</span></code>)</p>
       </div>
-  </a>
-  <a class='right-next' id="next-link" href="discretize.TensorMesh.area.html" title="next page">
-  <div class="prev-next-info">
-      <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">discretize.TensorMesh.area</p>
-  </div>
-  <i class="fa-solid fa-angle-right"></i>
-  </a>
-</div>
-            </footer>
-            
-          </div>
-          
-          
-          
-            <div class="bd-sidebar-secondary bd-toc">
-              
-<div class="toc-item">
-  
-<div class="tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-</div>
-<nav id="bd-toc-nav" class="page-toc">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#galleries-and-tutorials-using-discretize-tensormesh">
-   Galleries and Tutorials using
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     discretize.TensorMesh
-    </span>
-   </code>
-  </a>
- </li>
-</ul>
-
-</nav>
-</div>
-
-<div class="toc-item">
-  
-<div id="searchbox"></div>
-</div>
-
-<div class="toc-item">
-  
-</div>
-
-<div class="toc-item">
-  
-<div class="tocsection sourcelink">
-    <a href="../../_sources/api/generated/discretize.TensorMesh.rst.txt">
-        <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
+    <a class="right-next"
+       href="discretize.TensorMesh.area.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">discretize.TensorMesh.area</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
 </div>
 
-</div>
-
+                </footer>
+              
             </div>
-          
-          
-        </div>
-        <footer class="bd-footer-content">
-          <div class="bd-footer-content__inner">
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discretize.TensorMesh"><code class="docutils literal notranslate"><span class="pre">TensorMesh</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#galleries-and-tutorials-using-discretize-tensormesh">Galleries and Tutorials using <code class="docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code></a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/api/generated/discretize.TensorMesh.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
             
           </div>
-        </footer>
+          <footer class="bd-footer-content">
+            
+          </footer>
         
       </main>
     </div>
   </div>
-
   
-    
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-  <footer class="bd-footer"><div class="bd-footer__inner container">
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
   
-  <div class="footer-item">
-    
-  </div>
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    <br/>
+  </p>
+</div>
+      
+    </div>
   
-  <div class="footer-item">
-    <p class="theme-version">
-    Built with the
-    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">
-        PyData Sphinx Theme
-    </a>
-    0.12.0.
-</p>
-  </div>
   
-  <div class="footer-item">
-    
-<p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
-</p>
-
-  </div>
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
   
 </div>
+
   </footer>
   </body>
 </html>

@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_examples_plot_cahn_hilliard.py>`
+        :ref:`Go to the end <sphx_glr_download_examples_plot_cahn_hilliard.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -82,8 +82,8 @@ as the time increases.
     50 1.5516664382758794
     60 2.643519139778099
     70 4.443679913216204
-    80 7.411643271063606
-    90 12.304987589805194
+    80 7.411643271063607
+    90 12.304987589805195
     100 20.37274845297408
     110 33.67423739500265
     120 55.604685145707705
@@ -126,8 +126,8 @@ as the time increases.
         I = discretize.utils.speye(M.nC)
 
         # Operators
-        A = D * M.faceDiv * M.cellGrad
-        L = epsilon**2 * M.faceDiv * M.cellGrad
+        A = D * M.face_divergence * M.cell_gradient
+        L = epsilon**2 * M.face_divergence * M.cell_gradient
 
         duration = 75
         elapsed = 0.0
@@ -160,7 +160,7 @@ as the time increases.
             axes = np.array(axes).flatten().tolist()
             for ii, ax in zip(np.linspace(0, len(PHIS) - 1, len(axes)), axes):
                 ii = int(ii)
-                M.plotImage(PHIS[ii][1], ax=ax)
+                M.plot_image(PHIS[ii][1], ax=ax)
                 ax.axis("off")
                 ax.set_title("Elapsed Time: {0:4.1f}".format(PHIS[ii][0]))
 
@@ -172,7 +172,7 @@ as the time increases.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.606 seconds)
+   **Total running time of the script:** ( 0 minutes  4.932 seconds)
 
 
 .. _sphx_glr_download_examples_plot_cahn_hilliard.py:
@@ -180,6 +180,8 @@ as the time increases.
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+
 
 
     .. container:: sphx-glr-download sphx-glr-download-python

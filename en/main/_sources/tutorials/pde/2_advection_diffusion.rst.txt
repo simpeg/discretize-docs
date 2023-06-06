@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_tutorials_pde_2_advection_diffusion.py>`
+        :ref:`Go to the end <sphx_glr_download_tutorials_pde_2_advection_diffusion.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -237,14 +237,14 @@ Solving the Problem
 
     # Define the matrix M
     Afc = mesh.dim * mesh.aveF2CC  # modified averaging operator to sum dot product
-    Mf_inv = mesh.getFaceInnerProduct(invMat=True)
-    Mc = sdiag(mesh.vol)
-    Mc_inv = sdiag(1 / mesh.vol)
-    Mf_alpha_inv = mesh.getFaceInnerProduct(a, invProp=True, invMat=True)
+    Mf_inv = mesh.get_face_inner_product(invert_matrix=True)
+    Mc = sdiag(mesh.cell_volumes)
+    Mc_inv = sdiag(1 / mesh.cell_volumes)
+    Mf_alpha_inv = mesh.get_face_inner_product(a, invert_model=True, invert_matrix=True)
 
-    mesh.setCellGradBC(["neumann", "neumann"])  # Set Neumann BC
-    G = mesh.cellGrad
-    D = mesh.faceDiv
+    mesh.set_cell_gradient_BC(["neumann", "neumann"])  # Set Neumann BC
+    G = mesh.cell_gradient
+    D = mesh.face_divergence
 
     M = -D * Mf_alpha_inv * G * Mc + Afc * sdiag(u) * Mf_inv * G * Mc
 
@@ -265,7 +265,7 @@ Solving the Problem
     ax = 9 * [None]
 
     ax[0] = fig.add_subplot(332)
-    mesh.plotImage(
+    mesh.plot_image(
         u,
         ax=ax[0],
         v_type="F",
@@ -289,7 +289,7 @@ Solving the Problem
 
         if ii + 1 in (1, 25, 50, 100, 200, 300):
             ax[n] = fig.add_subplot(3, 3, n + 1)
-            mesh.plotImage(p, v_type="CC", ax=ax[n], pcolor_opts={"cmap": "gist_heat_r"})
+            mesh.plot_image(p, v_type="CC", ax=ax[n], pcolor_opts={"cmap": "gist_heat_r"})
             title_str = "p at t = " + str((ii + 1) * dt) + " s"
             ax[n].set_title(title_str)
             n = n + 1
@@ -308,7 +308,7 @@ Solving the Problem
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.582 seconds)
+   **Total running time of the script:** ( 0 minutes  1.135 seconds)
 
 
 .. _sphx_glr_download_tutorials_pde_2_advection_diffusion.py:
@@ -316,6 +316,8 @@ Solving the Problem
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+
 
 
     .. container:: sphx-glr-download sphx-glr-download-python
