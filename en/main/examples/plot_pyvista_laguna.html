@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3D Visualization with PyVista &#8212; discretize 0.9.0 documentation</title>
+    <title>3D Visualization with PyVista &#8212; discretize 0.10.0 documentation</title>
   
   
   
@@ -28,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6cad16a3" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=7e54ce6f"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/plot_pyvista_laguna';</script>
     <link rel="icon" href="../_static/discretize-block.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -588,7 +588,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="d-visualization-with-pyvista">
-<span id="pyvista-demo-ref"></span><span id="sphx-glr-examples-plot-pyvista-laguna-py"></span><h1>3D Visualization with PyVista<a class="headerlink" href="#d-visualization-with-pyvista" title="Permalink to this heading">#</a></h1>
+<span id="pyvista-demo-ref"></span><span id="sphx-glr-examples-plot-pyvista-laguna-py"></span><h1>3D Visualization with PyVista<a class="headerlink" href="#d-visualization-with-pyvista" title="Link to this heading">#</a></h1>
 <p>The example demonstrates the how to use the VTK interface via the
 <a class="reference external" href="http://docs.pyvista.org">pyvista library</a> .
 To run this example, you will need to <a class="reference external" href="http://docs.pyvista.org/getting-started/installation.html">install pyvista</a> .</p>
@@ -610,11 +610,11 @@ To run this example, you will need to <a class="reference external" href="http:/
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PyVista Version: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pv</span><span class="o">.</span><span class="n">__version__</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>PyVista Version: 0.39.1
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>PyVista Version: 0.42.3
 </pre></div>
 </div>
 <section id="download-and-load-data">
-<h2>Download and load data<a class="headerlink" href="#download-and-load-data" title="Permalink to this heading">#</a></h2>
+<h2>Download and load data<a class="headerlink" href="#download-and-load-data" title="Link to this heading">#</a></h2>
 <p>In the following we load the <code class="code docutils literal notranslate"><span class="pre">mesh</span></code> and <code class="code docutils literal notranslate"><span class="pre">Lpout</span></code> that you would
 get from running the laguna-del-maule inversion notebook as well as some of
 the raw data for the topography surface and gravity observations.</p>
@@ -652,7 +652,7 @@ Download completed!
 </div>
 </section>
 <section id="create-pyvista-data-objects">
-<h2>Create PyVista data objects<a class="headerlink" href="#create-pyvista-data-objects" title="Permalink to this heading">#</a></h2>
+<h2>Create PyVista data objects<a class="headerlink" href="#create-pyvista-data-objects" title="Link to this heading">#</a></h2>
 <p>Here we start making PyVista data objects of all the spatially referenced
 data.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the PyVista dataset of the inverted model</span>
@@ -749,7 +749,7 @@ data.</p>
 </div>
 <img src="../_images/sphx_glr_plot_pyvista_laguna_001.png" srcset="../_images/sphx_glr_plot_pyvista_laguna_001.png" alt="plot pyvista laguna" class = "sphx-glr-single-img"/></section>
 <section id="visualize-using-pyvista">
-<h2>Visualize Using PyVista<a class="headerlink" href="#visualize-using-pyvista" title="Permalink to this heading">#</a></h2>
+<h2>Visualize Using PyVista<a class="headerlink" href="#visualize-using-pyvista" title="Link to this heading">#</a></h2>
 <p>Here we visualize all the data in 3D!</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create display parameters for inverted model</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dparams</span></a> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
@@ -795,7 +795,7 @@ data.</p>
 <a href="https://docs.pyvista.org/api/plotting/_autosummary/pyvista.Plotter.show.html#pyvista.Plotter.show" title="pyvista.Plotter.show" class="sphx-glr-backref-module-pyvista sphx-glr-backref-type-py-method"><span class="n">p</span><span class="o">.</span><span class="n">show</span></a><span class="p">(</span><span class="n">window_size</span><span class="o">=</span><span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">768</span><span class="p">])</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_plot_pyvista_laguna_002.png" srcset="../_images/sphx_glr_plot_pyvista_laguna_002.png" alt="plot pyvista laguna" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  16.794 seconds)</p>
+<img src="../_images/sphx_glr_plot_pyvista_laguna_002.png" srcset="../_images/sphx_glr_plot_pyvista_laguna_002.png" alt="plot pyvista laguna" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 23.227 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-pyvista-laguna-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/b8f32f37f05033c332485531bcaf6fe9/plot_pyvista_laguna.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_pyvista_laguna.py</span></code></a></p>
@@ -892,7 +892,7 @@ data.</p>
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     <br/>
   </p>
 </div>

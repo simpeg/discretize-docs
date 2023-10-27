@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Cylindrical meshes &#8212; discretize 0.9.0 documentation</title>
+    <title>Cylindrical meshes &#8212; discretize 0.10.0 documentation</title>
   
   
   
@@ -28,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=6cad16a3" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/documentation_options.js?v=7e54ce6f"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/mesh_generation/3_cylindrical_mesh';</script>
     <link rel="icon" href="../../_static/discretize-block.ico"/>
@@ -589,7 +589,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="cylindrical-meshes">
-<span id="sphx-glr-tutorials-mesh-generation-3-cylindrical-mesh-py"></span><h1>Cylindrical meshes<a class="headerlink" href="#cylindrical-meshes" title="Permalink to this heading">#</a></h1>
+<span id="sphx-glr-tutorials-mesh-generation-3-cylindrical-mesh-py"></span><h1>Cylindrical meshes<a class="headerlink" href="#cylindrical-meshes" title="Link to this heading">#</a></h1>
 <p>Cylindrical meshes (<a class="reference internal" href="../../api/generated/discretize.CylindricalMesh.html#discretize.CylindricalMesh" title="discretize.CylindricalMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">CylindricalMesh</span></code></a>) are defined in terms of <em>r</em>
 (radial position), <em>z</em> (vertical position) and <em>phi</em> (azimuthal position).
 They are a child class of the tensor mesh class. Cylindrical meshes are useful
@@ -605,7 +605,7 @@ demonstrate:</p>
 </ul>
 </div></blockquote>
 <section id="import-packages">
-<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this heading">#</a></h2>
+<h2>Import Packages<a class="headerlink" href="#import-packages" title="Link to this heading">#</a></h2>
 <p>Here we import the packages required for this tutorial.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">CylindricalMesh</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -614,7 +614,7 @@ demonstrate:</p>
 </div>
 </section>
 <section id="basic-example">
-<h2>Basic Example<a class="headerlink" href="#basic-example" title="Permalink to this heading">#</a></h2>
+<h2>Basic Example<a class="headerlink" href="#basic-example" title="Link to this heading">#</a></h2>
 <p>The easiest way to define a cylindrical mesh is to define the cell widths in
 <em>r</em>, <em>phi</em> and <em>z</em> as 1D numpy arrays. And to provide a Cartesian position
 for the bottom of the vertical axis of symmetry of the mesh. Note that</p>
@@ -650,7 +650,7 @@ for the bottom of the vertical axis of symmetry of the mesh. Note that</p>
 </div>
 </section>
 <section id="padding-cells-and-extracting-properties">
-<h2>Padding Cells and Extracting Properties<a class="headerlink" href="#padding-cells-and-extracting-properties" title="Permalink to this heading">#</a></h2>
+<h2>Padding Cells and Extracting Properties<a class="headerlink" href="#padding-cells-and-extracting-properties" title="Link to this heading">#</a></h2>
 <p>For practical purposes, the user may want to define a region where the cell
 widths are increasing/decreasing in size. For example, padding is often used
 to define a large domain while reducing the total number of mesh cells.
@@ -703,7 +703,7 @@ We then show some properties that can be extracted from cylindrical meshes.</p>
 </div>
 </section>
 <section id="cylindrical-mesh-for-rotational-symmetry">
-<h2>Cylindrical Mesh for Rotational Symmetry<a class="headerlink" href="#cylindrical-mesh-for-rotational-symmetry" title="Permalink to this heading">#</a></h2>
+<h2>Cylindrical Mesh for Rotational Symmetry<a class="headerlink" href="#cylindrical-mesh-for-rotational-symmetry" title="Link to this heading">#</a></h2>
 <p>Cylindrical mesh are most useful when solving problems with perfect
 rotational symmetry. More precisely when:</p>
 <blockquote>
@@ -757,7 +757,7 @@ direction.</p>
 </pre></div>
 </div>
 <p>Notice that we do not plot the discretization in phi as it is irrelevant.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.591 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.803 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-mesh-generation-3-cylindrical-mesh-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/9a2f5e9984b26832847bddd0f208773a/3_cylindrical_mesh.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">3_cylindrical_mesh.py</span></code></a></p>
@@ -855,7 +855,7 @@ direction.</p>
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     <br/>
   </p>
 </div>

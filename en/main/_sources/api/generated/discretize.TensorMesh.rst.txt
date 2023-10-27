@@ -13,6 +13,7 @@
       .. autosummary::
          :toctree:
       
+         TensorMesh.__getitem__
          TensorMesh.__len__
          TensorMesh.cell_gradient_weak_form_robin
          TensorMesh.closest_points_index
@@ -33,8 +34,14 @@
          TensorMesh.get_BC_projections_simple
          TensorMesh.get_edge_inner_product
          TensorMesh.get_edge_inner_product_deriv
+         TensorMesh.get_edge_inner_product_line
+         TensorMesh.get_edge_inner_product_line_deriv
+         TensorMesh.get_edge_inner_product_surface
+         TensorMesh.get_edge_inner_product_surface_deriv
          TensorMesh.get_face_inner_product
          TensorMesh.get_face_inner_product_deriv
+         TensorMesh.get_face_inner_product_surface
+         TensorMesh.get_face_inner_product_surface_deriv
          TensorMesh.get_interpolation_matrix
          TensorMesh.get_tensor
          TensorMesh.isInside
@@ -132,6 +139,7 @@
          TensorMesh.cell_gradient_x
          TensorMesh.cell_gradient_y
          TensorMesh.cell_gradient_z
+         TensorMesh.cell_nodes
          TensorMesh.cell_volumes
          TensorMesh.dim
          TensorMesh.edge

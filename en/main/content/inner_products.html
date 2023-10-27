@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Inner Products &#8212; discretize 0.9.0 documentation</title>
+    <title>Inner Products &#8212; discretize 0.10.0 documentation</title>
   
   
   
@@ -28,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6cad16a3" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=7e54ce6f"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/inner_products';</script>
     <link rel="icon" href="../_static/discretize-block.ico"/>
@@ -544,7 +544,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="inner-products">
-<h1>Inner Products<a class="headerlink" href="#inner-products" title="Permalink to this heading">#</a></h1>
+<h1>Inner Products<a class="headerlink" href="#inner-products" title="Link to this heading">#</a></h1>
 <p>By using the weak formulation of many of the PDEs in geophysical applications,
 we can rapidly develop discretizations. Much of this work, however, needs a
 good understanding of how to approximate inner products on our discretized
@@ -558,7 +558,7 @@ meshes. We will define the inner product as:</p>
 for meshes and cannot run on its own.</p>
 </div>
 <section id="example-problem-for-dc-resistivity">
-<h2>Example problem for DC resistivity<a class="headerlink" href="#example-problem-for-dc-resistivity" title="Permalink to this heading">#</a></h2>
+<h2>Example problem for DC resistivity<a class="headerlink" href="#example-problem-for-dc-resistivity" title="Link to this heading">#</a></h2>
 <p>We will start with the formulation of the Direct Current (DC) resistivity
 problem in geophysics.</p>
 <div class="math notranslate nohighlight">
@@ -652,7 +652,7 @@ matrices look a bit different because we have 12 edges in 3D instead of just 6
 faces. The interface to the code is exactly the same.</p>
 </section>
 <section id="defining-tensor-properties">
-<h2>Defining Tensor Properties<a class="headerlink" href="#defining-tensor-properties" title="Permalink to this heading">#</a></h2>
+<h2>Defining Tensor Properties<a class="headerlink" href="#defining-tensor-properties" title="Link to this heading">#</a></h2>
 <p><strong>For 3D:</strong></p>
 <p>Depending on the number of columns (either 1, 3, or 6) of mu, the material
 property is interpreted as follows:</p>
@@ -666,7 +666,7 @@ property is interpreted as follows:</p>
 \[ \begin{align}\begin{aligned}\begin{split}\vec{\mu} = \left[\begin{matrix} \mu_{1} &amp; 0 \\ 0 &amp; \mu_{1} \end{matrix}\right]\end{split}\\\begin{split}\vec{\mu} = \left[\begin{matrix} \mu_{1} &amp; 0 \\ 0 &amp; \mu_{2} \end{matrix}\right]\end{split}\\\begin{split}\vec{\mu} = \left[\begin{matrix} \mu_{1} &amp; \mu_{3} \\ \mu_{3} &amp; \mu_{2} \end{matrix}\right]\end{split}\end{aligned}\end{align} \]</div>
 </section>
 <section id="structure-of-matrices">
-<h2>Structure of Matrices<a class="headerlink" href="#structure-of-matrices" title="Permalink to this heading">#</a></h2>
+<h2>Structure of Matrices<a class="headerlink" href="#structure-of-matrices" title="Link to this heading">#</a></h2>
 <p>Both the isotropic, and anisotropic material properties result in a diagonal mass matrix.
 Which is nice and easy to invert if necessary, however, in the fully anisotropic case which is not aligned with the grid, the matrix is not diagonal. This can be seen for a 3D mesh in the figure below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discretize</span>
@@ -692,7 +692,7 @@ Which is nice and easy to invert if necessary, however, in the fully anisotropic
 <p>(<a class="reference download internal" download="" href="../_downloads/69ebd7aac62015a23990c564626ae8ac/inner_products-1.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>)</p>
 </section>
 <section id="taking-derivatives">
-<h2>Taking Derivatives<a class="headerlink" href="#taking-derivatives" title="Permalink to this heading">#</a></h2>
+<h2>Taking Derivatives<a class="headerlink" href="#taking-derivatives" title="Link to this heading">#</a></h2>
 <p>We will take the derivative of the fully anisotropic tensor for a 3D mesh, the
 other cases are easier and will not be discussed here. Let us start with one
 part of the sum which makes up <span class="math notranslate nohighlight">\(\mathbf{M}^f_\Sigma\)</span> and take the
@@ -850,7 +850,7 @@ and returned.</p>
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     <br/>
   </p>
 </div>

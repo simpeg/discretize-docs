@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize 0.8.3 Release Notes &#8212; discretize 0.9.0 documentation</title>
+    <title>discretize 0.8.3 Release Notes &#8212; discretize 0.10.0 documentation</title>
   
   
   
@@ -28,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6cad16a3" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=7e54ce6f"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'release/0.8.3-notes';</script>
     <link rel="icon" href="../_static/discretize-block.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -483,6 +483,7 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="0.9.1-notes.html">0.9.1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="0.9.0-notes.html">0.9.0</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">0.8.3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="0.8.2-notes.html">0.8.2</a></li>
@@ -561,12 +562,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="discretize-0-8-3-release-notes">
-<span id="notes"></span><h1><code class="docutils literal notranslate"><span class="pre">discretize</span></code> 0.8.3 Release Notes<a class="headerlink" href="#discretize-0-8-3-release-notes" title="Permalink to this heading">#</a></h1>
+<span id="notes"></span><h1><code class="docutils literal notranslate"><span class="pre">discretize</span></code> 0.8.3 Release Notes<a class="headerlink" href="#discretize-0-8-3-release-notes" title="Link to this heading">#</a></h1>
 <p>January 27, 2023</p>
 <p>This is a patch release with several bugfixes, as well as additions to the
 <code class="docutils literal notranslate"><span class="pre">TreeMesh</span></code>.</p>
 <section id="treemesh-improvements">
-<h2><code class="docutils literal notranslate"><span class="pre">TreeMesh</span></code> improvements<a class="headerlink" href="#treemesh-improvements" title="Permalink to this heading">#</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">TreeMesh</span></code> improvements<a class="headerlink" href="#treemesh-improvements" title="Link to this heading">#</a></h2>
 <p>We have added several methods to the <a class="reference internal" href="../api/generated/discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code></a> that
 provide specialize geometric refinement entities including:</p>
 <ul class="simple">
@@ -592,12 +593,12 @@ never change how any mesh is read in from a file, ensuring only newly created
 meshes are affected.</p>
 </section>
 <section id="style-updates">
-<h2>Style Updates<a class="headerlink" href="#style-updates" title="Permalink to this heading">#</a></h2>
+<h2>Style Updates<a class="headerlink" href="#style-updates" title="Link to this heading">#</a></h2>
 <p>All new PR’s for <code class="docutils literal notranslate"><span class="pre">discretize</span></code> are now checked for style consistency by <code class="docutils literal notranslate"><span class="pre">black</span></code> and
 <code class="docutils literal notranslate"><span class="pre">flake8</span></code> before running the testing sweet.</p>
 </section>
 <section id="bug-fixes">
-<h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this heading">#</a></h2>
+<h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Interpolation on the <a class="reference internal" href="../api/generated/discretize.SimplexMesh.html#discretize.SimplexMesh" title="discretize.SimplexMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimplexMesh</span></code></a> now respects the <cite>zeros_outside</cite>
 keyword argument</p></li>
@@ -606,13 +607,13 @@ and <a class="reference internal" href="../api/generated/discretize.operators.In
 these two classes subclass <a class="reference internal" href="../api/generated/discretize.base.BaseMesh.html#discretize.base.BaseMesh" title="discretize.base.BaseMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseMesh</span></code></a>.</p></li>
 </ul>
 <section id="contributors">
-<h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this heading">#</a></h3>
+<h3>Contributors<a class="headerlink" href="#contributors" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>&#64;jcapriot</p></li>
 </ul>
 </section>
 <section id="pull-requests">
-<h3>Pull requests<a class="headerlink" href="#pull-requests" title="Permalink to this heading">#</a></h3>
+<h3>Pull requests<a class="headerlink" href="#pull-requests" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/simpeg/discretize/pull/292">#292</a>: Dark mode theme for documentation</p></li>
 <li><p><a class="reference external" href="https://github.com/simpeg/discretize/pull/294">#294</a>: Testing environment updates</p></li>
@@ -717,7 +718,7 @@ these two classes subclass <a class="reference internal" href="../api/generated/
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     <br/>
   </p>
 </div>

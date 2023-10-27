@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Installing &#8212; discretize 0.9.0 documentation</title>
+    <title>Installing &#8212; discretize 0.10.0 documentation</title>
   
   
   
@@ -28,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6cad16a3" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=7e54ce6f"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/installing';</script>
     <link rel="icon" href="../_static/discretize-block.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -544,13 +544,13 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="installing">
-<span id="api-installing"></span><h1>Installing<a class="headerlink" href="#installing" title="Permalink to this heading">#</a></h1>
+<span id="api-installing"></span><h1>Installing<a class="headerlink" href="#installing" title="Link to this heading">#</a></h1>
 <section id="which-python">
-<h2>Which Python?<a class="headerlink" href="#which-python" title="Permalink to this heading">#</a></h2>
-<p>Currently, <cite>discretize</cite> will run on 3.6, 3.7, and 3.8. We recommend that you
+<h2>Which Python?<a class="headerlink" href="#which-python" title="Link to this heading">#</a></h2>
+<p>Currently, <code class="docutils literal notranslate"><span class="pre">discretize</span></code> is tested on python 3.8, 3.9, 3.10, and 3.11. We recommend that you
 use the latest version of Python available on <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a>.</p>
 <section id="installing-python">
-<h3>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this heading">#</a></h3>
+<h3>Installing Python<a class="headerlink" href="#installing-python" title="Link to this heading">#</a></h3>
 <p>Python is available on all major operating systems, but if you are getting started with python
 it is best to use a package manager such as
 <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a>.
@@ -566,61 +566,80 @@ You can download the package manager and use it to install the dependencies abov
 </section>
 </section>
 <section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">#</a></h2>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">discretize</span></code>’s runtime requirements are:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://www.numpy.org">numpy</a> 1.8 (or greater)</p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference">scipy</a> 0.13 (or greater)</p></li>
-<li><p><a class="reference external" href="https://matplotlib.org">matplotlib</a> 1.3 (or greater)</p></li>
-<li><p><a class="reference external" href="https://cython.org/">cython</a> 0.20 (or greater)</p></li>
-<li><p><a class="reference external" href="http://propertiespy.readthedocs.io">properties[math]</a></p></li>
+<li><p><a class="reference external" href="http://www.numpy.org">numpy</a> 1.22.4 (or greater)</p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference">scipy</a> 1.8 (or greater)</p></li>
 </ul>
-<p>We also recommend installing:
-- <a class="reference external" href="https://pymatsolver.readthedocs.io/en/latest/">pymatsolver</a> 0.1.2 (or greater)</p>
+<p>Additional functionality is provided when the following optional packages
+are installed:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/">matplotlib</a></p></li>
+<li><p><a class="reference external" href="https://pyvista.org/">pyvista</a></p></li>
+<li><p><a class="reference external" href="https://vtk.org/">vtk</a></p></li>
+<li><p><a class="reference external" href="https://omf.readthedocs.io/en/latest/">omf</a></p></li>
+</ul>
+<p>We also recommend installing:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pymatsolver.readthedocs.io/en/latest/">pymatsolver</a> 0.1.2 (or greater)</p></li>
+</ul>
 </section>
 <section id="installing-discretize">
-<h2>Installing discretize<a class="headerlink" href="#installing-discretize" title="Permalink to this heading">#</a></h2>
-<p>discretize is on conda-forge:</p>
+<h2>Installing discretize<a class="headerlink" href="#installing-discretize" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">discretize</span></code> is available on conda-forge and using the <code class="docutils literal notranslate"><span class="pre">conda</span></code> (or <code class="docutils literal notranslate"><span class="pre">mamba</span></code>) package manager
+is our recommended way of installing <cite>discretize`</cite>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">discretize</span>
 </pre></div>
 </div>
-<p>discretize is on pypi:</p>
+<p><code class="docutils literal notranslate"><span class="pre">discretize</span></code> is also available on pypi:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">discretize</span>
 </pre></div>
 </div>
+<p>There are currently pre-built wheels for windows available on pypi, but other operating
+systems will require a build.</p>
+<section id="installing-from-source">
+<h3>Installing from Source<a class="headerlink" href="#installing-from-source" title="Link to this heading">#</a></h3>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Windows users</p>
-<p>If the pip install fails, please try installing the most recent version of
-Visual Studio Community from <a class="reference external" href="https://visualstudio.microsoft.com/vs/community/">https://visualstudio.microsoft.com/vs/community/</a></p>
-<p>Within the <strong>Python development</strong> options, ensure that the following are included</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Cookiecutter template support</p></li>
-<li><p>Python web support</p></li>
-<li><p>Python 3 64-bit</p></li>
-</ul>
-</div></blockquote>
-<img alt="../_images/visual-studio-community.png" class="align-center" src="../_images/visual-studio-community.png" />
+<p>Install <code class="docutils literal notranslate"><span class="pre">discretize</span></code> from the source code only if you need to run the development version. Otherwise it’s usually better to install it from <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>.</p>
 </div>
-<section id="installing-from-source">
-<h3>Installing from Source<a class="headerlink" href="#installing-from-source" title="Permalink to this heading">#</a></h3>
-<p>If you are not a developer then conda-forge is really the preferred way. However, if
-you are an active developer of discretize, and find yourself modifying the code often,
-you might want to install if from source, in an editable installation:</p>
-<p>First (you need git):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">simpeg</span><span class="o">/</span><span class="n">discretize</span>
+<p>As <code class="docutils literal notranslate"><span class="pre">discretize</span></code> contains several compiled extensions and is not a pure python pacakge,
+installing <code class="docutils literal notranslate"><span class="pre">discretize</span></code> from the source code requires a C/C++ compiler capable of
+using a C++ 17 standard.</p>
+<p><code class="docutils literal notranslate"><span class="pre">discretize</span></code> uses a <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file to define the build and install steps. As such
+there is no <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file to run. You must use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install <code class="docutils literal notranslate"><span class="pre">discretize</span></code>. As long as
+you have an available compiler you should be able to install <code class="docutils literal notranslate"><span class="pre">discretize</span></code> from the source as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
 </pre></div>
 </div>
-<p>Second (from the root of the discretize repository):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span> <span class="o">-</span><span class="n">e</span>
+<section id="editable-installs">
+<h4>Editable Installs<a class="headerlink" href="#editable-installs" title="Link to this heading">#</a></h4>
+<p>If you are an active developer of <code class="docutils literal notranslate"><span class="pre">discretize</span></code>, and find yourself modifying the code often,
+you might want to install it from source, in an editable installation. <code class="docutils literal notranslate"><span class="pre">discretize</span></code> uses
+<code class="docutils literal notranslate"><span class="pre">meson-python</span></code> to build the external modules and install the package. As such, there are a few extra
+steps to take. First, make sure you have the runtime dependencies installed in your environment (see Dependencies listed above).
+Then you must install some packages needed to build <code class="docutils literal notranslate"><span class="pre">discretize</span></code> in your environment. You can do so with <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">meson</span><span class="o">-</span><span class="n">python</span> <span class="n">meson</span> <span class="n">ninja</span> <span class="n">cython</span> <span class="n">setuptools_scm</span>
+</pre></div>
+</div>
+<p>Or with <code class="docutils literal notranslate"><span class="pre">conda</span></code> (or <code class="docutils literal notranslate"><span class="pre">mamba</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">meson</span><span class="o">-</span><span class="n">python</span> <span class="n">meson</span> <span class="n">ninja</span> <span class="n">cython</span> <span class="n">setuptools_scm</span>
+</pre></div>
+</div>
+<p>This will allow you to use the build backend required by <cite>discretize</cite>.</p>
+<p>Finally, you should then be able to perform an editable install using the source code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">isolation</span> <span class="o">--</span><span class="n">editable</span> <span class="o">.</span>
 </pre></div>
 </div>
 <p>This builds and installs the local directory to your active python environment in an
-“editable” (or refered to as “develop”) mode.</p>
+“editable” mode; when source code is changed, you will be able to make use of it immediately. It also builds against the packages installed
+in your environment instead of creating and isolated environment to build a wheel for the package.</p>
+</section>
 </section>
 </section>
 <section id="testing-your-installation">
-<h2>Testing your installation<a class="headerlink" href="#testing-your-installation" title="Permalink to this heading">#</a></h2>
+<h2>Testing your installation<a class="headerlink" href="#testing-your-installation" title="Link to this heading">#</a></h2>
 <p>Head over to the <span class="xref std std-ref">sphx_glr_examples</span> and download and run any of the notebooks or python scripts.</p>
 </section>
 </section>
@@ -678,7 +697,10 @@ you might want to install if from source, in an editable installation:</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">Dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-discretize">Installing discretize</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-from-source">Installing from Source</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-from-source">Installing from Source</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#editable-installs">Editable Installs</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-your-installation">Testing your installation</a></li>
@@ -716,7 +738,7 @@ you might want to install if from source, in an editable installation:</p>
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     <br/>
   </p>
 </div>

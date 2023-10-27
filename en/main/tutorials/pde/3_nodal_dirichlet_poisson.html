@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Nodal Dirichlet Poisson solution &#8212; discretize 0.9.0 documentation</title>
+    <title>Nodal Dirichlet Poisson solution &#8212; discretize 0.10.0 documentation</title>
   
   
   
@@ -28,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=6cad16a3" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/documentation_options.js?v=7e54ce6f"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/pde/3_nodal_dirichlet_poisson';</script>
     <link rel="icon" href="../../_static/discretize-block.ico"/>
@@ -589,12 +589,12 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="nodal-dirichlet-poisson-solution">
-<span id="sphx-glr-tutorials-pde-3-nodal-dirichlet-poisson-py"></span><h1>Nodal Dirichlet Poisson solution<a class="headerlink" href="#nodal-dirichlet-poisson-solution" title="Permalink to this heading">#</a></h1>
+<span id="sphx-glr-tutorials-pde-3-nodal-dirichlet-poisson-py"></span><h1>Nodal Dirichlet Poisson solution<a class="headerlink" href="#nodal-dirichlet-poisson-solution" title="Link to this heading">#</a></h1>
 <p>In this example, we demonstrate how to solve a Poisson equation where the
 solution lives on nodes, and we want to impose Dirichlet conditions on the
 boundary.</p>
 <section id="solve-a-nodal-poisson-s-equation-with-dirichlet-boundary-conditions">
-<h2>Solve a nodal Poisson’s equation with Dirichlet boundary conditions<a class="headerlink" href="#solve-a-nodal-poisson-s-equation-with-dirichlet-boundary-conditions" title="Permalink to this heading">#</a></h2>
+<h2>Solve a nodal Poisson’s equation with Dirichlet boundary conditions<a class="headerlink" href="#solve-a-nodal-poisson-s-equation-with-dirichlet-boundary-conditions" title="Link to this heading">#</a></h2>
 <p>The PDE we want to solve is Poisson’s equation with a variable
 conductivity, where we know the value of the solution on the boundary.</p>
 <div class="math notranslate nohighlight">
@@ -626,7 +626,7 @@ edges taken with respect to <span class="math notranslate nohighlight">\(\sigma\
 correspondingly the inner product operator for scalars that live on mesh nodes.</p>
 </section>
 <section id="taking-care-of-the-boundaries">
-<h2>Taking care of the boundaries<a class="headerlink" href="#taking-care-of-the-boundaries" title="Permalink to this heading">#</a></h2>
+<h2>Taking care of the boundaries<a class="headerlink" href="#taking-care-of-the-boundaries" title="Link to this heading">#</a></h2>
 <p>Set <span class="math notranslate nohighlight">\(u_b\)</span>, and <span class="math notranslate nohighlight">\(w_b\)</span> as the values of <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(w\)</span> on
 the boundary, and <span class="math notranslate nohighlight">\(u_f\)</span> and <span class="math notranslate nohighlight">\(w_f\)</span> the values of <span class="math notranslate nohighlight">\(u\)</span> and
 <span class="math notranslate nohighlight">\(w\)</span> on the interior. We have that</p>
@@ -644,7 +644,7 @@ functions are zero on the boundary, <span class="math notranslate nohighlight">\
 \[w_f^T P_f^T G^T M_{e,\sigma} G (P_f u_f + P_b u_b) = w_f^T P_f^T M_n f\]</div>
 </section>
 <section id="our-final-system-of-equations">
-<h2>Our final system of equations<a class="headerlink" href="#our-final-system-of-equations" title="Permalink to this heading">#</a></h2>
+<h2>Our final system of equations<a class="headerlink" href="#our-final-system-of-equations" title="Link to this heading">#</a></h2>
 <p>The above scalar equality must be true for all vectors <span class="math notranslate nohighlight">\(w\)</span>, thus the
 vectors are also equal:</p>
 <div class="math notranslate nohighlight">
@@ -668,7 +668,7 @@ everything else to the right.</p>
 </div>
 </section>
 <section id="our-pde">
-<h2>Our PDE<a class="headerlink" href="#our-pde" title="Permalink to this heading">#</a></h2>
+<h2>Our PDE<a class="headerlink" href="#our-pde" title="Link to this heading">#</a></h2>
 <p>We are going to setup a simple two-dimensional problem which we will solve on
 a <cite>TensorMesh</cite>. We want to test the accuracy of our discretization scheme for
 the problem (it should be second order accurate). Thus we define a known
@@ -761,7 +761,7 @@ function that returns the error and discretization size, so we can use
 </div>
 <img src="../../_images/sphx_glr_3_nodal_dirichlet_poisson_001.png" srcset="../../_images/sphx_glr_3_nodal_dirichlet_poisson_001.png" alt="Numerical Solution, Error" class = "sphx-glr-single-img"/></section>
 <section id="order-testing">
-<h2>Order Testing<a class="headerlink" href="#order-testing" title="Permalink to this heading">#</a></h2>
+<h2>Order Testing<a class="headerlink" href="#order-testing" title="Link to this heading">#</a></h2>
 <p>To verify our discretization strategy we will use the above function to perform a
 convergence test. We make use of the <cite>assert_expected_order</cite> function to print out
 a convergence table. This will raise an error if our convergence is not what we
@@ -780,10 +780,10 @@ expect.</p>
 -------------------------------------------------------
 Testing is important.
 
-[1.889662966218102, 1.9276904648793622, 1.9340112285528446, 1.9410749331080865]
+[1.8896629662199584, 1.9276904648779223, 1.9340112284566402, 1.9410749331527082]
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.604 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.757 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-pde-3-nodal-dirichlet-poisson-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/880c5175327dca942d5d41ba4df9a670/3_nodal_dirichlet_poisson.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">3_nodal_dirichlet_poisson.py</span></code></a></p>
@@ -882,7 +882,7 @@ Testing is important.
       
         <div class="footer-item">
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     <br/>
   </p>
 </div>
