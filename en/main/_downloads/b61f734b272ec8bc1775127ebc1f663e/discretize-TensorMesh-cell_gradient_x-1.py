@@ -70,7 +70,7 @@ ax1.spines['right'].set_color('white')
 ax1.set_xlabel('X', fontsize=16, labelpad=-5)
 ax1.set_ylabel('Y', fontsize=16, labelpad=-15)
 ax1.legend(
-    ['Mesh', '$\mathbf{\phi}$ (centers)', '$\mathbf{Gx^* \phi}$ (x-faces)'],
+    ['Mesh', r'$\mathbf{\phi}$ (centers)', r'$\mathbf{Gx^* \phi}$ (x-faces)'],
     loc='upper right', fontsize=14
 )
 ax2 = fig.add_subplot(122)

@@ -75,17 +75,17 @@ ax1.legend(
     loc='upper right', fontsize=14
 )
 #
-#     Manually make axis properties invisible
+# Manually make axis properties invisible
 #
 ax1.set_xticks([])
 ax1.set_yticks([])
 ax1.set_zticks([])
-ax1.w_xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-ax1.w_yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-ax1.w_zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-ax1.w_xaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
-ax1.w_yaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
-ax1.w_zaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
+ax1.xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+ax1.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+ax1.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+ax1.xaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
+ax1.yaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
+ax1.zaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
 ax1.set_xlabel('X', labelpad=-15, fontsize=16)
 ax1.set_ylabel('Y', labelpad=-20, fontsize=16)
 ax1.set_zlabel('Z', labelpad=-20, fontsize=16)

@@ -15,7 +15,7 @@ ax1 = fig1.add_subplot(111)
 mesh1.plot_grid(ax=ax1)
 ax1.scatter(y_faces[:, 0], y_faces[:, 1], 30, 'r')
 ax1.legend(['Mesh', 'Y-faces'], fontsize=16)
-plt.plot()
+plt.show()
 #
 # Here, we provide an example of a highly irregular curvilinear mesh.
 # In this case, the y-faces are not defined by normal vectors along
@@ -30,4 +30,4 @@ ax2 = fig2.add_subplot(111)
 mesh2.plot_grid(ax=ax2)
 ax2.scatter(y_faces[:, 0], y_faces[:, 1], 30, 'r')
 ax2.legend(['Mesh', 'Y-faces'], fontsize=16)
-plt.plot()
+plt.show()

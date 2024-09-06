@@ -63,7 +63,7 @@ ax1.plot(
 for ii, loc in zip(range(mesh.nC), mesh.cell_centers):
     ax1.text(loc[0] + 0.05, loc[1] + 0.05, loc[2], "{0:d}".format(ii), color="r")
 ax1.legend(
-    ['Mesh','$\mathbf{\phi}$ (z-faces)','$\partial \mathbf{\phi}/\partial z$ (centers)'],
+    ['Mesh',r'$\mathbf{\phi}$ (z-faces)',r'$\partial \mathbf{\phi}/\partial z$ (centers)'],
     loc='upper right', fontsize=14
 )
 #
@@ -72,12 +72,12 @@ ax1.legend(
 ax1.set_xticks([])
 ax1.set_yticks([])
 ax1.set_zticks([])
-ax1.w_xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-ax1.w_yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-ax1.w_zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-ax1.w_xaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
-ax1.w_yaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
-ax1.w_zaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
+ax1.xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+ax1.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+ax1.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+ax1.xaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
+ax1.yaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
+ax1.zaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
 ax1.set_xlabel('X', labelpad=-15, fontsize=16)
 ax1.set_ylabel('Y', labelpad=-20, fontsize=16)
 ax1.set_zlabel('Z', labelpad=-20, fontsize=16)

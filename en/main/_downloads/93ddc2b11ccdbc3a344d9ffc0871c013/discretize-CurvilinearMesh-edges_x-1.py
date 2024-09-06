@@ -14,7 +14,7 @@ ax1 = fig1.add_subplot(111)
 mesh1.plot_grid(ax=ax1)
 ax1.scatter(x_edges[:, 0], x_edges[:, 1], 30, 'r')
 ax1.legend(['Mesh', 'X-edges'], fontsize=16)
-plt.plot()
+plt.show()
 #
 # Here, we provide an example of a highly irregular curvilinear mesh.
 # In this case, the x-edges are not aligned primarily along
@@ -29,4 +29,4 @@ ax2 = fig2.add_subplot(111)
 mesh2.plot_grid(ax=ax2)
 ax2.scatter(x_edges[:, 0], x_edges[:, 1], 30, 'r')
 ax2.legend(['Mesh', 'X-edges'], fontsize=16)
-plt.plot()
+plt.show()

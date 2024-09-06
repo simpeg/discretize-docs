@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_tutorials_pde_3_nodal_dirichlet_poisson.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -106,9 +106,10 @@ everything else to the right.
 
 Now lets actually code this solution up using these matrices!
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-100
+.. GENERATED FROM PYTHON SOURCE LINES 90-101
 
-.. code-block:: default
+.. code-block:: Python
+
 
     import numpy as np
     import discretize
@@ -127,7 +128,7 @@ Now lets actually code this solution up using these matrices!
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-113
+.. GENERATED FROM PYTHON SOURCE LINES 102-114
 
 Our PDE
 -------
@@ -142,9 +143,9 @@ all the derivatives for us to determine the correct forcing function.
     \sigma = \cos(x) \sin(y)
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-127
+.. GENERATED FROM PYTHON SOURCE LINES 114-128
 
-.. code-block:: default
+.. code-block:: Python
 
 
     C = spv.CoordSys3D("u")
@@ -173,15 +174,15 @@ all the derivatives for us to determine the correct forcing function.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 128-131
+.. GENERATED FROM PYTHON SOURCE LINES 129-132
 
 Next we are going to solve our PDE! We encapsulate the code into a
 function that returns the error and discretization size, so we can use
 `discretize`'s testing utilities to perform an order test for us.
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-191
+.. GENERATED FROM PYTHON SOURCE LINES 132-192
 
-.. code-block:: default
+.. code-block:: Python
 
 
 
@@ -250,13 +251,13 @@ function that returns the error and discretization size, so we can use
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 192-193
+.. GENERATED FROM PYTHON SOURCE LINES 193-194
 
 Lets look at the solution itself!
 
-.. GENERATED FROM PYTHON SOURCE LINES 193-195
+.. GENERATED FROM PYTHON SOURCE LINES 194-196
 
-.. code-block:: default
+.. code-block:: Python
 
     get_error(20, plot_it=True)
 
@@ -272,7 +273,7 @@ Lets look at the solution itself!
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 196-202
+.. GENERATED FROM PYTHON SOURCE LINES 197-203
 
 Order Testing
 -------------
@@ -281,9 +282,9 @@ convergence test. We make use of the `assert_expected_order` function to print o
 a convergence table. This will raise an error if our convergence is not what we
 expect.
 
-.. GENERATED FROM PYTHON SOURCE LINES 202-204
+.. GENERATED FROM PYTHON SOURCE LINES 203-205
 
-.. code-block:: default
+.. code-block:: Python
 
 
     tests.assert_expected_order(get_error, [10, 20, 30, 40, 50])
@@ -306,14 +307,14 @@ expect.
     -------------------------------------------------------
     Testing is important.
 
-    [1.8896629662208868, 1.927690464885003, 1.9340112284401623, 1.9410749332005683]
+    [np.float64(1.8896629662199587), np.float64(1.9276904648779223), np.float64(1.9340112284566402), np.float64(1.9410749331527082)]
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.988 seconds)
+   **Total running time of the script:** (0 minutes 0.613 seconds)
 
 
 .. _sphx_glr_download_tutorials_pde_3_nodal_dirichlet_poisson.py:
@@ -322,16 +323,17 @@ expect.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: 3_nodal_dirichlet_poisson.ipynb <3_nodal_dirichlet_poisson.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: 3_nodal_dirichlet_poisson.py <3_nodal_dirichlet_poisson.py>`
 
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
+    .. container:: sphx-glr-download sphx-glr-download-zip
 
-      :download:`Download Jupyter notebook: 3_nodal_dirichlet_poisson.ipynb <3_nodal_dirichlet_poisson.ipynb>`
+      :download:`Download zipped: 3_nodal_dirichlet_poisson.zip <3_nodal_dirichlet_poisson.zip>`
 
 
 .. only:: html

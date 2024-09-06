@@ -8,7 +8,6 @@ from discretize import TensorMesh
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
-mpl.rcParams.update({"font.size": 14})
 #
 # Define Corners of a uniform cube.
 #
@@ -33,7 +32,7 @@ nvec, area
 # Plot surface for example 1 on mesh
 #
 fig = plt.figure(figsize=(7, 7))
-ax = fig.gca(projection='3d')
+ax = plt.subplot(projection='3d')
 mesh.plot_grid(ax=ax)
 k = [0, 4, 26, 18, 0]
 xyz_quad = xyz[k, :]
@@ -64,7 +63,7 @@ nvec, area
 # Plot surface for example 2 on mesh
 #
 fig = plt.figure(figsize=(7, 7))
-ax = fig.gca(projection='3d')
+ax = plt.subplot(projection='3d')
 mesh.plot_grid(ax=ax)
 k = [0, 5, 26, 18, 0]
 xyz_quad = xyz[k, :]

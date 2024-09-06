@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.operators.DiffOperators.get_edge_inner_product_deriv &#8212; discretize 0.10.0 documentation</title>
+    <title>discretize.operators.DiffOperators.get_edge_inner_product_deriv &#8212; discretize 0.10.1.dev40+g24ea0700 documentation</title>
   
   
   
@@ -29,9 +29,9 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
@@ -41,11 +41,15 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script src="../../_static/documentation_options.js?v=7e54ce6f"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/documentation_options.js?v=54b52cd1"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.operators.DiffOperators.get_edge_inner_product_deriv';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://discretize.simpeg.xyz/en/latest/_static/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'main';
+        </script>
     <link rel="icon" href="../../_static/discretize-block.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -123,7 +127,7 @@
   </div>
   
   
-  <div class="col-lg-9 navbar-header-items">
+  <div class=" navbar-header-items">
     
     <div class="me-auto navbar-header-items__center">
       
@@ -215,6 +219,21 @@ document.write(`
         <div class="navbar-item">
 <script>
 document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      main  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
   <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
     <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
@@ -234,7 +253,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/simpeg/discretize" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github"></i></span>
+          <a href="https://github.com/simpeg/simpeg" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
@@ -246,7 +265,7 @@ document.write(`
           
           
           
-          <a href="https://mattermost.softwareunderground.org/simpeg/" title="Mattermost" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-comment"></i></span>
+          <a href="https://mattermost.softwareunderground.org/simpeg" title="Mattermost" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-comment"></i></span>
             <label class="sr-only">Mattermost</label></a>
         </li>
         <li class="nav-item">
@@ -272,18 +291,6 @@ document.write(`
           
           <a href="https://www.youtube.com/c/geoscixyz" title="Youtube" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-youtube"></i></span>
             <label class="sr-only">Youtube</label></a>
-        </li>
-        <li class="nav-item">
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href="https://twitter.com/simpegpy" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-twitter"></i></span>
-            <label class="sr-only">Twitter</label></a>
         </li>
 </ul></div>
       
@@ -401,6 +408,21 @@ document.write(`
           <div class="navbar-item">
 <script>
 document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      main  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
   <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
     <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
@@ -420,7 +442,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/simpeg/discretize" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github"></i></span>
+          <a href="https://github.com/simpeg/simpeg" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
@@ -432,7 +454,7 @@ document.write(`
           
           
           
-          <a href="https://mattermost.softwareunderground.org/simpeg/" title="Mattermost" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-comment"></i></span>
+          <a href="https://mattermost.softwareunderground.org/simpeg" title="Mattermost" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-comment"></i></span>
             <label class="sr-only">Mattermost</label></a>
         </li>
         <li class="nav-item">
@@ -458,18 +480,6 @@ document.write(`
           
           <a href="https://www.youtube.com/c/geoscixyz" title="Youtube" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-youtube"></i></span>
             <label class="sr-only">Youtube</label></a>
-        </li>
-        <li class="nav-item">
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href="https://twitter.com/simpegpy" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-twitter"></i></span>
-            <label class="sr-only">Twitter</label></a>
         </li>
 </ul></div>
         
@@ -530,7 +540,7 @@ document.write(`
 <h1>discretize.operators.DiffOperators.get_edge_inner_product_deriv<a class="headerlink" href="#discretize-operators-diffoperators-get-edge-inner-product-deriv" title="Link to this heading">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="discretize.operators.DiffOperators.get_edge_inner_product_deriv">
-<span class="sig-prename descclassname"><span class="pre">DiffOperators.</span></span><span class="sig-name descname"><span class="pre">get_edge_inner_product_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/base/base_mesh.py#L2488-L2668"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.operators.DiffOperators.get_edge_inner_product_deriv" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">DiffOperators.</span></span><span class="sig-name descname"><span class="pre">get_edge_inner_product_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/base/base_mesh.py#L2489-L2669"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.operators.DiffOperators.get_edge_inner_product_deriv" title="Link to this definition">#</a></dt>
 <dd><p>Get a function handle to multiply vector with derivative of edge inner product matrix (or its inverse).</p>
 <p>Let <span class="math notranslate nohighlight">\(\mathbf{M}(\mathbf{m})\)</span> be the edge inner product matrix
 constructed with a set of physical property parameters <span class="math notranslate nohighlight">\(\mathbf{m}\)</span>
@@ -548,16 +558,16 @@ isotropic and full tensor physical properties; see notes.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>model</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Parameters defining the material properties for every cell in the mesh.</p>
+<dt><strong>model</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Parameters defining the material properties for every cell in the mesh.</p>
 <p>Allows for the following cases:</p>
 <ul class="simple">
-<li><p><em>(n_cells)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> : Isotropic case. <em>model</em> contains a
+<li><p><em>(n_cells)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> : Isotropic case. <em>model</em> contains a
 scalar physical property value for each cell.</p></li>
-<li><p><em>(n_cells, dim)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> : Diagonal anisotropic case.
+<li><p><em>(n_cells, dim)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> : Diagonal anisotropic case.
 Columns are ordered <code class="docutils literal notranslate"><span class="pre">np.c_[σ_xx,</span> <span class="pre">σ_yy,</span> <span class="pre">σ_zz]</span></code>. This can also a be a 1D
 array with the same number of total elements in column major order.</p></li>
-<li><p><em>(n_cells, 3)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> (<code class="docutils literal notranslate"><span class="pre">dim</span></code> is 2) or
-<em>(n_cells, 6)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> (<code class="docutils literal notranslate"><span class="pre">dim</span></code> is 3) : Full tensor properties case. Columns
+<li><p><em>(n_cells, 3)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> (<code class="docutils literal notranslate"><span class="pre">dim</span></code> is 2) or
+<em>(n_cells, 6)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> (<code class="docutils literal notranslate"><span class="pre">dim</span></code> is 3) : Full tensor properties case. Columns
 are ordered <code class="docutils literal notranslate"><span class="pre">np.c_[σ_xx,</span> <span class="pre">σ_yy,</span> <span class="pre">σ_zz,</span> <span class="pre">σ_xy,</span> <span class="pre">σ_xz,</span> <span class="pre">σ_yz]</span></code> This can also be
 a 1D array with the same number of total elements in column major order.</p></li>
 </ul>
@@ -574,8 +584,8 @@ The inverse not implemented for full tensor properties.</p>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">function</span></code></dt><dd><p>The function handle <span class="math notranslate nohighlight">\(\mathbf{F}(\mathbf{u})\)</span> which accepts a
-(<code class="docutils literal notranslate"><span class="pre">n_edges</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>. The function
-returns a (<code class="docutils literal notranslate"><span class="pre">n_edges</span></code>, <code class="docutils literal notranslate"><span class="pre">n_params</span></code>) <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.11.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code></a>.</p>
+(<code class="docutils literal notranslate"><span class="pre">n_edges</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>. The function
+returns a (<code class="docutils literal notranslate"><span class="pre">n_edges</span></code>, <code class="docutils literal notranslate"><span class="pre">n_params</span></code>) <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.14.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
@@ -591,7 +601,7 @@ creates a function handle for computing the following:</p>
 for some <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> depends on the constitutive relation defined for each cell.
 These cases are summarized below.</p>
 <p><strong>Isotropic Case:</strong> The physical property for each cell is defined by a scalar value.
-Therefore <span class="math notranslate nohighlight">\(\mathbf{m}\)</span> is a (<code class="docutils literal notranslate"><span class="pre">n_cells</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>. The sparse matrix
+Therefore <span class="math notranslate nohighlight">\(\mathbf{m}\)</span> is a (<code class="docutils literal notranslate"><span class="pre">n_cells</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>. The sparse matrix
 output by computing <span class="math notranslate nohighlight">\(\mathbf{F}(\mathbf{u})\)</span> has shape (<code class="docutils literal notranslate"><span class="pre">n_edges</span></code>, <code class="docutils literal notranslate"><span class="pre">n_cells</span></code>).</p>
 <p><strong>Diagonal Anisotropic Case:</strong> In this case, the physical properties for each cell are
 defined by a diagonal tensor</p>
@@ -602,7 +612,7 @@ defined by a diagonal tensor</p>
 0 &amp; 0 &amp; \sigma_{zz}
 \end{bmatrix}\end{split}\]</div>
 <p>Thus there are <code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">*</span> <span class="pre">n_cells</span></code> physical property parameters and <span class="math notranslate nohighlight">\(\mathbf{m}\)</span> is
-a (<code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">*</span> <span class="pre">n_cells</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.  The sparse matrix
+a (<code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">*</span> <span class="pre">n_cells</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.  The sparse matrix
 output by computing <span class="math notranslate nohighlight">\(\mathbf{F}(\mathbf{u})\)</span> has shape (<code class="docutils literal notranslate"><span class="pre">n_edges</span></code>, <code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">*</span> <span class="pre">n_cells</span></code>).</p>
 <p><strong>Full Tensor Case:</strong> In this case, the physical properties for each cell are
 defined by a full tensor</p>
@@ -614,7 +624,7 @@ defined by a full tensor</p>
 \end{bmatrix}\end{split}\]</div>
 <p>Thus there are <code class="docutils literal notranslate"><span class="pre">6</span> <span class="pre">*</span> <span class="pre">n_cells</span></code> physical property parameters in 3 dimensions, or
 <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">n_cells</span></code> physical property parameters in 2 dimensions, and <span class="math notranslate nohighlight">\(\mathbf{m}\)</span> is
-a (<code class="docutils literal notranslate"><span class="pre">n_params</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>. The sparse matrix
+a (<code class="docutils literal notranslate"><span class="pre">n_params</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>. The sparse matrix
 output by computing <span class="math notranslate nohighlight">\(\mathbf{F}(\mathbf{u})\)</span> has shape (<code class="docutils literal notranslate"><span class="pre">n_edges</span></code>, <code class="docutils literal notranslate"><span class="pre">n_params</span></code>).</p>
 <p class="rubric">Examples</p>
 <p>Here, we construct a 4 cell by 4 cell tensor mesh. For our first example we
@@ -652,7 +662,7 @@ the derivative with (for illustration purposes).</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.43</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.17</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">dFdm_u</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="s2">&quot;$u^T \, \dfrac{\partial M(m)}{\partial m}$ (Isotropic)&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="sa">r</span><span class="s2">&quot;$u^T \, \dfrac{\partial M(m)}{\partial m}$ (Isotropic)&quot;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">5</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Parameter Index&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
@@ -688,7 +698,7 @@ of this function on a spy plot.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">dFdm_u</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="s2">&quot;$u^T \, \dfrac{\partial M(m)}{\partial m} \;$ (Full Tensor)&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="sa">r</span><span class="s2">&quot;$u^T \, \dfrac{\partial M(m)}{\partial m} \;$ (Full Tensor)&quot;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">5</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Parameter Index&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
@@ -763,17 +773,6 @@ of this function on a spy plot.</p>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
-  
-    <div class="footer-items__start">
-      
-        <div class="footer-item">
-  <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
-    <br/>
-  </p>
-</div>
-      
-    </div>
   
   
     <div class="footer-items__end">

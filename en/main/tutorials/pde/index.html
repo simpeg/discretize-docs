@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Solving PDEs &#8212; discretize 0.10.0 documentation</title>
+    <title>Solving PDEs &#8212; discretize 0.10.1.dev40+g24ea0700 documentation</title>
   
   
   
@@ -29,9 +29,9 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
@@ -41,10 +41,15 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script src="../../_static/documentation_options.js?v=7e54ce6f"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/documentation_options.js?v=54b52cd1"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/pde/index';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://discretize.simpeg.xyz/en/latest/_static/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'main';
+        </script>
     <link rel="icon" href="../../_static/discretize-block.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -124,7 +129,7 @@
   </div>
   
   
-  <div class="col-lg-9 navbar-header-items">
+  <div class=" navbar-header-items">
     
     <div class="me-auto navbar-header-items__center">
       
@@ -216,6 +221,21 @@ document.write(`
         <div class="navbar-item">
 <script>
 document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      main  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
   <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
     <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
@@ -235,7 +255,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/simpeg/discretize" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github"></i></span>
+          <a href="https://github.com/simpeg/simpeg" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
@@ -247,7 +267,7 @@ document.write(`
           
           
           
-          <a href="https://mattermost.softwareunderground.org/simpeg/" title="Mattermost" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-comment"></i></span>
+          <a href="https://mattermost.softwareunderground.org/simpeg" title="Mattermost" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-comment"></i></span>
             <label class="sr-only">Mattermost</label></a>
         </li>
         <li class="nav-item">
@@ -273,18 +293,6 @@ document.write(`
           
           <a href="https://www.youtube.com/c/geoscixyz" title="Youtube" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-youtube"></i></span>
             <label class="sr-only">Youtube</label></a>
-        </li>
-        <li class="nav-item">
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href="https://twitter.com/simpegpy" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-twitter"></i></span>
-            <label class="sr-only">Twitter</label></a>
         </li>
 </ul></div>
       
@@ -402,6 +410,21 @@ document.write(`
           <div class="navbar-item">
 <script>
 document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      main  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
   <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
     <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
@@ -421,7 +444,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/simpeg/discretize" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github"></i></span>
+          <a href="https://github.com/simpeg/simpeg" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
@@ -433,7 +456,7 @@ document.write(`
           
           
           
-          <a href="https://mattermost.softwareunderground.org/simpeg/" title="Mattermost" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-comment"></i></span>
+          <a href="https://mattermost.softwareunderground.org/simpeg" title="Mattermost" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-comment"></i></span>
             <label class="sr-only">Mattermost</label></a>
         </li>
         <li class="nav-item">
@@ -460,18 +483,6 @@ document.write(`
           <a href="https://www.youtube.com/c/geoscixyz" title="Youtube" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-youtube"></i></span>
             <label class="sr-only">Youtube</label></a>
         </li>
-        <li class="nav-item">
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href="https://twitter.com/simpegpy" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-twitter"></i></span>
-            <label class="sr-only">Twitter</label></a>
-        </li>
 </ul></div>
         
       </div>
@@ -483,26 +494,10 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../mesh_generation/index.html">Mesh Generation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../mesh_generation/1_mesh_overview.html">Overview of Mesh Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../mesh_generation/2_tensor_mesh.html">Tensor meshes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../mesh_generation/3_cylindrical_mesh.html">Cylindrical meshes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../mesh_generation/4_tree_mesh.html">Tree Meshes</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../operators/index.html">Operators</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../operators/1_averaging.html">Averaging Matricies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../operators/2_differential.html">Differential Operators</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../inner_products/index.html">Inner Products</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../inner_products/1_basic.html">Basic Inner Products</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../inner_products/2_physical_properties.html">Constitutive Relations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../inner_products/3_calculus.html">Differential Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../inner_products/4_advanced.html">Advanced Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Solving PDEs</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1"><a class="reference internal" href="../mesh_generation/index.html">Mesh Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../operators/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inner_products/index.html">Inner Products</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Solving PDEs</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="1_poisson.html">Gauss’ Law of Electrostatics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_advection_diffusion.html">Advection-Diffusion Equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_nodal_dirichlet_poisson.html">Nodal Dirichlet Poisson solution</a></li>
@@ -510,18 +505,7 @@ document.write(`
 </li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../examples/plot_cahn_hilliard.html">Operators: Cahn Hilliard</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../examples/plot_cyl_mirror.html">Plot Mirrored Cylindrically Symmetric Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../examples/plot_dc_resistivity.html">Basic Forward 2D DC Resistivity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../examples/plot_image.html">Basic: PlotImage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../examples/plot_pyvista_laguna.html">3D Visualization with PyVista</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../examples/plot_quadtree_divergence.html">QuadTree: FaceDiv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../examples/plot_quadtree_hanging.html">QuadTree: Hanging Nodes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../examples/plot_slicer_demo.html">Slicer demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../examples/plot_streamThickness.html">Plotting: Streamline thickness</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
 </ul>
 </div>
 </nav></div>
@@ -592,13 +576,13 @@ numerically we must complete the following steps:</p>
 <li><p>Use the discrete set of equations to solve for the unknown variable numerically</p></li>
 </ol>
 </div></blockquote>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to solve for the electric potential (\phi) and electric fiel..."><img alt="" src="../../_images/sphx_glr_1_poisson_thumb.png" />
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to solve for the electric potential (\phi) and electric fields (\mathbf{e}) in 2D that result from a static charge distribution. Starting with Gauss&#x27; law and Faraday&#x27;s law:"><img alt="" src="../../_images/sphx_glr_1_poisson_thumb.png" />
 <p><a class="reference internal" href="1_poisson.html#sphx-glr-tutorials-pde-1-poisson-py"><span class="std std-ref">Gauss’ Law of Electrostatics</span></a></p>
   <div class="sphx-glr-thumbnail-title">Gauss' Law of Electrostatics</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to model the advection-diffusion equation. The goal of this ..."><img alt="" src="../../_images/sphx_glr_2_advection_diffusion_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to model the advection-diffusion equation. The goal of this tutorial is to demonstrate:"><img alt="" src="../../_images/sphx_glr_2_advection_diffusion_thumb.png" />
 <p><a class="reference internal" href="2_advection_diffusion.html#sphx-glr-tutorials-pde-2-advection-diffusion-py"><span class="std std-ref">Advection-Diffusion Equation</span></a></p>
   <div class="sphx-glr-thumbnail-title">Advection-Diffusion Equation</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Solve a nodal Poisson&#x27;s equation with Dirichlet boundary conditions ---------------------------..."><img alt="" src="../../_images/sphx_glr_3_nodal_dirichlet_poisson_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Solve a nodal Poisson&#x27;s equation with Dirichlet boundary conditions ------------------------------------------------------------------- The PDE we want to solve is Poisson&#x27;s equation with a variable conductivity, where we know the value of the solution on the boundary."><img alt="" src="../../_images/sphx_glr_3_nodal_dirichlet_poisson_thumb.png" />
 <p><a class="reference internal" href="3_nodal_dirichlet_poisson.html#sphx-glr-tutorials-pde-3-nodal-dirichlet-poisson-py"><span class="std std-ref">Nodal Dirichlet Poisson solution</span></a></p>
   <div class="sphx-glr-thumbnail-title">Nodal Dirichlet Poisson solution</div>
 </div></div><div class="toctree-wrapper compound">
@@ -681,17 +665,6 @@ numerically we must complete the following steps:</p>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
-  
-    <div class="footer-items__start">
-      
-        <div class="footer-item">
-  <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
-    <br/>
-  </p>
-</div>
-      
-    </div>
   
   
     <div class="footer-items__end">

@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_tutorials_mesh_generation_4_tree_mesh.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -50,7 +50,7 @@ Here we import the packages required for this tutorial.
 
 .. GENERATED FROM PYTHON SOURCE LINES 34-42
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from discretize import TreeMesh
@@ -80,7 +80,7 @@ rate of cell width increase outside the box.
 
 .. GENERATED FROM PYTHON SOURCE LINES 51-71
 
-.. code-block:: default
+.. code-block:: Python
 
 
     dh = 5  # minimum cell width (base mesh cell width)
@@ -137,7 +137,7 @@ refining.
 
 .. GENERATED FROM PYTHON SOURCE LINES 84-123
 
-.. code-block:: default
+.. code-block:: Python
 
 
     dx = 5  # minimum cell width (base mesh cell width) in x
@@ -207,7 +207,7 @@ we show some properties that can be extracted from a QuadTree mesh.
 
 .. GENERATED FROM PYTHON SOURCE LINES 130-183
 
-.. code-block:: default
+.. code-block:: Python
 
 
     dx = 5  # minimum cell width (base mesh cell width) in x
@@ -291,7 +291,7 @@ properties from a 3D tree mesh.
 
 .. GENERATED FROM PYTHON SOURCE LINES 190-242
 
-.. code-block:: default
+.. code-block:: Python
 
 
     dx = 5  # minimum cell width (base mesh cell width) in x
@@ -332,7 +332,7 @@ properties from a 3D tree mesh.
     # The total number of cells
     nC = mesh.nC
 
-    # An (nC, 2) array containing the cell-center locations
+    # An (nC, 3) array containing the cell-center locations
     cc = mesh.gridCC
 
     # A boolean array specifying which cells lie on the boundary
@@ -366,7 +366,7 @@ properties from a 3D tree mesh.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.896 seconds)
+   **Total running time of the script:** (0 minutes 0.636 seconds)
 
 
 .. _sphx_glr_download_tutorials_mesh_generation_4_tree_mesh.py:
@@ -375,16 +375,17 @@ properties from a 3D tree mesh.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: 4_tree_mesh.ipynb <4_tree_mesh.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: 4_tree_mesh.py <4_tree_mesh.py>`
 
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
+    .. container:: sphx-glr-download sphx-glr-download-zip
 
-      :download:`Download Jupyter notebook: 4_tree_mesh.ipynb <4_tree_mesh.ipynb>`
+      :download:`Download zipped: 4_tree_mesh.zip <4_tree_mesh.zip>`
 
 
 .. only:: html

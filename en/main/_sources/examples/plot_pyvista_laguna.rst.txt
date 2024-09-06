@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_examples_plot_pyvista_laguna.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -34,14 +34,14 @@ Using the inversion result from the example notebook
 
 .. GENERATED FROM PYTHON SOURCE LINES 17-29
 
-.. code-block:: default
+.. code-block:: Python
+
 
     # sphinx_gallery_thumbnail_number = 2
-    import os
-    import tarfile
     import discretize
     import pyvista as pv
     import numpy as np
+    import pooch
 
     # Set a documentation friendly plotting theme
     pv.set_plot_theme("document")
@@ -56,7 +56,7 @@ Using the inversion result from the example notebook
 
  .. code-block:: none
 
-    PyVista Version: 0.42.3
+    PyVista Version: 0.44.1
 
 
 
@@ -72,31 +72,31 @@ the raw data for the topography surface and gravity observations.
 
 .. GENERATED FROM PYTHON SOURCE LINES 36-61
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Download Topography and Observed gravity data
-    url = "https://storage.googleapis.com/simpeg/Chile_GRAV_4_Miller/Chile_GRAV_4_Miller.tar.gz"
-    downloads = discretize.utils.download(url, overwrite=True)
-    basePath = downloads.split(".")[0]
-
-    # unzip the tarfile
-    tar = tarfile.open(downloads, "r")
-    tar.extractall()
-    tar.close()
-
-    # Download the inverted model
-    f = discretize.utils.download(
-        "https://storage.googleapis.com/simpeg/laguna_del_maule_slicer.tar.gz",
-        overwrite=True,
+    data_url = "https://storage.googleapis.com/simpeg/Chile_GRAV_4_Miller/Chile_GRAV_4_Miller.tar.gz"
+    downloaded_items = pooch.retrieve(
+        data_url,
+        known_hash="28022bf8802eeb4892cac6c3efd1eb4275c84003a6723c047fe5e1738a66ea04",
+        processor=pooch.Untar(),
     )
-    tar = tarfile.open(f, "r")
-    tar.extractall()
-    tar.close()
+    data_path = next(filter(lambda f: f.endswith("LdM_grav_obs.grv"), downloaded_items))
+    topo_path = next(filter(lambda f: f.endswith("LdM_topo.topo"), downloaded_items))
 
-    # Load the mesh/data
-    mesh = discretize.load_mesh(os.path.join("laguna_del_maule_slicer", "mesh.json"))
-    models = {"Lpout": np.load(os.path.join("laguna_del_maule_slicer", "Lpout.npy"))}
+    model_url = "https://storage.googleapis.com/simpeg/laguna_del_maule_slicer.tar.gz"
+    downloaded_items = pooch.retrieve(
+        model_url,
+        known_hash="107293bfdeb77b314f4cb451a24c2c93a55aae40da28f43cf3c075d71acfb957",
+        processor=pooch.Untar(),
+    )
+    mesh_path = next(filter(lambda f: f.endswith("mesh.json"), downloaded_items))
+    model_path = next(filter(lambda f: f.endswith("Lpout.npy"), downloaded_items))
+
+    # # Load the mesh/data
+    mesh = discretize.load_mesh(mesh_path)
+    models = {"Lpout": np.load(model_path)}
 
 
 
@@ -107,12 +107,10 @@ the raw data for the topography surface and gravity observations.
 
  .. code-block:: none
 
-    Downloading https://storage.googleapis.com/simpeg/Chile_GRAV_4_Miller/Chile_GRAV_4_Miller.tar.gz
-       saved to: /home/vsts/work/1/s/examples/Chile_GRAV_4_Miller.tar.gz
-    Download completed!
-    Downloading https://storage.googleapis.com/simpeg/laguna_del_maule_slicer.tar.gz
-       saved to: /home/vsts/work/1/s/examples/laguna_del_maule_slicer.tar.gz
-    Download completed!
+    Downloading data from 'https://storage.googleapis.com/simpeg/Chile_GRAV_4_Miller/Chile_GRAV_4_Miller.tar.gz' to file '/home/vsts/.cache/pooch/1aa04a54c5738d4bb795040e61b8adaa-Chile_GRAV_4_Miller.tar.gz'.
+    Untarring contents of '/home/vsts/.cache/pooch/1aa04a54c5738d4bb795040e61b8adaa-Chile_GRAV_4_Miller.tar.gz' to '/home/vsts/.cache/pooch/1aa04a54c5738d4bb795040e61b8adaa-Chile_GRAV_4_Miller.tar.gz.untar'
+    Downloading data from 'https://storage.googleapis.com/simpeg/laguna_del_maule_slicer.tar.gz' to file '/home/vsts/.cache/pooch/5f2aebc57c6e4821887113b9d5c65f53-laguna_del_maule_slicer.tar.gz'.
+    Untarring contents of '/home/vsts/.cache/pooch/5f2aebc57c6e4821887113b9d5c65f53-laguna_del_maule_slicer.tar.gz' to '/home/vsts/.cache/pooch/5f2aebc57c6e4821887113b9d5c65f53-laguna_del_maule_slicer.tar.gz.untar'
 
 
 
@@ -127,7 +125,7 @@ data.
 
 .. GENERATED FROM PYTHON SOURCE LINES 67-72
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Get the PyVista dataset of the inverted model
@@ -150,11 +148,11 @@ data.
 
 .. GENERATED FROM PYTHON SOURCE LINES 73-79
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Load topography points from text file as XYZ numpy array
-    topo_pts = np.loadtxt("Chile_GRAV_4_Miller/LdM_topo.topo", skiprows=1)
+    topo_pts = np.loadtxt(topo_path, skiprows=1)
     # Create the topography points and apply an elevation filter
     topo = pv.PolyData(topo_pts).delaunay_2d().elevation()
 
@@ -167,11 +165,11 @@ data.
 
 .. GENERATED FROM PYTHON SOURCE LINES 80-91
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Load the gravity data from text file as XYZ+attributes numpy array
-    grav_data = np.loadtxt("Chile_GRAV_4_Miller/LdM_grav_obs.grv", skiprows=1)
+    grav_data = np.loadtxt(data_path, skiprows=1)
     print("gravity file shape: ", grav_data.shape)
     # Use the points to create PolyData
     grav = pv.PolyData(grav_data[:, 0:3])
@@ -247,7 +245,7 @@ Plot the topographic surface and the gravity data
 
 .. GENERATED FROM PYTHON SOURCE LINES 93-107
 
-.. code-block:: default
+.. code-block:: Python
 
 
     p = pv.Plotter()
@@ -284,7 +282,7 @@ Here we visualize all the data in 3D!
 
 .. GENERATED FROM PYTHON SOURCE LINES 112-155
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Create display parameters for inverted model
@@ -344,7 +342,7 @@ Here we visualize all the data in 3D!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 23.557 seconds)
+   **Total running time of the script:** (0 minutes 18.193 seconds)
 
 
 .. _sphx_glr_download_examples_plot_pyvista_laguna.py:
@@ -353,16 +351,17 @@ Here we visualize all the data in 3D!
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_pyvista_laguna.ipynb <plot_pyvista_laguna.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_pyvista_laguna.py <plot_pyvista_laguna.py>`
 
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
+    .. container:: sphx-glr-download sphx-glr-download-zip
 
-      :download:`Download Jupyter notebook: plot_pyvista_laguna.ipynb <plot_pyvista_laguna.ipynb>`
+      :download:`Download zipped: plot_pyvista_laguna.zip <plot_pyvista_laguna.zip>`
 
 
 .. only:: html

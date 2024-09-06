@@ -72,7 +72,7 @@ ax1.set_xlabel('X', fontsize=16, labelpad=-5)
 ax1.set_ylabel('Y', fontsize=16, labelpad=-15)
 ax1.set_title("Mapping of Face-X Divergence", fontsize=14, pad=15)
 ax1.legend(
-    ['Mesh', '$\mathbf{\phi}$ (x-faces)', '$\partial \mathbf{phi}/\partial x$ (centers)'],
+    ['Mesh', r'$\mathbf{\phi}$ (x-faces)', r'$\partial \mathbf{phi}/\partial x$ (centers)'],
     loc='upper right', fontsize=14
 )
 ax2 = fig.add_subplot(212)

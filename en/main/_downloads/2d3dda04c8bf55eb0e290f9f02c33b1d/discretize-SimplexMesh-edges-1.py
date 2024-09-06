@@ -18,7 +18,7 @@ mesh1.plot_grid(ax=ax1)
 ax1.scatter(x_edges[:, 0], x_edges[:, 1], 30, 'r')
 ax1.scatter(y_edges[:, 0], y_edges[:, 1], 30, 'g')
 ax1.legend(['Mesh', 'X-edges', 'Y-edges'], fontsize=16)
-plt.plot()
+plt.show()
 #
 # Here, we provide an example of a highly irregular curvilinear mesh.
 # In this case, the y-edges are not defined by normal vectors along

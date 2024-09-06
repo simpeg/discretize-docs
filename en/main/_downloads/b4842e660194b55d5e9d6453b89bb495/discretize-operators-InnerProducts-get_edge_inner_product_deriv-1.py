@@ -34,7 +34,7 @@ ax1.set_ylabel("Edge Index", fontsize=12)
 ax2 = fig.add_axes([0.43, 0.05, 0.17, 0.8])
 ax2.spy(dFdm_u, ms=6)
 ax2.set_title(
-    "$u^T \, \dfrac{\partial M(m)}{\partial m}$ (Isotropic)",
+    r"$u^T \, \dfrac{\partial M(m)}{\partial m}$ (Isotropic)",
     fontsize=14, pad=5
 )
 ax2.set_xlabel("Parameter Index", fontsize=12)
@@ -66,7 +66,7 @@ ax1.set_ylabel("Edge Index", fontsize=12)
 ax2 = fig.add_axes([0.4, 0.05, 0.45, 0.8])
 ax2.spy(dFdm_u, ms=6)
 ax2.set_title(
-    "$u^T \, \dfrac{\partial M(m)}{\partial m} \;$ (Full Tensor)",
+    r"$u^T \, \dfrac{\partial M(m)}{\partial m} \;$ (Full Tensor)",
     fontsize=14, pad=5
 )
 ax2.set_xlabel("Parameter Index", fontsize=12)

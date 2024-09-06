@@ -8,7 +8,6 @@ from discretize import TensorMesh
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
-mpl.rcParams.update({"font.size": 14})
 #
 # Define corners of a uniform cube
 #
@@ -34,7 +33,7 @@ vol
 # Plotting small mesh and tetrahedron
 #
 fig = plt.figure(figsize=(7, 7))
-ax = fig.gca(projection='3d')
+ax = plt.subplot(projection='3d')
 mesh.plot_grid(ax=ax)
 k = [0, 6, 8, 0, 24, 6, 24, 8]
 xyz_tetra = xyz[k, :]
