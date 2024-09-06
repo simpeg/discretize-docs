@@ -1,0 +1,143 @@
+﻿discretize.base.BaseRectangularMesh
+===================================
+
+.. currentmodule:: discretize.base
+
+.. inheritance-diagram:: BaseRectangularMesh
+    :parts: 1
+
+.. autoclass:: BaseRectangularMesh
+
+  
+   .. HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+      .. autosummary::
+         :toctree:
+      
+         BaseRectangularMesh.__len__
+         BaseRectangularMesh.closest_points_index
+         BaseRectangularMesh.copy
+         BaseRectangularMesh.deserialize
+         BaseRectangularMesh.equals
+         BaseRectangularMesh.getEdgeInnerProduct
+         BaseRectangularMesh.getEdgeInnerProductDeriv
+         BaseRectangularMesh.getFaceInnerProduct
+         BaseRectangularMesh.getFaceInnerProductDeriv
+         BaseRectangularMesh.getInterpolationMat
+         BaseRectangularMesh.get_edge_inner_product
+         BaseRectangularMesh.get_edge_inner_product_deriv
+         BaseRectangularMesh.get_edge_inner_product_line
+         BaseRectangularMesh.get_edge_inner_product_line_deriv
+         BaseRectangularMesh.get_edge_inner_product_surface
+         BaseRectangularMesh.get_edge_inner_product_surface_deriv
+         BaseRectangularMesh.get_face_inner_product
+         BaseRectangularMesh.get_face_inner_product_deriv
+         BaseRectangularMesh.get_face_inner_product_surface
+         BaseRectangularMesh.get_face_inner_product_surface_deriv
+         BaseRectangularMesh.get_interpolation_matrix
+         BaseRectangularMesh.point2index
+         BaseRectangularMesh.projectEdgeVector
+         BaseRectangularMesh.projectFaceVector
+         BaseRectangularMesh.project_edge_vector
+         BaseRectangularMesh.project_face_vector
+         BaseRectangularMesh.r
+         BaseRectangularMesh.reshape
+         BaseRectangularMesh.save
+         BaseRectangularMesh.serialize
+         BaseRectangularMesh.to_dict
+         BaseRectangularMesh.validate
+      
+         BaseRectangularMesh.__len__
+  
+
+  
+  
+   .. HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+      .. autosummary::
+         :toctree:
+      
+         BaseRectangularMesh.area
+         BaseRectangularMesh.average_cell_to_edge
+         BaseRectangularMesh.average_cell_to_face
+         BaseRectangularMesh.average_cell_vector_to_face
+         BaseRectangularMesh.average_edge_to_cell
+         BaseRectangularMesh.average_edge_to_cell_vector
+         BaseRectangularMesh.average_edge_to_face
+         BaseRectangularMesh.average_face_to_cell
+         BaseRectangularMesh.average_face_to_cell_vector
+         BaseRectangularMesh.average_node_to_cell
+         BaseRectangularMesh.average_node_to_edge
+         BaseRectangularMesh.average_node_to_face
+         BaseRectangularMesh.axis_u
+         BaseRectangularMesh.axis_v
+         BaseRectangularMesh.axis_w
+         BaseRectangularMesh.boundary_edge_vector_integral
+         BaseRectangularMesh.boundary_edges
+         BaseRectangularMesh.boundary_face_outward_normals
+         BaseRectangularMesh.boundary_face_scalar_integral
+         BaseRectangularMesh.boundary_faces
+         BaseRectangularMesh.boundary_node_vector_integral
+         BaseRectangularMesh.boundary_nodes
+         BaseRectangularMesh.cell_centers
+         BaseRectangularMesh.cell_volumes
+         BaseRectangularMesh.dim
+         BaseRectangularMesh.edge
+         BaseRectangularMesh.edgeCurl
+         BaseRectangularMesh.edge_curl
+         BaseRectangularMesh.edge_lengths
+         BaseRectangularMesh.edge_tangents
+         BaseRectangularMesh.edges
+         BaseRectangularMesh.faceDiv
+         BaseRectangularMesh.face_areas
+         BaseRectangularMesh.face_divergence
+         BaseRectangularMesh.face_normals
+         BaseRectangularMesh.faces
+         BaseRectangularMesh.nCx
+         BaseRectangularMesh.nCy
+         BaseRectangularMesh.nCz
+         BaseRectangularMesh.nNx
+         BaseRectangularMesh.nNy
+         BaseRectangularMesh.nNz
+         BaseRectangularMesh.n_cells
+         BaseRectangularMesh.n_edges
+         BaseRectangularMesh.n_edges_per_direction
+         BaseRectangularMesh.n_edges_x
+         BaseRectangularMesh.n_edges_y
+         BaseRectangularMesh.n_edges_z
+         BaseRectangularMesh.n_faces
+         BaseRectangularMesh.n_faces_per_direction
+         BaseRectangularMesh.n_faces_x
+         BaseRectangularMesh.n_faces_y
+         BaseRectangularMesh.n_faces_z
+         BaseRectangularMesh.n_nodes
+         BaseRectangularMesh.nodalGrad
+         BaseRectangularMesh.nodalLaplacian
+         BaseRectangularMesh.nodal_gradient
+         BaseRectangularMesh.nodal_laplacian
+         BaseRectangularMesh.nodes
+         BaseRectangularMesh.normals
+         BaseRectangularMesh.orientation
+         BaseRectangularMesh.origin
+         BaseRectangularMesh.project_edge_to_boundary_edge
+         BaseRectangularMesh.project_face_to_boundary_face
+         BaseRectangularMesh.project_node_to_boundary_node
+         BaseRectangularMesh.reference_is_rotated
+         BaseRectangularMesh.reference_system
+         BaseRectangularMesh.rotation_matrix
+         BaseRectangularMesh.shape_cells
+         BaseRectangularMesh.shape_edges_x
+         BaseRectangularMesh.shape_edges_y
+         BaseRectangularMesh.shape_edges_z
+         BaseRectangularMesh.shape_faces_x
+         BaseRectangularMesh.shape_faces_y
+         BaseRectangularMesh.shape_faces_z
+         BaseRectangularMesh.shape_nodes
+         BaseRectangularMesh.stencil_cell_gradient
+         BaseRectangularMesh.tangents
+         BaseRectangularMesh.vol
+         BaseRectangularMesh.x0
+  
+  
+
+.. minigallery:: discretize.base.BaseRectangularMesh
+    :add-heading: Galleries and Tutorials using ``discretize.base.BaseRectangularMesh``
+    :heading-level: -
