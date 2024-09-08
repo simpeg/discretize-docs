@@ -1,10 +1,11 @@
 from discretize import tests, utils
 import numpy as np
 import matplotlib.pyplot as plt
+rng = np.random.default_rng(786412)
 #
 def simplePass(x):
     return np.sin(x), utils.sdiag(np.cos(x))
-passed = tests.check_derivative(simplePass, np.random.randn(5))
+passed = tests.check_derivative(simplePass, rng.standard_normal(5), random_seed=rng)
 # Expected:
 ## ==================== check_derivative ====================
 ## iter    h         |ft-f0|   |ft-f0-h*J0*dx|  Order

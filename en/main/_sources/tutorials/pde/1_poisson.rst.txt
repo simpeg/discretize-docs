@@ -114,7 +114,7 @@ Here we import the packages required for this tutorial.
 
 
     from discretize import TensorMesh
-    from pymatsolver import SolverLU
+    from scipy.sparse.linalg import spsolve
     import matplotlib.pyplot as plt
     import numpy as np
     from discretize.utils import sdiag
@@ -133,7 +133,7 @@ Solving the Problem
 -------------------
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 106-149
+.. GENERATED FROM PYTHON SOURCE LINES 106-148
 
 .. code-block:: Python
 
@@ -158,8 +158,7 @@ Solving the Problem
     rho[kpos] = 1
 
     # LU factorization and solve
-    AinvM = SolverLU(A)
-    phi = AinvM * rho
+    phi = spsolve(A, rho)
 
     # Compute electric fields
     E = Mf_inv * DIV.T * Mc * phi
@@ -201,7 +200,7 @@ Solving the Problem
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.936 seconds)
+   **Total running time of the script:** (0 minutes 0.734 seconds)
 
 
 .. _sphx_glr_download_tutorials_pde_1_poisson.py:

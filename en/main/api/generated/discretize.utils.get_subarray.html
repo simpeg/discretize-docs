@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.utils.get_subarray &#8212; discretize 0.10.1.dev42+g98caca7f documentation</title>
+    <title>discretize.utils.get_subarray &#8212; discretize 0.10.1.dev63+gb0285e48 documentation</title>
   
   
   
@@ -41,7 +41,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script src="../../_static/documentation_options.js?v=84f9e3ce"></script>
+    <script src="../../_static/documentation_options.js?v=43246328"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.utils.get_subarray';</script>
@@ -614,7 +614,7 @@ document.write(`
 <h1>discretize.utils.get_subarray<a class="headerlink" href="#discretize-utils-get-subarray" title="Link to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="discretize.utils.get_subarray">
-<span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">get_subarray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ind</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/matrix_utils.py#L546-L602"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.get_subarray" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">get_subarray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ind</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/matrix_utils.py#L547-L604"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.get_subarray" title="Link to this definition">#</a></dt>
 <dd><p>Extract a subarray.</p>
 <p>For a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, the function <strong>get_subarray</strong> extracts a subset of
 the array. The portion of the original array being extracted is defined
@@ -641,7 +641,8 @@ dimension. The length of the list must equal the dimensions of the input array.<
 the first column.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="n">get_subarray</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">421</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">A</span>
 <span class="go">array([[1.07969034e-04, 9.78613931e-01, 6.62123429e-01],</span>
 <span class="go">       [8.80722877e-01, 7.61035691e-01, 7.42546796e-01],</span>

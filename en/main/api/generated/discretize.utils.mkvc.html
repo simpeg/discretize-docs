@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.utils.mkvc &#8212; discretize 0.10.1.dev42+g98caca7f documentation</title>
+    <title>discretize.utils.mkvc &#8212; discretize 0.10.1.dev63+gb0285e48 documentation</title>
   
   
   
@@ -41,7 +41,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script src="../../_static/documentation_options.js?v=84f9e3ce"></script>
+    <script src="../../_static/documentation_options.js?v=43246328"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.utils.mkvc';</script>
@@ -614,7 +614,7 @@ document.write(`
 <h1>discretize.utils.mkvc<a class="headerlink" href="#discretize-utils-mkvc" title="Link to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="discretize.utils.mkvc">
-<span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">mkvc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/matrix_utils.py#L9-L81"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.mkvc" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">mkvc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/matrix_utils.py#L9-L82"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.mkvc" title="Link to this definition">#</a></dt>
 <dd><p>Coerce a vector to the specified dimensionality.</p>
 <p>This function converts a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> to a vector. In general,
 the output vector has a dimension of 1. However, the dimensionality
@@ -643,9 +643,10 @@ output array until it has this many axes.</p>
 impact of the <em>n_dim</em> argument.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="n">mkvc</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">856</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">array([[0.33534155, 0.25334363],</span>
 <span class="go">       [0.07147884, 0.81080958],</span>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.tests.check_derivative &#8212; discretize 0.10.1.dev42+g98caca7f documentation</title>
+    <title>discretize.tests.check_derivative &#8212; discretize 0.10.1.dev63+gb0285e48 documentation</title>
   
   
   
@@ -41,7 +41,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script src="../../_static/documentation_options.js?v=84f9e3ce"></script>
+    <script src="../../_static/documentation_options.js?v=43246328"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.tests.check_derivative';</script>
@@ -577,14 +577,14 @@ document.write(`
 <h1>discretize.tests.check_derivative<a class="headerlink" href="#discretize-tests-check-derivative" title="Link to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="discretize.tests.check_derivative">
-<span class="sig-prename descclassname"><span class="pre">discretize.tests.</span></span><span class="sig-name descname"><span class="pre">check_derivative</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fctn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotIt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expectedOrder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.85</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tests.py#L545-L717"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.tests.check_derivative" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">discretize.tests.</span></span><span class="sig-name descname"><span class="pre">check_derivative</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fctn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotIt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expectedOrder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.85</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tests.py#L560-L743"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.tests.check_derivative" title="Link to this definition">#</a></dt>
 <dd><p>Perform a basic derivative check.</p>
 <p>Compares error decay of 0th and 1st order Taylor approximation at point
 x0 for a randomized search direction.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>fctn</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">function</span></code></span></dt><dd><p>Function handle</p>
+<dt><strong>fctn</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">callable()</span></code></a></span></dt><dd><p>The function to test.</p>
 </dd>
 <dt><strong>x0</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Point at which to check derivative</p>
 </dd>
@@ -593,7 +593,7 @@ x0 for a randomized search direction.</p>
 <dt><strong>plotIt</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>If <em>True</em>, plot the convergence of the approximation of the derivative</p>
 </dd>
 <dt><strong>dx</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Step direction. By default, this parameter is set to <em>None</em> and a random
-step direction is chosen.</p>
+step direction is chosen using <cite>rng</cite>.</p>
 </dd>
 <dt><strong>expectedOrder</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The expected order of convergence for the numerical derivative</p>
 </dd>
@@ -603,6 +603,10 @@ step direction is chosen.</p>
 </dd>
 <dt><strong>ax</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot.Axes</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>An axis object for the convergence plot if <em>plotIt = True</em>.
 Otherwise, the function will create a new axis.</p>
+</dd>
+<dt><strong>random_seed</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.Generator" title="(in NumPy v2.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.random.Generator</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>If <cite>dx</cite> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, this is the random number generator to use for
+generating a step direction. If an integer or None, it is used to seed
+a new <cite>numpy.random.default_rng</cite>.</p>
 </dd>
 </dl>
 </dd>
@@ -617,11 +621,12 @@ Otherwise, the function will create a new axis.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">tests</span><span class="p">,</span> <span class="n">utils</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">786412</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">simplePass</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">utils</span><span class="o">.</span><span class="n">sdiag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">passed</span> <span class="o">=</span> <span class="n">tests</span><span class="o">.</span><span class="n">check_derivative</span><span class="p">(</span><span class="n">simplePass</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">passed</span> <span class="o">=</span> <span class="n">tests</span><span class="o">.</span><span class="n">check_derivative</span><span class="p">(</span><span class="n">simplePass</span><span class="p">,</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">random_seed</span><span class="o">=</span><span class="n">rng</span><span class="p">)</span>
 <span class="go">==================== check_derivative ====================</span>
 <span class="go">iter    h         |ft-f0|   |ft-f0-h*J0*dx|  Order</span>
 <span class="go">---------------------------------------------------------</span>

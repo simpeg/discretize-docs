@@ -23,7 +23,7 @@ Basic Forward 2D DC Resistivity
 
 2D DC forward modeling example with Tensor and Curvilinear Meshes
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-68
+.. GENERATED FROM PYTHON SOURCE LINES 7-66
 
 
 
@@ -51,9 +51,9 @@ Basic Forward 2D DC Resistivity
 
 
     import discretize
-    from pymatsolver import SolverLU
     import numpy as np
     import matplotlib.pyplot as plt
+    from scipy.sparse.linalg import spsolve
 
 
     def run(plotIt=True):
@@ -82,12 +82,10 @@ Basic Forward 2D DC Resistivity
 
         # Step3: Solve DC problem (LU solver)
         AtM, rhstM = DCfun(tM, pts)
-        AinvtM = SolverLU(AtM)
-        phitM = AinvtM * rhstM
+        phitM = spsolve(AtM, rhstM)
 
         ArM, rhsrM = DCfun(rM, pts)
-        AinvrM = SolverLU(ArM)
-        phirM = AinvrM * rhsrM
+        phirM = spsolve(ArM, rhsrM)
 
         if not plotIt:
             return
@@ -114,7 +112,7 @@ Basic Forward 2D DC Resistivity
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.329 seconds)
+   **Total running time of the script:** (0 minutes 0.276 seconds)
 
 
 .. _sphx_glr_download_examples_plot_dc_resistivity.py:

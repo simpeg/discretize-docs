@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.TreeMesh.refine_bounding_box &#8212; discretize 0.10.1.dev42+g98caca7f documentation</title>
+    <title>discretize.TreeMesh.refine_bounding_box &#8212; discretize 0.10.1.dev63+gb0285e48 documentation</title>
   
   
   
@@ -41,7 +41,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script src="../../_static/documentation_options.js?v=84f9e3ce"></script>
+    <script src="../../_static/documentation_options.js?v=43246328"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.TreeMesh.refine_bounding_box';</script>
@@ -844,7 +844,7 @@ document.write(`
 <h1>discretize.TreeMesh.refine_bounding_box<a class="headerlink" href="#discretize-treemesh-refine-bounding-box" title="Link to this heading">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="discretize.TreeMesh.refine_bounding_box">
-<span class="sig-prename descclassname"><span class="pre">TreeMesh.</span></span><span class="sig-name descname"><span class="pre">refine_bounding_box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding_cells_by_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagonal_balance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tree_mesh.py#L388-L490"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.TreeMesh.refine_bounding_box" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">TreeMesh.</span></span><span class="sig-name descname"><span class="pre">refine_bounding_box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding_cells_by_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagonal_balance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tree_mesh.py#L388-L491"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.TreeMesh.refine_bounding_box" title="Link to this definition">#</a></dt>
 <dd><p>Refine within a bounding box based on the maximum and minimum extent of scattered points.</p>
 <p>This function refines the tree mesh based on the bounding box defined by the
 maximum and minimum extent of the scattered input <cite>points</cite>. It will refine
@@ -888,7 +888,8 @@ uniformly scattered between [3/8, 5/8] in the first and second dimension.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TreeMesh</span><span class="p">([</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span> <span class="o">+</span> <span class="mi">3</span><span class="o">/</span><span class="mi">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">852</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">points</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.25</span> <span class="o">+</span> <span class="mi">3</span><span class="o">/</span><span class="mi">8</span>
 </pre></div>
 </div>
 <p>Now we want to refine to the maximum level, with no padding the in <cite>x</cite>

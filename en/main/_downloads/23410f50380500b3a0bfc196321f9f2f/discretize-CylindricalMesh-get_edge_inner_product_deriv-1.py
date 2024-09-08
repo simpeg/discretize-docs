@@ -11,14 +11,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
 mpl.rcParams.update({'font.size': 14})
-np.random.seed(45)
+rng = np.random.default_rng(45)
 mesh = TensorMesh([[(1, 4)], [(1, 4)]])
 #
 # Next we create a random isotropic model vector, and a random vector to multiply
 # the derivative with (for illustration purposes).
 #
-m = np.random.rand(mesh.nC)  # physical property parameters
-u = np.random.rand(mesh.nF)  # vector of shape (n_edges)
+m = rng.random(mesh.nC)  # physical property parameters
+u = rng.random(mesh.nF)  # vector of shape (n_edges)
 Me = mesh.get_edge_inner_product(m)
 F = mesh.get_edge_inner_product_deriv(m)  # Function handle
 dFdm_u = F(u)
@@ -49,8 +49,8 @@ plt.show()
 # function handle :math:`\mathbf{F}(\mathbf{u})` and plot the evaluation
 # of this function on a spy plot.
 #
-m = np.random.rand(mesh.nC, 3)  # physical property parameters
-u = np.random.rand(mesh.nF)     # vector of shape (n_edges)
+m = rng.random((mesh.nC, 3))  # physical property parameters
+u = rng.random(mesh.nF)     # vector of shape (n_edges)
 Me = mesh.get_edge_inner_product(m)
 F = mesh.get_edge_inner_product_deriv(m)  # Function handle
 dFdm_u = F(u)

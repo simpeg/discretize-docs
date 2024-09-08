@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.utils.volume_average &#8212; discretize 0.10.1.dev42+g98caca7f documentation</title>
+    <title>discretize.utils.volume_average &#8212; discretize 0.10.1.dev63+gb0285e48 documentation</title>
   
   
   
@@ -41,7 +41,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script src="../../_static/documentation_options.js?v=84f9e3ce"></script>
+    <script src="../../_static/documentation_options.js?v=43246328"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.utils.volume_average';</script>
@@ -614,7 +614,7 @@ document.write(`
 <h1>discretize.utils.volume_average<a class="headerlink" href="#discretize-utils-volume-average" title="Link to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="discretize.utils.volume_average">
-<span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">volume_average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mesh_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/interpolation_utils.py#L175-L286"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.volume_average" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">volume_average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mesh_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/interpolation_utils.py#L175-L287"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.volume_average" title="Link to this definition">#</a></dt>
 <dd><p>Volume averaging interpolation between meshes.</p>
 <p>This volume averaging function looks for overlapping cells in each mesh,
 and weights the output values by the partial volume ratio of the overlapping
@@ -658,6 +658,7 @@ operation.</p>
 do not have to be the same extent).</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">TensorMesh</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">853</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh_in</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">([</span><span class="n">h1</span><span class="p">,</span> <span class="n">h1</span><span class="p">])</span>
@@ -667,7 +668,7 @@ do not have to be the same extent).</p>
 <p>Create a random model defined on the input mesh, and use volume averaging to
 interpolate it to the output mesh.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="n">volume_average</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">model1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">mesh_in</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model1</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">mesh_in</span><span class="o">.</span><span class="n">nC</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model2</span> <span class="o">=</span> <span class="n">volume_average</span><span class="p">(</span><span class="n">mesh_in</span><span class="p">,</span> <span class="n">mesh_out</span><span class="p">,</span> <span class="n">model1</span><span class="p">)</span>
 </pre></div>
 </div>

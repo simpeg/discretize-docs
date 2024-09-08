@@ -88,7 +88,7 @@ Import Packages
 Here we import the packages required for this tutorial
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-80
+.. GENERATED FROM PYTHON SOURCE LINES 73-82
 
 .. code-block:: Python
 
@@ -96,6 +96,8 @@ Here we import the packages required for this tutorial
     from discretize import TensorMesh
     import numpy as np
     import matplotlib.pyplot as plt
+
+    rng = np.random.default_rng(87236)
 
     # sphinx_gallery_thumbnail_number = 1
 
@@ -106,7 +108,7 @@ Here we import the packages required for this tutorial
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-98
+.. GENERATED FROM PYTHON SOURCE LINES 83-100
 
 Inner Product for a Single Cell
 -------------------------------
@@ -126,7 +128,7 @@ where the inner product matrix contains a significant number of non-diagonal
 entries.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-167
+.. GENERATED FROM PYTHON SOURCE LINES 100-169
 
 .. code-block:: Python
 
@@ -217,7 +219,7 @@ entries.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 168-178
+.. GENERATED FROM PYTHON SOURCE LINES 170-180
 
 Spatially Variant Parameters
 ----------------------------
@@ -230,7 +232,7 @@ a numpy array. This is demonstrated below. Properties of the resulting
 inner product matricies are discussed.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-214
+.. GENERATED FROM PYTHON SOURCE LINES 180-216
 
 .. code-block:: Python
 
@@ -240,17 +242,17 @@ inner product matricies are discussed.
     mesh = TensorMesh([h, h, h])
 
     # Isotropic case: (nC, ) numpy array
-    sig = np.random.rand(mesh.nC)  # sig for each cell
+    sig = rng.random(mesh.nC)  # sig for each cell
     Me1 = mesh.get_edge_inner_product(sig)  # Edges inner product matrix
     Mf1 = mesh.get_face_inner_product(sig)  # Faces inner product matrix
 
     # Linear case: (nC, dim) numpy array
-    sig = np.random.rand(mesh.nC, mesh.dim)
+    sig = rng.random((mesh.nC, mesh.dim))
     Me2 = mesh.get_edge_inner_product(sig)
     Mf2 = mesh.get_face_inner_product(sig)
 
     # Anisotropic case: (nC, 3) for 2D and (nC, 6) for 3D
-    sig = np.random.rand(mesh.nC, 6)
+    sig = rng.random((mesh.nC, 6))
     Me3 = mesh.get_edge_inner_product(sig)
     Mf3 = mesh.get_face_inner_product(sig)
 
@@ -298,7 +300,7 @@ inner product matricies are discussed.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 215-232
+.. GENERATED FROM PYTHON SOURCE LINES 217-234
 
 Inverse
 -------
@@ -318,7 +320,7 @@ operator. For the full anisotropic case, we must form the inner product
 matrix and do a numerical solve.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 232-253
+.. GENERATED FROM PYTHON SOURCE LINES 234-255
 
 .. code-block:: Python
 
@@ -328,17 +330,17 @@ matrix and do a numerical solve.
     mesh = TensorMesh([h, h, h])
 
     # Isotropic case: (nC, ) numpy array
-    sig = np.random.rand(mesh.nC)
+    sig = rng.random(mesh.nC)
     Me1_inv = mesh.get_edge_inner_product(sig, invert_matrix=True)
     Mf1_inv = mesh.get_face_inner_product(sig, invert_matrix=True)
 
     # Diagonal anisotropic: (nC, dim) numpy array
-    sig = np.random.rand(mesh.nC, mesh.dim)
+    sig = rng.random((mesh.nC, mesh.dim))
     Me2_inv = mesh.get_edge_inner_product(sig, invert_matrix=True)
     Mf2_inv = mesh.get_face_inner_product(sig, invert_matrix=True)
 
     # Full anisotropic: (nC, 3) for 2D and (nC, 6) for 3D
-    sig = np.random.rand(mesh.nC, 6)
+    sig = rng.random((mesh.nC, 6))
     Me3 = mesh.get_edge_inner_product(sig)
     Mf3 = mesh.get_face_inner_product(sig)
 
@@ -350,7 +352,7 @@ matrix and do a numerical solve.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 254-308
+.. GENERATED FROM PYTHON SOURCE LINES 256-310
 
 Reciprocal Properties
 ---------------------
@@ -407,7 +409,7 @@ Here we demonstrate how to form the inner-product matricies
 :math:`\mathbf{M_{\rho^{-1}}}` and :math:`\mathbf{M_P}`.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 308-364
+.. GENERATED FROM PYTHON SOURCE LINES 310-366
 
 .. code-block:: Python
 
@@ -488,7 +490,7 @@ Here we demonstrate how to form the inner-product matricies
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.283 seconds)
+   **Total running time of the script:** (0 minutes 1.018 seconds)
 
 
 .. _sphx_glr_download_tutorials_inner_products_2_physical_properties.py:

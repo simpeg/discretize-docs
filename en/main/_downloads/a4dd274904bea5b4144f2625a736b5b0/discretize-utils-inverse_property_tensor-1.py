@@ -7,6 +7,7 @@ from discretize import TensorMesh
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+rng = np.random.default_rng(421)
 #
 # Define a 2D tensor mesh
 #
@@ -16,9 +17,9 @@ mesh = TensorMesh([h, h], origin='00')
 # Define a physical property for all cases (2D)
 #
 sigma_scalar = 4.
-sigma_isotropic = np.random.randint(1, 10, mesh.nC)
-sigma_anisotropic = np.random.randint(1, 10, (mesh.nC, 2))
-sigma_tensor = np.random.randint(1, 10, (mesh.nC, 3))
+sigma_isotropic = rng.integers(1, 10, mesh.nC)
+sigma_anisotropic = rng.integers(1, 10, (mesh.nC, 2))
+sigma_tensor = rng.integers(1, 10, (mesh.nC, 3))
 #
 # Construct the property tensor in each case
 #

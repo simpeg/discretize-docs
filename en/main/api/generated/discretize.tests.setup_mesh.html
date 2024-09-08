@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.tests.setup_mesh &#8212; discretize 0.10.1.dev42+g98caca7f documentation</title>
+    <title>discretize.tests.setup_mesh &#8212; discretize 0.10.1.dev63+gb0285e48 documentation</title>
   
   
   
@@ -41,7 +41,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script src="../../_static/documentation_options.js?v=84f9e3ce"></script>
+    <script src="../../_static/documentation_options.js?v=43246328"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.tests.setup_mesh';</script>
@@ -577,7 +577,7 @@ document.write(`
 <h1>discretize.tests.setup_mesh<a class="headerlink" href="#discretize-tests-setup-mesh" title="Link to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="discretize.tests.setup_mesh">
-<span class="sig-prename descclassname"><span class="pre">discretize.tests.</span></span><span class="sig-name descname"><span class="pre">setup_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nDim</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tests.py#L85-L205"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.tests.setup_mesh" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">discretize.tests.</span></span><span class="sig-name descname"><span class="pre">setup_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nDim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tests.py#L84-L210"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.tests.setup_mesh" title="Link to this definition">#</a></dt>
 <dd><p>Generate arbitrary mesh for testing.</p>
 <p>For the mesh type, number of cells along each axis and dimension specified,
 <strong>setup_mesh</strong> will construct a random mesh that can be used for testing.
@@ -593,6 +593,10 @@ By design, the domain width is 1 along each axis direction.</p>
 number of base mesh cells and must be a power of 2.</p>
 </dd>
 <dt><strong>nDim</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The dimension of the mesh. Must be 1, 2 or 3.</p>
+</dd>
+<dt><strong>random_seed</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.Generator" title="(in NumPy v2.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.random.Generator</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">random</span></code> is in <cite>mesh_type</cite>, this is the random number generator to use for
+creating that random mesh. If an integer or None it is used to seed a new
+<cite>numpy.random.default_rng</cite>.</p>
 </dd>
 </dl>
 </dd>

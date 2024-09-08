@@ -5,9 +5,9 @@
 from discretize import TensorMesh
 import numpy as np
 import matplotlib.pyplot as plt
-np.random.seed(14)
+rng = np.random.default_rng(14)
 #
-locs = np.random.rand(50)*0.8+0.1
+locs = rng.random(50)*0.8+0.1
 dense = np.linspace(0, 1, 200)
 fun = lambda x: np.cos(2*np.pi*x)
 #

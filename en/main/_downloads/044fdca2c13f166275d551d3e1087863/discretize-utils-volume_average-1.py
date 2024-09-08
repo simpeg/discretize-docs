@@ -3,6 +3,7 @@
 #
 import numpy as np
 from discretize import TensorMesh
+rng = np.random.default_rng(853)
 h1 = np.ones(32)
 h2 = np.ones(16)*2
 mesh_in = TensorMesh([h1, h1])
@@ -12,7 +13,7 @@ mesh_out = TensorMesh([h2, h2])
 # interpolate it to the output mesh.
 #
 from discretize.utils import volume_average
-model1 = np.random.rand(mesh_in.nC)
+model1 = rng.random(mesh_in.nC)
 model2 = volume_average(mesh_in, mesh_out, model1)
 #
 # Because these two meshes' cells are perfectly aligned, but the output mesh

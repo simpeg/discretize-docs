@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Gauss’ Law of Electrostatics &#8212; discretize 0.10.1.dev42+g98caca7f documentation</title>
+    <title>Gauss’ Law of Electrostatics &#8212; discretize 0.10.1.dev63+gb0285e48 documentation</title>
   
   
   
@@ -41,7 +41,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script src="../../_static/documentation_options.js?v=84f9e3ce"></script>
+    <script src="../../_static/documentation_options.js?v=43246328"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -634,7 +634,7 @@ obtained by computing:</p>
 <h2>Import Packages<a class="headerlink" href="#import-packages" title="Link to this heading">#</a></h2>
 <p>Here we import the packages required for this tutorial.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">TensorMesh</span>
-<span class="kn">from</span> <span class="nn">pymatsolver</span> <span class="kn">import</span> <span class="n">SolverLU</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.linalg.spsolve.html#scipy.sparse.linalg.spsolve" title="scipy.sparse.linalg.spsolve" class="sphx-glr-backref-module-scipy-sparse-linalg sphx-glr-backref-type-py-function"><span class="n">spsolve</span></a>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="n">sdiag</span>
@@ -663,8 +663,7 @@ obtained by computing:</p>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rho</span></a><span class="p">[</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kpos</span></a><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="c1"># LU factorization and solve</span>
-<span class="n">AinvM</span> <span class="o">=</span> <span class="n">SolverLU</span><span class="p">(</span><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="scipy.sparse.csr_matrix" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">A</span></a><span class="p">)</span>
-<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">phi</span></a> <span class="o">=</span> <span class="n">AinvM</span> <span class="o">*</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rho</span></a>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">phi</span></a> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.linalg.spsolve.html#scipy.sparse.linalg.spsolve" title="scipy.sparse.linalg.spsolve" class="sphx-glr-backref-module-scipy-sparse-linalg sphx-glr-backref-type-py-function"><span class="n">spsolve</span></a><span class="p">(</span><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="scipy.sparse.csr_matrix" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">A</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rho</span></a><span class="p">)</span>
 
 <span class="c1"># Compute electric fields</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">E</span></a> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="scipy.sparse.csr_matrix" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Mf_inv</span></a> <span class="o">*</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.T.html#scipy.sparse.csr_matrix.T" title="scipy.sparse.csr_matrix.T" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-property"><span class="n">DIV</span><span class="o">.</span><span class="n">T</span></a> <span class="o">*</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="scipy.sparse.csr_matrix" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Mc</span></a> <span class="o">*</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">phi</span></a>
@@ -690,7 +689,7 @@ obtained by computing:</p>
 <img src="../../_images/sphx_glr_1_poisson_001.png" srcset="../../_images/sphx_glr_1_poisson_001.png" alt="Charge Density, Electric Potential, Electric Fields" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Electric Fields&#39;)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.936 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.734 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-pde-1-poisson-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/34d106af27b499eeb17aed9000bea081/1_poisson.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">1_poisson.ipynb</span></code></a></p>

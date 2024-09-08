@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize 0.10.0 Release Notes &#8212; discretize 0.10.1.dev42+g98caca7f documentation</title>
+    <title>discretize 0.10.0 Release Notes &#8212; discretize 0.10.1.dev63+gb0285e48 documentation</title>
   
   
   
@@ -41,7 +41,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script src="../_static/documentation_options.js?v=84f9e3ce"></script>
+    <script src="../_static/documentation_options.js?v=43246328"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'release/0.10.0-notes';</script>
@@ -586,7 +586,7 @@ that were defined on cell centers).</p>
 <p><code class="docutils literal notranslate"><span class="pre">discretize</span></code> now uses a <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file with a <code class="docutils literal notranslate"><span class="pre">meson-python</span></code> backend to build
 the compiled external modules (used for the <code class="docutils literal notranslate"><span class="pre">TreeMesh</span></code>, <code class="docutils literal notranslate"><span class="pre">SimplexMesh</span></code>, and interpolation
 functions. Moving away from a <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file allows us to reliably control the build environment
-seperate from the install environment, as the build requirements are not the same as the runtime
+separate from the install environment, as the build requirements are not the same as the runtime
 requirements.</p>
 <p>We will also begin distributing many more pre-compiled wheels on pypi for Windows, MacOS, and Linux
 systems from python 3.8 to 3.12. Our goal is to provide a pre-compiled wheel for every system that
@@ -594,9 +594,9 @@ scipy provides wheels for.</p>
 </section>
 <section id="tensor-mesh">
 <h2>Tensor Mesh<a class="headerlink" href="#tensor-mesh" title="Link to this heading">#</a></h2>
-<p>You can now directly index a <code class="docutils literal notranslate"><span class="pre">TensorMesh</span></code>, and it will then return a <code class="docutils literal notranslate"><span class="pre">TensorCell</span></code> object.
-This functionality mimics what is currently available in <a href="#id1"><span class="problematic" id="id2">``</span></a>TreeMesh``s.</p>
-<p><code class="docutils literal notranslate"><span class="pre">Tensor</span> <span class="pre">Mesh</span></code> also has a <code class="docutils literal notranslate"><span class="pre">cell_nodes</span></code> property that list the indices of each node of every
+<p>You can now directly index a <code class="docutils literal notranslate"><span class="pre">TensorMesh</span></code> and return a <code class="docutils literal notranslate"><span class="pre">TensorCell</span></code> object.
+This functionality mimics what is currently available in <code class="docutils literal notranslate"><span class="pre">TreeMesh</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TensorMesh</span></code> also has a <code class="docutils literal notranslate"><span class="pre">cell_nodes</span></code> property that list the indices of each node of every
 cell (again similar to the <code class="docutils literal notranslate"><span class="pre">TreeMesh</span></code>).</p>
 </section>
 <section id="face-properties">

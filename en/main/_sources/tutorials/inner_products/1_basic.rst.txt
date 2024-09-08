@@ -85,7 +85,7 @@ Import Packages
 Here we import the packages required for this tutorial
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-80
+.. GENERATED FROM PYTHON SOURCE LINES 71-82
 
 .. code-block:: Python
 
@@ -94,6 +94,8 @@ Here we import the packages required for this tutorial
     from discretize import TensorMesh
     import matplotlib.pyplot as plt
     import numpy as np
+
+    rng = np.random.default_rng(8572)
 
     # sphinx_gallery_thumbnail_number = 2
 
@@ -105,7 +107,7 @@ Here we import the packages required for this tutorial
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-102
+.. GENERATED FROM PYTHON SOURCE LINES 83-104
 
 Scalars
 -------
@@ -129,7 +131,7 @@ solution. *Note that the method for evaluating inner products here can be
 extended to variables in 2D and 3D*.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 102-142
+.. GENERATED FROM PYTHON SOURCE LINES 104-144
 
 .. code-block:: Python
 
@@ -188,12 +190,12 @@ extended to variables in 2D and 3D*.
 
     ACCURACY
     Analytic solution:     0.18806319451591877
-    Cell-centered approx.: 0.18806274170655463
+    Cell-centered approx.: 0.18806274170655465
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-164
+.. GENERATED FROM PYTHON SOURCE LINES 145-166
 
 Vectors
 -------
@@ -217,7 +219,7 @@ of the inner products with the analytic solution. *Note that the method for
 evaluating inner products here can be extended to variables in 3D*.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 164-223
+.. GENERATED FROM PYTHON SOURCE LINES 166-225
 
 .. code-block:: Python
 
@@ -295,13 +297,13 @@ evaluating inner products here can be extended to variables in 3D*.
 
     ACCURACY
     Analytic solution:     7.0685834705770345
-    Edge variable approx.: 7.057606391882359
-    Face variable approx.: 7.0794915919325305
+    Edge variable approx.: 7.057606391882361
+    Face variable approx.: 7.079491591932532
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 224-237
+.. GENERATED FROM PYTHON SOURCE LINES 226-239
 
 Inverse of Inner Product Matricies
 ----------------------------------
@@ -317,7 +319,7 @@ L2-norm for each:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 237-277
+.. GENERATED FROM PYTHON SOURCE LINES 239-279
 
 .. code-block:: Python
 
@@ -344,10 +346,10 @@ L2-norm for each:
     Mf_inv = mesh.get_face_inner_product(invert_matrix=True)
 
     # Generate some random vectors
-    phi_c = np.random.rand(mesh.nC)
-    # phi_n = np.random.rand(mesh.nN)
-    vec_e = np.random.rand(mesh.nE)
-    vec_f = np.random.rand(mesh.nF)
+    phi_c = rng.random(mesh.nC)
+    # phi_n = rng.random(mesh.nN)
+    vec_e = rng.random(mesh.nE)
+    vec_f = rng.random(mesh.nF)
 
     # Generate some random vectors
     norm_c = np.linalg.norm(phi_c - Mc_inv.dot(Mc.dot(phi_c)))
@@ -370,7 +372,7 @@ L2-norm for each:
  .. code-block:: none
 
     ACCURACY
-    Norm for centers: 4.823558845120255e-15
+    Norm for centers: 4.8433868564087776e-15
     Norm for edges:   0.0
     Norm for faces:   0.0
 
@@ -380,7 +382,7 @@ L2-norm for each:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.680 seconds)
+   **Total running time of the script:** (0 minutes 0.514 seconds)
 
 
 .. _sphx_glr_download_tutorials_inner_products_1_basic.py:

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.tests.OrderTest &#8212; discretize 0.10.1.dev42+g98caca7f documentation</title>
+    <title>discretize.tests.OrderTest &#8212; discretize 0.10.1.dev63+gb0285e48 documentation</title>
   
   
   
@@ -41,7 +41,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script src="../../_static/documentation_options.js?v=84f9e3ce"></script>
+    <script src="../../_static/documentation_options.js?v=43246328"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -586,7 +586,7 @@ document.write(`
 <area shape="rect" id="node1" href="#discretize.tests.OrderTest" target="_top" title="Base class for testing convergence of discrete operators with respect to cell size." alt="" coords="133,5,216,33"/>
 </map><dl class="py class">
 <dt class="sig sig-object py" id="discretize.tests.OrderTest">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.tests.</span></span><span class="sig-name descname"><span class="pre">OrderTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tests.py#L208-L378"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.tests.OrderTest" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.tests.</span></span><span class="sig-name descname"><span class="pre">OrderTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tests.py#L213-L393"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.tests.OrderTest" title="Link to this definition">#</a></dt>
 <dd><p>Base class for testing convergence of discrete operators with respect to cell size.</p>
 <p><code class="docutils literal notranslate"><span class="pre">OrderTest</span></code> is a base class for testing the order of convergence of discrete
 operators with respect to cell size. <code class="docutils literal notranslate"><span class="pre">OrderTest</span></code> is inherited by the test
@@ -594,37 +594,39 @@ class for the given operator. Within the test class, the user sets the parameter
 for the convergence testing and defines a method <a class="reference internal" href="discretize.tests.OrderTest.getError.html#discretize.tests.OrderTest.getError" title="discretize.tests.OrderTest.getError"><code class="xref py py-attr docutils literal notranslate"><span class="pre">getError</span></code></a>
 which defines the error as a norm of the residual (see example).</p>
 <p>OrderTest inherits from <a class="reference external" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.TestCase</span></code></a>.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl>
-<dt><strong>name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>Name the convergence test</p>
-</dd>
-<dt><strong>meshTypes</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>List denoting the mesh types on which the convergence will be tested.
-List entries must of the list {‘uniformTensorMesh’, ‘randomTensorMesh’,
-‘uniformCylindricalMesh’, ‘randomCylindricalMesh’, ‘uniformTree’, ‘randomTree’,
-‘uniformCurv’, ‘rotateCurv’, ‘sphereCurv’}</p>
-</dd>
-<dt><strong>expectedOrders</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">default</span></code> = 2.0)</span></dt><dd><p>Defines the expect orders of convergence for all meshes defined in <em>meshTypes</em>.
-If list, must have same length as argument <em>meshTypes</em>.</p>
-</dd>
-<dt><strong>tolerance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">default</span></code> = 0.85)</span></dt><dd><p>Defines tolerance for numerical approximate of convergence order.
-If list, must have same length as argument <em>meshTypes</em>.</p>
-</dd>
-<dt><strong>meshSizes</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>From coarsest to finest, defines the number of mesh cells in each axis direction
-for the meshes used in the convergence test; e.g. [4, 8, 16, 32]</p>
-</dd>
-<dt><strong>meshDimension</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Mesh dimension. Must be 1, 2 or 3</p>
-</dd>
-</dl>
-</dd>
-</dl>
+<p class="rubric">Attributes</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>(str) Name the convergence test</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>meshTypes</strong></p></td>
+<td><p>(list of str) List denoting the mesh types on which the convergence will be tested. List entries must be of the list {‘uniformTensorMesh’, ‘randomTensorMesh’, ‘uniformCylindricalMesh’, ‘randomCylindricalMesh’, ‘uniformTree’, ‘randomTree’, ‘uniformCurv’, ‘rotateCurv’, ‘sphereCurv’}</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>expectedOrders</strong></p></td>
+<td><p>(float or list of float (default = 2.0)) Defines the expect orders of convergence for all meshes defined in <em>meshTypes</em>. If list, must have same length as argument <em>meshTypes</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>tolerance</strong></p></td>
+<td><p>(float or list of float (default = 0.85)) Defines tolerance for numerical approximate of convergence order. If list, must have same length as argument <em>meshTypes</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>meshSizes</strong></p></td>
+<td><p>(list of int) From coarsest to finest, defines the number of mesh cells in each axis direction for the meshes used in the convergence test; e.g. [4, 8, 16, 32]</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>meshDimension</strong></p></td>
+<td><p>(int) Mesh dimension. Must be 1, 2 or 3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>random_seed</strong></p></td>
+<td><p>(numpy.random.Generator, int, optional) If <code class="docutils literal notranslate"><span class="pre">random</span></code> is in <cite>mesh_type</cite>, this is the random number generator used generate the random meshes, if an <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code>, it used to seed a new <cite>numpy.random.default_rng</cite>.</p></td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.tests.OrderTest.getError.html#discretize.tests.OrderTest.getError" title="discretize.tests.OrderTest.getError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getError</span></code></a>()</p></td>
 <td><p>Compute error defined as a norm of the residual.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.tests.OrderTest.orderTest.html#discretize.tests.OrderTest.orderTest" title="discretize.tests.OrderTest.orderTest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">orderTest</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.tests.OrderTest.orderTest.html#discretize.tests.OrderTest.orderTest" title="discretize.tests.OrderTest.orderTest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">orderTest</span></code></a>([random_seed])</p></td>
 <td><p>Perform an order test.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.tests.OrderTest.setupMesh.html#discretize.tests.OrderTest.setupMesh" title="discretize.tests.OrderTest.setupMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setupMesh</span></code></a>(nC)</p></td>
