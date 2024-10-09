@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.CurvilinearMesh.reshape &#8212; discretize 0.10.1.dev66+g09263910 documentation</title>
+    <title>discretize.CurvilinearMesh.reshape &#8212; discretize 0.10.1.dev71+gc394964b documentation</title>
   
   
   
@@ -42,7 +42,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=1c13b788"></script>
+    <script src="../../_static/documentation_options.js?v=a9a5ee66"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.CurvilinearMesh.reshape';</script>
@@ -136,8 +136,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev66+g09263910 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev66+g09263910 documentation - Home"/>`);</script>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev71+gc394964b documentation - Home"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev71+gc394964b documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -789,11 +789,11 @@ like to extract the x-component and reshaped it to a 3D matrix.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>x</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>The input quantity. , ndarray (tensor) or a list</p>
+<dt><strong>x</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>The input quantity. , ndarray (tensor) or a list</p>
 </dd>
 <dt><strong>x_type</strong><span class="classifier">{‘CC’, ‘N’, ‘F’, ‘Fx’, ‘Fy’, ‘Fz’, ‘E’, ‘Ex’, ‘Ey’, ‘Ez’}</span></dt><dd><p>Defines the locations on the mesh where input parameter <em>x</em> lives.</p>
 </dd>
-<dt><strong>out_type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>Defines the output quantity. Choice depends on your input for <em>x_type</em>:</p>
+<dt><strong>out_type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>Defines the output quantity. Choice depends on your input for <em>x_type</em>:</p>
 <ul class="simple">
 <li><p><em>x_type</em> = ‘CC’ —&gt; <em>out_type</em> = ‘CC’</p></li>
 <li><p><em>x_type</em> = ‘N’ —&gt; <em>out_type</em> = ‘N’</p></li>
@@ -801,7 +801,7 @@ like to extract the x-component and reshaped it to a 3D matrix.</p>
 <li><p><em>x_type</em> = ‘E’ —&gt; <em>out_type</em> = {‘E’, ‘Ex’, ‘Ey’, ‘Ez’}</p></li>
 </ul>
 </dd>
-<dt><strong>return_format</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The dimensions of quantity being returned</p>
+<dt><strong>return_format</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The dimensions of quantity being returned</p>
 <ul class="simple">
 <li><p><em>V:</em> return a vector (1D array) or a list of vectors</p></li>
 <li><p><em>M:</em> return matrix (nD array) or a list of matrices</p></li>

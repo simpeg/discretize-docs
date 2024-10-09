@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.SimplexMesh.get_face_inner_product_deriv &#8212; discretize 0.10.1.dev66+g09263910 documentation</title>
+    <title>discretize.SimplexMesh.get_face_inner_product_deriv &#8212; discretize 0.10.1.dev71+gc394964b documentation</title>
   
   
   
@@ -42,7 +42,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=1c13b788"></script>
+    <script src="../../_static/documentation_options.js?v=a9a5ee66"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev66+g09263910 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev66+g09263910 documentation - Home"/>`);</script>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev71+gc394964b documentation - Home"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev71+gc394964b documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -716,7 +716,7 @@ document.write(`
 <h1>discretize.SimplexMesh.get_face_inner_product_deriv<a class="headerlink" href="#discretize-simplexmesh-get-face-inner-product-deriv" title="Link to this heading">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="discretize.SimplexMesh.get_face_inner_product_deriv">
-<span class="sig-prename descclassname"><span class="pre">SimplexMesh.</span></span><span class="sig-name descname"><span class="pre">get_face_inner_product_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/unstructured_mesh.py#L589-L599"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.SimplexMesh.get_face_inner_product_deriv" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">SimplexMesh.</span></span><span class="sig-name descname"><span class="pre">get_face_inner_product_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/unstructured_mesh.py#L590-L600"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.SimplexMesh.get_face_inner_product_deriv" title="Link to this definition">#</a></dt>
 <dd><p>Get a function handle to multiply a vector with derivative of face inner product matrix (or its inverse).</p>
 <p>Let <span class="math notranslate nohighlight">\(\mathbf{M}(\mathbf{m})\)</span> be the face inner product matrix
 constructed with a set of physical property parameters <span class="math notranslate nohighlight">\(\mathbf{m}\)</span>
@@ -748,11 +748,11 @@ are ordered <code class="docutils literal notranslate"><span class="pre">np.c_[Ï
 a 1D array with the same number of total elements in column major order.</p></li>
 </ul>
 </dd>
-<dt><strong>do_fast</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Do a faster implementation (if available).</p>
+<dt><strong>do_fast</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.13)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Do a faster implementation (if available).</p>
 </dd>
-<dt><strong>invert_model</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The inverse of <em>model</em> is used as the physical property.</p>
+<dt><strong>invert_model</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.13)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The inverse of <em>model</em> is used as the physical property.</p>
 </dd>
-<dt><strong>invert_matrix</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Returns the inverse of the inner product matrix.
+<dt><strong>invert_matrix</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.13)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Returns the inverse of the inner product matrix.
 The inverse not implemented for full tensor properties.</p>
 </dd>
 </dl>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.CylindricalMesh.get_interpolation_matrix &#8212; discretize 0.10.1.dev66+g09263910 documentation</title>
+    <title>discretize.CylindricalMesh.get_interpolation_matrix &#8212; discretize 0.10.1.dev71+gc394964b documentation</title>
   
   
   
@@ -42,7 +42,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=1c13b788"></script>
+    <script src="../../_static/documentation_options.js?v=a9a5ee66"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev66+g09263910 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev66+g09263910 documentation - Home"/>`);</script>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev71+gc394964b documentation - Home"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev71+gc394964b documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -835,7 +835,7 @@ Locations are defined in cylindrical coordinates; i.e. <span class="math notrans
 <dt><strong>loc</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_pts</span></code>, <a class="reference internal" href="discretize.CylindricalMesh.dim.html#discretize.CylindricalMesh.dim" title="discretize.CylindricalMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Location of points to interpolate to in cylindrical coordinates ; i.e.
 <span class="math notranslate nohighlight">\((r, \phi, z)\)</span></p>
 </dd>
-<dt><strong>location_type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>What discrete quantity on the mesh you are interpolating from. Options are:</p>
+<dt><strong>location_type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>What discrete quantity on the mesh you are interpolating from. Options are:</p>
 <ul class="simple">
 <li><p>‘Ex’, ‘edges_x’           -&gt; x-component of field defined on x edges</p></li>
 <li><p>‘Ey’, ‘edges_y’           -&gt; y-component of field defined on y edges</p></li>
@@ -850,7 +850,7 @@ Locations are defined in cylindrical coordinates; i.e. <span class="math notrans
 <li><p>‘CCVz’, ‘cell_centers_z’  -&gt; z-component of vector field defined on cell centers</p></li>
 </ul>
 </dd>
-<dt><strong>zeros_outside</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a></span></dt><dd><p>If <em>False</em> , nearest neighbour is used to compute the value for
+<dt><strong>zeros_outside</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.13)"><span class="xref std std-ref">bool</span></a></span></dt><dd><p>If <em>False</em> , nearest neighbour is used to compute the value for
 locations outside the mesh. If <em>True</em> , values outside the mesh
 will be equal to zero.</p>
 </dd>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.mixins.Slicer &#8212; discretize 0.10.1.dev66+g09263910 documentation</title>
+    <title>discretize.mixins.Slicer &#8212; discretize 0.10.1.dev71+gc394964b documentation</title>
   
   
   
@@ -42,7 +42,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=1c13b788"></script>
+    <script src="../../_static/documentation_options.js?v=a9a5ee66"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.mixins.Slicer';</script>
@@ -136,8 +136,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev66+g09263910 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev66+g09263910 documentation - Home"/>`);</script>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev71+gc394964b documentation - Home"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev71+gc394964b documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -628,7 +628,7 @@ document.write(`
 <dd class="field-odd"><dl>
 <dt><strong>v</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Data array</p>
 </dd>
-<dt><strong>xslice, yslice, zslice</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Initial slice locations (in meter);
+<dt><strong>xslice, yslice, zslice</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Initial slice locations (in meter);
 defaults to the middle of the volume.</p>
 </dd>
 <dt><strong>v_type: {‘CC’, ‘Fx’, ‘Fy’, ‘Fz’, ‘Ex’, ‘Ey’, ‘Ez’}</strong></dt><dd><p>Type of visualization.</p>
@@ -637,17 +637,17 @@ defaults to the middle of the volume.</p>
 </dd>
 <dt><strong>axis</strong><span class="classifier">{‘xy’, ‘yx’}</span></dt><dd><p>‘xy’: horizontal axis is x, vertical axis is y. Reversed otherwise.</p>
 </dd>
-<dt><strong>transparent</strong><span class="classifier">‘slider’ or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">pairs</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Values to be removed. E.g. air, water.
+<dt><strong>transparent</strong><span class="classifier">‘slider’ or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">pairs</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Values to be removed. E.g. air, water.
 If single value, only exact matches are removed. Pairs are treated as
 ranges. E.g. [0.3, [1, 4], [-np.infty, -10]] removes all values equal
 to 0.3, all values between 1 and 4, and all values smaller than -10.
 If ‘slider’ is provided it will plot an interactive slider to choose
 the shown range.</p>
 </dd>
-<dt><strong>clim</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#min" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#max" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a>]</span></dt><dd><p>For <cite>pcolormesh</cite> (<cite>vmin</cite>, <cite>vmax</cite>). Note: if you use a <cite>norm</cite> (e.g.,
+<dt><strong>clim</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#min" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#max" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a>]</span></dt><dd><p>For <cite>pcolormesh</cite> (<cite>vmin</cite>, <cite>vmax</cite>). Note: if you use a <cite>norm</cite> (e.g.,
 <cite>LogNorm</cite>) then <cite>vmin</cite>/<cite>vmax</cite> have to be provided in the norm.</p>
 </dd>
-<dt><strong>xlim, ylim, zlim</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#min" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#max" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a>]</span></dt><dd><p>Axis limits.</p>
+<dt><strong>xlim, ylim, zlim</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#min" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#max" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a>]</span></dt><dd><p>Axis limits.</p>
 </dd>
 <dt><strong>aspect</strong><span class="classifier">‘auto’, ‘equal’, <code class="xref py py-obj docutils literal notranslate"><span class="pre">or</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">num</span></code></span></dt><dd><p>Aspect ratio of subplots. Defaults to ‘auto’.</p>
 <p>A list of two values can be provided. The first will be for the
@@ -658,7 +658,7 @@ the vertical dimension exaggerated by a factor of 2.</p>
 </dd>
 </dl>
 </dd>
-<dt><strong>grid</strong><span class="classifier">(3) <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Number of cells occupied by x, y, and z dimension on plt.subplot2grid.</p>
+<dt><strong>grid</strong><span class="classifier">(3) <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Number of cells occupied by x, y, and z dimension on plt.subplot2grid.</p>
 </dd>
 <dt><strong>pcolor_opts</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dictionary</span></code></span></dt><dd><p>Passed to <cite>pcolormesh</cite>.</p>
 </dd>
