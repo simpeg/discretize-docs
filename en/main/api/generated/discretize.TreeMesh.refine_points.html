@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.TreeMesh.refine_points &#8212; discretize 0.10.1.dev71+gc394964b documentation</title>
+    <title>discretize.TreeMesh.refine_points &#8212; discretize 0.10.1.dev94+g1ab5e9aa documentation</title>
   
   
   
@@ -42,7 +42,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=a9a5ee66"></script>
+    <script src="../../_static/documentation_options.js?v=43195b3a"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.TreeMesh.refine_points';</script>
@@ -56,7 +56,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="discretize.TreeMesh.refine_surface" href="discretize.TreeMesh.refine_surface.html" />
-    <link rel="prev" title="discretize.TreeMesh.refine_line" href="discretize.TreeMesh.refine_line.html" />
+    <link rel="prev" title="discretize.TreeMesh.refine_plane" href="discretize.TreeMesh.refine_plane.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -136,8 +136,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev71+gc394964b documentation - Home"/>
-    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev71+gc394964b documentation - Home"/>`);</script>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev94+g1ab5e9aa documentation - Home"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev94+g1ab5e9aa documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -730,6 +730,14 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_BC_projections_simple.html">discretize.TreeMesh.get_BC_projections_simple</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_boundary_cells.html">discretize.TreeMesh.get_boundary_cells</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_along_line.html">discretize.TreeMesh.get_cells_along_line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_in_aabb.html">discretize.TreeMesh.get_cells_in_aabb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_in_ball.html">discretize.TreeMesh.get_cells_in_ball</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_in_tetrahedron.html">discretize.TreeMesh.get_cells_in_tetrahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_in_triangle.html">discretize.TreeMesh.get_cells_in_triangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_in_vertical_trianglular_prism.html">discretize.TreeMesh.get_cells_in_vertical_trianglular_prism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_on_line.html">discretize.TreeMesh.get_cells_on_line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_on_plane.html">discretize.TreeMesh.get_cells_on_plane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_containing_cells.html">discretize.TreeMesh.get_containing_cells</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_edge_inner_product.html">discretize.TreeMesh.get_edge_inner_product</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_edge_inner_product_deriv.html">discretize.TreeMesh.get_edge_inner_product_deriv</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_edge_inner_product_line.html">discretize.TreeMesh.get_edge_inner_product_line</a></li>
@@ -768,6 +776,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_bounding_box.html">discretize.TreeMesh.refine_bounding_box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_box.html">discretize.TreeMesh.refine_box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_line.html">discretize.TreeMesh.refine_line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_plane.html">discretize.TreeMesh.refine_plane</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">discretize.TreeMesh.refine_points</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_surface.html">discretize.TreeMesh.refine_surface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_tetrahedron.html">discretize.TreeMesh.refine_tetrahedron</a></li>
@@ -875,7 +884,7 @@ document.write(`
 <h1>discretize.TreeMesh.refine_points<a class="headerlink" href="#discretize-treemesh-refine-points" title="Link to this heading">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="discretize.TreeMesh.refine_points">
-<span class="sig-prename descclassname"><span class="pre">TreeMesh.</span></span><span class="sig-name descname"><span class="pre">refine_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding_cells_by_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagonal_balance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tree_mesh.py#L493-L581"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.TreeMesh.refine_points" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">TreeMesh.</span></span><span class="sig-name descname"><span class="pre">refine_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding_cells_by_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagonal_balance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tree_mesh.py#L492-L580"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.TreeMesh.refine_points" title="Link to this definition">#</a></dt>
 <dd><p>Refine the mesh at given points to the prescribed level.</p>
 <p>This function refines the tree mesh around the <cite>points</cite>. It will refine
 the tree mesh for each level given. It also optionally radially pads around each
@@ -947,12 +956,12 @@ and then refine at the second highest level with at least 3 cells beyond that.</
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="discretize.TreeMesh.refine_line.html"
+       href="discretize.TreeMesh.refine_plane.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">discretize.TreeMesh.refine_line</p>
+        <p class="prev-next-title">discretize.TreeMesh.refine_plane</p>
       </div>
     </a>
     <a class="right-next"

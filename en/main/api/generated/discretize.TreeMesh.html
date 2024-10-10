@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.TreeMesh &#8212; discretize 0.10.1.dev71+gc394964b documentation</title>
+    <title>discretize.TreeMesh &#8212; discretize 0.10.1.dev94+g1ab5e9aa documentation</title>
   
   
   
@@ -42,7 +42,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=a9a5ee66"></script>
+    <script src="../../_static/documentation_options.js?v=43195b3a"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev71+gc394964b documentation - Home"/>
-    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev71+gc394964b documentation - Home"/>`);</script>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev94+g1ab5e9aa documentation - Home"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev94+g1ab5e9aa documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -731,6 +731,14 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_BC_projections_simple.html">discretize.TreeMesh.get_BC_projections_simple</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_boundary_cells.html">discretize.TreeMesh.get_boundary_cells</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_along_line.html">discretize.TreeMesh.get_cells_along_line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_in_aabb.html">discretize.TreeMesh.get_cells_in_aabb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_in_ball.html">discretize.TreeMesh.get_cells_in_ball</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_in_tetrahedron.html">discretize.TreeMesh.get_cells_in_tetrahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_in_triangle.html">discretize.TreeMesh.get_cells_in_triangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_in_vertical_trianglular_prism.html">discretize.TreeMesh.get_cells_in_vertical_trianglular_prism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_on_line.html">discretize.TreeMesh.get_cells_on_line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_cells_on_plane.html">discretize.TreeMesh.get_cells_on_plane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_containing_cells.html">discretize.TreeMesh.get_containing_cells</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_edge_inner_product.html">discretize.TreeMesh.get_edge_inner_product</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_edge_inner_product_deriv.html">discretize.TreeMesh.get_edge_inner_product_deriv</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.get_edge_inner_product_line.html">discretize.TreeMesh.get_edge_inner_product_line</a></li>
@@ -769,6 +777,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_bounding_box.html">discretize.TreeMesh.refine_bounding_box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_box.html">discretize.TreeMesh.refine_box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_line.html">discretize.TreeMesh.refine_line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_plane.html">discretize.TreeMesh.refine_plane</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_points.html">discretize.TreeMesh.refine_points</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_surface.html">discretize.TreeMesh.refine_surface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_tetrahedron.html">discretize.TreeMesh.refine_tetrahedron</a></li>
@@ -883,7 +892,7 @@ document.write(`
 <area shape="rect" id="node11" href="discretize.mixins.TreeMeshIO.html#discretize.mixins.TreeMeshIO" target="_top" title="Class for managing the input/output of tree meshes and models." alt="" coords="344,213,442,241"/>
 </map><dl class="py class">
 <dt class="sig sig-object py" id="discretize.TreeMesh">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.</span></span><span class="sig-name descname"><span class="pre">TreeMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagonal_balance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tree_mesh.py#L101-L1178"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.TreeMesh" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.</span></span><span class="sig-name descname"><span class="pre">TreeMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagonal_balance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tree_mesh.py#L100-L1172"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.TreeMesh" title="Link to this definition">#</a></dt>
 <dd><p>Class for QuadTree (2D) and OcTree (3D) meshes.</p>
 <p>Tree meshes are numerical grids where the dimensions of each cell are powers of 2
 larger than some base cell dimension. Unlike the <a class="reference internal" href="discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorMesh</span></code></a>
@@ -1558,7 +1567,31 @@ This will effect all calls to refine the tree.</p>
 <td><p>Return the indices of boundary cells in a given direction given an active index array.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.get_cells_along_line.html#discretize.TreeMesh.get_cells_along_line" title="discretize.TreeMesh.get_cells_along_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cells_along_line</span></code></a>(self, x0, x1)</p></td>
-<td><p>Find the cells along a line segment defined by two points.</p></td>
+<td><p>Find the cells in order along a line segment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.get_cells_in_aabb.html#discretize.TreeMesh.get_cells_in_aabb" title="discretize.TreeMesh.get_cells_in_aabb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cells_in_aabb</span></code></a>(self, x_min, ...)</p></td>
+<td><p>Find the indices of cells that intersect an axis aligned bounding box (aabb)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.get_cells_in_ball.html#discretize.TreeMesh.get_cells_in_ball" title="discretize.TreeMesh.get_cells_in_ball"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cells_in_ball</span></code></a>(self, center, double radius)</p></td>
+<td><p>Find the indices of cells that intersect a ball</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.get_cells_in_tetrahedron.html#discretize.TreeMesh.get_cells_in_tetrahedron" title="discretize.TreeMesh.get_cells_in_tetrahedron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cells_in_tetrahedron</span></code></a>(self, tetra)</p></td>
+<td><p>Find the indices of cells that intersect a tetrahedron.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.get_cells_in_triangle.html#discretize.TreeMesh.get_cells_in_triangle" title="discretize.TreeMesh.get_cells_in_triangle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cells_in_triangle</span></code></a>(self, triangle)</p></td>
+<td><p>Find the indices of cells that intersect a triangle.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.get_cells_in_vertical_trianglular_prism.html#discretize.TreeMesh.get_cells_in_vertical_trianglular_prism" title="discretize.TreeMesh.get_cells_in_vertical_trianglular_prism"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cells_in_vertical_trianglular_prism</span></code></a>(...)</p></td>
+<td><p>Find the indices of cells that intersect a vertical triangular prism.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.get_cells_on_line.html#discretize.TreeMesh.get_cells_on_line" title="discretize.TreeMesh.get_cells_on_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cells_on_line</span></code></a>(self, segment)</p></td>
+<td><p>Find the cells intersecting a line segment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.get_cells_on_plane.html#discretize.TreeMesh.get_cells_on_plane" title="discretize.TreeMesh.get_cells_on_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cells_on_plane</span></code></a>(self, origin, normal)</p></td>
+<td><p>Find the indices of cells that intersect a plane.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.get_containing_cells.html#discretize.TreeMesh.get_containing_cells" title="discretize.TreeMesh.get_containing_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_containing_cells</span></code></a>(self, points)</p></td>
+<td><p>Return the cells containing the given points.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.get_edge_inner_product.html#discretize.TreeMesh.get_edge_inner_product" title="discretize.TreeMesh.get_edge_inner_product"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edge_inner_product</span></code></a>([model, ...])</p></td>
 <td><p>Generate the edge inner product matrix or its inverse.</p></td>
@@ -1656,7 +1689,7 @@ This will effect all calls to refine the tree.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.read_UBC.html#discretize.TreeMesh.read_UBC" title="discretize.TreeMesh.read_UBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_UBC</span></code></a>(file_name[, directory])</p></td>
 <td><p>Read 3D tree mesh (OcTree mesh) from UBC-GIF formatted file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.read_model_UBC.html#discretize.TreeMesh.read_model_UBC" title="discretize.TreeMesh.read_model_UBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_model_UBC</span></code></a>(file_name)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.read_model_UBC.html#discretize.TreeMesh.read_model_UBC" title="discretize.TreeMesh.read_model_UBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_model_UBC</span></code></a>(file_name[, directory])</p></td>
 <td><p>Read UBC-GIF formatted file model file for 3D tree mesh (OcTree).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.refine.html#discretize.TreeMesh.refine" title="discretize.TreeMesh.refine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine</span></code></a>(self, function[, finalize, ...])</p></td>
@@ -1674,64 +1707,67 @@ This will effect all calls to refine the tree.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.refine_line.html#discretize.TreeMesh.refine_line" title="discretize.TreeMesh.refine_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine_line</span></code></a>(self, path, levels[, finalize, ...])</p></td>
 <td><p>Refine the <a class="reference internal" href="#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeMesh</span></code></a> along the line segment to the desired level.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.refine_points.html#discretize.TreeMesh.refine_points" title="discretize.TreeMesh.refine_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine_points</span></code></a>(points[, level, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.refine_plane.html#discretize.TreeMesh.refine_plane" title="discretize.TreeMesh.refine_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine_plane</span></code></a>(self, origins, normals, levels)</p></td>
+<td><p>Refine the <a class="reference internal" href="#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeMesh</span></code></a> along a plane to the desired level.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.refine_points.html#discretize.TreeMesh.refine_points" title="discretize.TreeMesh.refine_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine_points</span></code></a>(points[, level, ...])</p></td>
 <td><p>Refine the mesh at given points to the prescribed level.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.refine_surface.html#discretize.TreeMesh.refine_surface" title="discretize.TreeMesh.refine_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine_surface</span></code></a>(xyz[, level, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.refine_surface.html#discretize.TreeMesh.refine_surface" title="discretize.TreeMesh.refine_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine_surface</span></code></a>(xyz[, level, ...])</p></td>
 <td><p>Refine along a surface triangulated from xyz to the prescribed level.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.refine_tetrahedron.html#discretize.TreeMesh.refine_tetrahedron" title="discretize.TreeMesh.refine_tetrahedron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine_tetrahedron</span></code></a>(self, tetra, levels[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.refine_tetrahedron.html#discretize.TreeMesh.refine_tetrahedron" title="discretize.TreeMesh.refine_tetrahedron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine_tetrahedron</span></code></a>(self, tetra, levels[, ...])</p></td>
 <td><p>Refine the <a class="reference internal" href="#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeMesh</span></code></a> along the tetrahedron to the desired level.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.refine_triangle.html#discretize.TreeMesh.refine_triangle" title="discretize.TreeMesh.refine_triangle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine_triangle</span></code></a>(self, triangle, levels[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.refine_triangle.html#discretize.TreeMesh.refine_triangle" title="discretize.TreeMesh.refine_triangle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine_triangle</span></code></a>(self, triangle, levels[, ...])</p></td>
 <td><p>Refine the <a class="reference internal" href="#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeMesh</span></code></a> along the triangle to the desired level.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.refine_vertical_trianglular_prism.html#discretize.TreeMesh.refine_vertical_trianglular_prism" title="discretize.TreeMesh.refine_vertical_trianglular_prism"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine_vertical_trianglular_prism</span></code></a>(self, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.refine_vertical_trianglular_prism.html#discretize.TreeMesh.refine_vertical_trianglular_prism" title="discretize.TreeMesh.refine_vertical_trianglular_prism"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refine_vertical_trianglular_prism</span></code></a>(self, ...)</p></td>
 <td><p>Refine the <a class="reference internal" href="#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeMesh</span></code></a> along the trianglular prism to the desired level.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.save.html#discretize.TreeMesh.save" title="discretize.TreeMesh.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>([file_name, verbose])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.save.html#discretize.TreeMesh.save" title="discretize.TreeMesh.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>([file_name, verbose])</p></td>
 <td><p>Save the mesh to json.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.serialize.html#discretize.TreeMesh.serialize" title="discretize.TreeMesh.serialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serialize</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.serialize.html#discretize.TreeMesh.serialize" title="discretize.TreeMesh.serialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serialize</span></code></a>()</p></td>
 <td><p>Represent the mesh's attributes as a dictionary.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.setCellGradBC.html#discretize.TreeMesh.setCellGradBC" title="discretize.TreeMesh.setCellGradBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCellGradBC</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.setCellGradBC.html#discretize.TreeMesh.setCellGradBC" title="discretize.TreeMesh.setCellGradBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCellGradBC</span></code></a>(*args, **kwargs)</p></td>
 <td><p><cite>setCellGradBC</cite> has been removed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.set_cell_gradient_BC.html#discretize.TreeMesh.set_cell_gradient_BC" title="discretize.TreeMesh.set_cell_gradient_BC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cell_gradient_BC</span></code></a>(BC)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.set_cell_gradient_BC.html#discretize.TreeMesh.set_cell_gradient_BC" title="discretize.TreeMesh.set_cell_gradient_BC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cell_gradient_BC</span></code></a>(BC)</p></td>
 <td><p>Set boundary conditions for derivative operators acting on cell-centered quantities.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.toVTK.html#discretize.TreeMesh.toVTK" title="discretize.TreeMesh.toVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toVTK</span></code></a>([models])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.toVTK.html#discretize.TreeMesh.toVTK" title="discretize.TreeMesh.toVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toVTK</span></code></a>([models])</p></td>
 <td><p>Convert mesh (and models) to corresponding VTK or PyVista data object.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.to_dict.html#discretize.TreeMesh.to_dict" title="discretize.TreeMesh.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.to_dict.html#discretize.TreeMesh.to_dict" title="discretize.TreeMesh.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code></a>()</p></td>
 <td><p>Represent the mesh's attributes as a dictionary.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.to_omf.html#discretize.TreeMesh.to_omf" title="discretize.TreeMesh.to_omf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_omf</span></code></a>([models])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.to_omf.html#discretize.TreeMesh.to_omf" title="discretize.TreeMesh.to_omf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_omf</span></code></a>([models])</p></td>
 <td><p>Convert to an <code class="docutils literal notranslate"><span class="pre">omf</span></code> data object.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.to_vtk.html#discretize.TreeMesh.to_vtk" title="discretize.TreeMesh.to_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vtk</span></code></a>([models])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.to_vtk.html#discretize.TreeMesh.to_vtk" title="discretize.TreeMesh.to_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vtk</span></code></a>([models])</p></td>
 <td><p>Convert mesh (and models) to corresponding VTK or PyVista data object.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.validate.html#discretize.TreeMesh.validate" title="discretize.TreeMesh.validate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.validate.html#discretize.TreeMesh.validate" title="discretize.TreeMesh.validate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate</span></code></a>()</p></td>
 <td><p>Return the validation state of the mesh.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.writeModelUBC.html#discretize.TreeMesh.writeModelUBC" title="discretize.TreeMesh.writeModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeModelUBC</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.writeModelUBC.html#discretize.TreeMesh.writeModelUBC" title="discretize.TreeMesh.writeModelUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeModelUBC</span></code></a>(*args, **kwargs)</p></td>
 <td><p><cite>writeModelUBC</cite> has been removed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.writeUBC.html#discretize.TreeMesh.writeUBC" title="discretize.TreeMesh.writeUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeUBC</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.writeUBC.html#discretize.TreeMesh.writeUBC" title="discretize.TreeMesh.writeUBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeUBC</span></code></a>(*args, **kwargs)</p></td>
 <td><p><cite>writeUBC</cite> has been removed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.writeVTK.html#discretize.TreeMesh.writeVTK" title="discretize.TreeMesh.writeVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeVTK</span></code></a>(file_name[, models, directory])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.writeVTK.html#discretize.TreeMesh.writeVTK" title="discretize.TreeMesh.writeVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeVTK</span></code></a>(file_name[, models, directory])</p></td>
 <td><p>Convert mesh (and models) to corresponding VTK or PyVista data object then writes to file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.write_UBC.html#discretize.TreeMesh.write_UBC" title="discretize.TreeMesh.write_UBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_UBC</span></code></a>(file_name[, models, directory])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.write_UBC.html#discretize.TreeMesh.write_UBC" title="discretize.TreeMesh.write_UBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_UBC</span></code></a>(file_name[, models, directory])</p></td>
 <td><p>Write OcTree mesh (and models) to UBC-GIF formatted files.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.write_model_UBC.html#discretize.TreeMesh.write_model_UBC" title="discretize.TreeMesh.write_model_UBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_model_UBC</span></code></a>(file_name, model[, directory])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.write_model_UBC.html#discretize.TreeMesh.write_model_UBC" title="discretize.TreeMesh.write_model_UBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_model_UBC</span></code></a>(file_name, model[, directory])</p></td>
 <td><p>Write 3D tree model (OcTree) to UBC-GIF formatted file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TreeMesh.write_vtk.html#discretize.TreeMesh.write_vtk" title="discretize.TreeMesh.write_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_vtk</span></code></a>(file_name[, models, directory])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TreeMesh.write_vtk.html#discretize.TreeMesh.write_vtk" title="discretize.TreeMesh.write_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_vtk</span></code></a>(file_name[, models, directory])</p></td>
 <td><p>Convert mesh (and models) to corresponding VTK or PyVista data object then writes to file.</p></td>
 </tr>
 </tbody>
