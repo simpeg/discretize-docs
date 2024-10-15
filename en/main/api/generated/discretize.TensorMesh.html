@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.TensorMesh &#8212; discretize 0.10.1.dev94+g1ab5e9aa documentation</title>
+    <title>discretize.TensorMesh &#8212; discretize 0.10.1.dev103+g87b9300c documentation</title>
   
   
   
@@ -29,7 +29,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
@@ -42,8 +42,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=43195b3a"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/documentation_options.js?v=050c84e9"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.TensorMesh';</script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev94+g1ab5e9aa documentation - Home"/>
-    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev94+g1ab5e9aa documentation - Home"/>`);</script>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev103+g87b9300c documentation - Home"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev103+g87b9300c documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -565,6 +565,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.cellGrady.html">discretize.TensorMesh.cellGrady</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.cellGradz.html">discretize.TensorMesh.cellGradz</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.cell_boundary_indices.html">discretize.TensorMesh.cell_boundary_indices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.cell_bounds.html">discretize.TensorMesh.cell_bounds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.cell_centers.html">discretize.TensorMesh.cell_centers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.cell_centers_x.html">discretize.TensorMesh.cell_centers_x</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TensorMesh.cell_centers_y.html">discretize.TensorMesh.cell_centers_y</a></li>
@@ -837,7 +838,7 @@ document.write(`
 <area shape="rect" id="node13" href="discretize.mixins.TensorMeshIO.html#discretize.mixins.TensorMeshIO" target="_top" title="Class for managing the input/output of tensor meshes and models." alt="" coords="395,315,507,342"/>
 </map><dl class="py class">
 <dt class="sig sig-object py" id="discretize.TensorMesh">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.</span></span><span class="sig-name descname"><span class="pre">TensorMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tensor_mesh.py#L15-L802"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.TensorMesh" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.</span></span><span class="sig-name descname"><span class="pre">TensorMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tensor_mesh.py#L15-L822"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.TensorMesh" title="Link to this definition">#</a></dt>
 <dd><p>Tensor mesh class.</p>
 <p>Tensor meshes are numerical grids whose cell centers, nodes, faces, edges, widths,
 volumes, etc… can be directly expressed as tensor products. The axes defining
@@ -989,325 +990,328 @@ node location (‘N’) (see Examples).</p></li>
 <tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_boundary_indices.html#discretize.TensorMesh.cell_boundary_indices" title="discretize.TensorMesh.cell_boundary_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_boundary_indices</span></code></a></p></td>
 <td><p>Return the indices of the x, (y and z) boundary cells.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_centers.html#discretize.TensorMesh.cell_centers" title="discretize.TensorMesh.cell_centers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_centers</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_bounds.html#discretize.TensorMesh.cell_bounds" title="discretize.TensorMesh.cell_bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_bounds</span></code></a></p></td>
+<td><p>The bounds of each cell.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_centers.html#discretize.TensorMesh.cell_centers" title="discretize.TensorMesh.cell_centers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_centers</span></code></a></p></td>
 <td><p>Return gridded cell center locations.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_centers_x.html#discretize.TensorMesh.cell_centers_x" title="discretize.TensorMesh.cell_centers_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_centers_x</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_centers_x.html#discretize.TensorMesh.cell_centers_x" title="discretize.TensorMesh.cell_centers_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_centers_x</span></code></a></p></td>
 <td><p>Return x-coordinates of the cell centers along the x-direction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_centers_y.html#discretize.TensorMesh.cell_centers_y" title="discretize.TensorMesh.cell_centers_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_centers_y</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_centers_y.html#discretize.TensorMesh.cell_centers_y" title="discretize.TensorMesh.cell_centers_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_centers_y</span></code></a></p></td>
 <td><p>Return y-coordinates of the cell centers along the y-direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_centers_z.html#discretize.TensorMesh.cell_centers_z" title="discretize.TensorMesh.cell_centers_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_centers_z</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_centers_z.html#discretize.TensorMesh.cell_centers_z" title="discretize.TensorMesh.cell_centers_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_centers_z</span></code></a></p></td>
 <td><p>Return z-coordinates of the cell centers along the z-direction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_gradient.html#discretize.TensorMesh.cell_gradient" title="discretize.TensorMesh.cell_gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_gradient.html#discretize.TensorMesh.cell_gradient" title="discretize.TensorMesh.cell_gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient</span></code></a></p></td>
 <td><p>Cell gradient operator (cell centers to faces).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_gradient_BC.html#discretize.TensorMesh.cell_gradient_BC" title="discretize.TensorMesh.cell_gradient_BC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_BC</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_gradient_BC.html#discretize.TensorMesh.cell_gradient_BC" title="discretize.TensorMesh.cell_gradient_BC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_BC</span></code></a></p></td>
 <td><p>Boundary conditions matrix for the cell gradient operator (Deprecated).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_gradient_x.html#discretize.TensorMesh.cell_gradient_x" title="discretize.TensorMesh.cell_gradient_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_x</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_gradient_x.html#discretize.TensorMesh.cell_gradient_x" title="discretize.TensorMesh.cell_gradient_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_x</span></code></a></p></td>
 <td><p>X-derivative operator (cell centers to x-faces).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_gradient_y.html#discretize.TensorMesh.cell_gradient_y" title="discretize.TensorMesh.cell_gradient_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_y</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_gradient_y.html#discretize.TensorMesh.cell_gradient_y" title="discretize.TensorMesh.cell_gradient_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_y</span></code></a></p></td>
 <td><p>Y-derivative operator (cell centers to y-faces).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_gradient_z.html#discretize.TensorMesh.cell_gradient_z" title="discretize.TensorMesh.cell_gradient_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_z</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_gradient_z.html#discretize.TensorMesh.cell_gradient_z" title="discretize.TensorMesh.cell_gradient_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_z</span></code></a></p></td>
 <td><p>Z-derivative operator (cell centers to z-faces).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_nodes.html#discretize.TensorMesh.cell_nodes" title="discretize.TensorMesh.cell_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_nodes</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_nodes.html#discretize.TensorMesh.cell_nodes" title="discretize.TensorMesh.cell_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_nodes</span></code></a></p></td>
 <td><p>The index of all nodes for each cell.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_volumes.html#discretize.TensorMesh.cell_volumes" title="discretize.TensorMesh.cell_volumes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_volumes</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_volumes.html#discretize.TensorMesh.cell_volumes" title="discretize.TensorMesh.cell_volumes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_volumes</span></code></a></p></td>
 <td><p>Return cell volumes.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.dim.html#discretize.TensorMesh.dim" title="discretize.TensorMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.dim.html#discretize.TensorMesh.dim" title="discretize.TensorMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a></p></td>
 <td><p>The dimension of the mesh (1, 2, or 3).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.edge.html#discretize.TensorMesh.edge" title="discretize.TensorMesh.edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.edge.html#discretize.TensorMesh.edge" title="discretize.TensorMesh.edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge</span></code></a></p></td>
 <td><p><cite>edge</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.edgeCurl.html#discretize.TensorMesh.edgeCurl" title="discretize.TensorMesh.edgeCurl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edgeCurl</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.edgeCurl.html#discretize.TensorMesh.edgeCurl" title="discretize.TensorMesh.edgeCurl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edgeCurl</span></code></a></p></td>
 <td><p><cite>edgeCurl</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.edgeEx.html#discretize.TensorMesh.edgeEx" title="discretize.TensorMesh.edgeEx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edgeEx</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.edgeEx.html#discretize.TensorMesh.edgeEx" title="discretize.TensorMesh.edgeEx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edgeEx</span></code></a></p></td>
 <td><p><cite>edgeEx</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.edgeEy.html#discretize.TensorMesh.edgeEy" title="discretize.TensorMesh.edgeEy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edgeEy</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.edgeEy.html#discretize.TensorMesh.edgeEy" title="discretize.TensorMesh.edgeEy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edgeEy</span></code></a></p></td>
 <td><p><cite>edgeEy</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.edgeEz.html#discretize.TensorMesh.edgeEz" title="discretize.TensorMesh.edgeEz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edgeEz</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.edgeEz.html#discretize.TensorMesh.edgeEz" title="discretize.TensorMesh.edgeEz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edgeEz</span></code></a></p></td>
 <td><p><cite>edgeEz</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.edge_curl.html#discretize.TensorMesh.edge_curl" title="discretize.TensorMesh.edge_curl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_curl</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.edge_curl.html#discretize.TensorMesh.edge_curl" title="discretize.TensorMesh.edge_curl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_curl</span></code></a></p></td>
 <td><p>Edge curl operator (edges to faces).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.edge_lengths.html#discretize.TensorMesh.edge_lengths" title="discretize.TensorMesh.edge_lengths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_lengths</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.edge_lengths.html#discretize.TensorMesh.edge_lengths" title="discretize.TensorMesh.edge_lengths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_lengths</span></code></a></p></td>
 <td><p>Return lengths of all edges in the mesh.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.edge_tangents.html#discretize.TensorMesh.edge_tangents" title="discretize.TensorMesh.edge_tangents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_tangents</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.edge_tangents.html#discretize.TensorMesh.edge_tangents" title="discretize.TensorMesh.edge_tangents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_tangents</span></code></a></p></td>
 <td><p>Unit tangent vectors for all mesh edges.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.edge_x_lengths.html#discretize.TensorMesh.edge_x_lengths" title="discretize.TensorMesh.edge_x_lengths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_x_lengths</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.edge_x_lengths.html#discretize.TensorMesh.edge_x_lengths" title="discretize.TensorMesh.edge_x_lengths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_x_lengths</span></code></a></p></td>
 <td><p>Return the x-edge lengths.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.edge_y_lengths.html#discretize.TensorMesh.edge_y_lengths" title="discretize.TensorMesh.edge_y_lengths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_y_lengths</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.edge_y_lengths.html#discretize.TensorMesh.edge_y_lengths" title="discretize.TensorMesh.edge_y_lengths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_y_lengths</span></code></a></p></td>
 <td><p>Return the y-edge lengths.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.edge_z_lengths.html#discretize.TensorMesh.edge_z_lengths" title="discretize.TensorMesh.edge_z_lengths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_z_lengths</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.edge_z_lengths.html#discretize.TensorMesh.edge_z_lengths" title="discretize.TensorMesh.edge_z_lengths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_z_lengths</span></code></a></p></td>
 <td><p>Return the z-edge lengths.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.edges.html#discretize.TensorMesh.edges" title="discretize.TensorMesh.edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.edges.html#discretize.TensorMesh.edges" title="discretize.TensorMesh.edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges</span></code></a></p></td>
 <td><p>Gridded edge locations.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.edges_x.html#discretize.TensorMesh.edges_x" title="discretize.TensorMesh.edges_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_x</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.edges_x.html#discretize.TensorMesh.edges_x" title="discretize.TensorMesh.edges_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_x</span></code></a></p></td>
 <td><p>Gridded x-edge locations.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.edges_y.html#discretize.TensorMesh.edges_y" title="discretize.TensorMesh.edges_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_y</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.edges_y.html#discretize.TensorMesh.edges_y" title="discretize.TensorMesh.edges_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_y</span></code></a></p></td>
 <td><p>Gridded y-edge locations.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.edges_z.html#discretize.TensorMesh.edges_z" title="discretize.TensorMesh.edges_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_z</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.edges_z.html#discretize.TensorMesh.edges_z" title="discretize.TensorMesh.edges_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_z</span></code></a></p></td>
 <td><p>Gridded z-edge locations.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.faceBoundaryInd.html#discretize.TensorMesh.faceBoundaryInd" title="discretize.TensorMesh.faceBoundaryInd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceBoundaryInd</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.faceBoundaryInd.html#discretize.TensorMesh.faceBoundaryInd" title="discretize.TensorMesh.faceBoundaryInd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceBoundaryInd</span></code></a></p></td>
 <td><p><cite>faceBoundaryInd</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.faceDiv.html#discretize.TensorMesh.faceDiv" title="discretize.TensorMesh.faceDiv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceDiv</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.faceDiv.html#discretize.TensorMesh.faceDiv" title="discretize.TensorMesh.faceDiv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceDiv</span></code></a></p></td>
 <td><p><cite>faceDiv</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.faceDivx.html#discretize.TensorMesh.faceDivx" title="discretize.TensorMesh.faceDivx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceDivx</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.faceDivx.html#discretize.TensorMesh.faceDivx" title="discretize.TensorMesh.faceDivx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceDivx</span></code></a></p></td>
 <td><p><cite>faceDivx</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.faceDivy.html#discretize.TensorMesh.faceDivy" title="discretize.TensorMesh.faceDivy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceDivy</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.faceDivy.html#discretize.TensorMesh.faceDivy" title="discretize.TensorMesh.faceDivy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceDivy</span></code></a></p></td>
 <td><p><cite>faceDivy</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.faceDivz.html#discretize.TensorMesh.faceDivz" title="discretize.TensorMesh.faceDivz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceDivz</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.faceDivz.html#discretize.TensorMesh.faceDivz" title="discretize.TensorMesh.faceDivz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceDivz</span></code></a></p></td>
 <td><p><cite>faceDivz</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.face_areas.html#discretize.TensorMesh.face_areas" title="discretize.TensorMesh.face_areas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_areas</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.face_areas.html#discretize.TensorMesh.face_areas" title="discretize.TensorMesh.face_areas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_areas</span></code></a></p></td>
 <td><p>Return areas of all faces in the mesh.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.face_boundary_indices.html#discretize.TensorMesh.face_boundary_indices" title="discretize.TensorMesh.face_boundary_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_boundary_indices</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.face_boundary_indices.html#discretize.TensorMesh.face_boundary_indices" title="discretize.TensorMesh.face_boundary_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_boundary_indices</span></code></a></p></td>
 <td><p>Return the indices of the x, (y and z) boundary faces.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.face_divergence.html#discretize.TensorMesh.face_divergence" title="discretize.TensorMesh.face_divergence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_divergence</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.face_divergence.html#discretize.TensorMesh.face_divergence" title="discretize.TensorMesh.face_divergence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_divergence</span></code></a></p></td>
 <td><p>Face divergence operator (faces to cell-centres).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.face_normals.html#discretize.TensorMesh.face_normals" title="discretize.TensorMesh.face_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.face_normals.html#discretize.TensorMesh.face_normals" title="discretize.TensorMesh.face_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></a></p></td>
 <td><p>Unit normal vectors for all mesh faces.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.face_x_areas.html#discretize.TensorMesh.face_x_areas" title="discretize.TensorMesh.face_x_areas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_x_areas</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.face_x_areas.html#discretize.TensorMesh.face_x_areas" title="discretize.TensorMesh.face_x_areas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_x_areas</span></code></a></p></td>
 <td><p>Return the areas of the x-faces.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.face_x_divergence.html#discretize.TensorMesh.face_x_divergence" title="discretize.TensorMesh.face_x_divergence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_x_divergence</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.face_x_divergence.html#discretize.TensorMesh.face_x_divergence" title="discretize.TensorMesh.face_x_divergence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_x_divergence</span></code></a></p></td>
 <td><p>X-derivative operator (x-faces to cell-centres).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.face_y_areas.html#discretize.TensorMesh.face_y_areas" title="discretize.TensorMesh.face_y_areas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_y_areas</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.face_y_areas.html#discretize.TensorMesh.face_y_areas" title="discretize.TensorMesh.face_y_areas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_y_areas</span></code></a></p></td>
 <td><p>Return the areas of the y-faces.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.face_y_divergence.html#discretize.TensorMesh.face_y_divergence" title="discretize.TensorMesh.face_y_divergence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_y_divergence</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.face_y_divergence.html#discretize.TensorMesh.face_y_divergence" title="discretize.TensorMesh.face_y_divergence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_y_divergence</span></code></a></p></td>
 <td><p>Y-derivative operator (y-faces to cell-centres).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.face_z_areas.html#discretize.TensorMesh.face_z_areas" title="discretize.TensorMesh.face_z_areas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_z_areas</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.face_z_areas.html#discretize.TensorMesh.face_z_areas" title="discretize.TensorMesh.face_z_areas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_z_areas</span></code></a></p></td>
 <td><p>Return the areas of the z-faces.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.face_z_divergence.html#discretize.TensorMesh.face_z_divergence" title="discretize.TensorMesh.face_z_divergence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_z_divergence</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.face_z_divergence.html#discretize.TensorMesh.face_z_divergence" title="discretize.TensorMesh.face_z_divergence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_z_divergence</span></code></a></p></td>
 <td><p>Z-derivative operator (z-faces to cell-centres).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.faces.html#discretize.TensorMesh.faces" title="discretize.TensorMesh.faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.faces.html#discretize.TensorMesh.faces" title="discretize.TensorMesh.faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></a></p></td>
 <td><p>Gridded face locations.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.faces_x.html#discretize.TensorMesh.faces_x" title="discretize.TensorMesh.faces_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_x</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.faces_x.html#discretize.TensorMesh.faces_x" title="discretize.TensorMesh.faces_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_x</span></code></a></p></td>
 <td><p>Gridded x-face locations.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.faces_y.html#discretize.TensorMesh.faces_y" title="discretize.TensorMesh.faces_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_y</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.faces_y.html#discretize.TensorMesh.faces_y" title="discretize.TensorMesh.faces_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_y</span></code></a></p></td>
 <td><p>Gridded y-face locations.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.faces_z.html#discretize.TensorMesh.faces_z" title="discretize.TensorMesh.faces_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_z</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.faces_z.html#discretize.TensorMesh.faces_z" title="discretize.TensorMesh.faces_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_z</span></code></a></p></td>
 <td><p>Gridded z-face locations.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.h.html#discretize.TensorMesh.h" title="discretize.TensorMesh.h"><code class="xref py py-obj docutils literal notranslate"><span class="pre">h</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.h.html#discretize.TensorMesh.h" title="discretize.TensorMesh.h"><code class="xref py py-obj docutils literal notranslate"><span class="pre">h</span></code></a></p></td>
 <td><p>Cell widths along each axis direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.h_gridded.html#discretize.TensorMesh.h_gridded" title="discretize.TensorMesh.h_gridded"><code class="xref py py-obj docutils literal notranslate"><span class="pre">h_gridded</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.h_gridded.html#discretize.TensorMesh.h_gridded" title="discretize.TensorMesh.h_gridded"><code class="xref py py-obj docutils literal notranslate"><span class="pre">h_gridded</span></code></a></p></td>
 <td><p>Return dimensions of all mesh cells as staggered grid.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.hx.html#discretize.TensorMesh.hx" title="discretize.TensorMesh.hx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hx</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.hx.html#discretize.TensorMesh.hx" title="discretize.TensorMesh.hx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hx</span></code></a></p></td>
 <td><p>Width of cells in the x direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.hy.html#discretize.TensorMesh.hy" title="discretize.TensorMesh.hy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hy</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.hy.html#discretize.TensorMesh.hy" title="discretize.TensorMesh.hy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hy</span></code></a></p></td>
 <td><p>Width of cells in the y direction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.hz.html#discretize.TensorMesh.hz" title="discretize.TensorMesh.hz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hz</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.hz.html#discretize.TensorMesh.hz" title="discretize.TensorMesh.hz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hz</span></code></a></p></td>
 <td><p>Width of cells in the z direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.nCx.html#discretize.TensorMesh.nCx" title="discretize.TensorMesh.nCx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nCx</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.nCx.html#discretize.TensorMesh.nCx" title="discretize.TensorMesh.nCx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nCx</span></code></a></p></td>
 <td><p>Number of cells in the x direction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.nCy.html#discretize.TensorMesh.nCy" title="discretize.TensorMesh.nCy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nCy</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.nCy.html#discretize.TensorMesh.nCy" title="discretize.TensorMesh.nCy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nCy</span></code></a></p></td>
 <td><p>Number of cells in the y direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.nCz.html#discretize.TensorMesh.nCz" title="discretize.TensorMesh.nCz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nCz</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.nCz.html#discretize.TensorMesh.nCz" title="discretize.TensorMesh.nCz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nCz</span></code></a></p></td>
 <td><p>Number of cells in the z direction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.nNx.html#discretize.TensorMesh.nNx" title="discretize.TensorMesh.nNx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nNx</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.nNx.html#discretize.TensorMesh.nNx" title="discretize.TensorMesh.nNx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nNx</span></code></a></p></td>
 <td><p>Number of nodes in the x-direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.nNy.html#discretize.TensorMesh.nNy" title="discretize.TensorMesh.nNy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nNy</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.nNy.html#discretize.TensorMesh.nNy" title="discretize.TensorMesh.nNy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nNy</span></code></a></p></td>
 <td><p>Number of nodes in the y-direction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.nNz.html#discretize.TensorMesh.nNz" title="discretize.TensorMesh.nNz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nNz</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.nNz.html#discretize.TensorMesh.nNz" title="discretize.TensorMesh.nNz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nNz</span></code></a></p></td>
 <td><p>Number of nodes in the z-direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.n_cells.html#discretize.TensorMesh.n_cells" title="discretize.TensorMesh.n_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.n_cells.html#discretize.TensorMesh.n_cells" title="discretize.TensorMesh.n_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code></a></p></td>
 <td><p>Total number of cells in the mesh.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.n_edges.html#discretize.TensorMesh.n_edges" title="discretize.TensorMesh.n_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.n_edges.html#discretize.TensorMesh.n_edges" title="discretize.TensorMesh.n_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges</span></code></a></p></td>
 <td><p>Total number of edges in the mesh.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.n_edges_per_direction.html#discretize.TensorMesh.n_edges_per_direction" title="discretize.TensorMesh.n_edges_per_direction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges_per_direction</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.n_edges_per_direction.html#discretize.TensorMesh.n_edges_per_direction" title="discretize.TensorMesh.n_edges_per_direction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges_per_direction</span></code></a></p></td>
 <td><p>The number of edges in each direction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.n_edges_x.html#discretize.TensorMesh.n_edges_x" title="discretize.TensorMesh.n_edges_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges_x</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.n_edges_x.html#discretize.TensorMesh.n_edges_x" title="discretize.TensorMesh.n_edges_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges_x</span></code></a></p></td>
 <td><p>Number of x-edges in the mesh.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.n_edges_y.html#discretize.TensorMesh.n_edges_y" title="discretize.TensorMesh.n_edges_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges_y</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.n_edges_y.html#discretize.TensorMesh.n_edges_y" title="discretize.TensorMesh.n_edges_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges_y</span></code></a></p></td>
 <td><p>Number of y-edges in the mesh.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.n_edges_z.html#discretize.TensorMesh.n_edges_z" title="discretize.TensorMesh.n_edges_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges_z</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.n_edges_z.html#discretize.TensorMesh.n_edges_z" title="discretize.TensorMesh.n_edges_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges_z</span></code></a></p></td>
 <td><p>Number of z-edges in the mesh.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.n_faces.html#discretize.TensorMesh.n_faces" title="discretize.TensorMesh.n_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.n_faces.html#discretize.TensorMesh.n_faces" title="discretize.TensorMesh.n_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces</span></code></a></p></td>
 <td><p>Total number of faces in the mesh.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.n_faces_per_direction.html#discretize.TensorMesh.n_faces_per_direction" title="discretize.TensorMesh.n_faces_per_direction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces_per_direction</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.n_faces_per_direction.html#discretize.TensorMesh.n_faces_per_direction" title="discretize.TensorMesh.n_faces_per_direction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces_per_direction</span></code></a></p></td>
 <td><p>The number of faces in each axis direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.n_faces_x.html#discretize.TensorMesh.n_faces_x" title="discretize.TensorMesh.n_faces_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces_x</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.n_faces_x.html#discretize.TensorMesh.n_faces_x" title="discretize.TensorMesh.n_faces_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces_x</span></code></a></p></td>
 <td><p>Number of x-faces in the mesh.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.n_faces_y.html#discretize.TensorMesh.n_faces_y" title="discretize.TensorMesh.n_faces_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces_y</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.n_faces_y.html#discretize.TensorMesh.n_faces_y" title="discretize.TensorMesh.n_faces_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces_y</span></code></a></p></td>
 <td><p>Number of y-faces in the mesh.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.n_faces_z.html#discretize.TensorMesh.n_faces_z" title="discretize.TensorMesh.n_faces_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces_z</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.n_faces_z.html#discretize.TensorMesh.n_faces_z" title="discretize.TensorMesh.n_faces_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces_z</span></code></a></p></td>
 <td><p>Number of z-faces in the mesh.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.n_nodes.html#discretize.TensorMesh.n_nodes" title="discretize.TensorMesh.n_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_nodes</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.n_nodes.html#discretize.TensorMesh.n_nodes" title="discretize.TensorMesh.n_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_nodes</span></code></a></p></td>
 <td><p>Total number of nodes in the mesh.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.nodalGrad.html#discretize.TensorMesh.nodalGrad" title="discretize.TensorMesh.nodalGrad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodalGrad</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.nodalGrad.html#discretize.TensorMesh.nodalGrad" title="discretize.TensorMesh.nodalGrad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodalGrad</span></code></a></p></td>
 <td><p><cite>nodalGrad</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.nodalLaplacian.html#discretize.TensorMesh.nodalLaplacian" title="discretize.TensorMesh.nodalLaplacian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodalLaplacian</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.nodalLaplacian.html#discretize.TensorMesh.nodalLaplacian" title="discretize.TensorMesh.nodalLaplacian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodalLaplacian</span></code></a></p></td>
 <td><p><cite>nodalLaplacian</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.nodal_gradient.html#discretize.TensorMesh.nodal_gradient" title="discretize.TensorMesh.nodal_gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodal_gradient</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.nodal_gradient.html#discretize.TensorMesh.nodal_gradient" title="discretize.TensorMesh.nodal_gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodal_gradient</span></code></a></p></td>
 <td><p>Nodal gradient operator (nodes to edges).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.nodal_laplacian.html#discretize.TensorMesh.nodal_laplacian" title="discretize.TensorMesh.nodal_laplacian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodal_laplacian</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.nodal_laplacian.html#discretize.TensorMesh.nodal_laplacian" title="discretize.TensorMesh.nodal_laplacian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodal_laplacian</span></code></a></p></td>
 <td><p>Nodal scalar Laplacian operator (nodes to nodes).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.nodes.html#discretize.TensorMesh.nodes" title="discretize.TensorMesh.nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.nodes.html#discretize.TensorMesh.nodes" title="discretize.TensorMesh.nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></a></p></td>
 <td><p>Return gridded node locations.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.nodes_x.html#discretize.TensorMesh.nodes_x" title="discretize.TensorMesh.nodes_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes_x</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.nodes_x.html#discretize.TensorMesh.nodes_x" title="discretize.TensorMesh.nodes_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes_x</span></code></a></p></td>
 <td><p>Return x-coordinates of the nodes along the x-direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.nodes_y.html#discretize.TensorMesh.nodes_y" title="discretize.TensorMesh.nodes_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes_y</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.nodes_y.html#discretize.TensorMesh.nodes_y" title="discretize.TensorMesh.nodes_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes_y</span></code></a></p></td>
 <td><p>Return y-coordinates of the nodes along the y-direction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.nodes_z.html#discretize.TensorMesh.nodes_z" title="discretize.TensorMesh.nodes_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes_z</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.nodes_z.html#discretize.TensorMesh.nodes_z" title="discretize.TensorMesh.nodes_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes_z</span></code></a></p></td>
 <td><p>Return z-coordinates of the nodes along the z-direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.normals.html#discretize.TensorMesh.normals" title="discretize.TensorMesh.normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normals</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.normals.html#discretize.TensorMesh.normals" title="discretize.TensorMesh.normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normals</span></code></a></p></td>
 <td><p><cite>normals</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.orientation.html#discretize.TensorMesh.orientation" title="discretize.TensorMesh.orientation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">orientation</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.orientation.html#discretize.TensorMesh.orientation" title="discretize.TensorMesh.orientation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">orientation</span></code></a></p></td>
 <td><p>Rotation matrix defining mesh axes relative to Cartesian.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.origin.html#discretize.TensorMesh.origin" title="discretize.TensorMesh.origin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">origin</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.origin.html#discretize.TensorMesh.origin" title="discretize.TensorMesh.origin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">origin</span></code></a></p></td>
 <td><p>Origin or 'anchor point' of the mesh.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.project_edge_to_boundary_edge.html#discretize.TensorMesh.project_edge_to_boundary_edge" title="discretize.TensorMesh.project_edge_to_boundary_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_edge_to_boundary_edge</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.project_edge_to_boundary_edge.html#discretize.TensorMesh.project_edge_to_boundary_edge" title="discretize.TensorMesh.project_edge_to_boundary_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_edge_to_boundary_edge</span></code></a></p></td>
 <td><p>Projection matrix from all edges to boundary edges.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.project_face_to_boundary_face.html#discretize.TensorMesh.project_face_to_boundary_face" title="discretize.TensorMesh.project_face_to_boundary_face"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_face_to_boundary_face</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.project_face_to_boundary_face.html#discretize.TensorMesh.project_face_to_boundary_face" title="discretize.TensorMesh.project_face_to_boundary_face"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_face_to_boundary_face</span></code></a></p></td>
 <td><p>Projection matrix from all faces to boundary faces.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.project_node_to_boundary_node.html#discretize.TensorMesh.project_node_to_boundary_node" title="discretize.TensorMesh.project_node_to_boundary_node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_node_to_boundary_node</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.project_node_to_boundary_node.html#discretize.TensorMesh.project_node_to_boundary_node" title="discretize.TensorMesh.project_node_to_boundary_node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_node_to_boundary_node</span></code></a></p></td>
 <td><p>Projection matrix from all nodes to boundary nodes.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.reference_is_rotated.html#discretize.TensorMesh.reference_is_rotated" title="discretize.TensorMesh.reference_is_rotated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reference_is_rotated</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.reference_is_rotated.html#discretize.TensorMesh.reference_is_rotated" title="discretize.TensorMesh.reference_is_rotated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reference_is_rotated</span></code></a></p></td>
 <td><p>Indicate whether mesh uses standard coordinate axes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.reference_system.html#discretize.TensorMesh.reference_system" title="discretize.TensorMesh.reference_system"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reference_system</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.reference_system.html#discretize.TensorMesh.reference_system" title="discretize.TensorMesh.reference_system"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reference_system</span></code></a></p></td>
 <td><p>Coordinate reference system.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.rotation_matrix.html#discretize.TensorMesh.rotation_matrix" title="discretize.TensorMesh.rotation_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.rotation_matrix.html#discretize.TensorMesh.rotation_matrix" title="discretize.TensorMesh.rotation_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a></p></td>
 <td><p>Alias for <a class="reference internal" href="discretize.base.BaseRegularMesh.orientation.html#discretize.base.BaseRegularMesh.orientation" title="discretize.base.BaseRegularMesh.orientation"><code class="xref py py-attr docutils literal notranslate"><span class="pre">orientation</span></code></a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_cells.html#discretize.TensorMesh.shape_cells" title="discretize.TensorMesh.shape_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_cells</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_cells.html#discretize.TensorMesh.shape_cells" title="discretize.TensorMesh.shape_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_cells</span></code></a></p></td>
 <td><p>Number of cells in each coordinate direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_edges_x.html#discretize.TensorMesh.shape_edges_x" title="discretize.TensorMesh.shape_edges_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_edges_x</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_edges_x.html#discretize.TensorMesh.shape_edges_x" title="discretize.TensorMesh.shape_edges_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_edges_x</span></code></a></p></td>
 <td><p>Number of x-edges along each axis direction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_edges_y.html#discretize.TensorMesh.shape_edges_y" title="discretize.TensorMesh.shape_edges_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_edges_y</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_edges_y.html#discretize.TensorMesh.shape_edges_y" title="discretize.TensorMesh.shape_edges_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_edges_y</span></code></a></p></td>
 <td><p>Number of y-edges along each axis direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_edges_z.html#discretize.TensorMesh.shape_edges_z" title="discretize.TensorMesh.shape_edges_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_edges_z</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_edges_z.html#discretize.TensorMesh.shape_edges_z" title="discretize.TensorMesh.shape_edges_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_edges_z</span></code></a></p></td>
 <td><p>Number of z-edges along each axis direction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_faces_x.html#discretize.TensorMesh.shape_faces_x" title="discretize.TensorMesh.shape_faces_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_faces_x</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_faces_x.html#discretize.TensorMesh.shape_faces_x" title="discretize.TensorMesh.shape_faces_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_faces_x</span></code></a></p></td>
 <td><p>Number of x-faces along each axis direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_faces_y.html#discretize.TensorMesh.shape_faces_y" title="discretize.TensorMesh.shape_faces_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_faces_y</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_faces_y.html#discretize.TensorMesh.shape_faces_y" title="discretize.TensorMesh.shape_faces_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_faces_y</span></code></a></p></td>
 <td><p>Number of y-faces along each axis direction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_faces_z.html#discretize.TensorMesh.shape_faces_z" title="discretize.TensorMesh.shape_faces_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_faces_z</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_faces_z.html#discretize.TensorMesh.shape_faces_z" title="discretize.TensorMesh.shape_faces_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_faces_z</span></code></a></p></td>
 <td><p>Number of z-faces along each axis direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_nodes.html#discretize.TensorMesh.shape_nodes" title="discretize.TensorMesh.shape_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_nodes</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.shape_nodes.html#discretize.TensorMesh.shape_nodes" title="discretize.TensorMesh.shape_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_nodes</span></code></a></p></td>
 <td><p>The number of nodes along each axis direction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.stencil_cell_gradient.html#discretize.TensorMesh.stencil_cell_gradient" title="discretize.TensorMesh.stencil_cell_gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stencil_cell_gradient</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.stencil_cell_gradient.html#discretize.TensorMesh.stencil_cell_gradient" title="discretize.TensorMesh.stencil_cell_gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stencil_cell_gradient</span></code></a></p></td>
 <td><p>Stencil for cell gradient operator (cell centers to faces).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.stencil_cell_gradient_x.html#discretize.TensorMesh.stencil_cell_gradient_x" title="discretize.TensorMesh.stencil_cell_gradient_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stencil_cell_gradient_x</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.stencil_cell_gradient_x.html#discretize.TensorMesh.stencil_cell_gradient_x" title="discretize.TensorMesh.stencil_cell_gradient_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stencil_cell_gradient_x</span></code></a></p></td>
 <td><p>Differencing operator along x-direction (cell centers to x-faces).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.stencil_cell_gradient_y.html#discretize.TensorMesh.stencil_cell_gradient_y" title="discretize.TensorMesh.stencil_cell_gradient_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stencil_cell_gradient_y</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.stencil_cell_gradient_y.html#discretize.TensorMesh.stencil_cell_gradient_y" title="discretize.TensorMesh.stencil_cell_gradient_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stencil_cell_gradient_y</span></code></a></p></td>
 <td><p>Differencing operator along y-direction (cell centers to y-faces).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.stencil_cell_gradient_z.html#discretize.TensorMesh.stencil_cell_gradient_z" title="discretize.TensorMesh.stencil_cell_gradient_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stencil_cell_gradient_z</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.stencil_cell_gradient_z.html#discretize.TensorMesh.stencil_cell_gradient_z" title="discretize.TensorMesh.stencil_cell_gradient_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stencil_cell_gradient_z</span></code></a></p></td>
 <td><p>Differencing operator along z-direction (cell centers to z-faces).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.tangents.html#discretize.TensorMesh.tangents" title="discretize.TensorMesh.tangents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tangents</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.tangents.html#discretize.TensorMesh.tangents" title="discretize.TensorMesh.tangents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tangents</span></code></a></p></td>
 <td><p><cite>tangents</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.vectorCCx.html#discretize.TensorMesh.vectorCCx" title="discretize.TensorMesh.vectorCCx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorCCx</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.vectorCCx.html#discretize.TensorMesh.vectorCCx" title="discretize.TensorMesh.vectorCCx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorCCx</span></code></a></p></td>
 <td><p><cite>vectorCCx</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.vectorCCy.html#discretize.TensorMesh.vectorCCy" title="discretize.TensorMesh.vectorCCy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorCCy</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.vectorCCy.html#discretize.TensorMesh.vectorCCy" title="discretize.TensorMesh.vectorCCy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorCCy</span></code></a></p></td>
 <td><p><cite>vectorCCy</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.vectorCCz.html#discretize.TensorMesh.vectorCCz" title="discretize.TensorMesh.vectorCCz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorCCz</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.vectorCCz.html#discretize.TensorMesh.vectorCCz" title="discretize.TensorMesh.vectorCCz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorCCz</span></code></a></p></td>
 <td><p><cite>vectorCCz</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.vectorNx.html#discretize.TensorMesh.vectorNx" title="discretize.TensorMesh.vectorNx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorNx</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.vectorNx.html#discretize.TensorMesh.vectorNx" title="discretize.TensorMesh.vectorNx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorNx</span></code></a></p></td>
 <td><p><cite>vectorNx</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.vectorNy.html#discretize.TensorMesh.vectorNy" title="discretize.TensorMesh.vectorNy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorNy</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.vectorNy.html#discretize.TensorMesh.vectorNy" title="discretize.TensorMesh.vectorNy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorNy</span></code></a></p></td>
 <td><p><cite>vectorNy</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.vectorNz.html#discretize.TensorMesh.vectorNz" title="discretize.TensorMesh.vectorNz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorNz</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.vectorNz.html#discretize.TensorMesh.vectorNz" title="discretize.TensorMesh.vectorNz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorNz</span></code></a></p></td>
 <td><p><cite>vectorNz</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.vol.html#discretize.TensorMesh.vol" title="discretize.TensorMesh.vol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vol</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.vol.html#discretize.TensorMesh.vol" title="discretize.TensorMesh.vol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vol</span></code></a></p></td>
 <td><p><cite>vol</cite> has been deprecated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.x0.html#discretize.TensorMesh.x0" title="discretize.TensorMesh.x0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x0</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.TensorMesh.x0.html#discretize.TensorMesh.x0" title="discretize.TensorMesh.x0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x0</span></code></a></p></td>
 <td><p>Alias for the <a class="reference internal" href="discretize.base.BaseRegularMesh.origin.html#discretize.base.BaseRegularMesh.origin" title="discretize.base.BaseRegularMesh.origin"><code class="xref py py-attr docutils literal notranslate"><span class="pre">origin</span></code></a>.</p></td>
 </tr>
 </tbody>
