@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.tree_mesh.TreeCell &#8212; discretize 0.10.1.dev103+g87b9300c documentation</title>
+    <title>discretize.tree_mesh.TreeCell &#8212; discretize 0.10.1.dev112+ge6b3a87c documentation</title>
   
   
   
@@ -42,7 +42,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=050c84e9"></script>
+    <script src="../../_static/documentation_options.js?v=e8299d82"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.tree_mesh.TreeCell';</script>
@@ -55,7 +55,7 @@
     <link rel="icon" href="../../_static/discretize-block.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="discretize.tree_mesh.TreeCell.center" href="discretize.tree_mesh.TreeCell.center.html" />
+    <link rel="next" title="discretize.tree_mesh.TreeCell.bounds" href="discretize.tree_mesh.TreeCell.bounds.html" />
     <link rel="prev" title="discretize.tensor_cell.TensorCell.get_neighbors" href="discretize.tensor_cell.TensorCell.get_neighbors.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -136,8 +136,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev103+g87b9300c documentation - Home"/>
-    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev103+g87b9300c documentation - Home"/>`);</script>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev112+ge6b3a87c documentation - Home"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev112+ge6b3a87c documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -532,6 +532,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="discretize.SimplexMesh.html">discretize.SimplexMesh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="discretize.tensor_cell.TensorCell.html">discretize.tensor_cell.TensorCell</a></li>
 <li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">discretize.tree_mesh.TreeCell</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="discretize.tree_mesh.TreeCell.bounds.html">discretize.tree_mesh.TreeCell.bounds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.tree_mesh.TreeCell.center.html">discretize.tree_mesh.TreeCell.center</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.tree_mesh.TreeCell.dim.html">discretize.tree_mesh.TreeCell.dim</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.tree_mesh.TreeCell.edges.html">discretize.tree_mesh.TreeCell.edges</a></li>
@@ -633,34 +634,37 @@ to the user defined refine function when calling the
 <p class="rubric">Attributes</p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.center.html#discretize.tree_mesh.TreeCell.center" title="discretize.tree_mesh.TreeCell.center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">center</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.bounds.html#discretize.tree_mesh.TreeCell.bounds" title="discretize.tree_mesh.TreeCell.bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bounds</span></code></a></p></td>
+<td><p>Bounds of the cell.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.center.html#discretize.tree_mesh.TreeCell.center" title="discretize.tree_mesh.TreeCell.center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">center</span></code></a></p></td>
 <td><p>Cell center location for the tree cell.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.dim.html#discretize.tree_mesh.TreeCell.dim" title="discretize.tree_mesh.TreeCell.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.dim.html#discretize.tree_mesh.TreeCell.dim" title="discretize.tree_mesh.TreeCell.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a></p></td>
 <td><p>Dimension of the tree cell; 1, 2 or 3.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.edges.html#discretize.tree_mesh.TreeCell.edges" title="discretize.tree_mesh.TreeCell.edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.edges.html#discretize.tree_mesh.TreeCell.edges" title="discretize.tree_mesh.TreeCell.edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges</span></code></a></p></td>
 <td><p>Indices for this cell's edges within its parent tree mesh.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.faces.html#discretize.tree_mesh.TreeCell.faces" title="discretize.tree_mesh.TreeCell.faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.faces.html#discretize.tree_mesh.TreeCell.faces" title="discretize.tree_mesh.TreeCell.faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></a></p></td>
 <td><p>Indices for this cell's faces within its parent tree mesh.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.h.html#discretize.tree_mesh.TreeCell.h" title="discretize.tree_mesh.TreeCell.h"><code class="xref py py-obj docutils literal notranslate"><span class="pre">h</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.h.html#discretize.tree_mesh.TreeCell.h" title="discretize.tree_mesh.TreeCell.h"><code class="xref py py-obj docutils literal notranslate"><span class="pre">h</span></code></a></p></td>
 <td><p>Cell dimension along each axis direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.index.html#discretize.tree_mesh.TreeCell.index" title="discretize.tree_mesh.TreeCell.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.index.html#discretize.tree_mesh.TreeCell.index" title="discretize.tree_mesh.TreeCell.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a></p></td>
 <td><p>Index of the tree cell within its parent tree mesh.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.neighbors.html#discretize.tree_mesh.TreeCell.neighbors" title="discretize.tree_mesh.TreeCell.neighbors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neighbors</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.neighbors.html#discretize.tree_mesh.TreeCell.neighbors" title="discretize.tree_mesh.TreeCell.neighbors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neighbors</span></code></a></p></td>
 <td><p>Indices for this cell's neighbors within its parent tree mesh.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.nodes.html#discretize.tree_mesh.TreeCell.nodes" title="discretize.tree_mesh.TreeCell.nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.nodes.html#discretize.tree_mesh.TreeCell.nodes" title="discretize.tree_mesh.TreeCell.nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></a></p></td>
 <td><p>Indices for this cell's nodes within its parent tree mesh.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.origin.html#discretize.tree_mesh.TreeCell.origin" title="discretize.tree_mesh.TreeCell.origin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">origin</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.origin.html#discretize.tree_mesh.TreeCell.origin" title="discretize.tree_mesh.TreeCell.origin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">origin</span></code></a></p></td>
 <td><p>Origin location ('anchor point') for the tree cell.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.x0.html#discretize.tree_mesh.TreeCell.x0" title="discretize.tree_mesh.TreeCell.x0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x0</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.tree_mesh.TreeCell.x0.html#discretize.tree_mesh.TreeCell.x0" title="discretize.tree_mesh.TreeCell.x0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x0</span></code></a></p></td>
 <td><p>Origin location ('anchor point') for the tree cell.</p></td>
 </tr>
 </tbody>
@@ -713,11 +717,11 @@ dimensions, index of its neighbors, etc…)</p>
       </div>
     </a>
     <a class="right-next"
-       href="discretize.tree_mesh.TreeCell.center.html"
+       href="discretize.tree_mesh.TreeCell.bounds.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">discretize.tree_mesh.TreeCell.center</p>
+        <p class="prev-next-title">discretize.tree_mesh.TreeCell.bounds</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
