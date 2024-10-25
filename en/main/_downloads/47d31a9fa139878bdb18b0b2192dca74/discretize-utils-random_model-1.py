@@ -9,7 +9,7 @@ h = [(1., 50)]
 vmin, vmax = 0., 1.
 mesh = TensorMesh([h, h])
 #
-model = random_model(mesh.shape_cells, seed=4, bounds=[vmin, vmax])
+model = random_model(mesh.shape_cells, random_seed=4, bounds=[vmin, vmax])
 #
 fig = plt.figure(figsize=(5, 4))
 ax = plt.subplot(111)

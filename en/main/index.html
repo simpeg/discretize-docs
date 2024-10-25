@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize &#8212; discretize 0.10.1.dev135+g40501f04 documentation</title>
+    <title>discretize &#8212; discretize 0.11.0 documentation</title>
   
   
   
@@ -42,7 +42,7 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=7dfd90a7"></script>
+    <script src="_static/documentation_options.js?v=f3b36f1a"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -50,7 +50,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://discretize.simpeg.xyz/en/main/_static/versions.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'v0.11.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="icon" href="_static/discretize-block.ico"/>
@@ -136,8 +136,8 @@
       
     
     
-    <img src="_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.10.1.dev135+g40501f04 documentation - Home"/>
-    <script>document.write(`<img src="_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.10.1.dev135+g40501f04 documentation - Home"/>`);</script>
+    <img src="_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.0 documentation - Home"/>
+    <script>document.write(`<img src="_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -278,7 +278,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/simpeg/simpeg" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/simpeg/discretize" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -475,7 +475,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/simpeg/simpeg" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/simpeg/discretize" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -586,17 +586,18 @@ This package has the following features:</p>
 </ul>
 <section id="installing">
 <h2>Installing<a class="headerlink" href="#installing" title="Link to this heading">#</a></h2>
-<p><strong>discretize</strong> is on conda-forge</p>
+<p><strong>discretize</strong> is on conda-forge, and is the recommended installation method.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>discretize
 </pre></div>
 </div>
-<p><strong>discretize</strong> is on pypi</p>
+<p>Prebuilt wheels of <strong>discretize</strong> are on pypi for most platforms</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>discretize
 </pre></div>
 </div>
-<p>To install from source</p>
+<p>To install from source, note this requires a <cite>c++</cite> compiler supporting the <cite>c++17</cite> standard.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/simpeg/discretize.git
-python<span class="w"> </span>setup.py<span class="w"> </span>install
+<span class="nb">cd</span><span class="w"> </span>discretize
+pip<span class="w"> </span>install<span class="w"> </span>.
 </pre></div>
 </div>
 </section>
