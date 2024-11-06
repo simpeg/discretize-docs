@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Installing &#8212; discretize 0.11.1.dev9+g93d48ec3 documentation</title>
+    <title>Installing &#8212; discretize 0.11.1.dev16+g8d780d2d documentation</title>
   
   
   
@@ -42,7 +42,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=37878e4b"></script>
+    <script src="../_static/documentation_options.js?v=82f776f9"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/installing';</script>
@@ -136,8 +136,8 @@
       
     
     
-    <img src="../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.1.dev9+g93d48ec3 documentation - Home"/>
-    <script>document.write(`<img src="../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.1.dev9+g93d48ec3 documentation - Home"/>`);</script>
+    <img src="../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.1.dev16+g8d780d2d documentation - Home"/>
+    <script>document.write(`<img src="../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.1.dev16+g8d780d2d documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -607,7 +607,7 @@ You can download the package manager and use it to install the dependencies abov
 </section>
 </section>
 <section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">#</a></h2>
+<span id="discretize-dependencies"></span><h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">discretize</span></code>’s runtime requirements are:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.numpy.org">numpy</a> 1.22.4 (or greater)</p></li>
@@ -643,7 +643,8 @@ systems will require a build.</p>
 <h3>Installing from Source<a class="headerlink" href="#installing-from-source" title="Link to this heading">#</a></h3>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Install <code class="docutils literal notranslate"><span class="pre">discretize</span></code> from the source code only if you need to run the development version. Otherwise it’s usually better to install it from <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>.</p>
+<p>Install <code class="docutils literal notranslate"><span class="pre">discretize</span></code> from the source code only if you need to run the development version.
+Otherwise it’s usually better to install it from <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> or <code class="docutils literal notranslate"><span class="pre">pypi</span></code>.</p>
 </div>
 <p>As <code class="docutils literal notranslate"><span class="pre">discretize</span></code> contains several compiled extensions and is not a pure python pacakge,
 installing <code class="docutils literal notranslate"><span class="pre">discretize</span></code> from the source code requires a C/C++ compiler capable of
@@ -669,29 +670,36 @@ and you might have to force <code class="docutils literal notranslate"><span cla
 <p>If you are an active developer of <code class="docutils literal notranslate"><span class="pre">discretize</span></code>, and find yourself modifying the code often,
 you might want to install it from source, in an editable installation. <code class="docutils literal notranslate"><span class="pre">discretize</span></code> uses
 <code class="docutils literal notranslate"><span class="pre">meson-python</span></code> to build the external modules and install the package. As such, there are a few extra
-steps to take. First, make sure you have the runtime dependencies installed in your environment (see Dependencies listed above).
-Then you must install some packages needed to build <code class="docutils literal notranslate"><span class="pre">discretize</span></code> in your environment. You can do so with <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+steps to take:</p>
+<ol class="arabic">
+<li><p>Make sure you have the runtime dependencies installed in your environment (see <a class="reference internal" href="#discretize-dependencies"><span class="std std-ref">Dependencies</span></a> listed above).
+However, you <strong>must</strong> install <code class="docutils literal notranslate"><span class="pre">numpy</span> <span class="pre">&gt;=2.0</span></code> when <em>building</em> <code class="docutils literal notranslate"><span class="pre">discretize</span></code>.</p></li>
+<li><p>You must also install packages needed to build <code class="docutils literal notranslate"><span class="pre">discretize</span></code> into your environment. You can do so with <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">meson</span><span class="o">-</span><span class="n">python</span> <span class="n">meson</span> <span class="n">ninja</span> <span class="n">cython</span> <span class="n">setuptools_scm</span>
 </pre></div>
 </div>
-<p>Or with <code class="docutils literal notranslate"><span class="pre">conda</span></code> (or <code class="docutils literal notranslate"><span class="pre">mamba</span></code>):</p>
+<p>Or with <code class="docutils literal notranslate"><span class="pre">conda</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">meson</span><span class="o">-</span><span class="n">python</span> <span class="n">meson</span> <span class="n">ninja</span> <span class="n">cython</span> <span class="n">setuptools_scm</span>
 </pre></div>
 </div>
 <p>This will allow you to use the build backend required by <cite>discretize</cite>.</p>
-<p>Finally, you should then be able to perform an editable install using the source code:</p>
+</li>
+<li><p>Finally, you should then be able to perform an editable install using the source code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">isolation</span> <span class="o">--</span><span class="n">editable</span> <span class="o">.</span>
 </pre></div>
 </div>
+</li>
+</ol>
 <p>This builds and installs the local directory to your active python environment in an
-“editable” mode; when source code is changed, you will be able to make use of it immediately. It also builds against the packages installed
-in your environment instead of creating and isolated environment to build a wheel for the package.</p>
+“editable” mode; when source code is changed, you will be able to make use of it immediately. It also builds against the
+packages installed in your environment instead of creating and isolated environment to build a wheel for the package,
+which is why we needed to install the build requirements into the environment.</p>
 </section>
 </section>
 </section>
 <section id="testing-your-installation">
 <h2>Testing your installation<a class="headerlink" href="#testing-your-installation" title="Link to this heading">#</a></h2>
-<p>Head over to the <span class="xref std std-ref">sphx_glr_examples</span> and download and run any of the notebooks or python scripts.</p>
+<p>Head over to the <a class="reference internal" href="../examples/index.html#sphx-glr-examples"><span class="std std-ref">Examples</span></a> and download and run any of the notebooks or python scripts.</p>
 </section>
 </section>
 
