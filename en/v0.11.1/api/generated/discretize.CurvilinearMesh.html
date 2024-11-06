@@ -1,0 +1,1451 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>discretize.CurvilinearMesh &#8212; discretize 0.11.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=6cad16a3" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=57cbeb03"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.CurvilinearMesh';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://discretize.simpeg.xyz/en/main/_static/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'v0.11.1';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
+        </script>
+    <link rel="icon" href="../../_static/discretize-block.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="discretize.CurvilinearMesh.area" href="discretize.CurvilinearMesh.area.html" />
+    <link rel="prev" title="discretize.CylindricalMesh.write_vtk" href="discretize.CylindricalMesh.write_vtk.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.1 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.1 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../content/getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../content/user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../content/theory.html">
+    Theory
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../release/index.html">
+    Release Notes
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://simpeg.xyz">
+    SimPEG
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://mattermost.softwareunderground.org/simpeg">
+    Contact
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/simpeg/discretize" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mattermost.softwareunderground.org/simpeg" title="Mattermost" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-comment fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mattermost</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://simpeg.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discourse</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.youtube.com/c/geoscixyz" title="Youtube" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-youtube fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Youtube</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../content/getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../content/user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../content/theory.html">
+    Theory
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../release/index.html">
+    Release Notes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://simpeg.xyz">
+    SimPEG
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://mattermost.softwareunderground.org/simpeg">
+    Contact
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-3"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-3"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-3"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-3">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/simpeg/discretize" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mattermost.softwareunderground.org/simpeg" title="Mattermost" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-comment fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mattermost</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://simpeg.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discourse</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.youtube.com/c/geoscixyz" title="Youtube" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-youtube fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Youtube</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../discretize.html">Discretize Meshes (<code class="xref py py-mod docutils literal notranslate"><span class="pre">discretize</span></code>)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="discretize.TensorMesh.html">discretize.TensorMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discretize.CylindricalMesh.html">discretize.CylindricalMesh</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">discretize.CurvilinearMesh</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.area.html">discretize.CurvilinearMesh.area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_cell_to_edge.html">discretize.CurvilinearMesh.average_cell_to_edge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_cell_to_face.html">discretize.CurvilinearMesh.average_cell_to_face</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_cell_vector_to_face.html">discretize.CurvilinearMesh.average_cell_vector_to_face</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_to_cell.html">discretize.CurvilinearMesh.average_edge_to_cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_to_cell_vector.html">discretize.CurvilinearMesh.average_edge_to_cell_vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_to_face.html">discretize.CurvilinearMesh.average_edge_to_face</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_x_to_cell.html">discretize.CurvilinearMesh.average_edge_x_to_cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_y_to_cell.html">discretize.CurvilinearMesh.average_edge_y_to_cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_z_to_cell.html">discretize.CurvilinearMesh.average_edge_z_to_cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_face_to_cell.html">discretize.CurvilinearMesh.average_face_to_cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_face_to_cell_vector.html">discretize.CurvilinearMesh.average_face_to_cell_vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_face_x_to_cell.html">discretize.CurvilinearMesh.average_face_x_to_cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_face_y_to_cell.html">discretize.CurvilinearMesh.average_face_y_to_cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_face_z_to_cell.html">discretize.CurvilinearMesh.average_face_z_to_cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_node_to_cell.html">discretize.CurvilinearMesh.average_node_to_cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_node_to_edge.html">discretize.CurvilinearMesh.average_node_to_edge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.average_node_to_face.html">discretize.CurvilinearMesh.average_node_to_face</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.axis_u.html">discretize.CurvilinearMesh.axis_u</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.axis_v.html">discretize.CurvilinearMesh.axis_v</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.axis_w.html">discretize.CurvilinearMesh.axis_w</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.boundary_edge_vector_integral.html">discretize.CurvilinearMesh.boundary_edge_vector_integral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.boundary_edges.html">discretize.CurvilinearMesh.boundary_edges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.boundary_face_outward_normals.html">discretize.CurvilinearMesh.boundary_face_outward_normals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.boundary_face_scalar_integral.html">discretize.CurvilinearMesh.boundary_face_scalar_integral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.boundary_faces.html">discretize.CurvilinearMesh.boundary_faces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.boundary_node_vector_integral.html">discretize.CurvilinearMesh.boundary_node_vector_integral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.boundary_nodes.html">discretize.CurvilinearMesh.boundary_nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.cellGrad.html">discretize.CurvilinearMesh.cellGrad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.cellGradBC.html">discretize.CurvilinearMesh.cellGradBC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.cellGradx.html">discretize.CurvilinearMesh.cellGradx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.cellGrady.html">discretize.CurvilinearMesh.cellGrady</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.cellGradz.html">discretize.CurvilinearMesh.cellGradz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.cell_centers.html">discretize.CurvilinearMesh.cell_centers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient.html">discretize.CurvilinearMesh.cell_gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient_BC.html">discretize.CurvilinearMesh.cell_gradient_BC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient_x.html">discretize.CurvilinearMesh.cell_gradient_x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient_y.html">discretize.CurvilinearMesh.cell_gradient_y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient_z.html">discretize.CurvilinearMesh.cell_gradient_z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.cell_volumes.html">discretize.CurvilinearMesh.cell_volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.dim.html">discretize.CurvilinearMesh.dim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.edge.html">discretize.CurvilinearMesh.edge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.edgeCurl.html">discretize.CurvilinearMesh.edgeCurl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.edge_curl.html">discretize.CurvilinearMesh.edge_curl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.edge_lengths.html">discretize.CurvilinearMesh.edge_lengths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.edge_tangents.html">discretize.CurvilinearMesh.edge_tangents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.edges.html">discretize.CurvilinearMesh.edges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.edges_x.html">discretize.CurvilinearMesh.edges_x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.edges_y.html">discretize.CurvilinearMesh.edges_y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.edges_z.html">discretize.CurvilinearMesh.edges_z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.faceDiv.html">discretize.CurvilinearMesh.faceDiv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.faceDivx.html">discretize.CurvilinearMesh.faceDivx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.faceDivy.html">discretize.CurvilinearMesh.faceDivy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.faceDivz.html">discretize.CurvilinearMesh.faceDivz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.face_areas.html">discretize.CurvilinearMesh.face_areas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.face_divergence.html">discretize.CurvilinearMesh.face_divergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.face_normals.html">discretize.CurvilinearMesh.face_normals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.face_x_divergence.html">discretize.CurvilinearMesh.face_x_divergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.face_y_divergence.html">discretize.CurvilinearMesh.face_y_divergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.face_z_divergence.html">discretize.CurvilinearMesh.face_z_divergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.faces.html">discretize.CurvilinearMesh.faces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.faces_x.html">discretize.CurvilinearMesh.faces_x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.faces_y.html">discretize.CurvilinearMesh.faces_y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.faces_z.html">discretize.CurvilinearMesh.faces_z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.nCx.html">discretize.CurvilinearMesh.nCx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.nCy.html">discretize.CurvilinearMesh.nCy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.nCz.html">discretize.CurvilinearMesh.nCz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.nNx.html">discretize.CurvilinearMesh.nNx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.nNy.html">discretize.CurvilinearMesh.nNy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.nNz.html">discretize.CurvilinearMesh.nNz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.n_cells.html">discretize.CurvilinearMesh.n_cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.n_edges.html">discretize.CurvilinearMesh.n_edges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.n_edges_per_direction.html">discretize.CurvilinearMesh.n_edges_per_direction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.n_edges_x.html">discretize.CurvilinearMesh.n_edges_x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.n_edges_y.html">discretize.CurvilinearMesh.n_edges_y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.n_edges_z.html">discretize.CurvilinearMesh.n_edges_z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.n_faces.html">discretize.CurvilinearMesh.n_faces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.n_faces_per_direction.html">discretize.CurvilinearMesh.n_faces_per_direction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.n_faces_x.html">discretize.CurvilinearMesh.n_faces_x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.n_faces_y.html">discretize.CurvilinearMesh.n_faces_y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.n_faces_z.html">discretize.CurvilinearMesh.n_faces_z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.n_nodes.html">discretize.CurvilinearMesh.n_nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.nodalGrad.html">discretize.CurvilinearMesh.nodalGrad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.nodalLaplacian.html">discretize.CurvilinearMesh.nodalLaplacian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.nodal_gradient.html">discretize.CurvilinearMesh.nodal_gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.nodal_laplacian.html">discretize.CurvilinearMesh.nodal_laplacian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.node_list.html">discretize.CurvilinearMesh.node_list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.nodes.html">discretize.CurvilinearMesh.nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.normals.html">discretize.CurvilinearMesh.normals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.orientation.html">discretize.CurvilinearMesh.orientation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.origin.html">discretize.CurvilinearMesh.origin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.project_edge_to_boundary_edge.html">discretize.CurvilinearMesh.project_edge_to_boundary_edge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.project_face_to_boundary_face.html">discretize.CurvilinearMesh.project_face_to_boundary_face</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.project_node_to_boundary_node.html">discretize.CurvilinearMesh.project_node_to_boundary_node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.reference_is_rotated.html">discretize.CurvilinearMesh.reference_is_rotated</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.reference_system.html">discretize.CurvilinearMesh.reference_system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.rotation_matrix.html">discretize.CurvilinearMesh.rotation_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.shape_cells.html">discretize.CurvilinearMesh.shape_cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.shape_edges_x.html">discretize.CurvilinearMesh.shape_edges_x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.shape_edges_y.html">discretize.CurvilinearMesh.shape_edges_y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.shape_edges_z.html">discretize.CurvilinearMesh.shape_edges_z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.shape_faces_x.html">discretize.CurvilinearMesh.shape_faces_x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.shape_faces_y.html">discretize.CurvilinearMesh.shape_faces_y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.shape_faces_z.html">discretize.CurvilinearMesh.shape_faces_z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.shape_nodes.html">discretize.CurvilinearMesh.shape_nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.stencil_cell_gradient.html">discretize.CurvilinearMesh.stencil_cell_gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.stencil_cell_gradient_x.html">discretize.CurvilinearMesh.stencil_cell_gradient_x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.stencil_cell_gradient_y.html">discretize.CurvilinearMesh.stencil_cell_gradient_y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.stencil_cell_gradient_z.html">discretize.CurvilinearMesh.stencil_cell_gradient_z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.tangents.html">discretize.CurvilinearMesh.tangents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.vol.html">discretize.CurvilinearMesh.vol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.x0.html">discretize.CurvilinearMesh.x0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient_weak_form_robin.html">discretize.CurvilinearMesh.cell_gradient_weak_form_robin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.closest_points_index.html">discretize.CurvilinearMesh.closest_points_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.copy.html">discretize.CurvilinearMesh.copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.deserialize.html">discretize.CurvilinearMesh.deserialize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.edge_divergence_weak_form_robin.html">discretize.CurvilinearMesh.edge_divergence_weak_form_robin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.equals.html">discretize.CurvilinearMesh.equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.from_omf.html">discretize.CurvilinearMesh.from_omf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.getBCProjWF.html">discretize.CurvilinearMesh.getBCProjWF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.getBCProjWF_simple.html">discretize.CurvilinearMesh.getBCProjWF_simple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.getEdgeInnerProduct.html">discretize.CurvilinearMesh.getEdgeInnerProduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.getEdgeInnerProductDeriv.html">discretize.CurvilinearMesh.getEdgeInnerProductDeriv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.getFaceInnerProduct.html">discretize.CurvilinearMesh.getFaceInnerProduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.getFaceInnerProductDeriv.html">discretize.CurvilinearMesh.getFaceInnerProductDeriv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.getInterpolationMat.html">discretize.CurvilinearMesh.getInterpolationMat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.get_BC_projections.html">discretize.CurvilinearMesh.get_BC_projections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.get_BC_projections_simple.html">discretize.CurvilinearMesh.get_BC_projections_simple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.get_edge_inner_product.html">discretize.CurvilinearMesh.get_edge_inner_product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.get_edge_inner_product_deriv.html">discretize.CurvilinearMesh.get_edge_inner_product_deriv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.get_edge_inner_product_line.html">discretize.CurvilinearMesh.get_edge_inner_product_line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.get_edge_inner_product_line_deriv.html">discretize.CurvilinearMesh.get_edge_inner_product_line_deriv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.get_edge_inner_product_surface.html">discretize.CurvilinearMesh.get_edge_inner_product_surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.get_edge_inner_product_surface_deriv.html">discretize.CurvilinearMesh.get_edge_inner_product_surface_deriv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.get_face_inner_product.html">discretize.CurvilinearMesh.get_face_inner_product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.get_face_inner_product_deriv.html">discretize.CurvilinearMesh.get_face_inner_product_deriv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.get_face_inner_product_surface.html">discretize.CurvilinearMesh.get_face_inner_product_surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.get_face_inner_product_surface_deriv.html">discretize.CurvilinearMesh.get_face_inner_product_surface_deriv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.get_interpolation_matrix.html">discretize.CurvilinearMesh.get_interpolation_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.plotGrid.html">discretize.CurvilinearMesh.plotGrid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.plotImage.html">discretize.CurvilinearMesh.plotImage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.plotSlice.html">discretize.CurvilinearMesh.plotSlice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.plot_3d_slicer.html">discretize.CurvilinearMesh.plot_3d_slicer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.plot_grid.html">discretize.CurvilinearMesh.plot_grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.plot_image.html">discretize.CurvilinearMesh.plot_image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.plot_slice.html">discretize.CurvilinearMesh.plot_slice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.point2index.html">discretize.CurvilinearMesh.point2index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.projectEdgeVector.html">discretize.CurvilinearMesh.projectEdgeVector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.projectFaceVector.html">discretize.CurvilinearMesh.projectFaceVector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.project_edge_vector.html">discretize.CurvilinearMesh.project_edge_vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.project_face_vector.html">discretize.CurvilinearMesh.project_face_vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.r.html">discretize.CurvilinearMesh.r</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.reshape.html">discretize.CurvilinearMesh.reshape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.save.html">discretize.CurvilinearMesh.save</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.serialize.html">discretize.CurvilinearMesh.serialize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.setCellGradBC.html">discretize.CurvilinearMesh.setCellGradBC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.set_cell_gradient_BC.html">discretize.CurvilinearMesh.set_cell_gradient_BC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.toVTK.html">discretize.CurvilinearMesh.toVTK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.to_dict.html">discretize.CurvilinearMesh.to_dict</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.to_omf.html">discretize.CurvilinearMesh.to_omf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.to_vtk.html">discretize.CurvilinearMesh.to_vtk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.validate.html">discretize.CurvilinearMesh.validate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.writeVTK.html">discretize.CurvilinearMesh.writeVTK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.CurvilinearMesh.write_vtk.html">discretize.CurvilinearMesh.write_vtk</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="discretize.TreeMesh.html">discretize.TreeMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discretize.SimplexMesh.html">discretize.SimplexMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discretize.tensor_cell.TensorCell.html">discretize.tensor_cell.TensorCell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discretize.tree_mesh.TreeCell.html">discretize.tree_mesh.TreeCell</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../discretize.base.html">Base Mesh (<code class="xref py py-mod docutils literal notranslate"><span class="pre">discretize.base</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../discretize.operators.html">Discrete Operators (<code class="xref py py-mod docutils literal notranslate"><span class="pre">discretize.operators</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../discretize.mixins.html">Mixins (<code class="xref py py-mod docutils literal notranslate"><span class="pre">discretize.mixins</span></code>)</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../discretize.utils.html">Utility Classes and Functions (<code class="xref py py-mod docutils literal notranslate"><span class="pre">discretize.utils</span></code>)</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../discretize.tests.html">Testing Utilities (<code class="xref py py-mod docutils literal notranslate"><span class="pre">discretize.tests</span></code>)</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../discretize.html" class="nav-link">Discretize Meshes (<code class="xref py py-mod docutils literal notranslate"><span class="pre">discretize</span></code>)</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">discretize.C...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="discretize-curvilinearmesh">
+<h1>discretize.CurvilinearMesh<a class="headerlink" href="#discretize-curvilinearmesh" title="Link to this heading">#</a></h1>
+<div class="graphviz"><img src="../../_images/inheritance-9737168ea0d097903a7021561e478afb02659766.png" alt="Inheritance diagram of CurvilinearMesh" usemap="#inheritance9c8b01e00d" class="inheritance graphviz" /></div>
+<map id="inheritance9c8b01e00d" name="inheritance9c8b01e00d">
+<area shape="rect" id="node1" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh" target="_top" title="Base mesh class for the ``discretize`` package." alt="" coords="5,56,94,84"/>
+<area shape="rect" id="node3" href="discretize.base.BaseRegularMesh.html#discretize.base.BaseRegularMesh" target="_top" title="Base Regular mesh class for the ``discretize`` package." alt="" coords="142,5,280,33"/>
+<area shape="rect" id="node5" href="discretize.operators.DiffOperators.html#discretize.operators.DiffOperators" target="_top" title="Class used for creating differential and averaging operators." alt="" coords="357,57,465,85"/>
+<area shape="rect" id="node6" href="discretize.operators.InnerProducts.html#discretize.operators.InnerProducts" target="_top" title="Class for constructing inner product matrices." alt="" coords="356,109,466,137"/>
+<area shape="rect" id="node2" href="discretize.base.BaseRectangularMesh.html#discretize.base.BaseRectangularMesh" target="_top" title="Base rectangular mesh class for the ``discretize`` package." alt="" coords="328,5,494,33"/>
+<area shape="rect" id="node4" href="#discretize.CurvilinearMesh" target="_top" title="Curvilinear mesh class." alt="" coords="542,84,670,112"/>
+<area shape="rect" id="node8" href="discretize.mixins.InterfaceMPL.html#discretize.mixins.InterfaceMPL" target="_top" title="Class for plotting ``discretize`` meshes with matplotlib." alt="" coords="158,157,264,185"/>
+<area shape="rect" id="node9" href="discretize.mixins.InterfaceVTK.html#discretize.mixins.InterfaceVTK" target="_top" title="VTK interface for ``discretize`` meshes." alt="" coords="158,209,264,237"/>
+<area shape="rect" id="node10" href="discretize.mixins.InterfaceOMF.html#discretize.mixins.InterfaceOMF" target="_top" title="Convert between ``omf`` and ``discretize`` objects." alt="" coords="156,261,266,289"/>
+</map><dl class="py class">
+<dt class="sig sig-object py" id="discretize.CurvilinearMesh">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.</span></span><span class="sig-name descname"><span class="pre">CurvilinearMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_list</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/v0.11.1/discretize/curvilinear_mesh.py#L35-L841"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.CurvilinearMesh" title="Link to this definition">#</a></dt>
+<dd><p>Curvilinear mesh class.</p>
+<p>Curvilinear meshes are numerical grids whose cells are general quadrilaterals (2D)
+or cuboid (3D); unlike tensor meshes (see <a class="reference internal" href="discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorMesh</span></code></a>) whose
+cells are rectangles or rectangular prisms. That being said, the combinatorial
+structure (i.e. connectivity of mesh cells) of curvilinear meshes is the same as
+tensor meshes.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>node_list</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v2.1)"><span>array_like</span></a></span></dt><dd><p>List <code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code> containing the gridded x, y (and z) node locations.</p>
+<ul class="simple">
+<li><p>For a 2D curvilinear mesh, <em>node_list</em> = [X, Y] where X and Y have shape
+(<code class="docutils literal notranslate"><span class="pre">n_nodes_x</span></code>, <code class="docutils literal notranslate"><span class="pre">n_nodes_y</span></code>)</p></li>
+<li><p>For a 3D curvilinear mesh, <em>node_list</em> = [X, Y, Z] where X, Y and Z have shape
+(<code class="docutils literal notranslate"><span class="pre">n_nodes_x</span></code>, <code class="docutils literal notranslate"><span class="pre">n_nodes_y</span></code>, <code class="docutils literal notranslate"><span class="pre">n_nodes_z</span></code>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Attributes</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.area.html#discretize.CurvilinearMesh.area" title="discretize.CurvilinearMesh.area"><code class="xref py py-obj docutils literal notranslate"><span class="pre">area</span></code></a></p></td>
+<td><p><cite>area</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_cell_to_edge.html#discretize.CurvilinearMesh.average_cell_to_edge" title="discretize.CurvilinearMesh.average_cell_to_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_cell_to_edge</span></code></a></p></td>
+<td><p>Averaging operator from cell centers to edges (scalar quantities).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_cell_to_face.html#discretize.CurvilinearMesh.average_cell_to_face" title="discretize.CurvilinearMesh.average_cell_to_face"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_cell_to_face</span></code></a></p></td>
+<td><p>Averaging operator from cell centers to faces (scalar quantities).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_cell_vector_to_face.html#discretize.CurvilinearMesh.average_cell_vector_to_face" title="discretize.CurvilinearMesh.average_cell_vector_to_face"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_cell_vector_to_face</span></code></a></p></td>
+<td><p>Averaging operator from cell centers to faces (vector quantities).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_to_cell.html#discretize.CurvilinearMesh.average_edge_to_cell" title="discretize.CurvilinearMesh.average_edge_to_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_edge_to_cell</span></code></a></p></td>
+<td><p>Averaging operator from edges to cell centers (scalar quantities).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_to_cell_vector.html#discretize.CurvilinearMesh.average_edge_to_cell_vector" title="discretize.CurvilinearMesh.average_edge_to_cell_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_edge_to_cell_vector</span></code></a></p></td>
+<td><p>Averaging operator from edges to cell centers (vector quantities).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_to_face.html#discretize.CurvilinearMesh.average_edge_to_face" title="discretize.CurvilinearMesh.average_edge_to_face"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_edge_to_face</span></code></a></p></td>
+<td><p>Averaging operator from edges to faces.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_x_to_cell.html#discretize.CurvilinearMesh.average_edge_x_to_cell" title="discretize.CurvilinearMesh.average_edge_x_to_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_edge_x_to_cell</span></code></a></p></td>
+<td><p>Averaging operator from x-edges to cell centers (scalar quantities).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_y_to_cell.html#discretize.CurvilinearMesh.average_edge_y_to_cell" title="discretize.CurvilinearMesh.average_edge_y_to_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_edge_y_to_cell</span></code></a></p></td>
+<td><p>Averaging operator from y-edges to cell centers (scalar quantities).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_edge_z_to_cell.html#discretize.CurvilinearMesh.average_edge_z_to_cell" title="discretize.CurvilinearMesh.average_edge_z_to_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_edge_z_to_cell</span></code></a></p></td>
+<td><p>Averaging operator from z-edges to cell centers (scalar quantities).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_face_to_cell.html#discretize.CurvilinearMesh.average_face_to_cell" title="discretize.CurvilinearMesh.average_face_to_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_face_to_cell</span></code></a></p></td>
+<td><p>Averaging operator from faces to cell centers (scalar quantities).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_face_to_cell_vector.html#discretize.CurvilinearMesh.average_face_to_cell_vector" title="discretize.CurvilinearMesh.average_face_to_cell_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_face_to_cell_vector</span></code></a></p></td>
+<td><p>Averaging operator from faces to cell centers (vector quantities).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_face_x_to_cell.html#discretize.CurvilinearMesh.average_face_x_to_cell" title="discretize.CurvilinearMesh.average_face_x_to_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_face_x_to_cell</span></code></a></p></td>
+<td><p>Averaging operator from x-faces to cell centers (scalar quantities).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_face_y_to_cell.html#discretize.CurvilinearMesh.average_face_y_to_cell" title="discretize.CurvilinearMesh.average_face_y_to_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_face_y_to_cell</span></code></a></p></td>
+<td><p>Averaging operator from y-faces to cell centers (scalar quantities).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_face_z_to_cell.html#discretize.CurvilinearMesh.average_face_z_to_cell" title="discretize.CurvilinearMesh.average_face_z_to_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_face_z_to_cell</span></code></a></p></td>
+<td><p>Averaging operator from z-faces to cell centers (scalar quantities).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_node_to_cell.html#discretize.CurvilinearMesh.average_node_to_cell" title="discretize.CurvilinearMesh.average_node_to_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_node_to_cell</span></code></a></p></td>
+<td><p>Averaging operator from nodes to cell centers (scalar quantities).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_node_to_edge.html#discretize.CurvilinearMesh.average_node_to_edge" title="discretize.CurvilinearMesh.average_node_to_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_node_to_edge</span></code></a></p></td>
+<td><p>Averaging operator from nodes to edges (scalar quantities).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.average_node_to_face.html#discretize.CurvilinearMesh.average_node_to_face" title="discretize.CurvilinearMesh.average_node_to_face"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_node_to_face</span></code></a></p></td>
+<td><p>Averaging operator from nodes to faces (scalar quantities).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.axis_u.html#discretize.CurvilinearMesh.axis_u" title="discretize.CurvilinearMesh.axis_u"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axis_u</span></code></a></p></td>
+<td><p>Orientation of the first axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.axis_v.html#discretize.CurvilinearMesh.axis_v" title="discretize.CurvilinearMesh.axis_v"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axis_v</span></code></a></p></td>
+<td><p>Orientation of the second axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.axis_w.html#discretize.CurvilinearMesh.axis_w" title="discretize.CurvilinearMesh.axis_w"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axis_w</span></code></a></p></td>
+<td><p>Orientation of the third axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.boundary_edge_vector_integral.html#discretize.CurvilinearMesh.boundary_edge_vector_integral" title="discretize.CurvilinearMesh.boundary_edge_vector_integral"><code class="xref py py-obj docutils literal notranslate"><span class="pre">boundary_edge_vector_integral</span></code></a></p></td>
+<td><p>Integrate a vector function on the boundary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.boundary_edges.html#discretize.CurvilinearMesh.boundary_edges" title="discretize.CurvilinearMesh.boundary_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">boundary_edges</span></code></a></p></td>
+<td><p>Boundary edge locations.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.boundary_face_outward_normals.html#discretize.CurvilinearMesh.boundary_face_outward_normals" title="discretize.CurvilinearMesh.boundary_face_outward_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">boundary_face_outward_normals</span></code></a></p></td>
+<td><p>Outward normal vectors of boundary faces.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.boundary_face_scalar_integral.html#discretize.CurvilinearMesh.boundary_face_scalar_integral" title="discretize.CurvilinearMesh.boundary_face_scalar_integral"><code class="xref py py-obj docutils literal notranslate"><span class="pre">boundary_face_scalar_integral</span></code></a></p></td>
+<td><p>Represent the operation of integrating a scalar function on the boundary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.boundary_faces.html#discretize.CurvilinearMesh.boundary_faces" title="discretize.CurvilinearMesh.boundary_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">boundary_faces</span></code></a></p></td>
+<td><p>Boundary face locations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.boundary_node_vector_integral.html#discretize.CurvilinearMesh.boundary_node_vector_integral" title="discretize.CurvilinearMesh.boundary_node_vector_integral"><code class="xref py py-obj docutils literal notranslate"><span class="pre">boundary_node_vector_integral</span></code></a></p></td>
+<td><p>Integrate a vector function dotted with the boundary normal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.boundary_nodes.html#discretize.CurvilinearMesh.boundary_nodes" title="discretize.CurvilinearMesh.boundary_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">boundary_nodes</span></code></a></p></td>
+<td><p>Boundary node locations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.cellGrad.html#discretize.CurvilinearMesh.cellGrad" title="discretize.CurvilinearMesh.cellGrad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cellGrad</span></code></a></p></td>
+<td><p><cite>cellGrad</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.cellGradBC.html#discretize.CurvilinearMesh.cellGradBC" title="discretize.CurvilinearMesh.cellGradBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cellGradBC</span></code></a></p></td>
+<td><p><cite>cellGradBC</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.cellGradx.html#discretize.CurvilinearMesh.cellGradx" title="discretize.CurvilinearMesh.cellGradx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cellGradx</span></code></a></p></td>
+<td><p><cite>cellGradx</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.cellGrady.html#discretize.CurvilinearMesh.cellGrady" title="discretize.CurvilinearMesh.cellGrady"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cellGrady</span></code></a></p></td>
+<td><p><cite>cellGrady</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.cellGradz.html#discretize.CurvilinearMesh.cellGradz" title="discretize.CurvilinearMesh.cellGradz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cellGradz</span></code></a></p></td>
+<td><p><cite>cellGradz</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.cell_centers.html#discretize.CurvilinearMesh.cell_centers" title="discretize.CurvilinearMesh.cell_centers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_centers</span></code></a></p></td>
+<td><p>Return gridded cell center locations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient.html#discretize.CurvilinearMesh.cell_gradient" title="discretize.CurvilinearMesh.cell_gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient</span></code></a></p></td>
+<td><p>Cell gradient operator (cell centers to faces).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient_BC.html#discretize.CurvilinearMesh.cell_gradient_BC" title="discretize.CurvilinearMesh.cell_gradient_BC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_BC</span></code></a></p></td>
+<td><p>Boundary conditions matrix for the cell gradient operator (Deprecated).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient_x.html#discretize.CurvilinearMesh.cell_gradient_x" title="discretize.CurvilinearMesh.cell_gradient_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_x</span></code></a></p></td>
+<td><p>X-derivative operator (cell centers to x-faces).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient_y.html#discretize.CurvilinearMesh.cell_gradient_y" title="discretize.CurvilinearMesh.cell_gradient_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_y</span></code></a></p></td>
+<td><p>Y-derivative operator (cell centers to y-faces).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient_z.html#discretize.CurvilinearMesh.cell_gradient_z" title="discretize.CurvilinearMesh.cell_gradient_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_z</span></code></a></p></td>
+<td><p>Z-derivative operator (cell centers to z-faces).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.cell_volumes.html#discretize.CurvilinearMesh.cell_volumes" title="discretize.CurvilinearMesh.cell_volumes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_volumes</span></code></a></p></td>
+<td><p>Return cell volumes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.dim.html#discretize.CurvilinearMesh.dim" title="discretize.CurvilinearMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a></p></td>
+<td><p>The dimension of the mesh (1, 2, or 3).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.edge.html#discretize.CurvilinearMesh.edge" title="discretize.CurvilinearMesh.edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge</span></code></a></p></td>
+<td><p><cite>edge</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.edgeCurl.html#discretize.CurvilinearMesh.edgeCurl" title="discretize.CurvilinearMesh.edgeCurl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edgeCurl</span></code></a></p></td>
+<td><p><cite>edgeCurl</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.edge_curl.html#discretize.CurvilinearMesh.edge_curl" title="discretize.CurvilinearMesh.edge_curl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_curl</span></code></a></p></td>
+<td><p>Edge curl operator (edges to faces).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.edge_lengths.html#discretize.CurvilinearMesh.edge_lengths" title="discretize.CurvilinearMesh.edge_lengths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_lengths</span></code></a></p></td>
+<td><p>Return lengths of all edges in the mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.edge_tangents.html#discretize.CurvilinearMesh.edge_tangents" title="discretize.CurvilinearMesh.edge_tangents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_tangents</span></code></a></p></td>
+<td><p>Unit tangent vectors for all mesh edges.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.edges.html#discretize.CurvilinearMesh.edges" title="discretize.CurvilinearMesh.edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges</span></code></a></p></td>
+<td><p>Gridded edge locations.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.edges_x.html#discretize.CurvilinearMesh.edges_x" title="discretize.CurvilinearMesh.edges_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_x</span></code></a></p></td>
+<td><p>Gridded x-edge locations (staggered grid).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.edges_y.html#discretize.CurvilinearMesh.edges_y" title="discretize.CurvilinearMesh.edges_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_y</span></code></a></p></td>
+<td><p>Gridded y-edge locations (staggered grid).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.edges_z.html#discretize.CurvilinearMesh.edges_z" title="discretize.CurvilinearMesh.edges_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_z</span></code></a></p></td>
+<td><p>Gridded z-edge locations (staggered grid).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.faceDiv.html#discretize.CurvilinearMesh.faceDiv" title="discretize.CurvilinearMesh.faceDiv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceDiv</span></code></a></p></td>
+<td><p><cite>faceDiv</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.faceDivx.html#discretize.CurvilinearMesh.faceDivx" title="discretize.CurvilinearMesh.faceDivx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceDivx</span></code></a></p></td>
+<td><p><cite>faceDivx</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.faceDivy.html#discretize.CurvilinearMesh.faceDivy" title="discretize.CurvilinearMesh.faceDivy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceDivy</span></code></a></p></td>
+<td><p><cite>faceDivy</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.faceDivz.html#discretize.CurvilinearMesh.faceDivz" title="discretize.CurvilinearMesh.faceDivz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faceDivz</span></code></a></p></td>
+<td><p><cite>faceDivz</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.face_areas.html#discretize.CurvilinearMesh.face_areas" title="discretize.CurvilinearMesh.face_areas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_areas</span></code></a></p></td>
+<td><p>Return areas of all faces in the mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.face_divergence.html#discretize.CurvilinearMesh.face_divergence" title="discretize.CurvilinearMesh.face_divergence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_divergence</span></code></a></p></td>
+<td><p>Face divergence operator (faces to cell-centres).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.face_normals.html#discretize.CurvilinearMesh.face_normals" title="discretize.CurvilinearMesh.face_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></a></p></td>
+<td><p>Unit normal vectors for all mesh faces.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.face_x_divergence.html#discretize.CurvilinearMesh.face_x_divergence" title="discretize.CurvilinearMesh.face_x_divergence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_x_divergence</span></code></a></p></td>
+<td><p>X-derivative operator (x-faces to cell-centres).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.face_y_divergence.html#discretize.CurvilinearMesh.face_y_divergence" title="discretize.CurvilinearMesh.face_y_divergence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_y_divergence</span></code></a></p></td>
+<td><p>Y-derivative operator (y-faces to cell-centres).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.face_z_divergence.html#discretize.CurvilinearMesh.face_z_divergence" title="discretize.CurvilinearMesh.face_z_divergence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_z_divergence</span></code></a></p></td>
+<td><p>Z-derivative operator (z-faces to cell-centres).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.faces.html#discretize.CurvilinearMesh.faces" title="discretize.CurvilinearMesh.faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></a></p></td>
+<td><p>Gridded face locations.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.faces_x.html#discretize.CurvilinearMesh.faces_x" title="discretize.CurvilinearMesh.faces_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_x</span></code></a></p></td>
+<td><p>Gridded x-face locations (staggered grid).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.faces_y.html#discretize.CurvilinearMesh.faces_y" title="discretize.CurvilinearMesh.faces_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_y</span></code></a></p></td>
+<td><p>Gridded y-face locations (staggered grid).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.faces_z.html#discretize.CurvilinearMesh.faces_z" title="discretize.CurvilinearMesh.faces_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_z</span></code></a></p></td>
+<td><p>Gridded z-face locations (staggered grid).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.nCx.html#discretize.CurvilinearMesh.nCx" title="discretize.CurvilinearMesh.nCx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nCx</span></code></a></p></td>
+<td><p>Number of cells in the x direction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.nCy.html#discretize.CurvilinearMesh.nCy" title="discretize.CurvilinearMesh.nCy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nCy</span></code></a></p></td>
+<td><p>Number of cells in the y direction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.nCz.html#discretize.CurvilinearMesh.nCz" title="discretize.CurvilinearMesh.nCz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nCz</span></code></a></p></td>
+<td><p>Number of cells in the z direction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.nNx.html#discretize.CurvilinearMesh.nNx" title="discretize.CurvilinearMesh.nNx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nNx</span></code></a></p></td>
+<td><p>Number of nodes in the x-direction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.nNy.html#discretize.CurvilinearMesh.nNy" title="discretize.CurvilinearMesh.nNy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nNy</span></code></a></p></td>
+<td><p>Number of nodes in the y-direction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.nNz.html#discretize.CurvilinearMesh.nNz" title="discretize.CurvilinearMesh.nNz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nNz</span></code></a></p></td>
+<td><p>Number of nodes in the z-direction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.n_cells.html#discretize.CurvilinearMesh.n_cells" title="discretize.CurvilinearMesh.n_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code></a></p></td>
+<td><p>Total number of cells in the mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.n_edges.html#discretize.CurvilinearMesh.n_edges" title="discretize.CurvilinearMesh.n_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges</span></code></a></p></td>
+<td><p>Total number of edges in the mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.n_edges_per_direction.html#discretize.CurvilinearMesh.n_edges_per_direction" title="discretize.CurvilinearMesh.n_edges_per_direction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges_per_direction</span></code></a></p></td>
+<td><p>The number of edges in each direction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.n_edges_x.html#discretize.CurvilinearMesh.n_edges_x" title="discretize.CurvilinearMesh.n_edges_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges_x</span></code></a></p></td>
+<td><p>Number of x-edges in the mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.n_edges_y.html#discretize.CurvilinearMesh.n_edges_y" title="discretize.CurvilinearMesh.n_edges_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges_y</span></code></a></p></td>
+<td><p>Number of y-edges in the mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.n_edges_z.html#discretize.CurvilinearMesh.n_edges_z" title="discretize.CurvilinearMesh.n_edges_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges_z</span></code></a></p></td>
+<td><p>Number of z-edges in the mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.n_faces.html#discretize.CurvilinearMesh.n_faces" title="discretize.CurvilinearMesh.n_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces</span></code></a></p></td>
+<td><p>Total number of faces in the mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.n_faces_per_direction.html#discretize.CurvilinearMesh.n_faces_per_direction" title="discretize.CurvilinearMesh.n_faces_per_direction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces_per_direction</span></code></a></p></td>
+<td><p>The number of faces in each axis direction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.n_faces_x.html#discretize.CurvilinearMesh.n_faces_x" title="discretize.CurvilinearMesh.n_faces_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces_x</span></code></a></p></td>
+<td><p>Number of x-faces in the mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.n_faces_y.html#discretize.CurvilinearMesh.n_faces_y" title="discretize.CurvilinearMesh.n_faces_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces_y</span></code></a></p></td>
+<td><p>Number of y-faces in the mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.n_faces_z.html#discretize.CurvilinearMesh.n_faces_z" title="discretize.CurvilinearMesh.n_faces_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces_z</span></code></a></p></td>
+<td><p>Number of z-faces in the mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.n_nodes.html#discretize.CurvilinearMesh.n_nodes" title="discretize.CurvilinearMesh.n_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_nodes</span></code></a></p></td>
+<td><p>Total number of nodes in the mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.nodalGrad.html#discretize.CurvilinearMesh.nodalGrad" title="discretize.CurvilinearMesh.nodalGrad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodalGrad</span></code></a></p></td>
+<td><p><cite>nodalGrad</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.nodalLaplacian.html#discretize.CurvilinearMesh.nodalLaplacian" title="discretize.CurvilinearMesh.nodalLaplacian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodalLaplacian</span></code></a></p></td>
+<td><p><cite>nodalLaplacian</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.nodal_gradient.html#discretize.CurvilinearMesh.nodal_gradient" title="discretize.CurvilinearMesh.nodal_gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodal_gradient</span></code></a></p></td>
+<td><p>Nodal gradient operator (nodes to edges).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.nodal_laplacian.html#discretize.CurvilinearMesh.nodal_laplacian" title="discretize.CurvilinearMesh.nodal_laplacian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodal_laplacian</span></code></a></p></td>
+<td><p>Nodal scalar Laplacian operator (nodes to nodes).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.node_list.html#discretize.CurvilinearMesh.node_list" title="discretize.CurvilinearMesh.node_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">node_list</span></code></a></p></td>
+<td><p>The gridded x, y (and z) node locations used to create the mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.nodes.html#discretize.CurvilinearMesh.nodes" title="discretize.CurvilinearMesh.nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></a></p></td>
+<td><p>Return gridded node locations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.normals.html#discretize.CurvilinearMesh.normals" title="discretize.CurvilinearMesh.normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normals</span></code></a></p></td>
+<td><p><cite>normals</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.orientation.html#discretize.CurvilinearMesh.orientation" title="discretize.CurvilinearMesh.orientation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">orientation</span></code></a></p></td>
+<td><p>Rotation matrix defining mesh axes relative to Cartesian.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.origin.html#discretize.CurvilinearMesh.origin" title="discretize.CurvilinearMesh.origin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">origin</span></code></a></p></td>
+<td><p>Origin or 'anchor point' of the mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.project_edge_to_boundary_edge.html#discretize.CurvilinearMesh.project_edge_to_boundary_edge" title="discretize.CurvilinearMesh.project_edge_to_boundary_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_edge_to_boundary_edge</span></code></a></p></td>
+<td><p>Projection matrix from all edges to boundary edges.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.project_face_to_boundary_face.html#discretize.CurvilinearMesh.project_face_to_boundary_face" title="discretize.CurvilinearMesh.project_face_to_boundary_face"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_face_to_boundary_face</span></code></a></p></td>
+<td><p>Projection matrix from all faces to boundary faces.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.project_node_to_boundary_node.html#discretize.CurvilinearMesh.project_node_to_boundary_node" title="discretize.CurvilinearMesh.project_node_to_boundary_node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_node_to_boundary_node</span></code></a></p></td>
+<td><p>Projection matrix from all nodes to boundary nodes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.reference_is_rotated.html#discretize.CurvilinearMesh.reference_is_rotated" title="discretize.CurvilinearMesh.reference_is_rotated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reference_is_rotated</span></code></a></p></td>
+<td><p>Indicate whether mesh uses standard coordinate axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.reference_system.html#discretize.CurvilinearMesh.reference_system" title="discretize.CurvilinearMesh.reference_system"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reference_system</span></code></a></p></td>
+<td><p>Coordinate reference system.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.rotation_matrix.html#discretize.CurvilinearMesh.rotation_matrix" title="discretize.CurvilinearMesh.rotation_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotation_matrix</span></code></a></p></td>
+<td><p>Alias for <a class="reference internal" href="discretize.base.BaseRegularMesh.orientation.html#discretize.base.BaseRegularMesh.orientation" title="discretize.base.BaseRegularMesh.orientation"><code class="xref py py-attr docutils literal notranslate"><span class="pre">orientation</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.shape_cells.html#discretize.CurvilinearMesh.shape_cells" title="discretize.CurvilinearMesh.shape_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_cells</span></code></a></p></td>
+<td><p>Number of cells in each coordinate direction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.shape_edges_x.html#discretize.CurvilinearMesh.shape_edges_x" title="discretize.CurvilinearMesh.shape_edges_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_edges_x</span></code></a></p></td>
+<td><p>Number of x-edges along each axis direction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.shape_edges_y.html#discretize.CurvilinearMesh.shape_edges_y" title="discretize.CurvilinearMesh.shape_edges_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_edges_y</span></code></a></p></td>
+<td><p>Number of y-edges along each axis direction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.shape_edges_z.html#discretize.CurvilinearMesh.shape_edges_z" title="discretize.CurvilinearMesh.shape_edges_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_edges_z</span></code></a></p></td>
+<td><p>Number of z-edges along each axis direction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.shape_faces_x.html#discretize.CurvilinearMesh.shape_faces_x" title="discretize.CurvilinearMesh.shape_faces_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_faces_x</span></code></a></p></td>
+<td><p>Number of x-faces along each axis direction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.shape_faces_y.html#discretize.CurvilinearMesh.shape_faces_y" title="discretize.CurvilinearMesh.shape_faces_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_faces_y</span></code></a></p></td>
+<td><p>Number of y-faces along each axis direction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.shape_faces_z.html#discretize.CurvilinearMesh.shape_faces_z" title="discretize.CurvilinearMesh.shape_faces_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_faces_z</span></code></a></p></td>
+<td><p>Number of z-faces along each axis direction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.shape_nodes.html#discretize.CurvilinearMesh.shape_nodes" title="discretize.CurvilinearMesh.shape_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape_nodes</span></code></a></p></td>
+<td><p>The number of nodes along each axis direction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.stencil_cell_gradient.html#discretize.CurvilinearMesh.stencil_cell_gradient" title="discretize.CurvilinearMesh.stencil_cell_gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stencil_cell_gradient</span></code></a></p></td>
+<td><p>Stencil for cell gradient operator (cell centers to faces).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.stencil_cell_gradient_x.html#discretize.CurvilinearMesh.stencil_cell_gradient_x" title="discretize.CurvilinearMesh.stencil_cell_gradient_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stencil_cell_gradient_x</span></code></a></p></td>
+<td><p>Differencing operator along x-direction (cell centers to x-faces).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.stencil_cell_gradient_y.html#discretize.CurvilinearMesh.stencil_cell_gradient_y" title="discretize.CurvilinearMesh.stencil_cell_gradient_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stencil_cell_gradient_y</span></code></a></p></td>
+<td><p>Differencing operator along y-direction (cell centers to y-faces).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.stencil_cell_gradient_z.html#discretize.CurvilinearMesh.stencil_cell_gradient_z" title="discretize.CurvilinearMesh.stencil_cell_gradient_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stencil_cell_gradient_z</span></code></a></p></td>
+<td><p>Differencing operator along z-direction (cell centers to z-faces).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.tangents.html#discretize.CurvilinearMesh.tangents" title="discretize.CurvilinearMesh.tangents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tangents</span></code></a></p></td>
+<td><p><cite>tangents</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.vol.html#discretize.CurvilinearMesh.vol" title="discretize.CurvilinearMesh.vol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vol</span></code></a></p></td>
+<td><p><cite>vol</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.x0.html#discretize.CurvilinearMesh.x0" title="discretize.CurvilinearMesh.x0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x0</span></code></a></p></td>
+<td><p>Alias for the <a class="reference internal" href="discretize.base.BaseRegularMesh.origin.html#discretize.base.BaseRegularMesh.origin" title="discretize.base.BaseRegularMesh.origin"><code class="xref py py-attr docutils literal notranslate"><span class="pre">origin</span></code></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="rubric">Methods</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.cell_gradient_weak_form_robin.html#discretize.CurvilinearMesh.cell_gradient_weak_form_robin" title="discretize.CurvilinearMesh.cell_gradient_weak_form_robin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_weak_form_robin</span></code></a>([alpha, beta, ...])</p></td>
+<td><p>Create Robin conditions pieces for weak form of the cell gradient operator (cell centers to faces).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.closest_points_index.html#discretize.CurvilinearMesh.closest_points_index" title="discretize.CurvilinearMesh.closest_points_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">closest_points_index</span></code></a>(locations[, grid_loc, ...])</p></td>
+<td><p>Find the indicies for the nearest grid location for a set of points.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.copy.html#discretize.CurvilinearMesh.copy" title="discretize.CurvilinearMesh.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>()</p></td>
+<td><p>Make a copy of the current mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.deserialize.html#discretize.CurvilinearMesh.deserialize" title="discretize.CurvilinearMesh.deserialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deserialize</span></code></a>(value, **kwargs)</p></td>
+<td><p>Create this mesh from a dictionary of attributes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.edge_divergence_weak_form_robin.html#discretize.CurvilinearMesh.edge_divergence_weak_form_robin" title="discretize.CurvilinearMesh.edge_divergence_weak_form_robin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_divergence_weak_form_robin</span></code></a>([alpha, ...])</p></td>
+<td><p>Create Robin conditions pieces for weak form of the edge divergence operator (edges to nodes).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.equals.html#discretize.CurvilinearMesh.equals" title="discretize.CurvilinearMesh.equals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">equals</span></code></a>(other_mesh)</p></td>
+<td><p>Compare the current mesh with another mesh to determine if they are identical.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.from_omf.html#discretize.CurvilinearMesh.from_omf" title="discretize.CurvilinearMesh.from_omf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_omf</span></code></a>(element)</p></td>
+<td><p>Convert an <code class="docutils literal notranslate"><span class="pre">omf</span></code> object to a <code class="docutils literal notranslate"><span class="pre">discretize</span></code> mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.getBCProjWF.html#discretize.CurvilinearMesh.getBCProjWF" title="discretize.CurvilinearMesh.getBCProjWF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getBCProjWF</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>getBCProjWF</cite> has been removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.getBCProjWF_simple.html#discretize.CurvilinearMesh.getBCProjWF_simple" title="discretize.CurvilinearMesh.getBCProjWF_simple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getBCProjWF_simple</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>getBCProjWF_simple</cite> has been removed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.getEdgeInnerProduct.html#discretize.CurvilinearMesh.getEdgeInnerProduct" title="discretize.CurvilinearMesh.getEdgeInnerProduct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEdgeInnerProduct</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>getEdgeInnerProduct</cite> has been removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.getEdgeInnerProductDeriv.html#discretize.CurvilinearMesh.getEdgeInnerProductDeriv" title="discretize.CurvilinearMesh.getEdgeInnerProductDeriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEdgeInnerProductDeriv</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>getEdgeInnerProductDeriv</cite> has been removed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.getFaceInnerProduct.html#discretize.CurvilinearMesh.getFaceInnerProduct" title="discretize.CurvilinearMesh.getFaceInnerProduct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFaceInnerProduct</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>getFaceInnerProduct</cite> has been removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.getFaceInnerProductDeriv.html#discretize.CurvilinearMesh.getFaceInnerProductDeriv" title="discretize.CurvilinearMesh.getFaceInnerProductDeriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFaceInnerProductDeriv</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>getFaceInnerProductDeriv</cite> has been removed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.getInterpolationMat.html#discretize.CurvilinearMesh.getInterpolationMat" title="discretize.CurvilinearMesh.getInterpolationMat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterpolationMat</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>getInterpolationMat</cite> has been removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.get_BC_projections.html#discretize.CurvilinearMesh.get_BC_projections" title="discretize.CurvilinearMesh.get_BC_projections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_BC_projections</span></code></a>(BC[, discretization])</p></td>
+<td><p>Create the weak form boundary condition projection matrices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.get_BC_projections_simple.html#discretize.CurvilinearMesh.get_BC_projections_simple" title="discretize.CurvilinearMesh.get_BC_projections_simple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_BC_projections_simple</span></code></a>([discretization])</p></td>
+<td><p>Create weak form boundary condition projection matrices for mixed boundary condition.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.get_edge_inner_product.html#discretize.CurvilinearMesh.get_edge_inner_product" title="discretize.CurvilinearMesh.get_edge_inner_product"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edge_inner_product</span></code></a>([model, ...])</p></td>
+<td><p>Generate the edge inner product matrix or its inverse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.get_edge_inner_product_deriv.html#discretize.CurvilinearMesh.get_edge_inner_product_deriv" title="discretize.CurvilinearMesh.get_edge_inner_product_deriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edge_inner_product_deriv</span></code></a>(model[, ...])</p></td>
+<td><p>Get a function handle to multiply vector with derivative of edge inner product matrix (or its inverse).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.get_edge_inner_product_line.html#discretize.CurvilinearMesh.get_edge_inner_product_line" title="discretize.CurvilinearMesh.get_edge_inner_product_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edge_inner_product_line</span></code></a>([model, ...])</p></td>
+<td><p>Generate the edge inner product line matrix or its inverse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.get_edge_inner_product_line_deriv.html#discretize.CurvilinearMesh.get_edge_inner_product_line_deriv" title="discretize.CurvilinearMesh.get_edge_inner_product_line_deriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edge_inner_product_line_deriv</span></code></a>(model[, ...])</p></td>
+<td><p>Get a function handle to multiply a vector with derivative of edge inner product line matrix (or its inverse).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.get_edge_inner_product_surface.html#discretize.CurvilinearMesh.get_edge_inner_product_surface" title="discretize.CurvilinearMesh.get_edge_inner_product_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edge_inner_product_surface</span></code></a>([model, ...])</p></td>
+<td><p>Generate the edge inner product surface matrix or its inverse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.get_edge_inner_product_surface_deriv.html#discretize.CurvilinearMesh.get_edge_inner_product_surface_deriv" title="discretize.CurvilinearMesh.get_edge_inner_product_surface_deriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edge_inner_product_surface_deriv</span></code></a>(model)</p></td>
+<td><p>Get a function handle to multiply a vector with derivative of edge inner product surface matrix (or its inverse).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.get_face_inner_product.html#discretize.CurvilinearMesh.get_face_inner_product" title="discretize.CurvilinearMesh.get_face_inner_product"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_face_inner_product</span></code></a>([model, ...])</p></td>
+<td><p>Generate the face inner product matrix or its inverse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.get_face_inner_product_deriv.html#discretize.CurvilinearMesh.get_face_inner_product_deriv" title="discretize.CurvilinearMesh.get_face_inner_product_deriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_face_inner_product_deriv</span></code></a>(model[, ...])</p></td>
+<td><p>Get a function handle to multiply a vector with derivative of face inner product matrix (or its inverse).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.get_face_inner_product_surface.html#discretize.CurvilinearMesh.get_face_inner_product_surface" title="discretize.CurvilinearMesh.get_face_inner_product_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_face_inner_product_surface</span></code></a>([model, ...])</p></td>
+<td><p>Generate the face inner product matrix or its inverse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.get_face_inner_product_surface_deriv.html#discretize.CurvilinearMesh.get_face_inner_product_surface_deriv" title="discretize.CurvilinearMesh.get_face_inner_product_surface_deriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_face_inner_product_surface_deriv</span></code></a>(model)</p></td>
+<td><p>Get a function handle to multiply a vector with derivative of face inner product surface matrix (or its inverse).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.get_interpolation_matrix.html#discretize.CurvilinearMesh.get_interpolation_matrix" title="discretize.CurvilinearMesh.get_interpolation_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interpolation_matrix</span></code></a>(loc[, ...])</p></td>
+<td><p>Construct a linear interpolation matrix from mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.plotGrid.html#discretize.CurvilinearMesh.plotGrid" title="discretize.CurvilinearMesh.plotGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotGrid</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>plotGrid</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.plotImage.html#discretize.CurvilinearMesh.plotImage" title="discretize.CurvilinearMesh.plotImage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotImage</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>plotImage</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.plotSlice.html#discretize.CurvilinearMesh.plotSlice" title="discretize.CurvilinearMesh.plotSlice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotSlice</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>plotSlice</cite> has been deprecated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.plot_3d_slicer.html#discretize.CurvilinearMesh.plot_3d_slicer" title="discretize.CurvilinearMesh.plot_3d_slicer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_3d_slicer</span></code></a>(v[, xslice, yslice, zslice, ...])</p></td>
+<td><p>Plot slices of a 3D volume, interactively (scroll wheel).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.plot_grid.html#discretize.CurvilinearMesh.plot_grid" title="discretize.CurvilinearMesh.plot_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_grid</span></code></a>([ax, nodes, faces, centers, ...])</p></td>
+<td><p>Plot the grid for nodal, cell-centered and staggered grids.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.plot_image.html#discretize.CurvilinearMesh.plot_image" title="discretize.CurvilinearMesh.plot_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_image</span></code></a>(v[, v_type, grid, view, ax, ...])</p></td>
+<td><p>Plot quantities defined on a given mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.plot_slice.html#discretize.CurvilinearMesh.plot_slice" title="discretize.CurvilinearMesh.plot_slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_slice</span></code></a>(v[, v_type, normal, ind, ...])</p></td>
+<td><p>Plot a slice of fields on the given 3D mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.point2index.html#discretize.CurvilinearMesh.point2index" title="discretize.CurvilinearMesh.point2index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">point2index</span></code></a>(locs)</p></td>
+<td><p>Find cells that contain the given points.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.projectEdgeVector.html#discretize.CurvilinearMesh.projectEdgeVector" title="discretize.CurvilinearMesh.projectEdgeVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectEdgeVector</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>projectEdgeVector</cite> has been removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.projectFaceVector.html#discretize.CurvilinearMesh.projectFaceVector" title="discretize.CurvilinearMesh.projectFaceVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectFaceVector</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>projectFaceVector</cite> has been removed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.project_edge_vector.html#discretize.CurvilinearMesh.project_edge_vector" title="discretize.CurvilinearMesh.project_edge_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_edge_vector</span></code></a>(edge_vectors)</p></td>
+<td><p>Project vectors to the edges of the mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.project_face_vector.html#discretize.CurvilinearMesh.project_face_vector" title="discretize.CurvilinearMesh.project_face_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_face_vector</span></code></a>(face_vectors)</p></td>
+<td><p>Project vectors onto the faces of the mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.r.html#discretize.CurvilinearMesh.r" title="discretize.CurvilinearMesh.r"><code class="xref py py-obj docutils literal notranslate"><span class="pre">r</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>r</cite> has been removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.reshape.html#discretize.CurvilinearMesh.reshape" title="discretize.CurvilinearMesh.reshape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reshape</span></code></a>(x[, x_type, out_type, return_format])</p></td>
+<td><p>Reshape tensor quantities.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.save.html#discretize.CurvilinearMesh.save" title="discretize.CurvilinearMesh.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>([file_name, verbose])</p></td>
+<td><p>Save the mesh to json.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.serialize.html#discretize.CurvilinearMesh.serialize" title="discretize.CurvilinearMesh.serialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serialize</span></code></a>()</p></td>
+<td><p>Represent the mesh's attributes as a dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.setCellGradBC.html#discretize.CurvilinearMesh.setCellGradBC" title="discretize.CurvilinearMesh.setCellGradBC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCellGradBC</span></code></a>(*args, **kwargs)</p></td>
+<td><p><cite>setCellGradBC</cite> has been removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.set_cell_gradient_BC.html#discretize.CurvilinearMesh.set_cell_gradient_BC" title="discretize.CurvilinearMesh.set_cell_gradient_BC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cell_gradient_BC</span></code></a>(BC)</p></td>
+<td><p>Set boundary conditions for derivative operators acting on cell-centered quantities.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.toVTK.html#discretize.CurvilinearMesh.toVTK" title="discretize.CurvilinearMesh.toVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toVTK</span></code></a>([models])</p></td>
+<td><p>Convert mesh (and models) to corresponding VTK or PyVista data object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.to_dict.html#discretize.CurvilinearMesh.to_dict" title="discretize.CurvilinearMesh.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code></a>()</p></td>
+<td><p>Represent the mesh's attributes as a dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.to_omf.html#discretize.CurvilinearMesh.to_omf" title="discretize.CurvilinearMesh.to_omf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_omf</span></code></a>([models])</p></td>
+<td><p>Convert to an <code class="docutils literal notranslate"><span class="pre">omf</span></code> data object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.to_vtk.html#discretize.CurvilinearMesh.to_vtk" title="discretize.CurvilinearMesh.to_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vtk</span></code></a>([models])</p></td>
+<td><p>Convert mesh (and models) to corresponding VTK or PyVista data object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.validate.html#discretize.CurvilinearMesh.validate" title="discretize.CurvilinearMesh.validate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate</span></code></a>()</p></td>
+<td><p>Return the validation state of the mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.writeVTK.html#discretize.CurvilinearMesh.writeVTK" title="discretize.CurvilinearMesh.writeVTK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeVTK</span></code></a>(file_name[, models, directory])</p></td>
+<td><p>Convert mesh (and models) to corresponding VTK or PyVista data object then writes to file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="discretize.CurvilinearMesh.write_vtk.html#discretize.CurvilinearMesh.write_vtk" title="discretize.CurvilinearMesh.write_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_vtk</span></code></a>(file_name[, models, directory])</p></td>
+<td><p>Convert mesh (and models) to corresponding VTK or PyVista data object then writes to file.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="rubric">Examples</p>
+<p>Using the <a class="reference internal" href="discretize.utils.example_curvilinear_grid.html#discretize.utils.example_curvilinear_grid" title="discretize.utils.example_curvilinear_grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">example_curvilinear_grid()</span></code></a> utility,
+we provide an example of a curvilinear mesh.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">discretize</span> <span class="kn">import</span> <span class="n">CurvilinearMesh</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">discretize.utils</span> <span class="kn">import</span> <span class="n">example_curvilinear_grid</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<p>The example grid slightly rotates the nodes in the center of the mesh,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">example_curvilinear_grid</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s2">&quot;rotate&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(11, 11)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(11, 11)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curvilinear_mesh</span> <span class="o">=</span> <span class="n">CurvilinearMesh</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curvilinear_mesh</span><span class="o">.</span><span class="n">shape_nodes</span>
+<span class="go">(11, 11)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curvilinear_mesh</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference download internal" download="" href="../../_downloads/6e792497b19d802eb1ecaa1752151a62/discretize-CurvilinearMesh-1.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="../../_downloads/5b9f272fbc70197ea3f6ff4b844f5e09/discretize-CurvilinearMesh-1.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../../_downloads/0ff1c1b36727c777e33f5ab515e70c5f/discretize-CurvilinearMesh-1.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
+<figure class="align-default">
+<img alt="../../_images/discretize-CurvilinearMesh-1.png" class="plot-directive" src="../../_images/discretize-CurvilinearMesh-1.png" />
+</figure>
+</dd></dl>
+
+<section id="galleries-and-tutorials-using-discretize-curvilinearmesh">
+<h2>Galleries and Tutorials using <code class="docutils literal notranslate"><span class="pre">discretize.CurvilinearMesh</span></code><a class="headerlink" href="#galleries-and-tutorials-using-discretize-curvilinearmesh" title="Link to this heading">#</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="2D DC forward modeling example with Tensor and Curvilinear Meshes"><img alt="" src="../../_images/sphx_glr_plot_dc_resistivity_thumb.png" />
+<p><a class="reference internal" href="../../examples/plot_dc_resistivity.html#sphx-glr-examples-plot-dc-resistivity-py"><span class="std std-ref">Basic Forward 2D DC Resistivity</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Basic Forward 2D DC Resistivity</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we provide an overview of mesh types and define some terminology. Separate tutorials have been provided for each mesh type."><img alt="" src="../../_images/sphx_glr_1_mesh_overview_thumb.png" />
+<p><a class="reference internal" href="../../tutorials/mesh_generation/1_mesh_overview.html#sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">Overview of Mesh Types</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Overview of Mesh Types</div>
+</div></div></section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="discretize.CylindricalMesh.write_vtk.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">discretize.CylindricalMesh.write_vtk</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="discretize.CurvilinearMesh.area.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">discretize.CurvilinearMesh.area</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discretize.CurvilinearMesh"><code class="docutils literal notranslate"><span class="pre">CurvilinearMesh</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#galleries-and-tutorials-using-discretize-curvilinearmesh">Galleries and Tutorials using <code class="docutils literal notranslate"><span class="pre">discretize.CurvilinearMesh</span></code></a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/api/generated/discretize.CurvilinearMesh.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
