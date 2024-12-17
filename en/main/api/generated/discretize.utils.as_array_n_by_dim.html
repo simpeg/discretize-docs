@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.utils.as_array_n_by_dim &#8212; discretize 0.11.1.dev16+g8d780d2d documentation</title>
+    <title>discretize.utils.as_array_n_by_dim &#8212; discretize 0.11.2.dev2+gedba2be6 documentation</title>
   
   
   
@@ -42,7 +42,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=82f776f9"></script>
+    <script src="../../_static/documentation_options.js?v=6bc7809d"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.utils.as_array_n_by_dim';</script>
@@ -136,8 +136,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.1.dev16+g8d780d2d documentation - Home"/>
-    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.1.dev16+g8d780d2d documentation - Home"/>`);</script>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.2.dev2+gedba2be6 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.2.dev2+gedba2be6 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -646,17 +646,17 @@ document.write(`
 <h1>discretize.utils.as_array_n_by_dim<a class="headerlink" href="#discretize-utils-as-array-n-by-dim" title="Link to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="discretize.utils.as_array_n_by_dim">
-<span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">as_array_n_by_dim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/code_utils.py#L33-L69"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.as_array_n_by_dim" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">as_array_n_by_dim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/code_utils.py#L37-L73"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.as_array_n_by_dim" title="Link to this definition">#</a></dt>
 <dd><p>Coerce the given array to have <em>dim</em> columns.</p>
 <p>The function <strong>as_array_n_by_dim</strong> will examine the <em>pts</em> array,
 and coerce it to be at least  if the number of columns is equal to <em>dim</em>.</p>
-<p>This is similar to the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.atleast_2d.html#numpy.atleast_2d" title="(in NumPy v2.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.atleast_2d()</span></code></a>, except that it ensures that then
-input has <em>dim</em> columns, and it appends a <a class="reference external" href="https://numpy.org/doc/stable/reference/constants.html#numpy.newaxis" title="(in NumPy v2.1)"><code class="xref py py-data docutils literal notranslate"><span class="pre">numpy.newaxis</span></code></a> to 1D arrays
+<p>This is similar to the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.atleast_2d.html#numpy.atleast_2d" title="(in NumPy v2.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.atleast_2d()</span></code></a>, except that it ensures that then
+input has <em>dim</em> columns, and it appends a <a class="reference external" href="https://numpy.org/doc/stable/reference/constants.html#numpy.newaxis" title="(in NumPy v2.2)"><code class="xref py py-data docutils literal notranslate"><span class="pre">numpy.newaxis</span></code></a> to 1D arrays
 instead of prepending.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>pts</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v2.1)"><span>array_like</span></a></span></dt><dd><p>array to check.</p>
+<dt><strong>pts</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v2.2)"><span>array_like</span></a></span></dt><dd><p>array to check.</p>
 </dd>
 <dt><strong>dim</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of columns which <em>pts</em> should have</p>
 </dd>
@@ -664,7 +664,7 @@ instead of prepending.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_pts</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p>verified array</p>
+<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_pts</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p>verified array</p>
 </dd>
 </dl>
 </dd>

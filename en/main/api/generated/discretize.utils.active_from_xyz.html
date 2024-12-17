@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.utils.active_from_xyz &#8212; discretize 0.11.1.dev16+g8d780d2d documentation</title>
+    <title>discretize.utils.active_from_xyz &#8212; discretize 0.11.2.dev2+gedba2be6 documentation</title>
   
   
   
@@ -42,7 +42,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=82f776f9"></script>
+    <script src="../../_static/documentation_options.js?v=6bc7809d"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.utils.active_from_xyz';</script>
@@ -136,8 +136,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.1.dev16+g8d780d2d documentation - Home"/>
-    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.1.dev16+g8d780d2d documentation - Home"/>`);</script>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.2.dev2+gedba2be6 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.2.dev2+gedba2be6 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -658,7 +658,7 @@ is used for cells outside the convex hull of the surface points.</p>
 <dd class="field-odd"><dl>
 <dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code></a> or <a class="reference internal" href="discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code></a> or <a class="reference internal" href="discretize.CylindricalMesh.html#discretize.CylindricalMesh" title="discretize.CylindricalMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.CylindricalMesh</span></code></a></span></dt><dd><p>Mesh object. If <em>mesh</em> is a cylindrical mesh, it must be symmetric</p>
 </dd>
-<dt><strong>xyz</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Points defining the surface topography.</p>
+<dt><strong>xyz</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Points defining the surface topography.</p>
 </dd>
 <dt><strong>grid_reference</strong><span class="classifier">{‘CC’, ‘N’}</span></dt><dd><p>Define where the cell is defined relative to surface. Choose between {‘CC’,’N’}</p>
 <ul class="simple">
@@ -672,7 +672,7 @@ is used for cells outside the convex hull of the surface points.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.13)"><span class="xref std std-ref">bool</span></a></dt><dd><p>1D mask array of <em>bool</em> for the active cells below xyz.</p>
+<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.13)"><span class="xref std std-ref">bool</span></a></dt><dd><p>1D mask array of <em>bool</em> for the active cells below xyz.</p>
 </dd>
 </dl>
 </dd>

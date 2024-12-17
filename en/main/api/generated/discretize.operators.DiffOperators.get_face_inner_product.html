@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.operators.DiffOperators.get_face_inner_product &#8212; discretize 0.11.1.dev16+g8d780d2d documentation</title>
+    <title>discretize.operators.DiffOperators.get_face_inner_product &#8212; discretize 0.11.2.dev2+gedba2be6 documentation</title>
   
   
   
@@ -42,7 +42,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=82f776f9"></script>
+    <script src="../../_static/documentation_options.js?v=6bc7809d"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -135,8 +135,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.1.dev16+g8d780d2d documentation - Home"/>
-    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.1.dev16+g8d780d2d documentation - Home"/>`);</script>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.2.dev2+gedba2be6 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.2.dev2+gedba2be6 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -583,19 +583,19 @@ with <strong>get_face_inner_product</strong>, see <em>Notes</em>.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>model</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Parameters defining the material properties for every cell in the mesh.
+<dt><strong>model</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Parameters defining the material properties for every cell in the mesh.
 Inner product matrices can be constructed for the following cases:</p>
 <ul class="simple">
 <li><p><em>None</em> : returns the basic inner product matrix</p></li>
-<li><p><em>(n_cells)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> : returns inner product matrix for an
+<li><p><em>(n_cells)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> : returns inner product matrix for an
 isotropic model. The array contains a scalar physical property value for
 each cell.</p></li>
-<li><p><em>(n_cells, dim)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> : returns inner product matrix for
+<li><p><em>(n_cells, dim)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> : returns inner product matrix for
 diagonal anisotropic case. Columns are ordered <code class="docutils literal notranslate"><span class="pre">np.c_[σ_xx,</span> <span class="pre">σ_yy,</span> <span class="pre">σ_zz]</span></code>.
 This can also a be a 1D array with the same number of total elements in
 column major order.</p></li>
-<li><p><em>(n_cells, 3)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> (<code class="docutils literal notranslate"><span class="pre">dim</span></code> is 2) or
-<em>(n_cells, 6)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> (<code class="docutils literal notranslate"><span class="pre">dim</span></code> is 3) :
+<li><p><em>(n_cells, 3)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> (<code class="docutils literal notranslate"><span class="pre">dim</span></code> is 2) or
+<em>(n_cells, 6)</em> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> (<code class="docutils literal notranslate"><span class="pre">dim</span></code> is 3) :
 returns inner product matrix for full tensor properties case. Columns are
 ordered <code class="docutils literal notranslate"><span class="pre">np.c_[σ_xx,</span> <span class="pre">σ_yy,</span> <span class="pre">σ_zz,</span> <span class="pre">σ_xy,</span> <span class="pre">σ_xz,</span> <span class="pre">σ_yz]</span></code> This can also be a
 1D array with the same number of total elements in column major order.</p></li>
