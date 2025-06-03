@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.TensorMesh &#8212; discretize 0.11.2.dev16+g60f3af15 documentation</title>
+    <title>discretize.TensorMesh &#8212; discretize 0.11.3.dev2+g4bfbf8ad documentation</title>
   
   
   
@@ -42,10 +42,9 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=239725da"></script>
+    <script src="../../_static/documentation_options.js?v=fe6004d1"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.TensorMesh';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
@@ -137,8 +136,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.2.dev16+g60f3af15 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.2.dev16+g60f3af15 documentation - Home"/>`);</script>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.3.dev2+g4bfbf8ad documentation - Home"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.3.dev2+g4bfbf8ad documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -823,7 +822,7 @@ document.write(`
                   
   <section id="discretize-tensormesh">
 <h1>discretize.TensorMesh<a class="headerlink" href="#discretize-tensormesh" title="Link to this heading">#</a></h1>
-<div class="graphviz"><img src="../../_images/inheritance-ab3e9e270f23b6390493c439838d5912bf42c7d9.png" alt="Inheritance diagram of TensorMesh" usemap="#inheritance6568f8482e" class="inheritance graphviz" /></div>
+<div class="graphviz"><img src="../../_images/inheritance-70dcd7b0de05202c7ac8cb5443e485ea71b9da0c.png" alt="Inheritance diagram of TensorMesh" usemap="#inheritance6568f8482e" class="inheritance graphviz" /></div>
 <map id="inheritance6568f8482e" name="inheritance6568f8482e">
 <area shape="rect" id="node1" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh" target="_top" title="Base mesh class for the ``discretize`` package." alt="" coords="5,96,94,124"/>
 <area shape="rect" id="node3" href="discretize.base.BaseRegularMesh.html#discretize.base.BaseRegularMesh" target="_top" title="Base Regular mesh class for the ``discretize`` package." alt="" coords="162,45,300,73"/>
@@ -838,7 +837,7 @@ document.write(`
 <area shape="rect" id="node13" href="discretize.mixins.TensorMeshIO.html#discretize.mixins.TensorMeshIO" target="_top" title="Class for managing the input/output of tensor meshes and models." alt="" coords="395,315,507,342"/>
 </map><dl class="py class">
 <dt class="sig sig-object py" id="discretize.TensorMesh">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.</span></span><span class="sig-name descname"><span class="pre">TensorMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tensor_mesh.py#L15-L822"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.TensorMesh" title="Link to this definition">#</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.</span></span><span class="sig-name descname"><span class="pre">TensorMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tensor_mesh.py#L15-L822"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.TensorMesh" title="Link to this definition">#</a></dt>
 <dd><p>Tensor mesh class.</p>
 <p>Tensor meshes are numerical grids whose cell centers, nodes, faces, edges, widths,
 volumes, etc… can be directly expressed as tensor products. The axes defining
@@ -874,7 +873,7 @@ node location (‘N’) (see Examples).</p></li>
 </dd>
 </dl>
 <p class="rubric">Attributes</p>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.area.html#discretize.TensorMesh.area" title="discretize.TensorMesh.area"><code class="xref py py-obj docutils literal notranslate"><span class="pre">area</span></code></a></p></td>
 <td><p><cite>area</cite> has been deprecated.</p></td>
@@ -1318,7 +1317,7 @@ node location (‘N’) (see Examples).</p></li>
 </table>
 </div>
 <p class="rubric">Methods</p>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.TensorMesh.cell_gradient_weak_form_robin.html#discretize.TensorMesh.cell_gradient_weak_form_robin" title="discretize.TensorMesh.cell_gradient_weak_form_robin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cell_gradient_weak_form_robin</span></code></a>([alpha, beta, ...])</p></td>
 <td><p>Create Robin conditions pieces for weak form of the cell gradient operator (cell centers to faces).</p></td>
@@ -1585,18 +1584,6 @@ x-axis about x = 0 and set the top of the mesh to y = 0.</p>
 </div><div class="sphx-glr-thumbcontainer" tooltip="A simple example to vary streamline thickness based on the vector amplitudes"><img alt="" src="../../_images/sphx_glr_plot_streamThickness_thumb.png" />
 <p><a class="reference internal" href="../../examples/plot_streamThickness.html#sphx-glr-examples-plot-streamthickness-py"><span class="std std-ref">Plotting: Streamline thickness</span></a></p>
   <div class="sphx-glr-thumbnail-title">Plotting: Streamline thickness</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Here we provide an overview of mesh types and define some terminology. Separate tutorials have been provided for each mesh type."><img alt="" src="../../_images/sphx_glr_1_mesh_overview_thumb.png" />
-<p><a class="reference internal" href="../../tutorials/mesh_generation/1_mesh_overview.html#sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">Overview of Mesh Types</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Overview of Mesh Types</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Tensor meshes are the most basic class of meshes that can be created with discretize. They belong to the class (~discretize.TensorMesh). Tensor meshes can be defined in 1, 2 or 3 dimensions. Here we demonstrate:"><img alt="" src="../../_images/sphx_glr_2_tensor_mesh_thumb.png" />
-<p><a class="reference internal" href="../../tutorials/mesh_generation/2_tensor_mesh.html#sphx-glr-tutorials-mesh-generation-2-tensor-mesh-py"><span class="std std-ref">Tensor meshes</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Tensor meshes</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Averaging matricies are used when a discrete variable living on some part of the mesh (e.g. nodes, centers, edges or faces) must be approximated at other locations. Averaging matricies are sparse and exist for 1D, 2D and 3D meshes. For each mesh class (Tensor mesh, Tree mesh, Curvilinear mesh), the set of averaging matricies are properties that are only constructed when called."><img alt="" src="../../_images/sphx_glr_1_averaging_thumb.png" />
-<p><a class="reference internal" href="../../tutorials/operators/1_averaging.html#sphx-glr-tutorials-operators-1-averaging-py"><span class="std std-ref">Averaging Matricies</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Averaging Matricies</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="For discretized quantities living on a mesh, sparse matricies can be used to approximate the following differential operators:"><img alt="" src="../../_images/sphx_glr_2_differential_thumb.png" />
-<p><a class="reference internal" href="../../tutorials/operators/2_differential.html#sphx-glr-tutorials-operators-2-differential-py"><span class="std std-ref">Differential Operators</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Differential Operators</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Inner products between two scalar or vector quantities represents the most basic class of inner products. For this class of inner products, we demonstrate:"><img alt="" src="../../_images/sphx_glr_1_basic_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/inner_products/1_basic.html#sphx-glr-tutorials-inner-products-1-basic-py"><span class="std std-ref">Basic Inner Products</span></a></p>
   <div class="sphx-glr-thumbnail-title">Basic Inner Products</div>
@@ -1609,6 +1596,18 @@ x-axis about x = 0 and set the top of the mesh to y = 0.</p>
 </div><div class="sphx-glr-thumbcontainer" tooltip="In this section, we demonstrate how to go from the inner product to the discrete approximation for some special cases. We also show how all necessary operators are constructed for each case."><img alt="" src="../../_images/sphx_glr_4_advanced_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/inner_products/4_advanced.html#sphx-glr-tutorials-inner-products-4-advanced-py"><span class="std std-ref">Advanced Examples</span></a></p>
   <div class="sphx-glr-thumbnail-title">Advanced Examples</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we provide an overview of mesh types and define some terminology. Separate tutorials have been provided for each mesh type."><img alt="" src="../../_images/sphx_glr_1_mesh_overview_thumb.png" />
+<p><a class="reference internal" href="../../tutorials/mesh_generation/1_mesh_overview.html#sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">Overview of Mesh Types</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Overview of Mesh Types</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Tensor meshes are the most basic class of meshes that can be created with discretize. They belong to the class (~discretize.TensorMesh). Tensor meshes can be defined in 1, 2 or 3 dimensions. Here we demonstrate:"><img alt="" src="../../_images/sphx_glr_2_tensor_mesh_thumb.png" />
+<p><a class="reference internal" href="../../tutorials/mesh_generation/2_tensor_mesh.html#sphx-glr-tutorials-mesh-generation-2-tensor-mesh-py"><span class="std std-ref">Tensor meshes</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Tensor meshes</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Averaging matricies are used when a discrete variable living on some part of the mesh (e.g. nodes, centers, edges or faces) must be approximated at other locations. Averaging matricies are sparse and exist for 1D, 2D and 3D meshes. For each mesh class (Tensor mesh, Tree mesh, Curvilinear mesh), the set of averaging matricies are properties that are only constructed when called."><img alt="" src="../../_images/sphx_glr_1_averaging_thumb.png" />
+<p><a class="reference internal" href="../../tutorials/operators/1_averaging.html#sphx-glr-tutorials-operators-1-averaging-py"><span class="std std-ref">Averaging Matricies</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Averaging Matricies</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="For discretized quantities living on a mesh, sparse matricies can be used to approximate the following differential operators:"><img alt="" src="../../_images/sphx_glr_2_differential_thumb.png" />
+<p><a class="reference internal" href="../../tutorials/operators/2_differential.html#sphx-glr-tutorials-operators-2-differential-py"><span class="std std-ref">Differential Operators</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Differential Operators</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to solve for the electric potential (\phi) and electric fields (\mathbf{e}) in 2D that result from a static charge distribution. Starting with Gauss&#x27; law and Faraday&#x27;s law:"><img alt="" src="../../_images/sphx_glr_1_poisson_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/pde/1_poisson.html#sphx-glr-tutorials-pde-1-poisson-py"><span class="std std-ref">Gauss’ Law of Electrostatics</span></a></p>
   <div class="sphx-glr-thumbnail-title">Gauss' Law of Electrostatics</div>

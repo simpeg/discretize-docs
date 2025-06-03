@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.base.BaseMesh &#8212; discretize 0.11.2.dev16+g60f3af15 documentation</title>
+    <title>discretize.base.BaseMesh &#8212; discretize 0.11.3.dev2+g4bfbf8ad documentation</title>
   
   
   
@@ -42,10 +42,9 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=239725da"></script>
+    <script src="../../_static/documentation_options.js?v=fe6004d1"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.base.BaseMesh';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
@@ -137,8 +136,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.2.dev16+g60f3af15 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.2.dev16+g60f3af15 documentation - Home"/>`);</script>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.3.dev2+g4bfbf8ad documentation - Home"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.3.dev2+g4bfbf8ad documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -685,17 +684,17 @@ document.write(`
                   
   <section id="discretize-base-basemesh">
 <h1>discretize.base.BaseMesh<a class="headerlink" href="#discretize-base-basemesh" title="Link to this heading">#</a></h1>
-<div class="graphviz"><img src="../../_images/inheritance-9611717b1cfb906bfc7b403138af3b53c929b0fb.png" alt="Inheritance diagram of BaseMesh" usemap="#inheritance9873edd0c4" class="inheritance graphviz" /></div>
+<div class="graphviz"><img src="../../_images/inheritance-9aa9ea96d156072df654f1e642fc54de8252ae84.png" alt="Inheritance diagram of BaseMesh" usemap="#inheritance9873edd0c4" class="inheritance graphviz" /></div>
 <map id="inheritance9873edd0c4" name="inheritance9873edd0c4">
 <area shape="rect" id="node1" href="#discretize.base.BaseMesh" target="_top" title="Base mesh class for the ``discretize`` package." alt="" coords="5,5,94,33"/>
 </map><dl class="py class">
 <dt class="sig sig-object py" id="discretize.base.BaseMesh">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.base.</span></span><span class="sig-name descname"><span class="pre">BaseMesh</span></span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/base/base_mesh.py#L16-L4270"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.base.BaseMesh" title="Link to this definition">#</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">discretize.base.</span></span><span class="sig-name descname"><span class="pre">BaseMesh</span></span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/base/base_mesh.py#L16-L4270"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.base.BaseMesh" title="Link to this definition">#</a></dt>
 <dd><p>Base mesh class for the <code class="docutils literal notranslate"><span class="pre">discretize</span></code> package.</p>
 <p>This class contains the basic structure of properties and methods
 that should be supported on all discretize meshes.</p>
 <p class="rubric">Attributes</p>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.base.BaseMesh.area.html#discretize.base.BaseMesh.area" title="discretize.base.BaseMesh.area"><code class="xref py py-obj docutils literal notranslate"><span class="pre">area</span></code></a></p></td>
 <td><p><cite>area</cite> has been deprecated.</p></td>
@@ -848,7 +847,7 @@ that should be supported on all discretize meshes.</p>
 </table>
 </div>
 <p class="rubric">Methods</p>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="discretize.base.BaseMesh.closest_points_index.html#discretize.base.BaseMesh.closest_points_index" title="discretize.base.BaseMesh.closest_points_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">closest_points_index</span></code></a>(locations[, grid_loc, ...])</p></td>
 <td><p>Find the indicies for the nearest grid location for a set of points.</p></td>
@@ -965,6 +964,18 @@ that should be supported on all discretize meshes.</p>
 </div><div class="sphx-glr-thumbcontainer" tooltip="A simple example to vary streamline thickness based on the vector amplitudes"><img alt="" src="../../_images/sphx_glr_plot_streamThickness_thumb.png" />
 <p><a class="reference internal" href="../../examples/plot_streamThickness.html#sphx-glr-examples-plot-streamthickness-py"><span class="std std-ref">Plotting: Streamline thickness</span></a></p>
   <div class="sphx-glr-thumbnail-title">Plotting: Streamline thickness</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Inner products between two scalar or vector quantities represents the most basic class of inner products. For this class of inner products, we demonstrate:"><img alt="" src="../../_images/sphx_glr_1_basic_thumb.png" />
+<p><a class="reference internal" href="../../tutorials/inner_products/1_basic.html#sphx-glr-tutorials-inner-products-1-basic-py"><span class="std std-ref">Basic Inner Products</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Basic Inner Products</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain constitutive relations; examples include Ohm&#x27;s law and Hooke&#x27;s law. For this class of inner products, you will learn how to:"><img alt="" src="../../_images/sphx_glr_2_physical_properties_thumb.png" />
+<p><a class="reference internal" href="../../tutorials/inner_products/2_physical_properties.html#sphx-glr-tutorials-inner-products-2-physical-properties-py"><span class="std std-ref">Constitutive Relations</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Constitutive Relations</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain differential operators. Where \psi and \phi are scalar quantities, and \vec{u} and \vec{v} are vector quantities, we may need to derive a discrete approximation for the following inner products:"><img alt="" src="../../_images/sphx_glr_3_calculus_thumb.png" />
+<p><a class="reference internal" href="../../tutorials/inner_products/3_calculus.html#sphx-glr-tutorials-inner-products-3-calculus-py"><span class="std std-ref">Differential Operators</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Differential Operators</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this section, we demonstrate how to go from the inner product to the discrete approximation for some special cases. We also show how all necessary operators are constructed for each case."><img alt="" src="../../_images/sphx_glr_4_advanced_thumb.png" />
+<p><a class="reference internal" href="../../tutorials/inner_products/4_advanced.html#sphx-glr-tutorials-inner-products-4-advanced-py"><span class="std std-ref">Advanced Examples</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Advanced Examples</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Here we provide an overview of mesh types and define some terminology. Separate tutorials have been provided for each mesh type."><img alt="" src="../../_images/sphx_glr_1_mesh_overview_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/mesh_generation/1_mesh_overview.html#sphx-glr-tutorials-mesh-generation-1-mesh-overview-py"><span class="std std-ref">Overview of Mesh Types</span></a></p>
   <div class="sphx-glr-thumbnail-title">Overview of Mesh Types</div>
@@ -983,18 +994,6 @@ that should be supported on all discretize meshes.</p>
 </div><div class="sphx-glr-thumbcontainer" tooltip="For discretized quantities living on a mesh, sparse matricies can be used to approximate the following differential operators:"><img alt="" src="../../_images/sphx_glr_2_differential_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/operators/2_differential.html#sphx-glr-tutorials-operators-2-differential-py"><span class="std std-ref">Differential Operators</span></a></p>
   <div class="sphx-glr-thumbnail-title">Differential Operators</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Inner products between two scalar or vector quantities represents the most basic class of inner products. For this class of inner products, we demonstrate:"><img alt="" src="../../_images/sphx_glr_1_basic_thumb.png" />
-<p><a class="reference internal" href="../../tutorials/inner_products/1_basic.html#sphx-glr-tutorials-inner-products-1-basic-py"><span class="std std-ref">Basic Inner Products</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Basic Inner Products</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain constitutive relations; examples include Ohm&#x27;s law and Hooke&#x27;s law. For this class of inner products, you will learn how to:"><img alt="" src="../../_images/sphx_glr_2_physical_properties_thumb.png" />
-<p><a class="reference internal" href="../../tutorials/inner_products/2_physical_properties.html#sphx-glr-tutorials-inner-products-2-physical-properties-py"><span class="std std-ref">Constitutive Relations</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Constitutive Relations</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="When solving PDEs using the finite volume approach, inner products may contain differential operators. Where \psi and \phi are scalar quantities, and \vec{u} and \vec{v} are vector quantities, we may need to derive a discrete approximation for the following inner products:"><img alt="" src="../../_images/sphx_glr_3_calculus_thumb.png" />
-<p><a class="reference internal" href="../../tutorials/inner_products/3_calculus.html#sphx-glr-tutorials-inner-products-3-calculus-py"><span class="std std-ref">Differential Operators</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Differential Operators</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="In this section, we demonstrate how to go from the inner product to the discrete approximation for some special cases. We also show how all necessary operators are constructed for each case."><img alt="" src="../../_images/sphx_glr_4_advanced_thumb.png" />
-<p><a class="reference internal" href="../../tutorials/inner_products/4_advanced.html#sphx-glr-tutorials-inner-products-4-advanced-py"><span class="std std-ref">Advanced Examples</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Advanced Examples</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Here we use the discretize package to solve for the electric potential (\phi) and electric fields (\mathbf{e}) in 2D that result from a static charge distribution. Starting with Gauss&#x27; law and Faraday&#x27;s law:"><img alt="" src="../../_images/sphx_glr_1_poisson_thumb.png" />
 <p><a class="reference internal" href="../../tutorials/pde/1_poisson.html#sphx-glr-tutorials-pde-1-poisson-py"><span class="std std-ref">Gauss’ Law of Electrostatics</span></a></p>
   <div class="sphx-glr-thumbnail-title">Gauss' Law of Electrostatics</div>
