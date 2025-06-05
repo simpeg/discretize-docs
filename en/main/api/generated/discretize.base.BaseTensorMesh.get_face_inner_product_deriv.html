@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.base.BaseTensorMesh.get_face_inner_product_deriv &#8212; discretize 0.11.3.dev33+g9d76abe3 documentation</title>
+    <title>discretize.base.BaseTensorMesh.get_face_inner_product_deriv &#8212; discretize 0.11.3 documentation</title>
   
   
   
@@ -42,7 +42,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=73aaf725"></script>
+    <script src="../../_static/documentation_options.js?v=c44be570"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -50,7 +50,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://discretize.simpeg.xyz/en/main/_static/versions.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'v0.11.3';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="icon" href="../../_static/discretize-block.ico"/>
@@ -135,8 +135,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.3.dev33+g9d76abe3 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.3.dev33+g9d76abe3 documentation - Home"/>`);</script>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.3 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/discretize-logo.png" class="logo__image only-dark" alt="discretize 0.11.3 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -572,7 +572,7 @@ document.write(`
 <h1>discretize.base.BaseTensorMesh.get_face_inner_product_deriv<a class="headerlink" href="#discretize-base-basetensormesh-get-face-inner-product-deriv" title="Link to this heading">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="discretize.base.BaseTensorMesh.get_face_inner_product_deriv">
-<span class="sig-prename descclassname"><span class="pre">BaseTensorMesh.</span></span><span class="sig-name descname"><span class="pre">get_face_inner_product_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/base/base_mesh.py#L2306-L2487"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.base.BaseTensorMesh.get_face_inner_product_deriv" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">BaseTensorMesh.</span></span><span class="sig-name descname"><span class="pre">get_face_inner_product_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/v0.11.3/discretize/base/base_mesh.py#L2306-L2487"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.base.BaseTensorMesh.get_face_inner_product_deriv" title="Link to this definition">#</a></dt>
 <dd><p>Get a function handle to multiply a vector with derivative of face inner product matrix (or its inverse).</p>
 <p>Let <span class="math notranslate nohighlight">\(\mathbf{M}(\mathbf{m})\)</span> be the face inner product matrix
 constructed with a set of physical property parameters <span class="math notranslate nohighlight">\(\mathbf{m}\)</span>
