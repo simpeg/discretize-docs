@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.mixins.InterfaceVTK &#8212; discretize 0.11.4.dev14+g267d976bc documentation</title>
+    <title>discretize.mixins.InterfaceVTK &#8212; discretize 0.11.4.dev30+g82d40ff69 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=7771dd4c"></script>
+    <script src="../../_static/documentation_options.js?v=be63a0e7"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -64,7 +64,7 @@
     <link rel="prev" title="discretize.mixins.InterfaceMPL.plot_slice" href="discretize.mixins.InterfaceMPL.plot_slice.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.11.4.dev14" />
+  <meta name="docsearch:version" content="0.11.4.dev30" />
   </head>
   
   
@@ -130,8 +130,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.4.dev14+g267d976bc documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.11.4.dev14+g267d976bc documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.4.dev30+g82d40ff69 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.11.4.dev30+g82d40ff69 documentation - Home"/>
   
   
 </a></div>
@@ -630,7 +630,7 @@ on the traditional reference frame; see examples below.</p>
 discretize meshes to VTK data objects and write to VTK formatted files.
 In the first example example, a tensor mesh whose axes lie on the
 traditional reference frame is converted to a
-<a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.RectilinearGrid.html#pyvista.RectilinearGrid" title="(in PyVista v0.46.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> object.</p>
+<a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.RectilinearGrid.html#pyvista.RectilinearGrid" title="(in PyVista v0.46.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> object.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">discretize</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">.1</span><span class="p">,</span> <span class="mf">.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -648,7 +648,7 @@ traditional reference frame is converted to a
 </pre></div>
 </div>
 <p>Here, the reference frame of the mesh is rotated. In this case, conversion
-to VTK produces a <a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.StructuredGrid.html#pyvista.StructuredGrid" title="(in PyVista v0.46.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> object.</p>
+to VTK produces a <a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.StructuredGrid.html#pyvista.StructuredGrid" title="(in PyVista v0.46.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> object.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">axis_u</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">axis_v</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">axis_w</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -667,8 +667,8 @@ to VTK produces a <a class="reference external" href="https://docs.pyvista.org/a
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">write_vtk</span><span class="p">(</span><span class="s1">&#39;sample_rotated&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The two above code snippets produced a <a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.RectilinearGrid.html#pyvista.RectilinearGrid" title="(in PyVista v0.46.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> and a
-<a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.StructuredGrid.html#pyvista.StructuredGrid" title="(in PyVista v0.46.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> respecitvely. To demonstarte the difference, we
+<p>The two above code snippets produced a <a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.RectilinearGrid.html#pyvista.RectilinearGrid" title="(in PyVista v0.46.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> and a
+<a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.StructuredGrid.html#pyvista.StructuredGrid" title="(in PyVista v0.46.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> respecitvely. To demonstarte the difference, we
 have plotted the two datasets next to each other where the first mesh is in
 green and its data axes are parrallel to the traditional cartesian reference
 frame. The second, rotated mesh is shown in red and its data axes are
