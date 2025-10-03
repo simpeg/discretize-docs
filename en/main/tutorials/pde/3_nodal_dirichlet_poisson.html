@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Nodal Dirichlet Poisson solution &#8212; discretize 0.11.4.dev30+g82d40ff69 documentation</title>
+    <title>Nodal Dirichlet Poisson solution &#8212; discretize 0.11.4.dev44+gcfc9f2e66 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=be63a0e7"></script>
+    <script src="../../_static/documentation_options.js?v=85e8fed3"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -64,7 +64,7 @@
     <link rel="prev" title="Advection-Diffusion Equation" href="2_advection_diffusion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.11.4.dev30" />
+  <meta name="docsearch:version" content="0.11.4.dev44" />
   </head>
   
   
@@ -130,8 +130,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.4.dev30+g82d40ff69 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.11.4.dev30+g82d40ff69 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.4.dev44+gcfc9f2e66 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.11.4.dev44+gcfc9f2e66 documentation - Home"/>
   
   
 </a></div>
@@ -700,15 +700,15 @@ function that returns the error and discretization size, so we can use
     <span class="c1"># Get the finite volume operators for the mesh</span>
     <span class="n">G</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">nodal_gradient</span>
     <span class="n">M_e_sigma</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">get_edge_inner_product</span><span class="p">(</span><span class="n">sig_cc</span><span class="p">)</span>
-    <span class="n">M_n</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.diags.html#scipy.sparse.diags" title="scipy.sparse.diags" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-function"><span class="n">sp</span><span class="o">.</span><span class="n">diags</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">average_node_to_cell</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cell_volumes</span><span class="p">)</span>
+    <span class="n">M_n</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">average_node_to_cell</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cell_volumes</span><span class="p">)</span>
 
     <span class="c1"># Determin which mesh nodes are on the boundary, and which are interior</span>
     <span class="n">is_boundary</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.zeros.html#numpy.zeros" title="numpy.zeros" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">n_nodes</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
     <span class="n">is_boundary</span><span class="p">[</span><span class="n">mesh</span><span class="o">.</span><span class="n">project_node_to_boundary_node</span><span class="o">.</span><span class="n">indices</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
     <span class="c1"># construct the projection matrices</span>
-    <span class="n">P_b</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.eye.html#scipy.sparse.eye" title="scipy.sparse.eye" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-function"><span class="n">sp</span><span class="o">.</span><span class="n">eye</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">n_nodes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csc&quot;</span><span class="p">)[:,</span> <span class="n">is_boundary</span><span class="p">]</span>
-    <span class="n">P_f</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.eye.html#scipy.sparse.eye" title="scipy.sparse.eye" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-function"><span class="n">sp</span><span class="o">.</span><span class="n">eye</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">n_nodes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csc&quot;</span><span class="p">)[:,</span> <span class="o">~</span><span class="n">is_boundary</span><span class="p">]</span>
+    <span class="n">P_b</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">n_nodes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csc&quot;</span><span class="p">)[:,</span> <span class="n">is_boundary</span><span class="p">]</span>
+    <span class="n">P_f</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">n_nodes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csc&quot;</span><span class="p">)[:,</span> <span class="o">~</span><span class="n">is_boundary</span><span class="p">]</span>
 
     <span class="c1"># Assemble the solution matrix and rhs.</span>
     <span class="n">A</span> <span class="o">=</span> <span class="n">P_f</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">G</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">M_e_sigma</span> <span class="o">@</span> <span class="n">G</span> <span class="o">@</span> <span class="n">P_f</span>
@@ -717,7 +717,7 @@ function that returns the error and discretization size, so we can use
     <span class="c1"># Solve for the value of u on the free nodes, then project</span>
     <span class="c1"># with the boundary conditions to obtain the solution on</span>
     <span class="c1"># all nodes.</span>
-    <span class="n">u_f</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.linalg.spsolve.html#scipy.sparse.linalg.spsolve" title="scipy.sparse.linalg.spsolve" class="sphx-glr-backref-module-scipy-sparse-linalg sphx-glr-backref-type-py-function"><span class="n">sp</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">spsolve</span></a><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span>
+    <span class="n">u_f</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">spsolve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span>
     <span class="n">u_sol</span> <span class="o">=</span> <span class="n">P_f</span> <span class="o">@</span> <span class="n">u_f</span> <span class="o">+</span> <span class="n">P_b</span> <span class="o">@</span> <span class="n">u_b</span>
 
     <span class="c1"># Since we know the true solution we can check the error</span>
@@ -767,12 +767,12 @@ expect.</p>
   40  |2.50e-02 |  1.811e-04  |   1.7443    |  1.9340
   50  |2.00e-02 |  1.174e-04  |   1.5421    |  1.9411
 -------------------------------------------------------
-And then everyone was happy.
+That was easy!
 
-[np.float64(1.8896629662199587), np.float64(1.9276904648779223), np.float64(1.9340112284566402), np.float64(1.9410749331527082)]
+[np.float64(1.8896629662208868), np.float64(1.927690464885003), np.float64(1.9340112284401623), np.float64(1.9410749332005683)]
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.575 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.458 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-pde-3-nodal-dirichlet-poisson-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/2ce55a88d79ed07e42c747f4a1e82c03/3_nodal_dirichlet_poisson.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">3_nodal_dirichlet_poisson.ipynb</span></code></a></p>
