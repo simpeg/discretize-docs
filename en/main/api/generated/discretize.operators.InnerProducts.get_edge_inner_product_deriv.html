@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.operators.InnerProducts.get_edge_inner_product_deriv &#8212; discretize 0.11.4.dev44+gcfc9f2e66 documentation</title>
+    <title>discretize.operators.InnerProducts.get_edge_inner_product_deriv &#8212; discretize 0.11.4.dev50+ge6058f1a8 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=85e8fed3"></script>
+    <script src="../../_static/documentation_options.js?v=d5550534"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -64,7 +64,7 @@
     <link rel="prev" title="discretize.operators.InnerProducts.get_edge_inner_product" href="discretize.operators.InnerProducts.get_edge_inner_product.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.11.4.dev44" />
+  <meta name="docsearch:version" content="0.11.4.dev50" />
   </head>
   
   
@@ -130,8 +130,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.4.dev44+gcfc9f2e66 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.11.4.dev44+gcfc9f2e66 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.4.dev50+ge6058f1a8 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.11.4.dev50+ge6058f1a8 documentation - Home"/>
   
   
 </a></div>
@@ -623,12 +623,12 @@ are ordered <code class="docutils literal notranslate"><span class="pre">np.c_[Ï
 a 1D array with the same number of total elements in column major order.</p></li>
 </ul>
 </dd>
-<dt><strong>invert_model</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.13)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The inverse of <em>model</em> is used as the physical property.</p>
+<dt><strong>invert_model</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.14)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The inverse of <em>model</em> is used as the physical property.</p>
 </dd>
-<dt><strong>invert_matrix</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.13)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Returns the function handle for the inverse of the inner product matrix
+<dt><strong>invert_matrix</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.14)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Returns the function handle for the inverse of the inner product matrix
 The inverse not implemented for full tensor properties.</p>
 </dd>
-<dt><strong>do_fast</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.13)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Do a faster implementation (if available).</p>
+<dt><strong>do_fast</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.14)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Do a faster implementation (if available).</p>
 </dd>
 </dl>
 </dd>
@@ -636,7 +636,7 @@ The inverse not implemented for full tensor properties.</p>
 <dd class="field-even"><dl class="simple">
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">function</span></code></dt><dd><p>The function handle <span class="math notranslate nohighlight">\(\mathbf{F}(\mathbf{u})\)</span> which accepts a
 (<code class="docutils literal notranslate"><span class="pre">n_edges</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>. The function
-returns a (<code class="docutils literal notranslate"><span class="pre">n_edges</span></code>, <code class="docutils literal notranslate"><span class="pre">n_params</span></code>) <code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code>.</p>
+returns a (<code class="docutils literal notranslate"><span class="pre">n_edges</span></code>, <code class="docutils literal notranslate"><span class="pre">n_params</span></code>) <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.16.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code></a>.</p>
 </dd>
 </dl>
 </dd>

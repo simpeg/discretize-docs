@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.TreeMesh.refine &#8212; discretize 0.11.4.dev44+gcfc9f2e66 documentation</title>
+    <title>discretize.TreeMesh.refine &#8212; discretize 0.11.4.dev50+ge6058f1a8 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=85e8fed3"></script>
+    <script src="../../_static/documentation_options.js?v=d5550534"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.TreeMesh.refine';</script>
@@ -63,7 +63,7 @@
     <link rel="prev" title="discretize.TreeMesh.read_model_UBC" href="discretize.TreeMesh.read_model_UBC.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.11.4.dev44" />
+  <meta name="docsearch:version" content="0.11.4.dev50" />
   </head>
   
   
@@ -129,8 +129,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.4.dev44+gcfc9f2e66 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.11.4.dev44+gcfc9f2e66 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.4.dev50+ge6058f1a8 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.11.4.dev50+ge6058f1a8 documentation - Home"/>
   
   
 </a></div>
@@ -747,6 +747,7 @@
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_ball.html">discretize.TreeMesh.refine_ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_bounding_box.html">discretize.TreeMesh.refine_bounding_box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_box.html">discretize.TreeMesh.refine_box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_image.html">discretize.TreeMesh.refine_image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_line.html">discretize.TreeMesh.refine_line</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_plane.html">discretize.TreeMesh.refine_plane</a></li>
 <li class="toctree-l3"><a class="reference internal" href="discretize.TreeMesh.refine_points.html">discretize.TreeMesh.refine_points</a></li>
@@ -868,14 +869,14 @@ the minimum refinement level for all cells.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>function</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">callable()</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>a function defining the desired refinement level,
+<dt><strong>function</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">callable()</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>a function defining the desired refinement level,
 or an integer to refine all cells to at least that level.
 The input argument of the function <strong>must</strong> be an instance of
 <a class="reference internal" href="discretize.tree_mesh.TreeCell.html#discretize.tree_mesh.TreeCell" title="discretize.tree_mesh.TreeCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeCell</span></code></a>.</p>
 </dd>
-<dt><strong>finalize</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.13)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>whether to finalize the mesh</p>
+<dt><strong>finalize</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.14)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>whether to finalize the mesh</p>
 </dd>
-<dt><strong>diagonal_balance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.13)"><span class="xref std std-ref">bool</span></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Whether to balance cells diagonally in the refinement, <cite>None</cite> implies using
+<dt><strong>diagonal_balance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.14)"><span class="xref std std-ref">bool</span></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Whether to balance cells diagonally in the refinement, <cite>None</cite> implies using
 the same setting used to instantiate the TreeMesh`.</p>
 </dd>
 </dl>

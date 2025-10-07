@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.utils.mesh_builder_xyz &#8212; discretize 0.11.4.dev44+gcfc9f2e66 documentation</title>
+    <title>discretize.utils.mesh_builder_xyz &#8212; discretize 0.11.4.dev50+ge6058f1a8 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=85e8fed3"></script>
+    <script src="../../_static/documentation_options.js?v=d5550534"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/discretize.utils.mesh_builder_xyz';</script>
@@ -63,7 +63,7 @@
     <link rel="prev" title="discretize.utils.active_from_xyz" href="discretize.utils.active_from_xyz.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.11.4.dev44" />
+  <meta name="docsearch:version" content="0.11.4.dev50" />
   </head>
   
   
@@ -129,8 +129,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.4.dev44+gcfc9f2e66 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.11.4.dev44+gcfc9f2e66 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.11.4.dev50+ge6058f1a8 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.11.4.dev50+ge6058f1a8 documentation - Home"/>
   
   
 </a></div>
@@ -635,19 +635,19 @@ on the underlying mesh to reduce interpolation errors.</p>
 <dd class="field-odd"><dl>
 <dt><strong>xyz</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Location points</p>
 </dd>
-<dt><strong>h</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code> ) <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a></span></dt><dd><p>Cell size(s) for the core mesh</p>
+<dt><strong>h</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code> ) <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a></span></dt><dd><p>Cell size(s) for the core mesh</p>
 </dd>
-<dt><strong>padding_distance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Padding distances [[W,E], [N,S], [Down,Up]], default is no padding.</p>
+<dt><strong>padding_distance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Padding distances [[W,E], [N,S], [Down,Up]], default is no padding.</p>
 </dd>
 <dt><strong>base_mesh</strong><span class="classifier"><a class="reference internal" href="discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code></a> or <a class="reference internal" href="discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>discretize mesh used to center the core mesh</p>
 </dd>
-<dt><strong>depth_core</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Depth of core mesh below xyz</p>
+<dt><strong>depth_core</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Depth of core mesh below xyz</p>
 </dd>
 <dt><strong>expansion_factor</strong><span class="classifier">float. <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Expansion factor for padding cells. Ignored if <em>mesh_type</em> = <em>tree</em></p>
 </dd>
 <dt><strong>mesh_type</strong><span class="classifier">{‘tensor’, ‘tree’}</span></dt><dd><p>Specify output mesh type</p>
 </dd>
-<dt><strong>tree_diagonal_balance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.13)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Whether to diagonally balance the tree mesh, <cite>None</cite> will use the <cite>TreeMesh</cite>
+<dt><strong>tree_diagonal_balance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.14)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Whether to diagonally balance the tree mesh, <cite>None</cite> will use the <cite>TreeMesh</cite>
 default behavoir.</p>
 </dd>
 </dl>
