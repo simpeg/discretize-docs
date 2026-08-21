@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.utils.active_from_xyz &#8212; discretize 0.12.1.dev17+gd26c32d80 documentation</title>
+    <title>discretize.utils.active_from_xyz &#8212; discretize 0.12.1.dev25+g5645ceb10 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
-    <script src="../../_static/documentation_options.js?v=b54e7af4"></script>
+    <script src="../../_static/documentation_options.js?v=ef42caed"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -65,7 +65,7 @@
     <link rel="prev" title="discretize.utils.refine_tree_xyz" href="discretize.utils.refine_tree_xyz.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev17" />
+  <meta name="docsearch:version" content="0.12.1.dev25" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
   
   
 </a></div>
@@ -654,7 +654,7 @@ is used for cells outside the convex hull of the surface points.</p>
 <dd class="field-odd"><dl>
 <dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code></a> or <a class="reference internal" href="discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code></a> or <a class="reference internal" href="discretize.CylindricalMesh.html#discretize.CylindricalMesh" title="discretize.CylindricalMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.CylindricalMesh</span></code></a></span></dt><dd><p>Mesh object. If <em>mesh</em> is a cylindrical mesh, it must be symmetric</p>
 </dd>
-<dt><strong>xyz</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Points defining the surface topography.</p>
+<dt><strong>xyz</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Points defining the surface topography.</p>
 </dd>
 <dt><strong>grid_reference</strong><span class="classifier">{‘CC’, ‘N’}</span></dt><dd><p>Define where the cell is defined relative to surface. Choose between {‘CC’,’N’}</p>
 <ul class="simple">
@@ -668,7 +668,7 @@ is used for cells outside the convex hull of the surface points.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.14)"><span class="xref std std-ref">bool</span></a></dt><dd><p>1D mask array of <em>bool</em> for the active cells below xyz.</p>
+<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.14)"><span class="xref std std-ref">bool</span></a></dt><dd><p>1D mask array of <em>bool</em> for the active cells below xyz.</p>
 </dd>
 </dl>
 </dd>
@@ -687,21 +687,21 @@ that appear when using the ‘CC’ and ‘N’ options for <em>reference_grid</
 <span class="gp">&gt;&gt;&gt; </span><span class="n">topo_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mf">0.2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mf">0.8</span><span class="p">)</span><span class="o">+</span><span class="mf">.5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">topo_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">topo_vals</span> <span class="o">=</span> <span class="n">topo_func</span><span class="p">(</span><span class="n">topo_points</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">active_cc</span> <span class="o">=</span> <span class="n">active_from_xyz</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">topo_points</span><span class="p">,</span> <span class="n">topo_vals</span><span class="p">],</span> <span class="n">grid_reference</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">active_n</span> <span class="o">=</span> <span class="n">active_from_xyz</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">topo_points</span><span class="p">,</span> <span class="n">topo_vals</span><span class="p">],</span> <span class="n">grid_reference</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">active_cc</span> <span class="o">=</span> <span class="n">active_from_xyz</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">topo_points</span><span class="p">,</span> <span class="n">topo_vals</span><span class="p">],</span> <span class="n">grid_reference</span><span class="o">=</span><span class="s1">'CC'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">active_n</span> <span class="o">=</span> <span class="n">active_from_xyz</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">topo_points</span><span class="p">,</span> <span class="n">topo_vals</span><span class="p">],</span> <span class="n">grid_reference</span><span class="o">=</span><span class="s1">'N'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Plot visual representation</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">active_cc</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">(</span><span class="n">centers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">topo_func</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C3&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;CC&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">topo_func</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s1">'C3'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"CC"</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">active_n</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">topo_func</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C3&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;N&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">topo_func</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s1">'C3'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"N"</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>

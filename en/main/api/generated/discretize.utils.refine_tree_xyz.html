@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.utils.refine_tree_xyz &#8212; discretize 0.12.1.dev17+gd26c32d80 documentation</title>
+    <title>discretize.utils.refine_tree_xyz &#8212; discretize 0.12.1.dev25+g5645ceb10 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
-    <script src="../../_static/documentation_options.js?v=b54e7af4"></script>
+    <script src="../../_static/documentation_options.js?v=ef42caed"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -65,7 +65,7 @@
     <link rel="prev" title="discretize.utils.random_model" href="discretize.utils.random_model.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev17" />
+  <meta name="docsearch:version" content="0.12.1.dev25" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
   
   
 </a></div>
@@ -679,7 +679,7 @@ flexibility for padding cells in each dimension.</p>
 <dd class="field-odd"><dl>
 <dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code></a></span></dt><dd><p>The tree mesh object to be refined</p>
 </dd>
-<dt><strong>xyz</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>2D array of points (n, dim)</p>
+<dt><strong>xyz</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>2D array of points (n, dim)</p>
 </dd>
 <dt><strong>method</strong><span class="classifier">{‘radial’, ‘surface’, ‘box’}</span></dt><dd><p>Method used to refine the mesh based on xyz locations.</p>
 <ul class="simple">
@@ -747,7 +747,7 @@ based on topography as well as a cluster of points.</p>
 <p>Define the base mesh</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hx</span> <span class="o">=</span> <span class="p">[(</span><span class="n">dx</span><span class="p">,</span> <span class="n">nbcx</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">hy</span> <span class="o">=</span> <span class="p">[(</span><span class="n">dy</span><span class="p">,</span> <span class="n">nbcy</span><span class="p">)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">TreeMesh</span><span class="p">([</span><span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">],</span> <span class="n">x0</span><span class="o">=</span><span class="s2">&quot;CC&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">TreeMesh</span><span class="p">([</span><span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">],</span> <span class="n">x0</span><span class="o">=</span><span class="s2">"CC"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Refine surface topography</p>
@@ -755,7 +755,7 @@ based on topography as well as a cluster of points.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">yy</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">xx</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">50.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">mkvc</span><span class="p">(</span><span class="n">xx</span><span class="p">),</span> <span class="n">mkvc</span><span class="p">(</span><span class="n">yy</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">refine_tree_xyz</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">mesh</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">octree_levels</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;surface&quot;</span><span class="p">,</span> <span class="n">finalize</span><span class="o">=</span><span class="kc">False</span>
+<span class="gp">... </span>    <span class="n">mesh</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">octree_levels</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">"surface"</span><span class="p">,</span> <span class="n">finalize</span><span class="o">=</span><span class="kc">False</span>
 <span class="gp">... </span><span class="p">)</span>
 </pre></div>
 </div>
@@ -764,7 +764,7 @@ based on topography as well as a cluster of points.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">40.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">40.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">60.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">60.0</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">mkvc</span><span class="p">(</span><span class="n">xx</span><span class="p">),</span> <span class="n">mkvc</span><span class="p">(</span><span class="n">yy</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">refine_tree_xyz</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">mesh</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">octree_levels</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;radial&quot;</span><span class="p">,</span> <span class="n">finalize</span><span class="o">=</span><span class="kc">True</span>
+<span class="gp">... </span>    <span class="n">mesh</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">octree_levels</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">"radial"</span><span class="p">,</span> <span class="n">finalize</span><span class="o">=</span><span class="kc">True</span>
 <span class="gp">... </span><span class="p">)</span>
 </pre></div>
 </div>
@@ -774,7 +774,7 @@ based on topography as well as a cluster of points.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">set_xbound</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">set_ybound</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">x0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;QuadTree Mesh&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"QuadTree Mesh"</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.SimplexMesh.to_vtk &#8212; discretize 0.12.1.dev17+gd26c32d80 documentation</title>
+    <title>discretize.SimplexMesh.to_vtk &#8212; discretize 0.12.1.dev25+g5645ceb10 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
-    <script src="../../_static/documentation_options.js?v=b54e7af4"></script>
+    <script src="../../_static/documentation_options.js?v=ef42caed"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -65,7 +65,7 @@
     <link rel="prev" title="discretize.SimplexMesh.to_omf" href="discretize.SimplexMesh.to_omf.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev17" />
+  <meta name="docsearch:version" content="0.12.1.dev25" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
   
   
 </a></div>
@@ -717,14 +717,14 @@ corresponding <a class="reference external" href="https://vtk.org/doc/nightly/ht
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>models</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, (<a class="reference internal" href="discretize.SimplexMesh.n_cells.html#discretize.SimplexMesh.n_cells" title="discretize.SimplexMesh.n_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code></a>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Models are supplied as a dictionary where the keys are the model
-names. Each model is a 1D <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> of size (n_cells).</p>
+<dt><strong>models</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, (<a class="reference internal" href="discretize.SimplexMesh.n_cells.html#discretize.SimplexMesh.n_cells" title="discretize.SimplexMesh.n_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code></a>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Models are supplied as a dictionary where the keys are the model
+names. Each model is a 1D <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> of size (n_cells).</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="(in PyVista v0.48.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a>, <a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.RectilinearGrid.html#pyvista.RectilinearGrid" title="(in PyVista v0.48.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> or <a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.StructuredGrid.html#pyvista.StructuredGrid" title="(in PyVista v0.48.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a></dt><dd><p>The corresponding VTK or PyVista data object for the mesh and its models</p>
+<dt><a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="(in PyVista v0.48.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a>, <a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.RectilinearGrid.html#pyvista.RectilinearGrid" title="(in PyVista v0.48.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a> or <a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.StructuredGrid.html#pyvista.StructuredGrid" title="(in PyVista v0.48.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a></dt><dd><p>The corresponding VTK or PyVista data object for the mesh and its models</p>
 </dd>
 </dl>
 </dd>

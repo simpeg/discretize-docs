@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Plotting: Streamline thickness &#8212; discretize 0.12.1.dev17+gd26c32d80 documentation</title>
+    <title>Plotting: Streamline thickness &#8212; discretize 0.12.1.dev25+g5645ceb10 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
-    <script src="../_static/documentation_options.js?v=b54e7af4"></script>
+    <script src="../_static/documentation_options.js?v=ef42caed"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -65,7 +65,7 @@
     <link rel="prev" title="Slicer demo" href="plot_slicer_demo.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev17" />
+  <meta name="docsearch:version" content="0.12.1.dev25" />
   
     
     <script src="../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
-    <img src="../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
+    <img src="../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
+    <img src="../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
   
   
 </a></div>
@@ -670,18 +670,18 @@ to download the full example code.</p>
 <span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataVec</span><span class="o">.</span><span class="n">shape</span></a><span class="p">)</span>
 
 <span class="c1"># Set streamline plotting options</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stream_opts</span></a> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;density&quot;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">}</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pcolor_opts</span></a> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cmap&quot;</span><span class="p">:</span> <span class="s2">&quot;viridis&quot;</span><span class="p">}</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stream_opts</span></a> <span class="o">=</span> <span class="p">{</span><span class="s2">"color"</span><span class="p">:</span> <span class="s2">"w"</span><span class="p">,</span> <span class="s2">"density"</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">}</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pcolor_opts</span></a> <span class="o">=</span> <span class="p">{</span><span class="s2">"cmap"</span><span class="p">:</span> <span class="s2">"viridis"</span><span class="p">}</span>
 
 <a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dat</span></a> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">plot_slice</span><span class="p">(</span>
     <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataVec</span></a><span class="p">,</span>
     <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="o">=</span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="p">,</span>
-    <span class="n">normal</span><span class="o">=</span><span class="s2">&quot;Z&quot;</span><span class="p">,</span>
+    <span class="n">normal</span><span class="o">=</span><span class="s2">"Z"</span><span class="p">,</span>
     <span class="n">ind</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-    <span class="n">v_type</span><span class="o">=</span><span class="s2">&quot;CCv&quot;</span><span class="p">,</span>
-    <span class="n">view</span><span class="o">=</span><span class="s2">&quot;vec&quot;</span><span class="p">,</span>
+    <span class="n">v_type</span><span class="o">=</span><span class="s2">"CCv"</span><span class="p">,</span>
+    <span class="n">view</span><span class="o">=</span><span class="s2">"vec"</span><span class="p">,</span>
     <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stream_opts</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stream_opts</span></a><span class="p">,</span>
-    <span class="n">grid_opts</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>
+    <span class="n">grid_opts</span><span class="o">=</span><span class="p">{</span><span class="s2">"color"</span><span class="p">:</span> <span class="s2">"k"</span><span class="p">,</span> <span class="s2">"alpha"</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>
     <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">stream_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
@@ -696,7 +696,7 @@ to download the full example code.</p>
 <h2>Moving Forward<a class="headerlink" href="#moving-forward" title="Link to this heading">#</a></h2>
 <p>If you have suggestions for improving this example, please create a
 pull request on the example in discretize</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.745 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.637 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-streamthickness-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/21284a01a323f6cd43c87a6c1f95bfce/plot_streamThickness.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_streamThickness.ipynb</span></code></a></p>

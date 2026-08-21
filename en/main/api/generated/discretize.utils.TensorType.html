@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.utils.TensorType &#8212; discretize 0.12.1.dev17+gd26c32d80 documentation</title>
+    <title>discretize.utils.TensorType &#8212; discretize 0.12.1.dev25+g5645ceb10 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
-    <script src="../../_static/documentation_options.js?v=b54e7af4"></script>
+    <script src="../../_static/documentation_options.js?v=ef42caed"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -66,7 +66,7 @@
     <link rel="prev" title="Utility Classes and Functions (discretize.utils)" href="../discretize.utils.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev17" />
+  <meta name="docsearch:version" content="0.12.1.dev25" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
   
   
 </a></div>
@@ -648,7 +648,7 @@
 <dt class="sig sig-object py" id="discretize.utils.TensorType">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">TensorType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/matrix_utils.py#L982-L1092"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.TensorType" title="Link to this definition">#</a></dt>
 <dd><p>Class for determining property tensor type.</p>
-<p>For a given <em>mesh</em>, the <strong>TensorType</strong> class examines the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>
+<p>For a given <em>mesh</em>, the <strong>TensorType</strong> class examines the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>
 <em>tensor</em> to determine whether <em>tensor</em> defines a scalar, isotropic,
 diagonal anisotropic or full tensor anisotropic constitutive relationship
 for each cell on the mesh. The general theory behind this functionality
@@ -659,7 +659,7 @@ is explained below.</p>
 <dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="discretize.base.BaseTensorMesh.html#discretize.base.BaseTensorMesh" title="discretize.base.BaseTensorMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.base.BaseTensorMesh</span></code></a></span></dt><dd><p>An instance of any of the mesh classes support in discretize; i.e. <em>TensorMesh</em>,
 <em>CylindricalMesh</em>, <em>TreeMesh</em> or <em>CurvilinearMesh</em>.</p>
 </dd>
-<dt><strong>tensor</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>The shape of the input argument <em>tensor</em> must fall into one of these
+<dt><strong>tensor</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>The shape of the input argument <em>tensor</em> must fall into one of these
 classifications:</p>
 <ul class="simple">
 <li><p><em>Scalar:</em> A float is entered.</p></li>
@@ -700,11 +700,11 @@ spatially. Thus the input argument <em>tensor</em> is a 1D array that provides a
 <span class="math notranslate nohighlight">\(\sigma\)</span> value for every cell in the mesh.</p></li>
 <li><p><strong>Anisotropic:</strong> <span class="math notranslate nohighlight">\(\vec{j} = \Sigma \vec{e}\)</span>, where the off-diagonal elements
 are zero. That is, <span class="math notranslate nohighlight">\(\Sigma\)</span> is diagonal. In this case, the input argument
-<em>tensor</em> defining the physical properties in each cell is a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>
+<em>tensor</em> defining the physical properties in each cell is a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>
 of shape (<em>nCells</em>, <em>dim</em>).</p></li>
 <li><p><strong>Tensor:</strong> <span class="math notranslate nohighlight">\(\vec{j} = \Sigma \vec{e}\)</span>, where off-diagonal elements are
 non-zero and <span class="math notranslate nohighlight">\(\Sigma\)</span> is a full tensor. In this case, the input argument
-<em>tensor</em> defining the physical properties in each cell is a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>
+<em>tensor</em> defining the physical properties in each cell is a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>
 of shape (<em>nCells</em>, <em>nParam</em>). In 2D, <em>nParam</em> = 3 and in 3D, <em>nParam</em> = 6.</p></li>
 </ul>
 </dd></dl>

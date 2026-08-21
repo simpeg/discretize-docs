@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.utils.invert_blocks &#8212; discretize 0.12.1.dev17+gd26c32d80 documentation</title>
+    <title>discretize.utils.invert_blocks &#8212; discretize 0.12.1.dev25+g5645ceb10 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
-    <script src="../../_static/documentation_options.js?v=b54e7af4"></script>
+    <script src="../../_static/documentation_options.js?v=ef42caed"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -65,7 +65,7 @@
     <link rel="prev" title="discretize.utils.inverse_2x2_block_diagonal" href="discretize.utils.inverse_2x2_block_diagonal.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev17" />
+  <meta name="docsearch:version" content="0.12.1.dev25" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
   
   
 </a></div>
@@ -649,13 +649,13 @@ The function is broadcast over the last two dimensions of A.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>A</strong><span class="classifier">(…, <code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>the block of matrices to invert, N must be either 2 or 3.</p>
+<dt><strong>A</strong><span class="classifier">(…, <code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>the block of matrices to invert, N must be either 2 or 3.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>(…, <code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p>the block of inverted matrices</p>
+<dt>(…, <code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p>the block of inverted matrices</p>
 </dd>
 </dl>
 </dd>
@@ -663,7 +663,7 @@ The function is broadcast over the last two dimensions of A.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html#numpy.linalg.inv" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.linalg.inv</span></code></a></dt><dd><p>Similar to this function, but is not specialized to 2x2 or 3x3</p>
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html#numpy.linalg.inv" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.linalg.inv</span></code></a></dt><dd><p>Similar to this function, but is not specialized to 2x2 or 3x3</p>
 </dd>
 <dt><a class="reference internal" href="discretize.utils.inverse_2x2_block_diagonal.html#discretize.utils.inverse_2x2_block_diagonal" title="discretize.utils.inverse_2x2_block_diagonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inverse_2x2_block_diagonal</span></code></a></dt><dd><p>use when each element of the blocks is separated</p>
 </dd>
@@ -678,7 +678,7 @@ The function is broadcast over the last two dimensions of A.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">As</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">&#39;...ij,...jk&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">As</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'...ij,...jk'</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Ainvs</span> <span class="o">=</span> <span class="n">invert_blocks</span><span class="p">(</span><span class="n">As</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">As</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">@</span> <span class="n">Ainvs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">array([[1., 0., 0.],</span>

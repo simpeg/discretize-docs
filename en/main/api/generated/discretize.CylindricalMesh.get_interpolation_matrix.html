@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.CylindricalMesh.get_interpolation_matrix &#8212; discretize 0.12.1.dev17+gd26c32d80 documentation</title>
+    <title>discretize.CylindricalMesh.get_interpolation_matrix &#8212; discretize 0.12.1.dev25+g5645ceb10 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
-    <script src="../../_static/documentation_options.js?v=b54e7af4"></script>
+    <script src="../../_static/documentation_options.js?v=ef42caed"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -66,7 +66,7 @@
     <link rel="prev" title="discretize.CylindricalMesh.get_face_inner_product_surface_deriv" href="discretize.CylindricalMesh.get_face_inner_product_surface_deriv.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev17" />
+  <meta name="docsearch:version" content="0.12.1.dev25" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
   
   
 </a></div>
@@ -826,7 +826,7 @@ Locations are defined in cylindrical coordinates; i.e. <span class="math notrans
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>loc</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_pts</span></code>, <a class="reference internal" href="discretize.CylindricalMesh.dim.html#discretize.CylindricalMesh.dim" title="discretize.CylindricalMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Location of points to interpolate to in cylindrical coordinates ; i.e.
+<dt><strong>loc</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_pts</span></code>, <a class="reference internal" href="discretize.CylindricalMesh.dim.html#discretize.CylindricalMesh.dim" title="discretize.CylindricalMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Location of points to interpolate to in cylindrical coordinates ; i.e.
 <span class="math notranslate nohighlight">\((r, \phi, z)\)</span></p>
 </dd>
 <dt><strong>location_type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>What discrete quantity on the mesh you are interpolating from. Options are:</p>
@@ -852,7 +852,7 @@ will be equal to zero.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_pts</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">n_loc_type</span></code>) <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code></a></dt><dd><p>The interpolation matrix</p>
+<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_pts</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">n_loc_type</span></code>) <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.18.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code></a></dt><dd><p>The interpolation matrix</p>
 </dd>
 </dl>
 </dd>

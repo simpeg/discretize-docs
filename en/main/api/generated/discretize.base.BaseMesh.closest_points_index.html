@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.base.BaseMesh.closest_points_index &#8212; discretize 0.12.1.dev17+gd26c32d80 documentation</title>
+    <title>discretize.base.BaseMesh.closest_points_index &#8212; discretize 0.12.1.dev25+g5645ceb10 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
-    <script src="../../_static/documentation_options.js?v=b54e7af4"></script>
+    <script src="../../_static/documentation_options.js?v=ef42caed"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -65,7 +65,7 @@
     <link rel="prev" title="discretize.base.BaseMesh.vol" href="discretize.base.BaseMesh.vol.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev17" />
+  <meta name="docsearch:version" content="0.12.1.dev25" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
   
   
 </a></div>
@@ -690,7 +690,7 @@
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>locations</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n</span></code>, <a class="reference internal" href="discretize.base.BaseMesh.dim.html#discretize.base.BaseMesh.dim" title="discretize.base.BaseMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Points to query.</p>
+<dt><strong>locations</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n</span></code>, <a class="reference internal" href="discretize.base.BaseMesh.dim.html#discretize.base.BaseMesh.dim" title="discretize.base.BaseMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Points to query.</p>
 </dd>
 <dt><strong>grid_loc</strong><span class="classifier">{‘CC’, ‘N’, ‘Fx’, ‘Fy’, ‘Fz’, ‘Ex’, ‘Ex’, ‘Ey’, ‘Ez’}</span></dt><dd><p>Specifies the grid on which points are being moved to.</p>
 </dd>
@@ -700,7 +700,7 @@
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n</span></code> ) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></dt><dd><p>Vector of length <em>n</em> containing the indicies for the closest
+<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n</span></code> ) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></dt><dd><p>Vector of length <em>n</em> containing the indicies for the closest
 respective cell center, node, face or edge.</p>
 </dd>
 </dl>
@@ -714,7 +714,7 @@ cell centers and nodes on a mesh.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">([</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">],</span> <span class="n">x0</span><span class="o">=</span><span class="s1">&#39;00&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">([</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">],</span> <span class="n">x0</span><span class="o">=</span><span class="s1">'00'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Define some random locations, grid cell centers and grid nodes,</p>
@@ -724,17 +724,17 @@ cell centers and nodes on a mesh.</p>
 </pre></div>
 </div>
 <p>Find indicies of closest cell centers and nodes,</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ind_centers</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">closest_points_index</span><span class="p">(</span><span class="n">xy_random</span><span class="p">,</span> <span class="s1">&#39;cell_centers&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ind_nodes</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">closest_points_index</span><span class="p">(</span><span class="n">xy_random</span><span class="p">,</span> <span class="s1">&#39;nodes&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ind_centers</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">closest_points_index</span><span class="p">(</span><span class="n">xy_random</span><span class="p">,</span> <span class="s1">'cell_centers'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ind_nodes</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">closest_points_index</span><span class="p">(</span><span class="n">xy_random</span><span class="p">,</span> <span class="s1">'nodes'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Plot closest cell centers and nodes</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy_random</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xy_random</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy_centers</span><span class="p">[</span><span class="n">ind_centers</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xy_centers</span><span class="p">[</span><span class="n">ind_centers</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy_nodes</span><span class="p">[</span><span class="n">ind_nodes</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xy_nodes</span><span class="p">[</span><span class="n">ind_nodes</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy_random</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xy_random</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">'k'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy_centers</span><span class="p">[</span><span class="n">ind_centers</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xy_centers</span><span class="p">[</span><span class="n">ind_centers</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy_nodes</span><span class="p">[</span><span class="n">ind_nodes</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xy_nodes</span><span class="p">[</span><span class="n">ind_nodes</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>

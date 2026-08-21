@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Nodal Dirichlet Poisson solution &#8212; discretize 0.12.1.dev17+gd26c32d80 documentation</title>
+    <title>Nodal Dirichlet Poisson solution &#8212; discretize 0.12.1.dev25+g5645ceb10 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
-    <script src="../../_static/documentation_options.js?v=b54e7af4"></script>
+    <script src="../../_static/documentation_options.js?v=ef42caed"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -66,7 +66,7 @@
     <link rel="prev" title="Advection-Diffusion Equation" href="2_advection_diffusion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev17" />
+  <meta name="docsearch:version" content="0.12.1.dev25" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
   
   
 </a></div>
@@ -687,7 +687,7 @@ all the derivatives for us to determine the correct forcing function.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}u = \sin(x) \cos(y) e^{x + y} \\
 \sigma = \cos(x) \sin(y)\end{split}\]</div>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">spv</span><span class="o">.</span><span class="n">CoordSys3D</span><span class="p">(</span><span class="s2">&quot;u&quot;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">spv</span><span class="o">.</span><span class="n">CoordSys3D</span><span class="p">(</span><span class="s2">"u"</span><span class="p">)</span>
 
 <span class="n">u</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">C</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 <span class="n">sig</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
@@ -728,8 +728,8 @@ function that returns the error and discretization size, so we can use
     <span class="n">is_boundary</span><span class="p">[</span><span class="n">mesh</span><span class="o">.</span><span class="n">project_node_to_boundary_node</span><span class="o">.</span><span class="n">indices</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
     <span class="c1"># construct the projection matrices</span>
-    <span class="n">P_b</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.eye.html#scipy.sparse.eye" title="scipy.sparse.eye" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-function"><span class="n">sp</span><span class="o">.</span><span class="n">eye</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">n_nodes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csc&quot;</span><span class="p">)[:,</span> <span class="n">is_boundary</span><span class="p">]</span>
-    <span class="n">P_f</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.eye.html#scipy.sparse.eye" title="scipy.sparse.eye" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-function"><span class="n">sp</span><span class="o">.</span><span class="n">eye</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">n_nodes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;csc&quot;</span><span class="p">)[:,</span> <span class="o">~</span><span class="n">is_boundary</span><span class="p">]</span>
+    <span class="n">P_b</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.eye.html#scipy.sparse.eye" title="scipy.sparse.eye" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-function"><span class="n">sp</span><span class="o">.</span><span class="n">eye</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">n_nodes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"csc"</span><span class="p">)[:,</span> <span class="n">is_boundary</span><span class="p">]</span>
+    <span class="n">P_f</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.eye.html#scipy.sparse.eye" title="scipy.sparse.eye" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-function"><span class="n">sp</span><span class="o">.</span><span class="n">eye</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">n_nodes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"csc"</span><span class="p">)[:,</span> <span class="o">~</span><span class="n">is_boundary</span><span class="p">]</span>
 
     <span class="c1"># Assemble the solution matrix and rhs.</span>
     <span class="n">A</span> <span class="o">=</span> <span class="n">P_f</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">G</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">M_e_sigma</span> <span class="o">@</span> <span class="n">G</span> <span class="o">@</span> <span class="n">P_f</span>
@@ -749,15 +749,15 @@ function that returns the error and discretization size, so we can use
     <span class="c1"># Add some codes for us to use this function to plot the solution.</span>
     <span class="k">if</span> <span class="n">plot_it</span><span class="p">:</span>
         <span class="n">ax</span> <span class="o">=</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="matplotlib.pyplot.subplot" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-        <span class="p">(</span><span class="n">im</span><span class="p">,)</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">u_sol</span><span class="p">,</span> <span class="n">v_type</span><span class="o">=</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Numerical Solution&quot;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">im</span><span class="p">,)</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">u_sol</span><span class="p">,</span> <span class="n">v_type</span><span class="o">=</span><span class="s2">"N"</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Numerical Solution"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">)</span>
         <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.colorbar.html#matplotlib.pyplot.colorbar" title="matplotlib.pyplot.colorbar" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span></a><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 
         <span class="n">ax</span> <span class="o">=</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="matplotlib.pyplot.subplot" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-        <span class="p">(</span><span class="n">im</span><span class="p">,)</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">u_sol</span> <span class="o">-</span> <span class="n">u_true</span><span class="p">,</span> <span class="n">v_type</span><span class="o">=</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">im</span><span class="p">,)</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">u_sol</span> <span class="o">-</span> <span class="n">u_true</span><span class="p">,</span> <span class="n">v_type</span><span class="o">=</span><span class="s2">"N"</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Error"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">)</span>
         <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.colorbar.html#matplotlib.pyplot.colorbar" title="matplotlib.pyplot.colorbar" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span></a><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
         <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
         <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
@@ -788,12 +788,12 @@ expect.</p>
   40  |2.50e-02 |  1.811e-04  |   1.7443    |  1.9340
   50  |2.00e-02 |  1.174e-04  |   1.5421    |  1.9411
 -------------------------------------------------------
-And then everyone was happy.
+Well done Vsts!
 
 [np.float64(1.8896629662208868), np.float64(1.927690464885003), np.float64(1.9340112284401623), np.float64(1.9410749332005683)]
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.470 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.429 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-pde-3-nodal-dirichlet-poisson-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/2ce55a88d79ed07e42c747f4a1e82c03/3_nodal_dirichlet_poisson.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">3_nodal_dirichlet_poisson.ipynb</span></code></a></p>

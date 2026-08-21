@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.TensorMesh.get_edge_inner_product_line_deriv &#8212; discretize 0.12.1.dev17+gd26c32d80 documentation</title>
+    <title>discretize.TensorMesh.get_edge_inner_product_line_deriv &#8212; discretize 0.12.1.dev25+g5645ceb10 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
-    <script src="../../_static/documentation_options.js?v=b54e7af4"></script>
+    <script src="../../_static/documentation_options.js?v=ef42caed"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -66,7 +66,7 @@
     <link rel="prev" title="discretize.TensorMesh.get_edge_inner_product_line" href="discretize.TensorMesh.get_edge_inner_product_line.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev17" />
+  <meta name="docsearch:version" content="0.12.1.dev25" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
   
   
 </a></div>
@@ -842,7 +842,7 @@ of shape (n_edges, n_param).</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>model</strong><span class="classifier">(<a class="reference internal" href="discretize.TensorMesh.n_edges.html#discretize.TensorMesh.n_edges" title="discretize.TensorMesh.n_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges</span></code></a>, ) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Parameters defining the diagnostic property values for every edge in the mesh.</p>
+<dt><strong>model</strong><span class="classifier">(<a class="reference internal" href="discretize.TensorMesh.n_edges.html#discretize.TensorMesh.n_edges" title="discretize.TensorMesh.n_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_edges</span></code></a>, ) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Parameters defining the diagnostic property values for every edge in the mesh.</p>
 </dd>
 <dt><strong>invert_model</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.14)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The inverse of <em>model</em> is used as the diagnostic property.</p>
 </dd>
@@ -853,8 +853,8 @@ of shape (n_edges, n_param).</p>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">function</span></code></dt><dd><p>The function handle <span class="math notranslate nohighlight">\(\mathbf{F}(\mathbf{u})\)</span> which accepts a
-(<code class="docutils literal notranslate"><span class="pre">n_edges</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>. The function
-returns a (<code class="docutils literal notranslate"><span class="pre">n_edges</span></code>, <code class="docutils literal notranslate"><span class="pre">n_params</span></code>) <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.17.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code></a>.</p>
+(<code class="docutils literal notranslate"><span class="pre">n_edges</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>. The function
+returns a (<code class="docutils literal notranslate"><span class="pre">n_edges</span></code>, <code class="docutils literal notranslate"><span class="pre">n_params</span></code>) <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.18.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code></a>.</p>
 </dd>
 </dl>
 </dd>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.base.BaseMesh.get_interpolation_matrix &#8212; discretize 0.12.1.dev17+gd26c32d80 documentation</title>
+    <title>discretize.base.BaseMesh.get_interpolation_matrix &#8212; discretize 0.12.1.dev25+g5645ceb10 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
-    <script src="../../_static/documentation_options.js?v=b54e7af4"></script>
+    <script src="../../_static/documentation_options.js?v=ef42caed"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -65,7 +65,7 @@
     <link rel="prev" title="discretize.base.BaseMesh.get_face_inner_product_surface_deriv" href="discretize.base.BaseMesh.get_face_inner_product_surface_deriv.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev17" />
+  <meta name="docsearch:version" content="0.12.1.dev25" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
   
   
 </a></div>
@@ -692,7 +692,7 @@
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>loc</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_pts</span></code>, <a class="reference internal" href="discretize.base.BaseMesh.dim.html#discretize.base.BaseMesh.dim" title="discretize.base.BaseMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Location of points being to interpolate to. Must have same dimensions as the mesh.</p>
+<dt><strong>loc</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_pts</span></code>, <a class="reference internal" href="discretize.base.BaseMesh.dim.html#discretize.base.BaseMesh.dim" title="discretize.base.BaseMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Location of points being to interpolate to. Must have same dimensions as the mesh.</p>
 </dd>
 <dt><strong>location_type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Tensor locations on the mesh being interpolated from. <em>location_type</em> must be one of:</p>
 <ul class="simple">
@@ -717,7 +717,7 @@ the mesh will be zero.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_pts</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">n_loc_type</span></code>) <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code></a></dt><dd><p>A sparse matrix which interpolates the specified tensor quantity on mesh to
+<dt>(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_pts</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">n_loc_type</span></code>) <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="(in SciPy v1.18.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.csr_matrix</span></code></a></dt><dd><p>A sparse matrix which interpolates the specified tensor quantity on mesh to
 the set of specified locations.</p>
 </dd>
 </dl>
@@ -740,13 +740,13 @@ function is evaluated at the set of random locations.</p>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hx</span> <span class="o">=</span> <span class="mf">0.125</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh1D</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">([</span><span class="n">hx</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">mesh1D</span><span class="o">.</span><span class="n">get_interpolation_matrix</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="s1">&#39;nodes&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">mesh1D</span><span class="o">.</span><span class="n">get_interpolation_matrix</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="s1">'nodes'</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dense</span><span class="p">,</span> <span class="n">fun</span><span class="p">(</span><span class="n">dense</span><span class="p">),</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;True Function&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mesh1D</span><span class="o">.</span><span class="n">nodes</span><span class="p">,</span> <span class="n">fun</span><span class="p">(</span><span class="n">mesh1D</span><span class="o">.</span><span class="n">nodes</span><span class="p">),</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;True sampled&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="n">Q</span><span class="o">*</span><span class="n">fun</span><span class="p">(</span><span class="n">mesh1D</span><span class="o">.</span><span class="n">nodes</span><span class="p">),</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Interpolated&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dense</span><span class="p">,</span> <span class="n">fun</span><span class="p">(</span><span class="n">dense</span><span class="p">),</span> <span class="s1">':'</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">"C0"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"True Function"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mesh1D</span><span class="o">.</span><span class="n">nodes</span><span class="p">,</span> <span class="n">fun</span><span class="p">(</span><span class="n">mesh1D</span><span class="o">.</span><span class="n">nodes</span><span class="p">),</span> <span class="s1">'s'</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">"C0"</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"True sampled"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="n">Q</span><span class="o">*</span><span class="n">fun</span><span class="p">(</span><span class="n">mesh1D</span><span class="o">.</span><span class="n">nodes</span><span class="p">),</span> <span class="s1">'o'</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Interpolated"</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -760,7 +760,7 @@ We interpolate the Gaussian from the nodes to cell centers and examine the relat
 error.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">hy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh2D</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">([</span><span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">],</span> <span class="n">x0</span><span class="o">=</span><span class="s1">&#39;CC&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh2D</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">([</span><span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">],</span> <span class="n">x0</span><span class="o">=</span><span class="s1">'CC'</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
@@ -769,7 +769,7 @@ error.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">val_nodes</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">nodes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">nodes</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">centers</span> <span class="o">=</span> <span class="n">mesh2D</span><span class="o">.</span><span class="n">cell_centers</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">val_centers</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">centers</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">centers</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">mesh2D</span><span class="o">.</span><span class="n">get_interpolation_matrix</span><span class="p">(</span><span class="n">centers</span><span class="p">,</span> <span class="s1">&#39;nodes&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">mesh2D</span><span class="o">.</span><span class="n">get_interpolation_matrix</span><span class="p">(</span><span class="n">centers</span><span class="p">,</span> <span class="s1">'nodes'</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">val_interp</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">val_nodes</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -781,9 +781,9 @@ error.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh2D</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">val_centers</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh2D</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">val_interp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh2D</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">val_centers</span><span class="o">-</span><span class="n">val_interp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Analytic at Centers&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Interpolated from Nodes&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Relative Error&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Analytic at Centers'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Interpolated from Nodes'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Relative Error'</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>

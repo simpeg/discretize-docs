@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.utils.inverse_property_tensor &#8212; discretize 0.12.1.dev17+gd26c32d80 documentation</title>
+    <title>discretize.utils.inverse_property_tensor &#8212; discretize 0.12.1.dev25+g5645ceb10 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
-    <script src="../../_static/documentation_options.js?v=b54e7af4"></script>
+    <script src="../../_static/documentation_options.js?v=ef42caed"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -66,7 +66,7 @@
     <link rel="prev" title="discretize.utils.make_property_tensor" href="discretize.utils.make_property_tensor.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev17" />
+  <meta name="docsearch:version" content="0.12.1.dev25" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
   
   
 </a></div>
@@ -645,7 +645,7 @@
 <dt class="sig sig-object py" id="discretize.utils.inverse_property_tensor">
 <span class="sig-prename descclassname"><span class="pre">discretize.utils.</span></span><span class="sig-name descname"><span class="pre">inverse_property_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/utils/matrix_utils.py#L1246-L1434"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.utils.inverse_property_tensor" title="Link to this definition">#</a></dt>
 <dd><p>Construct the inverse of the physical property tensor.</p>
-<p>For a given <em>mesh</em>, the input parameter <em>tensor</em> is a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>
+<p>For a given <em>mesh</em>, the input parameter <em>tensor</em> is a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>
 defining the constitutive relationship (e.g. Ohm’s law) between two
 discrete vector quantities <span class="math notranslate nohighlight">\(\boldsymbol{j}\)</span> and
 <span class="math notranslate nohighlight">\(\boldsymbol{e}\)</span> living at cell centers. Where <span class="math notranslate nohighlight">\(\boldsymbol{M}\)</span>
@@ -666,7 +666,7 @@ organized according to:</p>
 <dd class="field-odd"><dl>
 <dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh" title="discretize.base.BaseMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.base.BaseMesh</span></code></a></span></dt><dd><p>A mesh</p>
 </dd>
-<dt><strong>tensor</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><ul class="simple">
+<dt><strong>tensor</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><ul class="simple">
 <li><p><em>Scalar:</em> A float is entered.</p></li>
 <li><p><em>Isotropic:</em> A 1D numpy.ndarray with a property value for every cell.</p></li>
 <li><p><em>Anisotropic:</em> A (<em>nCell</em>, <em>dim</em>) numpy.ndarray where each row
@@ -688,7 +688,7 @@ property tensor in a numpy.ndarray in the same order as the input argument
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.html#scipy.sparse.coo_matrix" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.coo_matrix</span></code></a></dt><dd><ul class="simple">
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.html#scipy.sparse.coo_matrix" title="(in SciPy v1.18.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.coo_matrix</span></code></a></dt><dd><ul class="simple">
 <li><p>If <em>return_matrix</em> = <em>False</em>, the function outputs the parameters defining the
 inverse of the property tensor in a numpy.ndarray with the same dimensions as
 the input argument <em>tensor</em></p></li>
@@ -728,7 +728,7 @@ inverse of the property tensor and compare.</p>
 </div>
 <p>Define a 2D tensor mesh</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">([</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;00&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">TensorMesh</span><span class="p">([</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'00'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Define a physical property for all cases (2D)</p>
@@ -755,19 +755,19 @@ inverse of the property tensor and compare.</p>
 <p>Plot the property tensors.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">M_scalar</span><span class="p">,</span> <span class="n">M_isotropic</span><span class="p">,</span> <span class="n">M_anisotropic</span><span class="p">,</span> <span class="n">M_tensor</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Minv_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">Minv_scalar</span><span class="p">,</span> <span class="n">Minv_isotropic</span><span class="p">,</span> <span class="n">Minv_anisotropic</span><span class="p">,</span> <span class="n">Minv_tensor</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">case_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Scalar&#39;</span><span class="p">,</span> <span class="s1">&#39;Isotropic&#39;</span><span class="p">,</span> <span class="s1">&#39;Anisotropic&#39;</span><span class="p">,</span> <span class="s1">&#39;Full Tensor&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Scalar'</span><span class="p">,</span> <span class="s1">'Isotropic'</span><span class="p">,</span> <span class="s1">'Anisotropic'</span><span class="p">,</span> <span class="s1">'Full Tensor'</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax1</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">ax1</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">fig1</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.05</span><span class="o">+</span><span class="mf">0.22</span><span class="o">*</span><span class="n">ii</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.18</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span>
 <span class="gp">... </span>    <span class="n">ax1</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
-<span class="gp">... </span>        <span class="n">M_list</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">todense</span><span class="p">(),</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">10.</span>
+<span class="gp">... </span>        <span class="n">M_list</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">todense</span><span class="p">(),</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'binary'</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">10.</span>
 <span class="gp">... </span>    <span class="p">)</span>
-<span class="gp">... </span>    <span class="n">ax1</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$M$ (&#39;</span> <span class="o">+</span> <span class="n">case_list</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">ax1</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'$M$ ('</span> <span class="o">+</span> <span class="n">case_list</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">+</span> <span class="s1">')'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cax1</span> <span class="o">=</span> <span class="n">fig1</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.92</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">norm1</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">10.</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cbar1</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">ColorbarBase</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">cax1</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm1</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">binary</span>
+<span class="gp">... </span>    <span class="n">cax1</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm1</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">"vertical"</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">binary</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -782,13 +782,13 @@ inverse of the property tensor and compare.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">ax2</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">fig2</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.05</span><span class="o">+</span><span class="mf">0.22</span><span class="o">*</span><span class="n">ii</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.18</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span>
 <span class="gp">... </span>    <span class="n">ax2</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
-<span class="gp">... </span>        <span class="n">Minv_list</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">todense</span><span class="p">(),</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.</span>
+<span class="gp">... </span>        <span class="n">Minv_list</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">todense</span><span class="p">(),</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'binary'</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.</span>
 <span class="gp">... </span>    <span class="p">)</span>
-<span class="gp">... </span>    <span class="n">ax2</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$M^{-1}$ (&#39;</span> <span class="o">+</span> <span class="n">case_list</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">ax2</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'$M^{-1}$ ('</span> <span class="o">+</span> <span class="n">case_list</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">+</span> <span class="s1">')'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cax2</span> <span class="o">=</span> <span class="n">fig2</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.92</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">norm2</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cbar2</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">ColorbarBase</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">cax2</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm2</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">binary</span>
+<span class="gp">... </span>    <span class="n">cax2</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm2</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">"vertical"</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">binary</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>

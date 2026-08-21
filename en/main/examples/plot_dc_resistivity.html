@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Basic Forward 2D DC Resistivity &#8212; discretize 0.12.1.dev17+gd26c32d80 documentation</title>
+    <title>Basic Forward 2D DC Resistivity &#8212; discretize 0.12.1.dev25+g5645ceb10 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
-    <script src="../_static/documentation_options.js?v=b54e7af4"></script>
+    <script src="../_static/documentation_options.js?v=ef42caed"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -65,7 +65,7 @@
     <link rel="prev" title="Plot Mirrored Cylindrically Symmetric Model" href="plot_cyl_mirror.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev17" />
+  <meta name="docsearch:version" content="0.12.1.dev25" />
   
     
     <script src="../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
-    <img src="../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
+    <img src="../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
+    <img src="../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
   
   
 </a></div>
@@ -624,7 +624,7 @@ to download the full example code.</p>
     <span class="n">sz</span> <span class="o">=</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
     <span class="n">tM</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">TensorMesh</span><span class="p">(</span><span class="n">sz</span><span class="p">)</span>
     <span class="n">rM</span> <span class="o">=</span> <span class="n">discretize</span><span class="o">.</span><span class="n">CurvilinearMesh</span><span class="p">(</span>
-        <span class="n">discretize</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">example_curvilinear_grid</span><span class="p">(</span><span class="n">sz</span><span class="p">,</span> <span class="s2">&quot;rotate&quot;</span><span class="p">)</span>
+        <span class="n">discretize</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">example_curvilinear_grid</span><span class="p">(</span><span class="n">sz</span><span class="p">,</span> <span class="s2">"rotate"</span><span class="p">)</span>
     <span class="p">)</span>
 
     <span class="c1"># Step2: Direct Current (DC) operator</span>
@@ -659,21 +659,21 @@ to download the full example code.</p>
 
     <span class="n">dat</span> <span class="o">=</span> <span class="n">tM</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">phitM</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">clim</span><span class="o">=</span><span class="p">(</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">cb0</span> <span class="o">=</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.colorbar.html#matplotlib.pyplot.colorbar" title="matplotlib.pyplot.colorbar" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span></a><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">cb0</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Voltage (V)&quot;</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;TensorMesh&quot;</span><span class="p">)</span>
+    <span class="n">cb0</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">"Voltage (V)"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"TensorMesh"</span><span class="p">)</span>
 
     <span class="n">dat</span> <span class="o">=</span> <span class="n">rM</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">phirM</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">clim</span><span class="o">=</span><span class="p">(</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">cb1</span> <span class="o">=</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.colorbar.html#matplotlib.pyplot.colorbar" title="matplotlib.pyplot.colorbar" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span></a><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="n">cb1</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Voltage (V)&quot;</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;CurvilinearMesh&quot;</span><span class="p">)</span>
+    <span class="n">cb1</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">"Voltage (V)"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"CurvilinearMesh"</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">run</span><span class="p">()</span>
     <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.161 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.159 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-dc-resistivity-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/1b5b4fa155e1ee87475f5cc9bf61a862/plot_dc_resistivity.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_dc_resistivity.ipynb</span></code></a></p>

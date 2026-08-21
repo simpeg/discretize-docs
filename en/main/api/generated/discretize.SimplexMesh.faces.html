@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.SimplexMesh.faces &#8212; discretize 0.12.1.dev17+gd26c32d80 documentation</title>
+    <title>discretize.SimplexMesh.faces &#8212; discretize 0.12.1.dev25+g5645ceb10 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
-    <script src="../../_static/documentation_options.js?v=b54e7af4"></script>
+    <script src="../../_static/documentation_options.js?v=ef42caed"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -65,7 +65,7 @@
     <link rel="prev" title="discretize.SimplexMesh.face_normals" href="discretize.SimplexMesh.face_normals.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev17" />
+  <meta name="docsearch:version" content="0.12.1.dev25" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
   
   
 </a></div>
@@ -720,7 +720,7 @@ For each face type, the locations are ordered along the x, then y, then z direct
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt>(<a class="reference internal" href="discretize.SimplexMesh.n_faces.html#discretize.SimplexMesh.n_faces" title="discretize.SimplexMesh.n_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces</span></code></a>, <a class="reference internal" href="discretize.SimplexMesh.dim.html#discretize.SimplexMesh.dim" title="discretize.SimplexMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></dt><dd><p>Gridded face locations</p>
+<dt>(<a class="reference internal" href="discretize.SimplexMesh.n_faces.html#discretize.SimplexMesh.n_faces" title="discretize.SimplexMesh.n_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_faces</span></code></a>, <a class="reference internal" href="discretize.SimplexMesh.dim.html#discretize.SimplexMesh.dim" title="discretize.SimplexMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></dt><dd><p>Gridded face locations</p>
 </dd>
 </dl>
 </dd>
@@ -734,7 +734,7 @@ primarily along the x and y-directions, respectively.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">example_curvilinear_grid</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s2">&quot;rotate&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">example_curvilinear_grid</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s2">"rotate"</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh1</span> <span class="o">=</span> <span class="n">CurvilinearMesh</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">faces</span> <span class="o">=</span> <span class="n">mesh1</span><span class="o">.</span><span class="n">faces</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x_faces</span> <span class="o">=</span> <span class="n">faces</span><span class="p">[:</span><span class="n">mesh1</span><span class="o">.</span><span class="n">n_faces_x</span><span class="p">]</span>
@@ -744,9 +744,9 @@ primarily along the x and y-directions, respectively.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax1</span> <span class="o">=</span> <span class="n">fig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh1</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">x_faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y_faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Mesh&#39;</span><span class="p">,</span> <span class="s1">&#39;X-faces&#39;</span><span class="p">,</span> <span class="s1">&#39;Y-faces&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">x_faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y_faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'Mesh'</span><span class="p">,</span> <span class="s1">'X-faces'</span><span class="p">,</span> <span class="s1">'Y-faces'</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -757,7 +757,7 @@ primarily along the x and y-directions, respectively.</p>
 <p>Here, we provide an example of a highly irregular curvilinear mesh.
 In this case, the y-faces are not defined by normal vectors along
 a particular direction.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">example_curvilinear_grid</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s2">&quot;sphere&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">example_curvilinear_grid</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s2">"sphere"</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh2</span> <span class="o">=</span> <span class="n">CurvilinearMesh</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">faces</span> <span class="o">=</span> <span class="n">mesh2</span><span class="o">.</span><span class="n">faces</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x_faces</span> <span class="o">=</span> <span class="n">faces</span><span class="p">[:</span><span class="n">mesh2</span><span class="o">.</span><span class="n">n_faces_x</span><span class="p">]</span>
@@ -767,9 +767,9 @@ a particular direction.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span> <span class="o">=</span> <span class="n">fig2</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh2</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">x_faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y_faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Mesh&#39;</span><span class="p">,</span> <span class="s1">&#39;X-faces&#39;</span><span class="p">,</span> <span class="s1">&#39;Y-faces&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">x_faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y_faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'Mesh'</span><span class="p">,</span> <span class="s1">'X-faces'</span><span class="p">,</span> <span class="s1">'Y-faces'</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>

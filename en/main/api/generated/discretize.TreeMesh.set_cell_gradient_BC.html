@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.TreeMesh.set_cell_gradient_BC &#8212; discretize 0.12.1.dev17+gd26c32d80 documentation</title>
+    <title>discretize.TreeMesh.set_cell_gradient_BC &#8212; discretize 0.12.1.dev25+g5645ceb10 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
-    <script src="../../_static/documentation_options.js?v=b54e7af4"></script>
+    <script src="../../_static/documentation_options.js?v=ef42caed"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -65,7 +65,7 @@
     <link rel="prev" title="discretize.TreeMesh.setCellGradBC" href="discretize.TreeMesh.setCellGradBC.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev17" />
+  <meta name="docsearch:version" content="0.12.1.dev25" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev17+gd26c32d80 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev25+g5645ceb10 documentation - Home"/>
   
   
 </a></div>
@@ -922,17 +922,17 @@ conditions for cell-centers differential operators.</p>
 </pre></div>
 </div>
 <p>Define zero Neumann conditions for all boundaries</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">BC</span> <span class="o">=</span> <span class="s1">&#39;neumann&#39;</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">BC</span> <span class="o">=</span> <span class="s1">'neumann'</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">set_cell_gradient_BC</span><span class="p">(</span><span class="n">BC</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Define zero Dirichlet on y boundaries and zero Neumann otherwise</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">BC</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;neumann&#39;</span><span class="p">,</span> <span class="s1">&#39;dirichlet&#39;</span><span class="p">,</span> <span class="s1">&#39;neumann&#39;</span><span class="p">]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">BC</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'neumann'</span><span class="p">,</span> <span class="s1">'dirichlet'</span><span class="p">,</span> <span class="s1">'neumann'</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">set_cell_gradient_BC</span><span class="p">(</span><span class="n">BC</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Define zero Neumann on the bottom x-boundary and zero Dirichlet otherwise</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">BC</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;neumann&#39;</span><span class="p">,</span> <span class="s1">&#39;dirichlet&#39;</span><span class="p">],</span> <span class="s1">&#39;dirichlet&#39;</span><span class="p">,</span> <span class="s1">&#39;dirichlet&#39;</span><span class="p">]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">BC</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">'neumann'</span><span class="p">,</span> <span class="s1">'dirichlet'</span><span class="p">],</span> <span class="s1">'dirichlet'</span><span class="p">,</span> <span class="s1">'dirichlet'</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">set_cell_gradient_BC</span><span class="p">(</span><span class="n">BC</span><span class="p">)</span>
 </pre></div>
 </div>
