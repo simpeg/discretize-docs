@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Nodal Dirichlet Poisson solution &#8212; discretize 0.12.1.dev89+gf7f5f22f9 documentation</title>
+    <title>Nodal Dirichlet Poisson solution &#8212; discretize 0.12.1.dev98+ge2ce1f5f8 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../_static/documentation_options.js?v=9bca08e1"></script>
+    <script src="../../_static/documentation_options.js?v=81debaa1"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -66,7 +66,7 @@
     <link rel="prev" title="Advection-Diffusion Equation" href="2_advection_diffusion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev89" />
+  <meta name="docsearch:version" content="0.12.1.dev98" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev89+gf7f5f22f9 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev89+gf7f5f22f9 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev98+ge2ce1f5f8 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev98+ge2ce1f5f8 documentation - Home"/>
   
   
 </a></div>
@@ -745,7 +745,7 @@ function that returns the error and discretization size, so we can use
     <span class="c1"># Since we know the true solution we can check the error</span>
     <span class="c1"># which we expect to be second order accurate.</span>
     <span class="n">u_true</span> <span class="o">=</span> <span class="n">u_func</span><span class="p">(</span><span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-    <span class="n">err</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html#numpy.linalg.norm" title="numpy.linalg.norm" class="sphx-glr-backref-module-numpy-linalg sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span></a><span class="p">(</span><span class="n">u_sol</span> <span class="o">-</span> <span class="n">u_true</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">inf</span></a><span class="p">)</span>
+    <span class="n">err</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html#numpy.linalg.norm" title="numpy.linalg.norm" class="sphx-glr-backref-module-numpy-linalg sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span></a><span class="p">(</span><span class="n">u_sol</span> <span class="o">-</span> <span class="n">u_true</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><a href="https://docs.python.org/3/builtins/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">inf</span></a><span class="p">)</span>
 
     <span class="c1"># Add some codes for us to use this function to plot the solution.</span>
     <span class="k">if</span> <span class="n">plot_it</span><span class="p">:</span>
@@ -789,12 +789,12 @@ expect.</p>
   40  |2.50e-02 |  1.811e-04  |   1.7443    |  1.9340
   50  |2.00e-02 |  1.174e-04  |   1.5421    |  1.9411
 -------------------------------------------------------
-Testing is important.
+The test be workin!
 
 [np.float64(1.8896629662208868), np.float64(1.927690464885003), np.float64(1.9340112284401623), np.float64(1.9410749332005683)]
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.467 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.017 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-tutorials-pde-3-nodal-dirichlet-poisson-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/2ce55a88d79ed07e42c747f4a1e82c03/3_nodal_dirichlet_poisson.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">3_nodal_dirichlet_poisson.ipynb</span></code></a></p>

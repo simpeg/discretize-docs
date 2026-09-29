@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.mixins.Slicer &#8212; discretize 0.12.1.dev89+gf7f5f22f9 documentation</title>
+    <title>discretize.mixins.Slicer &#8212; discretize 0.12.1.dev98+ge2ce1f5f8 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../_static/documentation_options.js?v=9bca08e1"></script>
+    <script src="../../_static/documentation_options.js?v=81debaa1"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -65,7 +65,7 @@
     <link rel="prev" title="discretize.mixins.InterfaceOMF.to_omf" href="discretize.mixins.InterfaceOMF.to_omf.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev89" />
+  <meta name="docsearch:version" content="0.12.1.dev98" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev89+gf7f5f22f9 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev89+gf7f5f22f9 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev98+ge2ce1f5f8 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev98+ge2ce1f5f8 documentation - Home"/>
   
   
 </a></div>
@@ -609,10 +609,7 @@
                   
   <section id="discretize-mixins-slicer">
 <h1>discretize.mixins.Slicer<a class="headerlink" href="#discretize-mixins-slicer" title="Link to this heading">#</a></h1>
-<div class="graphviz"><img src="../../_images/inheritance-ca8436494fb2db4ef79aa81d12e37b708bfd85e4.png" alt="Inheritance diagram of Slicer" usemap="#inheritance59bc799685" class="inheritance graphviz" /></div>
-<map id="inheritance59bc799685" name="inheritance59bc799685">
-<area shape="rect" id="node1" href="#discretize.mixins.Slicer" target="_top" title="Plot slices of a 3D volume, interactively (scroll wheel)." alt="" coords="5,5,77,33"/>
-</map><dl class="py class">
+<dl class="py class">
 <dt class="sig sig-object py" id="discretize.mixins.Slicer">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">discretize.mixins.</span></span><span class="sig-name descname"><span class="pre">Slicer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xslice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yslice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zslice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CC'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'real'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transparent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(2,</span> <span class="pre">2,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pcolor_opts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/mixins/mpl_mod.py#L2364-L2822"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.mixins.Slicer" title="Link to this definition">#</a></dt>
 <dd><p>Plot slices of a 3D volume, interactively (scroll wheel).</p>
@@ -625,7 +622,7 @@
 <dd class="field-odd"><dl>
 <dt><strong>v</strong><span class="classifier">(<code class="xref py py-obj docutils literal notranslate"><span class="pre">n_cells</span></code>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Data array</p>
 </dd>
-<dt><strong>xslice, yslice, zslice</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Initial slice locations (in meter);
+<dt><strong>xslice, yslice, zslice</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Initial slice locations (in meter);
 defaults to the middle of the volume.</p>
 </dd>
 <dt><strong>v_type: {‘CC’, ‘Fx’, ‘Fy’, ‘Fz’, ‘Ex’, ‘Ey’, ‘Ez’}</strong></dt><dd><p>Type of visualization.</p>
@@ -634,17 +631,17 @@ defaults to the middle of the volume.</p>
 </dd>
 <dt><strong>axis</strong><span class="classifier">{‘xy’, ‘yx’}</span></dt><dd><p>‘xy’: horizontal axis is x, vertical axis is y. Reversed otherwise.</p>
 </dd>
-<dt><strong>transparent</strong><span class="classifier">‘slider’ or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">pairs</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Values to be removed. E.g. air, water.
+<dt><strong>transparent</strong><span class="classifier">‘slider’ or <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">pairs</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Values to be removed. E.g. air, water.
 If single value, only exact matches are removed. Pairs are treated as
 ranges. E.g. [0.3, [1, 4], [-np.infty, -10]] removes all values equal
 to 0.3, all values between 1 and 4, and all values smaller than -10.
 If ‘slider’ is provided it will plot an interactive slider to choose
 the shown range.</p>
 </dd>
-<dt><strong>clim</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#min" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#max" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a>]</span></dt><dd><p>For <cite>pcolormesh</cite> (<cite>vmin</cite>, <cite>vmax</cite>). Note: if you use a <cite>norm</cite> (e.g.,
+<dt><strong>clim</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> [<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#min" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>, <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#max" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a>]</span></dt><dd><p>For <cite>pcolormesh</cite> (<cite>vmin</cite>, <cite>vmax</cite>). Note: if you use a <cite>norm</cite> (e.g.,
 <cite>LogNorm</cite>) then <cite>vmin</cite>/<cite>vmax</cite> have to be provided in the norm.</p>
 </dd>
-<dt><strong>xlim, ylim, zlim</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#min" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#max" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a>]</span></dt><dd><p>Axis limits.</p>
+<dt><strong>xlim, ylim, zlim</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> [<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#min" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>, <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#max" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a>]</span></dt><dd><p>Axis limits.</p>
 </dd>
 <dt><strong>aspect</strong><span class="classifier">‘auto’, ‘equal’, <code class="xref py py-obj docutils literal notranslate"><span class="pre">or</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">num</span></code></span></dt><dd><p>Aspect ratio of subplots. Defaults to ‘auto’.</p>
 <p>A list of two values can be provided. The first will be for the
@@ -655,7 +652,7 @@ the vertical dimension exaggerated by a factor of 2.</p>
 </dd>
 </dl>
 </dd>
-<dt><strong>grid</strong><span class="classifier">(3) <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Number of cells occupied by x, y, and z dimension on plt.subplot2grid.</p>
+<dt><strong>grid</strong><span class="classifier">(3) <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Number of cells occupied by x, y, and z dimension on plt.subplot2grid.</p>
 </dd>
 <dt><strong>pcolor_opts</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dictionary</span></code></span></dt><dd><p>Passed to <cite>pcolormesh</cite>.</p>
 </dd>

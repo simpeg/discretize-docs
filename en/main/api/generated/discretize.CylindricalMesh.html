@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.CylindricalMesh &#8212; discretize 0.12.1.dev89+gf7f5f22f9 documentation</title>
+    <title>discretize.CylindricalMesh &#8212; discretize 0.12.1.dev98+ge2ce1f5f8 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../_static/documentation_options.js?v=9bca08e1"></script>
+    <script src="../../_static/documentation_options.js?v=81debaa1"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -66,7 +66,7 @@
     <link rel="prev" title="discretize.TensorMesh.write_vtk" href="discretize.TensorMesh.write_vtk.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev89" />
+  <meta name="docsearch:version" content="0.12.1.dev98" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev89+gf7f5f22f9 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev89+gf7f5f22f9 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev98+ge2ce1f5f8 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev98+ge2ce1f5f8 documentation - Home"/>
   
   
 </a></div>
@@ -813,19 +813,7 @@
                   
   <section id="discretize-cylindricalmesh">
 <h1>discretize.CylindricalMesh<a class="headerlink" href="#discretize-cylindricalmesh" title="Link to this heading">#</a></h1>
-<div class="graphviz"><img src="../../_images/inheritance-e837ca18dc8c0262f439e39f6047b50a8c748bb5.png" alt="Inheritance diagram of CylindricalMesh" usemap="#inheritanceb283d5fa24" class="inheritance graphviz" /></div>
-<map id="inheritanceb283d5fa24" name="inheritanceb283d5fa24">
-<area shape="rect" id="node1" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh" target="_top" title="Base mesh class for the ``discretize`` package." alt="" coords="5,108,94,136"/>
-<area shape="rect" id="node3" href="discretize.base.BaseRegularMesh.html#discretize.base.BaseRegularMesh" target="_top" title="Base Regular mesh class for the ``discretize`` package." alt="" coords="142,57,280,85"/>
-<area shape="rect" id="node6" href="discretize.operators.InnerProducts.html#discretize.operators.InnerProducts" target="_top" title="Class for constructing inner product matrices." alt="" coords="356,109,466,137"/>
-<area shape="rect" id="node7" href="discretize.operators.DiffOperators.html#discretize.operators.DiffOperators" target="_top" title="Class used for creating differential and averaging operators." alt="" coords="357,161,465,189"/>
-<area shape="rect" id="node2" href="discretize.base.BaseRectangularMesh.html#discretize.base.BaseRectangularMesh" target="_top" title="Base rectangular mesh class for the ``discretize`` package." alt="" coords="328,5,494,33"/>
-<area shape="rect" id="node5" href="#discretize.CylindricalMesh" target="_top" title="Class for cylindrical meshes." alt="" coords="542,109,668,137"/>
-<area shape="rect" id="node4" href="discretize.base.BaseTensorMesh.html#discretize.base.BaseTensorMesh" target="_top" title="Base class for tensor&#45;product style meshes." alt="" coords="346,57,476,85"/>
-<area shape="rect" id="node9" href="discretize.mixins.InterfaceMPL.html#discretize.mixins.InterfaceMPL" target="_top" title="Class for plotting ``discretize`` meshes with matplotlib." alt="" coords="158,209,264,237"/>
-<area shape="rect" id="node10" href="discretize.mixins.InterfaceVTK.html#discretize.mixins.InterfaceVTK" target="_top" title="VTK interface for ``discretize`` meshes." alt="" coords="158,261,264,289"/>
-<area shape="rect" id="node11" href="discretize.mixins.InterfaceOMF.html#discretize.mixins.InterfaceOMF" target="_top" title="Convert between ``omf`` and ``discretize`` objects." alt="" coords="156,313,266,341"/>
-</map><dl class="py class">
+<dl class="py class">
 <dt class="sig sig-object py" id="discretize.CylindricalMesh">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">discretize.</span></span><span class="sig-name descname"><span class="pre">CylindricalMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cartesian_origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/cylindrical_mesh.py#L31-L2205"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.CylindricalMesh" title="Link to this definition">#</a></dt>
 <dd><p>Class for cylindrical meshes.</p>
@@ -841,16 +829,16 @@ meshes are as follows:</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>h</strong><span class="classifier">(<a class="reference internal" href="discretize.CylindricalMesh.dim.html#discretize.CylindricalMesh.dim" title="discretize.CylindricalMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://docs.python.org/3/glossary.html#term-iterable" title="(in Python v3.14)"><span>iterable</span></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">or</span></code> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a></span></dt><dd><p>Defines the cell widths along each axis. The length of the iterable object is
+<dt><strong>h</strong><span class="classifier">(<a class="reference internal" href="discretize.CylindricalMesh.dim.html#discretize.CylindricalMesh.dim" title="discretize.CylindricalMesh.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://docs.python.org/3/glossary.html#term-iterable" title="(in Python v3.14)"><span>iterable</span></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">or</span></code> <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a></span></dt><dd><p>Defines the cell widths along each axis. The length of the iterable object is
 equal to the dimension of the mesh (1, 2 or 3). For a 3D mesh, the list would
 have the form <em>[hr, hphi, hz]</em> . Note that the sum of cell widths in the phi
 direction <strong>must</strong> equal <span class="math notranslate nohighlight">\(2\pi\)</span>. You can also use a flat value of
 <em>hphi</em> = <em>1</em> to define a cylindrically symmetric mesh.</p>
 <p>Along each axis, the user has 3 choices for defining the cells widths:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> -&gt; A unit interval is equally discretized into <cite>N</cite> cells.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> -&gt; A unit interval is equally discretized into <cite>N</cite> cells.</p></li>
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> -&gt; The widths are explicity given for each cell</p></li>
-<li><p>the widths are defined as a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of the form
+<li><p>the widths are defined as a <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of the form
 <em>(dh, nc, [npad])</em> where <em>dh</em> is the cell width, <em>nc</em> is the number of cells,
 and <em>npad</em> (optional)is a padding factor denoting exponential
 increase/decrease in the cell width or each cell; e.g.
@@ -863,7 +851,7 @@ corner. By default, the mesh is anchored such that its origin is at
 <p>For each dimension (r, theta or z), The user may set the origin 2 ways:</p>
 <ul class="simple">
 <li><p>a <code class="docutils literal notranslate"><span class="pre">scalar</span></code> which explicitly defines origin along that dimension.</p></li>
-<li><p><strong>{‘0’, ‘C’, ‘N’}</strong> a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> specifying whether the zero coordinate
+<li><p><strong>{‘0’, ‘C’, ‘N’}</strong> a <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> specifying whether the zero coordinate
 along each axis is the first node location (‘0’), in the center (‘C’) or the
 last node location (‘N’).</p></li>
 </ul>

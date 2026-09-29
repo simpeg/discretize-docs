@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.CylindricalMesh.reshape &#8212; discretize 0.12.1.dev89+gf7f5f22f9 documentation</title>
+    <title>discretize.CylindricalMesh.reshape &#8212; discretize 0.12.1.dev98+ge2ce1f5f8 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../_static/documentation_options.js?v=9bca08e1"></script>
+    <script src="../../_static/documentation_options.js?v=81debaa1"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -65,7 +65,7 @@
     <link rel="prev" title="discretize.CylindricalMesh.r" href="discretize.CylindricalMesh.r.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev89" />
+  <meta name="docsearch:version" content="0.12.1.dev98" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev89+gf7f5f22f9 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev89+gf7f5f22f9 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev98+ge2ce1f5f8 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev98+ge2ce1f5f8 documentation - Home"/>
   
   
 </a></div>
@@ -826,11 +826,11 @@ like to extract the x-component and reshaped it to a 3D matrix.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>x</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>The input quantity. , ndarray (tensor) or a list</p>
+<dt><strong>x</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>The input quantity. , ndarray (tensor) or a list</p>
 </dd>
 <dt><strong>x_type</strong><span class="classifier">{‘CC’, ‘N’, ‘F’, ‘Fx’, ‘Fy’, ‘Fz’, ‘E’, ‘Ex’, ‘Ey’, ‘Ez’}</span></dt><dd><p>Defines the locations on the mesh where input parameter <em>x</em> lives.</p>
 </dd>
-<dt><strong>out_type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>Defines the output quantity. Choice depends on your input for <em>x_type</em>:</p>
+<dt><strong>out_type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>Defines the output quantity. Choice depends on your input for <em>x_type</em>:</p>
 <ul class="simple">
 <li><p><em>x_type</em> = ‘CC’ —&gt; <em>out_type</em> = ‘CC’</p></li>
 <li><p><em>x_type</em> = ‘N’ —&gt; <em>out_type</em> = ‘N’</p></li>
@@ -838,7 +838,7 @@ like to extract the x-component and reshaped it to a 3D matrix.</p>
 <li><p><em>x_type</em> = ‘E’ —&gt; <em>out_type</em> = {‘E’, ‘Ex’, ‘Ey’, ‘Ez’}</p></li>
 </ul>
 </dd>
-<dt><strong>return_format</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The dimensions of quantity being returned</p>
+<dt><strong>return_format</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The dimensions of quantity being returned</p>
 <ul class="simple">
 <li><p><em>V:</em> return a vector (1D array) or a list of vectors</p></li>
 <li><p><em>M:</em> return matrix (nD array) or a list of matrices</p></li>

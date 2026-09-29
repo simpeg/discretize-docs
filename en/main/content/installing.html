@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Installing &#8212; discretize 0.12.1.dev89+gf7f5f22f9 documentation</title>
+    <title>Installing &#8212; discretize 0.12.1.dev98+ge2ce1f5f8 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../_static/documentation_options.js?v=9bca08e1"></script>
+    <script src="../_static/documentation_options.js?v=81debaa1"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -65,7 +65,7 @@
     <link rel="prev" title="Why discretize?" href="big_picture.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev89" />
+  <meta name="docsearch:version" content="0.12.1.dev98" />
   
     
     <script src="../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev89+gf7f5f22f9 documentation - Home"/>
-    <img src="../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev89+gf7f5f22f9 documentation - Home"/>
+    <img src="../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev98+ge2ce1f5f8 documentation - Home"/>
+    <img src="../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev98+ge2ce1f5f8 documentation - Home"/>
   
   
 </a></div>
@@ -691,6 +691,23 @@ However, you <strong>must</strong> install <code class="docutils literal notrans
 “editable” mode; when source code is changed, you will be able to make use of it immediately. It also builds against the
 packages installed in your environment instead of creating and isolated environment to build a wheel for the package,
 which is why we needed to install the build requirements into the environment.</p>
+<p>Alternatively, if you use <a class="reference external" href="https://docs.astral.sh/uv/">uv</a>, steps 1 and 2 above can be done
+in one command, which also creates and manages a virtual environment for you:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uv</span> <span class="n">sync</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">install</span><span class="o">-</span><span class="n">project</span> <span class="o">--</span><span class="n">extra</span> <span class="n">build</span> <span class="o">--</span><span class="n">config</span><span class="o">-</span><span class="n">settings</span><span class="o">=</span><span class="n">setup</span><span class="o">-</span><span class="n">args</span><span class="o">=</span><span class="s2">"--vsenv"</span>
+</pre></div>
+</div>
+<p>Followed by the same editable install as step 3, using <code class="docutils literal notranslate"><span class="pre">uv</span></code> in place of <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uv</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">isolation</span> <span class="o">--</span><span class="n">editable</span> <span class="o">.</span> <span class="o">--</span><span class="n">config</span><span class="o">-</span><span class="n">settings</span><span class="o">=</span><span class="n">setup</span><span class="o">-</span><span class="n">args</span><span class="o">=</span><span class="s2">"--vsenv"</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">--config-settings=setup-args=&quot;--vsenv&quot;</span></code> must be passed identically to <em>both</em>
+commands above (it’s a no-op on mac/linux, and prefers the msvc compilers on windows).
+<code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">sync</span></code> builds <code class="docutils literal notranslate"><span class="pre">discretize</span></code> once already just to resolve its own metadata, even with
+<code class="docutils literal notranslate"><span class="pre">--no-install-project</span></code>, and passing a different set of setup args to the following
+editable install will make meson fail to reconfigure the same build directory.</p>
+</div>
 </section>
 </section>
 </section>

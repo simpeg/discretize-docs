@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.tensor_cell.TensorCell &#8212; discretize 0.12.1.dev89+gf7f5f22f9 documentation</title>
+    <title>discretize.tensor_cell.TensorCell &#8212; discretize 0.12.1.dev98+ge2ce1f5f8 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../_static/documentation_options.js?v=9bca08e1"></script>
+    <script src="../../_static/documentation_options.js?v=81debaa1"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -65,7 +65,7 @@
     <link rel="prev" title="discretize.SimplexMesh.write_vtk" href="discretize.SimplexMesh.write_vtk.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev89" />
+  <meta name="docsearch:version" content="0.12.1.dev98" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev89+gf7f5f22f9 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev89+gf7f5f22f9 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev98+ge2ce1f5f8 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev98+ge2ce1f5f8 documentation - Home"/>
   
   
 </a></div>
@@ -619,10 +619,7 @@
                   
   <section id="discretize-tensor-cell-tensorcell">
 <h1>discretize.tensor_cell.TensorCell<a class="headerlink" href="#discretize-tensor-cell-tensorcell" title="Link to this heading">#</a></h1>
-<div class="graphviz"><img src="../../_images/inheritance-fd49a428e97a92c128035b83f9e55ef457c17968.png" alt="Inheritance diagram of TensorCell" usemap="#inheritance9962771738" class="inheritance graphviz" /></div>
-<map id="inheritance9962771738" name="inheritance9962771738">
-<area shape="rect" id="node1" href="#discretize.tensor_cell.TensorCell" target="_top" title="Representation of a cell in a TensorMesh." alt="" coords="5,5,94,33"/>
-</map><dl class="py class">
+<dl class="py class">
 <dt class="sig sig-object py" id="discretize.tensor_cell.TensorCell">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">discretize.tensor_cell.</span></span><span class="sig-name descname"><span class="pre">TensorCell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_unraveled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mesh_shape</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/tensor_cell.py#L7-L416"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.tensor_cell.TensorCell" title="Link to this definition">#</a></dt>
 <dd><p>Representation of a cell in a TensorMesh.</p>
@@ -636,9 +633,9 @@ three elements (<code class="docutils literal notranslate"><span class="pre">hx<
 <dt><strong>origin</strong><span class="classifier">(<a class="reference internal" href="discretize.tensor_cell.TensorCell.dim.html#discretize.tensor_cell.TensorCell.dim" title="discretize.tensor_cell.TensorCell.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Array with the coordinates of the origin of the cell, i.e. the
 bottom-left-frontmost corner.</p>
 </dd>
-<dt><strong>index_unraveled</strong><span class="classifier">(<a class="reference internal" href="discretize.tensor_cell.TensorCell.dim.html#discretize.tensor_cell.TensorCell.dim" title="discretize.tensor_cell.TensorCell.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a></span></dt><dd><p>Array with the unraveled indices of the cell in its parent mesh.</p>
+<dt><strong>index_unraveled</strong><span class="classifier">(<a class="reference internal" href="discretize.tensor_cell.TensorCell.dim.html#discretize.tensor_cell.TensorCell.dim" title="discretize.tensor_cell.TensorCell.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a></span></dt><dd><p>Array with the unraveled indices of the cell in its parent mesh.</p>
 </dd>
-<dt><strong>mesh_shape</strong><span class="classifier">(<a class="reference internal" href="discretize.tensor_cell.TensorCell.dim.html#discretize.tensor_cell.TensorCell.dim" title="discretize.tensor_cell.TensorCell.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a></span></dt><dd><p>Shape of the parent mesh.</p>
+<dt><strong>mesh_shape</strong><span class="classifier">(<a class="reference internal" href="discretize.tensor_cell.TensorCell.dim.html#discretize.tensor_cell.TensorCell.dim" title="discretize.tensor_cell.TensorCell.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a>) <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a></span></dt><dd><p>Shape of the parent mesh.</p>
 </dd>
 </dl>
 </dd>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.CurvilinearMesh &#8212; discretize 0.12.1.dev89+gf7f5f22f9 documentation</title>
+    <title>discretize.CurvilinearMesh &#8212; discretize 0.12.1.dev98+ge2ce1f5f8 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../_static/documentation_options.js?v=9bca08e1"></script>
+    <script src="../../_static/documentation_options.js?v=81debaa1"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -65,7 +65,7 @@
     <link rel="prev" title="discretize.CylindricalMesh.write_vtk" href="discretize.CylindricalMesh.write_vtk.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev89" />
+  <meta name="docsearch:version" content="0.12.1.dev98" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev89+gf7f5f22f9 documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev89+gf7f5f22f9 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev98+ge2ce1f5f8 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev98+ge2ce1f5f8 documentation - Home"/>
   
   
 </a></div>
@@ -770,18 +770,7 @@
                   
   <section id="discretize-curvilinearmesh">
 <h1>discretize.CurvilinearMesh<a class="headerlink" href="#discretize-curvilinearmesh" title="Link to this heading">#</a></h1>
-<div class="graphviz"><img src="../../_images/inheritance-bb08abeb363f28708d47c3235c5426f5650d7889.png" alt="Inheritance diagram of CurvilinearMesh" usemap="#inheritance9c8b01e00d" class="inheritance graphviz" /></div>
-<map id="inheritance9c8b01e00d" name="inheritance9c8b01e00d">
-<area shape="rect" id="node1" href="discretize.base.BaseMesh.html#discretize.base.BaseMesh" target="_top" title="Base mesh class for the ``discretize`` package." alt="" coords="5,56,94,84"/>
-<area shape="rect" id="node3" href="discretize.base.BaseRegularMesh.html#discretize.base.BaseRegularMesh" target="_top" title="Base Regular mesh class for the ``discretize`` package." alt="" coords="142,5,280,33"/>
-<area shape="rect" id="node5" href="discretize.operators.DiffOperators.html#discretize.operators.DiffOperators" target="_top" title="Class used for creating differential and averaging operators." alt="" coords="357,57,465,85"/>
-<area shape="rect" id="node6" href="discretize.operators.InnerProducts.html#discretize.operators.InnerProducts" target="_top" title="Class for constructing inner product matrices." alt="" coords="356,109,466,137"/>
-<area shape="rect" id="node2" href="discretize.base.BaseRectangularMesh.html#discretize.base.BaseRectangularMesh" target="_top" title="Base rectangular mesh class for the ``discretize`` package." alt="" coords="328,5,494,33"/>
-<area shape="rect" id="node4" href="#discretize.CurvilinearMesh" target="_top" title="Curvilinear mesh class." alt="" coords="542,84,670,112"/>
-<area shape="rect" id="node8" href="discretize.mixins.InterfaceMPL.html#discretize.mixins.InterfaceMPL" target="_top" title="Class for plotting ``discretize`` meshes with matplotlib." alt="" coords="158,157,264,185"/>
-<area shape="rect" id="node9" href="discretize.mixins.InterfaceVTK.html#discretize.mixins.InterfaceVTK" target="_top" title="VTK interface for ``discretize`` meshes." alt="" coords="158,209,264,237"/>
-<area shape="rect" id="node10" href="discretize.mixins.InterfaceOMF.html#discretize.mixins.InterfaceOMF" target="_top" title="Convert between ``omf`` and ``discretize`` objects." alt="" coords="156,261,266,289"/>
-</map><dl class="py class">
+<dl class="py class">
 <dt class="sig sig-object py" id="discretize.CurvilinearMesh">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">discretize.</span></span><span class="sig-name descname"><span class="pre">CurvilinearMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_list</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/simpeg/discretize/blob/main/discretize/curvilinear_mesh.py#L36-L974"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#discretize.CurvilinearMesh" title="Link to this definition">#</a></dt>
 <dd><p>Curvilinear mesh class.</p>
@@ -793,7 +782,7 @@ tensor meshes.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>node_list</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v2.5)"><span>array_like</span></a></span></dt><dd><p>List <code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code> containing the gridded x, y (and z) node locations.</p>
+<dt><strong>node_list</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v2.5)"><span>array_like</span></a></span></dt><dd><p>List <code class="xref py py-class docutils literal notranslate"><span class="pre">array_like</span></code> containing the gridded x, y (and z) node locations.</p>
 <ul class="simple">
 <li><p>For a 2D curvilinear mesh, <em>node_list</em> = [X, Y] where X and Y have shape
 (<code class="docutils literal notranslate"><span class="pre">n_nodes_x</span></code>, <code class="docutils literal notranslate"><span class="pre">n_nodes_y</span></code>)</p></li>
