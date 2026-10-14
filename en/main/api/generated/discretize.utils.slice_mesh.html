@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>discretize.utils.slice_mesh &#8212; discretize 0.12.1.dev108+g30d85318a documentation</title>
+    <title>discretize.utils.slice_mesh &#8212; discretize 0.12.1.dev111+gb6825b0e1 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../_static/documentation_options.js?v=62d30a96"></script>
+    <script src="../../_static/documentation_options.js?v=44bfd4e3"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -61,11 +61,11 @@
     <link rel="icon" href="../../_static/discretize-block.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="discretize.utils.example_curvilinear_grid" href="discretize.utils.example_curvilinear_grid.html" />
+    <link rel="next" title="discretize.utils.extend_surface_boundary" href="discretize.utils.extend_surface_boundary.html" />
     <link rel="prev" title="discretize.utils.mesh_builder_xyz" href="discretize.utils.mesh_builder_xyz.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.12.1.dev108" />
+  <meta name="docsearch:version" content="0.12.1.dev111" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev108+g30d85318a documentation - Home"/>
-    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev108+g30d85318a documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-light" alt="discretize 0.12.1.dev111+gb6825b0e1 documentation - Home"/>
+    <img src="../../_static/discretize-logo.png" class="logo__image only-dark pst-js-only" alt="discretize 0.12.1.dev111+gb6825b0e1 documentation - Home"/>
   
   
 </a></div>
@@ -568,6 +568,7 @@
 <li class="toctree-l2"><a class="reference internal" href="discretize.utils.active_from_xyz.html">discretize.utils.active_from_xyz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="discretize.utils.mesh_builder_xyz.html">discretize.utils.mesh_builder_xyz</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">discretize.utils.slice_mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discretize.utils.extend_surface_boundary.html">discretize.utils.extend_surface_boundary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="discretize.utils.example_curvilinear_grid.html">discretize.utils.example_curvilinear_grid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="discretize.utils.volume_tetrahedron.html">discretize.utils.volume_tetrahedron</a></li>
 <li class="toctree-l2"><a class="reference internal" href="discretize.utils.face_info.html">discretize.utils.face_info</a></li>
@@ -655,15 +656,15 @@ each 2D cell came from.</p>
 <dd class="field-odd"><dl>
 <dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="discretize.TensorMesh.html#discretize.TensorMesh" title="discretize.TensorMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.TensorMesh</span></code></a> or <a class="reference internal" href="discretize.TreeMesh.html#discretize.TreeMesh" title="discretize.TreeMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize.TreeMesh</span></code></a></span></dt><dd><p>A 3D tensor or tree mesh.</p>
 </dd>
-<dt><strong>normal</strong><span class="classifier">{“X”, “Y”, “Z”} <code class="xref py py-obj docutils literal notranslate"><span class="pre">or</span></code> <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The axis normal to the slicing plane.</p>
+<dt><strong>normal</strong><span class="classifier">{“X”, “Y”, “Z”} <code class="xref py py-obj docutils literal notranslate"><span class="pre">or</span></code> <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The axis normal to the slicing plane.</p>
 </dd>
-<dt><strong>location</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The coordinate of the plane along <cite>normal</cite>. Defaults to the center of
+<dt><strong>location</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The coordinate of the plane along <cite>normal</cite>. Defaults to the center of
 the middle base cell along <cite>normal</cite>, as used by <code class="docutils literal notranslate"><span class="pre">plot_slice</span></code>. If the
 plane lies on cell faces, the cells on the high side of the plane are
 used, or the cells on the low side if the plane is the high boundary
 of the mesh.</p>
 </dd>
-<dt><strong>return_indices</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bltin-boolean-values" title="(in Python v3.14)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#False" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>Whether to also return the index of the 3D cell each 2D cell lies in.</p>
+<dt><strong>return_indices</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bltin-boolean-values" title="(in Python v3.15)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#False" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>Whether to also return the index of the 3D cell each 2D cell lies in.</p>
 </dd>
 </dl>
 </dd>
@@ -673,7 +674,7 @@ of the mesh.</p>
 second dimensions are the remaining axes in increasing order (e.g.
 <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">z)</span></code> for a <code class="docutils literal notranslate"><span class="pre">&quot;Y&quot;</span></code> normal).</p>
 </dd>
-<dt><strong>indices</strong><span class="classifier">(mesh_2d.n_cells,) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Only returned if <cite>return_indices</cite> is <code class="docutils literal notranslate"><span class="pre">True</span></code>. The index of the 3D cell
+<dt><strong>indices</strong><span class="classifier">(mesh_2d.n_cells,) <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">of</span></code> <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Only returned if <cite>return_indices</cite> is <code class="docutils literal notranslate"><span class="pre">True</span></code>. The index of the 3D cell
 containing each 2D cell, so that <code class="docutils literal notranslate"><span class="pre">values_2d</span> <span class="pre">=</span> <span class="pre">values_3d[indices]</span></code>
 takes cell values from the 3D mesh to the slice.</p>
 </dd>
@@ -727,11 +728,11 @@ takes cell values from the 3D mesh to the slice.</p>
       </div>
     </a>
     <a class="right-next"
-       href="discretize.utils.example_curvilinear_grid.html"
+       href="discretize.utils.extend_surface_boundary.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">discretize.utils.example_curvilinear_grid</p>
+        <p class="prev-next-title">discretize.utils.extend_surface_boundary</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
